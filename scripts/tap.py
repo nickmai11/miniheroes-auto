@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Tap device coords and wait only as long as the screen needs, then save a screenshot.
 
-usage: D=127.0.0.1:26625 scripts/tap.py [x,y ...] [-o out.png]
+usage: D=127.0.0.1:26625 scripts/tap.py [x,y ...] [-o out.png] [--until x,y,r,g,b[,tol]] [--timeout s]
   - each tap: waits until the screen changes, then until it settles (max ~4 s), instead of a fixed sleep
   - no taps: just screenshots
+  - --until: after the taps, poll (~0.3 s) until device pixel (x,y) is within tol (default 40) of r,g,b,
+    e.g. a button that reappears when a battle ends; exits 1 on --timeout (default 120 s)
   - writes the last screenshot to -o (default ./v.png), downscaled to 540 px wide
 """
 import io, os, subprocess, sys, time
@@ -12,6 +14,7 @@ from PIL import Image, ImageChops, ImageStat
 D = os.environ['D']
 MAX_WAIT = float(os.environ.get('MAX_WAIT', 4))
 SETTLE_MAX = float(os.environ.get('SETTLE_MAX', 1.2))  # after a change, settle for at most this long
+NO_CHANGE = float(os.environ.get('NO_CHANGE', 1.5))   # nothing changed by then -> tap had no visible effect, stop waiting
 CHANGED, SETTLED = 6.0, 3.0  # mean abs diff on a 54x96 grey thumb; idle animations stay below CHANGED
 
 
@@ -38,22 +41,41 @@ def tap(x, y):
         if tc is None:
             if diff(cur, before) > CHANGED:
                 tc = time.time()
+            elif time.time() - t0 > NO_CHANGE:
+                return im
         elif diff(cur, prev) < SETTLED or time.time() - tc > SETTLE_MAX:
             return im
         prev = cur
     return im
 
 
+def opt(argv, name, default=None):
+    if name in argv:
+        i = argv.index(name); v = argv[i + 1]; del argv[i:i + 2]; return v
+    return default
+
+
 def main(argv):
-    out = 'v.png'
-    if '-o' in argv:
-        i = argv.index('-o'); out = argv[i + 1]; del argv[i:i + 2]
+    out = opt(argv, '-o', 'v.png')
+    until = opt(argv, '--until'); timeout = float(opt(argv, '--timeout', 120))
     im = None
     for t in argv:
         x, y = t.split(',')[:2]
         im = tap(int(x), int(y))
+    ok = True
+    if until:
+        v = [int(n) for n in until.split(',')]; x, y, want, tol = v[0], v[1], v[2:5], (v[5] if len(v) > 5 else 40)
+        t0 = time.time()
+        while True:
+            im = grab()
+            if max(abs(a - b) for a, b in zip(im.getpixel((x, y)), want)) <= tol:
+                break
+            if time.time() - t0 > timeout:
+                ok = False; break
+            time.sleep(0.3)
     im = im or grab()
     im.resize((540, 960)).save(out)
+    sys.exit(0 if ok else 1)
 
 
 if __name__ == '__main__':

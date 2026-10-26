@@ -55,7 +55,11 @@ it waits only until the screen changes and settles (~1 s per tap, max 4 s) inste
 and saves a 540×960 screenshot (multiply its coords ×2 for device coords). No args = screenshot only (~0.4 s).
 - Chain known taps of a flow in one call; screenshot-check only at decision points (prices, counters,
   unexpected popups). Always check the current screen before the first tap of a flow.
-- Long waits (battles): poll with `scripts/tap.py` every ~10–15 s, never blind sleeps.
+- Taps with no visible effect return after ~1.5 s (`NO_CHANGE`), not the full `MAX_WAIT`.
+- Waiting for something (battle end, button back): `scripts/tap.py [taps] --until x,y,r,g,b[,tol] --timeout s`
+  polls every ~0.3 s and returns the moment that device pixel matches — no fixed sleeps, no 10–15 s polls.
+- Storm matches: `D=<serial> scripts/storm.py` (plays until tickets run out, ~0.5 s polling).
+  Grocery: `scripts/grocery.py` (no fixed sleeps).
 
 ## ADB alternative (no computer use)
 

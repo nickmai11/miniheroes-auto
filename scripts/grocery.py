@@ -10,14 +10,14 @@ def popup_green_y(p):   # scan popup column for the green Free button
     for y in range(500,820,4):
         if green(p.getpixel((200,y))): return y+12
 idle=0
-while idle<4:
+while idle<8:   # ~12 s of no Free button (cooldowns are 5–8 s) = done
     im=shot(); got=False
     for x in (82,207,332,457):
         if green(im.getpixel((x,436))):
-            tap(x*2,893); time.sleep(2.5); p=shot('p.png'); y=popup_green_y(p)
-            if y: tap(540,y*2); time.sleep(2.5); tap(540,1850); time.sleep(1.5); print('claimed',x,flush=True); got=True
-            else: print('popup has no green Free; closing',x,flush=True); tap(540,1850); time.sleep(1)
+            subprocess.run([T,f'{x*2},893','-o','p.png'],env=os.environ); p=Image.open('p.png').convert('RGB'); y=popup_green_y(p)
+            if y: subprocess.run([T,f'540,{y*2}','540,1850','-o','g.png'],env=os.environ); print('claimed',x,flush=True); got=True
+            else: print('popup has no green Free; closing',x,flush=True); subprocess.run([T,'540,1850','-o','g.png'],env=os.environ)
             break
     if got: idle=0
-    else: idle+=1; time.sleep(3)
+    else: idle+=1; time.sleep(1.5)
 print('done')
