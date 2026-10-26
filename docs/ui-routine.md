@@ -460,6 +460,29 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
   Skip draws that spend event coins and "Join" buttons without a red dot.
 - Accounts without the fishing pass get no daily bread → Auto stops when bread runs out; that's expected.
 
+## Gotchas from Cino / Dino / Tiger run (2026-10-26)
+
+- **Accounts without a pass (Dino) get video ads where others get Free**: Storm free tickets ("Watch Video –
+  Claim"), Common Recruitment ("Recruit 1" with ad), Grocery chests (grey button + camera icon), Wish Festival
+  Gift Free Pack. Ads are ~37 s, Android Back does nothing, skip/close appears top right ≈ `(990,90)`.
+  Not mapped as a routine — skip these and report.
+- **Startup:** 2nd Anniversary promo after Start; ✕ ≈ `(988–1006, 322–348)`.
+- **Pet Arena** (device): 1st banner → Pet Arena tab `(480,1850)` → Join `(540,1528)` → last-season *Champion*
+  popup ✕ `(972,548)` → Auto Deploy `(956,1640)` → Start `(540,1570)`. "Free attempts used up" toast = already
+  ran today; dialog ✕ `(938,282)`.
+- **Storm card:** pixel `(760,450–470)` gold ≈ `(230,150,66)` = Storm showing, blue = other event; tap `(880,480)`.
+- **Play Pass, Monthly Card not owned:** still has a free track of yellow Claim buttons (x≈830–896, scroll the
+  list; dismiss `(300,200)`). Never the green "Continue to claim" (paid track).
+- **Match Event → Heroic Trial** sub-tab `(400,190)`: free Land of Trials point rewards, Claim ≈ `(896,1024)`.
+- **Tribe Trial:** Challenge still starts a fight after the daily one ("No Rewards"). No red dot on the card = done, skip.
+- **Back from Tribe Chat** goes straight to the main screen.
+- **Main-screen "Tribe Clash" banner** countdown is not Canyon's: check Canyon inside the Tribe screen.
+- **Canyon:** all three already held a Gold Battlefield spot (12/m); workers kept it rather than move to 9/m.
+- **Coords seen elsewhere:** Common Recruit result Confirm `(540,1756)`; Tiger gear slot 1 `(117,400)`,
+  Enhance `(540,1384)`; hero strip swipe at y=1590.
+- **Forge (Dino):** stopped responding at 4/8 even with 3 s gaps — cause unknown, skip after 2 tries.
+- Unmapped, left alone: Adventure → Ancient Ruins (red dot), main-screen "Mars's Gift".
+
 ## Pet Arena (join + Auto Deploy)
 
 **Only open Mon, Tue, Wed** — skip on other days. Run it first in the dailies.

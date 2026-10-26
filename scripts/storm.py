@@ -22,6 +22,7 @@ def claim_free():
     got = 0
     while got < 5 and free_btn(grab()) == 'green':
         tap(350, 1274); got += 1; time.sleep(1.5)
+        tap(540, 200); time.sleep(1)                  # dismiss the Congratulations popup each claim
     if free_btn(grab()): close_popup()
     return got
 
@@ -53,6 +54,10 @@ def main():
             time.sleep(0.5)
         else:
             print('match did not finish in 150 s; stop'); return 1
+        # ponytail: a "match" this short was really a popup we dismissed (e.g. video-ad ticket popup on
+        # accounts without the pass, Dino 2026-10-26); map that popup's button colour if it needs handling.
+        if time.time() - t0 < 10:
+            print('no real match started (popup?); done'); return 0
         n += 1; print(f'match {n}: {time.time() - t0:.0f}s', flush=True)
     return 0
 
