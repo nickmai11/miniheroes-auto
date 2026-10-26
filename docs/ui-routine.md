@@ -10,6 +10,7 @@ Run the missions in this order on each account:
 
 0. **Pet Arena** — **Mon/Tue/Wed only** (skip other days): join + Auto Deploy (see "Pet Arena" below);
    runs on its own.
+0b. **Storm Battlefield** — right after Pet Arena (see "Storm Battlefield" below).
 1. **Match** — exhaust tickets.
 2. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto. Don't collect order rewards here.
 3. **Patrol** — Speed Patrol ×3 + Claim All.
@@ -509,3 +510,22 @@ Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 c
   If no Glory/Gold spot is free: go for a **purple/silver** spot — prefer a **free** one; if none is free,
   attack one held by a **non-tribemate** (purple name background). Never attack a blue-name (tribe) player.
 - Never spend gems.
+
+## Storm Battlefield (right after Pet Arena)
+
+Added by Nick 2026-10-26; mapped on Cmajor via ADB (device coords). Free tickets only.
+
+1. Main screen → **2nd event card** (top right, y≈480). It rotates every few seconds (Storm Battlefield /
+   Dragon Temple…); swiping it doesn't work — wait until it shows **Storm Battlefield** (gold card), then tap
+   `(880,480)`. Event screen tabs at the bottom (Storm Battlefield / Dragon Temple).
+2. If "Please deploy your Heroes" (CP 0): **Deploy** `(540,1220)` → **Quick Deploy** `(984,1800)` (top 5) →
+   **Save** `(540,1808)` → back `(88,1812)` → **Start** `(540,1220)`.
+3. Arena screen: tickets `N/5` at `(540,1428)`. **Start Match** `(540,1610)` → match is instant (~5–8 s) →
+   *Victory/Defeat* → tap `(540,120)`. Repeat until 0/5.
+4. **+** `(642,1428)` → popup: **Watch Video – Free, Chances N** `(350,1274)` (no actual ad on 2026-10-26;
+   +1 ticket) vs **Diamonds 30 Redeem** — never tap Redeem. Claim Free until Chances 0 → close (tap outside,
+   e.g. `(100,1150)`) → play the new tickets until 0/5 again.
+5. **Lineup** `(960,1600)` → quick-remove ↺ `(1006,1084)` (clears all) → tap only the **first** hero card
+   `(140,1250)` (highest) → **Save** `(540,1808)` ("Successfully saved"). Done.
+
+2026-10-26 Cmajor: 5 + 2 free = 7 matches, Bronze V → III.
