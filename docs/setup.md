@@ -15,7 +15,7 @@
 
 | Instance | ADB port | Root | System disk | Wi-Fi proxy | Proxyman CA |
 |---|---|---|---|---|---|
-| Cmajor | 26624 | on | Writable | 192.168.1.2:9090 (manual) | installed as system cert `d69f971d.0` |
+| Cmajor | 26625 (was 26624; check `mumu-cli info all`) | on | Writable | 192.168.1.2:9090 (manual) | installed as system cert `d69f971d.0` |
 
 > Cmajor's Wi-Fi proxy points at Proxyman on Nick's Mac. If Proxyman isn't running, the game
 > on Cmajor loses connectivity — set the proxy back to *None* (Settings → Network & internet →

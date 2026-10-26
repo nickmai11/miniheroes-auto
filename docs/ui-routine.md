@@ -4,6 +4,24 @@ All coordinates are in the **MuMu Android Device** game window's full-resolution
 (704×1289), as used by `computer_app_click` on that window. Instance window ids change after
 every restart — get a fresh one with `computer_app_list_windows`.
 
+## ADB alternative (no computer use)
+
+Works without computer-use tools. Device frame is **1080×1920**; doc coordinates above are
+window coords (704×1289) — use device coords below. Get the instance's current ADB port from
+`"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" info all` (ports change).
+
+```
+adb connect 127.0.0.1:<port>
+adb -s $D exec-out screencap -p > s.png   # read it before every tap
+adb -s $D shell input tap X Y
+```
+
+Device coords (Land of Trials): safe dismiss `(540,120)`; sweep dialog ✕ `(972,572)`;
+Sweep `(540,1372)`; Tip Confirm `(540,1162)`. List scrolled to bottom (swipe `540,1600→540,400`):
+GO Battlefield `(870,630)`, Forest `(870,1016)`, Temple `(870,1402)`, Gem Mine `(870,1786)`.
+List at top (swipe `540,500→540,1500`): GO Abandoned Mine `(870,540)`, Forest `(870,1310)`,
+Temple `(870,1696)`.
+
 ## General gotchas
 
 - **Taps during animations are ignored.** Popups slide in; after opening one, take a screenshot,
@@ -63,7 +81,7 @@ while done < target:
     if "Challenge Attempts: N" (N>0): free sweep
     elif "Remaining Purchase Attempts":
         read gem price on button; if price > max_gem_price_per_sweep → stop, report
-        paid sweep
+        tap Sweep → Tip popup (verify price) → Confirm → now "Challenge Attempts: 1"
     else: stop, report unexpected state
     tap Sweep (352,932); screenshot → expect Congratulations; tap (352,140) to dismiss
     screenshot → verify counter decreased (or switched to purchase mode); done += 1
