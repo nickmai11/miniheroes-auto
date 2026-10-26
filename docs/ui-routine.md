@@ -292,3 +292,15 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily task: challenge the c
 1. Main screen → blue **skull bubble** next to the hero `(994,964)` (not the stage map top-right).
 2. Battle setup "Stage: X-Y" (Illusionary mode locks most heroes; keep the lineup) → **Start** `(540,1806)`.
 3. Result (Defeat on 2-1, 715K vs 11857K) → close by tapping `(540,120)`; never "Challenge again".
+
+## Patrol (speed patrol ×3 + claim all)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords).
+
+1. Main screen → patrol **bag** with timer, right side `(983,1463)` → *Loot* dialog.
+2. **Speed Patrol** `(337,1590)` → *Tip* "Obtain 4 hours of Patrol Gains" → price button `(540,1164)` →
+   *Congratulations* → dismiss `(540,1700)` → the Tip reopens with the next price.
+   Prices per day: **Free, Free, 50, 100, …** (escalates). Daily target = **3 claims total**
+   (2 free + 1 at 50 gems). Read the price on the button every time; stop if it's not what's expected.
+3. Close the Tip ✕ `(936,638)` → **Claim All** `(742,1590)` → *Congratulations* (auto-closes) →
+   dismiss `(540,120)`. Patrol timer resets to 00:00.

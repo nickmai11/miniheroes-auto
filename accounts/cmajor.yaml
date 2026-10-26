@@ -46,3 +46,7 @@ missions:
     ticket_pack_gem_price: 50 # buy 1 pack (5 refresh tickets) whenever out
   divine_weapon: true      # Benefit claim + Excelsior Veins One-Click Mining until 0 pickaxes
   adventure_stage: 1       # runs/day via the skull bubble
+  patrol:
+    speed_patrol: 3          # total incl. 2 free; 3rd costs 50 gems
+    max_gem_price: 50        # stop if a speed patrol costs more
+    claim_all: true
