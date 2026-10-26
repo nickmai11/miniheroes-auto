@@ -524,7 +524,7 @@ dailies. Monday: closed during the 13:00 run — done by the Monday 17:05 run in
    `(880,480)`. Event screen tabs at the bottom (Storm Battlefield / Dragon Temple).
    **Monday ≥ 17:00 with the game already running since before 17:00: restart the game first**
    (`am force-stop com.and.brawlen.web` + relaunch) — otherwise the Storm card never shows (Nick, 2026-10-26).
-2. **Always start with a full lineup** — the previous run left only 1 hero (step 5). First time (CP 0):
+2. **Always start with a full lineup** — the previous run left only 1 hero (step 6). First time (CP 0):
    **Deploy** `(540,1220)`; later runs: **Lineup** `(960,1600)` on the arena screen. Then **Quick Deploy**
    `(984,1800)` (top 5) → **Save** `(540,1808)` → back `(88,1812)` (→ **Start** `(540,1220)` if on the
    welcome screen). Verify the CP is the top-5 value before the first Start Match.
@@ -533,7 +533,11 @@ dailies. Monday: closed during the 13:00 run — done by the Monday 17:05 run in
 4. **+** `(642,1428)` → popup: **Watch Video – Free, Chances N** `(350,1274)` (no actual ad on 2026-10-26;
    +1 ticket) vs **Diamonds 30 Redeem** — never tap Redeem. Claim Free until Chances 0 → close (tap outside,
    e.g. `(100,1150)`) → play the new tickets until 0/5 again.
-5. **Lineup** `(960,1600)` → quick-remove ↺ `(1006,1084)` (clears all) → tap only the **first** hero card
+5. **Rewards** `(96,880)` (left side) — if it has a red dot: *Rank Reward* tab lists King/Glory/Gold/Silver/Bronze
+   rows; tap a reached rank's highlighted item (e.g. Bronze `(372,1404)`) → claims the whole row (checkmarks) →
+   dismiss `(540,1900)`. *Ranking Rewards* tab = end-of-season table, nothing to claim. Close ✕ `(972,228)`;
+   the red dot should be gone.
+6. **Lineup** `(960,1600)` → quick-remove ↺ `(1006,1084)` (clears all) → tap only the **first** hero card
    `(140,1250)` (highest) → **Save** `(540,1808)` ("Successfully saved"). Done.
 
 2026-10-26 Cmajor: 5 + 2 free = 7 matches, Bronze V → III.
