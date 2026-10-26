@@ -1,6 +1,6 @@
 ---
 name: miniheroes-dailies
-description: Run Mini Heroes: Magic Throne daily missions (Land of Trials, Match, Shop/Play Pass freebies, Tower of the Throne, Secret Sanctuary, Gate of Darkness, free Recruit summons, hero upgrade, Tribe, Fishing, Divine Weapon) on Nick's MuMuPlayer accounts via computer use (or ADB), following per-account configs in the miniheroes-auto repo.
+description: Run Mini Heroes: Magic Throne daily missions (Land of Trials, Match, Shop/Play Pass freebies, Tower of the Throne, Secret Sanctuary, Gate of Darkness, free Recruit summons, hero upgrade, Tribe, Fishing, Divine Weapon, Adventure stage) on Nick's MuMuPlayer accounts via computer use (or ADB), following per-account configs in the miniheroes-auto repo.
 ---
 
 # Mini Heroes dailies
@@ -29,7 +29,8 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 | Match (Arena) | Read the tribe roster first; crash highest-CP non-tribe opponent until tickets = 0 (see `/miniheroes-match`) |
 | Shop freebies | Value Pack Free Benefits Claim + Hero Pack "Select Hero" (+20 gems) — red dots only |
 | Play Pass | Weekly Card day tile + Lifetime Card Claim Reward |
-| Tower of the Throne | 1 challenge with only the weakest hero = **last in the list**; clear picks with the ↺ reset button |
+| Tower of the Throne | 1 challenge with the pre-selected lineup |
+| Adventure stage | Skull bubble next to the hero → Start, 1 run |
 | Secret Sanctuary | Sweep → Confirm (free) |
 | Recruit | Free only: 2× Common, 1× Ancestor (then Confirm, never Recruit 1), 1× Artifact with Auto **off** |
 | Hero upgrade | Bone Archer (end of hero strip): Level Up ×1, 1st gear Enhance ×1 — never the ↑ quick-level buttons |

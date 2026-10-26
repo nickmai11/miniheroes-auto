@@ -37,6 +37,7 @@ docs/
 | Tribe (sign-in, trial, request/assist) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Fishing (orders, benefit, auto) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Divine Weapon (benefit, Excelsior Veins) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
+| Adventure stage (1 run) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Others | – | Add to `docs/ui-routine.md` + account configs as they're mapped |
 
 ## Why UI and not API

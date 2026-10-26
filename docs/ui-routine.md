@@ -155,17 +155,13 @@ Note: on 2026-10-26 opening Play Pass already showed gems 5645 → 5875 and the 
 
 ## Tower of the Throne (1 daily challenge)
 
-Mapped 2026-10-26 on Cmajor via ADB (device coords). Goal: one challenge for the daily task,
-using **only the weakest hero** (it's meant to lose; floors are ~17000K CP vs our ~6600K).
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Goal: one challenge for the daily task.
+Keep the pre-selected lineup (Nick, 2026-10-26: don't bother picking the weakest hero).
 
 1. Main screen → **Adventure** `(100,1460)` → Tower of the Throne **GO** `(787,687)`.
    Ticket count top-left (10/day on Cmajor).
-2. **Challenge** `(540,1805)` → lineup screen (5 strongest heroes pre-selected).
-3. Clear the picks with the **reset ↺ button** `(1003,1084)` (top-right of the roster) — CP shows 0.
-4. Scroll the roster to the very bottom (`input swipe 540 1500 540 1100 400`, repeat ~15×).
-   The roster is sorted strongest → weakest: the **last hero in the list** is the weakest.
-   Tap it (one hero only) and check the CP top-left (686K on 2026-10-26, a Lv.160 purple hero).
-5. **Start** `(540,1808)` → *Defeat* screen. Dismiss by tapping `(540,1700)` (below the
+2. **Challenge** `(540,1805)` → lineup screen (5 strongest heroes pre-selected) — leave as-is.
+3. **Start** `(540,1808)` → result screen. Dismiss by tapping `(540,1700)` (below the
    "Challenge again" button — never tap that). Verify tickets dropped by 1.
 
 ## Secret Sanctuary (daily sweep, free)
@@ -288,3 +284,11 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
    Don't use the dynamite / drill items or the `+` on the pickaxe (buys more).
 
 2026-10-26: 22 → 10 → 0 pickaxes in 2 clicks.
+
+## Adventure stage (1 run)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily task: challenge the current stage once.
+
+1. Main screen → blue **skull bubble** next to the hero `(994,964)` (not the stage map top-right).
+2. Battle setup "Stage: X-Y" (Illusionary mode locks most heroes; keep the lineup) → **Start** `(540,1806)`.
+3. Result (Defeat on 2-1, 715K vs 11857K) → close by tapping `(540,120)`; never "Challenge again".

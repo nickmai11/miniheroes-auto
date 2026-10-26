@@ -24,7 +24,7 @@ missions:
 
   shop_freebies: true       # free red-dot claims only (Value Pack Free Benefits, Hero Pack Select Hero)
   play_pass_claims: true    # Weekly Card day tile + Lifetime Card daily (free, already owned)
-  tower_of_the_throne: 1    # challenges/day with only the weakest hero
+  tower_of_the_throne: 1    # challenges/day, pre-selected lineup
   secret_sanctuary: sweep   # free daily sweep of last cleared stage
   gate_of_darkness: run_then_sweep  # 1 run (max 1m30s, then pause+quit), then Sweep the rest
   recruit:                  # free summons only
@@ -45,3 +45,4 @@ missions:
     min_order_diamonds: 4    # 3 = Legend+, 4 = Mythic+ (per account)
     ticket_pack_gem_price: 50 # buy 1 pack (5 refresh tickets) whenever out
   divine_weapon: true      # Benefit claim + Excelsior Veins One-Click Mining until 0 pickaxes
+  adventure_stage: 1       # runs/day via the skull bubble
