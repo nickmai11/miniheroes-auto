@@ -288,10 +288,10 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
    regenerates over time). Keep the "Automatically advance to next floor" tick as-is.
 4. **One-Click Mining** `(896,1612)` → *Congratulations* → dismiss `(540,120)`. Repeat until pickaxes = 0.
    Don't use the dynamite / drill items or the `+` on the pickaxe (buys more).
-5. **Forge** (Arsenal screen, anvil button "Forge N/7", crystal cost shown below e.g. `6755/500`):
-   if **no forge is in progress**, forge all available (repeat until crystals < cost or slots full).
-   If a forge is already running, skip. Costs crystals only — never gems. Coords not mapped yet:
-   screenshot, tap Forge, verify the cost is crystals.
+5. **Forge** (Arsenal screen, anvil button "Forge N/M", crystal cost below e.g. `6755/500` = owned/cost):
+   M = forge slots, varies per account (7, 8, 13…). If no forge is in progress, fill **every available
+   slot** — stop when slots are full or crystals < cost. Skip if a forge is already running.
+   Crystals only, never gems. Coords not mapped yet: screenshot, tap Forge, verify the cost is crystals.
 
 2026-10-26: 22 → 10 → 0 pickaxes in 2 clicks.
 

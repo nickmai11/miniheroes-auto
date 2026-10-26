@@ -36,7 +36,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 | Hero upgrade | Bone Archer (end of hero strip): Level Up ×1, 1st gear Enhance ×1 — never the ↑ quick-level buttons |
 | Tribe | Sign-in reward, 1× Tribe Trial (preset lineup), Chat → Request (if off cooldown) + Assist; never send chat messages |
 | Fishing | Refresh daily orders until all ≥ `min_order_diamonds` (buy ticket pack 50 gems when out), claim Benefit, start Auto — then leave |
-| Divine Weapon | Benefit Claim Reward, then Excelsior Veins One-Click Mining until pickaxes = 0 (no `+`, no dynamite/drill), then Forge all available if no forge is in progress (crystals only) |
+| Divine Weapon | Benefit Claim Reward, then Excelsior Veins One-Click Mining until pickaxes = 0 (no `+`, no dynamite/drill), then, if no forge is in progress, Forge until all slots (7/8/13 per account) are used or crystals run out |
 | Patrol | **Exhaust Match tickets first.** Bag on main screen → Speed Patrol ×3 total (free, free, 50 gems; stop if price > `max_gem_price`), then Claim All |
 | Rune synthesis | ☰ → Backpack → Rune → unlocked red rune → Synthesize → Quick Equip → Synthesize (×1) |
 | Grocery | ☰ → Grocery → Daily Specials: claim any top-row chest showing Free; wait out cooldowns; repeat until all 4 Sold Out |
