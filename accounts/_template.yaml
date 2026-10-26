@@ -3,6 +3,7 @@ account:
   name: Example             # how Nick refers to it
   mumu_instance: Example    # instance name in MuMuPlayer (window title)
   enabled: true
+  language: en              # en or vi (game UI language)
 
 safety:
   # Never pay more than this for a single paid sweep. Stop and report if the price is higher.

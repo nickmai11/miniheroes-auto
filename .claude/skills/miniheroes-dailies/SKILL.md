@@ -47,6 +47,13 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 | Events | Top-right event banners (they change): open any with a red dot, claim only free red-dot rewards incl. bottom tabs; never $/gem |
 | Gate of Darkness | Run once (Confirm wave, never Restart; cap 1m30s, then Pause + quit), then Sweep the remaining chance |
 
+## Language
+
+The game UI is **English or Vietnamese** depending on the account (`account.language`; check the first
+screenshot if unset). Same layout and coords. Recognise buttons by colour/position and counters, not
+English text. Common Vietnamese: Miễn phí = Free, Xác nhận = Confirm, Nhận = Claim, Hủy = Cancel.
+A loop or "nothing happens" usually means a text mismatch — check the language first.
+
 ## Hard rules
 
 - Configured counts are totals per day **including** free attempts. Use free first; pay with gems only up to the configured total.

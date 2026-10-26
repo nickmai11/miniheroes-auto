@@ -4,6 +4,7 @@ account:
   mumu_instance: xFaktor
   game_id: null             # TODO: read top-right in game on first run
   enabled: true
+  language: en              # en or vi; verify on first screenshot
 
 safety:
   # Never pay more than this for a single paid sweep. Stop and report if the price is higher.
