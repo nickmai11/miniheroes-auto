@@ -17,7 +17,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
    - `accounts/<account>.yaml` for each requested account (all `enabled: true` accounts if he says "all")
    - `docs/setup.md` only if the emulator/network looks wrong
 2. **Get app access (minimum set).** Via computer use: resolve and request access to `MuMuPlayer` and `MuMu Android Device` only. Work in background mode with the `computer_app_*` tools. Don't request full-screen control or other apps unless Nick agrees. If computer-use tools aren't available in the session, use ADB instead (Nick approved this) — see "ADB alternative" in `docs/ui-routine.md`.
-3. **Run each account** in its MuMu instance: start the instance if needed, open the game, then run the missions in the **Daily run order** at the top of `docs/ui-routine.md` (Match → Fishing → Patrol → Shop → Play Pass → Adventure → Recruit → Hero → Tribe → Divine Weapon → Stage → Patrol claim → Rune → Match → Grocery → Fishing order rewards), skipping any not in the account config.
+3. **Run each account** in its MuMu instance: start the instance if needed, open the game, then run the missions in the **Daily run order** at the top of `docs/ui-routine.md` (Match → Fishing → Patrol → Shop → Play Pass → Adventure → Recruit → Hero → Tribe → Divine Weapon → Stage → Patrol claim → Rune → Match → Grocery → Events red dots → Fishing order rewards), skipping any not in the account config.
 4. **Report** per account: each mission done/skipped (and why) and every paid action with its price. Don't track gem/resource balances — they change constantly.
 
 **Speed:** tap with `scripts/tap.py` (waits for the screen to settle, ~1 s/tap, no fixed sleeps); chain known taps and only screenshot-check at decision points.
@@ -44,6 +44,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 | Patrol | **Exhaust Match tickets first.** Bag on main screen → Speed Patrol ×3 total (free, free, 50 gems; stop if price > `max_gem_price`), then Claim All |
 | Rune synthesis | ☰ → Backpack → Rune → unlocked red rune → Synthesize → Quick Equip → Synthesize (×1) |
 | Grocery | ☰ → Grocery → Daily Specials: claim any top-row chest showing Free; wait out cooldowns; repeat until all 4 Sold Out |
+| Events | Top-right event banners (they change): open any with a red dot, claim only free red-dot rewards incl. bottom tabs; never $/gem |
 | Gate of Darkness | Run once (Confirm wave, never Restart; cap 1m30s, then Pause + quit), then Sweep the remaining chance |
 
 ## Hard rules

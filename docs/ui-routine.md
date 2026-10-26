@@ -24,7 +24,12 @@ Run the missions in this order on each account:
 13. **Rune** synthesis.
 14. **Match** — exhaust tickets again before wrapping up.
 15. **Grocery** free chests.
-16. **Fishing** — the only place order rewards are collected: go back and collect them (exact claim step not mapped yet: screenshot the
+16. **Events** — the 2–3 event banners at the top right of the main screen (they rotate and change;
+    e.g. Wish Festival, 7777 Draws, Match Event, Weekly Event, Pet Arena). Open any with a **red dot**;
+    inside, also check the bottom event tabs for red dots. Claim only **free** red-dot rewards
+    (Claim / Free buttons). Never tap a $ or gem price, never draw/spin with paid currency. Back out
+    (`(88,1812)`) when no red dots are left.
+17. **Fishing** — the only place order rewards are collected: go back and collect them (exact claim step not mapped yet: screenshot the
     Daily Order panel / Order Info and claim any completed order).
 
 A "Match attempts full" popup can interrupt any step: Confirm, exhaust Match, resume.
