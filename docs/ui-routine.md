@@ -120,6 +120,10 @@ Goal: spend every free ticket crashing the highest-CP opponent who is **not in o
    Dismiss with `(540,120)`, confirm the ticket count dropped by 1 on the Challenge button.
 5. Repeat from step 2 until tickets = 0. The opponent list changes after every crash.
 
+**Interrupt: tickets full.** During any daily, a popup can appear saying Match attempts are full.
+Tap its **Confirm**, run the Match routine above until tickets = 0 (same tribe rules), then go back
+and continue the daily you were on. (Popup text/coords not captured yet; screenshot it next time.)
+
 Gotcha: a `swipe` once failed with `INJECT_EVENTS permission` and the game was then back on
 the main screen. Screenshot and re-navigate when that happens.
 

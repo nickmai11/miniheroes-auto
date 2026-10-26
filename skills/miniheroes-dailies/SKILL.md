@@ -50,6 +50,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 - On-screen counters are the source of truth for what was already done today.
 - Touch nothing outside the configured missions (no shop, purchases, settings, events).
 - If the screen is in an unexpected state, stop and report what you see.
+- If a "Match attempts full" popup appears mid-dailies: Confirm, use all Match tickets (Match routine, tribe rules), then resume where you left off.
 - Battles: never wait blind for minutes — poll and enforce the time cap given for the mode.
 - The back arrow `(92,1810)` overlaps the main screen's Recruit button: screenshot after every back tap.
 - If a mission isn't documented in `docs/ui-routine.md` yet, don't improvise it on a gem-spending path — map it with Nick first, then document it.

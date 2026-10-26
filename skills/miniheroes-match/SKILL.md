@@ -16,6 +16,8 @@ Use when Nick asks for "match dailies", "arena", or "crash" on a Mini Heroes acc
 5. Report: tickets before/after, each opponent crashed (name, CP), match points before/after,
    and any tribemates skipped.
 
+Also triggered mid-dailies by a "Match attempts full" popup: Confirm, exhaust tickets, then resume the interrupted daily.
+
 ## Hard rules
 
 - Never attack a tribe member. If unsure, tap the avatar and read `Tribe:` on the profile.
