@@ -303,6 +303,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily task: challenge the c
 
 Mapped 2026-10-26 on Cmajor via ADB (device coords).
 
+0. **First exhaust Match tickets** (Match routine) — Nick, 2026-10-26. Run Match again afterwards if
+   patrol rewards added tickets.
 1. Main screen → patrol **bag** with timer, right side `(983,1463)` → *Loot* dialog.
 2. **Speed Patrol** `(337,1590)` → *Tip* "Obtain 4 hours of Patrol Gains" → price button `(540,1164)` →
    *Congratulations* → dismiss `(540,1700)` → the Tip reopens with the next price.
