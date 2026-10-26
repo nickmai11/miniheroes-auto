@@ -47,3 +47,12 @@ docs/
 The game encrypts request bodies/query strings, and the encrypted payload includes a
 per-request value — a byte-identical replay of a captured `POST /fam/sweep` is rejected with
 `errcode 40001 "Parsing failed, please log in again"`. See `docs/api-findings.md`.
+
+## Daily schedule
+
+`~/Library/LaunchAgents/com.nick.miniheroes-dailies.plist` runs `scripts/run-dailies.sh` every day at 12:01:
+a headless `claude -p` run of the dailies for all accounts except Cmajor. Allowed commands are in
+`.claude/settings.json` (no push, no deletes). Output: `logs/dailies-<date>.log` + a macOS notification.
+Requires being logged in; if the Mac sleeps through 12:01 it runs on wake.
+- Run now: `launchctl kickstart gui/$(id -u)/com.nick.miniheroes-dailies`
+- Disable: `launchctl bootout gui/$(id -u)/com.nick.miniheroes-dailies`

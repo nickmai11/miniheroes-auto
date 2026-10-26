@@ -3,3 +3,5 @@
 *.har
 *.apk
 captures/
+logs/
+.claude/scheduled_tasks.lock

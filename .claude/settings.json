@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Read", "Glob", "Grep",
+      "Edit(docs/**)", "Edit(accounts/**)", "Edit(.claude/skills/**)", "Edit(scripts/**)", "Edit(README.md)",
+      "Edit(/tmp/miniheroes-*/**)",
+      "Bash(adb:*)",
+      "Bash(\"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli\":*)",
+      "Bash(python3:*)", "Bash(scripts/tap.py:*)", "Bash(scripts/grocery.py:*)", "Bash(scripts/fish_orders.py:*)",
+      "Bash(/Users/nickm/projects/chidojiro/miniheroes-auto/scripts/:*)",
+      "Bash(D=*)",
+      "Bash(sips:*)", "Bash(mkdir:*)", "Bash(cp:*)", "Bash(ls:*)", "Bash(cat:*)", "Bash(sleep:*)", "Bash(date:*)",
+      "Bash(git status:*)", "Bash(git diff:*)", "Bash(git log:*)", "Bash(git add:*)", "Bash(git commit:*)",
+      "Task", "Agent"
+    ],
+    "deny": [
+      "Bash(git push:*)", "Bash(rm -rf:*)", "Bash(adb * uninstall*)", "Bash(adb * shell pm*)"
+    ]
+  }
+}
