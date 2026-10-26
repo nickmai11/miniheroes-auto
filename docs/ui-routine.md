@@ -274,3 +274,17 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started
    Button becomes "Auto Fishing". Leave it.
 
 2026-10-26: 4 refreshes (81 → 77 tickets) for 3 Mythic orders; no gems spent.
+
+## Divine Weapon (benefit + Excelsior Veins)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
+
+1. Main screen → **Divine Weapon** `(798,1780)` → Arsenal.
+2. **Benefit** `(309,1810)` (red dot) → **Claim Reward** `(540,1662)` (1500 crystals, 2 potions,
+   2 embers) → dismiss `(540,120)` → close ✕ `(970,238)`.
+3. **Excelsior Veins** `(980,1810)` → mining grid. Attempts = pickaxes `N/80` (bottom centre;
+   regenerates over time). Keep the "Automatically advance to next floor" tick as-is.
+4. **One-Click Mining** `(896,1612)` → *Congratulations* → dismiss `(540,120)`. Repeat until pickaxes = 0.
+   Don't use the dynamite / drill items or the `+` on the pickaxe (buys more).
+
+2026-10-26: 22 → 10 → 0 pickaxes in 2 clicks.
