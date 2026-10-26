@@ -21,3 +21,7 @@ missions:
   fishing:
     min_order_diamonds: 3    # 3 = Legend+, 4 = Mythic+
     ticket_pack_gem_price: 50
+  pet_arena:               # join + Auto Deploy (per-account strategy)
+    strategy: stamina_order  # stamina_order | per_pet
+    order: high_to_low       # high_to_low | low_to_high | random
+    sprites: 4

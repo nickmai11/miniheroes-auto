@@ -10,6 +10,7 @@ Run the missions in this order on each account:
 
 1. **Match** — exhaust tickets.
 2. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto. Don't collect order rewards here.
+2b. **Pet Arena** — join + Auto Deploy (see "Pet Arena" below); runs on its own like auto fishing.
 3. **Patrol** — Speed Patrol ×3 + Claim All.
 4. **Shop** freebies.
 5. **Play Pass** claims.
@@ -447,3 +448,20 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
   weekly event merchant (free 200), Tribe Battle banner → Packs `(976,1630)` (free 20 gems daily).
   Skip draws that spend event coins and "Join" buttons without a red dot.
 - Accounts without the fishing pass get no daily bread → Auto stops when bread runs out; that's expected.
+
+## Pet Arena (join + Auto Deploy)
+
+Added by Nick 2026-10-26. Strategy is per account (`missions.pet_arena` in the config); for now all accounts
+use **Stamina order High to Low, 4 sprites**.
+
+1. Main screen → **1st event banner** (top right) → bottom tab **Pet Arena** ("Đấu Trường Tinh Linh") →
+   **Join** ("Tham gia").
+2. **Auto Deploy** (bottom right of the arena screen) → *Auto Deploy* dialog:
+   - **Deployed Sprite per Battle** = config `sprites` (4).
+   - Strategy `stamina_order`: tick **Deploy by Stamina Order** (right checkbox) and set its dropdown to
+     config `order` (**High to Low**; options High to Low / Low to High / Random Selection). The per-pet
+     rows (Pet 1–4 rarity + stamina) stay unticked.
+   - Strategy `per_pet` (future accounts): untick the stamina row, tick the Pet 1–4 block and set each row.
+   - Keep **Auto-Stop when free attempts are used up** ✓ and **If available slots < set amount…** ✓.
+3. **Start**. Leave it running. Coords not mapped yet — screenshot every step on the first run.
+   Never buy attempts.
