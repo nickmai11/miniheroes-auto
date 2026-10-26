@@ -339,8 +339,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
 5. **Forge** (Arsenal screen, anvil button "Forge N/M", crystal cost below e.g. `6755/500` = owned/cost):
    M = forge slots, varies per account (7, 8, 13…). If no forge is in progress, fill **every available
    slot** — stop when slots are full or crystals < cost. Skip if a forge is already running.
-   Crystals only, never gems. Forge anvil button ≈ `(540,1580)` on Arsenal (shows a timer while a forge runs)
-   — tap not yet verified; screenshot and verify the cost is crystals.
+   Crystals only, never gems. Forge anvil ("Forge"/"Rèn") on Arsenal — position unconfirmed (reports say ≈`(540,1580)` or
+   timer near `(940,1270)`); a running forge shows a timer → skip. Tap not yet verified; screenshot and verify the cost is crystals.
 
 2026-10-26: 22 → 10 → 0 pickaxes in 2 clicks.
 
@@ -423,8 +423,12 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
 
 ## Gotchas from Aminor run (2026-10-26)
 
-- Land of Trials paid sweep: the screenshot right after Confirm can look stale; wait ~3 s and re-check before retrying.
+- Land of Trials paid sweep: the screenshot right after Confirm can look stale even though the purchase went
+  through — re-check "Challenge Attempts: 1" before tapping again, or you can **double-buy**.
 - Hero strip: Bone Archer position varies slightly (`(764,1580)` on Aminor vs `(787,1580)`) — verify the name.
 - Events: Pet Arena achievements — one **Claim/Nhận** claims all; 7777 Draws daily claim plays 30 free draws
   → Confirm `(540,1756)`; don't tap the "claim one more time" (Nhận thêm một lần) button (likely paid).
 - Back tap after Tribe Chat can land on Recruit — back out again.
+- Safe dismiss for Grocery / Patrol / Fishing reward popups: `(540,1880)` (very bottom).
+- Event screens: bottom tabs at y=`1850`, x ≈ `140 / 480 / 650 / 818 / 986`. Banners rotate between screenshots.
+- Tribe Chat Request button may need a second tap at `(174,1636)`.
