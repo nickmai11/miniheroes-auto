@@ -472,9 +472,21 @@ use **Stamina order High to Low, 4 sprites**.
 
 ## Canyon Clash (Tribe group)
 
-Added by Nick 2026-10-26. Entry: Tribe screen → **Canyon Clash** (coords not mapped yet — screenshot first run).
-Spots on the map show a type and a rate (e.g. purple **9/m**). Occupant names: **blue** name background =
-tribe member, **purple** = not in our tribe.
+Added by Nick 2026-10-26; mapped on Cmajor via ADB (device coords).
+
+Entry: main screen → **Tribe** `(448,1780)` → **Canyon Clash** card `(540,1090)` → vertical map (scroll with
+`input swipe 540 1500 540 600 600`). Header shows your current spot ("Unoccupied" or e.g. "Silver Battlefield",
+Occ. Time, Occ. Gains) and **Attempts N** (5 on Cmajor; never tap `+`, buys more).
+
+Map, top → bottom: player-held spots (green dome = shield), then **Gold Sentinel** spots (white/gold platforms,
+~60K CP NPCs), then **Silver Sentinel** spots (purple platforms = the "purple 9/m" spots: 9/min + 1 medal/h,
+~41–44K CP NPCs). Glory spots are presumably above/among the top ones. "Free/empty" here = held by a Sentinel
+NPC (no player) — beat it to take the spot. Occupant names: **blue** name background = tribe member,
+**purple** = not in our tribe; your own spot shows a **green** name.
+
+Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 challenge attempt" → **Challenge**
+`(742,1334)` (Cancel `(336,1334)`) → lineup (top 5 pre-selected, keep) → **Start** `(540,1808)` → battle ~45 s
+(poll) → *Victory* → tap anywhere `(540,1500)`. Done once you hold a spot — one per day is enough.
 
 - **Mon–Fri:** take a **purple (9/m) spot**. Prefer an **empty** one. If none is empty, attack a purple
   spot held by someone **not** in our tribe (purple name background; cross-check `accounts/tribe_peakaboo.txt`).
