@@ -4,6 +4,7 @@ account:
   mumu_instance: Dminor
   game_id: null             # TODO: read top-right in game on first run
   enabled: true
+  language: vi              # game UI is Vietnamese: Miễn phí = Free, Xác nhận = Confirm, Nhận = Claim
 
 safety:
   # Never pay more than this for a single paid sweep. Stop and report if the price is higher.

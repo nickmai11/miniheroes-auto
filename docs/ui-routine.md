@@ -70,6 +70,10 @@ Temple `(870,1696)`.
 
 ## General gotchas
 
+- **Game language differs per account** (`account.language` in the config; Dminor = Vietnamese:
+  "Miễn phí" = Free, "Xác nhận" = Confirm, "Nhận" = Claim). Layout/coords are the same; judge buttons by
+  colour/position + counters, not English text.
+
 - **Taps during animations are ignored.** Popups slide in; after opening one, take a screenshot,
   then tap. Always confirm the result with a screenshot — never chain taps blindly.
 - **Each free sweep = two taps** (a paid one = four: Sweep → Confirm → Sweep → dismiss): `Sweep`, then dismiss the *Congratulations* reward popup (it also
