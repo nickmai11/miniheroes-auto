@@ -317,3 +317,17 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
 3. *Synthesize Runes* dialog → **Quick Equip** `(417,1668)` (fills 4 same-quality runes — it picks the
    lowest tier, e.g. 4 blue → 1 purple; that's fine) → **Synthesize** `(824,1668)` with ×1.
 4. Result → **Confirm** `(540,1190)` → close ✕ `(972,560)` → close Backpack ✕ `(972,238)`.
+
+## Grocery (free Daily Specials chests)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
+
+1. Main screen → menu ☰ `(994,1625)` → **Grocery** `(900,1230)` → *Daily Specials* tab.
+2. Top row = 4 free chests, **Free** buttons at y=`893`, x = `163 / 413 / 663 / 913`.
+   Rows below have gem prices — never tap them.
+   - Chest 1 Gold Coin Pack: 1 claim.
+   - Chests 2–4 (Hero, Resource, Growth): **3 claims each**, ~3 s cooldown between claims.
+3. Each claim: tap chest's Free → popup shows "Chances: N" + **Free** `(540,1344)` (verify it says
+   Free, not a gem price) → dismiss `(540,120)` → wait ~4 s → reopen. Done when all 4 say **Sold Out**.
+   Growth Chest gives +80 gems per claim (+240/day).
+4. Close ✕ `(966,222)`.

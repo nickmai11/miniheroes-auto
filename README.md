@@ -40,6 +40,7 @@ docs/
 | Adventure stage (1 run) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Patrol (speed ×3, claim all) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Rune synthesis | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
+| Grocery free chests | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Others | – | Add to `docs/ui-routine.md` + account configs as they're mapped |
 
 ## Why UI and not API
