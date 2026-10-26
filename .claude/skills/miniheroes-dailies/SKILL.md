@@ -46,6 +46,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 | Grocery | ☰ → Grocery → Daily Specials: claim any top-row chest showing Free; wait out cooldowns; repeat until all 4 Sold Out |
 | Events | Top-right event banners (they change): open any with a red dot, claim only free red-dot rewards incl. bottom tabs; never $/gem |
 | Pet Arena | **First step; Mon/Tue/Wed only.** 1st event banner → Pet Arena → Join → Auto Deploy per `missions.pet_arena` (now: Stamina order High to Low, 4 sprites, auto-stop ✓) → Start |
+| Canyon Clash (Tribe) | Mon–Fri: purple 9/m spot, prefer empty, else attack a non-tribe (purple name) holder. Sat–Sun: only free Glory/Gold spots, no attacks |
 | Gate of Darkness | Run once (Confirm wave, never Restart; cap 1m30s, then Pause + quit), then Sweep the remaining chance |
 
 ## Language

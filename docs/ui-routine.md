@@ -19,7 +19,7 @@ Run the missions in this order on each account:
    (+ any other mapped Adventure mode).
 7. **Recruit** free summons.
 8. **Hero** upgrade (after the potion-giving steps above).
-9. **Tribe** — sign-in, Trial, chat Request + Assist.
+9. **Tribe** — sign-in, Trial, chat Request + Assist, **Canyon Clash**.
 10. **Divine Weapon** — Benefit, Excelsior Veins, Forge.
 11. **Adventure stage** run (skull bubble).
 12. **Patrol** — Claim All only.
@@ -469,3 +469,16 @@ use **Stamina order High to Low, 4 sprites**.
    - Keep **Auto-Stop when free attempts are used up** ✓ and **If available slots < set amount…** ✓.
 3. **Start**. Leave it running. Coords not mapped yet — screenshot every step on the first run.
    Never buy attempts.
+
+## Canyon Clash (Tribe group)
+
+Added by Nick 2026-10-26. Entry: Tribe screen → **Canyon Clash** (coords not mapped yet — screenshot first run).
+Spots on the map show a type and a rate (e.g. purple **9/m**). Occupant names: **blue** name background =
+tribe member, **purple** = not in our tribe.
+
+- **Mon–Fri:** take a **purple (9/m) spot**. Prefer an **empty** one. If none is empty, attack a purple
+  spot held by someone **not** in our tribe (purple name background; cross-check `accounts/tribe_peakaboo.txt`).
+  Never attack a blue-name (tribe) player.
+- **Sat–Sun:** take **Glory** and **Gold** spots **only if they're free/empty**. **Don't attack anyone.**
+  If none are free, skip.
+- Never spend gems.
