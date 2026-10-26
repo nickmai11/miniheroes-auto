@@ -518,10 +518,14 @@ Added by Nick 2026-10-26; mapped on Cmajor via ADB (device coords). Free tickets
 1. Main screen → **2nd event card** (top right, y≈480). It rotates every few seconds (Storm Battlefield /
    Dragon Temple…); swiping it doesn't work — wait until it shows **Storm Battlefield** (gold card), then tap
    `(880,480)`. Event screen tabs at the bottom (Storm Battlefield / Dragon Temple).
-2. If "Please deploy your Heroes" (CP 0): **Deploy** `(540,1220)` → **Quick Deploy** `(984,1800)` (top 5) →
-   **Save** `(540,1808)` → back `(88,1812)` → **Start** `(540,1220)`.
-3. Arena screen: tickets `N/5` at `(540,1428)`. **Start Match** `(540,1610)` → match is instant (~5–8 s) →
-   *Victory/Defeat* → tap `(540,120)`. Repeat until 0/5.
+   **Monday ≥ 17:00 with the game already running since before 17:00: restart the game first**
+   (`am force-stop com.and.brawlen.web` + relaunch) — otherwise the Storm card never shows (Nick, 2026-10-26).
+2. **Always start with a full lineup** — the previous run left only 1 hero (step 5). First time (CP 0):
+   **Deploy** `(540,1220)`; later runs: **Lineup** `(960,1600)` on the arena screen. Then **Quick Deploy**
+   `(984,1800)` (top 5) → **Save** `(540,1808)` → back `(88,1812)` (→ **Start** `(540,1220)` if on the
+   welcome screen). Verify the CP is the top-5 value before the first Start Match.
+3. Arena screen: tickets `N/5` at `(540,1428)`. **Start Match** `(540,1610)` → matches vary: some are instant (~5–8 s), close ones are
+   real fights (~60–80 s) — poll until the arena screen is back → *Victory/Defeat* → tap `(540,120)`. Repeat until 0/5.
 4. **+** `(642,1428)` → popup: **Watch Video – Free, Chances N** `(350,1274)` (no actual ad on 2026-10-26;
    +1 ticket) vs **Diamonds 30 Redeem** — never tap Redeem. Claim Free until Chances 0 → close (tap outside,
    e.g. `(100,1150)`) → play the new tickets until 0/5 again.
