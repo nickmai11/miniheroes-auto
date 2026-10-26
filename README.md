@@ -58,6 +58,7 @@ deleting one, run `scripts/sync-schedules.sh` — it installs/updates them in `~
 |---|---|---|
 | `com.nick.miniheroes-dailies` | daily 13:00 | `scripts/run-dailies.sh`: headless `claude -p` dailies for all accounts except Cmajor |
 | `com.nick.miniheroes-monday` | Monday 17:05 | `scripts/run-dailies.sh monday`: Storm Battlefield + Canyon Clash (seasons open Mon 17:00), all accounts except Cmajor |
+| `com.nick.miniheroes-extra` | daily 21:00 + 05:00 | `scripts/run-dailies.sh extra`: Match, Storm, Canyon, Fishing, Divine Weapon, Patrol (Storm/Canyon skipped while their season is closed), all accounts except Cmajor |
 
 Allowed commands for headless runs: `.claude/settings.json` (no push, no deletes). Output:
 `logs/<mode>-<date>.log` + a macOS notification. Needs you logged in; if the Mac sleeps through the time it
