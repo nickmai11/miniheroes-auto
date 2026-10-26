@@ -535,7 +535,9 @@ dailies. Monday: closed during the 13:00 run — done by the Monday 17:05 run in
 3. Arena screen: tickets `N/5` at `(540,1428)`. **Start Match** `(540,1610)` → matches vary: some are instant (~5–8 s), close ones are
    real fights (~60–80 s) — poll until the arena screen is back → *Victory/Defeat* → tap `(540,120)`. Repeat until 0/5.
 4. **+** `(642,1428)` → popup: **Watch Video – Free, Chances N** `(350,1274)` (no actual ad on 2026-10-26;
-   +1 ticket) vs **Diamonds 30 Redeem** — never tap Redeem. Claim Free until Chances 0 → close (tap outside,
+   +1 ticket) vs **Diamonds 30 Redeem** — never tap Redeem.
+   Grey Free button / "Chances: 0" (vi: "Số lần còn: 0", "Miễn phí" grey) = no free tickets left — close
+   and move on; don't keep reopening +. Starting a match with 0 tickets opens this popup automatically. Claim Free until Chances 0 → close (tap outside,
    e.g. `(100,1150)`) → play the new tickets until 0/5 again.
 5. **Rewards** `(96,880)` (left side) — if it has a red dot: *Rank Reward* tab lists King/Glory/Gold/Silver/Bronze
    rows; tap a reached rank's highlighted item (e.g. Bronze `(372,1404)`) → claims the whole row (checkmarks) →
