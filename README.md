@@ -48,11 +48,16 @@ The game encrypts request bodies/query strings, and the encrypted payload includ
 per-request value — a byte-identical replay of a captured `POST /fam/sweep` is rejected with
 `errcode 40001 "Parsing failed, please log in again"`. See `docs/api-findings.md`.
 
-## Daily schedule
+## Schedules
 
-`~/Library/LaunchAgents/com.nick.miniheroes-dailies.plist` runs `scripts/run-dailies.sh` every day at 13:00:
-a headless `claude -p` run of the dailies for all accounts except Cmajor. Allowed commands are in
-`.claude/settings.json` (no push, no deletes). Output: `logs/dailies-<date>.log` + a macOS notification.
-Requires being logged in; if the Mac sleeps through 13:00 it runs on wake.
-- Run now: `launchctl kickstart gui/$(id -u)/com.nick.miniheroes-dailies`
-- Disable: `launchctl bootout gui/$(id -u)/com.nick.miniheroes-dailies`
+The repo is the source of truth: each launchd job is a plist in `schedules/`. After adding, editing or
+deleting one, run `scripts/sync-schedules.sh` — it installs/updates them in `~/Library/LaunchAgents`, removes
+`com.nick.miniheroes-*` jobs no longer in the repo, and prints every schedule with its last exit code.
+
+| Job | When | What |
+|---|---|---|
+| `com.nick.miniheroes-dailies` | daily 13:00 | `scripts/run-dailies.sh`: headless `claude -p` dailies for all accounts except Cmajor |
+
+Allowed commands for headless runs: `.claude/settings.json` (no push, no deletes). Output:
+`logs/dailies-<date>.log` + a macOS notification. Needs you logged in; if the Mac sleeps through the time it
+runs on wake. Run now: `launchctl kickstart gui/$(id -u)/com.nick.miniheroes-dailies`.
