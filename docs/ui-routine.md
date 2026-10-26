@@ -242,7 +242,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). All free.
    dismiss `(540,120)` → close the dialog by tapping `(540,1680)`.
 3. **Tribe Trial** card `(540,735)` → Flame Lord boss → **Challenge** `(540,1806)` → lineup screen.
    The 5 heroes on the field are this mode's preset lineup; keep it → **Start** `(540,1806)`.
-   Timed boss fight (~75 s, runs on its own) → *Challenge Complete* → **Confirm** `(540,1483)`.
+   Timed boss fight (~1 min, runs on its own). Poll with a screenshot every ~15 s and Confirm `(540,1483)`
+   as soon as *Challenge Complete* shows — never wait blind longer than ~80 s.
    One run per day (2026-10-26: 247.5M damage, ×30 chests).
 4. Back `(92,1810)` → Tribe screen → **Chat** `(800,1806)` → **Request** `(174,1631)` (red dot) →
    *Help Request Info* dialog:
