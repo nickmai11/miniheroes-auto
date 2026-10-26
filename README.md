@@ -8,6 +8,7 @@ one MuMu instance per game account. Missions are performed by Claude through com
 
 ```
 CLAUDE.md               ← start here in a new Claude session
+skills/miniheroes-match/SKILL.md   ← Match (Arena) skill
 skills/miniheroes-dailies/SKILL.md
                         ← the "Mini Heroes dailies" skill (also saved to Nick's Claude account;
                           keep both in sync when editing)
@@ -25,6 +26,7 @@ docs/
 | Mission | Automated via | Notes |
 |---|---|---|
 | Land of Trials sweeps | UI (computer use or ADB) | Verified on Cmajor, 2026-10-26 (ADB) |
+| Match (Arena) crashes | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Others | – | Add to `docs/ui-routine.md` + account configs as they're mapped |
 
 ## Why UI and not API

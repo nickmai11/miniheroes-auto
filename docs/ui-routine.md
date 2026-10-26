@@ -97,3 +97,28 @@ If the config count is lower than the free attempts available, do only the confi
 Keep track of sweeps already done today (e.g. from a previous run) — the on-screen counters are
 the source of truth: free used = 2 − remaining free; paid used = 5 − remaining purchases
 (Cmajor, 2026-10-26: 2 free, 5 purchasable per dungeon).
+
+## Match (Arena)
+
+Mapped 2026-10-26 on Cmajor via ADB. **Device coords (1080×1920)**; window coords not mapped yet.
+
+Goal: spend every free ticket crashing the highest-CP opponent who is **not in our tribe**.
+
+1. **Get the tribe roster first, every run** (members change). Main screen → **Tribe** `(448,1780)`
+   → **Member** `(192,474)` → read all names (29/30 on Peakaboo; scroll with
+   `input swipe 540 1550 540 750 1500`). Close ✕ `(972,238)`, back arrow `(98,1808)`.
+   Tribemates also show up in Arena (e.g. Morrígan, Zues, Aminor on 2026-10-26), so don't skip this.
+   To check a single opponent: tap their avatar in the Challenge list → profile shows `Tribe: …`.
+2. Main screen → **Match** `(100,1280)` (badge = tickets left) → Arena → **Challenge** `(540,1594)`.
+3. Challenge dialog: tickets `N/8` top-left. Rows, each with CP and a button at x=`866`,
+   y ≈ `559, 796, 1033, 1267, 1504` (row 1–5). A 6th row can be cut off; scroll to read its CP.
+   - Blue **Crash** = instant win vs. a weaker opponent (1 ticket). Use these.
+   - Yellow **Challenge** = real fight vs. a stronger one. Not used.
+   - Don't touch `+` (buys tickets) or **Refresh** (cost unknown).
+4. Pick the highest-CP **Crash** row whose name is not on the roster → tap its Crash.
+   The dialog closes and shows *Congratulations* (+40 match points, 11000 gold).
+   Dismiss with `(540,120)`, confirm the ticket count dropped by 1 on the Challenge button.
+5. Repeat from step 2 until tickets = 0. The opponent list changes after every crash.
+
+Gotcha: a `swipe` once failed with `INJECT_EVENTS permission` and the game was then back on
+the main screen. Screenshot and re-navigate when that happens.
