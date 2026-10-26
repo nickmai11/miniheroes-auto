@@ -354,3 +354,14 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
   chests 2–4 cooldown ~5–8 s.
 - Excelsior Veins back arrow returns to Arsenal, not main screen — back again.
 - Match tickets can exceed the cap ("Full", e.g. 7/6) after rewards.
+
+## Gotchas from Chien Than run (2026-10-26)
+
+- After Start, a promo popup may appear: **Cancel** `(337,1281)`.
+- **Match attempts full** popup (can appear mid-dailies, e.g. during Land of Trials): Confirm `(696,1162)`.
+- Artifact Auto toggle `(935,1658)` was ON on this account — check it's grey before summoning.
+- Grocery: dismiss rewards at `(540,1850)`; `(540,120)` once closed the whole Grocery screen. Resource Chest can roll +50 gems.
+- Land of Trials: if the reward popup already auto-closed, a dismiss tap hits the list behind (opened the next dungeon once).
+  Sweep → wait 7–8 s → dismiss once.
+- Fishing auto can stop on its own ("Stop at new Archive"); re-check the Auto Fishing state before leaving.
+- Accounts without the Divine Weapon forging pass ($8.99) have no Benefit claim; Weekly/Monthly Play Pass cards may be unowned.

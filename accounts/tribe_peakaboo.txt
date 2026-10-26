@@ -1,5 +1,5 @@
 # Peakaboo tribe roster (29/30), transcribed from xFaktor screenshots 2026-10-26.
-# 28 names read; 1 may be missing (scroll gaps). Never attack anyone on this list.
+# 29 names, cross-checked with the Chien Than run. Never attack anyone on this list.
 ✨Cmajor✨
 Mr KonG
 Salted
@@ -21,6 +21,7 @@ Cris
 Vincent
 [ToG] ShiNy$
 Slaanesh
+DINO
 ✨Dminor✨
 ✨ BINO ✨
 Suru
