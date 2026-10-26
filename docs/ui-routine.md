@@ -488,8 +488,9 @@ appear — prefer those first; otherwise a Sentinel-held spot (no player) counts
 platform > Sentinel-held > non-tribe player — before tapping anything. Spots change while you scroll.
 
 Empty platform: tap it (wait for map scroll inertia to stop first, or the tap misses) → popup "About to occupy
-the empty <Type> Battlefield — costs no challenge attempts" → **Occupy** `(744,1340)`. Only works while you hold
-**no** spot: on xFaktor (already holding a Silver spot) Occupy did nothing. So pick the empty spot *first*.
+the empty <Type> Battlefield — costs no challenge attempts" → **Occupy** `(744,1340)` → wait ~3–5 s: if you already held a spot, a *Resource* popup ("you left the old
+Battlefield", gains from it) appears → **Confirm** `(540,1460)`. Moving to an empty spot is free, so it's fine to
+move later — but pick the empty spot first anyway (saves an attempt).
 The map opens scrolled to your current area, and empty platforms were found just below the Gold rows.
 
 Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 challenge attempt" → **Challenge**
