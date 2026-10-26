@@ -167,3 +167,18 @@ using **only the weakest hero** (it's meant to lose; floors are ~17000K CP vs ou
    Tap it (one hero only) and check the CP top-left (686K on 2026-10-26, a Lv.160 purple hero).
 5. **Start** `(540,1808)` → *Defeat* screen. Dismiss by tapping `(540,1700)` (below the
    "Challenge again" button — never tap that). Verify tickets dropped by 1.
+
+## Secret Sanctuary (daily sweep, free)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords).
+
+1. Main screen → **Adventure** `(100,1460)` → Secret Sanctuary **GO** `(787,962)` → map (e.g. "Ice Citadel").
+2. **Sweep** `(540,1778)` (plain button, no gem icon) → *Tip*: "Sweep grants rewards based on last
+   cleared stage (Stage 10). Cannot challenge again today." → **Confirm** `(533,1197)`.
+3. *Congratulations* (gold, potions, shards…) → dismiss `(540,120)`. All stages now show flags and
+   the Sweep button is replaced by "Bonus Effects Owned". Done for the day.
+4. Back arrow `(92,1810)` returns straight to the main screen.
+
+Gotcha (all modes): the back arrow `(92,1810)` sits on top of the main screen's **Recruit** button.
+A back tap that lands after the screen has already changed opens Recruit. Screenshot after every
+back tap; if you're on Recruit, just tap back again (never Recruit 1/10).

@@ -30,6 +30,7 @@ docs/
 | Shop freebies (red dots) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Play Pass claims (red dots) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Tower of the Throne (1 challenge) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
+| Secret Sanctuary sweep | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Others | – | Add to `docs/ui-routine.md` + account configs as they're mapped |
 
 ## Why UI and not API
