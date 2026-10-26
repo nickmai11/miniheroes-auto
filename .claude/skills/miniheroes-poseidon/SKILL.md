@@ -14,7 +14,8 @@ Use when Nick asks for "poseidon", "Poseidon's Ruins" or "plunder" on a Mini Her
 4. Attack until **Attack Attempts** = 0: tap the ship → *Plunder* → Attack → Start → Victory → dismiss.
    Verify the attempts counter dropped after each fight. Keep hitting the same target while it has red hearts;
    once it's sunk (or being attacked by someone else), pick the next-lowest-CP ship with red hearts.
-5. Report: target(s) (name, CP), wins/losses, attempts used.
+5. When every account is done, quit the MuMu instances: `"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" close <idx,...>` (Nick, 2026-10-26).
+6. Report: target(s) (name, CP), wins/losses, attempts used.
 
 ## Hard rules
 
