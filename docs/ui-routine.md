@@ -19,7 +19,8 @@ Run the missions in this order on each account:
    (+ any other mapped Adventure mode).
 7. **Recruit** free summons.
 8. **Hero** upgrade (after the potion-giving steps above).
-9. **Tribe** — sign-in, Trial, chat Request + Assist, **Canyon Clash**.
+9. **Tribe** — sign-in, Trial, chat Request + Assist, **Canyon Clash** (skip on Mondays — it's closed until 17:00;
+   a separate Monday 17:05 run does it).
 10. **Divine Weapon** — Benefit, Excelsior Veins, Forge.
 11. **Adventure stage** run (skull bubble).
 12. **Patrol** — Claim All only.
@@ -473,6 +474,10 @@ use **Stamina order High to Low, 4 sprites**.
 ## Canyon Clash (Tribe group)
 
 Added by Nick 2026-10-26; mapped on Cmajor via ADB (device coords).
+
+**Season: opens Monday 17:00, closes the next Monday 06:00.** So Tue–Sun it's part of the normal dailies; on
+**Monday** it's closed during the 13:00 dailies — do it in the separate Monday **17:05** run instead
+(`schedules/com.nick.miniheroes-canyon.plist` → `scripts/run-dailies.sh canyon`).
 
 Entry: main screen → **Tribe** `(448,1780)` → **Canyon Clash** card `(540,1090)` → vertical map (scroll with
 `input swipe 540 1500 540 600 600`). Header shows your current spot ("Unoccupied" or e.g. "Silver Battlefield",

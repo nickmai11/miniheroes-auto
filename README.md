@@ -57,7 +57,8 @@ deleting one, run `scripts/sync-schedules.sh` — it installs/updates them in `~
 | Job | When | What |
 |---|---|---|
 | `com.nick.miniheroes-dailies` | daily 13:00 | `scripts/run-dailies.sh`: headless `claude -p` dailies for all accounts except Cmajor |
+| `com.nick.miniheroes-canyon` | Monday 17:05 | `scripts/run-dailies.sh canyon`: Canyon Clash only (season opens Mon 17:00), all accounts except Cmajor |
 
 Allowed commands for headless runs: `.claude/settings.json` (no push, no deletes). Output:
-`logs/dailies-<date>.log` + a macOS notification. Needs you logged in; if the Mac sleeps through the time it
+`logs/<mode>-<date>.log` + a macOS notification. Needs you logged in; if the Mac sleeps through the time it
 runs on wake. Run now: `launchctl kickstart gui/$(id -u)/com.nick.miniheroes-dailies`.
