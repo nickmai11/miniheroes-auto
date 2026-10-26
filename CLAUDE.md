@@ -33,6 +33,8 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 - Don't touch anything outside the missions listed in the config (shop, purchases, settings).
   Exception: the free red-dot claims in `docs/ui-routine.md` ("Shop freebies", "Play Pass claims"); never a $ button.
 - If the screen is in an unexpected state, stop and report with a screenshot description.
+- If a step can't be done with confidence (unreadable screen, tap not working after 2 tries), skip it and report
+  it as skipped + why — never loop or guess.
 
 ## Reporting
 

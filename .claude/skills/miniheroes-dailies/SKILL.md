@@ -65,6 +65,8 @@ A loop or "nothing happens" usually means a text mismatch — check the language
 - On-screen counters are the source of truth for what was already done today.
 - Touch nothing outside the configured missions (no shop, purchases, settings, events).
 - If the screen is in an unexpected state, stop and report what you see.
+- **Can't ensure quality → skip it** (Nick): if a step can't be done with confidence (screen unreadable, a tap doesn't
+  do what's expected after 2 tries, unclear state), close popups, skip that step, report it as skipped + why. Never loop or guess.
 - If a "Match attempts full" popup appears mid-dailies: Confirm, use all Match tickets (Match routine, tribe rules), then resume where you left off.
 - Battles: never wait blind for minutes — poll and enforce the time cap given for the mode.
 - The back arrow `(92,1810)` overlaps the main screen's Recruit button: screenshot after every back tap.
