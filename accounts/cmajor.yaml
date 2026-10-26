@@ -6,7 +6,7 @@ account:
 
 safety:
   # Never pay more than this for a single paid sweep. Stop and report if the price is higher.
-  max_gem_price_per_sweep: 80
+  max_gem_price_per_sweep: 160
 
 missions:
   land_of_trials:
@@ -15,5 +15,5 @@ missions:
     moonlight_temple: 3     # 2 free + 1 paid
     mysterious_forest: 3    # 2 free + 1 paid
     # not configured → skip
-    abandoned_mine: 0
-    ancient_battlefield: 0
+    abandoned_mine: 2
+    ancient_battlefield: 2
