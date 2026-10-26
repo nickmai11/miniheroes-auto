@@ -36,5 +36,6 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 
 ## Reporting
 
-At the end, report per account: each mission, free/paid sweeps done vs. configured, gems
-before/after, and anything skipped and why.
+At the end, report per account: each mission done/skipped (and why), and every paid action
+(what, price). Don't track gem/resource balances — they change constantly (Nick, 2026-10-26);
+just verify the price on screen before each paid tap.

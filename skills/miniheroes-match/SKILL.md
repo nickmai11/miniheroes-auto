@@ -13,8 +13,7 @@ Use when Nick asks for "match dailies", "arena", or "crash" on a Mini Heroes acc
 3. **Use the saved tribe roster** (`accounts/tribe_<name>.txt`; members are fixed). Read it in-game only if the file is missing, then save it.
 4. Loop until tickets = 0: open Challenge, pick the highest-CP **Crash** row not on the roster,
    crash, dismiss, verify the ticket count dropped.
-5. Report: tickets before/after, each opponent crashed (name, CP), match points before/after,
-   and any tribemates skipped.
+5. Report: opponents crashed (name, CP) and any tribemates skipped.
 
 Also triggered mid-dailies by a "Match attempts full" popup: Confirm, exhaust tickets, then resume the interrupted daily.
 

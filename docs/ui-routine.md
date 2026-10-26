@@ -29,6 +29,13 @@ Run the missions in this order on each account:
 
 A "Match attempts full" popup can interrupt any step: Confirm, exhaust Match, resume.
 
+Focus on the steps, not on resources: don't track gem/resource balances (they change all the time).
+The only money check is reading the price on screen before any paid tap and respecting the config caps.
+
+**Multiple accounts at once:** one worker (subagent) per MuMu instance, each with its own ADB serial and
+its own scratch dir for screenshots; workers don't edit the repo — they report, and the coordinator
+updates the docs. Set each instance to 1080×1920 first (see "Gotchas from xFaktor run").
+
 ## ADB alternative (no computer use)
 
 Works without computer-use tools. Device frame is **1080×1920**; the rest of this doc uses
@@ -56,8 +63,6 @@ Temple `(870,1696)`.
   that dismissed the popup.
 - **Safe dismiss tap:** `(352, 140)` — the screen title area; does nothing if no popup is open.
   Don't dismiss by tapping near the bottom: it can hit a list item behind the popup.
-- Gem balance appears top-left while a sweep dialog is open (e.g. `5995`). Record it before
-  and after.
 
 ## Starting the game
 
@@ -180,9 +185,6 @@ owns. Never tap a $ / purchase button.
 4. **Lifetime Card** → **Claim Reward** `(540,1658)` → 288 gems + 3 arena tickets, button turns "Claimed".
 5. Dismiss every reward popup with `(540,120)`; back arrow `(92,1810)`.
 
-Note: on 2026-10-26 opening Play Pass already showed gems 5645 → 5875 and the second currency
-80 → 560 before any claim, cause unknown (an auto-credit on opening?). Record gems before opening.
-
 ## Tower of the Throne (1 daily challenge)
 
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Goal: one challenge for the daily task.
@@ -243,7 +245,6 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: **2 Common, 1 Ancest
 4. **Artifact** bottom tab `(618,1840)`. Check the **Auto** toggle `(882,1658)` is **off** (grey).
    Tap **Free** `(540,1638)` once → fragment shown; the button turns into **Wish (500 stars)** — stop, that's paid.
    Tiers with a gem price (Brilliance 280) are paid summons; ignore.
-5. Gems must be unchanged at the end.
 
 ## Hero upgrade (Bone Archer +1 level, 1st gear +1)
 
