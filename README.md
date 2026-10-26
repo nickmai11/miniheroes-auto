@@ -8,6 +8,9 @@ one MuMu instance per game account. Missions are performed by Claude through com
 
 ```
 CLAUDE.md               ← start here in a new Claude session
+.claude/skills/miniheroes-dailies/SKILL.md
+                        ← the "Mini Heroes dailies" skill (also saved to Nick's Claude account;
+                          keep both in sync when editing)
 accounts/
   _template.yaml        ← copy this to add an account
   cmajor.yaml           ← per-account mission config
