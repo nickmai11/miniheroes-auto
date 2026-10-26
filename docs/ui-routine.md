@@ -136,3 +136,19 @@ claim the **free** red-dot items only. Every other button in the Shop costs real
 4. Check every tab for a remaining red dot; back arrow `(92,1810)`. Shop icon's dot is gone when done.
 
 Daily total on Cmajor: +30 gems.
+
+## Play Pass claims (red dots)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Free daily claims from cards Nick already
+owns. Never tap a $ / purchase button.
+
+1. Main screen → **Play Pass** `(100,500)`. Tabs along the bottom: Play Pass `(480,1846)`,
+   Weekly Card `(648,1846)`, Monthly Card `(818,1846)`, Lifetime Card `(988,1846)`. Visit each tab with a red dot.
+2. **Play Pass** tab: passive privileges, nothing to claim.
+3. **Weekly Card** (bought, "Purchase to get" items ticked): tap today's highlighted **Day N** tile
+   (Day 1 = `(203,1099)`; grid of 3 columns x≈203/540/877, rows y≈1099/1486) → 20 stars, tile shows "Claimed".
+4. **Lifetime Card** → **Claim Reward** `(540,1658)` → 288 gems + 3 arena tickets, button turns "Claimed".
+5. Dismiss every reward popup with `(540,120)`; back arrow `(92,1810)`.
+
+Note: on 2026-10-26 opening Play Pass already showed gems 5645 → 5875 and the second currency
+80 → 560 before any claim, cause unknown (an auto-credit on opening?). Record gems before opening.

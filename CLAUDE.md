@@ -31,7 +31,7 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
   that mission and report instead of paying.
 - Verify the attempt counter on screen before **and** after each sweep — never tap blindly.
 - Don't touch anything outside the missions listed in the config (shop, purchases, settings).
-  Exception: the free red-dot Shop claims in `docs/ui-routine.md` ("Shop freebies"); never a $ button.
+  Exception: the free red-dot claims in `docs/ui-routine.md` ("Shop freebies", "Play Pass claims"); never a $ button.
 - If the screen is in an unexpected state, stop and report with a screenshot description.
 
 ## Reporting

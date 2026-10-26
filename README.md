@@ -28,6 +28,7 @@ docs/
 | Land of Trials sweeps | UI (computer use or ADB) | Verified on Cmajor, 2026-10-26 (ADB) |
 | Match (Arena) crashes | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Shop freebies (red dots) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
+| Play Pass claims (red dots) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Others | – | Add to `docs/ui-routine.md` + account configs as they're mapped |
 
 ## Why UI and not API

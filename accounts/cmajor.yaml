@@ -23,3 +23,4 @@ missions:
     crash_all_tickets: true # use every free ticket, never buy more
 
   shop_freebies: true       # free red-dot claims only (Value Pack Free Benefits, Hero Pack Select Hero)
+  play_pass_claims: true    # Weekly Card day tile + Lifetime Card daily (free, already owned)
