@@ -29,7 +29,9 @@ Run the missions in this order on each account:
     inside, also check the bottom event tabs for red dots. Claim only **free** red-dot rewards
     (Claim / Free buttons). Never tap a $ or gem price, never draw/spin with paid currency. Back out
     (`(88,1812)`) when no red dots are left.
-17. **Fishing** — the only place order rewards are collected: go back and collect them (exact claim step not mapped yet: screenshot the
+17. **Fishing** — the only place order rewards are collected: Order Info → a completed order shows a yellow
+    **Claim/Nhận** button where Refresh normally is (`(849, 704/1058/1412)`) → tap → dismiss `(540,1880)`.
+    Before that: go back and collect them (exact claim step not mapped yet: screenshot the
     Daily Order panel / Order Info and claim any completed order).
 
 A "Match attempts full" popup can interrupt any step: Confirm, exhaust Match, resume.
@@ -337,7 +339,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
 5. **Forge** (Arsenal screen, anvil button "Forge N/M", crystal cost below e.g. `6755/500` = owned/cost):
    M = forge slots, varies per account (7, 8, 13…). If no forge is in progress, fill **every available
    slot** — stop when slots are full or crystals < cost. Skip if a forge is already running.
-   Crystals only, never gems. Coords not mapped yet: screenshot, tap Forge, verify the cost is crystals.
+   Crystals only, never gems. Forge anvil button ≈ `(540,1580)` on Arsenal (shows a timer while a forge runs)
+   — tap not yet verified; screenshot and verify the cost is crystals.
 
 2026-10-26: 22 → 10 → 0 pickaxes in 2 clicks.
 
@@ -388,6 +391,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
 3. Loop: tap any chest whose button says **Free** → popup must say Free `(540,1344)` (never a gem
    price) → claim → dismiss `(540,120)`. If no chest says Free but some show a cooldown, wait it out
    and keep going. Done only when all 4 show **Sold Out**. Growth Chest gives +80 gems per claim.
+   Automated: `D=<serial> scripts/grocery.py` (colour-based, works in any language; the popup's Free
+   button moves per item, so it scans for the green button). Claimed all 9 in one run on Aminor.
 4. Close ✕ `(966,222)`.
 
 ## Gotchas from xFaktor run (2026-10-26)
@@ -415,3 +420,11 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
   Sweep → wait 7–8 s → dismiss once.
 - Fishing auto can stop on its own ("Stop at new Archive"); re-check the Auto Fishing state before leaving.
 - Accounts without the Divine Weapon forging pass ($8.99) have no Benefit claim; Weekly/Monthly Play Pass cards may be unowned.
+
+## Gotchas from Aminor run (2026-10-26)
+
+- Land of Trials paid sweep: the screenshot right after Confirm can look stale; wait ~3 s and re-check before retrying.
+- Hero strip: Bone Archer position varies slightly (`(764,1580)` on Aminor vs `(787,1580)`) — verify the name.
+- Events: Pet Arena achievements — one **Claim/Nhận** claims all; 7777 Draws daily claim plays 30 free draws
+  → Confirm `(540,1756)`; don't tap the "claim one more time" (Nhận thêm một lần) button (likely paid).
+- Back tap after Tribe Chat can land on Recruit — back out again.
