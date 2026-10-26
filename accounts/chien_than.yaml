@@ -42,7 +42,7 @@ missions:
     trial: 1
     request: true
     assist: true
-    canyon_clash: true      # Mon–Fri purple 9/m spot (empty first, else attack non-tribe); Sat–Sun free Glory/Gold only
+    canyon_clash: true      # Mon–Fri purple 9/m spot (empty first, else attack non-tribe); Sat–Sun free Glory/Gold, else free purple/silver; no attacks
   fishing:
     min_order_diamonds: 3    # 3 = Legend+, 4 = Mythic+ (per account)
     ticket_pack_gem_price: 50 # buy 1 pack (5 refresh tickets) whenever out
