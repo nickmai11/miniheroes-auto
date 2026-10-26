@@ -304,3 +304,16 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords).
    (2 free + 1 at 50 gems). Read the price on the button every time; stop if it's not what's expected.
 3. Close the Tip ✕ `(936,638)` → **Claim All** `(742,1590)` → *Congratulations* (auto-closes) →
    dismiss `(540,120)`. Patrol timer resets to 00:00.
+
+## Rune synthesis (1/day)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
+
+1. Main screen → menu ☰ bottom-right `(994,1625)` → **Backpack** `(900,1775)` → **Rune** tab `(868,1680)`.
+2. Scroll down (`input swipe 540 1300 540 700 800`) to the red (Mythic) runes. Tap one **without a
+   lock** — the grid's tiny lock icons are easy to misread; the popup is the truth: a locked rune
+   says "Locked Runes can't be synthesized", an unlocked one shows **Synthesize** `(540,1200)`.
+   Never tap the lock toggle in the popup.
+3. *Synthesize Runes* dialog → **Quick Equip** `(417,1668)` (fills 4 same-quality runes — it picks the
+   lowest tier, e.g. 4 blue → 1 purple; that's fine) → **Synthesize** `(824,1668)` with ×1.
+4. Result → **Confirm** `(540,1190)` → close ✕ `(972,560)` → close Backpack ✕ `(972,238)`.

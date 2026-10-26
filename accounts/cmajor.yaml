@@ -50,3 +50,4 @@ missions:
     speed_patrol: 3          # total incl. 2 free; 3rd costs 50 gems
     max_gem_price: 50        # stop if a speed patrol costs more
     claim_all: true
+  rune_synthesis: 1        # Backpack → Rune → unlocked red rune → Quick Equip → Synthesize

@@ -1,6 +1,6 @@
 ---
 name: miniheroes-dailies
-description: Run Mini Heroes: Magic Throne daily missions (Land of Trials, Match, Shop/Play Pass freebies, Tower of the Throne, Secret Sanctuary, Gate of Darkness, free Recruit summons, hero upgrade, Tribe, Fishing, Divine Weapon, Adventure stage, Patrol) on Nick's MuMuPlayer accounts via computer use (or ADB), following per-account configs in the miniheroes-auto repo.
+description: Run Mini Heroes: Magic Throne daily missions (Land of Trials, Match, Shop/Play Pass freebies, Tower of the Throne, Secret Sanctuary, Gate of Darkness, free Recruit summons, hero upgrade, Tribe, Fishing, Divine Weapon, Adventure stage, Patrol, rune synthesis) on Nick's MuMuPlayer accounts via computer use (or ADB), following per-account configs in the miniheroes-auto repo.
 ---
 
 # Mini Heroes dailies
@@ -38,6 +38,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 | Fishing | Refresh daily orders until all ≥ `min_order_diamonds` (buy ticket pack 50 gems when out), claim Benefit, start Auto — then leave |
 | Divine Weapon | Benefit Claim Reward, then Excelsior Veins One-Click Mining until pickaxes = 0 (no `+`, no dynamite/drill) |
 | Patrol | Bag on main screen → Speed Patrol ×3 total (free, free, 50 gems; stop if price > `max_gem_price`), then Claim All |
+| Rune synthesis | ☰ → Backpack → Rune → unlocked red rune → Synthesize → Quick Equip → Synthesize (×1) |
 | Gate of Darkness | Run once (Confirm wave, never Restart; cap 1m30s, then Pause + quit), then Sweep the remaining chance |
 
 ## Hard rules
