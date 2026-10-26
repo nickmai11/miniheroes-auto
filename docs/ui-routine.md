@@ -4,6 +4,31 @@ All coordinates are in the **MuMu Android Device** game window's full-resolution
 (704×1289), as used by `computer_app_click` on that window (ADB uses device coords — see below). Instance window ids change after
 every restart — get a fresh one with `computer_app_list_windows`.
 
+## Daily run order (Nick, 2026-10-26)
+
+Run the missions in this order on each account:
+
+1. **Match** — exhaust tickets.
+2. **Fishing** — orders to threshold, Benefit, start Auto.
+3. **Patrol** — Speed Patrol ×3 + Claim All.
+4. **Shop** freebies.
+5. **Play Pass** claims.
+6. **Adventure** — everything in it: Tower of the Throne, Secret Sanctuary, Gate of Darkness, Land of Trials
+   (+ any other mapped Adventure mode).
+7. **Recruit** free summons.
+8. **Hero** upgrade (after the potion-giving steps above).
+9. **Tribe** — sign-in, Trial, chat Request + Assist.
+10. **Divine Weapon** — Benefit, Excelsior Veins, Forge.
+11. **Adventure stage** run (skull bubble).
+12. **Patrol** — Claim All only.
+13. **Rune** synthesis.
+14. **Match** — exhaust tickets again before wrapping up.
+15. **Grocery** free chests.
+16. **Fishing** — go back and collect the order rewards (exact claim step not mapped yet: screenshot the
+    Daily Order panel / Order Info and claim any completed order).
+
+A "Match attempts full" popup can interrupt any step: Confirm, exhaust Match, resume.
+
 ## ADB alternative (no computer use)
 
 Works without computer-use tools. Device frame is **1080×1920**; the rest of this doc uses
