@@ -1,6 +1,6 @@
 ---
 name: catch-up
-description: Mini Heroes: Magic Throne catch-up run - Match, Storm, Canyon, Fishing, Divine Weapon, Patrol, Tribe request/assist, free Common Recruitment on every account (except Cmajor unless asked), via ADB.
+description: Mini Heroes: Magic Throne catch-up run - Match, Storm, Canyon, Fishing, Divine Weapon, Patrol, Tribe request/assist, free Common Recruitment, event red dots on every account (except Cmajor unless asked), via ADB.
 ---
 
 # Mini Heroes catch-up
@@ -21,6 +21,8 @@ EXCEPT Cmajor (xFaktor, Aminor, Dminor, Chien Than), unless Nick names accounts.
    7. Tribe chat Request + Assist (Tribe section, step 4 only)
    8. Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available; if it's on
       cooldown or out of chances, skip — don't wait, never pay
+   9. Events red dots (Daily run order step 16): open event banners with a red dot, claim only free
+      Claim/Free rewards; never a $ or gem price, never draw/spin with paid currency
 4. Workers don't edit the repo; afterwards add new findings to the docs and commit.
 5. Close the MuMu instances used: `"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" close <idx,...>`.
 6. Report per account: each step done/skipped (and why) and every paid action with its price.
