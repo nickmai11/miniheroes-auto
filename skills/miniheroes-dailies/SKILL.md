@@ -1,6 +1,6 @@
 ---
 name: miniheroes-dailies
-description: Run Mini Heroes: Magic Throne daily missions (e.g. Land of Trials sweeps) on Nick's MuMuPlayer accounts via computer use (or ADB), following per-account configs in the miniheroes-auto repo.
+description: Run Mini Heroes: Magic Throne daily missions (Land of Trials, Match, Shop/Play Pass freebies, Tower of the Throne, Secret Sanctuary, Gate of Darkness) on Nick's MuMuPlayer accounts via computer use (or ADB), following per-account configs in the miniheroes-auto repo.
 ---
 
 # Mini Heroes dailies
@@ -21,6 +21,18 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 4. **Report** per account: each mission, free/paid done vs. configured, gems before/after, anything skipped and why.
 5. **Keep the repo current.** If you learn something new (new coordinates, a popup, a new mission mapped), update the relevant doc and commit it.
 
+## Missions (details in `docs/ui-routine.md`)
+
+| Mission | What to do |
+|---|---|
+| Land of Trials | Sweep per config counts (free first, paid ≤ price cap) |
+| Match (Arena) | Read the tribe roster first; crash highest-CP non-tribe opponent until tickets = 0 (see `/miniheroes-match`) |
+| Shop freebies | Value Pack Free Benefits Claim + Hero Pack "Select Hero" (+20 gems) — red dots only |
+| Play Pass | Weekly Card day tile + Lifetime Card Claim Reward |
+| Tower of the Throne | 1 challenge with only the weakest hero = **last in the list**; clear picks with the ↺ reset button |
+| Secret Sanctuary | Sweep → Confirm (free) |
+| Gate of Darkness | Run once (Confirm wave, never Restart; cap 1m30s, then Pause + quit), then Sweep the remaining chance |
+
 ## Hard rules
 
 - Configured counts are totals per day **including** free attempts. Use free first; pay with gems only up to the configured total.
@@ -29,4 +41,6 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 - On-screen counters are the source of truth for what was already done today.
 - Touch nothing outside the configured missions (no shop, purchases, settings, events).
 - If the screen is in an unexpected state, stop and report what you see.
+- Battles: never wait blind for minutes — poll and enforce the time cap given for the mode.
+- The back arrow `(92,1810)` overlaps the main screen's Recruit button: screenshot after every back tap.
 - If a mission isn't documented in `docs/ui-routine.md` yet, don't improvise it on a gem-spending path — map it with Nick first, then document it.

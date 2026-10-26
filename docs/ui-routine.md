@@ -182,3 +182,23 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords).
 Gotcha (all modes): the back arrow `(92,1810)` sits on top of the main screen's **Recruit** button.
 A back tap that lands after the screen has already changed opens Recruit. Screenshot after every
 back tap; if you're on Recruit, just tap back again (never Recruit 1/10).
+
+## Gate of Darkness (2 chances/day)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Endless-wave mode; progress carries over.
+
+1. Main screen → **Adventure** `(100,1460)` → wait for the list to finish sliding in (a tap during
+   the animation opens an item-info popup; close it by tapping `(540,1400)`) → Gate of Darkness **GO** `(787,1238)`.
+2. Screen shows "Chances left today: N" under **Start Challenge** `(540,960)`.
+3. **First chance — run it:** Start Challenge `(540,960)` → lineup (default top 10, keep it) →
+   **Start Challenge** `(540,1806)` → *Tip* "Start challenge from Wave N?" → **Confirm** `(760,1164)`.
+   **Never tap Restart** (resets wave progress).
+   - **Time cap 1m30s** from Confirm. If still fighting: tap **Pause** `(866,1227)` → quit the
+     battle (quit button coords not yet mapped; screenshot and pick the quit/exit option, never "restart").
+   - If it ends earlier: *Victory* (kill count + rewards) → **Confirm** `(540,1406)`.
+4. **Second chance — Sweep:** after a run, a green **Sweep** button appears `(938,1056)` next to
+   Start Challenge. Use it instead of running again (coords from screenshot, unverified).
+5. Verify "Chances left today" dropped each time.
+
+2026-10-26: run 1 = Victory, 2287 kills, Rank 1 (114K gold, 457 silver). The second chance's state
+is unknown — the screen jumped to Beast Realm mid-run (Nick may have been using the instance).
