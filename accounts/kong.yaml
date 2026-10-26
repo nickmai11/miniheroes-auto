@@ -1,7 +1,7 @@
 account:
   name: Kong
   mumu_instance: Kong
-  game_id: 15298308         # shown top-right in game (id | server p2 | version)
+  game_id: 15847271         # shown top-right in game (id | server p2 | version)
   enabled: true
   language: en              # en or vi; verify on first screenshot
 
@@ -53,9 +53,4 @@ missions:
     claim_all: true
   rune_synthesis: 1        # Backpack → Rune → unlocked red rune → Quick Equip → Synthesize
   grocery_free_chests: true  # 4 top-row chests: 1 + 3 + 3 + 3 claims
-  pet_arena:               # join + Auto Deploy (per-account strategy)
-    strategy: per_pet        # tick the Pet 1–N block, untick "Deploy by Stamina Order"
-    sprites: 2
-    pets:                    # rarity dropdown, stamina dropdown
-      - [Eternal, Highest Stamina]
-      - [Eternal, Lowest Stamina]
+  pet_arena: false        # Nick 2026-10-26: this account doesn't do Pet Arena
