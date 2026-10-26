@@ -27,3 +27,7 @@ missions:
   tower_of_the_throne: 1    # challenges/day with only the weakest hero
   secret_sanctuary: sweep   # free daily sweep of last cleared stage
   gate_of_darkness: run_then_sweep  # 1 run (max 1m30s, then pause+quit), then Sweep the rest
+  recruit:                  # free summons only
+    common: 2
+    ancestor: 1
+    artifact: 1             # Auto toggle must stay off

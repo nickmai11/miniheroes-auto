@@ -202,3 +202,19 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Endless-wave mode; progress
 
 2026-10-26: run 1 = Victory, 2287 kills, Rank 1 (114K gold, 457 silver). The second chance's state
 is unknown — the screen jumped to Beast Realm mid-run (Nick may have been using the instance).
+
+## Recruit (free summons only)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: **2 Common, 1 Ancestor, 1 Artifact**, all free.
+
+1. Main screen → **Recruit** `(96,1810)` (opens on Advanced Recruitment — skip it, it uses tickets).
+2. **Common Recruitment** tab `(188,1610)` → "Chances: N" + **Free** `(540,1355)`. Tap → result cards →
+   dismiss `(540,1700)` (wait ~2 s for the card flip). Do it twice. A cooldown (~5 min) shows
+   between free chances; if it's on, wait it out — never pay.
+3. **Ancestor Summon** tab `(896,1610)` → **Free** `(310,1355)` (red dot) → result → **Confirm**
+   `(300,1755)`. **Never "Recruit 1"** on the result screen (spends a ticket). Button then shows
+   "Free after HH:MM:SS".
+4. **Artifact** bottom tab `(618,1840)`. Check the **Auto** toggle `(882,1658)` is **off** (grey).
+   Tap **Free** `(540,1638)` once → fragment shown; the button turns into **Wish (500 stars)** — stop, that's paid.
+   Tiers with a gem price (Brilliance 280) are paid summons; ignore.
+5. Gems must be unchanged at the end.
