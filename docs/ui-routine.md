@@ -152,3 +152,18 @@ owns. Never tap a $ / purchase button.
 
 Note: on 2026-10-26 opening Play Pass already showed gems 5645 → 5875 and the second currency
 80 → 560 before any claim, cause unknown (an auto-credit on opening?). Record gems before opening.
+
+## Tower of the Throne (1 daily challenge)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Goal: one challenge for the daily task,
+using **only the weakest hero** (it's meant to lose; floors are ~17000K CP vs our ~6600K).
+
+1. Main screen → **Adventure** `(100,1460)` → Tower of the Throne **GO** `(787,687)`.
+   Ticket count top-left (10/day on Cmajor).
+2. **Challenge** `(540,1805)` → lineup screen (5 strongest heroes pre-selected).
+3. Clear the picks with the **reset ↺ button** `(1003,1084)` (top-right of the roster) — CP shows 0.
+4. Scroll the roster to the very bottom (`input swipe 540 1500 540 1100 400`, repeat ~15×).
+   The roster is sorted strongest → weakest: the **last hero in the list** is the weakest.
+   Tap it (one hero only) and check the CP top-left (686K on 2026-10-26, a Lv.160 purple hero).
+5. **Start** `(540,1808)` → *Defeat* screen. Dismiss by tapping `(540,1700)` (below the
+   "Challenge again" button — never tap that). Verify tickets dropped by 1.
