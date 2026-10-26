@@ -122,3 +122,17 @@ Goal: spend every free ticket crashing the highest-CP opponent who is **not in o
 
 Gotcha: a `swipe` once failed with `INJECT_EVENTS permission` and the game was then back on
 the main screen. Screenshot and re-navigate when that happens.
+
+## Shop freebies (red dots)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Nick explicitly allows this one Shop task:
+claim the **free** red-dot items only. Every other button in the Shop costs real money ($) — never tap them.
+
+1. Main screen → **Shop** `(100,330)` (opens on Value Pack tab).
+2. **Value Pack** → *Free Benefits* row → **Claim** `(894,787)` (10 gems + 1000 gold; button
+   becomes "Sold Out"). Dismiss with `(540,120)`.
+3. **Hero Pack** tab `(480,1846)` → **Select Hero** `(895,420)` (red dot): just opening the dialog
+   grants **20 gems**. Dismiss `(540,120)`, then close the dialog ✕ `(972,300)` **without picking a hero**.
+4. Check every tab for a remaining red dot; back arrow `(92,1810)`. Shop icon's dot is gone when done.
+
+Daily total on Cmajor: +30 gems.
