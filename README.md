@@ -50,9 +50,9 @@ per-request value — a byte-identical replay of a captured `POST /fam/sweep` is
 
 ## Daily schedule
 
-`~/Library/LaunchAgents/com.nick.miniheroes-dailies.plist` runs `scripts/run-dailies.sh` every day at 12:01:
+`~/Library/LaunchAgents/com.nick.miniheroes-dailies.plist` runs `scripts/run-dailies.sh` every day at 13:00:
 a headless `claude -p` run of the dailies for all accounts except Cmajor. Allowed commands are in
 `.claude/settings.json` (no push, no deletes). Output: `logs/dailies-<date>.log` + a macOS notification.
-Requires being logged in; if the Mac sleeps through 12:01 it runs on wake.
+Requires being logged in; if the Mac sleeps through 13:00 it runs on wake.
 - Run now: `launchctl kickstart gui/$(id -u)/com.nick.miniheroes-dailies`
 - Disable: `launchctl bootout gui/$(id -u)/com.nick.miniheroes-dailies`

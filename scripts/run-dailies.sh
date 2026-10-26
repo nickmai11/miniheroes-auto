@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Launched daily by ~/Library/LaunchAgents/com.nick.miniheroes-dailies.plist (12:01).
+# Launched daily by ~/Library/LaunchAgents/com.nick.miniheroes-dailies.plist (13:00).
 # Headless Claude run of the dailies for every account except Cmajor. Permissions: .claude/settings.json.
 REPO=${0:A:h:h}
 cd "$REPO" || exit 1
