@@ -35,6 +35,7 @@ docs/
 | Recruit (free summons) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Hero upgrade (Bone Archer) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Tribe (sign-in, trial, request/assist) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
+| Fishing (orders, benefit, auto) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Others | – | Add to `docs/ui-routine.md` + account configs as they're mapped |
 
 ## Why UI and not API

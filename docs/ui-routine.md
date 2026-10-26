@@ -253,3 +253,24 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). All free.
 
 Coordinate tip: screenshots are scaled ×0.469 (1080→506). Convert with device = view / 0.469 on
 **both** axes — a y-only miscalc made Sign-in taps miss silently.
+
+## Fishing (orders, benefit, auto fish)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started; leave it running.
+
+1. Main screen → **Fishing** `(624,1780)`.
+2. **Order Info** `(190,786)` → *Daily Order* dialog: 3 orders, refresh-ticket count top-left.
+   Tier = filled diamonds (5 max): 1 common, 2 rare, 3 legend, 4 mythic, 5 eternal (name turns red at 4+).
+   Target per account: `missions.fishing.min_order_diamonds` (Cmajor: 4 = Mythic+).
+3. Refresh buttons x=`849`, y = `704 / 1058 / 1412` (orders 1–3). Costs **1 refresh ticket**; first
+   time a *Order Refresh* confirm appears → tick "Do not remind me today" `(390,1380)` → **Confirm** `(757,1211)`.
+   Automate with `scripts/fish_orders.py ROW MAX` (pixel check on the diamonds; row y = 567/921/1275,
+   diamond x = 633/706/778/851/921; filled = R>200, empty = (58,85,115)).
+4. Out of tickets: buy with **50 gems** via `+` next to the ticket count (Nick: "buy 1 you'll have
+   5 tickets, buy more when out") — not yet exercised; screenshot the purchase popup and verify 50 gems.
+5. Close ✕ `(973,270)`. **Benefit** `(330,1800)` (if red dot) → **Claim Reward** `(540,1662)`
+   (60 bread, 5 refresh tickets, baits) → dismiss `(540,120)` → close ✕ `(970,238)`.
+6. **Auto** `(982,1222)` → *Auto Fish* settings (keep as-is: Auto-submit Orders ✓) → **Start** `(540,1485)`.
+   Button becomes "Auto Fishing". Leave it.
+
+2026-10-26: 4 refreshes (81 → 77 tickets) for 3 Mythic orders; no gems spent.

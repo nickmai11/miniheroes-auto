@@ -17,3 +17,6 @@ missions:
     mysterious_forest: 0
     moonlight_temple: 0
     gem_mine: 0
+  fishing:
+    min_order_diamonds: 3    # 3 = Legend+, 4 = Mythic+
+    ticket_pack_gem_price: 50
