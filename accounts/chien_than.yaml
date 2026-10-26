@@ -1,0 +1,55 @@
+# Duplicated from cmajor.yaml on 2026-10-26 - verify tribe, hero, Land of Trials counts on first run.
+account:
+  name: Chien Than
+  mumu_instance: Chien Than
+  game_id: null             # TODO: read top-right in game on first run
+  enabled: true
+
+safety:
+  # Never pay more than this for a single paid sweep. Stop and report if the price is higher.
+  max_gem_price_per_sweep: 160
+
+missions:
+  land_of_trials:
+    # total sweeps per day INCLUDING free attempts (2 free per dungeon on this account).
+    gem_mine: 4             # 2 free + 2 paid
+    moonlight_temple: 3     # 2 free + 1 paid
+    mysterious_forest: 3    # 2 free + 1 paid
+    # free only
+    abandoned_mine: 2
+    ancient_battlefield: 2
+
+  match:
+    tribe: Peakaboo         # never attack members (check the roster each run)
+    crash_all_tickets: true # use every free ticket, never buy more
+
+  shop_freebies: true       # free red-dot claims only (Value Pack Free Benefits, Hero Pack Select Hero)
+  play_pass_claims: true    # Weekly Card day tile + Lifetime Card daily (free, already owned)
+  tower_of_the_throne: 1    # challenges/day, pre-selected lineup
+  secret_sanctuary: sweep   # free daily sweep of last cleared stage
+  gate_of_darkness: run_then_sweep  # 1 run (max 1m30s, then pause+quit), then Sweep the rest
+  recruit:                  # free summons only
+    common: 2
+    ancestor: 1
+    artifact: 1             # Auto toggle must stay off
+  hero_upgrade:             # daily task: +1 hero level and +1 gear level
+    hero: Bone Archer
+    hero_levels: 1
+    gear_slot: 1
+    gear_levels: 1
+  tribe:                    # sign-in, 1 Tribe Trial, chat Request (if off cooldown) + Assist
+    sign_in: true
+    trial: 1
+    request: true
+    assist: true
+  fishing:
+    min_order_diamonds: 4    # 3 = Legend+, 4 = Mythic+ (per account)
+    ticket_pack_gem_price: 50 # buy 1 pack (5 refresh tickets) whenever out
+  divine_weapon: true      # Benefit claim + Excelsior Veins One-Click Mining until 0 pickaxes
+  adventure_stage: 1       # runs/day via the skull bubble
+  patrol:
+    speed_patrol: 3          # total incl. 2 free; 3rd costs 50 gems
+    max_gem_price: 50        # stop if a speed patrol costs more
+    claim_all: true
+  rune_synthesis: 1        # Backpack → Rune → unlocked red rune → Quick Equip → Synthesize
+  grocery_free_chests: true  # 4 top-row chests: 1 + 3 + 3 + 3 claims
