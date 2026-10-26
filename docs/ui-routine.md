@@ -339,3 +339,18 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
    price) → claim → dismiss `(540,120)`. If no chest says Free but some show a cooldown, wait it out
    and keep going. Done only when all 4 show **Sold Out**. Growth Chest gives +80 gems per claim.
 4. Close ✕ `(966,222)`.
+
+## Gotchas from xFaktor run (2026-10-26)
+
+- Instances with a 600×1080 display: `adb shell wm size 1080x1920 && adb shell wm density 480`, restart the
+  game → all device coords here apply. Undo with `wm size reset` / `wm density reset`.
+- Secret Sanctuary first time: "Bonus Effects" intro → Confirm `(540,1616)`.
+- Gate of Darkness: Pause → **Quit Battle** `(376,920)` (still counts as Victory) → Confirm `(540,1406)`
+  → **Sweep** `(942,1058)` → Confirm `(760,1370)`.
+- Land of Trials: dismissing the reward with `(540,120)` can close the whole dialog; `(540,700)` is safer.
+  Dialog ✕ `(970,570)` may need a second tap.
+- Fishing ticket purchase: `+` `(272,425)` → Purchase `(540,1203)`; popup stays open, close by tapping `(540,1600)`.
+- Grocery: Free button pixel `(480,1344)` green (123,206,49) = claimable, grey (173,178,189) = cooldown;
+  chests 2–4 cooldown ~5–8 s.
+- Excelsior Veins back arrow returns to Arsenal, not main screen — back again.
+- Match tickets can exceed the cap ("Full", e.g. 7/6) after rewards.
