@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>com.nick.miniheroes-canyon</string>
+	<string>com.nick.miniheroes-monday</string>
 	<key>ProgramArguments</key>
 	<array>
 		<string>/Users/nickm/projects/chidojiro/miniheroes-auto/scripts/run-dailies.sh</string>
-		<string>canyon</string>
+		<string>monday</string>
 	</array>
 	<key>StandardErrorPath</key>
-	<string>/Users/nickm/projects/chidojiro/miniheroes-auto/logs/launchd-canyon.err</string>
+	<string>/Users/nickm/projects/chidojiro/miniheroes-auto/logs/launchd-monday.err</string>
 	<key>StandardOutPath</key>
-	<string>/Users/nickm/projects/chidojiro/miniheroes-auto/logs/launchd-canyon.out</string>
+	<string>/Users/nickm/projects/chidojiro/miniheroes-auto/logs/launchd-monday.out</string>
 	<key>StartCalendarInterval</key>
 	<dict>
 		<key>Hour</key>

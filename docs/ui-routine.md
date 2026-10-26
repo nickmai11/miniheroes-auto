@@ -10,7 +10,8 @@ Run the missions in this order on each account:
 
 0. **Pet Arena** — **Mon/Tue/Wed only** (skip other days): join + Auto Deploy (see "Pet Arena" below);
    runs on its own.
-0b. **Storm Battlefield** — right after Pet Arena (see "Storm Battlefield" below).
+0b. **Storm Battlefield** — right after Pet Arena (see "Storm Battlefield" below). Skip on Mondays — closed
+   until 17:00; the Monday 17:05 run does it.
 1. **Match** — exhaust tickets.
 2. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto. Don't collect order rewards here.
 3. **Patrol** — Speed Patrol ×3 + Claim All.
@@ -478,7 +479,7 @@ Added by Nick 2026-10-26; mapped on Cmajor via ADB (device coords).
 
 **Season: opens Monday 17:00, closes the next Monday 06:00.** So Tue–Sun it's part of the normal dailies; on
 **Monday** it's closed during the 13:00 dailies — do it in the separate Monday **17:05** run instead
-(`schedules/com.nick.miniheroes-canyon.plist` → `scripts/run-dailies.sh canyon`).
+(`schedules/com.nick.miniheroes-monday.plist` → `scripts/run-dailies.sh monday`, which does Storm + Canyon).
 
 Entry: main screen → **Tribe** `(448,1780)` → **Canyon Clash** card `(540,1090)` → vertical map (scroll with
 `input swipe 540 1500 540 600 600`). Header shows your current spot ("Unoccupied" or e.g. "Silver Battlefield",
@@ -514,6 +515,9 @@ Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 c
 ## Storm Battlefield (right after Pet Arena)
 
 Added by Nick 2026-10-26; mapped on Cmajor via ADB (device coords). Free tickets only.
+
+**Season: opens Monday 17:00, closes the next Monday 05:00** (like Canyon Clash). Tue–Sun: part of the normal
+dailies. Monday: closed during the 13:00 run — done by the Monday 17:05 run instead.
 
 1. Main screen → **2nd event card** (top right, y≈480). It rotates every few seconds (Storm Battlefield /
    Dragon Temple…); swiping it doesn't work — wait until it shows **Storm Battlefield** (gold card), then tap
