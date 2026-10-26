@@ -8,9 +8,10 @@ every restart — get a fresh one with `computer_app_list_windows`.
 
 Run the missions in this order on each account:
 
+0. **Pet Arena** — **Mon/Tue/Wed only** (skip other days): join + Auto Deploy (see "Pet Arena" below);
+   runs on its own.
 1. **Match** — exhaust tickets.
 2. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto. Don't collect order rewards here.
-2b. **Pet Arena** — join + Auto Deploy (see "Pet Arena" below); runs on its own like auto fishing.
 3. **Patrol** — Speed Patrol ×3 + Claim All.
 4. **Shop** freebies.
 5. **Play Pass** claims.
@@ -451,6 +452,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
 
 ## Pet Arena (join + Auto Deploy)
 
+**Only open Mon, Tue, Wed** — skip on other days. Run it first in the dailies.
 Added by Nick 2026-10-26. Strategy is per account (`missions.pet_arena` in the config); for now all accounts
 use **Stamina order High to Low, 4 sprites**.
 
