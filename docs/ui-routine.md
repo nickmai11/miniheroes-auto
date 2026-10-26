@@ -479,6 +479,7 @@ tribe member, **purple** = not in our tribe.
 - **Mon–Fri:** take a **purple (9/m) spot**. Prefer an **empty** one. If none is empty, attack a purple
   spot held by someone **not** in our tribe (purple name background; cross-check `accounts/tribe_peakaboo.txt`).
   Never attack a blue-name (tribe) player.
-- **Sat–Sun:** take **Glory** and **Gold** spots **only if they're free/empty**. **Don't attack anyone.**
-  If no Glory/Gold spot is free, take a free **purple or silver** spot instead (still no attacks).
+- **Sat–Sun:** take **Glory** and **Gold** spots **only if they're free/empty** — never attack for them.
+  If no Glory/Gold spot is free: go for a **purple/silver** spot — prefer a **free** one; if none is free,
+  attack one held by a **non-tribemate** (purple name background). Never attack a blue-name (tribe) player.
 - Never spend gems.
