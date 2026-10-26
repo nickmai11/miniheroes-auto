@@ -31,3 +31,8 @@ missions:
     common: 2
     ancestor: 1
     artifact: 1             # Auto toggle must stay off
+  hero_upgrade:             # daily task: +1 hero level and +1 gear level
+    hero: Bone Archer
+    hero_levels: 1
+    gear_slot: 1
+    gear_levels: 1

@@ -1,6 +1,6 @@
 ---
 name: miniheroes-dailies
-description: Run Mini Heroes: Magic Throne daily missions (Land of Trials, Match, Shop/Play Pass freebies, Tower of the Throne, Secret Sanctuary, Gate of Darkness, free Recruit summons) on Nick's MuMuPlayer accounts via computer use (or ADB), following per-account configs in the miniheroes-auto repo.
+description: Run Mini Heroes: Magic Throne daily missions (Land of Trials, Match, Shop/Play Pass freebies, Tower of the Throne, Secret Sanctuary, Gate of Darkness, free Recruit summons, hero upgrade) on Nick's MuMuPlayer accounts via computer use (or ADB), following per-account configs in the miniheroes-auto repo.
 ---
 
 # Mini Heroes dailies
@@ -32,6 +32,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 | Tower of the Throne | 1 challenge with only the weakest hero = **last in the list**; clear picks with the ↺ reset button |
 | Secret Sanctuary | Sweep → Confirm (free) |
 | Recruit | Free only: 2× Common, 1× Ancestor (then Confirm, never Recruit 1), 1× Artifact with Auto **off** |
+| Hero upgrade | Bone Archer (end of hero strip): Level Up ×1, 1st gear Enhance ×1 — never the ↑ quick-level buttons |
 | Gate of Darkness | Run once (Confirm wave, never Restart; cap 1m30s, then Pause + quit), then Sweep the remaining chance |
 
 ## Hard rules

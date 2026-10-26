@@ -218,3 +218,17 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: **2 Common, 1 Ancest
    Tap **Free** `(540,1638)` once → fragment shown; the button turns into **Wish (500 stars)** — stop, that's paid.
    Tiers with a gem price (Brilliance 280) are paid summons; ignore.
 5. Gems must be unchanged at the end.
+
+## Hero upgrade (Bone Archer +1 level, 1st gear +1)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Costs potions/gold/stones only, never gems.
+
+1. Main screen → **Hero** `(274,1810)`. Hero strip at y≈1536: swipe left to the end
+   (`input swipe 950 1536 150 1536 300`, ~15×).
+2. **Bone Archer** (Lv.57-ish skeleton, 3 purple stars, Mythic) is second to last: `(787,1580)`.
+   Verify the name top-left.
+3. **Level Up** `(540,1178)` **once** → level +1 (cost ~23000 potions). Its position shifts after
+   the first tap ("↑ Lv.90" quick-level button appears above it at `(540,1060)`) — never tap that.
+4. 1st gear (bow, top-left slot) `(117,360)` → popup "Swift Longbow LV.N » N+1", cost gold + stones.
+   **Enhance** `(540,1395)` **once**. Never the "↑ Lv.69" quick button or Reset.
+5. Close popup `(540,120)`; verify the gear badge shows N+1.

@@ -33,6 +33,7 @@ docs/
 | Secret Sanctuary sweep | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Gate of Darkness (run + sweep) | UI (ADB) | Mapped on Cmajor, 2026-10-26 (quit button unmapped) |
 | Recruit (free summons) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
+| Hero upgrade (Bone Archer) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Others | – | Add to `docs/ui-routine.md` + account configs as they're mapped |
 
 ## Why UI and not API
