@@ -14,7 +14,7 @@ Run the missions in this order on each account:
    until 17:00; run `/catch-up` after 17:00.
 1. **Match** — exhaust tickets.
 2. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto. Don't collect order rewards here.
-3. **Patrol** — Speed Patrol ×3 + Claim All.
+3. **Patrol** — Speed Patrol until the price is 100 gems (don't buy that one) + Claim All.
 4. **Shop** freebies.
 5. **Play Pass** claims.
 6. **Adventure** — everything in it: Tower of the Throne, Secret Sanctuary, Gate of Darkness, Land of Trials
@@ -373,8 +373,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords).
 1. Main screen → patrol **bag** with timer, right side `(983,1463)` → *Loot* dialog.
 2. **Speed Patrol** `(337,1590)` → *Tip* "Obtain 4 hours of Patrol Gains" → price button `(540,1164)` →
    *Congratulations* → dismiss `(540,1700)` → the Tip reopens with the next price.
-   Prices per day: **Free, Free, 50, 100, …** (escalates). Daily target = **3 claims total**
-   (2 free + 1 at 50 gems). Read the price on the button every time; stop if it's not what's expected.
+   Prices per day: **Free, Free, 50, 100, …** (escalates). Keep claiming until the button shows
+   **100 gems** — don't buy that one, stop (Nick, 2026-10-26). Read the price on the button every time.
 3. Close the Tip ✕ `(936,638)` → **Claim All** `(742,1590)` → *Congratulations* (auto-closes) →
    dismiss `(540,120)`. Patrol timer resets to 00:00.
 
@@ -604,13 +604,15 @@ dailies. Monday: closed until 17:00 — run `/catch-up` after that.
    welcome screen). Verify the CP is the top-5 value before the first Start Match.
 3. Arena screen: tickets `N/5` at `(540,1428)`. **Start Match** `(540,1610)` → matches vary: some are instant (~5–8 s), close ones are
    real fights (~60–80 s) — poll until the arena screen is back → *Victory/Defeat* → tap `(540,120)`. Repeat until 0/5.
-4. **Free tickets — check ONCE per run** (Nick, 2026-10-26). `scripts/storm.py` does all of steps 3–4: plays until 0,
-   then opens the **+** popup (or the game opens it itself on Start Match at 0) **one time**: **Watch Video – Free**
-   `(350,1274)` while green (+1 ticket each, no actual ad), never **Diamonds 30 Redeem**, close `(100,1150)`, play
-   the new tickets; next time tickets hit 0 → close the popup and stop. Don't reopen + yourself afterwards.
-   Free button state: read the button **body** `(260,1274)` — green (123,206,49) = chances left, grey (181,178,181) =
-   "Chances: 0". `(350,1274)` is the white "Free" text: the old check sampled it, never saw grey, and storm.py
-   looped Start Match ↔ popup tapping `(540,120)` — the "stuck collecting free tickets" bug (fixed 2026-10-26).
+4. **Free tickets — one visit of the + popup per run** (Nick, 2026-10-26). `scripts/storm.py` does steps 3–4: plays
+   until 0, then (popup opens itself on Start Match at 0, or via **+**) taps the **left green button** until it's grey.
+   Three looks, any language: **Free / Miễn phí** (pass accounts, instant), **Claim / Nhận** with a camera icon
+   (no pass → real video ad, Mintegral `MBRewardVideoActivity`), or grey "Chances: 0" = done. Never
+   **Diamonds 30 Redeem**. Ads: wait for the video to end (~35 s), then Android **Back** (`keyevent 4`) closes the end
+   card and grants +1 — Back mid-video aborts with no reward (chance not used). Never tap the ad body/Install.
+   Then close `(100,1150)`, play the new tickets; next time tickets hit 0 → close the popup and stop.
+   Button state: sample `(260,1250)` — green (123,206,49) / grey (181,178,181). `(260,1274)` hits the "Free" text or
+   the camera icon: that made storm.py miss the ad popup, "dismiss" it as a Victory and count fake 5 s matches.
 5. **Rewards** `(96,880)` (left side) — if it has a red dot: *Rank Reward* tab lists King/Glory/Gold/Silver/Bronze
    rows; tap a reached rank's highlighted item (e.g. Bronze `(372,1404)`) → claims the whole row (checkmarks) →
    dismiss `(540,1900)`. *Ranking Rewards* tab = end-of-season table, nothing to claim. Close ✕ `(972,228)`;
