@@ -496,7 +496,9 @@ appear — prefer those first; otherwise a Sentinel-held spot (no player) counts
 **purple** = not in our tribe; your own spot shows a **green** name.
 
 **Scan the whole map first** (scroll top → bottom, screenshot each screen) and choose by priority — empty
-platform > Sentinel-held > non-tribe player — before tapping anything. Spots change while you scroll.
+platform > Sentinel-held > non-tribe player — before tapping anything.
+Silver (purple-platform) spots: consider **only the first 10** from the top (Nick, 2026-10-26) — ignore
+silver spots further down. Spots change while you scroll.
 
 Empty platform: tap it (wait for map scroll inertia to stop first, or the tap misses) → popup "About to occupy
 the empty <Type> Battlefield — costs no challenge attempts" → **Occupy** `(744,1340)` → wait ~3–5 s: if you already held a spot, a *Resource* popup ("you left the old
