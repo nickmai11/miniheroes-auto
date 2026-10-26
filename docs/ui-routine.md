@@ -461,7 +461,9 @@ use **Stamina order High to Low, 4 sprites**.
    - Strategy `stamina_order`: tick **Deploy by Stamina Order** (right checkbox) and set its dropdown to
      config `order` (**High to Low**; options High to Low / Low to High / Random Selection). The per-pet
      rows (Pet 1–4 rarity + stamina) stay unticked.
-   - Strategy `per_pet` (future accounts): untick the stamina row, tick the Pet 1–4 block and set each row.
+   - Strategy `per_pet`: untick the stamina row, tick the Pet 1–4 block, and set each Pet row's rarity +
+     stamina dropdowns from config `pets` (only the first `sprites` rows are used). E.g. Cmajor: 2 sprites,
+     Pet 1 = Eternal + Highest Stamina, Pet 2 = Eternal + Lowest Stamina.
    - Keep **Auto-Stop when free attempts are used up** ✓ and **If available slots < set amount…** ✓.
 3. **Start**. Leave it running. Coords not mapped yet — screenshot every step on the first run.
    Never buy attempts.
