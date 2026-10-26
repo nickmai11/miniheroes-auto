@@ -483,6 +483,18 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
 - **Forge (Dino):** stopped responding at 4/8 even with 3 s gaps — cause unknown, skip after 2 tries.
 - Unmapped, left alone: Adventure → Ancient Ruins (red dot), main-screen "Mars's Gift".
 
+## Gotchas from Bino run (2026-10-26)
+
+- No Play Pass → many "Free" rewards are **video ads** (camera icon / "Purchase Play Pass to skip ad"): Common
+  Recruitment, Grocery chests 2–4, Storm "+" Watch Video, Wish Festival Gift Free Pack. Skip them.
+- Monthly Card (not owned): the left free-track item of each "Points reached" row has its own yellow **Claim**
+  (red dot) — free; "Continue to claim" (green) wants the purchase, skip. Rows `y` shift as you scroll.
+- `tap.py` taps can register late with NO_CHANGE: Level Up tapped twice gave +2 levels. Re-screenshot after ~1.5 s
+  before retrying a tap that "did nothing".
+- Match Challenge list: after scrolling to row 6, rows shift ~+100 px — re-read the screenshot before tapping.
+- Pet Arena / Tower / Sanctuary / Gate / Recruit / Patrol were already done earlier that day — trust the counters, not the plan.
+- Canyon: already holding a Gold spot (12/min) beats a purple 9/m — keep it.
+
 ## Pet Arena (join + Auto Deploy)
 
 **Only open Mon, Tue, Wed** — skip on other days. Run it first in the dailies.
