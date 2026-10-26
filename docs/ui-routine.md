@@ -484,6 +484,9 @@ Map, top → bottom: player-held spots (green dome = shield), then **Gold Sentin
 appear — prefer those first; otherwise a Sentinel-held spot (no player) counts as free — beat it to take it. Occupant names: **blue** name background = tribe member,
 **purple** = not in our tribe; your own spot shows a **green** name.
 
+**Scan the whole map first** (scroll top → bottom, screenshot each screen) and choose by priority — empty
+platform > Sentinel-held > non-tribe player — before tapping anything. Spots change while you scroll.
+
 Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 challenge attempt" → **Challenge**
 `(742,1334)` (Cancel `(336,1334)`) → lineup (top 5 pre-selected, keep) → **Start** `(540,1808)` → battle ~10–45 s
 (poll; it may return straight to the map with no Victory screen — check the header) → *Victory* → tap anywhere `(540,1500)`. Done once you hold a spot — one per day is enough.
