@@ -480,13 +480,13 @@ Occ. Time, Occ. Gains) and **Attempts N** (5 on Cmajor; never tap `+`, buys more
 
 Map, top → bottom: player-held spots (green dome = shield), then **Gold Sentinel** spots (white/gold platforms,
 ~60K CP NPCs), then **Silver Sentinel** spots (purple platforms = the "purple 9/m" spots: 9/min + 1 medal/h,
-~41–44K CP NPCs). Glory spots are presumably above/among the top ones. "Free/empty" here = held by a Sentinel
-NPC (no player) — beat it to take the spot. Occupant names: **blue** name background = tribe member,
+~41–44K CP NPCs). Glory spots are presumably above/among the top ones. Truly **empty** platforms (no occupant at all) also
+appear — prefer those first; otherwise a Sentinel-held spot (no player) counts as free — beat it to take it. Occupant names: **blue** name background = tribe member,
 **purple** = not in our tribe; your own spot shows a **green** name.
 
 Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 challenge attempt" → **Challenge**
-`(742,1334)` (Cancel `(336,1334)`) → lineup (top 5 pre-selected, keep) → **Start** `(540,1808)` → battle ~45 s
-(poll) → *Victory* → tap anywhere `(540,1500)`. Done once you hold a spot — one per day is enough.
+`(742,1334)` (Cancel `(336,1334)`) → lineup (top 5 pre-selected, keep) → **Start** `(540,1808)` → battle ~10–45 s
+(poll; it may return straight to the map with no Victory screen — check the header) → *Victory* → tap anywhere `(540,1500)`. Done once you hold a spot — one per day is enough.
 
 - **Mon–Fri:** take a **purple (9/m) spot**. Prefer an **empty** one. If none is empty, attack a purple
   spot held by someone **not** in our tribe (purple name background; cross-check `accounts/tribe_peakaboo.txt`).
