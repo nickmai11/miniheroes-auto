@@ -10,7 +10,7 @@ Use when Nick asks for "match dailies", "arena", or "crash" on a Mini Heroes acc
 1. In `~/projects/chidojiro/miniheroes-auto`, read `CLAUDE.md`, the **Match (Arena)** section of
    `docs/ui-routine.md`, and `accounts/<account>.yaml` (`missions.match`).
 2. Connect (ADB route: see "ADB alternative" in `docs/ui-routine.md`).
-3. **Read the full tribe member list first.** Tribemates appear as opponents.
+3. **Use the saved tribe roster** (`accounts/tribe_<name>.txt`; members are fixed). Read it in-game only if the file is missing, then save it.
 4. Loop until tickets = 0: open Challenge, pick the highest-CP **Crash** row not on the roster,
    crash, dismiss, verify the ticket count dropped.
 5. Report: tickets before/after, each opponent crashed (name, CP), match points before/after,

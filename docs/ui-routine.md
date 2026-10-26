@@ -104,7 +104,8 @@ Mapped 2026-10-26 on Cmajor via ADB. **Device coords (1080×1920)**; window coor
 
 Goal: spend every free ticket crashing the highest-CP opponent who is **not in our tribe**.
 
-1. **Get the tribe roster first, every run** (members change). Main screen → **Tribe** `(448,1780)`
+1. **Tribe roster:** members are fixed (Nick, 2026-10-26). Use the saved list in `accounts/tribe_<name>.txt`;
+   only read it in-game if that file doesn't exist yet (then save it). Main screen → **Tribe** `(448,1780)`
    → **Member** `(192,474)` → read all names (29/30 on Peakaboo; scroll with
    `input swipe 540 1550 540 750 1500`). Close ✕ `(972,238)`, back arrow `(98,1808)`.
    Tribemates also show up in Arena (e.g. Morrígan, Zues, Aminor on 2026-10-26), so don't skip this.

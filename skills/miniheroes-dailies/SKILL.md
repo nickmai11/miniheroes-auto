@@ -26,7 +26,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 | Mission | What to do |
 |---|---|
 | Land of Trials | Sweep per config counts (free first, paid ≤ price cap) |
-| Match (Arena) | Read the tribe roster first; crash highest-CP non-tribe opponent until tickets = 0 (see `/miniheroes-match`) |
+| Match (Arena) | Use the saved tribe roster (`accounts/tribe_<name>.txt`); crash highest-CP non-tribe opponent until tickets = 0 (see `/miniheroes-match`) |
 | Shop freebies | Value Pack Free Benefits Claim + Hero Pack "Select Hero" (+20 gems) — red dots only |
 | Play Pass | Weekly Card day tile + Lifetime Card Claim Reward |
 | Tower of the Throne | 1 challenge with the pre-selected lineup |
