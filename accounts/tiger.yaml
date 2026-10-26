@@ -1,0 +1,57 @@
+account:
+  name: Tiger
+  mumu_instance: Tiger
+  game_id: null
+  enabled: true
+  language: en
+
+safety:
+  max_gem_price_per_sweep: 160
+
+missions:
+  land_of_trials:
+    gem_mine: 3
+    moonlight_temple: 3
+    mysterious_forest: 2
+    abandoned_mine: 2
+    ancient_battlefield: 2
+
+  match:
+    tribe: Vie Gang
+    crash_all_tickets: true
+
+  shop_freebies: true
+  play_pass_claims: true
+  tower_of_the_throne: 1
+  secret_sanctuary: sweep
+  gate_of_darkness: run_then_sweep
+  recruit:
+    common: 2
+    ancestor: 1
+    artifact: 1
+  hero_upgrade:
+    hero: Bone Archer
+    hero_levels: 1
+    gear_slot: 1
+    gear_levels: 1
+  tribe:
+    sign_in: true
+    trial: 1
+    request: true
+    assist: true
+    canyon_clash: true
+  fishing:
+    min_order_diamonds: 3
+    ticket_pack_gem_price: 50
+  divine_weapon: true
+  adventure_stage: 1
+  patrol:
+    speed_patrol: until_100   # keep buying until the price shows 100 gems, then stop
+    max_gem_price: 50
+    claim_all: true
+  rune_synthesis: 1
+  grocery_free_chests: true
+  pet_arena:
+    strategy: stamina_order
+    order: high_to_low
+    sprites: 4

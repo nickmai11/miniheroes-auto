@@ -1,27 +1,23 @@
-# Copy to accounts/<instance-name>.yaml (lowercase).
 account:
-  name: Example             # how Nick refers to it
-  mumu_instance: Example    # instance name in MuMuPlayer (window title)
+  name: Example
+  mumu_instance: Example
   enabled: true
-  language: en              # en or vi (game UI language)
+  language: en
 
 safety:
-  # Never pay more than this for a single paid sweep. Stop and report if the price is higher.
   max_gem_price_per_sweep: 80
 
 missions:
   land_of_trials:
-    # total sweeps per day INCLUDING free attempts (0 = skip).
-    # Free attempts are used first; anything above them is paid with gems.
     abandoned_mine: 0
     ancient_battlefield: 0
     mysterious_forest: 0
     moonlight_temple: 0
     gem_mine: 0
   fishing:
-    min_order_diamonds: 3    # 3 = Legend+, 4 = Mythic+
+    min_order_diamonds: 3
     ticket_pack_gem_price: 50
-  pet_arena:               # join + Auto Deploy (per-account strategy)
-    strategy: stamina_order  # stamina_order | per_pet
-    order: high_to_low       # high_to_low | low_to_high | random
+  pet_arena:
+    strategy: stamina_order
+    order: high_to_low
     sprites: 4

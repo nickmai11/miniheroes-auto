@@ -1,60 +1,57 @@
-# Duplicated from cmajor.yaml on 2026-10-26 - verify tribe, hero, Land of Trials counts on first run.
 account:
   name: Chien Than
   mumu_instance: Chien Than
-  game_id: null             # TODO: read top-right in game on first run
+  game_id: null
   enabled: true
-  language: en              # en or vi; verify on first screenshot
+  language: en
 
 safety:
-  # Never pay more than this for a single paid sweep. Stop and report if the price is higher.
   max_gem_price_per_sweep: 160
 
 missions:
   land_of_trials:
-    # total sweeps per day INCLUDING free attempts (2 free per dungeon on this account).
-    gem_mine: 3             
-    moonlight_temple: 3     
+    gem_mine: 3
+    moonlight_temple: 3
     mysterious_forest: 2
     abandoned_mine: 2
     ancient_battlefield: 2
 
   match:
-    tribe: Peakaboo         # never attack members (check the roster each run)
-    crash_all_tickets: true # use every free ticket, never buy more
+    tribe: Peakaboo
+    crash_all_tickets: true
 
-  shop_freebies: true       # free red-dot claims only (Value Pack Free Benefits, Hero Pack Select Hero)
-  play_pass_claims: true    # Weekly Card day tile + Lifetime Card daily (free, already owned)
-  tower_of_the_throne: 1    # challenges/day, pre-selected lineup
-  secret_sanctuary: sweep   # free daily sweep of last cleared stage
-  gate_of_darkness: run_then_sweep  # 1 run (max 1m30s, then pause+quit), then Sweep the rest
-  recruit:                  # free summons only
+  shop_freebies: true
+  play_pass_claims: true
+  tower_of_the_throne: 1
+  secret_sanctuary: sweep
+  gate_of_darkness: run_then_sweep
+  recruit:
     common: 2
     ancestor: 1
-    artifact: 1             # Auto toggle must stay off
-  hero_upgrade:             # daily task: +1 hero level and +1 gear level
+    artifact: 1
+  hero_upgrade:
     hero: Bone Archer
     hero_levels: 1
     gear_slot: 1
     gear_levels: 1
-  tribe:                    # sign-in, 1 Tribe Trial, chat Request (if off cooldown) + Assist
+  tribe:
     sign_in: true
     trial: 1
     request: true
     assist: true
-    canyon_clash: true      # Mon–Fri purple 9/m spot (empty first, else attack non-tribe); Sat–Sun free Glory/Gold, else purple/silver (free first, else attack non-tribe)
+    canyon_clash: true
   fishing:
-    min_order_diamonds: 3    # 3 = Legend+, 4 = Mythic+ (per account)
-    ticket_pack_gem_price: 50 # buy 1 pack (5 refresh tickets) whenever out
-  divine_weapon: true      # Benefit claim + Excelsior Veins until 0 pickaxes + Forge all if none in progress
-  adventure_stage: 1       # runs/day via the skull bubble
+    min_order_diamonds: 3
+    ticket_pack_gem_price: 50
+  divine_weapon: true
+  adventure_stage: 1
   patrol:
-    speed_patrol: 3          # total incl. 2 free; 3rd costs 50 gems
-    max_gem_price: 50        # stop if a speed patrol costs more
+    speed_patrol: until_100   # keep buying until the price shows 100 gems, then stop
+    max_gem_price: 50
     claim_all: true
-  rune_synthesis: 1        # Backpack → Rune → unlocked red rune → Quick Equip → Synthesize
-  grocery_free_chests: true  # 4 top-row chests: 1 + 3 + 3 + 3 claims
-  pet_arena:               # join + Auto Deploy (per-account strategy)
-    strategy: stamina_order  # stamina_order | per_pet
-    order: high_to_low       # high_to_low | low_to_high | random
+  rune_synthesis: 1
+  grocery_free_chests: true
+  pet_arena:
+    strategy: stamina_order
+    order: high_to_low
     sprites: 4
