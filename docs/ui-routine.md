@@ -9,7 +9,7 @@ every restart — get a fresh one with `computer_app_list_windows`.
 Run the missions in this order on each account:
 
 1. **Match** — exhaust tickets.
-2. **Fishing** — orders to threshold, Benefit, start Auto.
+2. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto. Don't collect order rewards here.
 3. **Patrol** — Speed Patrol ×3 + Claim All.
 4. **Shop** freebies.
 5. **Play Pass** claims.
@@ -24,7 +24,7 @@ Run the missions in this order on each account:
 13. **Rune** synthesis.
 14. **Match** — exhaust tickets again before wrapping up.
 15. **Grocery** free chests.
-16. **Fishing** — go back and collect the order rewards (exact claim step not mapped yet: screenshot the
+16. **Fishing** — the only place order rewards are collected: go back and collect them (exact claim step not mapped yet: screenshot the
     Daily Order panel / Order Info and claim any completed order).
 
 A "Match attempts full" popup can interrupt any step: Confirm, exhaust Match, resume.
@@ -305,7 +305,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started
    diamond x = 633/706/778/851/921; filled = R>200, empty = (58,85,115)).
 4. Out of tickets: buy with **50 gems** via `+` next to the ticket count (Nick: "buy 1 you'll have
    5 tickets, buy more when out") — not yet exercised; screenshot the purchase popup and verify 50 gems.
-5. Close ✕ `(973,270)`. **Benefit** `(330,1800)` (if red dot) → **Claim Reward** `(540,1662)`
+5. Close ✕ `(973,270)`. **Benefit** `(330,1800)` **only if it has a red dot** — no red dot = don't open it → **Claim Reward** `(540,1662)`
    (60 bread, 5 refresh tickets, baits) → dismiss `(540,120)` → close ✕ `(970,238)`.
 6. **Auto** `(982,1222)` → *Auto Fish* settings (keep as-is: Auto-submit Orders ✓) → **Start** `(540,1485)`.
    Button becomes "Auto Fishing". Leave it.
