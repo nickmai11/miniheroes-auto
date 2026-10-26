@@ -36,6 +36,15 @@ The only money check is reading the price on screen before any paid tap and resp
 its own scratch dir for screenshots; workers don't edit the repo — they report, and the coordinator
 updates the docs. Set each instance to 1080×1920 first (see "Gotchas from xFaktor run").
 
+## Speed: `scripts/tap.py`
+
+Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png]` for every tap (device coords):
+it waits only until the screen changes and settles (~1 s per tap, max 4 s) instead of a fixed sleep,
+and saves a 540×960 screenshot (multiply its coords ×2 for device coords). No args = screenshot only (~0.4 s).
+- Chain known taps of a flow in one call; screenshot-check only at decision points (prices, counters,
+  unexpected popups). Always check the current screen before the first tap of a flow.
+- Long waits (battles): poll with `scripts/tap.py` every ~10–15 s, never blind sleeps.
+
 ## ADB alternative (no computer use)
 
 Works without computer-use tools. Device frame is **1080×1920**; the rest of this doc uses

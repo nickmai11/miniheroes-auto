@@ -20,6 +20,8 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 3. **Run each account** in its MuMu instance: start the instance if needed, open the game, then run the missions in the **Daily run order** at the top of `docs/ui-routine.md` (Match → Fishing → Patrol → Shop → Play Pass → Adventure → Recruit → Hero → Tribe → Divine Weapon → Stage → Patrol claim → Rune → Match → Grocery → Fishing order rewards), skipping any not in the account config.
 4. **Report** per account: each mission done/skipped (and why) and every paid action with its price. Don't track gem/resource balances — they change constantly.
 
+**Speed:** tap with `scripts/tap.py` (waits for the screen to settle, ~1 s/tap, no fixed sleeps); chain known taps and only screenshot-check at decision points.
+
 **Several accounts:** run them in parallel, one subagent per instance (own ADB serial + own scratch dir, no repo edits by workers). Set each instance's display to 1080×1920 first (`adb shell wm size 1080x1920 && adb shell wm density 480`, then restart the game) so the documented coords apply.
 5. **Keep the repo current.** If you learn something new (new coordinates, a popup, a new mission mapped), update the relevant doc and commit it.
 
