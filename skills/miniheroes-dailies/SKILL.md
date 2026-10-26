@@ -1,6 +1,6 @@
 ---
 name: miniheroes-dailies
-description: Run Mini Heroes: Magic Throne daily missions (e.g. Land of Trials sweeps) on Nick's MuMuPlayer accounts via computer use, following per-account configs in the miniheroes-auto repo.
+description: Run Mini Heroes: Magic Throne daily missions (e.g. Land of Trials sweeps) on Nick's MuMuPlayer accounts via computer use (or ADB), following per-account configs in the miniheroes-auto repo.
 ---
 
 # Mini Heroes dailies
@@ -16,7 +16,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
    - `docs/ui-routine.md` (and the section for each mission you'll run)
    - `accounts/<account>.yaml` for each requested account (all `enabled: true` accounts if he says "all")
    - `docs/setup.md` only if the emulator/network looks wrong
-2. **Get app access (minimum set).** Via computer use: resolve and request access to `MuMuPlayer` and `MuMu Android Device` only. Work in background mode with the `computer_app_*` tools. Don't request full-screen control or other apps unless Nick agrees.
+2. **Get app access (minimum set).** Via computer use: resolve and request access to `MuMuPlayer` and `MuMu Android Device` only. Work in background mode with the `computer_app_*` tools. Don't request full-screen control or other apps unless Nick agrees. If computer-use tools aren't available in the session, use ADB instead (Nick approved this) — see "ADB alternative" in `docs/ui-routine.md`.
 3. **Run each account** in its MuMu instance: start the instance if needed, open the game, then for each mission in the account config follow the routine in `docs/ui-routine.md`.
 4. **Report** per account: each mission, free/paid done vs. configured, gems before/after, anything skipped and why.
 5. **Keep the repo current.** If you learn something new (new coordinates, a popup, a new mission mapped), update the relevant doc and commit it.
@@ -24,7 +24,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 ## Hard rules
 
 - Configured counts are totals per day **including** free attempts. Use free first; pay with gems only up to the configured total.
-- Never pay more than `max_gem_price_per_sweep` (from the account config) for one sweep — stop that mission and report instead.
+- Never pay more than `max_gem_price_per_sweep` (from the account config) for one sweep — stop that mission and report instead. Paid prices escalate within a dungeon each day (80, 160, 240…), so re-read the price on the confirm popup every time.
 - Read the attempt counter on screen before and after every sweep; never chain taps blindly. Taps during popup animations are ignored, so screenshot first.
 - On-screen counters are the source of truth for what was already done today.
 - Touch nothing outside the configured missions (no shop, purchases, settings, events).

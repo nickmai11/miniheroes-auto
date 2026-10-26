@@ -2,13 +2,13 @@
 
 Daily-mission automation for **Mini Heroes: Magic Throne**, running on MuMuPlayer (macOS),
 one MuMu instance per game account. Missions are performed by Claude through computer use
-(screenshots + taps on the emulator window), driven by per-account config files.
+(screenshots + taps on the emulator window) or, without computer use, via ADB (`screencap` + `input tap`), driven by per-account config files.
 
 ## Layout
 
 ```
 CLAUDE.md               ← start here in a new Claude session
-.claude/skills/miniheroes-dailies/SKILL.md
+skills/miniheroes-dailies/SKILL.md
                         ← the "Mini Heroes dailies" skill (also saved to Nick's Claude account;
                           keep both in sync when editing)
 accounts/
@@ -24,7 +24,7 @@ docs/
 
 | Mission | Automated via | Notes |
 |---|---|---|
-| Land of Trials sweeps | UI (computer use) | Verified on Cmajor, 2026-10-26 |
+| Land of Trials sweeps | UI (computer use or ADB) | Verified on Cmajor, 2026-10-26 (ADB) |
 | Others | – | Add to `docs/ui-routine.md` + account configs as they're mapped |
 
 ## Why UI and not API

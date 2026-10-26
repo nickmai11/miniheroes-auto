@@ -1,13 +1,13 @@
 # UI routines
 
 All coordinates are in the **MuMu Android Device** game window's full-resolution frame
-(704×1289), as used by `computer_app_click` on that window. Instance window ids change after
+(704×1289), as used by `computer_app_click` on that window (ADB uses device coords — see below). Instance window ids change after
 every restart — get a fresh one with `computer_app_list_windows`.
 
 ## ADB alternative (no computer use)
 
-Works without computer-use tools. Device frame is **1080×1920**; doc coordinates above are
-window coords (704×1289) — use device coords below. Get the instance's current ADB port from
+Works without computer-use tools. Device frame is **1080×1920**; the rest of this doc uses
+window coords (704×1289) — with ADB use the device coords below (verified 2026-10-26). Get the instance's current ADB port from
 `"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" info all` (ports change).
 
 ```
@@ -26,7 +26,7 @@ Temple `(870,1696)`.
 
 - **Taps during animations are ignored.** Popups slide in; after opening one, take a screenshot,
   then tap. Always confirm the result with a screenshot — never chain taps blindly.
-- **Each sweep = two taps:** `Sweep`, then dismiss the *Congratulations* reward popup (it also
+- **Each free sweep = two taps** (a paid one = four: Sweep → Confirm → Sweep → dismiss): `Sweep`, then dismiss the *Congratulations* reward popup (it also
   auto-closes after ~3 s). The tap that looks "ignored" right after a sweep is usually the one
   that dismissed the popup.
 - **Safe dismiss tap:** `(352, 140)` — the screen title area; does nothing if no popup is open.
@@ -66,7 +66,12 @@ The card shows `Attempts: N` (free left) or `Remaining purchases: N` (free exhau
   and one of:
   - **"Challenge Attempts: N"** + plain yellow **Sweep** button → free sweep.
   - **"Remaining Purchase Attempts: N"** + **Sweep** button with a gem icon and price
-    (seen: 80) → **paid** sweep.
+    → **paid** sweep. Price escalates per dungeon per day: 80, 160, 240, … (one purchase each).
+  - Tapping a paid **Sweep** opens a *Tip* popup "Spend N diamonds to purchase 1 challenge
+    attempt?" → **Confirm** (window coords unverified, ≈ `(352, 790)`; device `(540,1162)`)
+    only *buys* the attempt; the dialog then shows "Challenge Attempts: 1" and you tap
+    **Sweep** again to actually sweep.
+  - Gem Mine's reward popup animates for a few seconds; wait before dismissing.
 - **Sweep** button: `(352, 932)` once the dialog has settled.
 - Close dialog ✕: `(632, 408)`.
 

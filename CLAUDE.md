@@ -19,6 +19,9 @@ Request access for these apps only (Nick prefers the minimum):
 Work in **background mode** with the `computer_app_*` tools (screenshot/click on the emulator
 window). Don't request full-screen control unless Nick agrees.
 
+If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-26): see
+"ADB alternative" in `docs/ui-routine.md`. Same rules — screenshot before every tap.
+
 ## Hard rules
 
 - **Never spend gems beyond what the account config allows.** Each mission entry gives a

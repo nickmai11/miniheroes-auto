@@ -14,6 +14,6 @@ missions:
     gem_mine: 4             # 2 free + 2 paid
     moonlight_temple: 3     # 2 free + 1 paid
     mysterious_forest: 3    # 2 free + 1 paid
-    # not configured → skip
+    # free only
     abandoned_mine: 2
     ancient_battlefield: 2
