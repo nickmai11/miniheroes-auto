@@ -12,7 +12,7 @@ safety:
 missions:
   land_of_trials:
     # total sweeps per day INCLUDING free attempts (2 free per dungeon on this account).
-    gem_mine: 4             # 2 free + 2 paid
+    gem_mine: 3             # 2 free + 2 paid
     moonlight_temple: 3     # 2 free + 1 paid
     mysterious_forest: 3    # 2 free + 1 paid
     # free only
