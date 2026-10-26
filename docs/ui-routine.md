@@ -518,6 +518,35 @@ Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 c
   attack one held by a **non-tribemate** (purple name background). Never attack a blue-name (tribe) player.
 - Never spend gems.
 
+## Poseidon's Ruins (Tribe, 3 attacks)
+
+Added by Nick 2026-10-26; mapped on xFaktor via ADB (device coords). Skill: `miniheroes-poseidon`.
+
+1. Main screen → **Tribe** `(448,1780)` → **Poseidon's Ruins** card `(540,1440)` (red dot = attempts left;
+   "In Battle: hh:mm:ss") → Loading ~3 s → battle map, **Enemies** tab selected (Allies/Enemies at the bottom).
+2. Header: **Attack Attempts N** top-left (3/day on xFaktor). Ignore Report / Rewards / Contribute.
+3. Enemy ships in rows of 3, sorted by CP high → low (big ships first, rowboats at the bottom). Each shows
+   name + CP and 3 hearts: **red** = alive, **grey + fire** = sunk. Scroll with `input swipe 540 1500 540 700 800`
+   (~3 swipes reach the bottom). Sunk ships move down the list after a fight.
+4. Pick the **lowest-CP ship with a red heart** → tap the ship → *Plunder* popup ("Consume 1 attempt") →
+   **Attack** `(742,1336)` (Cancel `(336,1336)`) → lineup pre-selected (top 5, keep) → **Start** `(540,1808)`
+   → fight ~8 s → *Victory* → tap `(540,1700)`. Back on the map: attempts −1, target −1 heart.
+5. Repeat on the same target until attempts = 0; if it sinks or is being attacked, take the next-lowest
+   ship with red hearts. Tribemates attack live — hearts change between screenshot and tap; the Plunder popup
+   shows the current hearts, so re-check there.
+6. Back `(92,1810)` → Tribe screen. Red dot on the card gone = attempts used.
+
+**Being attacked** (Aminor/Dminor/Chien Than, 2026-10-26): **crossed swords** over the ship in the list; tapping it
+shows a toast "This player is being challenged" (vi: "Người chơi này đang bị khiêu chiến") instead of Plunder.
+If the target sinks while you're on the lineup, **Start does nothing** — back `(84,1810)`, no attempt is lost,
+pick the next ship. Lineup cards can render black for a moment; Start still works.
+
+Start-up: loading screen Start `(540,1510)`; close event banners/promos (✕ `(806,742)`, "Stargems Running Out!"
+Cancel `(337,1281)`). First Tribe tap right after the main screen appears may be ignored — retry once.
+
+2026-10-26: xFaktor 3 wins vs Vimax (494k); Dminor/Aminor/Chien Than 3 wins each on the lowest ships (Mero.,
+убиватор, Noble); Cmajor had 0 attempts. 20000 + 500 + 1 badge per win.
+
 ## Storm Battlefield (right after Pet Arena)
 
 Added by Nick 2026-10-26; mapped on Cmajor via ADB (device coords). Free tickets only.
