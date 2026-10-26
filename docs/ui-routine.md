@@ -432,3 +432,18 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
 - Safe dismiss for Grocery / Patrol / Fishing reward popups: `(540,1880)` (very bottom).
 - Event screens: bottom tabs at y=`1850`, x ≈ `140 / 480 / 650 / 818 / 986`. Banners rotate between screenshots.
 - Tribe Chat Request button may need a second tap at `(174,1636)`.
+
+## Gotchas from Dminor run (2026-10-26)
+
+- Forge: "Forge/Rèn N/M" anvil ≈ `(540,1460)` with a timer above while running; Queue ≈ `(60,1250)`.
+- Grocery popup Free button position varies: chest 1 `(540,1204)`, chests 2–4 `(540,1344)` — use `scripts/grocery.py`.
+- Land of Trials: wait ~1.5 s after the dialog opens / after buying, or the Sweep tap is lost. Sweep → wait 7–8 s → dismiss `(540,700)`.
+- "Match attempts full" popup Confirm `(740,1162)` only closes it — go to Match yourself.
+- Match: a crashed row turns into a shield timer (tapping it does nothing); re-read rows every round.
+  Weekly win chests (10/20/35/50 wins) along the top bar, e.g. 10 ≈ `(376,210)`, 20 ≈ `(536,210)` — free once reached.
+- Hero strip: on less-developed rosters no scroll is needed; find Bone Archer by screenshot (strip y=`1580`).
+- Opening Tribe Chat auto-claims assist rewards.
+- Events seen: Wish Festival (check-in, gifts), Pet Arena (achievements, packs), 7777 Draws (daily 30 free),
+  weekly event merchant (free 200), Tribe Battle banner → Packs `(976,1630)` (free 20 gems daily).
+  Skip draws that spend event coins and "Join" buttons without a red dot.
+- Accounts without the fishing pass get no daily bread → Auto stops when bread runs out; that's expected.
