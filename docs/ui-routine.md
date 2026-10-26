@@ -58,7 +58,8 @@ and saves a 540×960 screenshot (multiply its coords ×2 for device coords). No 
 - Taps with no visible effect return after ~1.5 s (`NO_CHANGE`), not the full `MAX_WAIT`.
 - Waiting for something (battle end, button back): `scripts/tap.py [taps] --until x,y,r,g,b[,tol] --timeout s`
   polls every ~0.3 s and returns the moment that device pixel matches — no fixed sleeps, no 10–15 s polls.
-- Storm matches: `D=<serial> scripts/storm.py` (plays until tickets run out, ~0.5 s polling).
+- Storm matches: `D=<serial> scripts/storm.py` (plays until tickets run out incl. one free-ticket claim, ~0.5 s polling;
+  exit 1 = unexpected screen, screenshot and report — don't re-run it in a loop).
   Grocery: `scripts/grocery.py` (no fixed sleeps).
 
 ## ADB alternative (no computer use)
@@ -565,11 +566,13 @@ dailies. Monday: closed during the 13:00 run — done by the Monday 17:05 run in
    welcome screen). Verify the CP is the top-5 value before the first Start Match.
 3. Arena screen: tickets `N/5` at `(540,1428)`. **Start Match** `(540,1610)` → matches vary: some are instant (~5–8 s), close ones are
    real fights (~60–80 s) — poll until the arena screen is back → *Victory/Defeat* → tap `(540,120)`. Repeat until 0/5.
-4. **+** `(642,1428)` → popup: **Watch Video – Free, Chances N** `(350,1274)` (no actual ad on 2026-10-26;
-   +1 ticket) vs **Diamonds 30 Redeem** — never tap Redeem.
-   Grey Free button / "Chances: 0" (vi: "Số lần còn: 0", "Miễn phí" grey) = no free tickets left — close
-   and move on; don't keep reopening +. Starting a match with 0 tickets opens this popup automatically. Claim Free until Chances 0 → close (tap outside,
-   e.g. `(100,1150)`) → play the new tickets until 0/5 again.
+4. **Free tickets — check ONCE per run** (Nick, 2026-10-26). `scripts/storm.py` does all of steps 3–4: plays until 0,
+   then opens the **+** popup (or the game opens it itself on Start Match at 0) **one time**: **Watch Video – Free**
+   `(350,1274)` while green (+1 ticket each, no actual ad), never **Diamonds 30 Redeem**, close `(100,1150)`, play
+   the new tickets; next time tickets hit 0 → close the popup and stop. Don't reopen + yourself afterwards.
+   Free button state: read the button **body** `(260,1274)` — green (123,206,49) = chances left, grey (181,178,181) =
+   "Chances: 0". `(350,1274)` is the white "Free" text: the old check sampled it, never saw grey, and storm.py
+   looped Start Match ↔ popup tapping `(540,120)` — the "stuck collecting free tickets" bug (fixed 2026-10-26).
 5. **Rewards** `(96,880)` (left side) — if it has a red dot: *Rank Reward* tab lists King/Glory/Gold/Silver/Bronze
    rows; tap a reached rank's highlighted item (e.g. Bronze `(372,1404)`) → claims the whole row (checkmarks) →
    dismiss `(540,1900)`. *Ranking Rewards* tab = end-of-season table, nothing to claim. Close ✕ `(972,228)`;
