@@ -161,6 +161,8 @@ Goal: spend every free ticket crashing the highest-CP opponent who is **not in o
    - Yellow **Challenge** = real fight vs. a stronger one. Not used.
    - Don't touch `+` (buys tickets) or **Refresh** (cost unknown).
 4. Pick the highest-CP **Crash** row whose name is not on the roster → tap its Crash.
+   If the account has `match.skip_same_server: true`, also skip opponents on the account's own server
+   ("S###" tag, e.g. S201 — on the leaderboard / opponent profile). Server unknown → skip.
    The dialog closes and shows *Congratulations* (+40 match points, 11000 gold).
    Dismiss with `(540,120)`, confirm the ticket count dropped by 1 on the Challenge button.
 5. Repeat from step 2 until tickets = 0. The opponent list changes after every crash.
