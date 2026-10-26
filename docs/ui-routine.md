@@ -11,7 +11,7 @@ Run the missions in this order on each account:
 0. **Pet Arena** — **Mon/Tue/Wed only** (skip other days): join + Auto Deploy (see "Pet Arena" below);
    runs on its own.
 0b. **Storm Battlefield** — right after Pet Arena (see "Storm Battlefield" below). Skip on Mondays — closed
-   until 17:00; the Monday 17:05 run does it.
+   until 17:00; run `/catch-up` after 17:00.
 1. **Match** — exhaust tickets.
 2. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto. Don't collect order rewards here.
 3. **Patrol** — Speed Patrol ×3 + Claim All.
@@ -22,7 +22,7 @@ Run the missions in this order on each account:
 7. **Recruit** free summons.
 8. **Hero** upgrade (after the potion-giving steps above).
 9. **Tribe** — sign-in, Trial, chat Request + Assist, **Canyon Clash** (skip on Mondays — it's closed until 17:00;
-   a separate Monday 17:05 run does it).
+   run `/catch-up` after 17:00).
 10. **Divine Weapon** — Benefit, Excelsior Veins, Forge.
 11. **Adventure stage** run (skull bubble).
 12. **Patrol** — Claim All only.
@@ -86,6 +86,8 @@ Temple `(870,1696)`.
   "Miễn phí" = Free, "Xác nhận" = Confirm, "Nhận" = Claim). Layout/coords are the same; judge buttons by
   colour/position + counters, not English text.
 
+- **`tap.py` screenshots are 540×960 — double every coord read off them** before tapping (device = 1080×1920).
+  Workers keep mis-tapping by passing screenshot coords directly.
 - **Taps during animations are ignored.** Popups slide in; after opening one, take a screenshot,
   then tap. Always confirm the result with a screenshot — never chain taps blindly.
 - **Each free sweep = two taps** (a paid one = four: Sweep → Confirm → Sweep → dismiss): `Sweep`, then dismiss the *Congratulations* reward popup (it also
@@ -269,7 +271,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: **2 Common, 1 Ancest
 
 1. Main screen → **Recruit** `(96,1810)` (opens on Advanced Recruitment — skip it, it uses tickets).
 2. **Common Recruitment** tab `(188,1610)` → "Chances: N" + **Free** `(540,1355)`. Tap → result cards →
-   dismiss `(540,1700)` (wait ~2 s for the card flip). Do it twice. A cooldown (~5 min) shows
+   dismiss `(540,1700)` (wait ~2 s for the card flip). Do it twice (some accounts — Aminor, Dminor, Kong — only get 1 chance; "Lượt còn lại không đủ" / "Chances: 0" = done). A cooldown (~5 min) shows
    between free chances; if it's on, wait it out — never pay.
 3. **Ancestor Summon** tab `(896,1610)` → **Free** `(310,1355)` (red dot) → result → **Confirm**
    `(300,1755)`. **Never "Recruit 1"** on the result screen (spends a ticket). Button then shows
@@ -349,8 +351,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
 5. **Forge** (Arsenal screen, anvil button "Forge N/M", crystal cost below e.g. `6755/500` = owned/cost):
    M = forge slots, varies per account (7, 8, 13…). If no forge is in progress, fill **every available
    slot** — stop when slots are full or crystals < cost. Skip if a forge is already running.
-   Crystals only, never gems. Forge anvil ("Forge"/"Rèn") on Arsenal — position unconfirmed (reports say ≈`(540,1580)` or
-   timer near `(940,1270)`); a running forge shows a timer → skip. Tap not yet verified; screenshot and verify the cost is crystals.
+   Crystals only, never gems. Forge anvil ("Forge"/"Rèn") on Arsenal: `(540,1484)` (verified on xFaktor 2026-10-26); 500 crystals per slot, ~4 h timer;
+   a running forge shows a timer → skip. Screenshot and verify the cost is crystals.
 
 2026-10-26: 22 → 10 → 0 pickaxes in 2 clicks.
 
@@ -483,8 +485,9 @@ use **Stamina order High to Low, 4 sprites**.
 Added by Nick 2026-10-26; mapped on Cmajor via ADB (device coords).
 
 **Season: opens Monday 17:00, closes the next Monday 06:00.** So Tue–Sun it's part of the normal dailies; on
-**Monday** it's closed during the 13:00 dailies — do it in the separate Monday **17:05** run instead
-(`schedules/com.nick.miniheroes-monday.plist` → `scripts/run-dailies.sh monday`, which does Storm + Canyon).
+**Monday** it's closed until 17:00 — do it in a separate run after 17:00 instead
+(e.g. `/catch-up`, which does Storm + Canyon). xFaktor's tribe showed "Tribe Clash: Unlocks in 19h45m" at
+Mon 21:00 (2026-10-26) while the others were open — if it's locked on screen, skip.
 
 Entry: main screen → **Tribe** `(448,1780)` → **Canyon Clash** card `(540,1090)` → vertical map (scroll with
 `input swipe 540 1500 540 600 600`). Header shows your current spot ("Unoccupied" or e.g. "Silver Battlefield",
@@ -553,7 +556,7 @@ Cancel `(337,1281)`). First Tribe tap right after the main screen appears may be
 Added by Nick 2026-10-26; mapped on Cmajor via ADB (device coords). Free tickets only.
 
 **Season: opens Monday 17:00, closes the next Monday 05:00** (like Canyon Clash). Tue–Sun: part of the normal
-dailies. Monday: closed during the 13:00 run — done by the Monday 17:05 run instead.
+dailies. Monday: closed until 17:00 — run `/catch-up` after that.
 
 1. Main screen → **2nd event card** (top right, y≈480). It rotates every few seconds (Storm Battlefield /
    Dragon Temple…); swiping it doesn't work — wait until it shows **Storm Battlefield** (gold card), then tap

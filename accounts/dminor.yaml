@@ -2,7 +2,7 @@
 account:
   name: Dminor
   mumu_instance: Dminor
-  game_id: null             # TODO: read top-right in game on first run
+  game_id: 15407691         # shown top-right in game (id | server p2 | version)
   enabled: true
   language: vi              # game UI is Vietnamese: Miễn phí = Free, Xác nhận = Confirm, Nhận = Claim
 
