@@ -232,3 +232,24 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Costs potions/gold/stones o
 4. 1st gear (bow, top-left slot) `(117,360)` → popup "Swift Longbow LV.N » N+1", cost gold + stones.
    **Enhance** `(540,1395)` **once**. Never the "↑ Lv.69" quick button or Reset.
 5. Close popup `(540,120)`; verify the gear badge shows N+1.
+
+## Tribe (sign-in, Tribe Trial, chat request/assist)
+
+Mapped 2026-10-26 on Cmajor via ADB (device coords). All free.
+
+1. Main screen → **Tribe** `(448,1780)`.
+2. **Sign-in** `(538,476)` (same row as Member `(192,474)`) → **Sign-in Reward** `(538,1546)` →
+   dismiss `(540,120)` → close the dialog by tapping `(540,1680)`.
+3. **Tribe Trial** card `(540,735)` → Flame Lord boss → **Challenge** `(540,1806)` → lineup screen.
+   The 5 heroes on the field are this mode's preset lineup; keep it → **Start** `(540,1806)`.
+   Timed boss fight (~75 s, runs on its own) → *Challenge Complete* → **Confirm** `(540,1483)`.
+   One run per day (2026-10-26: 247.5M damage, ×30 chests).
+4. Back `(92,1810)` → Tribe screen → **Chat** `(800,1806)` → **Request** `(174,1631)` (red dot) →
+   *Help Request Info* dialog:
+   - **Request** `(334,1660)`: send our own help request (greyed with a cooldown timer if already sent).
+   - **Assist** `(740,1660)`: helps every listed request at once; list empties.
+   - Close ✕ `(968,228)`.
+5. Never type or send chat messages.
+
+Coordinate tip: screenshots are scaled ×0.469 (1080→506). Convert with device = view / 0.469 on
+**both** axes — a y-only miscalc made Sign-in taps miss silently.

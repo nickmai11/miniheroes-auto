@@ -36,3 +36,8 @@ missions:
     hero_levels: 1
     gear_slot: 1
     gear_levels: 1
+  tribe:                    # sign-in, 1 Tribe Trial, chat Request (if off cooldown) + Assist
+    sign_in: true
+    trial: 1
+    request: true
+    assist: true
