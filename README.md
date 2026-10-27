@@ -28,7 +28,7 @@ docs/
 | Match (Arena) crashes | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Shop freebies (red dots) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Play Pass claims (red dots) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Tower of the Throne (1 challenge) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
+| Tower of the Throne (3 challenges) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Secret Sanctuary sweep | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
 | Gate of Darkness (run + sweep) | UI (ADB) | Mapped on Cmajor, 2026-10-26 (quit button unmapped) |
 | Recruit (free summons) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |

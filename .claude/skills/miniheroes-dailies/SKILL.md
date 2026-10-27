@@ -33,7 +33,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 | Match (Arena) | Use the saved tribe roster (`accounts/tribe_<name>.txt`); crash the topmost attackable non-tribe opponent (last row = bot, always attackable) until tickets = 0 (see `/miniheroes-match`) |
 | Shop freebies | Value Pack Free Benefits Claim + Hero Pack "Select Hero" (+20 gems) — red dots only |
 | Play Pass | Weekly Card day tile + Lifetime Card Claim Reward |
-| Tower of the Throne | 1 challenge with the pre-selected lineup |
+| Tower of the Throne | 3 challenges with the pre-selected lineup (count from config) |
 | Adventure stage | Skull bubble next to the hero → Start, 1 run |
 | Secret Sanctuary | Sweep if offered; else climb floors 1→10 (Crash/Battle), pick bonus effects per the preferred list then rarity (see ui-routine) |
 | Recruit | Free only: 2× Common, 1× Ancestor (then Confirm, never Recruit 1), 1× Artifact with Auto **off** |

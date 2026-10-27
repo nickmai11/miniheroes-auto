@@ -23,7 +23,7 @@ missions:
 
   shop_freebies: true
   play_pass_claims: true
-  tower_of_the_throne: 1
+  tower_of_the_throne: 3
   secret_sanctuary: sweep_or_climb
   gate_of_darkness: run_then_sweep
   beast_realm: 1
