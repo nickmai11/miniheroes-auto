@@ -35,7 +35,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
        reachable chests) — no re-checking the rest, never scroll the list (claimable rows sort to the top) (Nick, 2026-10-27). Before that rule: Claim every yellow row, then every
        reachable Daily Activity Levels chest (40/80/120/160); report chests still locked + activity points
    11. Fishing orders again (very end): claim any order reward that completed during the run (Auto fishing
-       keeps filling them) — claim only, no refresh (Nick, 2026-10-27). Also retry Common Recruitment once if its
+       keeps filling them) — claim only, no refresh, don't touch Auto (Nick, 2026-10-27). Also retry Common Recruitment once if its
        free draw was on cooldown earlier (~5 min) — draw if Free, else skip.
 4. Workers don't edit the repo; afterwards add new findings to the docs and commit.
 5. Close the MuMu instances used: `"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" close <idx,...>`.

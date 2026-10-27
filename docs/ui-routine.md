@@ -402,7 +402,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started
    while Auto runs.
 
 Auto stops on its own when bread runs out ("Insufficient Bread", screen shows "Tap water surface to start Fishing")
-or on "Stop at new Archive" — re-check the Auto state before leaving and restart it at the end of the run.
+or on "Stop at new Archive". **Start Auto once per run (step 6).** Never tap Auto while the button reads "Auto Fishing"
+(it's running). At the end of the run, restart it only if it stopped for "Stop at new Archive" — not for no bread.
 Accounts without the fishing pass (Cmajor, Kong, …) get no daily bread → stopping at 0/100 is expected.
 
 ## Divine Weapon (benefit + Excelsior Veins)
