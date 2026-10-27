@@ -35,6 +35,9 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 - If the screen is in an unexpected state, stop and report with a screenshot description.
 - If a step can't be done with confidence (unreadable screen, tap not working after 2 tries), skip it and report
   it as skipped + why — never loop or guess.
+- Waiting for the game (load, animation): wait inside the same command, e.g. `sleep 40 && scripts/tap.py ...` or
+  `tap.py --until`. Never use background timers/Monitor and never end your turn to wait — a subagent did that
+  on Aminor (2026-10-27), the wake-up never came, and it sat idle with the mission undone.
 
 ## Reporting
 
