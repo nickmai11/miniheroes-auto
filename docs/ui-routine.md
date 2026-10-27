@@ -28,7 +28,7 @@ Run the missions in this order on each account:
 12. **Patrol** — Claim All only.
 13. **Rune** synthesis.
 14. **Match** — exhaust tickets again before wrapping up.
-15. **Grocery** free chests.
+15. **Grocery** free chests, then the account's `grocery_buy` tiles (if any).
 16. **Events** — the 2–3 event banners at the top right of the main screen (they rotate and change;
     e.g. Wish Festival, 7777 Draws, Match Event, Weekly Event, Pet Arena). Open any with a **red dot**;
     inside, also check the bottom event tabs for red dots. Claim only **free** red-dot rewards
@@ -405,7 +405,14 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
    and keep going. Done only when all 4 show **Sold Out**. Growth Chest gives +80 gems per claim.
    Automated: `D=<serial> scripts/grocery.py` (colour-based, works in any language; the popup's Free
    button moves per item, so it scans for the green button). Claimed all 9 in one run on Aminor.
-4. Close ✕ `(966,222)`.
+4. **`grocery_buy`** (per account, optional): for each shop tab listed (Sanctuary / Tribe / Ruins / Realm /
+   Tundra — swipe the tab bar left to reach the later ones), buy each listed tile **once**. Tiles are
+   numbered 1–12 left→right, top→bottom; price buttons at x = `163 / 413 / 663 / 913`,
+   y ≈ `893 / 1249 / 1605` (rows 2–3 estimated from screenshots — verify and update).
+   - Skip tiles already **Sold Out**, and tiles whose price is more than the shop's balance (top left).
+   - The price icon must be that shop's own currency (the one next to the balance) — never gems or $.
+   - Buy popup not mapped yet: screenshot, confirm the price, tap Buy, screenshot again to see Sold Out.
+5. Close ✕ `(966,222)`.
 
 ## Gotchas from xFaktor run (2026-10-26)
 

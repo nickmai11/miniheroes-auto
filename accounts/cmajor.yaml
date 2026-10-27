@@ -51,4 +51,9 @@ missions:
     claim_all: true
   rune_synthesis: 1
   grocery_free_chests: true
+  grocery_buy:   # Grocery shop tab -> tile numbers (1-12: left->right, top->bottom), once a day each
+    sanctuary: [12]   # rune stone pack
+    tribe: [1]
+    ruins: [1]
+    realm: [1]
   pet_arena: false
