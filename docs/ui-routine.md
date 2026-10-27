@@ -738,3 +738,14 @@ Tickets regen 1 per 2h (timer under the counter) — one can arrive right after 
 
 **Open question (2026-10-27):** Aminor's Canyon spot showed 1043k CP = the 1-hero Storm lineup, while
 tribemates' spots show 2.7–4.9M. If Canyon defence uses the Storm lineup, step 6 weakens it — ask Nick.
+
+## Gotchas from Cmajor dailies (2026-10-27, 2nd run of the day)
+
+- Fishing *Order Refresh* confirm: chaining the "Do not remind me today" tick `(390,1380)` with Confirm didn't
+  stick (confirm kept reappearing). Tap the tick alone, screenshot, then Confirm `(757,1211)`.
+- Fishing order rewards (step 17) verified: Order Info → yellow **Claim** at `(849,704|1058|1412)` → dismiss
+  `(540,1880)` → +50/60 hammers each.
+- Cmajor hero: gear slot 1 `(117,400)`, Enhance `(540,1384)` (not 360/1395); costs gold only.
+- Grocery `grocery_buy`: Sanctuary tile 12 = 10000 coins, more than a day's balance (~6000) → usually skipped.
+- Event claim lists (Heroic Trial / Canyon Warrior): the top Claim `(896,1024)` rolls to the next row after each
+  claim; repeat while pixel `(820,1024)` is yellow (255,182,16), dismiss `(300,200)` between taps.
