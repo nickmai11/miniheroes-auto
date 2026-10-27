@@ -6,7 +6,7 @@ game accounts. Each account lives in its own **MuMuPlayer** Android instance on 
 ## Before doing anything
 
 1. Read `docs/ui-routine.md` (how to perform each mission, coordinates, gotchas).
-2. Read the account file(s) in `accounts/` for the account(s) you were asked to run.
+2. Read the account file(s) in `accounts/` for the account(s) you were asked to run ("group 1/2" → `accounts/groups.yaml`).
 3. Skim `docs/setup.md` if something about the emulator/proxy looks off.
 
 ## Computer-use access
