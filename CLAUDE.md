@@ -35,9 +35,11 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 - If the screen is in an unexpected state, stop and report with a screenshot description.
 - If a step can't be done with confidence (unreadable screen, tap not working after 2 tries), skip it and report
   it as skipped + why — never loop or guess.
-- Waiting for the game (load, animation): wait inside the same command, e.g. `sleep 40 && scripts/tap.py ...` or
-  `tap.py --until`. Never use background timers/Monitor and never end your turn to wait — a subagent did that
-  on Aminor (2026-10-27), the wake-up never came, and it sat idle with the mission undone.
+- Waiting for the game (load, fight, animation): **poll, don't sleep long** (Nick, 2026-10-27: speed matters).
+  Check every 1–2 s and continue the moment the screen is ready — `tap.py --until x,y,r,g,b` (a pixel of the next
+  screen's button) or a short `until …; do sleep 1; done` loop. A fixed `sleep` only when there's nothing to poll,
+  and keep it short. Always wait inside the same command: never background timers/Monitor, never end your turn to
+  wait — a subagent did that on Aminor (2026-10-27), the wake-up never came, and the mission sat undone.
 
 ## Reporting
 
