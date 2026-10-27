@@ -5,10 +5,6 @@ description: Mini Heroes: Magic Throne catch-up run - Match, Storm, Canyon, Fish
 
 # Mini Heroes catch-up
 
-> **UNTESTED (2026-10-27):** `scripts/boot.sh` Start re-tap (re-taps only while Start is visible; the first version
-> hit an event popup's GO and opened a web page). Check the next boot, then delete this note.
-> (`scripts/storm.py` lineup handling ran clean on all 9 accounts 2026-10-27 22:10 — reset to 1 hero verified.)
-
 Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every account in `accounts/*.yaml`, unless Nick names accounts.
 
 1. In `~/projects/chidojiro/miniheroes-auto`, read the account files (not `docs/ui-routine.md` — helpers read their sections).

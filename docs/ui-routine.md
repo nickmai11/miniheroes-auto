@@ -572,6 +572,9 @@ Empty platform: tap it (wait for map scroll inertia to stop first, or the tap mi
 the empty <Type> Battlefield — costs no challenge attempts" → **Occupy** `(744,1340)` → wait ~3–5 s: if you already held a spot, a *Resource* popup ("you left the old
 Battlefield", gains from it) appears → **Confirm** `(540,1460)`. Moving to an empty spot is free, so it's fine to
 move later — but pick the empty spot first anyway (saves an attempt).
+**Read the popup text before confirming:** "About to challenge <Tribe> <name>'s …" means it isn't empty — if it's
+your own tribe, **Cancel** (Chien Than 2026-10-28: a platform looked empty but was tribemate B.VN.'s). Spots can
+also fill between screenshot and tap (another helper of ours — Dino/Kong raced for one — or an NPC Sentinel).
 The map opens scrolled to your current area.
 
 Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 challenge attempt" → **Challenge**
@@ -656,7 +659,7 @@ dailies. Monday: closed until 17:00 — run `/catch-up` after that.
    Button state: sample `(260,1250)` — green (123,206,49) / grey (181,178,181). `(260,1274)` hits the "Free" text or
    the camera icon: that made storm.py miss the ad popup, "dismiss" it as a Victory and count fake 5 s matches.
 5. **Rewards** `(96,880)` (left side) — if it has a red dot: *Rank Reward* tab lists King/Glory/Gold/Silver/Bronze
-   rows; tap a reached rank's highlighted item (Bronze `(372,1404)`, Silver `(372,1180)`) → claims the whole row (checkmarks) →
+   rows; tap a reached rank's highlighted item icon, not the row background (Bronze `(372,1404)`, Silver `(372,1180)`, Gold `(372,962)`) → claims the whole row (checkmarks) →
    dismiss `(540,1900)`. *Ranking Rewards* tab = end-of-season table, nothing to claim. Close ✕ `(972,228)`;
    the red dot should be gone.
 6. **Lineup** `(960,1600)` → quick-remove ↺ `(1006,1084)` (clears all) → tap only the **first** hero card

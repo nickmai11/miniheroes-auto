@@ -10,7 +10,7 @@ from tap import grab, tap
 
 near = lambda p, c, tol=30: all(abs(a - b) <= tol for a, b in zip(p, c))
 def buy_popup(im): return near(im.getpixel((540, 900)), (206, 215, 230)) and near(im.getpixel((938, 636)), (255, 255, 255), 15)
-def grid(im): return near(im.getpixel((896, 1612)), (73, 105, 59), 40)  # One-Click Mining green, no popup
+def grid(im): return near(im.getpixel((940, 1600)), (123, 202, 49))  # One-Click Mining green (dimmed under a popup)
 
 
 def main():
@@ -18,7 +18,7 @@ def main():
     if buy_popup(im): return close(0)
     if not grid(im): print('not on the Veins grid; stop'); return 1
     for n in range(1, 41):  # ponytail: 80 pickaxes + refunds never needed >~15 taps; 40 is a hard stop
-        im = tap(896, 1612)
+        im = tap(940, 1600)
         t0 = time.time()
         while not buy_popup(im) and not grid(im) and time.time() - t0 < 8:  # mining animation / Congratulations
             time.sleep(0.5); im = grab()
