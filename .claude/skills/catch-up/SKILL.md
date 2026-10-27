@@ -5,10 +5,10 @@ description: Mini Heroes: Magic Throne catch-up run - Match, Storm, Canyon, Fish
 
 # Mini Heroes catch-up
 
-> **UNTESTED changes (2026-10-27) — test on ONE account first, before fanning out:** `scripts/storm.py` now sets
-> the full lineup itself and resets to 1 hero after; `scripts/boot.sh` re-taps Start up to 3x; `tap.py --until`
-> tolerates wrong-size screenshots. Watch that first storm.py run (check CP on the Lineup screen before/after),
-> then delete this note.
+> **Partly tested (2026-10-27 22:10):** `scripts/storm.py` lineup handling ran OK on Aminor (1 match; reset to
+> 1 hero verified at 1042K; the full-lineup CP itself wasn't observed — check it once on the Lineup screen next run).
+> `scripts/boot.sh` Start re-tap was rewritten after it hit an event popup's GO (opened a web page on Bino/Dino):
+> now re-taps only while Start is visible — UNTESTED. Delete this note once both are confirmed.
 
 Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every account in `accounts/*.yaml`, unless Nick names accounts.
 
