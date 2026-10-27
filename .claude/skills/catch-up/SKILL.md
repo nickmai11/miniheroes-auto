@@ -23,7 +23,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
       screen — it sets the full lineup first and resets to 1 hero after (ui-routine Storm steps 2–6); report its output
    3. Canyon Clash (skip if its season is closed: Mon 06:00-17:00): **take a new spot even if one is already held**
    4. Fishing: only start Auto (fishing) and claim completed order rewards — no order refreshing, no Benefit
-   5. Divine Weapon: Excelsior Veins until pickaxes = 0, then Forge if available (no forge running, crystals ≥ cost) — no Benefit
+   5. Divine Weapon: Excelsior Veins via `scripts/veins.py` (stops at 0 pickaxes), then Forge if available (no forge running, crystals ≥ cost) — no Benefit
    6. Patrol: Claim All only — no Speed Patrol. Claim All often gives Match tickets → re-run Match right after
    7. Tribe chat Request + Assist (Tribe section, step 4 only)
    8. Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available; if it's on
@@ -53,9 +53,10 @@ s1.png, s2.png… — the coordinator watches it). Repo ~/projects/chidojiro/min
 whole docs/ui-routine.md) and accounts/<file>.yaml. Don't edit the repo.
 Game is at the main screen; close popups with X / Cancel (never GO). Today: <weekday date time> (<Storm/Canyon open?>).
 Tools: D=<serial> python3 scripts/tap.py [x,y…] -w 270 -o <dir>/sN.png [--until x,y,r,g,b --timeout s]; -w 270 for
-navigation (×4 = device coords), -w 540 only for small text (×2). Storm: scripts/storm.py (handles lineup).
+navigation (×4 = device coords), -w 540 only for small text (×2). Storm: scripts/storm.py (handles lineup). Veins: scripts/veins.py.
 Rules: screenshot before every tap; no gems/money beyond the config; poll waits inside the command (1–2 s), never
 background timers or "pausing"; game crash → relaunch (monkey -p com.and.brawlen.web …, Start 540,1508), max 3;
+own loops must re-check the stop condition (counter/popup) every pass — never a fixed-count blind loop;
 can't do a step after 2 tries → skip + note why. Nick may tap the screen himself — re-screenshot before each tap.
 Final answer: CONCERNS/ISSUES/ERRORS first (mis-taps, out-of-scope screens opened, wrong lineup, crashes, anything
 left in a bad state), then per step done/skipped (+why), every paid action + price, Daily Mission chests still

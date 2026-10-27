@@ -414,7 +414,9 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
    2 embers) → dismiss `(540,120)` → close ✕ `(970,238)`. Accounts without the forging pass ($8.99) have no Benefit.
 3. **Excelsior Veins** `(980,1810)` → mining grid. Attempts = pickaxes `N/80` (bottom centre;
    regenerates over time). Keep the "Automatically advance to next floor" tick as-is.
-4. **One-Click Mining** `(896,1612)` → *Congratulations* → dismiss `(540,120)`. Repeat until pickaxes = 0
+4. **Run `D=<serial> scripts/veins.py`** on the grid — it does the loop below and stops at the first buy popup
+   (Bino 2026-10-28: a hand-written loop kept tapping 42x past 0 pickaxes, each time opening the 120-diamond buy popup).
+   By hand: **One-Click Mining** `(896,1612)` → *Congratulations* → dismiss `(540,120)`. Repeat until pickaxes = 0
    (pickaxes found in the mine are added back: 1–6 taps). At 0 it opens "120 diamonds for 5 pickaxes" → close ✕ `(938,636)`.
    Don't use the dynamite / drill items or the `+` on the pickaxe (buys more).
    The Veins back arrow returns to Arsenal, not the main screen.
