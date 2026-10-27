@@ -14,7 +14,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    using `scripts/tap.py` and `scripts/storm.py`. Steps, in this order, ONLY these (see `docs/ui-routine.md`):
    1. Match (exhaust free tickets)
    2. Storm Battlefield (skip if its season is closed: Mon 05:00-17:00)
-   3. Canyon Clash (skip if its season is closed: Mon 06:00-17:00)
+   3. Canyon Clash (skip if its season is closed: Mon 06:00-17:00): **take a new spot even if one is already held**
    4. Fishing: only start Auto (fishing) and claim completed order rewards — no order refreshing, no Benefit
    5. Divine Weapon: Excelsior Veins until pickaxes = 0, then Forge if available (no forge running, crystals ≥ cost) — no Benefit
    6. Patrol: Claim All only — no Speed Patrol. Claim All often gives Match tickets → re-run Match right after

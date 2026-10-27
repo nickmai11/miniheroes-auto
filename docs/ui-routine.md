@@ -486,7 +486,6 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
 - **Tribe Trial:** Challenge still starts a fight after the daily one ("No Rewards"). No red dot on the card = done, skip.
 - **Back from Tribe Chat** goes straight to the main screen.
 - **Main-screen "Tribe Clash" banner** countdown is not Canyon's: check Canyon inside the Tribe screen.
-- **Canyon:** all three already held a Gold Battlefield spot (12/m); workers kept it rather than move to 9/m.
 - **Coords seen elsewhere:** Common Recruit result Confirm `(540,1756)`; Tiger gear slot 1 `(117,400)`,
   Enhance `(540,1384)`; hero strip swipe at y=1590.
 - **Forge (Dino):** stopped responding at 4/8 even with 3 s gaps — cause unknown, skip after 2 tries.
@@ -502,7 +501,6 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
   before retrying a tap that "did nothing".
 - Match Challenge list: after scrolling to row 6, rows shift ~+100 px — re-read the screenshot before tapping.
 - Pet Arena / Tower / Sanctuary / Gate / Recruit / Patrol were already done earlier that day — trust the counters, not the plan.
-- Canyon: already holding a Gold spot (12/min) beats a purple 9/m — keep it.
 
 ## Gotchas from catch-up run, all accounts (2026-10-27)
 
@@ -572,7 +570,10 @@ The map opens scrolled to your current area, and empty platforms were found just
 
 Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 challenge attempt" → **Challenge**
 `(742,1334)` (Cancel `(336,1334)`) → lineup (top 5 pre-selected, keep) → **Start** `(540,1808)` → battle ~10–45 s
-(poll; it may return straight to the map with no Victory screen — check the header) → *Victory* → tap anywhere `(540,1500)`. Done once you hold a spot — one per day is enough.
+(poll; it may return straight to the map with no Victory screen — check the header) → *Victory* → tap anywhere `(540,1500)`.
+
+**Take a new spot every run, even if you already hold one** (Nick, 2026-10-27) — a held spot doesn't count as
+done. Pick by the rules below; done once the header shows the newly taken spot. Never spend gems on attempts.
 
 - **Mon–Fri:** take a **purple (9/m) spot**. Prefer an **empty** one. If none is empty, attack a purple
   spot held by someone **not** in our tribe (purple name background; cross-check `accounts/tribe_peakaboo.txt`).
