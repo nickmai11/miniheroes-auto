@@ -98,6 +98,10 @@ Temple `(870,1696)`.
 
 ## Starting the game
 
+**Scripted (preferred):** `scripts/boot.sh <mumu index>...` — does all of the below via ADB in parallel and prints
+the serials. Measured 2026-10-27: Start button is up <1 s after launch, main screen ~5 s after Start (no 40 s waits).
+Main-screen check pixel: Recruit icon `(92,1788)` ≈ `(0,158,230)`; Start button `(440,1508)` ≈ `(255,182,16)`.
+
 1. In **MuMuPlayer**, press ▶ on the instance row (if not running). Wait for the Android home
    screen.
 2. Tap the **Mini Heroes** icon `(352, 190)`. Loading screen → tap **Start** `(352, 1022)`.

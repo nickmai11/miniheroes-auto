@@ -6,7 +6,8 @@ usage: D=127.0.0.1:26625 scripts/tap.py [x,y ...] [-o out.png] [--until x,y,r,g,
   - no taps: just screenshots
   - --until: after the taps, poll (~0.3 s) until device pixel (x,y) is within tol (default 40) of r,g,b,
     e.g. a button that reappears when a battle ends; exits 1 on --timeout (default 120 s)
-  - writes the last screenshot to -o (default ./v.png), downscaled to 540 px wide
+  - writes the last screenshot to -o (default ./v.png), downscaled to -w px wide (default 540; 270 is ~4x
+    cheaper to read — use it for navigation, 540 only to read small text). Tap coords are always device coords.
 """
 import io, os, subprocess, sys, time
 from PIL import Image, ImageChops, ImageStat
@@ -61,7 +62,7 @@ def opt(argv, name, default=None):
 
 
 def main(argv):
-    out = opt(argv, '-o', 'v.png')
+    out = opt(argv, '-o', 'v.png'); w = int(opt(argv, '-w', 540))
     until = opt(argv, '--until'); timeout = float(opt(argv, '--timeout', 120))
     im = None
     for t in argv:
@@ -79,7 +80,7 @@ def main(argv):
                 ok = False; break
             time.sleep(0.3)
     im = im or grab()
-    im.resize((540, 960)).save(out)
+    im.resize((w, w * 16 // 9)).save(out)
     sys.exit(0 if ok else 1)
 
 

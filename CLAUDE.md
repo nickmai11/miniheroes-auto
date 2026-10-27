@@ -41,6 +41,17 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
   and keep it short. Always wait inside the same command: never background timers/Monitor, never end your turn to
   wait — a subagent did that on Aminor (2026-10-27), the wake-up never came, and the mission sat undone.
 
+## Speed & cost (Nick, 2026-10-27 — applies to every skill)
+
+- **Start-up:** `scripts/boot.sh <mumu index>...` boots the instances, restarts the game, taps Start and waits for the
+  main screen, all in parallel (~25 s cold, ~10 s warm). It prints each account's ADB serial. Use it instead of
+  manual start-up steps in any skill; helpers then begin at the main screen (only event popups left to close).
+- **Helpers:** one background agent per account (`model: "sonnet"`), given its serial and own scratch dir. Tell
+  them: screenshots with `tap.py -w 270` for navigation (~4x cheaper), `-w 540` only to read small text (CP,
+  names, prices) — tap coords stay device coords (×4 from a 270 image, ×2 from 540); poll waits (hard rules).
+- **Coordinator:** watch all helper folders with one Monitor, 15 s interval, alert on ~90 s without a new file.
+  A helper saying it's "pausing/waiting" is a red flag — check its screen.
+
 ## Reporting
 
 At the end, report per account: each mission done/skipped (and why), and every paid action
