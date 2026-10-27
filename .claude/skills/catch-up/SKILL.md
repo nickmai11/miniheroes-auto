@@ -5,10 +5,9 @@ description: Mini Heroes: Magic Throne catch-up run - Match, Storm, Canyon, Fish
 
 # Mini Heroes catch-up
 
-> **Partly tested (2026-10-27 22:10):** `scripts/storm.py` lineup handling ran OK on Aminor (1 match; reset to
-> 1 hero verified at 1042K; the full-lineup CP itself wasn't observed — check it once on the Lineup screen next run).
-> `scripts/boot.sh` Start re-tap was rewritten after it hit an event popup's GO (opened a web page on Bino/Dino):
-> now re-taps only while Start is visible — UNTESTED. Delete this note once both are confirmed.
+> **UNTESTED (2026-10-27):** `scripts/boot.sh` Start re-tap (re-taps only while Start is visible; the first version
+> hit an event popup's GO and opened a web page). Check the next boot, then delete this note.
+> (`scripts/storm.py` lineup handling ran clean on all 9 accounts 2026-10-27 22:10 — reset to 1 hero verified.)
 
 Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every account in `accounts/*.yaml`, unless Nick names accounts.
 
@@ -33,7 +32,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
       Claim/Free rewards; never a $ or gem price, never draw/spin with paid currency. Never Tribe
       Clash's Treasures or "Enter" (Nick, 2026-10-27); its free Pack claim is fine
    10. Daily Mission (last): tap ONE yellow **Claim** row (claims all rows) and ONE reachable chest (claims all
-       reachable chests) — no re-checking the rest (Nick, 2026-10-27). Before that rule: Claim every yellow row, then every
+       reachable chests) — no re-checking the rest, never scroll the list (claimable rows sort to the top) (Nick, 2026-10-27). Before that rule: Claim every yellow row, then every
        reachable Daily Activity Levels chest (40/80/120/160); report chests still locked + activity points
    11. Fishing orders again (very end): claim any order reward that completed during the run (Auto fishing
        keeps filling them) — claim only, no refresh (Nick, 2026-10-27). Also retry Common Recruitment once if its

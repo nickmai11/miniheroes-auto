@@ -458,6 +458,7 @@ Last step of `/catch-up` (then a final Fishing order claim).
    E-mail, Lobby, Grocery, **Mission**, Friends, Backpack) → **Mission** ≈ `(800,1360)` → **Daily** tab. Close ✕ `(972,238)`.
 2. Tap **one** yellow **Claim** row — it claims all rows (Nick, 2026-10-27; confirmed on 5 accounts).
    Never tap **GO** (it navigates to the mission, e.g. Grocery diamond purchase / Statue upgrade).
+   Never scroll the list to check what remains: claimable rows always sort to the top (Nick, 2026-10-27).
 3. Top bar *Daily Activity Levels*: chests at **40 / 80 / 120 / 160** points. Tap **one** reachable chest —
    it claims all reachable ones; dismiss the reward.
 4. Report each chest still unclaimable and the current points. The **Weekly** tab is out of scope.
@@ -776,3 +777,10 @@ tribemates' spots show 2.7–4.9M. If Canyon defence uses the Storm lineup, step
 - **Fishing:** Auto stops on its own when bread runs out (most accounts at 0–2/100 by the end) — screen shows
   "Tap water surface to start Fishing". Orders keep completing while Auto runs → claim them again at the end.
 - **Divine Weapon:** at 0 pickaxes One-Click Mining opens "120 diamonds for 5 pickaxes" — close it.
+- **Red dots only** (Nick, 2026-10-27, second catch-up): open a claim screen only when it shows a red dot. Tribe
+  Clash's Pack **glow/sparkle is not a red dot**.
+- Free Common Recruitment chances vary by account and day (1 or 2; "Chances: 0" with no timer = used up for the day).
+- Cmajor and Kong get no daily bread (Auto fishing stops at 0/100 with "Insufficient Bread").
+- Aminor Tribe chat (2026-10-27): helper found only the compose-bar **Request** and per-line "A" (translate) icons,
+  no Assist button — other accounts assisted fine; re-check Aminor's chat layout next run.
+- Arena icon taps from `-w 270` math sometimes miss on the bottom row; use `-w 540` (or full res) to place them.
