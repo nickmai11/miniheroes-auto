@@ -7,8 +7,8 @@ description: Run Mini Heroes: Magic Throne Tribe → Poseidon's Ruins - spend al
 
 Use when Nick asks for "poseidon", "Poseidon's Ruins" or "plunder" on a Mini Heroes account.
 
-1. In `~/projects/chidojiro/miniheroes-auto`, read `CLAUDE.md`, the **Poseidon's Ruins** section of
-   `docs/ui-routine.md`, and `accounts/<account>.yaml`.
+1. In `~/projects/chidojiro/miniheroes-auto`, read `CLAUDE.md`, `scripts/doc.sh Poseidon` (that section
+   of `docs/ui-routine.md`), and `accounts/<account>.yaml`.
 2. Connect (ADB route: see "ADB alternative" in `docs/ui-routine.md`), then Tribe → Poseidon's Ruins → **Enemies** tab.
 3. Scan the whole enemy list (scroll to the bottom). Target = lowest-CP ship with at least one **red** heart.
 4. Attack until **Attack Attempts** = 0: tap the ship → *Plunder* → Attack → Start → Victory → dismiss.

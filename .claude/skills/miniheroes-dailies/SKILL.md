@@ -13,7 +13,8 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 
 1. **Get the repo.** Request folder access to `~/projects/chidojiro` (or `~/projects/chidojiro/miniheroes-auto`) on Nick's computer. Read, in order:
    - `CLAUDE.md`
-   - `docs/ui-routine.md` (and the section for each mission you'll run)
+   - Only the `docs/ui-routine.md` sections for the missions you'll run: `scripts/doc.sh <section>...`
+     (coordinator: just "Daily run order"; each helper: its missions)
    - `accounts/<account>.yaml` for each requested account (all `enabled: true` accounts if he says "all")
    - `docs/setup.md` only if the emulator/network looks wrong
 2. **Get app access (minimum set).** Via computer use: resolve and request access to `MuMuPlayer` and `MuMu Android Device` only. Work in background mode with the `computer_app_*` tools. Don't request full-screen control or other apps unless Nick agrees. If computer-use tools aren't available in the session, use ADB instead (Nick approved this) — see "ADB alternative" in `docs/ui-routine.md`.

@@ -8,7 +8,7 @@ description: Run Mini Heroes: Magic Throne Relics (digging feature, e.g. the Mag
 Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Veins) (map currently shown: "Magic Jungle") on a Mini Heroes account.
 
 1. In `~/projects/chidojiro/miniheroes-auto`, read `CLAUDE.md` and `accounts/<account>.yaml`.
-2. Connect (ADB route: see "ADB alternative" in `docs/ui-routine.md`) and open **Relics**.
+2. Connect (`scripts/boot.sh`, or "ADB alternative" via `scripts/doc.sh`) and open **Relics**.
    Path: main screen → **Relic** (bottom bar, far right) `(972,1788)` → **Lost Continent** map → **Archaeology**
    `(540,1540)` → dig board. Careful: on the map, **Relic Display** sits right where the Relic button was — a late
    Relic tap + a retry lands you in Relic Display (back arrow `(80,1820)`). Screenshot before retrying anything.

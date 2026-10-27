@@ -11,7 +11,7 @@ description: Mini Heroes: Magic Throne catch-up run - Match, Storm, Canyon, Fish
 
 Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every account in `accounts/*.yaml`, unless Nick names accounts.
 
-1. In `~/projects/chidojiro/miniheroes-auto`, read `CLAUDE.md`, `docs/ui-routine.md` and the account files.
+1. In `~/projects/chidojiro/miniheroes-auto`, read the account files (not `docs/ui-routine.md` — helpers read their sections).
 2. Start stopped MuMu instances, get fresh ADB ports, 1080x1920 display, **restart** the game (force-stop + relaunch).
    If the game crashes mid-run, workers relaunch it and retry the step (max 3 relaunches) — Nick, 2026-10-27.
 3. One subagent per instance (`model: "sonnet"`; use `opus` for a step not yet mapped in the docs), own ADB serial and scratch dir under `/tmp/miniheroes-$(date +%F-%H)/<account>`,
@@ -47,9 +47,10 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
 
 ```
 Mini Heroes catch-up on ONE account: <Name>, ADB serial <serial>, scratch dir <dir> (save screenshots there as
-s1.png, s2.png… — the coordinator watches it). Repo ~/projects/chidojiro/miniheroes-auto: read CLAUDE.md,
-.claude/skills/catch-up/SKILL.md (do steps 3.1–3.11 there, in order, ONLY those), docs/ui-routine.md (each step's
-section + "ADB alternative" + gotchas) and accounts/<file>.yaml. Don't edit the repo.
+s1.png, s2.png… — the coordinator watches it). Repo ~/projects/chidojiro/miniheroes-auto: read
+.claude/skills/catch-up/SKILL.md (do steps 3.1–3.11 there, in order, ONLY those), the output of
+`scripts/doc.sh Match Storm Canyon Fishing Divine Patrol Tribe Recruit Events "Daily Mission"` (don't read the
+whole docs/ui-routine.md) and accounts/<file>.yaml. Don't edit the repo.
 Game is at the main screen; close popups with X / Cancel (never GO). Today: <weekday date time> (<Storm/Canyon open?>).
 Tools: D=<serial> python3 scripts/tap.py [x,y…] -w 270 -o <dir>/sN.png [--until x,y,r,g,b --timeout s]; -w 270 for
 navigation (×4 = device coords), -w 540 only for small text (×2). Storm: scripts/storm.py (handles lineup).

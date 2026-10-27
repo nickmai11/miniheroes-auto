@@ -7,8 +7,8 @@ description: Run the Mini Heroes: Magic Throne Match (Arena) daily - crash the t
 
 Use when Nick asks for "match dailies", "arena", or "crash" on a Mini Heroes account.
 
-1. In `~/projects/chidojiro/miniheroes-auto`, read `CLAUDE.md`, the **Match (Arena)** section of
-   `docs/ui-routine.md`, and `accounts/<account>.yaml` (`missions.match`).
+1. In `~/projects/chidojiro/miniheroes-auto`, read `CLAUDE.md`, `scripts/doc.sh Match` (Match section
+   of `docs/ui-routine.md`), and `accounts/<account>.yaml` (`missions.match`).
 2. Connect (ADB route: see "ADB alternative" in `docs/ui-routine.md`).
 3. **Use the saved tribe roster** (`accounts/tribe_<name>.txt`; members are fixed). Read it in-game only if the file is missing, then save it.
 4. Loop until tickets = 0: open Challenge, pick the **topmost** **Crash** row not on the roster
