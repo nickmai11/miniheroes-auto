@@ -14,7 +14,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
 1. In `~/projects/chidojiro/miniheroes-auto`, read the account files (not `docs/ui-routine.md` — helpers read their sections).
 2. Start stopped MuMu instances, get fresh ADB ports, 1080x1920 display, **restart** the game (force-stop + relaunch).
    If the game crashes mid-run, workers relaunch it and retry the step (max 3 relaunches) — Nick, 2026-10-27.
-3. One subagent per instance (`model: "sonnet"`; use `opus` for a step not yet mapped in the docs), own ADB serial and scratch dir under `/tmp/miniheroes-$(date +%F-%H)/<account>`,
+3. One subagent per instance, `subagent_type: "mh-helper"` (Bash+Read only — the general-purpose tool list is resent on every turn; use `opus` model for a step not yet mapped in the docs), own ADB serial and scratch dir under `/tmp/miniheroes-$(date +%F-%H)/<account>`,
    using `scripts/tap.py` and `scripts/storm.py`. Steps, in this order, ONLY these (see `docs/ui-routine.md`):
    **Red dots only (Nick, 2026-10-27):** for claims (events, Tribe Clash Pack, Daily Mission, rewards icons) open/tap
    only what shows a red dot — no red dot = nothing to collect, don't open it to check.
