@@ -87,7 +87,7 @@ Forest `(870,1310)`, Temple `(870,1696)`.
 - **Screenshot coords ≠ device coords** — scale both axes (×2 from 540 wide, ×4 from 270). Workers keep
   mis-tapping by passing screenshot coords directly; a y-only miscalc makes taps miss silently.
 - **Taps during animations are ignored.** Popups slide in; after opening one, take a screenshot,
-  then tap. Always confirm the result with a screenshot — never chain taps blindly.
+  then tap. Confirm the result with a screenshot or a `--until` pixel check — never chain taps blindly.
 - **Safe dismiss tap:** `(540,120)` device (window `(352,140)`) — the title area; does nothing if no popup is open.
   On Grocery / Patrol / Fishing reward popups use `(540,1880)` (very bottom) instead — `(540,120)` can close the screen.
 - **Back arrow `(92,1810)` sits on top of the main screen's Recruit button.** A back tap that lands after the

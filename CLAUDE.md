@@ -21,7 +21,7 @@ Work in **background mode** with the `computer_app_*` tools (screenshot/click on
 window). Don't request full-screen control unless Nick agrees.
 
 If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-26): see
-"ADB alternative" in `docs/ui-routine.md`. Same rules — screenshot before every tap.
+"ADB alternative" in `docs/ui-routine.md`. Same rules.
 
 ## Hard rules
 
@@ -33,6 +33,7 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 - Verify the attempt counter on screen before **and** after each sweep — never tap blindly.
 - Don't touch anything outside the missions listed in the config (shop, purchases, settings).
   Exception: the free red-dot claims in `docs/ui-routine.md` ("Shop freebies", "Play Pass claims"); never a $ button.
+- **Look only at decision points** (Nick, 2026-10-28, token cost): chain a step's fixed taps in ONE `tap.py` call with `--until x,y,r,g,b` on the expected next screen — exit 1 / timeout = unexpected → screenshot and decide. Read a screenshot before: any paid/priced tap, picking a target/opponent/row, reading a counter, the first tap of a step, and after any failed check. Never chain past a price or a choice.
 - If the screen is in an unexpected state, stop and report with a screenshot description.
 - If a step can't be done with confidence (unreadable screen, tap not working after 2 tries), skip it and report
   it as skipped + why — never loop or guess.

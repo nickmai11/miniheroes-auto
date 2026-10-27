@@ -23,4 +23,4 @@ Also triggered mid-dailies by a "Match attempts full" popup: Confirm, exhaust ti
 - Never attack a tribe member (the last-row bot is never one). If unsure, tap the avatar and read `Tribe:` on the profile.
 - Only free tickets: never tap `+` (buy tickets) or Refresh. No gems.
 - Only blue **Crash** rows; no yellow **Challenge** fights unless Nick asks.
-- Screenshot before every tap; never chain taps. Unexpected screen → stop and report.
+- Screenshot before each target pick and counter check; chain only fixed navigation taps with `--until` (CLAUDE.md). Unexpected screen → stop and report.

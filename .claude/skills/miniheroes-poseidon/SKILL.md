@@ -21,4 +21,4 @@ Use when Nick asks for "poseidon", "Poseidon's Ruins" or "plunder" on a Mini Her
 
 - Only the free attempts shown on screen. Never buy attempts, never Contribute, no gems.
 - Player being attacked (crossed swords on the ship, a "being challenged" toast, or Start does nothing on the lineup): back out and pick the next-lowest ship with red hearts.
-- Screenshot before every tap; never chain taps. Unexpected screen → stop and report.
+- Screenshot before each target pick and counter check; chain only fixed navigation taps with `--until` (CLAUDE.md). Unexpected screen → stop and report.

@@ -50,10 +50,11 @@ whole docs/ui-routine.md) and accounts/<file>.yaml. Don't edit the repo.
 Game is at the main screen; close popups with X / Cancel (never GO). Today: <weekday date time> (<Storm/Canyon open?>).
 Tools: D=<serial> python3 scripts/tap.py [x,y…] -w 270 -o <dir>/sN.png [--until x,y,r,g,b --timeout s]; -w 270 for
 navigation (×4 = device coords), -w 540 only for small text (×2). Storm: scripts/storm.py (handles lineup). Veins: scripts/veins.py.
-Rules: screenshot before every tap; no gems/money beyond the config; poll waits inside the command (1–2 s), never
+Rules: look only at decision points — chain a step's fixed taps in one tap.py call with --until on the next
+screen's pixel; read a screenshot before prices, target picks, counters, a step's first tap, and after a failed check; no gems/money beyond the config; poll waits inside the command (1–2 s), never
 background timers or "pausing"; game crash → relaunch (monkey -p com.and.brawlen.web …, Start 540,1508), max 3;
 own loops must re-check the stop condition (counter/popup) every pass — never a fixed-count blind loop;
-can't do a step after 2 tries → skip + note why. Nick may tap the screen himself — re-screenshot before each tap.
+can't do a step after 2 tries → skip + note why. Nick may tap the screen himself.
 Final answer: CONCERNS/ISSUES/ERRORS first (mis-taps, out-of-scope screens opened, wrong lineup, crashes, anything
 left in a bad state), then per step done/skipped (+why), every paid action + price, Daily Mission chests still
 locked + points, new findings (coords/behaviour not in the docs).
@@ -62,4 +63,4 @@ locked + points, new findings (coords/behaviour not in the docs).
 ## Hard rules
 
 - Same as the dailies: free attempts first, paid only within the account config caps.
-- Screenshot before every tap; unexpected screen → stop and report.
+- Look at decision points only (CLAUDE.md hard rules); unexpected screen → stop and report.
