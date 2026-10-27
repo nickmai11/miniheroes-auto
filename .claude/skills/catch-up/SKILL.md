@@ -17,6 +17,8 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    If the game crashes mid-run, workers relaunch it and retry the step (max 3 relaunches) — Nick, 2026-10-27.
 3. One subagent per instance (`model: "sonnet"`; use `opus` for a step not yet mapped in the docs), own ADB serial and scratch dir under `/tmp/miniheroes-$(date +%F-%H)/<account>`,
    using `scripts/tap.py` and `scripts/storm.py`. Steps, in this order, ONLY these (see `docs/ui-routine.md`):
+   **Red dots only (Nick, 2026-10-27):** for claims (events, Tribe Clash Pack, Daily Mission, rewards icons) open/tap
+   only what shows a red dot — no red dot = nothing to collect, don't open it to check.
    1. Match (exhaust free tickets)
    2. Storm Battlefield (skip if its season is closed: Mon 05:00-17:00): run `scripts/storm.py` from the arena
       screen — it sets the full lineup first and resets to 1 hero after (ui-routine Storm steps 2–6); report its output
