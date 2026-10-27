@@ -1,5 +1,5 @@
 ---
-name: miniheroes-relics
+name: miniheroes-relic
 description: Run Mini Heroes: Magic Throne Relics (digging feature, e.g. the Magic Jungle map) - spend all shovels digging down, grabbing relic chests, multi-square chests and cheap relic shards with minimum shovel waste, on Nick's MuMuPlayer accounts via ADB or computer use.
 ---
 
@@ -9,9 +9,19 @@ Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Vein
 
 1. In `~/projects/chidojiro/miniheroes-auto`, read `CLAUDE.md` and `accounts/<account>.yaml`.
 2. Connect (ADB route: see "ADB alternative" in `docs/ui-routine.md`) and open **Relics**.
-   (Entry path not recorded yet — first run started already on the screen; note it in `docs/ui-routine.md` once found.)
-3. Dig one tile per tap until the shovel counter (`N/150`, top-left) is 0. Screenshot after every tap,
-   re-read the whole board, re-plan.
+   The Relic hub is the **Lost Continent** map (shovel counter top-left); tap **Archaeology** `(540,1540)` to open the
+   dig board. (Path from the main screen to Lost Continent not recorded yet — note it here once found.)
+3. Dig with `scripts/relic.py` — it prints the board as text, so **don't read screenshots** (token/disk cost):
+   ```
+   cd <scratchpad>; export D=127.0.0.1:<port>
+   python3 ~/projects/chidojiro/miniheroes-auto/scripts/relic.py        # read board
+   python3 ~/projects/chidojiro/miniheroes-auto/scripts/relic.py R,C    # dig row R, col C (0-based), then read
+   ```
+   Legend: `.` empty, `D/d` dirt, `S/s` stone, `R/r` shard, `P/p` shovel, `M/m` multi-square chest, `G/g` gold chest,
+   `?` unknown. Uppercase = diggable now. Plan from the text, one dig per call, until `shovels 0`.
+   Only look at an image when the script says so: `?` cell → crop that cell from `r.png` (relic chests have no
+   class yet — add one to `cell()` once seen); unknown counter digit → `c.png`, then `relic.py --learn <digits>`;
+   `UNEXPECTED` → the Relic board isn't on screen (tap refused) — stop and report.
 4. Report: items collected per account, shovels wasted (digs that neither went down nor got an item).
 
 ## Board
@@ -40,6 +50,6 @@ With the last shovel(s), prefer a dig that opens a reachable item for the next s
 
 - Don't use the drill or bomb boosters (Nick: "no for now"), never tap the green **+** on the shovel
   button (buys shovels), never use **One-Tap Mining**. No gems.
-- Never chain taps — a tap you thought was cancelled may still land. Screenshot, then tap.
-- Tap looks ignored (counters unchanged)? It may land late — re-screenshot before retrying, or you'll dig twice.
+- Never chain taps — one dig per `relic.py` call, re-plan from its output.
+- Tap looks ignored (counters unchanged)? It may land late — re-read the board (`relic.py`) before retrying, or you'll dig twice.
 - Unexpected screen/popup → stop and report.
