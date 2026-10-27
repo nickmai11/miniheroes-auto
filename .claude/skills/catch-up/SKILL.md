@@ -1,6 +1,6 @@
 ---
 name: catch-up
-description: Mini Heroes: Magic Throne catch-up run - Match, Storm, Canyon, Fishing, Divine Weapon, Patrol, Tribe request/assist, free Common Recruitment, event red dots on every account, via ADB.
+description: Mini Heroes: Magic Throne catch-up run - Match, Storm, Canyon, Fishing, Divine Weapon, Patrol, Tribe request/assist, free Common Recruitment, event red dots, Daily Mission claims + chests on every account, via ADB.
 ---
 
 # Mini Heroes catch-up
@@ -23,9 +23,12 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
       cooldown or out of chances, skip — don't wait, never pay
    9. Events red dots (Daily run order step 16): open event banners with a red dot, claim only free
       Claim/Free rewards; never a $ or gem price, never draw/spin with paid currency
+   10. Daily Mission (last): Claim every yellow **Claim** row (ignore **GO**), then claim every
+       reachable Daily Activity Levels chest (40/80/120/160); report chests still locked + activity points
 4. Workers don't edit the repo; afterwards add new findings to the docs and commit.
 5. Close the MuMu instances used: `"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" close <idx,...>`.
-6. Report per account: each step done/skipped (and why) and every paid action with its price.
+6. Report per account: each step done/skipped (and why), every paid action with its price, and which
+   Daily Mission chests are still unclaimable (with the activity points shown).
 
 ## Hard rules
 

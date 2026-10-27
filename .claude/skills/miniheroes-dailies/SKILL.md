@@ -1,6 +1,6 @@
 ---
 name: miniheroes-dailies
-description: Run Mini Heroes: Magic Throne daily missions (Land of Trials, Match, Shop/Play Pass freebies, Tower of the Throne, Secret Sanctuary, Gate of Darkness, free Recruit summons, hero upgrade, Tribe, Fishing, Divine Weapon, Adventure stage, Patrol, rune synthesis, Grocery) on Nick's MuMuPlayer accounts via computer use (or ADB), following per-account configs in the miniheroes-auto repo.
+description: Run Mini Heroes: Magic Throne daily missions (Land of Trials, Match, Shop/Play Pass freebies, Tower of the Throne, Secret Sanctuary, Gate of Darkness, Beast Realm, free Recruit summons, hero upgrade, Tribe, Fishing, Divine Weapon, Adventure stage, Patrol, rune synthesis, Grocery) on Nick's MuMuPlayer accounts via computer use (or ADB), following per-account configs in the miniheroes-auto repo.
 ---
 
 # Mini Heroes dailies
@@ -30,12 +30,12 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 | Mission | What to do |
 |---|---|
 | Land of Trials | Sweep per config counts (free first, paid ≤ price cap) |
-| Match (Arena) | Use the saved tribe roster (`accounts/tribe_<name>.txt`); crash highest-CP non-tribe opponent until tickets = 0 (see `/miniheroes-match`) |
+| Match (Arena) | Use the saved tribe roster (`accounts/tribe_<name>.txt`); crash the topmost attackable non-tribe opponent (last row = bot, always attackable) until tickets = 0 (see `/miniheroes-match`) |
 | Shop freebies | Value Pack Free Benefits Claim + Hero Pack "Select Hero" (+20 gems) — red dots only |
 | Play Pass | Weekly Card day tile + Lifetime Card Claim Reward |
 | Tower of the Throne | 1 challenge with the pre-selected lineup |
 | Adventure stage | Skull bubble next to the hero → Start, 1 run |
-| Secret Sanctuary | Sweep → Confirm (free) |
+| Secret Sanctuary | Sweep if offered; else climb floors 1→10 (Crash/Battle), pick bonus effects per the preferred list then rarity (see ui-routine) |
 | Recruit | Free only: 2× Common, 1× Ancestor (then Confirm, never Recruit 1), 1× Artifact with Auto **off** |
 | Hero upgrade | Bone Archer (end of hero strip): Level Up ×1, 1st gear Enhance ×1 — never the ↑ quick-level buttons |
 | Tribe | Sign-in reward, 1× Tribe Trial (preset lineup), Chat → Request (if off cooldown) + Assist; never send chat messages |
@@ -48,6 +48,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 | Pet Arena | **First step; Mon/Tue/Wed only.** 1st event banner → Pet Arena → Join → Auto Deploy per `missions.pet_arena` (now: Stamina order High to Low, 4 sprites, auto-stop ✓) → Start |
 | Canyon Clash (Tribe) | **Take a new spot every run, even if one is already held.** Silver spots: only the first 10 from the top. Season Mon 17:00 → next Mon 06:00: **skip on Mondays in the regular run** (`/catch-up` after 17:00). Mon–Fri: purple 9/m spot, prefer empty, else attack a non-tribe (purple name) holder. Sat–Sun: free Glory/Gold only (no attacks for them), else purple/silver — free first, else attack a non-tribemate |
 | Storm Battlefield | Season Mon 17:00 → next Mon 05:00: **skip on Mondays in the regular run** (`/catch-up` after 17:00). After Pet Arena. Monday ≥17:00 with game running since before: restart game first. 2nd event card (wait for it to rotate to Storm) → **always** Lineup → Quick Deploy (top 5) → Save first (last run left 1 hero) → `scripts/storm.py` (plays to 0, taps the left green free-ticket button (Free / Miễn phí / Claim + video ad) until grey, plays them, stops; never 30-gem Redeem; don't reopen + or re-run it) → Rewards: claim red-dot rank rewards → Lineup: quick-remove, only top hero, Save |
+| Beast Realm | Adventure → Beast Realm → Challenge (keep lineup) → Start, **1 challenge only**, never pay |
 | Gate of Darkness | Run once (Confirm wave, never Restart; cap 1m30s, then Pause + quit), then Sweep the remaining chance |
 
 ## Language

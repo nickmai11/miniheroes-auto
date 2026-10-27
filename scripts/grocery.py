@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # usage: D=<serial> scripts/grocery.py  (Grocery Daily Specials tab must be open). Language-independent (colour-based).
 # Grocery: claim any top-row chest whose button is green "Free" (gem-priced buttons aren't green); wait cooldowns.
 import subprocess, time, os

@@ -17,7 +17,7 @@ Run the missions in this order on each account:
 3. **Patrol** — Speed Patrol until the price is 100 gems (don't buy that one) + Claim All.
 4. **Shop** freebies.
 5. **Play Pass** claims.
-6. **Adventure** — everything in it: Tower of the Throne, Secret Sanctuary, Gate of Darkness, Land of Trials
+6. **Adventure** — everything in it: Tower of the Throne, Secret Sanctuary, Gate of Darkness, Beast Realm, Land of Trials
    (+ any other mapped Adventure mode).
 7. **Recruit** free summons.
 8. **Hero** upgrade (after the potion-giving steps above).
@@ -164,7 +164,7 @@ the source of truth: free used = 2 − remaining free; paid used = 5 − remaini
 
 Mapped 2026-10-26 on Cmajor via ADB. **Device coords (1080×1920)**; window coords not mapped yet.
 
-Goal: spend every free ticket crashing the highest-CP opponent who is **not in our tribe**.
+Goal: spend every free ticket crashing the **topmost attackable** opponent (not in our tribe) — Nick, 2026-10-27.
 
 1. **Tribe roster:** members are fixed (Nick, 2026-10-26). Use the saved list in `accounts/tribe_<name>.txt`;
    only read it in-game if that file doesn't exist yet (then save it). Main screen → **Tribe** `(448,1780)`
@@ -178,7 +178,9 @@ Goal: spend every free ticket crashing the highest-CP opponent who is **not in o
    - Blue **Crash** = instant win vs. a weaker opponent (1 ticket). Use these.
    - Yellow **Challenge** = real fight vs. a stronger one. Not used.
    - Don't touch `+` (buys tickets) or **Refresh** (cost unknown).
-4. Pick the highest-CP **Crash** row whose name is not on the roster → tap its Crash.
+4. Pick the **topmost** attackable row (scan from row 1 down): blue **Crash** and name not on the roster → tap it.
+   **The last row is always a bot — always attackable** (no tribe/server check needed); use it when no
+   row above it qualifies, so tickets never go unused.
    If the account has `match.skip_same_server: true`, also skip opponents on the account's own server
    ("S###" tag, e.g. S201 — on the leaderboard / opponent profile). Server unknown → skip.
    The dialog closes and shows *Congratulations* (+40 match points, 11000 gold).
@@ -230,16 +232,33 @@ Keep the pre-selected lineup (Nick, 2026-10-26: don't bother picking the weakest
 3. **Start** `(540,1808)` → result screen. Dismiss by tapping `(540,1700)` (below the
    "Challenge again" button — never tap that). Verify tickets dropped by 1.
 
-## Secret Sanctuary (daily sweep, free)
+## Secret Sanctuary (sweep if offered, else climb 10 floors) — Nick, 2026-10-27
 
-Mapped 2026-10-26 on Cmajor via ADB (device coords).
+Sweep only exists for a while after a full clear (Nick: ~7 days); when the map rotates (2026-10-27:
+Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**. Mapped on Cmajor, ADB device coords.
 
-1. Main screen → **Adventure** `(100,1460)` → Secret Sanctuary **GO** `(787,962)` → map (e.g. "Ice Citadel").
-2. **Sweep** `(540,1778)` (plain button, no gem icon) → *Tip*: "Sweep grants rewards based on last
-   cleared stage (Stage 10). Cannot challenge again today." → **Confirm** `(533,1197)`.
-3. *Congratulations* (gold, potions, shards…) → dismiss `(540,120)`. All stages now show flags and
-   the Sweep button is replaced by "Bonus Effects Owned". Done for the day.
-4. Back arrow `(92,1810)` returns straight to the main screen.
+1. Main screen → **Adventure** `(100,1460)` → Secret Sanctuary **GO** `(787,962)` → map.
+2. If a plain **Sweep** `(540,1778)` shows: Sweep → *Tip* **Confirm** `(533,1197)` → dismiss `(540,120)`. Done.
+3. Else climb. Floor nodes (yellow marker = next), Lava Cave: 1 `(664,1440)`, 2 `(526,1210)`,
+   3 `(786,1040)`, 4 `(552,956)`, 5 `(264,860)`, 6 `(502,786)`, 7 `(746,724)`, 8 `(630,574)`,
+   9 `(414,506)`, 10 boss `(590,340)` (other maps: read the node off the screenshot).
+   - Floor popup: yellow **Crash** `(540,1380)` = instant win (we out-power it) → *Congratulations* → dismiss `(540,120)`.
+   - Green **Battle** `(540,1380)` → lineup (HP **carries over** between floors) → if fewer than 5 ticked,
+     **Quick Deploy** `(984,1800)` → **Start** `(540,1808)` → ~25 s → *Victory* → **Confirm** `(540,1404)`.
+     A loss: stop and report (don't use Recovery Potion).
+4. After each floor: **Select Bonus Effect** (3 cards at `(192|540|884, 950)` → **Confirm Selection** `(540,1426)`).
+   Pick, in order:
+   1. A **preferred** buff: ATK Drill, DMG Increase Drill, Infinite Energy, Concentrated Fire, Iron Shield,
+      Mental Fear, Battle Cry — if several, the rarer one (Mythic > Legend > Elite > Rare).
+   2. Else the rarest card (Mythic > Legend > Elite > Rare).
+5. Once 5/5 owned: **Replace Bonus Effect** — top row = offered `(192|540|884, 660)`, bottom row = owned
+   (`(150|460|740|1000, 1300)`, 4th is half off-screen). Replace only if it's an upgrade: a preferred
+   buff over a non-preferred one, or a higher rarity over a non-preferred one → **Replace Bonus** `(780,1676)`.
+   Otherwise **Skip** `(302,1676)`.
+6. After floor 10 all nodes show flags. Back `(92,1810)` → main screen.
+
+2026-10-27 Cmajor (6673K CP): floors 1–2 Crash, 3–10 Battle, all won (HP never below 56%).
+Final buffs: Mental Fear, ATK Drill, Stun Curse, Infinite Energy, Iron Shield.
 
 Gotcha (all modes): the back arrow `(92,1810)` sits on top of the main screen's **Recruit** button.
 A back tap that lands after the screen has already changed opens Recruit. Screenshot after every
@@ -264,6 +283,19 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Endless-wave mode; progress
 
 2026-10-26: run 1 = Victory, 2287 kills, Rank 1 (114K gold, 457 silver). The second chance's state
 is unknown — the screen jumped to Beast Realm mid-run (Nick may have been using the instance).
+
+## Beast Realm (1 challenge/day) — Nick, 2026-10-27
+
+Coords scaled from Nick's screenshots (unverified — screenshot first, fix here after the first run).
+
+1. Main screen → **Adventure** `(100,1460)` → wait for the list to settle → Beast Realm **GO** `(790,1790)` (verified on Cmajor)
+   (6th card, below Ancient Ruins; scroll down if not visible).
+2. Beast Realm screen: middle beast card (e.g. Mountain Demon, "Endless"). **Challenge** `(540,1810)`
+   shows "Chances: N" under it.
+3. Lineup screen (5 pre-selected, green ticks) — keep it; if none ticked, **Quick Deploy** `(1014,1814)`.
+   **Start** `(540,1810)` → battle → dismiss the result screen (not mapped yet; never "Challenge again").
+4. **One challenge only** (Nick, 2026-10-27) — verify Chances dropped by 1, then back out. Never pay
+   for chances, never open **Shop** (bottom right).
 
 ## Recruit (free summons only)
 
@@ -326,7 +358,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started
    Target per account: `missions.fishing.min_order_diamonds` (Cmajor: 4 = Mythic+).
 3. Refresh buttons x=`849`, y = `704 / 1058 / 1412` (orders 1–3). Costs **1 refresh ticket**; first
    time a *Order Refresh* confirm appears → tick "Do not remind me today" `(390,1380)` → **Confirm** `(757,1211)`.
-   Automate with `scripts/fish_orders.py ROW MAX` (pixel check on the diamonds; row y = 567/921/1275,
+   Automate with `D=<serial> scripts/fish_orders.py ROW MAX MIN` (MIN = `min_order_diamonds`, default 4; pixel check on the diamonds; row y = 567/921/1275,
    diamond x = 633/706/778/851/921; filled = R>200, empty = (58,85,115)).
 4. Out of tickets: buy with **50 gems** via `+` next to the ticket count (Nick: "buy 1 you'll have
    5 tickets, buy more when out") — not yet exercised; screenshot the purchase popup and verify 50 gems.
@@ -413,6 +445,16 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
    - The price icon must be that shop's own currency (the one next to the balance) — never gems or $.
    - Buy popup not mapped yet: screenshot, confirm the price, tap Buy, screenshot again to see Sold Out.
 5. Close ✕ `(966,222)`.
+
+## Daily Mission (claim all + activity chests) — Nick, 2026-10-27
+
+Last step of `/catch-up`. Coordinates not mapped yet — locate by screenshot and record them here.
+1. Open **Daily Mission** from the main screen → **Daily** tab.
+2. Tap every yellow **Claim** button (rows with a red dot), scrolling the list until none are left.
+   Never tap **GO** (it navigates to the mission, e.g. Grocery diamond purchase / Statue upgrade).
+3. Top bar *Daily Activity Levels*: chests at **40 / 80 / 120 / 160** points. Tap each chest whose
+   threshold ≤ the points shown on the left scroll icon; dismiss the reward.
+4. Report each chest still unclaimable and the current points. The **Weekly** tab is out of scope.
 
 ## Gotchas from xFaktor run (2026-10-26)
 
@@ -509,7 +551,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
   second tap can open a ranking profile; close by tapping outside, e.g. `(900,1500)`).
 - Match: the Challenge list can have only 1–2 rows; the Match icon keeps a red dot at 0 tickets (Day Ranking
   gift) — read the ticket badge, not the dot. Opponent profile "War Zone: AreaNNN" = their server.
-  Dminor's whole list is its own server (Area205), so with `skip_same_server` it can't use tickets.
+  Dminor's list is all its own server (Area205) — still crash the last row: it's a bot (Nick, 2026-10-27).
 - Common Recruitment: the Free button stays green at "Chances: 0" — read the counter. Result Confirm `(540,1756)`.
 - Excelsior Veins: pickaxes found in the mine are added back; repeat One-Click Mining until 0 (1–6 taps).
 - Forge: "Forge N/M" = filled slots; 0/M = idle. Each anvil tap `(540,1484)` fills one slot (500 crystals).
@@ -517,6 +559,39 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
   Wish Festival → Gift → Free Pack Claim `(866,912)` (plain claim on Dino today), close ✕ `(966,190)`.
   7777 Draws: never tap "Again" (its red dot stays when all daily claims are ticked).
 - Aminor and Dminor showed English today despite `language: vi` in their configs.
+
+## Gotchas from dailies run, 7 accounts (2026-10-27)
+
+- `fish_orders.py` returns `None` when the first-time *Order Refresh* confirm shows: tick `(390,1380)` →
+  Confirm `(757,1211)`, re-run. Auto Fishing stops when bread runs out (~4/100) on most accounts — restart
+  Auto at the end of the run.
+- `grocery.py` sometimes stops early (chests still green Free) or its last dismiss closes Grocery: reopen
+  Grocery and re-run until all 4 show Sold Out. Needs ~4.5 s between the Free tap and dismiss `(540,1850)`.
+- Grocery buy: tabs Sanctuary `(452,546)`, Tribe `(732,546)`, Ruins `(980,546)`; swipe the tab bar
+  `900→200` at y=546 → Realm `(604,546)`. Row-1 price `(913,893)`, row-3 `(913,1605)`. Purchase
+  popup `(540,1203)`, dismiss `(540,1850)`. Balance below the price → skip + report.
+- Land of Trials, list at top: GO Ancient Battlefield `(870,925)`.
+- Pet Arena: Champion popup reopens a few s after ✕ `(972,548)` — open Auto Deploy right after closing.
+  Backing out asks "Exit?" → Confirm `(760,1162)`. Already done today = 0 tickets top-left.
+- Match: when the top rows are all tribemates, the target is row 6 after swipe `540,1500→540,900`,
+  Crash ≈ `(866,1652)` (rows shift after a crash — screenshot every time). 35-win chest ≈ `(696,210)`.
+  Dminor: only same-server opponents listed → Match was skipped; now crash the last-row bot instead.
+- Gate of Darkness: Pause may need a 2nd tap; Sweep confirm ≈ `(770,1390)`. A network-error popup sends
+  the game to the loading screen — that run uses no chance, re-run.
+- Excelsior Veins at 0 pickaxes: One-Click Mining opens a gem purchase popup → ✕ `(938,636)`.
+- Recruit: Aminor/Dminor/Bino/xFaktor showed 2–4 Common chances — still do only the configured 2.
+- Bino now has a Play Pass: free claims (Recruit, Grocery, Gift pack, Storm tickets) are plain, no ads.
+  Dino's were plain too today.
+- Hero strip: Bone Archer is the **last** card on xFaktor/Dino/Tiger (≈ `(940-976,1600)`), ≈ `(774,1580)`
+  on Bino/Aminor, `(216,1580)` on Dminor — find it by screenshot.
+- Aminor and Dminor showed English despite `language: vi`.
+- Events (free only):
+  - Pet Arena → Pack `(88,370)` → Free `(866,834)`; Achievement `(88,690)` → Claim `(866,606)`.
+  - Wish Festival → Sign-In ≈ `(876,1500-1560)` → today's Claim `(862,1498)`; Gift `(270,1600-1660)` → Free
+    Pack `(866,912)` ×2 (Limited: 2). Treasure Vault = event-coin draws → skip.
+  - 7777 Draws: Claim `(540,1606)` → Open All `(856,1764)` → Confirm `(540,1756)`.
+  - Weekly Event / Hero Recruit: Pet Shop / Recruit Store sub-tab `(410,240)` → Free Benefits `(896,1024)`.
+  - Tribe Clash banner `(880,624)` → Pack → Free `(866,934)`.
 
 ## Pet Arena (join + Auto Deploy)
 
