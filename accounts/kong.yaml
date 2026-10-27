@@ -17,7 +17,7 @@ missions:
     ancient_battlefield: 2
 
   match:
-    tribe: Peakaboo
+    tribe: KINGKONG
     crash_all_tickets: true
 
   shop_freebies: true

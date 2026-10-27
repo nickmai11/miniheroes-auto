@@ -271,7 +271,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: **2 Common, 1 Ancest
 
 1. Main screen → **Recruit** `(96,1810)` (opens on Advanced Recruitment — skip it, it uses tickets).
 2. **Common Recruitment** tab `(188,1610)` → "Chances: N" + **Free** `(540,1355)`. Tap → result cards →
-   dismiss `(540,1700)` (wait ~2 s for the card flip). Do it twice (some accounts — Aminor, Dminor, Kong — only get 1 chance; "Lượt còn lại không đủ" / "Chances: 0" = done). A cooldown (~5 min) shows
+   dismiss `(540,1700)` (wait ~2 s for the card flip). Do it twice (some accounts — Aminor, Dminor, Chien Than, xFaktor — only get 1 chance; Kong and Bino get 2; "Lượt còn lại không đủ" / "Chances: 0" = done). A cooldown (~5 min) shows
    between free chances; if it's on, wait it out — never pay.
 3. **Ancestor Summon** tab `(896,1610)` → **Free** `(310,1355)` (red dot) → result → **Confirm**
    `(300,1755)`. **Never "Recruit 1"** on the result screen (spends a ticket). Button then shows
@@ -470,7 +470,9 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
 - **Pet Arena** (device): 1st banner → Pet Arena tab `(480,1850)` → Join `(540,1528)` → last-season *Champion*
   popup ✕ `(972,548)` → Auto Deploy `(956,1640)` → Start `(540,1570)`. "Free attempts used up" toast = already
   ran today; dialog ✕ `(938,282)`.
-- **Storm card:** pixel `(760,450–470)` gold ≈ `(230,150,66)` = Storm showing, blue = other event; tap `(880,480)`.
+- **Storm card:** pixel `(760,450)` gold ≈ `(230,150,66)` = Storm showing, blue = other event; tap `(880,480)`.
+  At y=460 the gold reads darker ≈ `(132,85,49)` — use y=450 for `--until` (2026-10-27). Tapping `(880,480)`
+  while another card shows usually still opens the event screen on the Storm tab.
 - **Play Pass, Monthly Card not owned:** still has a free track of yellow Claim buttons (x≈830–896, scroll the
   list; dismiss `(300,200)`). Never the green "Continue to claim" (paid track).
 - **Match Event → Heroic Trial** sub-tab `(400,190)`: free Land of Trials point rewards, Claim ≈ `(896,1024)`.
@@ -494,6 +496,22 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
 - Match Challenge list: after scrolling to row 6, rows shift ~+100 px — re-read the screenshot before tapping.
 - Pet Arena / Tower / Sanctuary / Gate / Recruit / Patrol were already done earlier that day — trust the counters, not the plan.
 - Canyon: already holding a Gold spot (12/min) beats a purple 9/m — keep it.
+
+## Gotchas from catch-up run, all accounts (2026-10-27)
+
+- Startup popups: "Stargems Running Out!" → Cancel `(337,1281)`; 2nd Anniversary popup (Vietnamese text) → ✕ `(990,346)`.
+- The first tap on the main screen right after loading is often ignored — retry once, then screenshot (a late
+  second tap can open a ranking profile; close by tapping outside, e.g. `(900,1500)`).
+- Match: the Challenge list can have only 1–2 rows; the Match icon keeps a red dot at 0 tickets (Day Ranking
+  gift) — read the ticket badge, not the dot. Opponent profile "War Zone: AreaNNN" = their server.
+  Dminor's whole list is its own server (Area205), so with `skip_same_server` it can't use tickets.
+- Common Recruitment: the Free button stays green at "Chances: 0" — read the counter. Result Confirm `(540,1756)`.
+- Excelsior Veins: pickaxes found in the mine are added back; repeat One-Click Mining until 0 (1–6 taps).
+- Forge: "Forge N/M" = filled slots; 0/M = idle. Each anvil tap `(540,1484)` fills one slot (500 crystals).
+- Events: Match Event → **Canyon Warrior** tab has free Canyon point milestones, Claim `(896,1024)`.
+  Wish Festival → Gift → Free Pack Claim `(866,912)` (plain claim on Dino today), close ✕ `(966,190)`.
+  7777 Draws: never tap "Again" (its red dot stays when all daily claims are ticked).
+- Aminor and Dminor showed English today despite `language: vi` in their configs.
 
 ## Pet Arena (join + Auto Deploy)
 
@@ -557,6 +575,17 @@ Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 c
   attack one held by a **non-tribemate** (purple name background). Never attack a blue-name (tribe) player.
 - Never spend gems.
 
+**Occupation lasts 8h** ("Collect Time 08:00:00"), then ends on its own: on the next visit a *Resource* popup
+shows the gains → **Confirm** `(540,1460)` → dismiss `(540,1210)`; header shows "Unoccupied" → take a spot again.
+Spots fill within seconds when several workers run at once — re-screenshot before tapping.
+Swipe slowly (`540 700 → 540 1500`, 1500 ms) to come back up; fast swipes fling far.
+
+**Points Reward:** left-side **Rewards** `(88,745)` with a red dot → **Claim Reward** `(540,1618)` (free) →
+dismiss `(540,1880)` → close ✕ `(972,240)`.
+
+Tribe chat pinned notice (Peakaboo, 2026-10-27): "Canyon: Move to 8/m if you reached 80k early. Dont attack
+people not 80k yet." — not yet reflected in the rules above; ask Nick.
+
 ## Poseidon's Ruins (Tribe, 3 attacks)
 
 Added by Nick 2026-10-26; mapped on xFaktor via ADB (device coords). Skill: `miniheroes-poseidon`.
@@ -608,16 +637,21 @@ dailies. Monday: closed until 17:00 — run `/catch-up` after that.
    until 0, then (popup opens itself on Start Match at 0, or via **+**) taps the **left green button** until it's grey.
    Three looks, any language: **Free / Miễn phí** (pass accounts, instant), **Claim / Nhận** with a camera icon
    (no pass → real video ad, Mintegral `MBRewardVideoActivity`), or grey "Chances: 0" = done. Never
-   **Diamonds 30 Redeem**. Ads: wait for the video to end (~35 s), then Android **Back** (`keyevent 4`) closes the end
+   **Diamonds Redeem** (price varies per account: 30 / 50 / 150 gems). Ads: wait for the video to end (~35 s), then Android **Back** (`keyevent 4`) closes the end
    card and grants +1 — Back mid-video aborts with no reward (chance not used). Never tap the ad body/Install.
    Then close `(100,1150)`, play the new tickets; next time tickets hit 0 → close the popup and stop.
    Button state: sample `(260,1250)` — green (123,206,49) / grey (181,178,181). `(260,1274)` hits the "Free" text or
    the camera icon: that made storm.py miss the ad popup, "dismiss" it as a Victory and count fake 5 s matches.
 5. **Rewards** `(96,880)` (left side) — if it has a red dot: *Rank Reward* tab lists King/Glory/Gold/Silver/Bronze
-   rows; tap a reached rank's highlighted item (e.g. Bronze `(372,1404)`) → claims the whole row (checkmarks) →
+   rows; tap a reached rank's highlighted item (Bronze `(372,1404)`, Silver `(372,1180)`) → claims the whole row (checkmarks) →
    dismiss `(540,1900)`. *Ranking Rewards* tab = end-of-season table, nothing to claim. Close ✕ `(972,228)`;
    the red dot should be gone.
 6. **Lineup** `(960,1600)` → quick-remove ↺ `(1006,1084)` (clears all) → tap only the **first** hero card
    `(140,1250)` (highest) → **Save** `(540,1808)` ("Successfully saved"). Done.
 
 2026-10-26 Cmajor: 5 + 2 free = 7 matches, Bronze V → III.
+
+Tickets regen 1 per 2h (timer under the counter) — one can arrive right after storm.py stops.
+
+**Open question (2026-10-27):** Aminor's Canyon spot showed 1043k CP = the 1-hero Storm lineup, while
+tribemates' spots show 2.7–4.9M. If Canyon defence uses the Storm lineup, step 6 weakens it — ask Nick.

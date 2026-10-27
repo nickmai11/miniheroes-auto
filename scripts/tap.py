@@ -19,7 +19,12 @@ CHANGED, SETTLED = 6.0, 3.0  # mean abs diff on a 54x96 grey thumb; idle animati
 
 
 def grab():
-    raw = subprocess.run(['adb', '-s', D, 'exec-out', 'screencap'], capture_output=True).stdout
+    for attempt in range(3):  # screencap sometimes hangs with several workers on one adb server
+        try:
+            raw = subprocess.run(['adb', '-s', D, 'exec-out', 'screencap'], capture_output=True, timeout=10).stdout
+            break
+        except subprocess.TimeoutExpired:
+            if attempt == 2: raise
     w, h = int.from_bytes(raw[0:4], 'little'), int.from_bytes(raw[4:8], 'little')
     return Image.frombuffer('RGBA', (w, h), raw[-w * h * 4:], 'raw', 'RGBA', 0, 1).convert('RGB')
 
