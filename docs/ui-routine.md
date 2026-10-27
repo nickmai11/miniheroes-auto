@@ -749,3 +749,6 @@ tribemates' spots show 2.7–4.9M. If Canyon defence uses the Storm lineup, step
 - Grocery `grocery_buy`: Sanctuary tile 12 = 10000 coins, more than a day's balance (~6000) → usually skipped.
 - Event claim lists (Heroic Trial / Canyon Warrior): the top Claim `(896,1024)` rolls to the next row after each
   claim; repeat while pixel `(820,1024)` is yellow (255,182,16), dismiss `(300,200)` between taps.
+- Kong: Bone Archer (Lv.90) sits mid-strip ≈ `(586,1580)` after the 15 swipes; gear slot 1 `(124,400)`.
+- Tower / Sanctuary cards had no red dot on Cmajor but weren't done — always open them and read the counter.
+- Sanctuary Battle wait: `tap.py 540,1808 --until 400,1404,123,206,49,25` returns when the Victory Confirm shows.
