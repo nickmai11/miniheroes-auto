@@ -225,9 +225,9 @@ owns. Never tap a $ / purchase button.
 4. **Lifetime Card** → **Claim Reward** `(540,1658)` → 288 gems + 3 arena tickets, button turns "Claimed".
 5. Dismiss every reward popup with `(540,120)`; back arrow `(92,1810)`.
 
-## Tower of the Throne (1 daily challenge)
+## Tower of the Throne (3 daily challenges)
 
-Mapped 2026-10-26 on Cmajor via ADB (device coords). Goal: one challenge for the daily task.
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Goal: 3 challenges (`tower_of_the_throne` in the config; Nick, 2026-10-27).
 Keep the pre-selected lineup (Nick, 2026-10-26: don't bother picking the weakest hero).
 
 1. Main screen → **Adventure** `(100,1460)` → Tower of the Throne **GO** `(787,687)`.
@@ -235,6 +235,7 @@ Keep the pre-selected lineup (Nick, 2026-10-26: don't bother picking the weakest
 2. **Challenge** `(540,1805)` → lineup screen (5 strongest heroes pre-selected) — leave as-is.
 3. **Start** `(540,1808)` → result screen. Dismiss by tapping `(540,1700)` (below the
    "Challenge again" button — never tap that). Verify tickets dropped by 1.
+4. Repeat steps 2–3 until the configured count is done (stop early if tickets hit 0).
 
 ## Secret Sanctuary (sweep if offered, else climb 10 floors) — Nick, 2026-10-27
 
@@ -452,12 +453,13 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
 
 ## Daily Mission (claim all + activity chests) — Nick, 2026-10-27
 
-Last step of `/catch-up`. Coordinates not mapped yet — locate by screenshot and record them here.
-1. Open **Daily Mission** from the main screen → **Daily** tab.
-2. Tap every yellow **Claim** button (rows with a red dot), scrolling the list until none are left.
+Last step of `/catch-up` (then a final Fishing order claim).
+1. Main screen → list icon with red dot near the Tribe-chat strip ≈ `(990,1630)` → side menu (Settings, Notice,
+   E-mail, Lobby, Grocery, **Mission**, Friends, Backpack) → **Mission** ≈ `(800,1360)` → **Daily** tab. Close ✕ `(972,238)`.
+2. Tap **one** yellow **Claim** row — it claims all rows (Nick, 2026-10-27; confirmed on 5 accounts).
    Never tap **GO** (it navigates to the mission, e.g. Grocery diamond purchase / Statue upgrade).
-3. Top bar *Daily Activity Levels*: chests at **40 / 80 / 120 / 160** points. Tap each chest whose
-   threshold ≤ the points shown on the left scroll icon; dismiss the reward.
+3. Top bar *Daily Activity Levels*: chests at **40 / 80 / 120 / 160** points. Tap **one** reachable chest —
+   it claims all reachable ones; dismiss the reward.
 4. Report each chest still unclaimable and the current points. The **Weekly** tab is out of scope.
 
 ## Gotchas from xFaktor run (2026-10-26)
@@ -595,7 +597,8 @@ Last step of `/catch-up`. Coordinates not mapped yet — locate by screenshot an
     Pack `(866,912)` ×2 (Limited: 2). Treasure Vault = event-coin draws → skip.
   - 7777 Draws: Claim `(540,1606)` → Open All `(856,1764)` → Confirm `(540,1756)`.
   - Weekly Event / Hero Recruit: Pet Shop / Recruit Store sub-tab `(410,240)` → Free Benefits `(896,1024)`.
-  - Tribe Clash banner `(880,624)` → Pack → Free `(866,934)`.
+  - Tribe Clash banner `(880,624)` → Pack `(994,1630)` → Free `(866,934)` (20 gems, 1/day). **Never its
+    Treasures or "Enter"** (Nick, 2026-10-27). Its red dot can persist with nothing claimable.
 
 ## Pet Arena (join + Auto Deploy)
 
@@ -756,3 +759,19 @@ tribemates' spots show 2.7–4.9M. If Canyon defence uses the Storm lineup, step
 - Kong: Bone Archer (Lv.90) sits mid-strip ≈ `(586,1580)` after the 15 swipes; gear slot 1 `(124,400)`.
 - Tower / Sanctuary cards had no red dot on Cmajor but weren't done — always open them and read the counter.
 - Sanctuary Battle wait: `tap.py 540,1808 --until 400,1404,123,206,49,25` returns when the Victory Confirm shows.
+
+## Findings from catch-up run (all accounts, 2026-10-27 evening)
+
+- **Event hub:** the top-right rotating 1st banner taps at ≈ `(896,340)` (y≈166–210 misses). Any banner opens the
+  shared hub; use its bottom tabs instead of timing the rotation: Wish Festival `(300,1820)`, 7777 Draws
+  `(648,1850)`, Match Event `(860,1850)`, Weekly Event `(1000,1850)`. Canyon Warrior Claim ≈ `(900,1024)`.
+- **Storm:** helpers skipped step 2 on Chien Than/xFaktor and played with the 1-hero lineup — always check the
+  Lineup CP before the first Start Match.
+- **Arena (Match):** tribemates' names look like everyone else's (no blue tag) — cross-check the roster file by name.
+  Arena back arrow `(120,1780)`; `(60,56)` opens Rules (close with `keyevent 4`).
+- **Canyon:** after Occupy the header can keep showing the old spot — back out to Tribe and re-enter to confirm
+  (your name in green on the new platform). Empty platforms also appear in the Silver Sentinel rows / next to
+  your own spot. Spots get taken between screenshot and tap — re-check the popup's name before confirming.
+- **Fishing:** Auto stops on its own when bread runs out (most accounts at 0–2/100 by the end) — screen shows
+  "Tap water surface to start Fishing". Orders keep completing while Auto runs → claim them again at the end.
+- **Divine Weapon:** at 0 pickaxes One-Click Mining opens "120 diamonds for 5 pickaxes" — close it.

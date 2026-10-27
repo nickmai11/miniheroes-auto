@@ -13,7 +13,8 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
 3. One subagent per instance (`model: "sonnet"`; use `opus` for a step not yet mapped in the docs), own ADB serial and scratch dir under `/tmp/miniheroes-$(date +%F-%H)/<account>`,
    using `scripts/tap.py` and `scripts/storm.py`. Steps, in this order, ONLY these (see `docs/ui-routine.md`):
    1. Match (exhaust free tickets)
-   2. Storm Battlefield (skip if its season is closed: Mon 05:00-17:00)
+   2. Storm Battlefield (skip if its season is closed: Mon 05:00-17:00): **set the full lineup (Quick Deploy) before
+      the first Start Match**, reset to 1 hero after (ui-routine Storm steps 2 + 6)
    3. Canyon Clash (skip if its season is closed: Mon 06:00-17:00): **take a new spot even if one is already held**
    4. Fishing: only start Auto (fishing) and claim completed order rewards — no order refreshing, no Benefit
    5. Divine Weapon: Excelsior Veins until pickaxes = 0, then Forge if available (no forge running, crystals ≥ cost) — no Benefit
@@ -22,9 +23,13 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    8. Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available; if it's on
       cooldown or out of chances, skip — don't wait, never pay
    9. Events red dots (Daily run order step 16): open event banners with a red dot, claim only free
-      Claim/Free rewards; never a $ or gem price, never draw/spin with paid currency
-   10. Daily Mission (last): Claim every yellow **Claim** row (ignore **GO**), then claim every
+      Claim/Free rewards; never a $ or gem price, never draw/spin with paid currency. Never Tribe
+      Clash's Treasures or "Enter" (Nick, 2026-10-27); its free Pack claim is fine
+   10. Daily Mission (last): tap ONE yellow **Claim** row (claims all rows) and ONE reachable chest (claims all
+       reachable chests) — no re-checking the rest (Nick, 2026-10-27). Before that rule: Claim every yellow row, then every
        reachable Daily Activity Levels chest (40/80/120/160); report chests still locked + activity points
+   11. Fishing orders again (very end): claim any order reward that completed during the run (Auto fishing
+       keeps filling them) — claim only, no refresh (Nick, 2026-10-27)
 4. Workers don't edit the repo; afterwards add new findings to the docs and commit.
 5. Close the MuMu instances used: `"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" close <idx,...>`.
 6. Report per account: each step done/skipped (and why), every paid action with its price, and which
