@@ -5,6 +5,11 @@ description: Mini Heroes: Magic Throne catch-up run - Match, Storm, Canyon, Fish
 
 # Mini Heroes catch-up
 
+> **UNTESTED changes (2026-10-27) — test on ONE account first, before fanning out:** `scripts/storm.py` now sets
+> the full lineup itself and resets to 1 hero after; `scripts/boot.sh` re-taps Start up to 3x; `tap.py --until`
+> tolerates wrong-size screenshots. Watch that first storm.py run (check CP on the Lineup screen before/after),
+> then delete this note.
+
 Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every account in `accounts/*.yaml`, unless Nick names accounts.
 
 1. In `~/projects/chidojiro/miniheroes-auto`, read `CLAUDE.md`, `docs/ui-routine.md` and the account files.
@@ -13,8 +18,8 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
 3. One subagent per instance (`model: "sonnet"`; use `opus` for a step not yet mapped in the docs), own ADB serial and scratch dir under `/tmp/miniheroes-$(date +%F-%H)/<account>`,
    using `scripts/tap.py` and `scripts/storm.py`. Steps, in this order, ONLY these (see `docs/ui-routine.md`):
    1. Match (exhaust free tickets)
-   2. Storm Battlefield (skip if its season is closed: Mon 05:00-17:00): **set the full lineup (Quick Deploy) before
-      the first Start Match**, reset to 1 hero after (ui-routine Storm steps 2 + 6)
+   2. Storm Battlefield (skip if its season is closed: Mon 05:00-17:00): run `scripts/storm.py` from the arena
+      screen — it sets the full lineup first and resets to 1 hero after (ui-routine Storm steps 2–6); report its output
    3. Canyon Clash (skip if its season is closed: Mon 06:00-17:00): **take a new spot even if one is already held**
    4. Fishing: only start Auto (fishing) and claim completed order rewards — no order refreshing, no Benefit
    5. Divine Weapon: Excelsior Veins until pickaxes = 0, then Forge if available (no forge running, crystals ≥ cost) — no Benefit
@@ -29,11 +34,31 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
        reachable chests) — no re-checking the rest (Nick, 2026-10-27). Before that rule: Claim every yellow row, then every
        reachable Daily Activity Levels chest (40/80/120/160); report chests still locked + activity points
    11. Fishing orders again (very end): claim any order reward that completed during the run (Auto fishing
-       keeps filling them) — claim only, no refresh (Nick, 2026-10-27)
+       keeps filling them) — claim only, no refresh (Nick, 2026-10-27). Also retry Common Recruitment once if its
+       free draw was on cooldown earlier (~5 min) — draw if Free, else skip.
 4. Workers don't edit the repo; afterwards add new findings to the docs and commit.
 5. Close the MuMu instances used: `"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" close <idx,...>`.
-6. Report per account: each step done/skipped (and why), every paid action with its price, and which
-   Daily Mission chests are still unclaimable (with the activity points shown).
+6. Report: lead with **Concerns / issues / errors** (see CLAUDE.md "Reporting"), then per account: each step
+   done/skipped (and why), every paid action with its price, and which Daily Mission chests are still
+   unclaimable (with the activity points shown).
+
+## Helper prompt (use as-is; fill in <…>; add any rule Nick gives mid-run to this file too)
+
+```
+Mini Heroes catch-up on ONE account: <Name>, ADB serial <serial>, scratch dir <dir> (save screenshots there as
+s1.png, s2.png… — the coordinator watches it). Repo ~/projects/chidojiro/miniheroes-auto: read CLAUDE.md,
+.claude/skills/catch-up/SKILL.md (do steps 3.1–3.11 there, in order, ONLY those), docs/ui-routine.md (each step's
+section + "ADB alternative" + gotchas) and accounts/<file>.yaml. Don't edit the repo.
+Game is at the main screen; close popups with X / Cancel (never GO). Today: <weekday date time> (<Storm/Canyon open?>).
+Tools: D=<serial> python3 scripts/tap.py [x,y…] -w 270 -o <dir>/sN.png [--until x,y,r,g,b --timeout s]; -w 270 for
+navigation (×4 = device coords), -w 540 only for small text (×2). Storm: scripts/storm.py (handles lineup).
+Rules: screenshot before every tap; no gems/money beyond the config; poll waits inside the command (1–2 s), never
+background timers or "pausing"; game crash → relaunch (monkey -p com.and.brawlen.web …, Start 540,1508), max 3;
+can't do a step after 2 tries → skip + note why. Nick may tap the screen himself — re-screenshot before each tap.
+Final answer: CONCERNS/ISSUES/ERRORS first (mis-taps, out-of-scope screens opened, wrong lineup, crashes, anything
+left in a bad state), then per step done/skipped (+why), every paid action + price, Daily Mission chests still
+locked + points, new findings (coords/behaviour not in the docs).
+```
 
 ## Hard rules
 

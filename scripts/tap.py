@@ -74,7 +74,8 @@ def main(argv):
         t0 = time.time()
         while True:
             im = grab()
-            if max(abs(a - b) for a, b in zip(im.getpixel((x, y)), want)) <= tol:
+            # a screenshot can come back at the physical size right after boot (xFaktor 600x1080) -> keep polling
+            if x < im.width and y < im.height and max(abs(a - b) for a, b in zip(im.getpixel((x, y)), want)) <= tol:
                 break
             if time.time() - t0 > timeout:
                 ok = False; break

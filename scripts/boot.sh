@@ -21,7 +21,11 @@ boot() {
   adb -s "$s" shell monkey -p $PKG -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1
   # yellow Start button, then the blue Recruit icon of the bottom bar (dimmed while a popup is open -> still ok after timeout)
   D=$s python3 "$TAP" -o "/tmp/boot_$port.png" --until 440,1508,255,182,16 --timeout 90 || { echo "$name $s start-timeout"; return; }
-  D=$s python3 "$TAP" 540,1508 -o "/tmp/boot_$port.png" --until 92,1788,0,158,230 --timeout 60 || { echo "$name $s main-timeout"; return; }
+  # Start tap is sometimes ignored (xFaktor/Cmajor 2026-10-27) -> re-tap up to 3x. UNTESTED (2026-10-27).
+  for try in 1 2 3; do
+    D=$s python3 "$TAP" 540,1508 -o "/tmp/boot_$port.png" --until 92,1788,0,158,230 --timeout 20 && break
+    [ $try = 3 ] && { echo "$name $s main-timeout"; return; }
+  done
   echo "$name $s ready"
 }
 

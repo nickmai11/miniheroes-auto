@@ -4,9 +4,12 @@
 # Free tickets: in ONE visit of the "+" popup, tap the left green button (Free / Miễn phí / Claim+video ad)
 # until it turns grey, watching the ad when there is one (Nick, 2026-10-26); the next time tickets hit 0
 # the script closes the popup and stops. Never taps the 30-gem Redeem.
+# Lineup (Nick, 2026-10-27, after helpers played with the leftover 1-hero lineup): sets the full lineup
+# (Quick Deploy) before the first match and leaves only the first hero after (ui-routine Storm steps 2 + 6).
+# UNTESTED (written 2026-10-27) — verify on one account before a multi-account run.
 import os, subprocess, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from tap import grab
+from tap import grab, tap as tap_wait
 D = os.environ['D']
 near = lambda p, c, tol=30: all(abs(a - b) <= tol for a, b in zip(p, c))
 def arena(im): p = im.getpixel((400, 1580)); return p[0] > 200 and p[1] > 150 and p[2] < 80  # Start Match yellow
@@ -46,9 +49,29 @@ def claim_free():
     return got
 
 
+def lineup(full):
+    """Lineup (960,1600) -> Quick Deploy (top 5) or clear + first hero -> Save -> back to the arena."""
+    tap_wait(960, 1600)
+    if full: tap_wait(984, 1800)
+    else: tap_wait(1006, 1084); tap_wait(140, 1250)
+    tap_wait(540, 1808); tap_wait(88, 1812)
+    t0 = time.time()
+    while not arena(grab()):
+        if time.time() - t0 > 10: print(f'lineup ({"full" if full else "1 hero"}): not back on arena; stop'); return False
+        time.sleep(0.5)
+    print(f'lineup set: {"full (Quick Deploy)" if full else "first hero only"}', flush=True); return True
+
+
 def main():
     if not arena(grab()):
         print('not on arena screen; stop'); return 1
+    if not lineup(True): return 1
+    r = play()
+    if r == 0 and not lineup(False): return 1
+    return r
+
+
+def play():
     claimed, n = False, 0
     while n < 30:
         im = grab()

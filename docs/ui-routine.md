@@ -717,7 +717,8 @@ dailies. Monday: closed until 17:00 — run `/catch-up` after that.
    `(880,480)`. Event screen tabs at the bottom (Storm Battlefield / Dragon Temple).
    **Monday ≥ 17:00 with the game already running since before 17:00: restart the game first**
    (`am force-stop com.and.brawlen.web` + relaunch) — otherwise the Storm card never shows (Nick, 2026-10-26).
-2. **Always start with a full lineup** — the previous run left only 1 hero (step 6). First time (CP 0):
+2. **Always start with a full lineup** — the previous run left only 1 hero (step 6). `scripts/storm.py` does
+   this (and step 6) itself since 2026-10-27 (untested yet); the manual steps below are the fallback. First time (CP 0):
    **Deploy** `(540,1220)`; later runs: **Lineup** `(960,1600)` on the arena screen. Then **Quick Deploy**
    `(984,1800)` (top 5) → **Save** `(540,1808)` → back `(88,1812)` (→ **Start** `(540,1220)` if on the
    welcome screen). Verify the CP is the top-5 value before the first Start Match.
