@@ -1,6 +1,6 @@
 """OCR helpers for the mission scripts: find buttons by their text, wait for a screen, fail loudly.
-Text matching is English (the UI language of all accounts but Dminor) — on another language the waits time out
-and the script stops with exit 1 (Stop), never guessing."""
+Text matching is English (every account's UI language). An unexpected screen times out a wait and the script
+stops with exit 1 (Stop), never guessing."""
 import os, re, subprocess, sys, tempfile, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait

@@ -9,7 +9,7 @@ guard let img = NSImage(contentsOf: url), let cg = img.cgImage(forProposedRect: 
 let W = Double(cg.width), H = Double(cg.height)
 let req = VNRecognizeTextRequest()
 req.recognitionLevel = .accurate
-req.recognitionLanguages = ["en-US", "vi-VN"]
+req.recognitionLanguages = ["en-US"]
 req.usesLanguageCorrection = false
 try VNImageRequestHandler(cgImage: cg).perform([req])
 for o in req.results ?? [] {

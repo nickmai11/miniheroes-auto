@@ -67,12 +67,12 @@ and saves a screenshot `-w` px wide (default 540: coords ×2 for device; 270: ×
   Grocery: `scripts/grocery.py`; Fishing orders: `scripts/fish_orders.py`.
 - **Match: `D=<serial> scripts/match.py <account>`** from the Arena screen (crashes until tickets 0, closes the dialog);
   **Land of Trials: `D=<serial> scripts/trials.py <account>`** from the Land of Trials list (all dungeons, free then paid
-  within the cap, English UI only). Both read the screen with OCR (`scripts/ocr`, macOS Vision) and print one line per
+  within the cap). Both read the screen with OCR (`scripts/ocr`, macOS Vision) and print one line per
   action; exit 1 = unexpected screen → read `v_match.png` / `v_trials.png` and finish that mission by hand.
   Use them instead of the manual steps below (Nick, 2026-10-28: Match ~117 + Trials ~75 helper turns/account).
 - Same pattern, all from the **main screen** (`scripts/flow.py` = shared OCR helpers): `patrol.py <account> [--claim-only]`,
   `hero.py <account>`, `tribe.py` (sign-in, Trial if red dot, Request + Assist; ends on Tribe chat),
-  `adventure.py <account> tower|beast` (ends on the mode screen). English UI only; exit 1 → `v_<script>.png`, do it by hand.
+  `adventure.py <account> tower|beast` (ends on the mode screen). Exit 1 → `v_<script>.png`, do it by hand.
 
 ## ADB alternative (no computer use)
 
@@ -94,9 +94,7 @@ Forest `(870,1310)`, Temple `(870,1696)`.
 
 ## General gotchas
 
-- **Game language differs per account** (`account.language`; Dminor = Vietnamese: "Miễn phí" = Free,
-  "Xác nhận" = Confirm, "Nhận" = Claim, "Hủy" = Cancel). Layout/coords are the same; judge buttons by colour/position
-  + counters, not English text. Aminor/Dminor have shown English despite `language: vi` — check the first screenshot.
+- **The game UI is English on every account** (Nick, 2026-10-28). The scripts match English button text.
 - **Screenshot coords ≠ device coords** — scale both axes (×2 from 540 wide, ×4 from 270). Workers keep
   mis-tapping by passing screenshot coords directly; a y-only miscalc makes taps miss silently.
 - **Taps during animations are ignored.** Popups slide in; after opening one, take a screenshot,
@@ -359,7 +357,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: **2 Common, 1 Ancest
 2. **Common Recruitment** tab `(188,1610)` → "Chances: N" + **Free** `(540,1355)`. Tap → result cards →
    **Confirm** `(540,1756)` / dismiss `(540,1700)` (wait ~2 s for the card flip). Do the configured 2 even when
    more chances show; some accounts/days only get 1. The Free button stays green at "Chances: 0" — read the counter
-   ("Lượt còn lại không đủ" / "Chances: 0" with no timer = done for the day). A cooldown (~5 min) shows between
+   ("Chances: 0" with no timer = done for the day). A cooldown (~5 min) shows between
    free chances; never pay.
 3. **Ancestor Summon** tab `(896,1610)` → **Free** `(310,1355)` (red dot) → result → **Confirm**
    `(300,1755)`. **Never "Recruit 1"** on the result screen (spends a ticket). Button then shows
@@ -430,7 +428,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started
    (60 bread, 5 refresh tickets, baits) → dismiss `(540,120)` → close ✕ `(970,238)`.
 6. **Auto** `(982,1222)` → *Auto Fish* settings (keep as-is: Auto-submit Orders ✓) → **Start** `(540,1485)`.
    Button becomes "Auto Fishing". Leave it.
-7. **Order rewards (end of run only):** Order Info → a completed order shows a yellow **Claim/Nhận** where Refresh
+7. **Order rewards (end of run only):** Order Info → a completed order shows a yellow **Claim** where Refresh
    normally is (`(849, 704|1058|1412)`) → tap → dismiss `(540,1880)` (+50/60 hammers each). Orders keep completing
    while Auto runs.
 
@@ -454,7 +452,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
    (pickaxes found in the mine are added back: 1–6 taps). At 0 it opens "120 diamonds for 5 pickaxes" → close ✕ `(938,636)`.
    Don't use the dynamite / drill items or the `+` on the pickaxe (buys more).
    The Veins back arrow returns to Arsenal, not the main screen.
-5. **Forge** (Arsenal, anvil "Forge/Rèn N/M" `(540,1484)`, crystal cost below e.g. `6755/500` = owned/cost):
+5. **Forge** (Arsenal, anvil "Forge N/M" `(540,1484)`, crystal cost below e.g. `6755/500` = owned/cost):
    N = filled slots, M = slots per account (7, 8, 13…); 0/M = idle. A running forge shows a timer above → skip.
    Else each anvil tap fills one slot (500 crystals, ~4 h) — fill every slot, stop when full or crystals < cost.
    Crystals only, never gems. Queue ≈ `(60,1250)`. Dino's forge stopped responding at 4/8 (cause unknown) — skip after 2 tries.
@@ -505,7 +503,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
    Rows below have gem prices — never tap them.
    - Chest 1 Gold Coin Pack: 1 claim.
    - Chests 2–4 (Hero, Resource, Growth): **3 claims each**, ~5–8 s cooldown between claims.
-3. **Run `D=<serial> scripts/grocery.py`** (colour-based, any language; the popup's Free button moves per item —
+3. **Run `D=<serial> scripts/grocery.py`** (colour-based; the popup's Free button moves per item —
    chest 1 `(540,1204)`, chests 2–4 `(540,1344)` — so it scans for the green button). It sometimes stops early
    (chests still green Free) or its last dismiss closes Grocery: reopen Grocery and re-run until all 4 show **Sold Out**.
    Manual: tap a chest showing **Free** → popup must say Free (never a gem price) → claim → wait ~4.5 s → dismiss
@@ -537,7 +535,7 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
 - **Wish Festival:** Sign-In ≈ `(876,1500–1560)` → today's Claim `(862,1498)`; Gift `(270,1600–1660)` → Free Pack
   `(866,912)` ×2 (Limited: 2), close ✕ `(966,190)`. Treasure Vault = event-coin draws → skip.
 - **7777 Draws:** daily Claim `(540,1606)` (collects 30 draws) — then stop: **never Open All** / draw (Nick, 2026-10-28:
-  collect only). Never "Again" / "claim one more time" (Nhận thêm một lần) — its red dot stays when all daily claims are ticked.
+  collect only). Never "Again" / "claim one more time" — its red dot stays when all daily claims are ticked.
 - **Match Event:** Heroic Trial sub-tab `(400,190)` and **Canyon Warrior** tab — free point milestones, Claim
   ≈ `(896,1024)`. The top Claim rolls to the next row after each claim: repeat while pixel `(820,1024)` is yellow
   (255,182,16), dismiss `(300,200)` between taps.
@@ -568,8 +566,8 @@ no red dot on the side-menu icon / **Mission** entry → skip, nothing to claim.
 Added by Nick 2026-10-26. Strategy is per account (`missions.pet_arena` in the config); for now all accounts
 use **Stamina order High to Low, 4 sprites**.
 
-1. Main screen → **1st event banner** (top right) → bottom tab **Pet Arena** ("Đấu Trường Tinh Linh") `(480,1850)` →
-   **Join** ("Tham gia") `(540,1528)`. Last-season *Champion* popup ✕ `(972,548)` — it reopens a few s later, so
+1. Main screen → **1st event banner** (top right) → bottom tab **Pet Arena** `(480,1850)` →
+   **Join** `(540,1528)`. Last-season *Champion* popup ✕ `(972,548)` — it reopens a few s later, so
    open Auto Deploy right after closing it. "Free attempts used up" toast / 0 tickets top-left = already ran today.
 2. **Auto Deploy** `(956,1640)` → *Auto Deploy* dialog:
    - **Deployed Sprite per Battle** = config `sprites` (4).
@@ -692,7 +690,7 @@ dailies. Monday: closed until 17:00 — run `/catch-up` after that.
    real fights (~60–80 s) — poll until the arena screen is back → *Victory/Defeat* → tap `(540,120)`. Repeat until 0/5.
 4. **Free tickets — one visit of the + popup per run** (Nick, 2026-10-26). `scripts/storm.py` does steps 3–4: plays
    until 0, then (popup opens itself on Start Match at 0, or via **+**) taps the **left green button** until it's grey.
-   Three looks, any language: **Free / Miễn phí** (pass accounts, instant), **Claim / Nhận** with a camera icon
+   Three looks: **Free** (pass accounts, instant), **Claim** with a camera icon
    (no pass → real video ad, Mintegral `MBRewardVideoActivity`), or grey "Chances: 0" = done. Never
    **Diamonds Redeem** (price varies per account: 30 / 50 / 150 gems). Ads: wait for the video to end (~35 s), then Android **Back** (`keyevent 4`) closes the end
    card and grants +1 — Back mid-video aborts with no reward (chance not used). Never tap the ad body/Install.

@@ -5,7 +5,7 @@
 # Each step starts and ends on the main screen. Output: one "OK|SKIP|FAIL|MANUAL <step>: ..." line per step, then
 # "LEFT FOR HELPER: ..." = steps a helper must do by hand (judgment steps + failures, each with a v_*.png).
 # exit 0 = ran to the end, 1 = lost the main screen (helper: recover, then re-run the steps after the last OK).
-# English UI only. Never spends gems except through trials.py (cap-checked) and patrol.py (cap-checked).
+# Never spends gems except through trials.py (cap-checked) and patrol.py (cap-checked).
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import datetime, os, re, subprocess, sys, time
 from flow import Stop, adventure, battle, find, grab, joined, ocr, swipe, tap, tap_text, tap_wait, wait

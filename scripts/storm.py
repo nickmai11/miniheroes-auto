@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Play Storm Battlefield matches until tickets run out. Arena screen (yellow "Start Match") must be open.
 # usage: D=<serial> scripts/storm.py   — polls every ~0.5 s, so a match costs only its real length.
-# Free tickets: in ONE visit of the "+" popup, tap the left green button (Free / Miễn phí / Claim+video ad)
+# Free tickets: in ONE visit of the "+" popup, tap the left green button (Free / Claim+video ad)
 # until it turns grey, watching the ad when there is one (Nick, 2026-10-26); the next time tickets hit 0
 # the script closes the popup and stops. Never taps the 30-gem Redeem.
 # Lineup (Nick, 2026-10-27, after helpers played with the leftover 1-hero lineup): sets the full lineup

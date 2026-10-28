@@ -3,7 +3,6 @@ account:
   mumu_instance: Cmajor
   game_id: 15298308
   enabled: true
-  language: en
 
 safety:
   max_gem_price_per_sweep: 160

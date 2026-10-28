@@ -48,10 +48,7 @@ prompts; the doc is the single source.
 
 ## Language
 
-The game UI is **English or Vietnamese** depending on the account (`account.language`; check the first
-screenshot if unset). Same layout and coords. Recognise buttons by colour/position and counters, not
-English text. Common Vietnamese: Miễn phí = Free, Xác nhận = Confirm, Nhận = Claim, Hủy = Cancel.
-A loop or "nothing happens" usually means a text mismatch — check the language first.
+The game UI is **English** on every account (Nick, 2026-10-28); the scripts match English button text.
 
 ## Hard rules
 

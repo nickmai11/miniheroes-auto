@@ -15,7 +15,7 @@ def tip():
     boxes = wait(r'Patrol G|Obta|Remaining chances', 8)
     m = re.search(r'Remaining chances today\W*(\d+)', joined(boxes))
     btn = [t for x, y, w, h, t in boxes if 1080 < y + h // 2 < 1250 and 300 < x + w // 2 < 780]
-    price = 0 if any(re.search(r'Free|Miễn', t) for t in btn) else next((int(t) for t in btn if t.strip().isdigit()), None)
+    price = 0 if any(re.search(r'Free', t) for t in btn) else next((int(t) for t in btn if t.strip().isdigit()), None)
     if price is None: raise Stop(f'Tip price unreadable: {joined(boxes)[:200]}')
     return (int(m.group(1)) if m else None), price
 

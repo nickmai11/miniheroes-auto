@@ -3,7 +3,6 @@ account:
   mumu_instance: Dino
   game_id: null
   enabled: true
-  language: en
 
 safety:
   max_gem_price_per_sweep: 160

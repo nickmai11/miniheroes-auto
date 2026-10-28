@@ -3,7 +3,6 @@ account:
   mumu_instance: Dminor
   game_id: 15407691
   enabled: true
-  language: vi
 
 safety:
   max_gem_price_per_sweep: 160

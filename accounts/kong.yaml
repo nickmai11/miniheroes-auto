@@ -3,7 +3,6 @@ account:
   mumu_instance: Kong
   game_id: 15847271
   enabled: true
-  language: en
 
 safety:
   max_gem_price_per_sweep: 160

@@ -2,7 +2,6 @@ account:
   name: Example
   mumu_instance: Example
   enabled: true
-  language: en
 
 safety:
   max_gem_price_per_sweep: 80

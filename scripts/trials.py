@@ -6,7 +6,7 @@
 #   Tip popup "Spend P diamonds ..." = the price, checked against safety.max_gem_price_per_sweep before Confirm.
 # Done today = 2 - free left, or 2 + purchases made (price ladder 80/160/240 -> 0/1/2 made; the purchase
 # max differs per account: Tiger had 4, Cmajor 5).
-# English UI only (keywords) — on a Vietnamese screen it stops with exit 1. "Match tickets full" popup: Confirm,
+# "Match tickets full" popup: Confirm,
 # keep going, print MATCH_FULL at the end. exit 0 = all dungeons handled, 1 = unexpected screen (v_trials.png).
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import os, re, subprocess, sys, time
