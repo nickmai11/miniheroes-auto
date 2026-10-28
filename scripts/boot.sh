@@ -15,8 +15,11 @@ boot() {
   until port=$("$M" info "$i" 2>/dev/null | python3 -c "import json,sys; print(json.load(sys.stdin)['return'].get('adb_port') or '')" 2>/dev/null) && [ -n "$port" ]; do sleep 1; done
   name=$("$M" info "$i" | python3 -c "import json,sys; print(json.load(sys.stdin)['return']['name'])")
   s=127.0.0.1:$port
-  adb connect "$s" >/dev/null
-  until adb -s "$s" shell getprop sys.boot_completed 2>/dev/null | grep -q 1; do sleep 1; done
+  # re-connect every pass: the connection can drop while booting (xFaktor 2026-10-28 hung 5 min here)
+  local t=0
+  until adb connect "$s" >/dev/null 2>&1; adb -s "$s" shell getprop sys.boot_completed 2>/dev/null | grep -q 1; do
+    sleep 1; t=$((t+1)); [ $t -ge 90 ] && { echo "$name $s boot-timeout"; return; }
+  done
   adb -s "$s" shell am force-stop $PKG
   adb -s "$s" shell monkey -p $PKG -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1
   # yellow Start button, then the blue Recruit icon of the bottom bar (dimmed while a popup is open -> still ok after timeout)

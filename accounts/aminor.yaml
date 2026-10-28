@@ -56,7 +56,7 @@ missions:
     sanctuary: [12]   # rune stone pack
     tribe: [12]
     ruins: [1]
-    realm: [4]        # red stone x1000
+    # realm: [4]        # red stone x1000
   pet_arena:
     strategy: stamina_order
     order: high_to_low
