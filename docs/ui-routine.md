@@ -216,8 +216,14 @@ Goal: spend every free ticket crashing the **topmost attackable** opponent (not 
    Dismiss with `(540,120)`, confirm the ticket count dropped by 1 on the Challenge button.
 5. Repeat from step 2 until tickets = 0. The opponent list changes after every crash.
 
-Weekly win chests (10/20/35/50 wins) along the top bar, 10 ≈ `(376,210)`, 20 ≈ `(536,210)`, 35 ≈ `(696,210)` —
-free once reached. Arena back arrow `(120,1780)`; `(60,56)` opens Rules (close with `keyevent 4`).
+Weekly win chests (10/20/35/50 wins) along the top bar, 10 ≈ `(376,210)`, 20 ≈ `(536,210)`, 35 ≈ `(696,210)`,
+50 ≈ `(864,210)` — free once reached.
+
+6. **Claims (Nick, 2026-10-28)**, after tickets = 0 (wins may unlock a chest), on the Arena screen:
+   - **Win chest** that glows gold (no ✓, reached) → tap it, claim, dismiss `(540,120)`. ✓ = already claimed; dull = not reached.
+   - **Ranking Rewards** buttons at the bottom, Week ≈ `(568,1828)`, Day ≈ `(895,1828)`: a **gift box** icon on
+     the button's top-right corner = claimable → tap that button, screenshot, tap only a free Claim, dismiss/close.
+     No gift box → skip. (Popup layout not mapped yet — first run: screenshot and note the coords here.) Arena back arrow `(120,1780)`; `(60,56)` opens Rules (close with `keyevent 4`).
 
 **Interrupt: tickets full.** During any daily, a popup can say Match attempts are full. Its **Confirm**
 (`(696,1162)`–`(740,1162)`) only closes it — then go to Match yourself, run the routine above until tickets = 0

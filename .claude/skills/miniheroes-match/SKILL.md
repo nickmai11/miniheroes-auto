@@ -14,7 +14,8 @@ Use when Nick asks for "match dailies", "arena", or "crash" on a Mini Heroes acc
 4. Loop until tickets = 0: open Challenge, pick the **topmost** **Crash** row not on the roster
    (the **last row is a bot — always attackable**, use it when nothing above qualifies),
    crash, dismiss, verify the ticket count dropped.
-5. Report: opponents crashed (name, CP) and any tribemates skipped.
+5. Claim any reached (glowing) weekly win chest and any Ranking Rewards button showing a gift box (Match doc step 6).
+6. Report: claims, opponents crashed (name, CP) and any tribemates skipped.
 
 Also triggered mid-dailies by a "Match attempts full" popup: Confirm, exhaust tickets, then resume the interrupted daily.
 
