@@ -416,9 +416,9 @@ def events(cfg):
     return f'MANUAL {r}; red dots left: {left}' if left else r
 
 
-# catch-up (.claude/skills/catch-up): Arena, Storm, Fishing auto only, Veins + Forge (no Benefit), Patrol Claim All,
+# catch-up (.claude/skills/catch-up): Fishing auto only, Arena, Storm, Veins + Forge (no Benefit), Patrol Claim All,
 # Arena again, Tribe chat Request/Assist, Common Recruitment, Daily Mission, Fishing order rewards
-CATCHUP = [('arena', arena), ('storm', storm), ('fishing_auto', lambda c: fishing(c, orders=False)),
+CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena), ('storm', storm),   # fishing first: Auto runs during the rest (Nick, 2026-10-29)
            ('veins_forge', lambda c: divine(c, benefit=False)), ('patrol_claim', patrol_claim), ('arena2', arena),
            ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
            ('storm_rewards', storm_rewards), ('arena_claims', arena_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
