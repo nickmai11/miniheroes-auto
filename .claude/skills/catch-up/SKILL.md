@@ -16,7 +16,8 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    only what shows a red dot — no red dot = nothing to collect, don't open it to check.
    1. Match (exhaust free tickets)
    2. Storm Battlefield (skip if its season is closed: Mon 05:00-17:00): run `scripts/storm.py` from the arena
-      screen — it sets the full lineup first and resets to 1 hero after (ui-routine Storm steps 2–6); report its output
+      screen — it sets the full lineup first and resets to 1 hero after (ui-routine Storm steps 2–4, 6); report its output.
+      Then **Rewards** (left side) if it has a red dot — storm.py does NOT do this (Storm step 5)
    3. Canyon Clash (skip if its season is closed: Mon 06:00-17:00): **take a new spot even if one is already held**
    4. Fishing: only start Auto (fishing) and claim completed order rewards — no order refreshing, no Benefit
    5. Divine Weapon: Excelsior Veins via `scripts/veins.py` (stops at 0 pickaxes), then Forge if available (no forge running, crystals ≥ cost) — no Benefit
@@ -47,7 +48,7 @@ s1.png, s2.png… — the coordinator watches it). Repo ~/projects/chidojiro/min
 .claude/skills/catch-up/SKILL.md (do steps 3.1–3.11 there, in order, ONLY those), the output of
 `scripts/doc.sh Match Storm Canyon Fishing Divine Patrol Tribe Recruit Events "Daily Mission"` (don't read the
 whole docs/ui-routine.md) and accounts/<file>.yaml. Don't edit the repo.
-Game is at the main screen; close popups with X / Cancel (never GO). Today: <weekday date time> (<Storm/Canyon open?>).
+Game is at the main screen; close popups with X / Cancel (never GO); tick "Do not remind me today" first if the popup has it. Today: <weekday date time> (<Storm/Canyon open?>).
 Tools: D=<serial> python3 scripts/tap.py [x,y…] -w 270 -o <dir>/sN.png [--until x,y,r,g,b --timeout s]; -w 270 for
 navigation (×4 = device coords), -w 540 only for small text (×2). Storm: scripts/storm.py (handles lineup). Veins: scripts/veins.py.
 Rules: look only at decision points — chain a step's fixed taps in one tap.py call with --until on the next

@@ -113,6 +113,8 @@ Main-screen check pixel: Recruit icon `(92,1788)` ≈ `(0,158,230)`; Start butto
 3. Event popups may appear on the main screen — close with their ✕, then screenshot to confirm the main screen
    (Adventure button bottom-left). Seen: Pet Arena ✕ window `(524,520)`; event banner ✕ `(806,742)`;
    "Stargems Running Out!" / promo → **Cancel** `(337,1281)`; 2nd Anniversary promo ✕ ≈ `(988–1006, 322–348)`.
+   **"Do not remind me today"** checkbox under a popup (e.g. 2nd Anniversary, ≈ device `(390,1675)`) → tick it
+   first (green ✓), then close with ✕ (Nick, 2026-10-28). Never GO.
 
 - Instances with a 600×1080 display: `adb shell wm size 1080x1920 && adb shell wm density 480`, restart the
   game → all device coords here apply. Undo with `wm size reset` / `wm density reset`.
@@ -668,7 +670,7 @@ dailies. Monday: closed until 17:00 — run `/catch-up` after that.
    Then close `(100,1150)`, play the new tickets; next time tickets hit 0 → close the popup and stop.
    Button state: sample `(260,1250)` — green (123,206,49) / grey (181,178,181). `(260,1274)` hits the "Free" text or
    the camera icon: that made storm.py miss the ad popup, "dismiss" it as a Victory and count fake 5 s matches.
-5. **Rewards** `(96,880)` (left side) — if it has a red dot: *Rank Reward* tab lists King/Glory/Gold/Silver/Bronze
+5. **Rewards** `(96,880)` (left side) — after tickets = 0 (storm.py doesn't do this step), if it has a red dot: *Rank Reward* tab lists King/Glory/Gold/Silver/Bronze
    rows; tap a reached rank's highlighted item icon, not the row background (Bronze `(372,1404)`, Silver `(372,1180)`, Gold `(372,962)`) → claims the whole row (checkmarks) →
    dismiss `(540,1900)`. *Ranking Rewards* tab = end-of-season table, nothing to claim. Close ✕ `(972,228)`;
    the red dot should be gone.
