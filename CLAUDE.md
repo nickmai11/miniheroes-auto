@@ -5,7 +5,7 @@ game accounts. Each account lives in its own **MuMuPlayer** Android instance on 
 
 ## Before doing anything
 
-1. Read only the `docs/ui-routine.md` sections you need: `scripts/doc.sh <section>...` (e.g. `scripts/doc.sh Match`).
+1. Read only the `docs/ui-routine.md` sections you need: `scripts/doc.sh <section>...` (e.g. `scripts/doc.sh Arena`).
    A coordinator that delegates to helpers needs just the skill file — helpers read their own sections.
 2. Read the account file(s) in `accounts/` for the account(s) you were asked to run ("group 1/2" → `accounts/groups.yaml`).
 3. Skim `docs/setup.md` if something about the emulator/proxy looks off.
@@ -50,7 +50,7 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
   (~25 s cold, ~15 s warm). Prints "<name> <serial> ready (stable …)" or "popup-stuck" (close that one by hand). Always boot first. Use it instead of
   manual start-up steps in any skill; runner and helpers then begin at a clean main screen.
 - **Scripts first (Nick, 2026-10-28 — cost):** `scripts/daily.py <account> [step ...]` runs a whole account with no
-  LLM; mission scripts (`match.py`, `trials.py`, `patrol.py`, …) do single missions. A helper is only for what a
+  LLM; mission scripts (`arena.py`, `trials.py`, `patrol.py`, …) do single missions. A helper is only for what a
   script leaves (`LEFT FOR HELPER:` / exit 1). One run of helpers-for-everything cost ~12% of Nick's weekly tokens.
 - **Helpers:** `subagent_type: "mh-helper"` (Sonnet, Bash+Read only), given its serial, own scratch dir and ONLY its
   leftover steps. Screenshots `tap.py -w 270` (×4 = device coords), `-w 540` only for small text (×2); poll waits.

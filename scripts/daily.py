@@ -75,9 +75,21 @@ def storm(cfg):
     return script('storm.py')
 
 
-def match(cfg):
-    tap_wait(100, 1280); wait(r'^Lineup$|Ranking', 10)
-    return script('match.py', ACCOUNT)
+def ranking_rewards():
+    """Arena screen: Week/Day Ranking Rewards with a gift box (red, top-right of the button) -> tap = claimed, dismiss.
+    No Claim button: the tap itself claims (Cmajor Day, 2026-10-29). Nick: at the start of every Arena run."""
+    got = []
+    for name, x in (('week', 568), ('day', 895)):
+        im = grab()
+        if sum(1 for xx in range(x + 73, x + 153, 3) for yy in range(1700, 1790, 3)
+               if (lambda p: p[0] > 200 and p[1] < 90 and p[2] < 110)(im.getpixel((xx, yy)))) < 15: continue
+        tap_wait(x, 1828); wait(r'Tap anywhere to close|Congratulations', 6); tap_wait(540, 120); got.append(name)
+    return f'ranking rewards {got}; ' if got else ''
+
+
+def arena(cfg):
+    tap_wait(100, 1280); wait(r'^Lineup$|Ranking', 10)   # main-screen icon is labelled "Match" in game
+    return ranking_rewards() + script('arena.py', ACCOUNT)
 
 
 def fishing(cfg, orders=True):
@@ -335,7 +347,7 @@ def storm_rewards(cfg):
     return 'MANUAL red dot still on Rewards' if red_dot(110, 830, 180, 900) else 'rank rewards claimed'
 
 
-def match_claims(cfg):
+def arena_claims(cfg):
     """Arena: weekly win chests 10/20/35/50 at y≈210; reached (wins >= N) and no green check -> tap, dismiss."""
     tap_wait(100, 1280); boxes = wait(r'Winnings', 10)
     w = next((int(b[4]) for b in boxes if b[4].strip().isdigit() and b[0] < 240 and 260 < b[1] < 340), None)
@@ -404,27 +416,27 @@ def events(cfg):
     return f'MANUAL {r}; red dots left: {left}' if left else r
 
 
-# catch-up (.claude/skills/catch-up): Match, Storm, Fishing auto only, Veins + Forge (no Benefit), Patrol Claim All,
-# Match again, Tribe chat Request/Assist, Common Recruitment, Daily Mission, Fishing order rewards
-CATCHUP = [('match', match), ('storm', storm), ('fishing_auto', lambda c: fishing(c, orders=False)),
-           ('veins_forge', lambda c: divine(c, benefit=False)), ('patrol_claim', patrol_claim), ('match2', match),
+# catch-up (.claude/skills/catch-up): Arena, Storm, Fishing auto only, Veins + Forge (no Benefit), Patrol Claim All,
+# Arena again, Tribe chat Request/Assist, Common Recruitment, Daily Mission, Fishing order rewards
+CATCHUP = [('arena', arena), ('storm', storm), ('fishing_auto', lambda c: fishing(c, orders=False)),
+           ('veins_forge', lambda c: divine(c, benefit=False)), ('patrol_claim', patrol_claim), ('arena2', arena),
            ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
-           ('storm_rewards', storm_rewards), ('match_claims', match_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
+           ('storm_rewards', storm_rewards), ('arena_claims', arena_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
            ('events', events), ('daily_mission', daily_mission), ('fishing_rewards', fishing_rewards)]
 CATCHUP_MANUAL = []
-ORDER = [('storm', storm), ('match', match), ('fishing', fishing), ('patrol', patrol), ('shop', shop),
+ORDER = [('storm', storm), ('arena', arena), ('fishing', fishing), ('patrol', patrol), ('shop', shop),
          ('play_pass', play_pass), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('beast', beast),
          ('trials', trials), ('recruit', recruit), ('hero', hero), ('tribe', tribe), ('divine', divine), ('relic_shovels', relic_shovels),
-         ('stage', stage), ('patrol_claim', patrol_claim), ('match2', match), ('grocery', grocery),
-         ('storm_rewards', storm_rewards), ('match_claims', match_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
+         ('stage', stage), ('patrol_claim', patrol_claim), ('arena2', arena), ('grocery', grocery),
+         ('storm_rewards', storm_rewards), ('arena_claims', arena_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
          ('events', events), ('daily_mission', daily_mission), ('fishing_rewards', fishing_rewards)]
 # config key that must be present / truthy for a step to run
-KEY = {'storm': None, 'match': 'match', 'match2': 'match', 'fishing': 'fishing', 'patrol': 'patrol', 'patrol_claim': 'patrol',
+KEY = {'storm': None, 'arena': 'arena', 'arena2': 'arena', 'fishing': 'fishing', 'patrol': 'patrol', 'patrol_claim': 'patrol',
        'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',
        'gate': 'gate_of_darkness', 'beast': 'beast_realm', 'trials': 'land_of_trials', 'recruit': 'recruit', 'hero': 'hero_upgrade',
        'tribe': 'tribe', 'divine': 'divine_weapon', 'relic_shovels': 'relic_shovels', 'stage': 'adventure_stage', 'grocery': 'grocery_free_chests',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
-       'tribe_chat': 'tribe', 'common_recruit': 'recruit', 'storm_rewards': None, 'match_claims': 'match',
+       'tribe_chat': 'tribe', 'common_recruit': 'recruit', 'storm_rewards': None, 'arena_claims': 'arena',
        'canyon_rewards': None, 'events': None, 'canyon': 'canyon_clash'}
 
 

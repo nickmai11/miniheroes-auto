@@ -1,6 +1,6 @@
 ---
 name: catch-up
-description: Mini Heroes: Magic Throne catch-up run - Match, Storm, Canyon, Fishing, Divine Weapon, Patrol, Tribe request/assist, free Common Recruitment, event red dots, Daily Mission claims + chests on every account, via ADB.
+description: Mini Heroes: Magic Throne catch-up run - Arena (incl. Ranking Rewards), Storm, Canyon, Fishing, Divine Weapon, Patrol, Tribe request/assist, free Common Recruitment, event red dots, Daily Mission claims + chests on every account, via ADB.
 ---
 
 # Mini Heroes catch-up
@@ -25,7 +25,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    Steps (the spec the runner follows; see `docs/ui-routine.md`):
    **Red dots only (Nick, 2026-10-27):** for claims (events, Tribe Clash Pack, Daily Mission, rewards icons) open/tap
    only what shows a red dot — no red dot = nothing to collect, don't open it to check.
-   1. Match (exhaust free tickets): `scripts/match.py <account>` from the Arena screen, then the win-chest claims
+   1. Arena: Ranking Rewards gift boxes first (Nick, 2026-10-29), then exhaust free tickets (`scripts/arena.py <account>`), then the win-chest claims
    2. Storm Battlefield (skip if its season is closed: Mon 05:00-17:00): run `scripts/storm.py` from the arena
       screen — it sets the full lineup first and resets to 1 hero after (ui-routine Storm steps 2–4, 6); report its output.
       Then **Rewards** (left side) if it has a red dot (runner step storm_rewards)
@@ -33,7 +33,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
       (`scripts/canyon.py`: empty spots only, popup text checked; no empty one → helper)
    4. Fishing: only start Auto (fishing) and claim completed order rewards — no order refreshing, no Benefit
    5. Divine Weapon: Excelsior Veins via `scripts/veins.py` (stops at 0 pickaxes), then Forge: fill every free slot (N/M) while crystals ≥ cost, even if a forge is already running (Nick, 2026-10-28) — no Benefit
-   6. Patrol: Claim All only (`scripts/patrol.py <account> --claim-only`) — no Speed Patrol. Claim All often gives Match tickets → re-run Match right after
+   6. Patrol: Claim All only (`scripts/patrol.py <account> --claim-only`) — no Speed Patrol. Claim All often gives Arena tickets → re-run Arena right after
    7. Tribe chat Request + Assist (Tribe section, step 4 only — by hand; `tribe.py` also signs in / fights the Trial)
    8. Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available; if it's on
       cooldown or out of chances, skip — don't wait, never pay
@@ -62,11 +62,11 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
 Mini Heroes catch-up leftovers on ONE account: <Name>, ADB serial <serial>, scratch dir <dir> (save screenshots there as
 s1.png, s2.png…). Repo ~/projects/chidojiro/miniheroes-auto: do ONLY these steps from .claude/skills/catch-up/SKILL.md
 step 3: <leftover steps + the runner's FAIL lines>, the output of
-`scripts/doc.sh Match Storm Canyon Fishing Divine Patrol Tribe Recruit Events "Daily Mission"` (don't read the
+`scripts/doc.sh Arena Storm Canyon Fishing Divine Patrol Tribe Recruit Events "Daily Mission"` (don't read the
 whole docs/ui-routine.md) and accounts/<file>.yaml. Don't edit the repo.
 Game is at the main screen; close popups with X / Cancel (never GO); tick "Do not remind me today" first if the popup has it. Today: <weekday date time> (<Storm/Canyon open?>).
 Tools: D=<serial> python3 scripts/tap.py [x,y…] -w 270 -o <dir>/sN.png [--until x,y,r,g,b --timeout s]; -w 270 for
-navigation (×4 = device coords), -w 540 only for small text (×2). Storm: scripts/storm.py (handles lineup). Veins: scripts/veins.py. Match: scripts/match.py <account>.
+navigation (×4 = device coords), -w 540 only for small text (×2). Storm: scripts/storm.py (handles lineup). Veins: scripts/veins.py. Arena: scripts/arena.py <account>.
 Rules: look only at decision points — chain a step's fixed taps in one tap.py call with --until on the next
 screen's pixel; read a screenshot before prices, target picks, counters, a step's first tap, and after a failed check; no gems/money beyond the config; poll waits inside the command (1–2 s), never
 background timers or "pausing"; game crash → relaunch (monkey -p com.and.brawlen.web …, Start 540,1508), max 3;

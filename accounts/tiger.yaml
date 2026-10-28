@@ -15,7 +15,7 @@ missions:
     abandoned_mine: 2
     ancient_battlefield: 2
 
-  match:
+  arena:
     tribe: Vie Gang
     crash_all_tickets: true
 

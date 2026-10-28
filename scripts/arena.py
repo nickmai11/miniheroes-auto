@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# Match (Arena): crash the topmost attackable opponent until tickets = 0 (ui-routine "Match", steps 2-5).
-# usage: D=<serial> scripts/match.py <account>     e.g. scripts/match.py cmajor   (Arena screen must be open)
+# Arena: crash the topmost attackable opponent until tickets = 0 (ui-routine "Arena", steps 2-5).
+# usage: D=<serial> scripts/arena.py <account>     e.g. scripts/arena.py cmajor   (Arena screen must be open)
 # Reads the Challenge dialog with macOS Vision OCR (scripts/ocr): tickets "N/M", row names, blue Crash buttons.
 # Attackable = blue Crash + name not on accounts/tribe_<tribe>.txt; else the last row (always a bot).
 # skip_same_server accounts: last row (bot) only — the server tag isn't read. Never taps "+", Refresh or a
-# yellow Challenge. exit 0 = tickets 0 + dialog closed, 1 = unexpected screen (screenshot -> v_match.png).
+# yellow Challenge. exit 0 = tickets 0 + dialog closed, 1 = unexpected screen (screenshot -> v_arena.png).
 # Win chests / Ranking Rewards claims (step 6) stay with the helper.
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import difflib, os, re, subprocess, sys, time, unicodedata
@@ -59,12 +59,12 @@ def read_dialog():
 
 
 def stop(msg):
-    grab().resize((540, 960)).save('v_match.png'); print(msg + '; stop (screenshot v_match.png)'); return 1
+    grab().resize((540, 960)).save('v_arena.png'); print(msg + '; stop (screenshot v_arena.png)'); return 1
 
 
 def main(account):
     cfg = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
-    tribe = re.search(r'match:\s*\n\s+tribe:\s*(.+)', cfg).group(1).strip()
+    tribe = re.search(r'arena:\s*\n\s+tribe:\s*(.+)', cfg).group(1).strip()
     bot_only = bool(re.search(r'skip_same_server:\s*true', cfg))
     roster = [norm(l) for l in open(os.path.join(HERE, '..', 'accounts', f'tribe_{tribe.lower().replace(" ", "_")}.txt'))
               if l.strip() and not l.startswith('#')]

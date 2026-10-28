@@ -16,7 +16,7 @@ missions:
     abandoned_mine: 2
     ancient_battlefield: 2
 
-  match:
+  arena:
     tribe: Peakaboo
     crash_all_tickets: true
 

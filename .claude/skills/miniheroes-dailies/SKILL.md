@@ -1,6 +1,6 @@
 ---
 name: miniheroes-dailies
-description: Run Mini Heroes: Magic Throne daily missions (Land of Trials, Match, Shop/Play Pass freebies, Tower of the Throne, Secret Sanctuary, Gate of Darkness, Beast Realm, free Recruit summons, hero upgrade, Tribe, Fishing, Divine Weapon, Adventure stage, Patrol, rune synthesis, Grocery) on Nick's MuMuPlayer accounts via computer use (or ADB), following per-account configs in the miniheroes-auto repo.
+description: Run Mini Heroes: Magic Throne daily missions (Land of Trials, Arena, Shop/Play Pass freebies, Tower of the Throne, Secret Sanctuary, Gate of Darkness, Beast Realm, free Recruit summons, hero upgrade, Tribe, Fishing, Divine Weapon, Adventure stage, Patrol, rune synthesis, Grocery) on Nick's MuMuPlayer accounts via computer use (or ADB), following per-account configs in the miniheroes-auto repo.
 ---
 
 # Mini Heroes dailies
@@ -31,13 +31,13 @@ run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly 
    Each log has one `OK|SKIP|FAIL|MANUAL <step>` line per step and ends with `LEFT FOR HELPER: …`
    (judgment steps — Pet Arena Mon–Wed, Sanctuary climb, Rune, grocery_buy, Fishing Benefit, plus MANUAL lines:
    Canyon with no empty spot, event tabs with an unmapped red dot — plus any FAIL, each with `v_<step>.png`).
-   Storm Rewards, Match chests, Canyon empty spot, Canyon Points Reward and event milestones are runner steps
+   Storm Rewards, Arena chests, Canyon empty spot, Canyon Points Reward and event milestones are runner steps
    since 2026-10-28. Exit 1 = lost the main screen. Watch failures live: Monitor `tail -F <dir>/*.log | grep
    --line-buffered -E '^(FAIL|Traceback)'`.
 3. Per account with leftovers: ONE `mh-helper` whose prompt lists only those steps + their doc sections
    (`scripts/doc.sh …`) and the log's FAIL lines. Its final answer ≤15 lines (concerns, done/skipped, paid + price).
 4. Report from the logs + helper answers. A step's script is the doc's fallback text otherwise — see ui-routine "Speed".
-Helpers that run a single mission by hand use the scripts too (`match.py`, `trials.py`, `patrol.py`, `hero.py`,
+Helpers that run a single mission by hand use the scripts too (`arena.py`, `trials.py`, `patrol.py`, `hero.py`,
 `tribe.py`, `adventure.py`, `storm.py`, `veins.py`, `grocery.py`, `fish_orders.py`) and handle exit 1.
 
 Instances must be 1080×1920 (`adb shell wm size 1080x1920 && adb shell wm density 480`, then restart the game) so the

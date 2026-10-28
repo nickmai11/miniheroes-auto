@@ -105,7 +105,7 @@ def main(account):
     except Stop as e:
         grab().resize((540, 960)).save('v_trials.png'); print(f'{e}; stop (screenshot v_trials.png)'); return 1
     finally:
-        if match_full: print('MATCH_FULL: tickets-full popup seen — run Match next')
+        if match_full: print('MATCH_FULL: tickets-full popup seen — run Arena next')
     return 0
 
 

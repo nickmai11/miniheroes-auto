@@ -1,21 +1,21 @@
 ---
-name: miniheroes-match
-description: Run the Mini Heroes: Magic Throne Match (Arena) daily - crash the topmost attackable opponent not in Nick's tribe (last row = bot, always attackable) until all free tickets are used, on his MuMuPlayer accounts via ADB or computer use.
+name: miniheroes-arena
+description: Run the Mini Heroes: Magic Throne Arena daily (main-screen "Match" icon) - claim Ranking Rewards gift boxes, then crash the topmost attackable opponent not in Nick's tribe (last row = bot, always attackable) until all free tickets are used, on his MuMuPlayer accounts via ADB or computer use.
 ---
 
-# Mini Heroes Match dailies
+# Mini Heroes Arena dailies
 
-Use when Nick asks for "match dailies", "arena", or "crash" on a Mini Heroes account.
+Use when Nick asks for "arena", "match", or "crash" on a Mini Heroes account.
 
-1. In `~/projects/chidojiro/miniheroes-auto`, read `CLAUDE.md`, `scripts/doc.sh Match` (Match section
-   of `docs/ui-routine.md`), and `accounts/<account>.yaml` (`missions.match`).
+1. In `~/projects/chidojiro/miniheroes-auto`, read `CLAUDE.md`, `scripts/doc.sh Arena` (Arena section
+   of `docs/ui-routine.md`), and `accounts/<account>.yaml` (`missions.arena`).
 2. Connect (ADB route: see "ADB alternative" in `docs/ui-routine.md`).
 3. **Use the saved tribe roster** (`accounts/tribe_<name>.txt`; members are fixed). Read it in-game only if the file is missing, then save it.
-4. **Run `D=<serial> scripts/daily.py <account> match`** (opens Arena, runs `scripts/match.py`, back to main). Exit/FAIL →
+4. **Run `D=<serial> scripts/daily.py <account> arena`** (opens Arena, claims Ranking Rewards gift boxes, runs `scripts/arena.py`, back to main). Exit/FAIL →
    do the loop by hand from its screenshot: Loop until tickets = 0: open Challenge, pick the **topmost** **Crash** row not on the roster
    (the **last row is a bot — always attackable**, use it when nothing above qualifies),
    crash, dismiss, verify the ticket count dropped.
-5. Claim any reached (glowing) weekly win chest and any Ranking Rewards button showing a gift box (Match doc step 6).
+5. Claim any reached (glowing) weekly win chest: `daily.py <account> arena_claims` (Arena doc step 6).
 6. Report: claims, opponents crashed (name, CP) and any tribemates skipped.
 
 Also triggered mid-dailies by a "Match attempts full" popup: Confirm, exhaust tickets, then resume the interrupted daily.

@@ -5,7 +5,7 @@ All coordinates are in the **MuMu Android Device** game window's full-resolution
 every restart — get a fresh one with `computer_app_list_windows`.
 
 **Read only what you need:** `scripts/doc.sh <section> ...` prints the core sections (Speed, ADB, General gotchas)
-plus the named ones, e.g. `scripts/doc.sh Match Fishing "Divine Weapon"` (case-insensitive heading prefix match).
+plus the named ones, e.g. `scripts/doc.sh Arena Fishing "Divine Weapon"` (case-insensitive heading prefix match).
 Each mission's gotchas live in its own section — add new findings there, never as a dated log at the end.
 
 ## Daily run order (Nick, 2026-10-26)
@@ -16,7 +16,7 @@ Run the missions in this order on each account:
    runs on its own.
 0b. **Storm Battlefield** — right after Pet Arena (see "Storm Battlefield" below). Skip on Mondays — closed
    until 17:00; run `/catch-up` after 17:00.
-1. **Match** — exhaust tickets.
+1. **Arena** — Ranking Rewards gift boxes, then exhaust tickets.
 2. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto. Don't collect order rewards here.
 3. **Patrol** — Speed Patrol until the price is 100 gems (don't buy that one) + Claim All.
 4. **Shop** freebies.
@@ -31,12 +31,12 @@ Run the missions in this order on each account:
 11. **Adventure stage** run (skull bubble).
 12. **Patrol** — Claim All only.
 13. **Rune** synthesis.
-14. **Match** — exhaust tickets again before wrapping up.
+14. **Arena** — exhaust tickets again before wrapping up.
 15. **Grocery** free chests, then the account's `grocery_buy` tiles (if any).
 16. **Events** — see "Events (red dots)".
 17. **Fishing** — the only place order rewards are collected (see Fishing step 7).
 
-A "Match attempts full" popup can interrupt any step: Confirm, exhaust Match, resume.
+A "Match attempts full" popup can interrupt any step: Confirm, exhaust Arena, resume.
 
 Focus on the steps, not on resources: don't track gem/resource balances (they change all the time).
 The only money check is reading the price on screen before any paid tap and respecting the config caps.
@@ -49,8 +49,8 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 
 **Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
 main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
-Steps: storm match fishing patrol shop play_pass tower sanctuary gate beast trials recruit hero tribe divine relic_shovels stage
-patrol_claim match2 grocery daily_mission fishing_rewards.
+Steps: storm arena fishing patrol shop play_pass tower sanctuary gate beast trials recruit hero tribe divine relic_shovels stage
+patrol_claim arena2 grocery daily_mission fishing_rewards.
 
 Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png] [-w 270|540]` for every tap (device coords):
 it waits only until the screen changes and settles (~1 s per tap, max 4 s) instead of a fixed sleep,
@@ -65,11 +65,11 @@ and saves a screenshot `-w` px wide (default 540: coords ×2 for device; 270: ×
 - Storm matches: `D=<serial> scripts/storm.py` (plays until tickets run out incl. one free-ticket claim, ~0.5 s polling;
   exit 1 = unexpected screen, screenshot and report — don't re-run it in a loop).
   Grocery: `scripts/grocery.py`; Fishing orders: `scripts/fish_orders.py`.
-- **Match: `D=<serial> scripts/match.py <account>`** from the Arena screen (crashes until tickets 0, closes the dialog);
+- **Arena: `D=<serial> scripts/arena.py <account>`** from the Arena screen (crashes until tickets 0, closes the dialog);
   **Land of Trials: `D=<serial> scripts/trials.py <account>`** from the Land of Trials list (all dungeons, free then paid
   within the cap). Both read the screen with OCR (`scripts/ocr`, macOS Vision) and print one line per
-  action; exit 1 = unexpected screen → read `v_match.png` / `v_trials.png` and finish that mission by hand.
-  Use them instead of the manual steps below (Nick, 2026-10-28: Match ~117 + Trials ~75 helper turns/account).
+  action; exit 1 = unexpected screen → read `v_arena.png` / `v_trials.png` and finish that mission by hand.
+  Use them instead of the manual steps below (Nick, 2026-10-28: Arena ~117 + Trials ~75 helper turns/account).
 - Same pattern, all from the **main screen** (`scripts/flow.py` = shared OCR helpers): `patrol.py <account> [--claim-only]`,
   `hero.py <account>`, `tribe.py` (sign-in, Trial if red dot, Request + Assist; ends on Tribe chat),
   `adventure.py <account> tower|beast` (ends on the mode screen). Exit 1 → `v_<script>.png`, do it by hand.
@@ -199,9 +199,10 @@ Keep track of sweeps already done today (e.g. from a previous run) — the on-sc
 the source of truth: free used = 2 − remaining free; paid used = 5 − remaining purchases
 (Cmajor, 2026-10-26: 2 free, 5 purchasable per dungeon).
 
-## Match (Arena)
+## Arena
 
-**Run `scripts/match.py <account>` from the Arena screen** (see Speed); step 6's win chests = runner step `match_claims` (reads the win count, taps reached chests without a green ✓). Steps 1–5 below are match.py's exit-1 fallback.
+Renamed from "Match" (Nick, 2026-10-29) — the main-screen icon is still labelled **Match** in game.
+**Runner step `arena` claims the Ranking Rewards gift boxes first, then runs `scripts/arena.py <account>` from the Arena screen** (see Speed); step 6's win chests = runner step `arena_claims` (reads the win count, taps reached chests without a green ✓). Steps 1–5 below are arena.py's exit-1 fallback.
 
 Mapped 2026-10-26 on Cmajor via ADB. **Device coords (1080×1920)**; window coords not mapped yet.
 
@@ -214,7 +215,7 @@ Goal: spend every free ticket crashing the **topmost attackable** opponent (not 
    Tribemates also show up in Arena (e.g. Morrígan, Zues, Aminor on 2026-10-26) and their names look like
    everyone else's (no blue tag) — cross-check the roster by name.
    To check a single opponent: tap their avatar in the Challenge list → profile shows `Tribe: …`.
-2. Main screen → **Match** `(100,1280)` (badge = tickets left; the icon keeps a red dot at 0 tickets — read the
+2. Main screen → **Match** icon `(100,1280)` (badge = tickets left; the icon keeps a red dot at 0 tickets — read the
    badge) → Arena → **Challenge** `(540,1594)`.
 3. Challenge dialog: tickets `N/8` top-left (can exceed the cap after rewards, e.g. "Full" 7/6). Rows, each with
    CP and a button at x=`866`, y ≈ `559, 796, 1033, 1267, 1504` (row 1–5). The list can have only 1–2 rows.
@@ -227,9 +228,9 @@ Goal: spend every free ticket crashing the **topmost attackable** opponent (not 
 4. Pick the **topmost** attackable row (scan from row 1 down): blue **Crash** and name not on the roster → tap it.
    **The last row is always a bot — always attackable** (no tribe/server check needed); use it when no
    row above it qualifies, so tickets never go unused (e.g. Dminor's list is all its own server — still crash the bot).
-   If the account has `match.skip_same_server: true`, also skip opponents on the account's own server
+   If the account has `arena.skip_same_server: true`, also skip opponents on the account's own server
    ("S###" tag, or "War Zone: AreaNNN" on the opponent profile). Server unknown → skip.
-   The dialog closes and shows *Congratulations* (+40 match points, 11000 gold).
+   The dialog closes and shows *Congratulations* (+40 arena points, 11000 gold).
    Dismiss with `(540,120)`, confirm the ticket count dropped by 1 on the Challenge button.
 5. Repeat from step 2 until tickets = 0. The opponent list changes after every crash.
 
@@ -238,12 +239,14 @@ Weekly win chests (10/20/35/50 wins) along the top bar, 10 ≈ `(376,210)`, 20 �
 
 6. **Claims (Nick, 2026-10-28)**, after tickets = 0 (wins may unlock a chest), on the Arena screen:
    - **Win chest** that glows gold (no ✓, reached) → tap it, claim, dismiss `(540,120)`. ✓ = already claimed; dull = not reached.
-   - **Ranking Rewards** buttons at the bottom, Week ≈ `(568,1828)`, Day ≈ `(895,1828)`: a **gift box** icon on
-     the button's top-right corner = claimable → tap that button, screenshot, tap only a free Claim, dismiss/close.
-     No gift box → skip. (Popup layout not mapped yet — first run: screenshot and note the coords here.) Arena back arrow `(120,1780)`; `(60,56)` opens Rules (close with `keyevent 4`).
+   - **Ranking Rewards** — done FIRST, on entering the Arena (Nick, 2026-10-29; runner `ranking_rewards()`):
+     buttons at the bottom, Week ≈ `(568,1828)`, Day ≈ `(895,1828)`; a red **gift box** on the button's top-right
+     corner (≈ x+113, y 1700–1790) = claimable → tap the button: it claims at once ("Congratulations — Rewards for
+     attaining N place", no Claim button; Cmajor Day 2026-10-29: 100 gems, 2 relic shards?, 12 medals) → dismiss `(540,120)`.
+     No gift box → skip. Arena back arrow `(120,1780)`; `(60,56)` opens Rules (close with `keyevent 4`).
 
 **Interrupt: tickets full.** During any daily, a popup can say Match attempts are full. Its **Confirm**
-(`(696,1162)`–`(740,1162)`) only closes it — then go to Match yourself, run the routine above until tickets = 0
+(`(696,1162)`–`(740,1162)`) only closes it — then go to the Arena yourself, run the routine above until tickets = 0
 (same tribe rules), and continue the daily you were on.
 
 ## Shop freebies (red dots)
@@ -480,7 +483,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily task: challenge the c
 
 Mapped 2026-10-26 on Cmajor via ADB (device coords).
 
-0. **First exhaust Match tickets** (Match routine) — Nick, 2026-10-26. Run Match again afterwards if
+0. **First exhaust Arena tickets** (Arena routine) — Nick, 2026-10-26. Run Arena again afterwards if
    patrol rewards added tickets.
 1. Main screen → patrol **bag** with timer, right side `(983,1463)` → *Loot* dialog.
 2. **Speed Patrol** `(337,1590)` → *Tip* "Obtain 4 hours of Patrol Gains" → price button `(540,1164)` →
