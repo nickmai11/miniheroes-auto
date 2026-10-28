@@ -60,6 +60,11 @@ and saves a screenshot `-w` px wide (default 540: coords ×2 for device; 270: ×
 - Storm matches: `D=<serial> scripts/storm.py` (plays until tickets run out incl. one free-ticket claim, ~0.5 s polling;
   exit 1 = unexpected screen, screenshot and report — don't re-run it in a loop).
   Grocery: `scripts/grocery.py`; Fishing orders: `scripts/fish_orders.py`.
+- **Match: `D=<serial> scripts/match.py <account>`** from the Arena screen (crashes until tickets 0, closes the dialog);
+  **Land of Trials: `D=<serial> scripts/trials.py <account>`** from the Land of Trials list (all dungeons, free then paid
+  within the cap, English UI only). Both read the screen with OCR (`scripts/ocr`, macOS Vision) and print one line per
+  action; exit 1 = unexpected screen → read `v_match.png` / `v_trials.png` and finish that mission by hand.
+  Use them instead of the manual steps below (Nick, 2026-10-28: Match ~117 + Trials ~75 helper turns/account).
 
 ## ADB alternative (no computer use)
 
@@ -124,6 +129,8 @@ Main-screen check pixel: Recruit icon `(92,1788)` ≈ `(0,158,230)`; Start butto
 
 ## Land of Trials
 
+**Run `scripts/trials.py <account>` from the list screen** (see Speed); the steps below are for its exit-1 fallback.
+
 Path: main screen → **Adventure** `(66, 984)` → **Land of Trials** card, `GO` `(516, 306)`.
 
 Screen header: "Free attempts refresh in: HH:MM:SS" (daily reset).
@@ -187,6 +194,8 @@ the source of truth: free used = 2 − remaining free; paid used = 5 − remaini
 (Cmajor, 2026-10-26: 2 free, 5 purchasable per dungeon).
 
 ## Match (Arena)
+
+**Run `scripts/match.py <account>` from the Arena screen** (see Speed), then do step 6 (claims) by hand; steps 1–5 below are its exit-1 fallback.
 
 Mapped 2026-10-26 on Cmajor via ADB. **Device coords (1080×1920)**; window coords not mapped yet.
 

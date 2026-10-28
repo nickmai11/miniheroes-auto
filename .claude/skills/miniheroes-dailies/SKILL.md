@@ -33,7 +33,9 @@ notification arrives. Each starts at ~12k context instead of growing to 220k →
 - **C:** Recruit, Hero, Tribe + Canyon, Divine Weapon (steps 7–10)
 - **D:** Adventure stage, Patrol claim, Rune, Match, Grocery (steps 11–15)
 - **E:** Events, Fishing order rewards, Daily Mission (steps 16–17 + Daily Mission)
-Helper final answers: ≤15 lines (concerns, done/skipped, paid + price) — the coordinator reads them all.
+Scripts first: Match = `scripts/match.py <account>`, Land of Trials = `scripts/trials.py <account>`, Storm/Veins/
+Grocery/Fishing orders = their scripts (see ui-routine "Speed"); the helper only navigates to the start screen and handles
+exit 1. Helper final answers: ≤15 lines (concerns, done/skipped, paid + price) — the coordinator reads them all.
 
 **Several accounts:** run them in parallel, one subagent per instance (`model: "sonnet"`; use `opus` for a step not yet mapped in the docs; own ADB serial + own scratch dir, no repo edits by workers). Set each instance's display to 1080×1920 first (`adb shell wm size 1080x1920 && adb shell wm density 480`, then restart the game) so the documented coords apply.
 5. **Keep the repo current.** If you learn something new (new coordinates, a popup, a new mission mapped), update the relevant doc and commit it.

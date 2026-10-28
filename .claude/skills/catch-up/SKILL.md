@@ -10,11 +10,12 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
 1. In `~/projects/chidojiro/miniheroes-auto`, read the account files (not `docs/ui-routine.md` — helpers read their sections).
 2. Start stopped MuMu instances, get fresh ADB ports, 1080x1920 display, **restart** the game (force-stop + relaunch).
    If the game crashes mid-run, workers relaunch it and retry the step (max 3 relaunches) — Nick, 2026-10-27.
-3. One subagent per instance, `subagent_type: "mh-helper"` (Bash+Read only — the general-purpose tool list is resent on every turn; use `opus` model for a step not yet mapped in the docs), own ADB serial and scratch dir under `/tmp/miniheroes-$(date +%F-%H)/<account>`,
+3. Per instance, TWO helpers in a row (steps 3.1–3.5, then a fresh one for 3.6–3.11 — caps context; see dailies
+   "Cost"), each `subagent_type: "mh-helper"` (Bash+Read only — the general-purpose tool list is resent on every turn; use `opus` model for a step not yet mapped in the docs), own ADB serial and scratch dir under `/tmp/miniheroes-$(date +%F-%H)/<account>`,
    using `scripts/tap.py` and `scripts/storm.py`. Steps, in this order, ONLY these (see `docs/ui-routine.md`):
    **Red dots only (Nick, 2026-10-27):** for claims (events, Tribe Clash Pack, Daily Mission, rewards icons) open/tap
    only what shows a red dot — no red dot = nothing to collect, don't open it to check.
-   1. Match (exhaust free tickets)
+   1. Match (exhaust free tickets): `scripts/match.py <account>` from the Arena screen, then the claims by hand
    2. Storm Battlefield (skip if its season is closed: Mon 05:00-17:00): run `scripts/storm.py` from the arena
       screen — it sets the full lineup first and resets to 1 hero after (ui-routine Storm steps 2–4, 6); report its output.
       Then **Rewards** (left side) if it has a red dot — storm.py does NOT do this (Storm step 5)
@@ -50,7 +51,7 @@ s1.png, s2.png… — the coordinator watches it). Repo ~/projects/chidojiro/min
 whole docs/ui-routine.md) and accounts/<file>.yaml. Don't edit the repo.
 Game is at the main screen; close popups with X / Cancel (never GO); tick "Do not remind me today" first if the popup has it. Today: <weekday date time> (<Storm/Canyon open?>).
 Tools: D=<serial> python3 scripts/tap.py [x,y…] -w 270 -o <dir>/sN.png [--until x,y,r,g,b --timeout s]; -w 270 for
-navigation (×4 = device coords), -w 540 only for small text (×2). Storm: scripts/storm.py (handles lineup). Veins: scripts/veins.py.
+navigation (×4 = device coords), -w 540 only for small text (×2). Storm: scripts/storm.py (handles lineup). Veins: scripts/veins.py. Match: scripts/match.py <account>.
 Rules: look only at decision points — chain a step's fixed taps in one tap.py call with --until on the next
 screen's pixel; read a screenshot before prices, target picks, counters, a step's first tap, and after a failed check; no gems/money beyond the config; poll waits inside the command (1–2 s), never
 background timers or "pausing"; game crash → relaunch (monkey -p com.and.brawlen.web …, Start 540,1508), max 3;
