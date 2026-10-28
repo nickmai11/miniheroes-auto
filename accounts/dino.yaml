@@ -9,7 +9,7 @@ safety:
 
 missions:
   land_of_trials:
-    gem_mine: 3
+    gem_mine: 4
     moonlight_temple: 3
     mysterious_forest: 2
     abandoned_mine: 2
