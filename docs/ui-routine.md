@@ -654,6 +654,11 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
 **Occupation lasts 8h** ("Collect Time 08:00:00"), then ends on its own: on the next visit a *Resource* popup
 shows the gains → **Confirm** `(540,1460)` → dismiss `(540,1210)`; header shows "Unoccupied" → take a spot again.
 Swipe slowly (`540 700 → 540 1500`, 1500 ms) to come back up; fast swipes fling far.
+2026-10-29: a fast swipe (600 ms) on the map once kicked Cmajor back to the main screen — scroll down slowly too
+(`540 1500 → 540 700`, 1500 ms). Leave the map with the back arrow `(92,1810)` only: taps a little higher hit the
+left icon column (**Lineup** opens the Defense Lineup — Dminor, nothing saved). Empty purple spots can appear minutes
+after `canyon.py` found none (7 accounts, 2026-10-29: the helpers all found empty Silver spots right below the
+tribemate rows) — the helper re-checks for empty ones before attacking.
 
 **Points Reward** (runner step `canyon_rewards`): left-side **Rewards** `(88,745)` with a red dot → **Claim Reward** `(540,1618)` (free) →
 dismiss `(540,1880)` → close ✕ `(972,240)`.

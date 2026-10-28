@@ -199,13 +199,13 @@ def recruit(cfg, common_only=False):
     for _ in range(8 if common_only else want('common')):   # catch-up: every Free chance
         boxes = ocr(); m = re.search(r'Chances\W*(\d+)', joined(boxes))
         if not m or int(m.group(1)) == 0 or not find(boxes, r'^Free$', (380, 1290, 700, 1420)): break  # ad/cooldown/done
-        tap_text(r'^Free$', (380, 1290, 700, 1420), boxes); time.sleep(2.5)
-        c = find(ocr(), r'^Confirm$'); tap_wait(*(c or (540, 1700))); time.sleep(1); got.append('common')
+        tap_text(r'^Free$', (380, 1290, 700, 1420), boxes)   # draw animation can outlast 2.5 s (Chien Than/xFaktor 2026-10-29)
+        tap_text(r'^Confirm$', boxes=wait(r'^Confirm$', 15)); time.sleep(1); got.append('common')
     if want('ancestor') and not common_only:
         tap_wait(896, 1610); time.sleep(1); boxes = ocr()
         if find(boxes, r'^Free$', (150, 1290, 470, 1420)):
-            tap_text(r'^Free$', (150, 1290, 470, 1420), boxes); time.sleep(2.5)
-            c = find(ocr(), r'^Confirm$'); tap_wait(*(c or (300, 1755))); got.append('ancestor')
+            tap_text(r'^Free$', (150, 1290, 470, 1420), boxes)
+            tap_text(r'^Confirm$', boxes=wait(r'^Confirm$', 15)); got.append('ancestor')
     if want('artifact') and not common_only:
         tap_wait(618, 1840); time.sleep(1); boxes = ocr()
         p = grab().getpixel((900, 1658))
@@ -225,6 +225,16 @@ def num(t):
     return int(float(t.rstrip('kKmM')) * mult)
 
 
+def slash_less(t):
+    """Anvil slot counter with the slash lost or read as 7/1 (Vision, 2026-10-29: 7/7 -> '77' or '777'):
+    (N, M) if exactly one split gives 0 <= N <= M <= 20, else None."""
+    if not t.isdigit(): return None
+    c = {(int(t[:i]), int(t[j:])) for i in range(1, len(t)) for j in (i, i + 1)
+         if j < len(t) and (j == i or t[i] in '71')} if len(t) <= 5 else set()
+    c = {(n, m) for n, m in c if n <= m <= 20}
+    return c.pop() if len(c) == 1 else None
+
+
 def divine(cfg, benefit=True):
     tap_wait(798, 1780); wait(r'Arsenal', 10)
     out = []
@@ -240,6 +250,7 @@ def divine(cfg, benefit=True):
             boxes = ocr(); t = joined(boxes)
             fr = [(y, num(m.group(1)), num(m.group(2))) for x, y, w, h, b in boxes
                   for m in [re.fullmatch(r'([\d.]+[kKmM]?)/([\d.]+[kKmM]?)', b.strip())] if m]
+            fr += [(y, *slash_less(b.strip())) for x, y, w, h, b in boxes if 440 < x < 600 and 1460 < y < 1520 and slash_less(b.strip())]
             slots = next((f for f in fr if f[2] <= 20), None)
             cry = next((f for f in fr if slots and 0 < f[0] - slots[0] < 160 and f[2] > 20), None)  # owned/cost under the anvil
             if slots and cry: break
@@ -303,8 +314,9 @@ def fishing_rewards(cfg):
         c = find(ocr(), r'^Cla[il]m$', (720, y - 70, 980, y + 70))
         if c: tap_wait(*c); time.sleep(1.5); tap_wait(540, 1880); n += 1
     tap_wait(973, 270)
-    stopped = find(ocr(), r'Tap water surface')
-    return f'claimed {n} order rewards' + ('; AUTO STOPPED (helper: restart only if "Stop at new Archive")' if stopped else '')
+    boxes = ocr(); stopped = find(boxes, r'Tap water surface')
+    bread = next((t for x, y, w, h, t in boxes if y < 130 and x < 300 and re.fullmatch(r'\d+/\d+', t)), '?')   # top-left bread N/100
+    return f'claimed {n} order rewards' + (f'; AUTO STOPPED, bread {bread} (helper: restart only if "Stop at new Archive")' if stopped else '')
 
 
 # ---- claims (catch-up leftovers that used to need a helper; Nick 2026-10-28: script what's deterministic) ----
