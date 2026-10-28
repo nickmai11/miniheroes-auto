@@ -644,6 +644,10 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
   If no Glory/Gold spot is free: go for a **purple/silver** spot — prefer a **free** one; if none is free,
   attack one held by a **non-tribemate** (purple name background). Never attack a blue-name (tribe) player.
 - Never spend gems.
+- **`canyon_clash: highest_free`** in the account file (Tiger, Nick 2026-10-28) replaces the day rules above, every day:
+  take the **highest** spot on the map (topmost: Glory > Gold > Silver, any of the silver rows) that is **empty or
+  Sentinel-held** — occupy it, or beat the Sentinel. **Never attack a player**, tribe or not. If the current spot is
+  already higher than every free one, keep it (counts as done). Nothing free → skip and report.
 
 **Occupation lasts 8h** ("Collect Time 08:00:00"), then ends on its own: on the next visit a *Resource* popup
 shows the gains → **Confirm** `(540,1460)` → dismiss `(540,1210)`; header shows "Unoccupied" → take a spot again.
@@ -658,6 +662,7 @@ people not 80k yet." — not yet reflected in the rules above; ask Nick.
 ## Poseidon's Ruins (Tribe, 3 attacks)
 
 Added by Nick 2026-10-26; mapped on xFaktor via ADB (device coords). Skill: `miniheroes-poseidon`.
+**Script:** `scripts/poseidon.py <serial>...` does all of this, accounts in parallel (per-ship locks). By hand only on its exit 1.
 
 1. Main screen → **Tribe** `(448,1780)` (first tap right after the main screen appears may be ignored — retry once)
    → **Poseidon's Ruins** card `(540,1440)` (red dot = attempts left; "In Battle: hh:mm:ss") → Loading ~3 s →

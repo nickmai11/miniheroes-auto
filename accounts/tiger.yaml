@@ -39,7 +39,7 @@ missions:
     trial: 1
     request: true
     assist: true
-    canyon_clash: true
+    canyon_clash: highest_free   # any day: the highest spot that's empty or Sentinel-held, never attack a player (Nick, 2026-10-28)
   fishing:
     min_order_diamonds: 3
     ticket_pack_gem_price: 50
