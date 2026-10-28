@@ -65,6 +65,9 @@ left in a bad state), then per step done/skipped (+why), every paid action + pri
 locked + points, new findings (coords/behaviour not in the docs).
 ```
 
+**Log (Nick, 2026-10-28):** `daily.py` appends everything to `logs/<account>/<game day>.log` (game day starts 12:00 local).
+Append each helper's final answer to the same file (`=== helper` header) — it's the record of what each account did.
+
 ## Hard rules
 
 - Same as the dailies: free attempts first, paid only within the account config caps.

@@ -51,6 +51,9 @@ prompts; the doc is the single source.
 
 The game UI is **English** on every account (Nick, 2026-10-28); the scripts match English button text.
 
+**Log (Nick, 2026-10-28):** `daily.py` appends everything to `logs/<account>/<game day>.log` (game day starts 12:00 local).
+Append each helper's final answer to the same file (`=== helper` header) — it's the record of what each account did.
+
 ## Hard rules
 
 - Configured counts are totals per day **including** free attempts. Use free first; pay with gems only up to the configured total.
