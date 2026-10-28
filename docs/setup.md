@@ -2,9 +2,8 @@
 
 ## MuMuPlayer (macOS)
 
-- One MuMu Android instance per game account. Known instances: Cmajor, Aminor, Cino, Dminor,
-  Seabze, Swayze, Kong, Chloe, Wyck, Dino, Cris, PuPu, xFaktor, Chien Than (not all are
-  necessarily game accounts — check `accounts/`).
+- One MuMu Android instance per game account; `mumu-cli info all` lists them with index and ADB port (not every
+  instance is a game account — `accounts/` is the list).
 - Instance list window: app **MuMuPlayer**. Each row has a ▶ (start) / ⏻ (stop) button and ⋮
   (settings). The game window for a running instance belongs to app **MuMu Android Device**
   and is titled with the instance name (e.g. `Cmajor`), ~704×1289 px.

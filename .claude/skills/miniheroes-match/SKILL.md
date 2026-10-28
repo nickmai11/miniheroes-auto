@@ -11,7 +11,8 @@ Use when Nick asks for "match dailies", "arena", or "crash" on a Mini Heroes acc
    of `docs/ui-routine.md`), and `accounts/<account>.yaml` (`missions.match`).
 2. Connect (ADB route: see "ADB alternative" in `docs/ui-routine.md`).
 3. **Use the saved tribe roster** (`accounts/tribe_<name>.txt`; members are fixed). Read it in-game only if the file is missing, then save it.
-4. Loop until tickets = 0: open Challenge, pick the **topmost** **Crash** row not on the roster
+4. **Run `D=<serial> scripts/daily.py <account> match`** (opens Arena, runs `scripts/match.py`, back to main). Exit/FAIL →
+   do the loop by hand from its screenshot: Loop until tickets = 0: open Challenge, pick the **topmost** **Crash** row not on the roster
    (the **last row is a bot — always attackable**, use it when nothing above qualifies),
    crash, dismiss, verify the ticket count dropped.
 5. Claim any reached (glowing) weekly win chest and any Ranking Rewards button showing a gift box (Match doc step 6).

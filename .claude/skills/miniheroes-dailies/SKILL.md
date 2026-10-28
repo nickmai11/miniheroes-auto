@@ -17,11 +17,11 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
      (coordinator: just "Daily run order"; each helper: its missions)
    - `accounts/<account>.yaml` for each requested account (all `enabled: true` accounts if he says "all")
    - `docs/setup.md` only if the emulator/network looks wrong
-2. **Get app access (minimum set).** Via computer use: resolve and request access to `MuMuPlayer` and `MuMu Android Device` only. Work in background mode with the `computer_app_*` tools. Don't request full-screen control or other apps unless Nick agrees. If computer-use tools aren't available in the session, use ADB instead (Nick approved this) — see "ADB alternative" in `docs/ui-routine.md`.
-3. **Run each account** in its MuMu instance: start the instance if needed, open the game, then run the missions in the **Daily run order** at the top of `docs/ui-routine.md` (Pet Arena [Mon–Wed only] → Storm Battlefield → Match → Fishing → Patrol → Shop → Play Pass → Adventure → Recruit → Hero → Tribe → Divine Weapon → Stage → Patrol claim → Rune → Match → Grocery → Events red dots → Fishing order rewards), skipping any not in the account config.
-4. **Report** per account: each mission done/skipped (and why) and every paid action with its price. Don't track gem/resource balances — they change constantly.
-
-**Speed:** tap with `scripts/tap.py` (waits for the screen to settle, ~1 s/tap, no fixed sleeps); chain known taps and only screenshot-check at decision points.
+2. **ADB** (Nick approved; computer use only if he asks): everything below runs over ADB.
+3. **Run** — see "Cost" below: boot, `daily.py` per account in parallel, then one helper per account for its leftovers.
+   The runner follows the **Daily run order** in `docs/ui-routine.md` and skips missions not in the account config.
+4. **Report** per account: each mission done/skipped (and why) and every paid action with its price (the runner prints
+   each). Don't track gem/resource balances — they change constantly.
 
 **Cost — runner first, helpers only for leftovers (Nick, 2026-10-28 — urgent).** One helper per account for the whole
 run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly for 8 accounts). Now:
@@ -37,8 +37,9 @@ run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly 
 Helpers that run a single mission by hand use the scripts too (`match.py`, `trials.py`, `patrol.py`, `hero.py`,
 `tribe.py`, `adventure.py`, `storm.py`, `veins.py`, `grocery.py`, `fish_orders.py`) and handle exit 1.
 
-**Several accounts:** run them in parallel, one subagent per instance (`model: "sonnet"`; use `opus` for a step not yet mapped in the docs; own ADB serial + own scratch dir, no repo edits by workers). Set each instance's display to 1080×1920 first (`adb shell wm size 1080x1920 && adb shell wm density 480`, then restart the game) so the documented coords apply.
-5. **Keep the repo current.** If you learn something new (new coordinates, a popup, a new mission mapped), update the relevant doc and commit it.
+Instances must be 1080×1920 (`adb shell wm size 1080x1920 && adb shell wm density 480`, then restart the game) so the
+documented coords apply. Helpers never edit the repo.
+**Keep the repo current.** If you learn something new (new coordinates, a popup, a new mission mapped), update the relevant doc and commit it.
 
 ## Missions
 

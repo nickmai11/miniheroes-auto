@@ -10,9 +10,11 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
 1. In `~/projects/chidojiro/miniheroes-auto`, read the account files (not `docs/ui-routine.md` — helpers read their sections).
 2. Start stopped MuMu instances, get fresh ADB ports, 1080x1920 display, **restart** the game (force-stop + relaunch).
    If the game crashes mid-run, workers relaunch it and retry the step (max 3 relaunches) — Nick, 2026-10-27.
-3. Per instance, TWO helpers in a row (steps 3.1–3.5, then a fresh one for 3.6–3.11 — caps context; see dailies
-   "Cost"), each `subagent_type: "mh-helper"` (Bash+Read only — the general-purpose tool list is resent on every turn; use `opus` model for a step not yet mapped in the docs), own ADB serial and scratch dir under `/tmp/miniheroes-$(date +%F-%H)/<account>`,
-   using `scripts/tap.py` and `scripts/storm.py`. Steps, in this order, ONLY these (see `docs/ui-routine.md`):
+3. **Runner first (Nick, 2026-10-28 — cost):** all accounts in ONE background Bash command, wait for its notification:
+   `for a in <acct>:<serial> ...; do (D=${a#*:} OUT=/tmp/miniheroes-$(date +%F-%H)/${a%%:*} scripts/daily.py ${a%%:*} --catch-up > /tmp/miniheroes-$(date +%F-%H)/${a%%:*}.log 2>&1) & done; wait`
+   It does steps 1, 2 (minus Rewards), 4–8, 10, 11 below and ends with `LEFT FOR HELPER:` (Storm Rewards, Match claims,
+   Canyon, Events + any FAIL with `v_<step>.png`). Then ONE `mh-helper` per account for only those, prompt below
+   trimmed to them. Steps (the spec the runner follows; see `docs/ui-routine.md`):
    **Red dots only (Nick, 2026-10-27):** for claims (events, Tribe Clash Pack, Daily Mission, rewards icons) open/tap
    only what shows a red dot — no red dot = nothing to collect, don't open it to check.
    1. Match (exhaust free tickets): `scripts/match.py <account>` from the Arena screen, then the claims by hand
@@ -45,9 +47,9 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
 ## Helper prompt (use as-is; fill in <…>; add any rule Nick gives mid-run to this file too)
 
 ```
-Mini Heroes catch-up on ONE account: <Name>, ADB serial <serial>, scratch dir <dir> (save screenshots there as
-s1.png, s2.png… — the coordinator watches it). Repo ~/projects/chidojiro/miniheroes-auto: read
-.claude/skills/catch-up/SKILL.md (do steps 3.1–3.11 there, in order, ONLY those), the output of
+Mini Heroes catch-up leftovers on ONE account: <Name>, ADB serial <serial>, scratch dir <dir> (save screenshots there as
+s1.png, s2.png…). Repo ~/projects/chidojiro/miniheroes-auto: do ONLY these steps from .claude/skills/catch-up/SKILL.md
+step 3: <leftover steps + the runner's FAIL lines>, the output of
 `scripts/doc.sh Match Storm Canyon Fishing Divine Patrol Tribe Recruit Events "Daily Mission"` (don't read the
 whole docs/ui-routine.md) and accounts/<file>.yaml. Don't edit the repo.
 Game is at the main screen; close popups with X / Cancel (never GO); tick "Do not remind me today" first if the popup has it. Today: <weekday date time> (<Storm/Canyon open?>).

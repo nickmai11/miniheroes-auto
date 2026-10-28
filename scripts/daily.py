@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Dailies runner: the whole "Daily run order" for one account with no LLM in the loop (Nick, 2026-10-28: cost).
-# usage: D=<serial> scripts/daily.py <account> [step ...]      (game on the main screen; default = all steps)
+# usage: D=<serial> scripts/daily.py <account> [--catch-up] [step ...]   (main screen; default = all steps;
+#        --catch-up = the catch-up skill's shorter list)
 #        OUT=<dir> sets the scratch dir (default /tmp/miniheroes-<date>/<account>) for screenshots/scripts' files.
 # Each step starts and ends on the main screen. Output: one "OK|SKIP|FAIL|MANUAL <step>: ..." line per step, then
 # "LEFT FOR HELPER: ..." = steps a helper must do by hand (judgment steps + failures, each with a v_*.png).
@@ -66,8 +67,8 @@ def match(cfg):
     return script('match.py', ACCOUNT)
 
 
-def fishing(cfg):
-    mn = re.search(r'min_order_diamonds:\s*(\d+)', cfg)
+def fishing(cfg, orders=True):
+    mn = orders and re.search(r'min_order_diamonds:\s*(\d+)', cfg)
     tap_wait(624, 1780); boxes = wait(r'Order Info', 10)
     if mn:
         tap_text(r'Order Info', boxes=boxes); wait(r'Daily Order', 8)
@@ -173,22 +174,22 @@ def gate(cfg):
     return f'{out or "nothing left"}'
 
 
-def recruit(cfg):
+def recruit(cfg, common_only=False):
     want = lambda k: int((re.search(rf'recruit:(?:\n\s+.*)*?\n\s+{k}:\s*(\d+)', cfg) or [0, 0])[1])
     tap_wait(96, 1810); wait(r'Recruitment|Recruit 1', 10)
     got = []
     tap_wait(188, 1610); time.sleep(1)
-    for _ in range(want('common')):
+    for _ in range(8 if common_only else want('common')):   # catch-up: every Free chance
         boxes = ocr(); m = re.search(r'Chances\W*(\d+)', joined(boxes))
         if not m or int(m.group(1)) == 0 or not find(boxes, r'^Free$', (380, 1290, 700, 1420)): break  # ad/cooldown/done
         tap_text(r'^Free$', (380, 1290, 700, 1420), boxes); time.sleep(2.5)
         c = find(ocr(), r'^Confirm$'); tap_wait(*(c or (540, 1700))); time.sleep(1); got.append('common')
-    if want('ancestor'):
+    if want('ancestor') and not common_only:
         tap_wait(896, 1610); time.sleep(1); boxes = ocr()
         if find(boxes, r'^Free$', (150, 1290, 470, 1420)):
             tap_text(r'^Free$', (150, 1290, 470, 1420), boxes); time.sleep(2.5)
             c = find(ocr(), r'^Confirm$'); tap_wait(*(c or (300, 1755))); got.append('ancestor')
-    if want('artifact'):
+    if want('artifact') and not common_only:
         tap_wait(618, 1840); time.sleep(1); boxes = ocr()
         p = grab().getpixel((900, 1658))
         if p[1] > 170 and p[0] < 150: got.append('ARTIFACT SKIPPED: Auto toggle is ON (helper: turn it off, draw Free)')
@@ -201,10 +202,10 @@ def hero(cfg): return script('hero.py', ACCOUNT)
 def tribe(cfg): return script('tribe.py')
 
 
-def divine(cfg):
+def divine(cfg, benefit=True):
     tap_wait(798, 1780); wait(r'Arsenal', 10)
     out = []
-    if red_dot(330, 1730, 420, 1800):                 # Benefit (forging-pass accounts only)
+    if benefit and red_dot(330, 1730, 420, 1800):     # Benefit (forging-pass accounts only)
         tap_wait(309, 1810); c = find(wait(r'Claim Reward', 6), r'^Claim Reward$')
         tap_wait(*c); time.sleep(1); tap_wait(540, 120); tap_wait(970, 238); out.append('benefit')
     tap_wait(980, 1810); time.sleep(2)
@@ -274,6 +275,13 @@ def fishing_rewards(cfg):
     return f'claimed {n} order rewards' + ('; AUTO STOPPED (helper: restart only if "Stop at new Archive")' if stopped else '')
 
 
+# catch-up (.claude/skills/catch-up): Match, Storm, Fishing auto only, Veins + Forge (no Benefit), Patrol Claim All,
+# Match again, Tribe chat Request/Assist, Common Recruitment, Daily Mission, Fishing order rewards
+CATCHUP = [('match', match), ('storm', storm), ('fishing_auto', lambda c: fishing(c, orders=False)),
+           ('veins_forge', lambda c: divine(c, benefit=False)), ('patrol_claim', patrol_claim), ('match2', match),
+           ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
+           ('daily_mission', daily_mission), ('fishing_rewards', fishing_rewards)]
+CATCHUP_MANUAL = ['storm_rewards', 'match_claims', 'canyon', 'events']
 ORDER = [('storm', storm), ('match', match), ('fishing', fishing), ('patrol', patrol), ('shop', shop),
          ('play_pass', play_pass), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('beast', beast),
          ('trials', trials), ('recruit', recruit), ('hero', hero), ('tribe', tribe), ('divine', divine), ('relic_shovels', relic_shovels),
@@ -284,7 +292,8 @@ KEY = {'storm': None, 'match': 'match', 'match2': 'match', 'fishing': 'fishing',
        'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',
        'gate': 'gate_of_darkness', 'beast': 'beast_realm', 'trials': 'land_of_trials', 'recruit': 'recruit', 'hero': 'hero_upgrade',
        'tribe': 'tribe', 'divine': 'divine_weapon', 'relic_shovels': 'relic_shovels', 'stage': 'adventure_stage', 'grocery': 'grocery_free_chests',
-       'daily_mission': None, 'fishing_rewards': 'fishing'}
+       'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
+       'tribe_chat': 'tribe', 'common_recruit': 'recruit'}
 
 
 def enabled(cfg, key):
@@ -295,14 +304,19 @@ def enabled(cfg, key):
 
 def main(argv):
     global ACCOUNT
+    catch_up = '--catch-up' in argv
+    argv = [a for a in argv if a != '--catch-up']
     ACCOUNT = argv[0]; only = argv[1:]
     cfg = open(os.path.join(HERE, '..', 'accounts', ACCOUNT + '.yaml')).read()
     out = os.environ.get('OUT') or f'/tmp/miniheroes-{NOW:%F}/{ACCOUNT}'
     os.makedirs(out, exist_ok=True); os.chdir(out)
-    left = [k for k in MANUAL if k not in ('pet_arena',) or (NOW.weekday() < 3 and enabled(cfg, 'pet_arena'))]
-    left = [k for k in left if k != 'grocery_buy' or 'grocery_buy' in cfg]
+    if only: left = []                                 # single steps: report only their own leftovers
+    elif catch_up: left = list(CATCHUP_MANUAL)
+    else:
+        left = [k for k in MANUAL if k not in ('pet_arena',) or (NOW.weekday() < 3 and enabled(cfg, 'pet_arena'))]
+        left = [k for k in left if k != 'grocery_buy' or 'grocery_buy' in cfg]
     if not home(): print('FAIL start: not on the main screen'); return 1
-    for name, fn in ORDER:
+    for name, fn in (CATCHUP if catch_up else ORDER):
         if only and name not in only: continue
         if not enabled(cfg, KEY[name]): print(f'SKIP {name}: not in config', flush=True); continue
         t0 = time.time()

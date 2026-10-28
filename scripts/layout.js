@@ -8,7 +8,9 @@ const dir = app.doShellScript('dirname "$(dirname ' + JSON.stringify($.NSProcess
 const cfg = app.doShellScript(`grep '^exclude:' "${dir}/accounts/layout.yaml" || true`)
 const exclude = (cfg.match(/\[(.*)\]/) || [, ''])[1].split(',').map(s => s.trim()).filter(Boolean)
 const info = JSON.parse(app.doShellScript('"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" info all'))
-const insts = info.return.results.filter(r => r.state === 'running' && r.pid && !exclude.includes(r.name))
+// ONLY="0 2 4" (set by boot.sh) = tile just these MuMu indices — booting 8 accounts once moved Aminor's window too
+const only = ($.NSProcessInfo.processInfo.environment.objectForKey('ONLY').js || '').split(' ').filter(Boolean).map(Number)
+const insts = info.return.results.filter(r => r.state === 'running' && r.pid && !exclude.includes(r.name) && (!only.length || only.includes(Number(r.index))))
   .sort((a, b) => a.index - b.index)
 
 // main screen usable area, converted to top-left origin (AX coordinates)

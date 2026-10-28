@@ -37,4 +37,4 @@ boot() {
 for i in "$@"; do boot "$i" & done
 wait
 # multi-account runs: tile the windows (Nick, 2026-10-27)
-if [ $# -gt 1 ]; then osascript -l JavaScript "$(dirname "$0")/layout.js"; fi
+if [ $# -gt 1 ]; then ONLY="$*" osascript -l JavaScript "$(dirname "$0")/layout.js"; fi

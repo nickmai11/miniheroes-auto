@@ -1,16 +1,14 @@
 # miniheroes-auto
 
 Daily-mission automation for **Mini Heroes: Magic Throne**, running on MuMuPlayer (macOS),
-one MuMu instance per game account. Missions are performed by Claude through computer use
-(screenshots + taps on the emulator window) or, without computer use, via ADB (`screencap` + `input tap`), driven by per-account config files.
+one MuMu instance per game account, driven over ADB by scripts and per-account config files.
 
 ## Layout
 
 ```
 CLAUDE.md               ← start here in a new Claude session
 .claude/skills/         ← project skills (load only in this repo; edit here, nothing to sync)
-  miniheroes-dailies/SKILL.md
-  miniheroes-match/SKILL.md
+  miniheroes-dailies, catch-up, miniheroes-match/-poseidon/-relic, layout
 accounts/
   _template.yaml        ← copy this to add an account
   cmajor.yaml           ← per-account mission config
@@ -20,27 +18,13 @@ docs/
   api-findings.md       ← what we learned about the game's HTTP API (and why we use the UI)
 ```
 
-## Status
+## How it runs
 
-| Mission | Automated via | Notes |
-|---|---|---|
-| Land of Trials sweeps | UI (computer use or ADB) | Verified on Cmajor, 2026-10-26 (ADB) |
-| Match (Arena) crashes | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Shop freebies (red dots) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Play Pass claims (red dots) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Tower of the Throne (3 challenges) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Secret Sanctuary sweep | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Gate of Darkness (run + sweep) | UI (ADB) | Mapped on Cmajor, 2026-10-26 (quit button unmapped) |
-| Recruit (free summons) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Hero upgrade (Bone Archer) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Tribe (sign-in, trial, request/assist) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Fishing (orders, benefit, auto) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Divine Weapon (benefit, Excelsior Veins) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Adventure stage (1 run) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Patrol (speed ×3, claim all) | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Rune synthesis | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Grocery free chests | UI (ADB) | Mapped on Cmajor, 2026-10-26 |
-| Others | – | Add to `docs/ui-routine.md` + account configs as they're mapped |
+ADB only. `scripts/boot.sh` starts instances; `scripts/daily.py <account>` runs the whole Daily run order with no LLM
+(OCR via macOS Vision, `scripts/ocr.swift`), calling one script per mission (`match.py`, `trials.py`, `patrol.py`,
+`hero.py`, `tribe.py`, `adventure.py`, `storm.py`, `veins.py`, `grocery.py`, `fish_orders.py`, `relic_shovels.py`).
+Judgment steps and failures are left to a Claude helper (`.claude/agents/mh-helper.md`). Mission rules and coords:
+`docs/ui-routine.md`. Gem spending only within the account config caps, price read on screen before every buy.
 
 ## Why UI and not API
 

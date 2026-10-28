@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Tribe: Sign-in, Tribe Trial (only if its card has a red dot), chat Request + Assist. All free.
-# usage: D=<serial> scripts/tribe.py      (main screen must be open; ends on the Tribe chat, dialog closed)
+# usage: D=<serial> scripts/tribe.py [--chat-only]      (main screen must be open; ends on the Tribe chat, dialog closed)
 # Never types in chat. Canyon Clash / Poseidon stay with the helper. exit 1 = unexpected screen (v_tribe.png).
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import sys, time
@@ -13,9 +13,14 @@ def trial_red_dot():
                if (lambda p: p[0] > 210 and p[1] < 70 and p[2] < 70)(im.getpixel((x, y)))) >= 4
 
 
-def run():
+def run(chat_only=False):
     tap_wait(448, 1780)                                       # Tribe
     wait(r'Tribe Trial', 10)
+    if not chat_only: sign_in_and_trial()
+    chat()
+
+
+def sign_in_and_trial():
     tap_text(r'^Sign-in$', (400, 380, 700, 560))
     boxes = wait(r'Sign-in Reward|Signed In', 8)
     if find(boxes, r'^Sign-in Reward$'):
@@ -30,6 +35,9 @@ def run():
         print(f'tribe trial: fought ({res[:80]})')
         tap_wait(92, 1810); wait(r'Tribe Trial', 8)
     else: print('tribe trial: no red dot (done today); skipped')
+
+
+def chat():
     tap_wait(800, 1806)                                       # Chat (auto-claims assist rewards)
     for y in (1631, 1636):
         tap_wait(174, y)
@@ -46,4 +54,4 @@ def run():
 
 
 if __name__ == '__main__':
-    main(run)
+    main(run, '--chat-only' in sys.argv)

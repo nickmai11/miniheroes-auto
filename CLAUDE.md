@@ -48,11 +48,13 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 - **Start-up:** `scripts/boot.sh <mumu index>...` boots the instances, restarts the game, taps Start and waits for the
   main screen, all in parallel (~25 s cold, ~10 s warm). It prints each account's ADB serial. Use it instead of
   manual start-up steps in any skill; helpers then begin at the main screen (only event popups left to close).
-- **Helpers:** one background agent per account, `subagent_type: "mh-helper"` (Sonnet, Bash+Read only — much cheaper per turn), given its serial and own scratch dir. Tell
-  them: screenshots with `tap.py -w 270` for navigation (~4x cheaper), `-w 540` only to read small text (CP,
-  names, prices) — tap coords stay device coords (×4 from a 270 image, ×2 from 540); poll waits (hard rules).
-- **Coordinator:** watch all helper folders with one Monitor, 15 s interval, alert on ~90 s without a new file.
-  A helper saying it's "pausing/waiting" is a red flag — check its screen.
+- **Scripts first (Nick, 2026-10-28 — cost):** `scripts/daily.py <account> [step ...]` runs a whole account with no
+  LLM; mission scripts (`match.py`, `trials.py`, `patrol.py`, …) do single missions. A helper is only for what a
+  script leaves (`LEFT FOR HELPER:` / exit 1). One run of helpers-for-everything cost ~12% of Nick's weekly tokens.
+- **Helpers:** `subagent_type: "mh-helper"` (Sonnet, Bash+Read only), given its serial, own scratch dir and ONLY its
+  leftover steps. Screenshots `tap.py -w 270` (×4 = device coords), `-w 540` only for small text (×2); poll waits.
+- **Coordinator:** wait for runner/helper completion notifications; check a helper's screen only if it says
+  it's "pausing/waiting" (red flag) or a notification is overdue.
 
 ## Reporting
 
