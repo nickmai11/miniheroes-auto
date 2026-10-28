@@ -12,7 +12,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 def shovels(boxes):
-    return next((int(t.split('/')[0]) for x, y, w, h, t in boxes if re.fullmatch(r'\d+/150', t.strip())), None)
+    return next((int(t.split('/')[0]) for x, y, w, h, t in boxes if x < 300 and 330 < y < 480 and re.fullmatch(r'\d+/\d+', t.strip())), None)  # N/150 (Cmajor), N/100 (Kong)
 
 
 def run(account):

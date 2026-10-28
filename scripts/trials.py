@@ -98,7 +98,9 @@ def main(account):
             if h != half:
                 y0, y1 = ('500', '1500') if h == 'top' else ('1600', '400')
                 subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', '540', y0, '540', y1, '500']); time.sleep(1); half = h
-            tap_wait(x, y); time.sleep(1.5)           # dialog must settle or the Sweep tap is lost
+            for attempt in (1, 2):                    # the tickets-full popup can swallow the GO tap (Kong 2026-10-28)
+                tap_wait(x, y); time.sleep(1.5)       # dialog must settle or the Sweep tap is lost
+                if counter() or attempt == 2: break
             dungeon(key, targets[key], cap)
     except Stop as e:
         grab().resize((540, 960)).save('v_trials.png'); print(f'{e}; stop (screenshot v_trials.png)'); return 1

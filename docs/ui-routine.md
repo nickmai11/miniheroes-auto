@@ -391,7 +391,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Costs potions/gold/stones o
 Mapped 2026-10-26 on Cmajor via ADB (device coords). All free.
 
 1. Main screen → **Tribe** `(448,1780)`.
-2. **Sign-in** `(538,476)` (same row as Member `(192,474)`) → **Sign-in Reward** `(538,1546)` →
+2. **Sign-in** `(538,476)` (same row as Member `(192,474)`) — already signed today = just a "Signed-In" toast, no dialog
+   (Kong 2026-10-28; don't tap the dialog-close spot then, it's on a card) → **Sign-in Reward** `(538,1546)` →
    dismiss `(540,120)` → close the dialog by tapping `(540,1680)`.
 3. **Tribe Trial** card `(540,735)` (no red dot = already done, skip — Challenge still starts a "No Rewards" fight)
    → Flame Lord boss → **Challenge** `(540,1806)` → lineup screen.
@@ -556,6 +557,9 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
 
 Last step of `/catch-up` (then a final Fishing order claim). **Only if there's a red dot** (Nick, 2026-10-28):
 no red dot on the side-menu icon / **Mission** entry → skip, nothing to claim.
+**Verified on Kong 2026-10-28 (`daily.py … daily_mission`):** menu dot ≈ `(1040,1580)`; tap the Mission **icon** ≈ `(820,1380)`
+   — its label doesn't react; top Claim ≈ `(860,672)`; reachable chests glow (above labels at y≈510); dismiss on the
+   title `(540,240)` — `(540,120)` is outside the dialog and closes it; Weekly tab dot ≈ `(976,1630)`; Daily opens selected.
 1. Main screen → list icon with red dot near the Tribe-chat strip ≈ `(990,1630)` → side menu (Settings, Notice,
    E-mail, Lobby, Grocery, **Mission**, Friends, Backpack) → **Mission** ≈ `(800,1360)`. Close ✕ `(972,238)`.
    Tabs at the bottom of the popup: **Daily** ≈ `(297,1693)`, **Weekly** ≈ `(779,1693)` (estimated from a

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # Dailies runner: the whole "Daily run order" for one account with no LLM in the loop (Nick, 2026-10-28: cost).
 # usage: D=<serial> scripts/daily.py <account> [--catch-up] [step ...]   (main screen; default = all steps;
-#        --catch-up = the catch-up skill's shorter list)
+#        --catch-up = the catch-up skill's shorter list; --force = re-run steps already OK this game day
+#        (state: /tmp/miniheroes-state/<account>-<game day>.done, game day starts 05:00 UTC))
 #        OUT=<dir> sets the scratch dir (default /tmp/miniheroes-<date>/<account>) for screenshots/scripts' files.
 # Each step starts and ends on the main screen. Output: one "OK|SKIP|FAIL|MANUAL <step>: ..." line per step, then
 # "LEFT FOR HELPER: ..." = steps a helper must do by hand (judgment steps + failures, each with a v_*.png).
@@ -15,6 +16,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
 near = lambda p, c, tol=40: all(abs(a - b) <= tol for a, b in zip(p, c))
 NOW = datetime.datetime.now()
+# game day resets 05:00 UTC (Land of Trials refresh timer, 2026-10-28). ONCE steps can't read a 'done today' counter on
+# screen, so they're recorded per game day and skipped on re-runs; every other step re-checks the screen counters.
+ONCE = {'hero', 'tower', 'beast', 'stage', 'sanctuary'}
+GAME_DAY = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=5)).date()
 MANUAL = {'pet_arena': 'Auto Deploy settings', 'storm_rewards': 'rank-row icons', 'match_claims': 'chest/gift layout',
           'canyon': 'spot choice', 'sanctuary_climb': 'bonus-card choice', 'rune': 'locked-rune grid',
           'grocery_buy': 'tile price vs balance', 'events': 'red-dot judgment', 'fishing_benefit': 'not mapped for OCR'}
@@ -202,6 +207,12 @@ def hero(cfg): return script('hero.py', ACCOUNT)
 def tribe(cfg): return script('tribe.py')
 
 
+def num(t):
+    """'239k' -> 239000, '1.2M' -> 1200000, '500' -> 500."""
+    mult = {'k': 1e3, 'm': 1e6}.get(t[-1].lower(), 1)
+    return int(float(t.rstrip('kKmM')) * mult)
+
+
 def divine(cfg, benefit=True):
     tap_wait(798, 1780); wait(r'Arsenal', 10)
     out = []
@@ -214,7 +225,8 @@ def divine(cfg, benefit=True):
     for _ in range(14):                                 # Forge: one slot per anvil tap; crystals only, never gems
         boxes = ocr(); t = joined(boxes)
         if re.search(r'\d\d:\d\d:\d\d', t): out.append('forge running (timer); skipped'); break
-        fr = [(y, *map(int, b.split('/'))) for x, y, w, h, b in boxes if re.fullmatch(r'\d+/\d+', b.strip())]
+        fr = [(y, num(m.group(1)), num(m.group(2))) for x, y, w, h, b in boxes
+              for m in [re.fullmatch(r'([\d.]+[kKmM]?)/([\d.]+[kKmM]?)', b.strip())] if m]
         slots = next((f for f in fr if f[2] <= 20), None)
         cry = next((f for f in fr if slots and 0 < f[0] - slots[0] < 160 and f[2] > 20), None)  # owned/cost under the anvil
         if not slots or not cry: raise Stop(f'forge counters unreadable: {t[:150]}')
@@ -243,24 +255,30 @@ def grocery(cfg):
 
 
 def daily_mission(cfg):
-    if not red_dot(1010, 1580, 1070, 1640): return 'no red dot'
-    tap_wait(994, 1625); time.sleep(1)
+    """Mapped on Kong 2026-10-28: menu icon dot ≈ (1040,1580); Mission = the ICON left of its label (the label doesn't
+    react); top Claim row ≈ (860,672) claims all rows; chests above the 40/80/120/160 labels (y≈510) glow when reachable; tabs Daily (300,1686) — opens selected, no dot — and Weekly (778,1688), dot ≈ (976,1630)."""
+    if not red_dot(1000, 1545, 1080, 1615): return "no red dot"
+    tap_wait(994, 1625); wait(r'^Mission$', 6); time.sleep(1.2)   # side menu slides in: read the position once settled
     m = find(ocr(), r'^Mission$')
     if not m: raise Stop('Mission entry not in the side menu')
-    tap_wait(*m); wait(r'Daily Mission|Activity', 10)
+    tap_wait(m[0] - 120, m[1] - 30); wait(r'Daily Mission', 10)
     out = []
-    for tab, x in (('daily', 297), ('weekly', 779)):
-        if not red_dot(x + 60, 1640, x + 200, 1690): continue
-        tap_wait(x, 1693); time.sleep(1)
-        c = find(ocr(), r'^Cla[il]m$', (700, 380, 1060, 900))  # top row only — never scroll, never GO
-        if c: tap_wait(*c); time.sleep(1); tap_wait(540, 120); out.append(f'{tab} rows')
-        boxes = ocr()
-        pts = [(x0 + w // 2, y0, int(t)) for x0, y0, w, h, t in boxes if t.strip().isdigit() and y0 < 380 and int(t) % 10 == 0]
-        for cx, cy, _ in sorted(pts, key=lambda p: p[2]):  # lowest chest first; one reachable tap claims all reachable
-            if red_dot(cx - 20, cy - 120, cx + 60, cy - 20):
-                tap_wait(cx, cy - 60); time.sleep(1); tap_wait(540, 120); out.append(f'{tab} chests'); break
+    for tab, x in (('daily', 300), ('weekly', 778)):
+        if tab == 'weekly':
+            time.sleep(1.5)                               # reward popup from the daily chests can still dim the tab bar
+            if not red_dot(x + 120, 1595, x + 240, 1665): continue
+            tap_wait(x, 1688); time.sleep(1)
+        c = find(ocr(), r'^Cla[il]m$', (700, 560, 1060, 780))  # top row only — never scroll, never GO
+        if c: tap_wait(*c); time.sleep(1.2); tap_wait(540, 240); out.append(f'{tab} rows')
+        im = grab()                                       # reachable chests glow yellow (~350 px vs ~50 locked, Kong)
+        glow = [lv for lv, cx in ((40, 423), (80, 592), (120, 762), (160, 930))
+                if sum(1 for y in range(330, 470, 3) for x in range(cx - 70, cx + 70, 3)
+                       if (lambda p: p[0] > 235 and p[1] > 215 and p[2] < 160)(im.getpixel((x, y)))) > 150]
+        if glow:                                          # one reachable chest claims every reachable one
+            cx = {40: 423, 80: 592, 120: 762, 160: 930}[glow[0]]
+            tap_wait(cx, 420); time.sleep(1.2); tap_wait(540, 240); out.append(f'{tab} chests {glow}')
     tap_wait(972, 238)
-    return f'claimed {out or "nothing"}'
+    return f'{out or "nothing"}'
 
 
 def fishing_rewards(cfg):
@@ -315,15 +333,21 @@ def main(argv):
     else:
         left = [k for k in MANUAL if k not in ('pet_arena',) or (NOW.weekday() < 3 and enabled(cfg, 'pet_arena'))]
         left = [k for k in left if k != 'grocery_buy' or 'grocery_buy' in cfg]
+    force = '--force' in argv; only = [a for a in only if a != '--force']
+    state = f'/tmp/miniheroes-state/{ACCOUNT}-{GAME_DAY}.done'
+    os.makedirs(os.path.dirname(state), exist_ok=True)
+    done = set(open(state).read().split()) if os.path.exists(state) else set()
     if not home(): print('FAIL start: not on the main screen'); return 1
     for name, fn in (CATCHUP if catch_up else ORDER):
         if only and name not in only: continue
         if not enabled(cfg, KEY[name]): print(f'SKIP {name}: not in config', flush=True); continue
+        if name in ONCE and name in done and not force: print(f'SKIP {name}: already OK this game day ({GAME_DAY})', flush=True); continue
         t0 = time.time()
         try:
             r = fn(cfg)
             tag = 'MANUAL' if str(r).startswith('MANUAL') else 'SKIP' if str(r).startswith('SKIP') else 'OK'
             if tag == 'MANUAL': left.append(name)
+            if tag == 'OK' and name in ONCE: open(state, 'a').write(name + '\n')
             print(f'{tag} {name} ({time.time() - t0:.0f}s): {r}', flush=True)
         except Stop as e:
             grab().resize((540, 960)).save(f'v_{name}.png')

@@ -22,12 +22,13 @@ def run(chat_only=False):
 
 def sign_in_and_trial():
     tap_text(r'^Sign-in$', (400, 380, 700, 560))
-    boxes = wait(r'Sign-in Reward|Signed In', 8)
+    boxes = wait(r'Sign-in Reward|Signed.In', 8)
     if find(boxes, r'^Sign-in Reward$'):
         tap_text(r'^Sign-in Reward$', boxes=boxes); time.sleep(1.5); tap_wait(540, 120); print('sign-in: claimed')
-    else: print('sign-in: already signed in')
-    tap_wait(540, 1680)                                       # close the sign-in dialog
-    wait(r'Tribe Trial', 8)
+        tap_wait(540, 1680)                                   # close the sign-in dialog
+    elif find(boxes, r'^Signed-In$'): print('sign-in: already signed in (toast, no dialog)')  # Kong 2026-10-28
+    else: print('sign-in: already signed in'); tap_wait(540, 1680)
+    time.sleep(1.5); wait(r'Tribe Trial', 8)
     if trial_red_dot():
         tap_wait(540, 735)
         wait(r'Flame Lord|Single Highest', 10)
