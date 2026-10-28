@@ -3,10 +3,10 @@
 # usage: scripts/boot.sh <mumu index>...      e.g. scripts/boot.sh 1 2 4
 # prints one line per instance: "<name> 127.0.0.1:<port> ready" (or "... start-timeout" / "... main-timeout").
 # With >1 instance it then runs scripts/layout.js (window tiling).
-# Event popups may still be open on the main screen — the caller closes them.
+# Then scripts/stabilize.py closes the event popups; "ready (stable …)" = bare main screen, "popup-stuck" = close it by hand.
 # Timings measured on Aminor 2026-10-27: Start button shows <1 s after launch, main screen ~5 s after Start.
 M="/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli"
-TAP="$(dirname "$0")/tap.py"
+HERE="$(cd "$(dirname "$0")" && pwd)"; TAP="$HERE/tap.py"
 PKG=com.and.brawlen.web
 
 boot() {
@@ -31,7 +31,9 @@ boot() {
     D=$s python3 "$TAP" -o "/tmp/boot_$port.png" --until 440,1508,255,182,16 --timeout 1 || break  # Start gone: popup over main
     [ $try = 3 ] && { echo "$name $s main-timeout"; return; }
   done
-  echo "$name $s ready"
+  # clear start-up event popups (tick "Do not remind me today" + X) -> "stable" = bare main screen (Nick, 2026-10-28)
+  local st; st=$(cd /tmp && D=$s python3 "$HERE/stabilize.py" | tail -1)
+  case $st in stable*) echo "$name $s ready ($st)";; *) echo "$name $s popup-stuck ($st, /tmp/v_stabilize.png)";; esac
 }
 
 for i in "$@"; do boot "$i" & done

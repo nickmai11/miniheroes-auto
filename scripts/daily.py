@@ -11,6 +11,7 @@
 # Never spends gems except through trials.py (cap-checked) and patrol.py (cap-checked).
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import datetime, os, re, subprocess, sys, time
+from stabilize import close_x
 from flow import Stop, adventure, battle, find, grab, joined, ocr, swipe, tap, tap_text, tap_wait, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -36,8 +37,8 @@ def home():
         boxes = ocr()
         if find(boxes, r'Do not remind me today'):
             tap_text(r'Do not remind me today', boxes=boxes)
-            # event popup X (Dino 2026-10-28: back arrow can't close it, run stopped at start)
-            if near(grab().getpixel((988, 348)), (255, 255, 255), 20): tap_wait(988, 348); continue
+            x = close_x(grab())                                    # back arrow can't close event popups (Dino 2026-10-28)
+            if x: tap_wait(*x); time.sleep(1); continue
         if find(boxes, r'^Exit') and find(boxes, r'^Confirm$'): tap_text(r'^Confirm$', boxes=boxes); continue
         tap_wait(92, 1810); time.sleep(0.8)
     return is_main()
