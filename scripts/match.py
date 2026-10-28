@@ -10,11 +10,10 @@
 import difflib, os, re, subprocess, sys, time, unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait
-from flow import ocr, tap
+from flow import near, ocr, tap
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
-near = lambda p, c, tol=30: all(abs(a - b) <= tol for a, b in zip(p, c))
 def norm(s):
     s = unicodedata.normalize('NFKD', s)
     return ''.join(c for c in s if c.isalnum()).lower()
@@ -85,7 +84,7 @@ def main(account):
         if not rows: return stop('no opponent rows found')
         pick = None if bot_only else next(((y, nm) for y, k, nm in rows[:-1] if k == 'crash' and not tribemate(nm, roster)), None)
         if not pick:
-            if rows[-1][0] > 1400:  # 5+ rows: a 6th can be cut off -> scroll to the real last row (the bot)
+            if rows[-1][0] > 1400 or rows[-1][1] != 'crash':  # a 6th row can be cut off (Dino: 6 rows, 2 shielded) -> scroll to the real last row (the bot)
                 subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', '540', '1500', '540', '900', '500']); time.sleep(1)
                 d = read_dialog(); rows = d[1] if d else []
             if not rows or rows[-1][1] != 'crash': return stop('last row is not a blue Crash')

@@ -12,6 +12,9 @@ D = os.environ['D']
 class Stop(Exception): pass
 
 
+near = lambda p, c, tol=30: all(abs(a - b) <= tol for a, b in zip(p, c))
+
+
 def tap(x, y): subprocess.run(['adb', '-s', D, 'shell', 'input', 'tap', str(x), str(y)])
 
 

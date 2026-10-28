@@ -29,8 +29,11 @@ run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly 
 2. Run every account's runner in ONE background Bash command and wait for its completion notification (no polling):
    `for a in <acct>:<serial> ...; do (D=${a#*:} OUT=/tmp/miniheroes-$(date +%F)/${a%%:*} scripts/daily.py ${a%%:*} > /tmp/miniheroes-$(date +%F)/${a%%:*}.log 2>&1) & done; wait`
    Each log has one `OK|SKIP|FAIL|MANUAL <step>` line per step and ends with `LEFT FOR HELPER: …`
-   (judgment steps — Pet Arena Mon–Wed, Storm Rewards, Match claims, Canyon, Sanctuary climb, Rune, grocery_buy,
-   Events, Fishing Benefit — plus any FAIL, each with `v_<step>.png`). Exit 1 = lost the main screen.
+   (judgment steps — Pet Arena Mon–Wed, Sanctuary climb, Rune, grocery_buy, Fishing Benefit, plus MANUAL lines:
+   Canyon with no empty spot, event tabs with an unmapped red dot — plus any FAIL, each with `v_<step>.png`).
+   Storm Rewards, Match chests, Canyon empty spot, Canyon Points Reward and event milestones are runner steps
+   since 2026-10-28. Exit 1 = lost the main screen. Watch failures live: Monitor `tail -F <dir>/*.log | grep
+   --line-buffered -E '^(FAIL|Traceback)'`.
 3. Per account with leftovers: ONE `mh-helper` whose prompt lists only those steps + their doc sections
    (`scripts/doc.sh …`) and the log's FAIL lines. Its final answer ≤15 lines (concerns, done/skipped, paid + price).
 4. Report from the logs + helper answers. A step's script is the doc's fallback text otherwise — see ui-routine "Speed".

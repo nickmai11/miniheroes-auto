@@ -201,7 +201,7 @@ the source of truth: free used = 2 − remaining free; paid used = 5 − remaini
 
 ## Match (Arena)
 
-**Run `scripts/match.py <account>` from the Arena screen** (see Speed), then do step 6 (claims) by hand; steps 1–5 below are its exit-1 fallback.
+**Run `scripts/match.py <account>` from the Arena screen** (see Speed); step 6's win chests = runner step `match_claims` (reads the win count, taps reached chests without a green ✓). Steps 1–5 below are match.py's exit-1 fallback.
 
 Mapped 2026-10-26 on Cmajor via ADB. **Device coords (1080×1920)**; window coords not mapped yet.
 
@@ -537,6 +537,7 @@ or gem price, never draw/spin with paid currency or event coins, never "Join" wi
 token, ticket, draw, coin or key, even free ones — just claim what's given. Back out
 `(88,1812)` when no red dots are left.
 
+- **Runner step `events`** (2026-10-28): hub tab red dots (box right-above each tab), Match Event milestones (Canyon Warrior `(160,320)`, Heroic Trial `(400,310)`, OCR'd Claim in the top row) and 7777's daily Claim; any other tab with a dot → MANUAL. Hub tabs at y=1840: Wish Festival 310, Pet Arena 480, 7777 650, Match Event 820, Weekly 990.
 - **Event hub:** the 1st banner taps at ≈ `(896,340)` (y≈166–210 misses). Any banner opens the shared hub; use its
   bottom tabs (y≈1820–1850) instead of timing the rotation: Wish Festival `(300,1820)`, 7777 Draws `(648,1850)`,
   Match Event `(860,1850)`, Weekly Event `(1000,1850)`. Banners rotate between screenshots.
@@ -634,6 +635,7 @@ Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 c
 After Occupy/Victory the header can keep showing the old spot — back out to Tribe and re-enter to confirm
 (your name in green on the new platform).
 
+**`scripts/canyon.py <account>`** (runner step `canyon`, 2026-10-28) does this for EMPTY platforms: disc with no name label, popup text "occupy the empty" checked before Occupy, waits for map inertia. No empty spot → exit 2 → helper (attack choice).
 **Take a new spot every run, even if you already hold one** (Nick, 2026-10-27) — a held spot doesn't count as
 done. Pick by the rules below; done once the header shows the newly taken spot. Never spend gems on attempts.
 
@@ -653,7 +655,7 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
 shows the gains → **Confirm** `(540,1460)` → dismiss `(540,1210)`; header shows "Unoccupied" → take a spot again.
 Swipe slowly (`540 700 → 540 1500`, 1500 ms) to come back up; fast swipes fling far.
 
-**Points Reward:** left-side **Rewards** `(88,745)` with a red dot → **Claim Reward** `(540,1618)` (free) →
+**Points Reward** (runner step `canyon_rewards`): left-side **Rewards** `(88,745)` with a red dot → **Claim Reward** `(540,1618)` (free) →
 dismiss `(540,1880)` → close ✕ `(972,240)`.
 
 Tribe chat pinned notice (Peakaboo, 2026-10-27): "Canyon: Move to 8/m if you reached 80k early. Dont attack
@@ -714,7 +716,7 @@ dailies. Monday: closed until 17:00 — run `/catch-up` after that.
    Then close `(100,1150)`, play the new tickets; next time tickets hit 0 → close the popup and stop.
    Button state: sample `(260,1250)` — green (123,206,49) / grey (181,178,181). `(260,1274)` hits the "Free" text or
    the camera icon: that made storm.py miss the ad popup, "dismiss" it as a Victory and count fake 5 s matches.
-5. **Rewards** `(96,880)` (left side) — after tickets = 0 (storm.py doesn't do this step), if it has a red dot: *Rank Reward* tab lists King/Glory/Gold/Silver/Bronze
+5. **Rewards** `(96,880)` (left side) — runner step `storm_rewards` (red dot box `(110,830)-(180,900)`; taps the Gold/Silver/Bronze icons, MANUAL if the dot stays) — if it has a red dot: *Rank Reward* tab lists King/Glory/Gold/Silver/Bronze
    rows; tap a reached rank's highlighted item icon, not the row background (Bronze `(372,1404)`, Silver `(372,1180)`, Gold `(372,962)`) → claims the whole row (checkmarks) →
    dismiss `(540,1900)`. *Ranking Rewards* tab = end-of-season table, nothing to claim. Close ✕ `(972,228)`;
    the red dot should be gone.

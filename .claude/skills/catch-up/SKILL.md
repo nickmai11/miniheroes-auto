@@ -12,16 +12,21 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    If the game crashes mid-run, workers relaunch it and retry the step (max 3 relaunches) — Nick, 2026-10-27.
 3. **Runner first (Nick, 2026-10-28 — cost):** all accounts in ONE background Bash command, wait for its notification:
    `for a in <acct>:<serial> ...; do (D=${a#*:} OUT=/tmp/miniheroes-$(date +%F-%H)/${a%%:*} scripts/daily.py ${a%%:*} --catch-up > /tmp/miniheroes-$(date +%F-%H)/${a%%:*}.log 2>&1) & done; wait`
-   It does steps 1, 2 (minus Rewards), 4–8, 10, 11 below and ends with `LEFT FOR HELPER:` (Storm Rewards, Match claims,
-   Canyon, Events + any FAIL with `v_<step>.png`). Then ONE `mh-helper` per account for only those, prompt below
-   trimmed to them. Steps (the spec the runner follows; see `docs/ui-routine.md`):
+   It does ALL steps below (claims, Canyon empty spot and event milestones too since 2026-10-28) and ends with
+   `LEFT FOR HELPER:` = only MANUAL lines (no empty Canyon spot → attack choice; event tabs with an unmapped red dot)
+   and FAILs with `v_<step>.png`. Empty list → no helper for that account. Otherwise ONE `mh-helper` per account for
+   only those, prompt below trimmed to them. While it runs, one Monitor surfaces failures live (Dino 2026-10-28 sat
+   8 min on a FAIL start nobody saw): `tail -F <run dir>/*.log | grep --line-buffered -E '^(FAIL|Traceback)'`.
+   Re-run a failed account with only its failed steps: `daily.py <acct> --catch-up <step>...`.
+   Steps (the spec the runner follows; see `docs/ui-routine.md`):
    **Red dots only (Nick, 2026-10-27):** for claims (events, Tribe Clash Pack, Daily Mission, rewards icons) open/tap
    only what shows a red dot — no red dot = nothing to collect, don't open it to check.
-   1. Match (exhaust free tickets): `scripts/match.py <account>` from the Arena screen, then the claims by hand
+   1. Match (exhaust free tickets): `scripts/match.py <account>` from the Arena screen, then the win-chest claims
    2. Storm Battlefield (skip if its season is closed: Mon 05:00-17:00): run `scripts/storm.py` from the arena
       screen — it sets the full lineup first and resets to 1 hero after (ui-routine Storm steps 2–4, 6); report its output.
-      Then **Rewards** (left side) if it has a red dot — storm.py does NOT do this (Storm step 5)
+      Then **Rewards** (left side) if it has a red dot (runner step storm_rewards)
    3. Canyon Clash (skip if its season is closed: Mon 06:00-17:00): **take a new spot even if one is already held**
+      (`scripts/canyon.py`: empty spots only, popup text checked; no empty one → helper)
    4. Fishing: only start Auto (fishing) and claim completed order rewards — no order refreshing, no Benefit
    5. Divine Weapon: Excelsior Veins via `scripts/veins.py` (stops at 0 pickaxes), then Forge: fill every free slot (N/M) while crystals ≥ cost, even if a forge is already running (Nick, 2026-10-28) — no Benefit
    6. Patrol: Claim All only (`scripts/patrol.py <account> --claim-only`) — no Speed Patrol. Claim All often gives Match tickets → re-run Match right after
@@ -61,6 +66,7 @@ screen's pixel; read a screenshot before prices, target picks, counters, a step'
 background timers or "pausing"; game crash → relaunch (monkey -p com.and.brawlen.web …, Start 540,1508), max 3;
 own loops must re-check the stop condition (counter/popup) every pass — never a fixed-count blind loop;
 can't do a step after 2 tries → skip + note why. Nick may tap the screen himself.
+Last command before your final answer: `touch <dir>/DONE` (the coordinator's idle watch skips finished helpers).
 Final answer: CONCERNS/ISSUES/ERRORS first (mis-taps, out-of-scope screens opened, wrong lineup, crashes, anything
 left in a bad state), then per step done/skipped (+why), every paid action + price, Daily Mission chests still
 locked + points, new findings (coords/behaviour not in the docs).

@@ -10,8 +10,8 @@
 import os, subprocess, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait
+from flow import near
 D = os.environ['D']
-near = lambda p, c, tol=30: all(abs(a - b) <= tol for a, b in zip(p, c))
 def arena(im): p = im.getpixel((400, 1580)); return p[0] > 200 and p[1] > 150 and p[2] < 80  # Start Match yellow
 # "+" popup: left button body. y=1274 hits the "Free" text / camera icon of the ad "Claim" variant, so
 # sample above it: green (123,206,49) = chances left, grey (181,178,181) = "Chances: 0"

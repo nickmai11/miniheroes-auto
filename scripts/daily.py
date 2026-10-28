@@ -22,9 +22,8 @@ NOW = datetime.datetime.now()
 # screen, so they're recorded per game day and skipped on re-runs; every other step re-checks the screen counters.
 ONCE = {'hero', 'tower', 'beast', 'stage', 'sanctuary'}
 GAME_DAY = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=5)).date()
-MANUAL = {'pet_arena': 'Auto Deploy settings', 'storm_rewards': 'rank-row icons', 'match_claims': 'chest/gift layout',
-          'canyon': 'spot choice', 'sanctuary_climb': 'bonus-card choice', 'rune': 'locked-rune grid',
-          'grocery_buy': 'tile price vs balance', 'events': 'red-dot judgment', 'fishing_benefit': 'not mapped for OCR'}
+MANUAL = {'pet_arena': 'Auto Deploy settings', 'sanctuary_climb': 'bonus-card choice', 'rune': 'locked-rune grid',
+          'grocery_buy': 'tile price vs balance', 'fishing_benefit': 'not mapped for OCR'}
 
 
 def is_main(im=None): return near((im or grab()).getpixel((92, 1788)), (0, 158, 230))
@@ -61,14 +60,18 @@ def script(name, *args):
 
 # ---- steps (each: main screen -> ... -> returns a short result; Stop = failed) ----
 
-def storm(cfg):
-    if NOW.weekday() == 0 and NOW.hour < 17: return 'SKIP closed until Mon 17:00'
+def storm_arena():
     for _ in range(4):                                   # the 2nd event card rotates; tapping it usually opens Storm
         tap_wait(880, 480); time.sleep(1.5)
         im = grab(); p = im.getpixel((400, 1580))
-        if p[0] > 200 and p[1] > 150 and p[2] < 80: break  # yellow Start Match = Storm arena
+        if p[0] > 200 and p[1] > 150 and p[2] < 80: return  # yellow Start Match = Storm arena
         home()
-    else: raise Stop('Storm arena did not open')
+    raise Stop('Storm arena did not open')
+
+
+def storm(cfg):
+    if NOW.weekday() == 0 and NOW.hour < 17: return 'SKIP closed until Mon 17:00'
+    storm_arena()
     return script('storm.py')
 
 
@@ -94,9 +97,13 @@ def fishing(cfg, orders=True):
         tap_wait(973, 270)
     boxes = ocr()
     if find(boxes, r'Auto Fishing'): return 'auto already running'
-    tap_wait(982, 1222); boxes = wait(r'^Start$', 8)
-    tap_text(r'^Start$', boxes=boxes); time.sleep(1.5)
-    if not find(ocr(), r'Auto Fishing'): raise Stop('Auto Fishing did not start')
+    for _ in range(2):                                   # Start sometimes doesn't take on the first tap (Aminor 2026-10-28)
+        boxes = ocr()
+        if not find(boxes, r'^Start$'): tap_wait(982, 1222); boxes = wait(r'^Start$', 8)   # settings dialog
+        tap_text(r'^Start$', boxes=boxes)
+        try: wait(r'Auto Fishing', 4); break
+        except Stop: pass
+    else: raise Stop('Auto Fishing did not start')
     return ('orders refreshed (no tickets bought), ' if mn else '') + 'auto started'
 
 
@@ -300,25 +307,111 @@ def fishing_rewards(cfg):
     return f'claimed {n} order rewards' + ('; AUTO STOPPED (helper: restart only if "Stop at new Archive")' if stopped else '')
 
 
+# ---- claims (catch-up leftovers that used to need a helper; Nick 2026-10-28: script what's deterministic) ----
+# Each one: red dot / OCR'd free button first, never a price. UNTESTED on a real claim (mapped on Tiger with
+# nothing claimable) - a red dot still there afterwards -> MANUAL (helper).
+
+def storm_rewards(cfg):
+    """Storm arena Rewards (96,880): reached rank rows claim by tapping the row's item icon (Gold/Silver/Bronze)."""
+    if NOW.weekday() == 0 and NOW.hour < 17: return 'SKIP closed until Mon 17:00'
+    storm_arena()
+    if not red_dot(110, 830, 180, 900): return 'no red dot'
+    tap_wait(96, 880); time.sleep(1)
+    for y in (962, 1180, 1404):                          # an already-claimed / unreached icon only shows a tooltip
+        tap_wait(372, y); time.sleep(1); tap_wait(540, 1900)
+    tap_wait(972, 228); time.sleep(1)
+    return 'MANUAL red dot still on Rewards' if red_dot(110, 830, 180, 900) else 'rank rewards claimed'
+
+
+def match_claims(cfg):
+    """Arena: weekly win chests 10/20/35/50 at y≈210; reached (wins >= N) and no green check -> tap, dismiss."""
+    tap_wait(100, 1280); boxes = wait(r'Winnings', 10)
+    w = next((int(b[4]) for b in boxes if b[4].strip().isdigit() and b[0] < 240 and 260 < b[1] < 340), None)
+    if w is None: raise Stop('win count unreadable')
+    im, got = grab(), []
+    for n, x in ((10, 376), (20, 536), (35, 696), (50, 864)):
+        green = sum(1 for yy in range(200, 290, 3) for xx in range(x - 40, x + 40, 3)
+                    if (lambda p: p[1] > 170 and p[0] < 150 and p[2] < 120)(im.getpixel((xx, yy))))
+        if w >= n and green < 20:
+            tap_wait(x, 210); time.sleep(1.2); tap_wait(540, 120); got.append(n)
+    return f'wins {w}, chests claimed {got}' if got else f'wins {w}, nothing to claim'
+
+
+def canyon_rewards(cfg):
+    """Tribe -> Canyon Clash -> Rewards (88,745) red dot -> Claim Reward (repeat while it's there)."""
+    if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'
+    tap_wait(448, 1780); time.sleep(1.5); tap_wait(540, 1090); wait(r'Attempts', 10)
+    if not red_dot(110, 690, 175, 760): return 'no red dot'
+    tap_wait(88, 745); n = 0
+    for _ in range(6):
+        c = find(ocr(), r'^Claim Reward$')
+        if not c: break
+        tap_wait(*c); time.sleep(1.2); tap_wait(540, 1880); n += 1
+    tap_wait(972, 240)
+    return f'points rewards claimed x{n}'
+
+
+def canyon(cfg):
+    """Take a new EMPTY spot by the day's rule (scripts/canyon.py). No empty one -> MANUAL (helper may attack)."""
+    if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'
+    tap_wait(448, 1780); time.sleep(1.5); tap_wait(540, 1090); wait(r'Attempts', 10)
+    try: return script('canyon.py', ACCOUNT)
+    except Stop as e:
+        if 'exit 2' in str(e): return 'MANUAL no empty platform (attack choice)'
+        raise
+
+
+HUB_TABS = {'wish_festival': 310, 'pet_arena': 480, '7777': 650, 'match_event': 820, 'weekly_event': 990}
+
+
+def events(cfg):
+    """Event hub (1st banner) bottom tabs with a red dot. Scripted: Match Event milestones, 7777 daily Claim.
+    Other tabs with a dot -> MANUAL. Never Again / Open All / draws / Tribe Clash (its dot never clears)."""
+    tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920))
+    out, left = [], []
+    for tab, x in HUB_TABS.items():
+        if not red_dot(x + 30, 1720, min(x + 95, 1080), 1795): continue
+        tap_wait(x, 1840); time.sleep(1.2)
+        if tab == 'match_event':
+            n = 0
+            for sub in ((160, 320), (400, 310)):         # Canyon Warrior, Heroic Trial
+                tap_wait(*sub); time.sleep(1)
+                for _ in range(8):                       # top row's Claim rolls to the next milestone
+                    c = find(ocr(), r'^Claim$', (740, 960, 1060, 1090))
+                    if not c: break
+                    tap_wait(*c); time.sleep(1.2); tap_wait(300, 200); n += 1
+            out.append(f'match_event x{n}')
+        elif tab == '7777':
+            c = find(ocr(), r'^Claim$', (300, 1540, 780, 1680))   # never "Again"
+            if c: tap_wait(*c); time.sleep(1.2); tap_wait(300, 200); out.append('7777 daily')
+        else: left.append(tab)
+        if red_dot(x + 30, 1720, min(x + 95, 1080), 1795) and tab not in left and tab != '7777': left.append(tab)  # 7777 dot stays
+    r = ', '.join(out) or 'nothing claimed'
+    return f'MANUAL {r}; red dots left: {left}' if left else r
+
+
 # catch-up (.claude/skills/catch-up): Match, Storm, Fishing auto only, Veins + Forge (no Benefit), Patrol Claim All,
 # Match again, Tribe chat Request/Assist, Common Recruitment, Daily Mission, Fishing order rewards
 CATCHUP = [('match', match), ('storm', storm), ('fishing_auto', lambda c: fishing(c, orders=False)),
            ('veins_forge', lambda c: divine(c, benefit=False)), ('patrol_claim', patrol_claim), ('match2', match),
            ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
-           ('daily_mission', daily_mission), ('fishing_rewards', fishing_rewards)]
-CATCHUP_MANUAL = ['storm_rewards', 'match_claims', 'canyon', 'events']
+           ('storm_rewards', storm_rewards), ('match_claims', match_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
+           ('events', events), ('daily_mission', daily_mission), ('fishing_rewards', fishing_rewards)]
+CATCHUP_MANUAL = []
 ORDER = [('storm', storm), ('match', match), ('fishing', fishing), ('patrol', patrol), ('shop', shop),
          ('play_pass', play_pass), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('beast', beast),
          ('trials', trials), ('recruit', recruit), ('hero', hero), ('tribe', tribe), ('divine', divine), ('relic_shovels', relic_shovels),
          ('stage', stage), ('patrol_claim', patrol_claim), ('match2', match), ('grocery', grocery),
-         ('daily_mission', daily_mission), ('fishing_rewards', fishing_rewards)]
+         ('storm_rewards', storm_rewards), ('match_claims', match_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
+         ('events', events), ('daily_mission', daily_mission), ('fishing_rewards', fishing_rewards)]
 # config key that must be present / truthy for a step to run
 KEY = {'storm': None, 'match': 'match', 'match2': 'match', 'fishing': 'fishing', 'patrol': 'patrol', 'patrol_claim': 'patrol',
        'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',
        'gate': 'gate_of_darkness', 'beast': 'beast_realm', 'trials': 'land_of_trials', 'recruit': 'recruit', 'hero': 'hero_upgrade',
        'tribe': 'tribe', 'divine': 'divine_weapon', 'relic_shovels': 'relic_shovels', 'stage': 'adventure_stage', 'grocery': 'grocery_free_chests',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
-       'tribe_chat': 'tribe', 'common_recruit': 'recruit'}
+       'tribe_chat': 'tribe', 'common_recruit': 'recruit', 'storm_rewards': None, 'match_claims': 'match',
+       'canyon_rewards': None, 'events': None, 'canyon': 'canyon_clash'}
 
 
 def enabled(cfg, key):
@@ -371,8 +464,9 @@ def main(argv):
             if tag == 'MANUAL': left.append(name)
             if tag == 'OK' and name in ONCE: open(state, 'a').write(name + '\n')
             print(f'{tag} {name} ({time.time() - t0:.0f}s): {r}', flush=True)
-        except Stop as e:
-            grab().resize((540, 960)).save(f'v_{name}.png')
+        except Exception as e:                           # any crash (not just Stop) fails only this step (Kong 2026-10-28)
+            try: grab().resize((540, 960)).save(f'v_{name}.png')
+            except Exception: pass                           # device gone (instance stopped)
             print(f'FAIL {name} ({time.time() - t0:.0f}s): {e} (screenshot {out}/v_{name}.png)', flush=True)
             left.append(name)
         if not home():
