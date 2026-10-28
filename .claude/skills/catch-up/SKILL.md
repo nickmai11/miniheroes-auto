@@ -27,9 +27,9 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    9. Events red dots (Daily run order step 16): open event banners with a red dot, claim only free
       Claim/Free rewards; never a $ or gem price, never draw/spin with paid currency. Never Tribe
       Clash's Treasures or "Enter" (Nick, 2026-10-27); its free Pack claim is fine
-   10. Daily Mission (last): tap ONE yellow **Claim** row (claims all rows) and ONE reachable chest (claims all
-       reachable chests) — no re-checking the rest, never scroll the list (claimable rows sort to the top) (Nick, 2026-10-27). Before that rule: Claim every yellow row, then every
-       reachable Daily Activity Levels chest (40/80/120/160); report chests still locked + activity points
+   10. Daily Mission (last), only if its menu icon has a red dot: on the **Daily and Weekly** tabs (each with a red dot)
+       tap ONE yellow **Claim** row (claims all rows) and ONE reachable chest (claims all reachable chests) — never scroll,
+       top row not claimable = done (Nick, 2026-10-27/28); report chests still locked + activity points
    11. Fishing orders again (very end): claim any order reward that completed during the run (Auto fishing
        keeps filling them) — claim only, no refresh, don't touch Auto (Nick, 2026-10-27). Also retry Common Recruitment once if its
        free draw was on cooldown earlier (~5 min) — draw if Free, else skip.

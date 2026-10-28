@@ -515,17 +515,21 @@ or gem price, never draw/spin with paid currency or event coins, never "Join" wi
 - **Tribe Clash** banner `(880,624)` → Pack `(976–994,1630)` → Free `(866,934)` (20 gems, 1/day). **Never its
   Treasures or "Enter"** (Nick, 2026-10-27). Its red dot can persist with nothing claimable.
 
-## Daily Mission (claim all + activity chests) — Nick, 2026-10-27
+## Daily Mission (claim all + activity chests) — Nick, 2026-10-27/28
 
-Last step of `/catch-up` (then a final Fishing order claim).
+Last step of `/catch-up` (then a final Fishing order claim). **Only if there's a red dot** (Nick, 2026-10-28):
+no red dot on the side-menu icon / **Mission** entry → skip, nothing to claim.
 1. Main screen → list icon with red dot near the Tribe-chat strip ≈ `(990,1630)` → side menu (Settings, Notice,
-   E-mail, Lobby, Grocery, **Mission**, Friends, Backpack) → **Mission** ≈ `(800,1360)` → **Daily** tab. Close ✕ `(972,238)`.
-2. Tap **one** yellow **Claim** row — it claims all rows (Nick, 2026-10-27; confirmed on 5 accounts).
-   Never tap **GO** (it navigates to the mission, e.g. Grocery diamond purchase / Statue upgrade).
-   Never scroll the list to check what remains: claimable rows always sort to the top (Nick, 2026-10-27).
-3. Top bar *Daily Activity Levels*: chests at **40 / 80 / 120 / 160** points. Tap **one** reachable chest —
-   it claims all reachable ones; dismiss the reward.
-4. Report each chest still unclaimable and the current points. The **Weekly** tab is out of scope.
+   E-mail, Lobby, Grocery, **Mission**, Friends, Backpack) → **Mission** ≈ `(800,1360)`. Close ✕ `(972,238)`.
+   Tabs at the bottom of the popup: **Daily** ≈ `(297,1693)`, **Weekly** ≈ `(779,1693)` (estimated from a
+   screenshot, verify on first use); a red dot on a tab's top-right corner = something to claim there.
+2. Do **both tabs** that have a red dot (Daily, then Weekly). On each:
+   - Tap **one** yellow **Claim** row — it claims all rows (confirmed on 5 accounts).
+     Never tap **GO** (it navigates to the mission, e.g. Grocery diamond purchase / Statue upgrade).
+   - **Never scroll**: claimable rows always sort to the top. Top row is GO / grey ✓ → that list is done.
+   - Top bar activity chests (Daily: **40 / 80 / 120 / 160** points): tap **one** reachable (glowing, no ✓) chest —
+     it claims all reachable ones; dismiss the reward. All ✓ = done.
+3. Report per tab each chest still unclaimable and the current points.
 
 ## Pet Arena (join + Auto Deploy)
 
