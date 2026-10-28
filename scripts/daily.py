@@ -10,7 +10,7 @@
 # exit 0 = ran to the end, 1 = lost the main screen (helper: recover, then re-run the steps after the last OK).
 # Never spends gems except through trials.py (cap-checked) and patrol.py (cap-checked).
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
-import datetime, os, re, subprocess, sys, time
+import datetime, fcntl, os, re, subprocess, sys, time
 from stabilize import close_x
 from flow import Stop, adventure, battle, find, grab, joined, ocr, swipe, tap, tap_text, tap_wait, wait
 
@@ -367,6 +367,8 @@ def canyon(cfg):
     """Take a new EMPTY spot by the day's rule (scripts/canyon.py). No empty one -> MANUAL (helper may attack)."""
     if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'
     tap_wait(448, 1780); time.sleep(1.5); tap_wait(540, 1090); wait(r'Attempts', 10)
+    # ponytail: one global lock - our accounts share the map and raced for the same spots (2026-10-29)
+    lock = open('/tmp/miniheroes-canyon.lock', 'w'); fcntl.flock(lock, fcntl.LOCK_EX)   # freed on return
     try: return script('canyon.py', ACCOUNT)
     except Stop as e:
         if 'exit 2' in str(e): return 'MANUAL no empty platform (attack choice)'

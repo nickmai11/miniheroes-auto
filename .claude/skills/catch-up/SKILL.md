@@ -17,7 +17,11 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    and FAILs with `v_<step>.png`. Empty list → no helper for that account. Otherwise ONE `mh-helper` per account for
    only those, prompt below trimmed to them. While it runs, one Monitor surfaces failures live (Dino 2026-10-28 sat
    8 min on a FAIL start nobody saw): `tail -F <run dir>/*.log | grep --line-buffered -E '^(FAIL|Traceback)'`.
-   Re-run a failed account with only its failed steps: `daily.py <acct> --catch-up <step>...`.
+   Re-run a failed account with only its failed steps: `daily.py <acct> --catch-up <step>...` (zsh: pass the steps as
+   separate words — `${=steps}` — a quoted list runs nothing, 2026-10-29).
+   **Canyon MANUAL → re-run `daily.py <acct> --catch-up canyon` once first** (2026-10-29: canyon.py found nothing on 7
+   accounts, minutes later 7 helpers each found an empty spot — ~40 tool calls apiece for a free Occupy). Helper only
+   if the re-run still says MANUAL; check its `canyon<N>.png` per-screen shots in the run dir to see why.
    Steps (the spec the runner follows; see `docs/ui-routine.md`):
    **Red dots only (Nick, 2026-10-27):** for claims (events, Tribe Clash Pack, Daily Mission, rewards icons) open/tap
    only what shows a red dot — no red dot = nothing to collect, don't open it to check.
@@ -43,8 +47,10 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    11. Fishing orders again (very end): claim any order reward that completed during the run (Auto fishing
        keeps filling them) — claim only, no refresh, don't touch Auto (Nick, 2026-10-27). Also retry Common Recruitment once if its
        free draw was on cooldown earlier (~5 min) — draw if Free, else skip.
-   **After all helpers finish**, one more runner pass on every account (orders keep completing during the helpers;
-   Nick, 2026-10-28): `daily.py <acct> --catch-up common_recruit fishing_rewards` (same loop as above).
+   **After all helpers finish**, one more runner pass on **only the accounts that had a helper** (orders keep completing
+   during the helpers; Nick, 2026-10-28): `daily.py <acct> --catch-up common_recruit fishing_rewards` — drop
+   `fishing_rewards` if that account's earlier line said `AUTO STOPPED, bread N` (no bread = no new orders; Nick
+   2026-10-29: the order claim ran 3-4x per account). Never re-run a step just to read something off the screen.
 4. Workers don't edit the repo; afterwards add new findings to the docs and commit.
 5. Report: lead with **Concerns / issues / errors** (see CLAUDE.md "Reporting"), then per account: each step
    done/skipped (and why), every paid action with its price, and which Daily Mission chests are still

@@ -67,7 +67,9 @@ def run(account):
     colours = [GOLD, PURPLE] if highest or weekend else [PURPLE]
     purple_screens = 0
     for screen in range(12):
-        im = settled(); boxes = ocr(im)
+        im = settled(); boxes = ocr(im); im.resize((270, 480)).save(f'canyon{screen}.png')   # per-screen record (2026-10-29)
+        print(f'screen {screen}: purple discs {len(empties(im, [], PURPLE))}, empty {len(empties(im, boxes, PURPLE))}'
+              + ('' if any('Attempts' in b[4] for b in boxes) else ', NOT ON THE MAP'), flush=True)
         for colour in colours:
             for x, y in empties(im, boxes, colour):
                 if try_occupy(x, y):
