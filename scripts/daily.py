@@ -224,6 +224,9 @@ def divine(cfg):
     return ', '.join(out)
 
 
+def relic_shovels(cfg): return script('relic_shovels.py', ACCOUNT)
+
+
 def stage(cfg):
     tap_wait(994, 964); boxes = wait(r'^Start$', 10, (0, 1700, 1080, 1920))
     tap_text(r'^Start$', (0, 1700, 1080, 1920), boxes)
@@ -273,14 +276,14 @@ def fishing_rewards(cfg):
 
 ORDER = [('storm', storm), ('match', match), ('fishing', fishing), ('patrol', patrol), ('shop', shop),
          ('play_pass', play_pass), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('beast', beast),
-         ('trials', trials), ('recruit', recruit), ('hero', hero), ('tribe', tribe), ('divine', divine),
+         ('trials', trials), ('recruit', recruit), ('hero', hero), ('tribe', tribe), ('divine', divine), ('relic_shovels', relic_shovels),
          ('stage', stage), ('patrol_claim', patrol_claim), ('match2', match), ('grocery', grocery),
          ('daily_mission', daily_mission), ('fishing_rewards', fishing_rewards)]
 # config key that must be present / truthy for a step to run
 KEY = {'storm': None, 'match': 'match', 'match2': 'match', 'fishing': 'fishing', 'patrol': 'patrol', 'patrol_claim': 'patrol',
        'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',
        'gate': 'gate_of_darkness', 'beast': 'beast_realm', 'trials': 'land_of_trials', 'recruit': 'recruit', 'hero': 'hero_upgrade',
-       'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': 'grocery_free_chests',
+       'tribe': 'tribe', 'divine': 'divine_weapon', 'relic_shovels': 'relic_shovels', 'stage': 'adventure_stage', 'grocery': 'grocery_free_chests',
        'daily_mission': None, 'fishing_rewards': 'fishing'}
 
 

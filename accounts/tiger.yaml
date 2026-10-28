@@ -60,3 +60,5 @@ missions:
     strategy: stamina_order
     order: high_to_low
     sprites: 4
+  relic_shovels:            # Relic -> Archaeology -> "+" on shovels (Nick, 2026-10-28)
+    max_gem_price: 80       # buy while the pack price is <= this

@@ -41,7 +41,7 @@ With the last shovel(s), prefer a dig that opens a reachable item for the next s
 ## Hard rules
 
 - Don't use the drill or bomb boosters (Nick: "no for now"), never tap the green **+** on the shovel
-  button (buys shovels), never use **One-Tap Mining**. No gems.
+  button (buys shovels) — except the daily cap-checked buy in `scripts/relic_shovels.py` (dailies, Nick 2026-10-28), never use **One-Tap Mining**. No gems.
 - Never chain taps — a tap you thought was cancelled may still land. Screenshot, then tap.
 - Tap looks ignored (counters unchanged)? It may land late — re-screenshot before retrying, or you'll dig twice.
 - Unexpected screen/popup → stop and report.

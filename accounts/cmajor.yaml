@@ -57,3 +57,5 @@ missions:
     ruins: [1]
     realm: [1]
   pet_arena: false
+  relic_shovels:            # Relic -> Archaeology -> "+" on shovels (Nick, 2026-10-28)
+    max_gem_price: 80       # buy while the pack price is <= this

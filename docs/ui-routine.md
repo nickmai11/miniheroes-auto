@@ -49,7 +49,7 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 
 **Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
 main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
-Steps: storm match fishing patrol shop play_pass tower sanctuary gate beast trials recruit hero tribe divine stage
+Steps: storm match fishing patrol shop play_pass tower sanctuary gate beast trials recruit hero tribe divine relic_shovels stage
 patrol_claim match2 grocery daily_mission fishing_rewards.
 
 Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png] [-w 270|540]` for every tap (device coords):
@@ -456,6 +456,14 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
    N = filled slots, M = slots per account (7, 8, 13…); 0/M = idle. A running forge shows a timer above → skip.
    Else each anvil tap fills one slot (500 crystals, ~4 h) — fill every slot, stop when full or crystals < cost.
    Crystals only, never gems. Queue ≈ `(60,1250)`. Dino's forge stopped responding at 4/8 (cause unknown) — skip after 2 tries.
+
+## Relic shovels (buy with gems ≤ cap) — Nick, 2026-10-28
+
+**Run `scripts/relic_shovels.py <account>`** (config `relic_shovels.max_gem_price`, 80). Main screen → **Relic** `(972,1788)`
+→ Lost Continent map → **Archaeology** `(536,1632)` → dig board → green **+** on the shovel button `(650,1770)` → *Tip*
+"Spend P diamonds to buy N Shovel? (Remaining purchases: R)" → **Confirm** `(538,1158)` only if P ≤ cap, else ✕ `(938,636)`.
+Price climbs per buy (Cmajor already showed 240 on 2026-10-28). Back: board `(92,1830)` → map `(80,1820)` → main.
+Never dig here as part of the dailies (that's the relic skill).
 
 ## Adventure stage (1 run)
 
