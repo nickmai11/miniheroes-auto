@@ -47,6 +47,11 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 
 ## Speed: `scripts/tap.py`
 
+**Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
+main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
+Steps: storm match fishing patrol shop play_pass tower sanctuary gate beast trials recruit hero tribe divine stage
+patrol_claim match2 grocery daily_mission fishing_rewards.
+
 Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png] [-w 270|540]` for every tap (device coords):
 it waits only until the screen changes and settles (~1 s per tap, max 4 s) instead of a fixed sleep,
 and saves a screenshot `-w` px wide (default 540: coords ×2 for device; 270: ×4). No args = screenshot only (~0.4 s).

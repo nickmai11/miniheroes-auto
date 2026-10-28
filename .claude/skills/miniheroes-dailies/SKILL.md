@@ -23,20 +23,19 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 
 **Speed:** tap with `scripts/tap.py` (waits for the screen to settle, ~1 s/tap, no fixed sleeps); chain known taps and only screenshot-check at decision points.
 
-**Cost: one fresh helper per PHASE, not per account (Nick, 2026-10-28 — urgent).** A single helper for the whole
-run hit ~850 turns × ~140k avg context (~112M cache-read per account, ~12% weekly for 8 accounts): every turn re-reads
-all earlier screenshots. Per account, run these phases **one after another**, each a NEW `mh-helper` (same serial
-+ scratch dir, prompt lists only that phase's steps + doc sections); spawn the next phase when the previous one's
-notification arrives. Each starts at ~12k context instead of growing to 220k → ~4x cheaper.
-- **A:** Pet Arena, Storm, Match, Fishing, Patrol (steps 0–3)
-- **B:** Shop, Play Pass, Adventure (steps 4–6)
-- **C:** Recruit, Hero, Tribe + Canyon, Divine Weapon (steps 7–10)
-- **D:** Adventure stage, Patrol claim, Rune, Match, Grocery (steps 11–15)
-- **E:** Events, Fishing order rewards, Daily Mission (steps 16–17 + Daily Mission)
-Scripts first: Match = `scripts/match.py <account>`, Land of Trials = `scripts/trials.py <account>`, Patrol, Hero,
-Tribe, Tower, Beast = `patrol.py` / `hero.py` / `tribe.py` / `adventure.py`, Storm/Veins/
-Grocery/Fishing orders = their scripts (see ui-routine "Speed"); the helper only navigates to the start screen and handles
-exit 1. Helper final answers: ≤15 lines (concerns, done/skipped, paid + price) — the coordinator reads them all.
+**Cost — runner first, helpers only for leftovers (Nick, 2026-10-28 — urgent).** One helper per account for the whole
+run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly for 8 accounts). Now:
+1. `scripts/boot.sh <idx>...`, close event popups (one screenshot per account).
+2. Run every account's runner in ONE background Bash command and wait for its completion notification (no polling):
+   `for a in <acct>:<serial> ...; do (D=${a#*:} OUT=/tmp/miniheroes-$(date +%F)/${a%%:*} scripts/daily.py ${a%%:*} > /tmp/miniheroes-$(date +%F)/${a%%:*}.log 2>&1) & done; wait`
+   Each log has one `OK|SKIP|FAIL|MANUAL <step>` line per step and ends with `LEFT FOR HELPER: …`
+   (judgment steps — Pet Arena Mon–Wed, Storm Rewards, Match claims, Canyon, Sanctuary climb, Rune, grocery_buy,
+   Events, Fishing Benefit — plus any FAIL, each with `v_<step>.png`). Exit 1 = lost the main screen.
+3. Per account with leftovers: ONE `mh-helper` whose prompt lists only those steps + their doc sections
+   (`scripts/doc.sh …`) and the log's FAIL lines. Its final answer ≤15 lines (concerns, done/skipped, paid + price).
+4. Report from the logs + helper answers. A step's script is the doc's fallback text otherwise — see ui-routine "Speed".
+Helpers that run a single mission by hand use the scripts too (`match.py`, `trials.py`, `patrol.py`, `hero.py`,
+`tribe.py`, `adventure.py`, `storm.py`, `veins.py`, `grocery.py`, `fish_orders.py`) and handle exit 1.
 
 **Several accounts:** run them in parallel, one subagent per instance (`model: "sonnet"`; use `opus` for a step not yet mapped in the docs; own ADB serial + own scratch dir, no repo edits by workers). Set each instance's display to 1080×1920 first (`adb shell wm size 1080x1920 && adb shell wm density 480`, then restart the game) so the documented coords apply.
 5. **Keep the repo current.** If you learn something new (new coordinates, a popup, a new mission mapped), update the relevant doc and commit it.
