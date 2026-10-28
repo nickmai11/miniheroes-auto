@@ -23,6 +23,18 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 
 **Speed:** tap with `scripts/tap.py` (waits for the screen to settle, ~1 s/tap, no fixed sleeps); chain known taps and only screenshot-check at decision points.
 
+**Cost: one fresh helper per PHASE, not per account (Nick, 2026-10-28 — urgent).** A single helper for the whole
+run hit ~850 turns × ~140k avg context (~112M cache-read per account, ~12% weekly for 8 accounts): every turn re-reads
+all earlier screenshots. Per account, run these phases **one after another**, each a NEW `mh-helper` (same serial
++ scratch dir, prompt lists only that phase's steps + doc sections); spawn the next phase when the previous one's
+notification arrives. Each starts at ~12k context instead of growing to 220k → ~4x cheaper.
+- **A:** Pet Arena, Storm, Match, Fishing, Patrol (steps 0–3)
+- **B:** Shop, Play Pass, Adventure (steps 4–6)
+- **C:** Recruit, Hero, Tribe + Canyon, Divine Weapon (steps 7–10)
+- **D:** Adventure stage, Patrol claim, Rune, Match, Grocery (steps 11–15)
+- **E:** Events, Fishing order rewards, Daily Mission (steps 16–17 + Daily Mission)
+Helper final answers: ≤15 lines (concerns, done/skipped, paid + price) — the coordinator reads them all.
+
 **Several accounts:** run them in parallel, one subagent per instance (`model: "sonnet"`; use `opus` for a step not yet mapped in the docs; own ADB serial + own scratch dir, no repo edits by workers). Set each instance's display to 1080×1920 first (`adb shell wm size 1080x1920 && adb shell wm density 480`, then restart the game) so the documented coords apply.
 5. **Keep the repo current.** If you learn something new (new coordinates, a popup, a new mission mapped), update the relevant doc and commit it.
 
