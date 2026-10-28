@@ -27,7 +27,8 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    8. Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available; if it's on
       cooldown or out of chances, skip — don't wait, never pay
    9. Events red dots (Daily run order step 16): open event banners with a red dot, claim only free
-      Claim/Free rewards; never a $ or gem price, never draw/spin with paid currency. Never Tribe
+      Claim/Free rewards; never a $ or gem price. **Collect only** (Nick, 2026-10-28): never Open All / draw / spin /
+      use any event token, ticket or coin, even free ones (7777 Draws: daily Claim only, no Open All). Never Tribe
       Clash's Treasures or "Enter" (Nick, 2026-10-27); its free Pack claim is fine
    10. Daily Mission (last), only if its menu icon has a red dot: on the **Daily and Weekly** tabs (each with a red dot)
        tap ONE yellow **Claim** row (claims all rows) and ONE reachable chest (claims all reachable chests) — never scroll,

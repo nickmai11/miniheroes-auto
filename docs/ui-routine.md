@@ -525,7 +525,9 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
 The 2–3 event banners top right of the main screen rotate and change (Wish Festival, 7777 Draws, Match Event,
 Weekly Event, Pet Arena, Tribe Clash…). **Red dots only** (Nick, 2026-10-27): open a banner/tab only when it
 shows a red dot (a glow/sparkle is not a red dot). Claim only **free** rewards (Claim / Free buttons); never a $
-or gem price, never draw/spin with paid currency or event coins, never "Join" without a red dot. Back out
+or gem price, never draw/spin with paid currency or event coins, never "Join" without a red dot.
+**Collect only — never consume** (Nick, 2026-10-28): no Open All / draw / spin / open / use / exchange of any event
+token, ticket, draw, coin or key, even free ones — just claim what's given. Back out
 `(88,1812)` when no red dots are left.
 
 - **Event hub:** the 1st banner taps at ≈ `(896,340)` (y≈166–210 misses). Any banner opens the shared hub; use its
@@ -534,8 +536,8 @@ or gem price, never draw/spin with paid currency or event coins, never "Join" wi
 - **Pet Arena:** Pack `(88,370)` → Free `(866,834)`; Achievement `(88,690)` → one Claim `(866,606)` claims all.
 - **Wish Festival:** Sign-In ≈ `(876,1500–1560)` → today's Claim `(862,1498)`; Gift `(270,1600–1660)` → Free Pack
   `(866,912)` ×2 (Limited: 2), close ✕ `(966,190)`. Treasure Vault = event-coin draws → skip.
-- **7777 Draws:** daily Claim `(540,1606)` (30 free draws) → Open All `(856,1764)` → Confirm `(540,1756)`. Never
-  "Again" / "claim one more time" (Nhận thêm một lần) — its red dot stays when all daily claims are ticked.
+- **7777 Draws:** daily Claim `(540,1606)` (collects 30 draws) — then stop: **never Open All** / draw (Nick, 2026-10-28:
+  collect only). Never "Again" / "claim one more time" (Nhận thêm một lần) — its red dot stays when all daily claims are ticked.
 - **Match Event:** Heroic Trial sub-tab `(400,190)` and **Canyon Warrior** tab — free point milestones, Claim
   ≈ `(896,1024)`. The top Claim rolls to the next row after each claim: repeat while pixel `(820,1024)` is yellow
   (255,182,16), dismiss `(300,200)` between taps.
