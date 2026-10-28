@@ -454,7 +454,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
    Don't use the dynamite / drill items or the `+` on the pickaxe (buys more).
    The Veins back arrow returns to Arsenal, not the main screen.
 5. **Forge** (Arsenal, anvil "Forge N/M" `(540,1484)`, crystal cost below e.g. `6755/500` = owned/cost):
-   N = filled slots, M = slots per account (7, 8, 13…); 0/M = idle. A running forge shows a timer above → skip.
+   N = filled slots, M = slots per account (7, 8, 13…); 0/M = idle. A timer above = a forge running — NOT a reason to skip: keep filling slots while N < M (Tiger 1/7 + timer, Nick 2026-10-28).
    Else each anvil tap fills one slot (500 crystals, ~4 h) — fill every slot, stop when full or crystals < cost.
    Crystals only, never gems. Queue ≈ `(60,1250)`. Dino's forge stopped responding at 4/8 (cause unknown) — skip after 2 tries.
 

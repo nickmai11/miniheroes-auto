@@ -23,7 +23,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
       Then **Rewards** (left side) if it has a red dot — storm.py does NOT do this (Storm step 5)
    3. Canyon Clash (skip if its season is closed: Mon 06:00-17:00): **take a new spot even if one is already held**
    4. Fishing: only start Auto (fishing) and claim completed order rewards — no order refreshing, no Benefit
-   5. Divine Weapon: Excelsior Veins via `scripts/veins.py` (stops at 0 pickaxes), then Forge if available (no forge running, crystals ≥ cost) — no Benefit
+   5. Divine Weapon: Excelsior Veins via `scripts/veins.py` (stops at 0 pickaxes), then Forge: fill every free slot (N/M) while crystals ≥ cost, even if a forge is already running (Nick, 2026-10-28) — no Benefit
    6. Patrol: Claim All only (`scripts/patrol.py <account> --claim-only`) — no Speed Patrol. Claim All often gives Match tickets → re-run Match right after
    7. Tribe chat Request + Assist (Tribe section, step 4 only — by hand; `tribe.py` also signs in / fights the Trial)
    8. Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available; if it's on
@@ -38,9 +38,10 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    11. Fishing orders again (very end): claim any order reward that completed during the run (Auto fishing
        keeps filling them) — claim only, no refresh, don't touch Auto (Nick, 2026-10-27). Also retry Common Recruitment once if its
        free draw was on cooldown earlier (~5 min) — draw if Free, else skip.
+   **After all helpers finish**, one more runner pass on every account (orders keep completing during the helpers;
+   Nick, 2026-10-28): `daily.py <acct> --catch-up common_recruit fishing_rewards` (same loop as above).
 4. Workers don't edit the repo; afterwards add new findings to the docs and commit.
-5. Close the MuMu instances used: `"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" close <idx,...>`.
-6. Report: lead with **Concerns / issues / errors** (see CLAUDE.md "Reporting"), then per account: each step
+5. Report: lead with **Concerns / issues / errors** (see CLAUDE.md "Reporting"), then per account: each step
    done/skipped (and why), every paid action with its price, and which Daily Mission chests are still
    unclaimable (with the activity points shown).
 

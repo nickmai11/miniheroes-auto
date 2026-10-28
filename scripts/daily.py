@@ -34,7 +34,10 @@ def home():
     for _ in range(8):
         if is_main(): return True
         boxes = ocr()
-        if find(boxes, r'Do not remind me today'): tap_text(r'Do not remind me today', boxes=boxes)
+        if find(boxes, r'Do not remind me today'):
+            tap_text(r'Do not remind me today', boxes=boxes)
+            # event popup X (Dino 2026-10-28: back arrow can't close it, run stopped at start)
+            if near(grab().getpixel((988, 348)), (255, 255, 255), 20): tap_wait(988, 348); continue
         if find(boxes, r'^Exit') and find(boxes, r'^Confirm$'): tap_text(r'^Confirm$', boxes=boxes); continue
         tap_wait(92, 1810); time.sleep(0.8)
     return is_main()
@@ -93,7 +96,7 @@ def fishing(cfg, orders=True):
     tap_wait(982, 1222); boxes = wait(r'^Start$', 8)
     tap_text(r'^Start$', boxes=boxes); time.sleep(1.5)
     if not find(ocr(), r'Auto Fishing'): raise Stop('Auto Fishing did not start')
-    return 'orders refreshed (no tickets bought), auto started'
+    return ('orders refreshed (no tickets bought), ' if mn else '') + 'auto started'
 
 
 def patrol(cfg): return script('patrol.py', ACCOUNT)
@@ -223,18 +226,20 @@ def divine(cfg, benefit=True):
     tap_wait(980, 1810); time.sleep(2)
     out.append(script('veins.py'))
     tap_wait(92, 1810); wait(r'Arsenal', 8)
+    last = None
     for _ in range(14):                                 # Forge: one slot per anvil tap; crystals only, never gems
-        boxes = ocr(); t = joined(boxes)
-        if re.search(r'\d\d:\d\d:\d\d', t): out.append('forge running (timer); skipped'); break
-        fr = [(y, num(m.group(1)), num(m.group(2))) for x, y, w, h, b in boxes
-              for m in [re.fullmatch(r'([\d.]+[kKmM]?)/([\d.]+[kKmM]?)', b.strip())] if m]
-        slots = next((f for f in fr if f[2] <= 20), None)
-        cry = next((f for f in fr if slots and 0 < f[0] - slots[0] < 160 and f[2] > 20), None)  # owned/cost under the anvil
+        for _ in range(4):                              # forge hammer animation hides the counters for a few s (Bino/xFaktor)
+            boxes = ocr(); t = joined(boxes)
+            fr = [(y, num(m.group(1)), num(m.group(2))) for x, y, w, h, b in boxes
+                  for m in [re.fullmatch(r'([\d.]+[kKmM]?)/([\d.]+[kKmM]?)', b.strip())] if m]
+            slots = next((f for f in fr if f[2] <= 20), None)
+            cry = next((f for f in fr if slots and 0 < f[0] - slots[0] < 160 and f[2] > 20), None)  # owned/cost under the anvil
+            if slots and cry: break
+            time.sleep(1.5)
         if not slots or not cry: raise Stop(f'forge counters unreadable: {t[:150]}')
         if slots[1] >= slots[2] or cry[1] < cry[2]: out.append(f'forge {slots[1]}/{slots[2]}'); break
-        tap_wait(540, 1484); time.sleep(1)
-        n2 = next((int(b.split('/')[0]) for x, y, w, h, b in ocr() if re.fullmatch(r'\d+/\d{1,2}', b.strip())), slots[1])
-        if n2 <= slots[1]: out.append('forge did not respond'); break
+        if slots[1] == last: out.append(f'forge did not respond at {slots[1]}/{slots[2]}'); break
+        last = slots[1]; tap_wait(540, 1484); time.sleep(1.5)   # counter animates; re-read at the loop top
     return ', '.join(out)
 
 

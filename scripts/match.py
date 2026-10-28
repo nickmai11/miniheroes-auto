@@ -41,13 +41,16 @@ def buttons(im):
     return [((a + b) // 2, k) for k, a, b in runs if b - a >= 40]
 
 
+ZERO = str.maketrans('OoОо', '0000')  # Vision reads the ticket 0 as Latin/Cyrillic O (Bino 0/7, 2026-10-28)
+
+
 def read_dialog():
     """(tickets, [(y, kind, name)]) or None if the Challenge dialog isn't open."""
     im = grab()
     if not near(im.getpixel((972, 188)), (255, 255, 255), 25): return None
     boxes = ocr(im)
     tix = next((int(m.group(1)) for x, y, w, h, t in boxes if x < 450 and 250 < y < 440
-                for m in [re.search(r'(\d+)\s*\S?\s*/\s*\d+', t)] if m), None)
+                for m in [re.search(r'(\d+)\s*\S?\s*/\s*\d+', t.translate(ZERO))] if m), None)
     if tix is None: return None
     rows = []
     for by, kind in buttons(im):
