@@ -7,30 +7,14 @@
 # yellow Challenge. exit 0 = tickets 0 + dialog closed, 1 = unexpected screen (screenshot -> v_match.png).
 # Win chests / Ranking Rewards claims (step 6) stay with the helper.
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
-import difflib, os, re, subprocess, sys, tempfile, time, unicodedata
+import difflib, os, re, subprocess, sys, time, unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait
+from flow import ocr, tap
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
 near = lambda p, c, tol=30: all(abs(a - b) <= tol for a, b in zip(p, c))
-def tap(x, y): subprocess.run(['adb', '-s', D, 'shell', 'input', 'tap', str(x), str(y)])
-
-
-def ocr(im):
-    """[(x, y, w, h, text)] in device coords."""
-    if not os.path.exists(os.path.join(HERE, 'ocr')):
-        subprocess.run(['swiftc', '-O', os.path.join(HERE, 'ocr.swift'), '-o', os.path.join(HERE, 'ocr')], check=True)
-    with tempfile.NamedTemporaryFile(suffix='.png') as f:
-        im.save(f.name)
-        out = subprocess.run([os.path.join(HERE, 'ocr'), f.name], capture_output=True, text=True).stdout
-    boxes = []
-    for line in out.splitlines():
-        xywh, _, t = line.partition('\t')
-        boxes.append((*map(int, xywh.split()), t))
-    return boxes
-
-
 def norm(s):
     s = unicodedata.normalize('NFKD', s)
     return ''.join(c for c in s if c.isalnum()).lower()

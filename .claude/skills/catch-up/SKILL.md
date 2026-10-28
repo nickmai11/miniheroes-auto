@@ -22,8 +22,8 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    3. Canyon Clash (skip if its season is closed: Mon 06:00-17:00): **take a new spot even if one is already held**
    4. Fishing: only start Auto (fishing) and claim completed order rewards — no order refreshing, no Benefit
    5. Divine Weapon: Excelsior Veins via `scripts/veins.py` (stops at 0 pickaxes), then Forge if available (no forge running, crystals ≥ cost) — no Benefit
-   6. Patrol: Claim All only — no Speed Patrol. Claim All often gives Match tickets → re-run Match right after
-   7. Tribe chat Request + Assist (Tribe section, step 4 only)
+   6. Patrol: Claim All only (`scripts/patrol.py <account> --claim-only`) — no Speed Patrol. Claim All often gives Match tickets → re-run Match right after
+   7. Tribe chat Request + Assist (Tribe section, step 4 only — by hand; `tribe.py` also signs in / fights the Trial)
    8. Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available; if it's on
       cooldown or out of chances, skip — don't wait, never pay
    9. Events red dots (Daily run order step 16): open event banners with a red dot, claim only free

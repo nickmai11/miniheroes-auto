@@ -33,7 +33,8 @@ notification arrives. Each starts at ~12k context instead of growing to 220k →
 - **C:** Recruit, Hero, Tribe + Canyon, Divine Weapon (steps 7–10)
 - **D:** Adventure stage, Patrol claim, Rune, Match, Grocery (steps 11–15)
 - **E:** Events, Fishing order rewards, Daily Mission (steps 16–17 + Daily Mission)
-Scripts first: Match = `scripts/match.py <account>`, Land of Trials = `scripts/trials.py <account>`, Storm/Veins/
+Scripts first: Match = `scripts/match.py <account>`, Land of Trials = `scripts/trials.py <account>`, Patrol, Hero,
+Tribe, Tower, Beast = `patrol.py` / `hero.py` / `tribe.py` / `adventure.py`, Storm/Veins/
 Grocery/Fishing orders = their scripts (see ui-routine "Speed"); the helper only navigates to the start screen and handles
 exit 1. Helper final answers: ≤15 lines (concerns, done/skipped, paid + price) — the coordinator reads them all.
 

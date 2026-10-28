@@ -12,7 +12,7 @@
 import os, re, subprocess, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait
-from match import ocr, tap
+from flow import ocr, tap
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']

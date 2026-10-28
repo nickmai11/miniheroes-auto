@@ -65,6 +65,9 @@ and saves a screenshot `-w` px wide (default 540: coords ×2 for device; 270: ×
   within the cap, English UI only). Both read the screen with OCR (`scripts/ocr`, macOS Vision) and print one line per
   action; exit 1 = unexpected screen → read `v_match.png` / `v_trials.png` and finish that mission by hand.
   Use them instead of the manual steps below (Nick, 2026-10-28: Match ~117 + Trials ~75 helper turns/account).
+- Same pattern, all from the **main screen** (`scripts/flow.py` = shared OCR helpers): `patrol.py <account> [--claim-only]`,
+  `hero.py <account>`, `tribe.py` (sign-in, Trial if red dot, Request + Assist; ends on Tribe chat),
+  `adventure.py <account> tower|beast` (ends on the mode screen). English UI only; exit 1 → `v_<script>.png`, do it by hand.
 
 ## ADB alternative (no computer use)
 
@@ -270,6 +273,8 @@ owns. Never tap a $ / purchase button. Weekly/Monthly cards may be unowned on so
 
 ## Tower of the Throne (3 daily challenges)
 
+**Run `scripts/adventure.py <account> tower`**; steps below = exit-1 fallback.
+
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Goal: 3 challenges (`tower_of_the_throne` in the config; Nick, 2026-10-27).
 Keep the pre-selected lineup (Nick, 2026-10-26: don't bother picking the weakest hero).
 
@@ -328,6 +333,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Endless-wave mode; progress
 
 ## Beast Realm (1 challenge/day) — Nick, 2026-10-27
 
+**Run `scripts/adventure.py <account> beast`**; steps below = exit-1 fallback.
+
 Coords scaled from Nick's screenshots (unverified — screenshot first, fix here after the first run).
 
 1. Main screen → **Adventure** `(100,1460)` → wait for the list to settle → Beast Realm **GO** `(790,1790)` (verified on Cmajor)
@@ -358,6 +365,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: **2 Common, 1 Ancest
 
 ## Hero upgrade (Bone Archer +1 level, 1st gear +1)
 
+**Run `scripts/hero.py <account>`**; steps below = exit-1 fallback.
+
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Costs potions/gold/stones only, never gems.
 
 1. Main screen → **Hero** `(274,1810)`. Hero strip at y≈1536–1590: swipe left to the end
@@ -373,6 +382,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Costs potions/gold/stones o
 5. Close popup `(540,120)`; verify the gear badge shows N+1.
 
 ## Tribe (sign-in, Tribe Trial, chat request/assist)
+
+**Run `scripts/tribe.py`** (steps 1–4); steps below = exit-1 fallback.
 
 Mapped 2026-10-26 on Cmajor via ADB (device coords). All free.
 
@@ -452,6 +463,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily task: challenge the c
 3. Result → close by tapping `(540,120)`; never "Challenge again".
 
 ## Patrol (speed patrol ×3 + claim all)
+
+**Run `scripts/patrol.py <account>`** (`--claim-only` for step 12); steps below = exit-1 fallback.
 
 Mapped 2026-10-26 on Cmajor via ADB (device coords).
 
