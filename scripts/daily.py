@@ -3,6 +3,7 @@
 # usage: D=<serial> scripts/daily.py <account> [--catch-up] [step ...]   (main screen; default = all steps;
 #        --catch-up = the catch-up skill's shorter list; --force = re-run steps already OK this game day
 #        (state: /tmp/miniheroes-state/<account>-<game day>.done, game day starts 05:00 UTC))
+# Log: every line (incl. the mission scripts' output) is appended to logs/<account>/<game day>.log.
 #        OUT=<dir> sets the scratch dir (default /tmp/miniheroes-<date>/<account>) for screenshots/scripts' files.
 # Each step starts and ends on the main screen. Output: one "OK|SKIP|FAIL|MANUAL <step>: ..." line per step, then
 # "LEFT FOR HELPER: ..." = steps a helper must do by hand (judgment steps + failures, each with a v_*.png).
@@ -320,6 +321,17 @@ def enabled(cfg, key):
     return bool(m) and m.group(1).strip().lower() not in ('false', '0', 'no')
 
 
+class Tee:
+    """Write to the terminal and the account log; log lines get a HH:MM:SS prefix."""
+    def __init__(self, out, f): self.out, self.f, self.bol = out, f, True
+    def write(self, t):
+        self.out.write(t)
+        for part in t.splitlines(True):
+            self.f.write((f'{datetime.datetime.now():%H:%M:%S} ' if self.bol else '') + part); self.bol = part.endswith('\n')
+        self.f.flush()
+    def flush(self): self.out.flush()
+
+
 def main(argv):
     global ACCOUNT
     catch_up = '--catch-up' in argv
@@ -337,6 +349,10 @@ def main(argv):
     state = f'/tmp/miniheroes-state/{ACCOUNT}-{GAME_DAY}.done'
     os.makedirs(os.path.dirname(state), exist_ok=True)
     done = set(open(state).read().split()) if os.path.exists(state) else set()
+    log = os.path.join(HERE, '..', 'logs', ACCOUNT, f'{GAME_DAY}.log')   # permanent per-account log (git-ignored)
+    os.makedirs(os.path.dirname(log), exist_ok=True)
+    sys.stdout = Tee(sys.stdout, open(log, 'a'))
+    print(f'=== {datetime.datetime.now():%F %H:%M:%S} daily.py {" ".join(sys.argv[1:])} (serial {D})')
     if not home(): print('FAIL start: not on the main screen'); return 1
     for name, fn in (CATCHUP if catch_up else ORDER):
         if only and name not in only: continue
