@@ -49,7 +49,8 @@ def read_dialog():
     if not near(im.getpixel((972, 188)), (255, 255, 255), 25): return None
     boxes = ocr(im)
     tix = next((int(m.group(1)) for x, y, w, h, t in boxes if x < 450 and 250 < y < 440
-                for m in [re.search(r'(\d+)\s*\S?\s*/\s*\w', t.translate(ZERO))] if m), None)
+                for m in [re.search(r'(\d+)\s*\S?\s*/\s*\w', t.translate(ZERO))
+                          or re.fullmatch(r'(\d+?)[01Il|](\d)', t.strip().translate(ZERO))] if m), None)   # 7/7 -> "707" (Bino/Dino 2026-10-29)
     if tix is None: return None
     rows = []
     for by, kind in buttons(im):
