@@ -505,15 +505,24 @@ def fishing_rewards(cfg):
 # nothing claimable) - a red dot still there afterwards -> MANUAL (helper).
 
 def storm_rewards(cfg):
-    """Storm arena Rewards (96,880): reached rank rows (glowing outline) claim by tapping the row's item icon."""
+    """Storm arena Rewards (96,880): OCR the rank banner above the shield, tap only that rank's row in the panel.
+    Lower rows only if the red dot survives (rank jumped since the last claim)."""
     if NOW.weekday() == 0 and NOW.hour < 17: return 'SKIP closed until Mon 17:00'
     storm_arena()
     if not red_dot(110, 830, 180, 900): return 'no red dot'
-    tap_wait(96, 880); time.sleep(1)
-    for y in (518, 740, 962, 1180, 1404):                # King, Glory, Gold, Silver, Bronze; an already-claimed / unreached icon only shows a tooltip
-        tap_wait(372, y); time.sleep(1); tap_wait(540, 1900)
-    tap_wait(972, 228); time.sleep(1)
-    return 'MANUAL red dot still on Rewards' if red_dot(110, 830, 180, 900) else 'rank rewards claimed'
+    rows = {'King': 518, 'Glory': 740, 'Gold': 962, 'Silver': 1180, 'Bronze': 1404}   # panel row y, top -> bottom
+    rank = next((r for r in rows if find(ocr(), rf'^{r}', (380, 600, 700, 710))), None)
+    if not rank: return 'MANUAL rank banner unreadable'
+
+    def claim(ys):
+        tap_wait(96, 880); time.sleep(1)
+        for y in ys: tap_wait(372, y); time.sleep(1); tap_wait(540, 1900)   # reward popup -> dismiss
+        tap_wait(972, 228); time.sleep(1)
+        return red_dot(110, 830, 180, 900)
+
+    if claim([rows[rank]]) and claim([y for y in rows.values() if y > rows[rank]]):
+        return f'MANUAL red dot still on Rewards (rank {rank})'
+    return f'rank rewards claimed ({rank})'
 
 
 def arena_claims(cfg):
