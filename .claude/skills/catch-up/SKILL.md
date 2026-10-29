@@ -67,7 +67,8 @@ step 3: <leftover steps + the runner's FAIL lines>, the output of
 `scripts/doc.sh Arena Storm Canyon Fishing Divine Patrol Tribe Recruit Events "Daily Mission"` (don't read the
 whole docs/ui-routine.md) and accounts/<file>.yaml. Don't edit the repo.
 Game is at the main screen; close popups with X / Cancel (never GO); tick "Do not remind me today" first if the popup has it. Today: <weekday date time> (<Storm/Canyon open?>).
-Tools: D=<serial> python3 scripts/tap.py [x,y…] -w 270 -o <dir>/sN.png [--until x,y,r,g,b --timeout s]; -w 270 for
+Tools: D=<serial> python3 scripts/tap.py [x,y…] -w 270 -o <dir>/sN.png [--until x,y,r,g,b | --until-text REGEX] [--timeout s]
+(every navigation tap waits on the next screen: doc "Speed" table; --until-text prints the screen text); -w 270 for
 navigation (×4 = device coords), -w 540 only for small text (×2). Storm: scripts/storm.py (handles lineup). Veins: scripts/veins.py. Arena: scripts/arena.py <account>.
 Rules: look only at decision points — chain a step's fixed taps in one tap.py call with --until on the next
 screen's pixel; read a screenshot before prices, target picks, counters, a step's first tap, and after a failed check; no gems/money beyond the config; poll waits inside the command (1–2 s), never

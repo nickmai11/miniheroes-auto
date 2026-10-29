@@ -67,6 +67,22 @@ and saves a screenshot `-w` px wide (default 540: coords ×2 for device; 270: ×
   register late (Bino: Level Up tapped twice = +2 levels). Re-screenshot after ~1.5 s before retrying a tap that "did nothing".
 - Waiting for something (battle end, button back): `scripts/tap.py [taps] --until x,y,r,g,b[,tol] --timeout s`
   polls every ~0.3 s and returns the moment that device pixel matches — no fixed sleeps, no 10–15 s polls.
+- **Wait on the next screen's text: `--until-text REGEX`** (OCR, default timeout 10 s; 2026-10-29). It prints the
+  screen's text, which is often enough to decide without reading the png. Every navigation tap gets an `--until`
+  or `--until-text`; a bare screenshot only at a real decision. Known hops (texts the runner itself waits on):
+
+  - back `92,1810` (full screens) → main: `--until 92,1788,0,158,230`
+  - Adventure is a side panel: close ✕ `944,1800` → main (`92,1810` there is the Beast Realm card)
+  - main → Adventure `100,1460`: `--until-text 'Tower of the Throne'`
+  - Adventure → Sanctuary GO `787,962`: `--until-text 'Sweep|Recovery'`
+  - main → Match/Arena `100,1280`: `--until-text 'Ranking|^Lineup$'`
+  - main → Tribe `448,1780` → Canyon `540,1090`: `--until-text 'Attempts'`
+  - main → Fishing `624,1780`: `--until-text 'Order Info'`
+  - main → event hub `896,340`: `--until-text 'Match|Weekly'`
+  - main → ☰ `994,1625` → Grocery `900,1230`: `--until-text 'Daily Specials'`
+  - main → ☰ `994,1625` → Backpack `900,1775`: `--until-text 'Backpack'`
+  - reward / claim tap: `--until-text 'Tap anywhere|Congratulations'`
+  - battle Start: `--until-text 'Victory|Defeat|Tap anywhere' --timeout 180`
 - Storm matches: `D=<serial> scripts/storm.py` (plays until tickets run out incl. one free-ticket claim, ~0.5 s polling;
   exit 1 = unexpected screen, screenshot and report — don't re-run it in a loop).
   Grocery: `scripts/grocery.py`; Fishing orders: `scripts/fish_orders.py`.

@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """Tap device coords and wait only as long as the screen needs, then save a screenshot.
 
-usage: D=127.0.0.1:26625 scripts/tap.py [x,y ...] [-o out.png] [--until x,y,r,g,b[,tol]] [--timeout s]
+usage: D=127.0.0.1:26625 scripts/tap.py [x,y ...] [-o out.png] [--until x,y,r,g,b[,tol] | --until-text REGEX] [--timeout s]
   - each tap: waits until the screen changes, then until it settles (max ~4 s), instead of a fixed sleep
   - no taps: just screenshots
   - --until: after the taps, poll (~0.3 s) until device pixel (x,y) is within tol (default 40) of r,g,b,
     e.g. a button that reappears when a battle ends; exits 1 on --timeout (default 120 s)
+  - --until-text: poll (OCR, ~0.5 s) until some on-screen text matches REGEX (re.search), e.g. the next screen's
+    title; prints that screen's OCR text either way (often enough to decide without reading the png);
+    exits 1 on --timeout (default 10 s). For screens with no mapped pixel (Nick, 2026-10-29: helpers used
+    --until on 1 of 493 taps — the doc had almost no pixels).
   - writes the last screenshot to -o (default ./v.png), downscaled to -w px wide (default 540; 270 is ~4x
     cheaper to read — use it for navigation, 540 only to read small text). Tap coords are always device coords.
 """
@@ -63,7 +67,8 @@ def opt(argv, name, default=None):
 
 def main(argv):
     out = opt(argv, '-o', 'v.png'); w = int(opt(argv, '-w', 540))
-    until = opt(argv, '--until'); timeout = float(opt(argv, '--timeout', 120))
+    until = opt(argv, '--until'); text = opt(argv, '--until-text')
+    timeout = float(opt(argv, '--timeout', 10 if text else 120))
     im = None
     for t in argv:
         x, y = t.split(',')[:2]
@@ -80,6 +85,21 @@ def main(argv):
             if time.time() - t0 > timeout:
                 ok = False; break
             time.sleep(0.3)
+    if text:
+        import re; from flow import ocr, joined
+        t0 = time.time()
+        while True:
+            im = grab(); boxes = ocr(im)
+            if any(re.search(text, b[4]) for b in boxes):   # text shows while a screen still slides in (Adventure list,
+                t1, prev = time.time(), thumb(im)              # 2026-10-29: next tap hit Beast Realm) -> let it settle too
+                while time.time() - t1 < SETTLE_MAX:
+                    time.sleep(0.2); im = grab(); cur = thumb(im)
+                    if diff(cur, prev) < SETTLED: break
+                    prev = cur
+                break
+            if time.time() - t0 > timeout: ok = False; break
+            time.sleep(0.3)
+        print(('' if ok else f'TIMEOUT waiting for {text!r}: ') + joined(boxes))
     im = im or grab()
     im.resize((w, w * 16 // 9)).save(out)
     sys.exit(0 if ok else 1)
