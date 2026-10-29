@@ -356,6 +356,7 @@ def divine(cfg, benefit=True):
         tap_wait(*c); time.sleep(1); tap_wait(540, 120); tap_wait(970, 238); out.append('benefit')
     tap_wait(980, 1810); time.sleep(2)
     out.append(script('veins.py'))
+    if re.search(r'^\s*divine_forge:\s*false', cfg, re.M): return ', '.join(out + ['forge off (config)'])
     tap_wait(92, 1810); wait(r'Arsenal', 8)
     last = None
     for _ in range(14):                                 # Forge: one slot per anvil tap; crystals only, never gems
