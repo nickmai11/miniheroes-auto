@@ -6,7 +6,7 @@
 # Never taps the "↑ Lv.N" quick-level buttons, Quick Ascend, Rebirth or Reset (only exact "Level Up" / "Enhance").
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import os, re, sys, time
-from flow import Stop, find, main, ocr, swipe, tap, tap_wait, wait
+from flow import Stop, find, grab, main, ocr, swipe, tap, tap_wait, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 STRIP = (120, 1430, 1080, 1540)   # card "Lv.N" labels; the leftmost one is half under Quick Ascend (tap y 1580 is below it)
@@ -23,23 +23,42 @@ def level(boxes, region, pat=r'L[Vv]\.?\s*(\d+)'):
     return None
 
 
+def settle():
+    """Wait until the strip stops coasting: taps on a moving strip pick the wrong card (Aminor 2026-10-29)."""
+    a = grab().crop((0, 1420, 1080, 1700))
+    for _ in range(10):
+        time.sleep(0.4); b = grab().crop((0, 1420, 1080, 1700))
+        if list(a.getdata())[::97] == list(b.getdata())[::97]: return
+        a = b
+
+
+def fill(xs):
+    """Insert cards between two read labels 2+ card pitches (~190 px) apart."""
+    out = xs[:1]
+    for a, b in zip(xs, xs[1:]):
+        k = round((b - a) / 190)
+        out += [a + (b - a) * i // k for i in range(1, k)] + [b]
+    return out
+
+
 def select(hero):
     boxes = ocr()
     if hero.lower() in name(boxes).lower(): return
     for _ in range(15): swipe(950, 1536, 150, 1536, 300)   # strip to the end (Bone Archer is usually near it)
-    time.sleep(1)
+    settle()
     seen = None
     for page in range(25):
         boxes = ocr()
-        # a bare number counts: Quick Ascend hides the "Lv.1" of the leftmost card (Bone Archer -> "60", Dminor 2026-10-29)
-        cards = sorted({x + w // 2 for x, y, w, h, t in boxes if re.match(r'(L[Vv]\.?\s*)?\d+$', t.strip())
-                        and STRIP[0] <= x + w // 2 <= STRIP[2] and STRIP[1] <= y + h // 2 <= STRIP[3]}, reverse=True)
+        # partial labels count: Quick Ascend hides "Lv.1" ("60", Dminor), OCR drops the L ("V.91", Aminor) — 2026-10-29
+        # ".91" too (Aminor); fill() adds cards whose label wasn't read at all ("Lv.157", Aminor)
+        cards = fill(sorted({x + w // 2 for x, y, w, h, t in boxes if re.match(r'([LlI]?[Vv])?\.?\s*\d+$', t.strip())
+                             and STRIP[0] <= x + w // 2 <= STRIP[2] and STRIP[1] <= y + h // 2 <= STRIP[3]}))[::-1]
         if cards == seen: break                               # strip did not move: start reached
         seen = cards
         for cx in cards:
             tap_wait(cx, 1580)
             if hero.lower() in name(ocr()).lower(): return
-        swipe(150, 1536, 950, 1536, 300); time.sleep(1)       # one page back towards the start
+        swipe(150, 1536, 950, 1536, 300); settle()            # one page back towards the start
     raise Stop(f'{hero!r} not found in the hero strip')
 
 
