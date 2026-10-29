@@ -421,14 +421,14 @@ CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena
            ('veins_forge', lambda c: divine(c, benefit=False)), ('patrol_claim', patrol_claim), ('arena2', arena),
            ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
            ('storm_rewards', storm_rewards), ('arena_claims', arena_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
-           ('events', events), ('daily_mission', daily_mission), ('fishing_rewards', fishing_rewards)]
+           ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission)]  # missions always last (Nick, 2026-10-29)
 CATCHUP_MANUAL = []
 ORDER = [('storm', storm), ('arena', arena), ('fishing', fishing), ('patrol', patrol), ('shop', shop),
          ('play_pass', play_pass), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('beast', beast),
          ('trials', trials), ('recruit', recruit), ('hero', hero), ('tribe', tribe), ('divine', divine), ('relic_shovels', relic_shovels),
          ('stage', stage), ('patrol_claim', patrol_claim), ('arena2', arena), ('grocery', grocery),
          ('storm_rewards', storm_rewards), ('arena_claims', arena_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
-         ('events', events), ('daily_mission', daily_mission), ('fishing_rewards', fishing_rewards)]
+         ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission)]  # missions always last (Nick, 2026-10-29)
 # config key that must be present / truthy for a step to run
 KEY = {'storm': None, 'arena': 'arena', 'arena2': 'arena', 'fishing': 'fishing', 'patrol': 'patrol', 'patrol_claim': 'patrol',
        'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',

@@ -35,8 +35,11 @@ Run the missions in this order on each account:
 15. **Grocery** free chests, then the account's `grocery_buy` tiles (if any).
 16. **Events** — see "Events (red dots)".
 17. **Fishing** — the only place order rewards are collected (see Fishing step 7).
+18. **Daily Mission** — always the LAST step (Nick, 2026-10-29); any new step goes before it. A rerun of earlier steps
+    (`daily.py <acct> <step>...`) should include `daily_mission` so their progress gets claimed.
 
-A "Match attempts full" popup can interrupt any step: Confirm, exhaust Arena, resume.
+A "Match attempts full" popup can interrupt any step: Cancel it (`flow.tickets_full()`; its Confirm opens the Arena),
+the run's 2nd Arena pass spends the tickets.
 
 Focus on the steps, not on resources: don't track gem/resource balances (they change all the time).
 The only money check is reading the price on screen before any paid tap and respecting the config caps.
