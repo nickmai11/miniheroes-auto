@@ -405,7 +405,10 @@ def events(cfg):
             out.append(f'match_event x{n}')
         elif tab == '7777':
             c = find(ocr(), r'^Claim$', (300, 1540, 780, 1680))   # never "Again"
-            if c: tap_wait(*c); time.sleep(1.2); tap_wait(300, 200); out.append('7777 daily')
+            if c:
+                tap_wait(*c); time.sleep(1.5)
+                ok = find(ocr(), r'^Confirm$', (300, 1650, 780, 1850))   # 30-card draw result (Dino 2026-10-29)
+                tap_wait(*ok) if ok else tap_wait(300, 200); out.append('7777 daily')
         else: left.append(tab)
         if red_dot(x + 30, 1720, min(x + 95, 1080), 1795) and tab not in left and tab != '7777': left.append(tab)  # 7777 dot stays
     r = ', '.join(out) or 'nothing claimed'

@@ -552,7 +552,7 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
 - **Pet Arena:** Pack `(88,370)` → Free `(866,834)`; Achievement `(88,690)` → one Claim `(866,606)` claims all.
 - **Wish Festival:** Sign-In ≈ `(876,1500–1560)` → today's Claim `(862,1498)`; Gift `(270,1600–1660)` → Free Pack
   `(866,912)` ×2 (Limited: 2), close ✕ `(966,190)`. Treasure Vault = event-coin draws → skip.
-- **7777 Draws:** daily Claim `(540,1606)` (collects 30 draws) — then stop: **never Open All** / draw (Nick, 2026-10-28:
+- **7777 Draws:** daily Claim `(540,1606)` (collects 30 draws; shows a 30-hero-card result → **Confirm** `(540,1748)`) — then stop: **never Open All** / draw (Nick, 2026-10-28:
   collect only). Never "Again" / "claim one more time" — its red dot stays when all daily claims are ticked.
 - **Match Event:** Heroic Trial sub-tab `(400,190)` and **Canyon Warrior** tab — free point milestones, Claim
   ≈ `(896,1024)`. The top Claim rolls to the next row after each claim: repeat while pixel `(820,1024)` is yellow
