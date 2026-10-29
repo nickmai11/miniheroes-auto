@@ -35,8 +35,8 @@ def run(account, claim_only=False):
             if n == 0: print('no Speed Patrol chances left'); break
             tap_wait(540, 1164)                           # buy -> Congratulations
             wait(r'Congratulations|Tap anywhere', 6)
-            for _ in range(3):                            # taps during the loot animation are ignored (5 accounts 2026-10-29)
-                tap_wait(540, 1700); time.sleep(1)
+            for i in range(4):                            # taps during the loot animation are ignored (5 accounts 2026-10-29)
+                tap_wait(*((540, 1700) if i < 2 else (936, 636))); time.sleep(1)   # then its X (7/9 stuck 2026-10-29)
                 if not find(ocr(), r'Congratulations|Tap anywhere'): break
             n2, _ = tip()                                 # the Tip reopens with the next price
             if n is not None and n2 != n - 1: raise Stop(f'chances {n} -> {n2} after a Speed Patrol')

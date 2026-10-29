@@ -17,7 +17,8 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    and FAILs with `v_<step>.png`. Empty list → no helper for that account. Otherwise ONE `mh-helper` per account for
    only those, prompt below trimmed to them. While it runs, one Monitor surfaces failures live (Dino 2026-10-28 sat
    8 min on a FAIL start nobody saw): `tail -F <run dir>/*.log | grep --line-buffered -E '^(FAIL|Traceback)'`.
-   Re-run a failed account with only its failed steps: `daily.py <acct> --catch-up <step>...` (zsh: pass the steps as
+   The runner already retries each FAIL once at the end; re-run by hand only after exit 1 (lost the main screen),
+   with only the steps after its last OK: `daily.py <acct> --catch-up <step>...` (zsh: pass the steps as
    separate words — `${=steps}` — a quoted list runs nothing, 2026-10-29).
    **Canyon MANUAL → re-run `daily.py <acct> --catch-up canyon` once first** (2026-10-29: canyon.py found nothing on 7
    accounts, minutes later 7 helpers each found an empty spot — ~40 tool calls apiece for a free Occupy). Helper only

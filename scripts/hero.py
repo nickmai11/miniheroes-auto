@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Hero upgrade: config hero +hero_levels (Level Up), 1st gear +gear_levels (Enhance). Potions/gold only, never gems.
 # usage: D=<serial> scripts/hero.py <account>     (main screen must be open; ends on the hero screen)
-# Finds the hero by tapping strip cards (their "Lv.N" labels give the x) and reading the name top-left.
+# Finds the hero among the LAST strip cards (lowest CP) (their "Lv.N" labels give the x) and reads the name top-left.
 # Level "Lv.N" / gear "LV.N" are read before and after every tap and must go up by exactly 1.
 # Never taps the "↑ Lv.N" quick-level buttons, Quick Ascend, Rebirth or Reset (only exact "Level Up" / "Enhance").
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
@@ -42,24 +42,20 @@ def fill(xs):
 
 
 def select(hero):
-    boxes = ocr()
-    if hero.lower() in name(boxes).lower(): return
-    for _ in range(15): swipe(950, 1536, 150, 1536, 300)   # strip to the end (Bone Archer is usually near it)
-    settle()
-    seen = None
-    for page in range(25):
-        boxes = ocr()
-        # partial labels count: Quick Ascend hides "Lv.1" ("60", Dminor), OCR drops the L ("V.91", Aminor) — 2026-10-29
-        # ".91" too (Aminor); fill() adds cards whose label wasn't read at all ("Lv.157", Aminor)
+    """The config hero is among the lowest-CP heroes = always at the END of the strip (Nick, 2026-10-29): try the last
+    cards right to left, re-swiping to the end before every tap (a tap can shift the strip; stale x's missed it on Aminor)."""
+    if hero.lower() in name(ocr()).lower(): return
+    for i in range(6):
+        for _ in range(15 if i == 0 else 6): swipe(950, 1536, 150, 1536, 300)
+        settle(); boxes = ocr()
+        # partial labels count: Quick Ascend hides "Lv.1" ("60", Dminor), OCR drops "Lv"/"L" (".91"/"V.91", Aminor);
+        # fill() adds cards whose label wasn't read at all ("Lv.157", Aminor) — 2026-10-29
         cards = fill(sorted({x + w // 2 for x, y, w, h, t in boxes if re.match(r'([LlI]?[Vv])?\.?\s*\d+$', t.strip())
                              and STRIP[0] <= x + w // 2 <= STRIP[2] and STRIP[1] <= y + h // 2 <= STRIP[3]}))[::-1]
-        if cards == seen: break                               # strip did not move: start reached
-        seen = cards
-        for cx in cards:
-            tap_wait(cx, 1580)
-            if hero.lower() in name(ocr()).lower(): return
-        swipe(150, 1536, 950, 1536, 300); settle()            # one page back towards the start
-    raise Stop(f'{hero!r} not found in the hero strip')
+        if i >= len(cards): break
+        tap_wait(cards[i], 1580)
+        if hero.lower() in name(ocr()).lower(): return
+    raise Stop(f'{hero!r} not among the last 6 cards of the hero strip')
 
 
 def run(account):

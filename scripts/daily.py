@@ -134,14 +134,17 @@ def play_pass(cfg):
     tap_wait(100, 500); wait(r'Play Pass', 10)
     got = []
     for name, x in (('weekly', 648), ('monthly', 818), ('lifetime', 988)):
-        if not red_dot(x + 20, 1770, x + 90, 1830): continue
+        if not red_dot(x + 20, 1740, min(x + 90, 1080), 1790): continue   # dot spans y 1750-1774 (Cmajor 2026-10-29)
         tap_wait(x, 1846); time.sleep(1); boxes = ocr()
         if name == 'lifetime':
             c = find(boxes, r'^Claim Reward$')
             if c: tap_wait(*c); time.sleep(1); tap_wait(540, 120); got.append('lifetime')
         elif name == 'weekly':
-            for x2, y2 in ((203, 1099), (540, 1099), (877, 1099), (203, 1486), (540, 1486), (877, 1486), (540, 1700)):
-                if red_dot(x2 + 40, y2 - 160, x2 + 160, y2 - 60):
+            im = grab()                                  # today's Day tile has an orange header, no red dot (Cmajor 2026-10-29)
+            for x2, y2, hy in ((203, 1099, 933), (540, 1099, 933), (877, 1099, 933), (203, 1486, 1320), (540, 1486, 1320),
+                               (877, 1486, 1320), (540, 1700, 1704)):   # Day 7: only its header shows; tap it (untested)
+                p = im.getpixel((x2 - 100, hy))
+                if p[0] > 200 and 100 < p[1] < 170 and p[2] < 80:
                     tap_wait(x2, y2); time.sleep(1); tap_wait(540, 120); got.append('weekly day'); break
         else:
             for _ in range(10):                          # free-track Claim buttons; never "Continue to claim"
@@ -423,7 +426,9 @@ CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena
            ('storm_rewards', storm_rewards), ('arena_claims', arena_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
            ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission)]  # missions always last (Nick, 2026-10-29)
 CATCHUP_MANUAL = []
-ORDER = [('storm', storm), ('arena', arena), ('fishing', fishing), ('patrol', patrol), ('shop', shop),
+# fishing first: Auto runs during the rest; patrol before arena: Speed Patrol loot refills the arena tickets, which then
+# filled up mid-Trials/Stage (tickets-full popup on 5/9 accounts, 2026-10-29)
+ORDER = [('fishing', fishing), ('patrol', patrol), ('storm', storm), ('arena', arena), ('shop', shop),
          ('play_pass', play_pass), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('beast', beast),
          ('trials', trials), ('recruit', recruit), ('hero', hero), ('tribe', tribe), ('divine', divine), ('relic_shovels', relic_shovels),
          ('stage', stage), ('patrol_claim', patrol_claim), ('arena2', arena), ('grocery', grocery),
@@ -472,17 +477,19 @@ def main(argv):
     force = '--force' in argv; only = [a for a in only if a != '--force']
     state = f'/tmp/miniheroes-state/{ACCOUNT}-{GAME_DAY}.done'
     os.makedirs(os.path.dirname(state), exist_ok=True)
+    lock = open(f'/tmp/miniheroes-state/{ACCOUNT}.lock', 'w')   # two runners on one account fought (Cmajor 2026-10-29)
+    try: fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError: print(f'{ACCOUNT}: another daily.py is already running on it; not starting'); return 2
     done = set(open(state).read().split()) if os.path.exists(state) else set()
     log = os.path.join(HERE, '..', 'logs', ACCOUNT, f'{GAME_DAY}.log')   # permanent per-account log (git-ignored)
     os.makedirs(os.path.dirname(log), exist_ok=True)
     sys.stdout = Tee(sys.stdout, open(log, 'a'))
     print(f'=== {datetime.datetime.now():%F %H:%M:%S} daily.py {" ".join(sys.argv[1:])} (serial {D})')
     if not home(): print('FAIL start: not on the main screen'); return 1
-    for name, fn in (CATCHUP if catch_up else ORDER):
-        if only and name not in only: continue
-        if not enabled(cfg, KEY[name]): print(f'SKIP {name}: not in config', flush=True); continue
-        if name in ONCE and name in done and not force: print(f'SKIP {name}: already OK this game day ({GAME_DAY})', flush=True); continue
-        t0 = time.time()
+
+    def step(name, fn):
+        """Run one step; True = OK/SKIP/MANUAL, False = FAIL, None = lost the main screen."""
+        t0, ok = time.time(), True
         try:
             r = fn(cfg)
             tag = 'MANUAL' if str(r).startswith('MANUAL') else 'SKIP' if str(r).startswith('SKIP') else 'OK'
@@ -493,9 +500,31 @@ def main(argv):
             try: grab().resize((540, 960)).save(f'v_{name}.png')
             except Exception: pass                           # device gone (instance stopped)
             print(f'FAIL {name} ({time.time() - t0:.0f}s): {e} (screenshot {out}/v_{name}.png)', flush=True)
-            left.append(name)
+            ok = False
         if not home():
-            print(f'FAIL home after {name}: lost the main screen; stop'); print('LEFT FOR HELPER:', ', '.join(left)); return 1
+            print(f'FAIL home after {name}: lost the main screen; stop'); return None
+        return ok
+
+    steps = CATCHUP if catch_up else ORDER
+    failed = []
+    for name, fn in steps:
+        if only and name not in only: continue
+        if not enabled(cfg, KEY[name]): print(f'SKIP {name}: not in config', flush=True); continue
+        if name in ONCE and name in done and not force: print(f'SKIP {name}: already OK this game day ({GAME_DAY})', flush=True); continue
+        r = step(name, fn)
+        if r is None: print('LEFT FOR HELPER:', ', '.join(left + failed + [name])); return 1
+        if not r: failed.append(name)
+    # one retry of each failed step: most first-pass FAILs were transient (2026-10-29: the coordinator re-ran them by
+    # hand and 18 of 19 passed). Steps re-read their on-screen counters, so a retry never double-spends.
+    if failed:
+        print(f'--- retrying {failed}', flush=True)
+        again = [n for n in failed if n != 'daily_mission'] + ['daily_mission']   # retried progress -> claim it
+        for name in again:
+            if name == 'daily_mission' and not enabled(cfg, KEY[name]): continue
+            r = step(name, dict(steps)[name])
+            if r is None: print('LEFT FOR HELPER:', ', '.join(left + failed)); return 1
+            if r and name in failed: failed.remove(name)
+    left += failed
     print('LEFT FOR HELPER:', ', '.join(f'{k} ({MANUAL[k]})' if k in MANUAL else k for k in left))
     return 0
 

@@ -14,11 +14,12 @@ Run the missions in this order on each account:
 
 0. **Pet Arena** — **Mon/Tue/Wed only** (skip other days): join + Auto Deploy (see "Pet Arena" below);
    runs on its own.
-0b. **Storm Battlefield** — right after Pet Arena (see "Storm Battlefield" below). Skip on Mondays — closed
-   until 17:00; run `/catch-up` after 17:00.
-1. **Arena** — Ranking Rewards gift boxes, then exhaust tickets.
-2. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto. Don't collect order rewards here.
-3. **Patrol** — Speed Patrol until the price is 100 gems (don't buy that one) + Claim All.
+0b. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto — first, so Auto runs during the rest
+   (2026-10-29). Don't collect order rewards here.
+1. **Patrol** — Speed Patrol until the price is 100 gems (don't buy that one) + Claim All. Before Arena: its loot refills
+   the Arena tickets (they filled up mid-Trials on 5/9 accounts, 2026-10-29).
+2. **Storm Battlefield** (see "Storm Battlefield" below). Skip on Mondays — closed until 17:00; run `/catch-up` after 17:00.
+3. **Arena** — Ranking Rewards gift boxes, then exhaust tickets.
 4. **Shop** freebies.
 5. **Play Pass** claims.
 6. **Adventure** — everything in it: Tower of the Throne, Secret Sanctuary, Gate of Darkness, Beast Realm, Land of Trials
@@ -52,7 +53,7 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 
 **Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
 main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
-Steps: storm arena fishing patrol shop play_pass tower sanctuary gate beast trials recruit hero tribe divine relic_shovels stage
+Steps: fishing patrol storm arena shop play_pass tower sanctuary gate beast trials recruit hero tribe divine relic_shovels stage
 patrol_claim arena2 grocery daily_mission fishing_rewards.
 
 Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png] [-w 270|540]` for every tap (device coords):
@@ -564,6 +565,21 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   weekly merchant free 200.
 - **Tribe Clash** banner `(880,624)` → Pack `(976–994,1630)` → Free `(866,934)` (20 gems, 1/day). **Never its
   Treasures or "Enter"** (Nick, 2026-10-27). Its red dot can persist with nothing claimable.
+
+## Tribe Clash Guess
+
+Nick names 3 tribes each time (1st, 2nd, 3rd) — never pick them yourself. **`D=<serial> scripts/clash_guess.py <1st> <2nd> <3rd>`**
+from the main screen or the Tribe Clash screen (names case/space-insensitive, e.g. `"dragon slayers" potato "purple gang"`).
+Free, no gems. Only open while "Remaining guessing time" runs (on Battle days).
+- Entry: main-screen **Tribe Clash** banner → **Guess** (dice, bottom right ≈ `(989,1825)`; the label still OCRs under the
+  open dialog — a tap there closes it). Dialog: slots 2 / **1** / 3 left→middle→right (`(236,520)` `(538,490)` `(840,520)`),
+  slot names OCR at y≈595; 8 tribe tiles (4×2), tap the icon ≈100 px above the name. A pick fills the selected slot
+  and moves the selection 1→2→3. **Save** `(540,1656)` (green once all 3 are set; OCR can't read it), no toast →
+  close ✕ `(972,222)` (no reopen check, Nick 2026-10-29). Exit 1 → `v_clash_guess.png`.
+- **Guesses already there → clear them and start from scratch** (Nick, 2026-10-29): tap the picked tile *in the list*
+  to remove it (tapping the slot does nothing). The script does this.
+- **No unguessing:** clearing all 3 slots + Save does not stick — reopen shows the old picks (Kong 2026-10-29).
+  Picks can only be replaced with 3 new ones.
 
 ## Daily Mission (claim all + activity chests) — Nick, 2026-10-27/28
 
