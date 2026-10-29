@@ -137,6 +137,9 @@ Main-screen check pixel: Recruit icon `(92,1788)` ≈ `(0,158,230)`; Start butto
 
 **Run `scripts/trials.py <account>` from the list screen** (see Speed); the steps below are for its exit-1 fallback.
 
+Sweep exactly the configured total per dungeon, then stop — don't open the paid Tip to see the next price once the
+total is reached. `max_gem_price_per_sweep` is only a safeguard (Nick, 2026-10-29).
+
 Path: main screen → **Adventure** `(66, 984)` → **Land of Trials** card, `GO` `(516, 306)`.
 
 Screen header: "Free attempts refresh in: HH:MM:SS" (daily reset).
@@ -330,7 +333,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Endless-wave mode; progress
 3. **First chance — run it:** Start Challenge `(540,960)` → lineup (default top 10, keep it) →
    **Start Challenge** `(540,1806)` → *Tip* "Start challenge from Wave N?" → **Confirm** `(760,1164)`.
    **Never tap Restart** (resets wave progress).
-   - **Time cap 1m30s** from Confirm. If still fighting: **Pause** `(866,1227)` (may need a 2nd tap) →
+   - **Time cap 2m (Nick, 2026-10-29)** from Confirm. If still fighting: **Pause** `(866,1227)` (may need a 2nd tap) →
      **Quit Battle** `(376,920)` (still counts as Victory) → **Confirm** `(540,1406)`.
    - If it ends earlier: *Victory* (kill count + rewards) → **Confirm** `(540,1406)`.
    - A network-error popup sends the game to the loading screen — that run uses no chance, re-run.
@@ -420,12 +423,13 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started
 2. **Order Info** `(190,786)` → *Daily Order* dialog: 3 orders, refresh-ticket count top-left.
    Tier = filled diamonds (5 max): 1 common, 2 rare, 3 legend, 4 mythic, 5 eternal (name turns red at 4+).
    Target per account: `missions.fishing.min_order_diamonds` (Cmajor: 4 = Mythic+).
-3. Refresh buttons x=`849`, y = `704 / 1058 / 1412` (orders 1–3). Costs **1 refresh ticket**. First
-   time an *Order Refresh* confirm appears → tap "Do not remind me today" `(390,1380)` **alone**, screenshot (chaining
-   it with Confirm didn't stick), then **Confirm** `(757,1211)`.
+3. Refresh buttons x=`849`, y = `704 / 1058 / 1412` (orders 1–3). Costs **1 refresh ticket**. *Order Refresh*
+   confirm "Confirm to refresh orders? Cost x1" → **Confirm** `(757,1211)`. Never tick "Do not remind me today".
+   "The order is of high quality, continue to refresh?" = something's wrong (we'd refresh a good order) → **Cancel**
+   `(320,1212)` and report (Nick, 2026-10-29).
    Automate with `D=<serial> scripts/fish_orders.py ROW MAX MIN` (MIN = `min_order_diamonds`, default 4; pixel check
    on the diamonds; row y = 567/921/1275, diamond x = 633/706/778/851/921; filled = R>200, empty = (58,85,115)).
-   It returns `None` when that first-time confirm shows: do the tick + Confirm, re-run.
+   It handles both popups itself (WARN line on high quality) and returns `None` on any other popup (e.g. out of tickets).
 4. Out of tickets: buy with **50 gems** — `+` `(272,425)` next to the ticket count → **Purchase** `(540,1203)`
    (verify 50 gems); the popup stays open, close by tapping `(540,1600)`.
 5. Close ✕ `(973,270)`. **Benefit** `(330,1800)` **only if it has a red dot** — no red dot = don't open it → **Claim Reward** `(540,1662)`

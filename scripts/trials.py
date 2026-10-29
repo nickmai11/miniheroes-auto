@@ -6,6 +6,7 @@
 #   Tip popup "Spend P diamonds ..." = the price, checked against safety.max_gem_price_per_sweep before Confirm.
 # Done today = 2 - free left, or 2 + purchases made (price ladder 80/160/240 -> 0/1/2 made; the purchase
 # max differs per account: Tiger had 4, Cmajor 5).
+# Stops as soon as the target is reached; the price cap is only a safeguard (Nick, 2026-10-29).
 # "Match tickets full" popup: Confirm,
 # keep going, print MATCH_FULL at the end. exit 0 = all dungeons handled, 1 = unexpected screen (v_trials.png).
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
@@ -57,7 +58,9 @@ def dungeon(key, target, cap):
     if not c: raise Stop(f'{key}: sweep dialog not readable')
     done = FREE_MAX - c[1] if c[0] == 'free' else FREE_MAX  # buy mode: paid count comes from the Tip price below
     runs, paid = 0, []
+    known = c[0] == 'free'                            # buy mode on entry: done today only readable from the next price
     while True:
+        if known and done >= target: break            # target reached: never open the Tip just to see the next price (Nick)
         if c[0] == 'buy':
             if c[1] == 0: print(f'{key}: no purchases left'); break
             tap_wait(540, 1372)                       # Sweep -> Tip popup (nothing bought yet)
@@ -65,7 +68,7 @@ def dungeon(key, target, cap):
             if not m: raise Stop(f'{key}: Tip popup price not readable')
             price = int(m.group(1))
             if price % 80: raise Stop(f'{key}: price {price} is not on the 80/160/240 ladder')
-            done = FREE_MAX + price // 80 - 1          # purchases already made today
+            done, known = FREE_MAX + price // 80 - 1, True   # purchases already made today
             if done >= target or price > cap:
                 tap_wait(540, 120)
                 if done < target: print(f'{key}: next sweep costs {price} > cap {cap}; stopped')
@@ -74,7 +77,6 @@ def dungeon(key, target, cap):
             if counter() != ('free', 1): raise Stop(f'{key}: after buying, dialog does not show Challenge Attempts: 1')
             paid.append(price); expect = lambda n, left=c[1]: n == ('buy', left - 1)
         else:
-            if done >= target: break
             expect = (lambda n, left=c[1]: n == ('free', left - 1)) if c[1] > 1 else (lambda n: bool(n) and n[0] == 'buy')
         sweep_and_dismiss()
         new = counter()

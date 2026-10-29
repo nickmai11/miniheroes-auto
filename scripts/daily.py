@@ -98,14 +98,9 @@ def fishing(cfg, orders=True):
     if mn:
         tap_text(r'Order Info', boxes=boxes); wait(r'Daily Order', 8)
         for row in (1, 2, 3):
-            for _ in range(2):
-                script('fish_orders.py', str(row), '6', mn.group(1))   # stops (no tap) on any popup
-                boxes = ocr()
-                if find(boxes, r'Do not remind me today'):           # first refresh of the day: tick alone, then Confirm
-                    tap_text(r'Do not remind me today', boxes=boxes); time.sleep(1); tap_wait(757, 1211); continue
-                if find(boxes, r'Purchase'):                          # out of refresh tickets: close, buy nothing
-                    tap_wait(540, 1600); print('    out of refresh tickets (none bought; helper may buy per config)')
-                break
+            script('fish_orders.py', str(row), '6', mn.group(1))   # confirms Order Refresh popups, stops on any other
+            if find(ocr(), r'Purchase'):                          # out of refresh tickets: close, buy nothing
+                tap_wait(540, 1600); print('    out of refresh tickets (none bought; helper may buy per config)')
         tap_wait(973, 270)
     boxes = ocr()
     if find(boxes, r'Auto Fishing'): return 'auto already running'
@@ -178,14 +173,14 @@ def gate(cfg):
     adventure(r'Gate of Darkness'); boxes = wait(r'Chances left today', 10)
     left = lambda b: int(re.search(r'Chances left today\W*(\d+)', joined(b)).group(1))
     n, out = left(boxes), []
-    if n >= 2:                                          # first chance: run it (time cap 1m30s), never Restart
+    if n >= 2:                                          # first chance: run it (time cap 2m, Nick 2026-10-29), never Restart
         tap_text(r'^Start Challenge$', (200, 880, 880, 1040), boxes)
         boxes = wait(r'^Start Challenge$', 8, (0, 1700, 1080, 1920))
         tap_text(r'^Start Challenge$', (0, 1700, 1080, 1920), boxes)
         boxes = wait(r'Start challenge from Wave|^Confirm$', 8)
         tap_text(r'^Confirm$', (560, 1080, 960, 1250), boxes)
         t0 = time.time()
-        while time.time() - t0 < 90 and not find(ocr(), r'Victory|Kill Count'): time.sleep(2)
+        while time.time() - t0 < 120 and not find(ocr(), r'Victory|Kill Count'): time.sleep(2)
         if not find(ocr(), r'Victory|Kill Count'):     # still fighting: Pause -> Quit Battle (counts as Victory)
             tap_wait(866, 1227); b = ocr()
             if not find(b, r'Quit Battle'): tap_wait(866, 1227); b = ocr()
