@@ -167,14 +167,111 @@ def trials(cfg):
     return script('trials.py', ACCOUNT)
 
 
+RARITY = ['Rare', 'Elite', 'Legend', 'Mythic']
+PREFERRED = r'^(ATK Drill|DMG Increase Drill|Infinite Energy|Concentrated Fire|Iron Shield|Mental Fear|Battle Cry)$'
+
+
+def cards(boxes, y_rarity, y_name, xs):
+    """[(x, rarity index, name)] for the bonus cards whose rarity label is ~y_rarity and name ~y_name (OCR)."""
+    col = lambda b: min(range(len(xs)), key=lambda i: abs(b[0] + b[2] // 2 - xs[i]))
+    rar = {col(b): RARITY.index(b[4].strip()) for b in boxes if abs(b[1] - y_rarity) < 40 and b[4].strip() in RARITY}
+    nam = {}                                             # names can wrap ('DMG Increase' / 'Drill', +36 px); descriptions start ~+50
+    for b in sorted((b for b in boxes if -25 < b[1] - y_name < 45 and b[4].strip() not in RARITY), key=lambda b: b[1]):
+        nam[col(b)] = (nam.get(col(b), '') + ' ' + b[4].strip()).strip()
+    return [(xs[i], rar.get(i, -1), nam.get(i, '?')) for i in range(len(xs))]
+
+
+def score(card): return (bool(re.search(PREFERRED, card[2])), card[1])   # preferred first, then rarity
+
+
+def bonus_pick():
+    """After a floor: 'Select Bonus Effect' (pick best) or 'Replace Bonus Effect' at 5/5 (replace only an upgrade:
+    the best offer must beat the worst owned). Rules: docs/ui-routine.md Secret Sanctuary step 4-5."""
+    try: boxes = wait(r'Select Bonus Effect|Replace Bonus Effect', 6)
+    except Stop: return 'no bonus'
+    if find(boxes, r'Select Bonus Effect'):
+        best = max(cards(boxes, 716, 915, (192, 540, 884)), key=score)
+        tap_wait(best[0], 950); tap_text(r'Confirm Selection', boxes=ocr()); time.sleep(1)
+        return f'+{best[2]} ({RARITY[best[1]] if best[1] >= 0 else "?"})'
+    if find(boxes, r'Replace Bonus'):
+        # 4 owned cards visible (the 5th is off-screen right); Cmajor 2026-10-29
+        offers = cards(boxes, 429, 620, (192, 540, 884)); owns = cards(boxes, 1100, 1262, (150, 460, 740, 1000))
+        if any(c[1] < 0 for c in offers + owns): raise Stop(f'replace screen unreadable: {offers} / {owns}')
+        offer, owned = max(offers, key=score), min(owns, key=score)
+        if score(offer) > score(owned) and not re.search(PREFERRED, owned[2]):
+            tap_wait(offer[0], 660); tap_wait(owned[0], 1300); tap_text(r'Replace Bonus', (500, 1600, 1060, 1750)); time.sleep(1)
+            return f'{offer[2]} replaces {owned[2]}'
+        tap_text(r'^Skip$', (100, 1600, 500, 1750)); time.sleep(1); return 'skip'
+    return 'no bonus'
+
+
+def floor_marker(im):
+    """Centre of the yellow next-floor marker on the Sanctuary map, or None. It pulses (255,182..235,66..99 down to
+    ~222,190,82), so colour alone also hits the flags' yellow stripes: drop yellow 60px cells with red stripes beside or
+    above them (not below: the boss/demon node under the marker is red). Cmajor Ice Citadel 2026-10-29; Lava untested."""
+    yel = lambda p: p[0] > 200 and 140 < p[1] < 250 and 40 < p[2] < 115 and p[0] - p[2] > 110
+    red = lambda p: p[0] > 170 and p[1] < 80 and p[2] < 90
+    cells = {}
+    for y in range(180, 1560, 6):
+        for x in range(60, 1020, 6):
+            p = im.getpixel((x, y)); c = (x // 60, y // 60)
+            if yel(p): cells.setdefault(c, []).append((x, y))
+            elif red(p): cells.setdefault(c, []).append(None)
+    reds = lambda c: sum(1 for q in cells.get(c, []) if q is None)
+    ok = [(len([q for q in v if q]), c) for c, v in cells.items()
+          if len([q for q in v if q]) >= 6 and not any(reds((c[0] + i, c[1] + j)) > 3 for i in (-1, 0, 1) for j in (-1, 0))]
+    if not ok: return None
+    c = max(ok)[1]; pts = [q for i in (-1, 0, 1) for j in (-1, 0, 1) for q in cells.get((c[0] + i, c[1] + j), []) if q]
+    return sum(x for x, _ in pts) // len(pts), sum(y for _, y in pts) // len(pts)
+
+
+def sanctuary_climb():
+    """Map: the next floor is the node just below the yellow marker (Cmajor, Ice Citadel 2026-10-29). Crash = instant
+    win; Battle -> lineup (Quick Deploy if < 5) -> Start -> Victory Confirm -> bonus pick. A loss: stop (no potions)."""
+    out = []
+    for _ in range(10):
+        m = floor_marker(grab())
+        if not m: break                                  # no marker: all floors flagged
+        mx, my = m
+        for dy in (90, 120):                             # node sits ~86 px below the marker centre, the floor-10 boss ~110
+            tap_wait(mx, my + dy)
+            try: boxes = wait(r'Floor \d+/10|Select Bonus Effect|Replace Bonus Effect', 4); break
+            except Stop: pass
+        else: raise Stop(f'no floor popup under the marker ({mx},{my}); done so far: {out}')
+        fl = re.search(r'Floor (\d+)/10', joined(boxes))
+        if find(boxes, r'Select Bonus Effect|Replace Bonus Effect'):   # far out-powered: the node tap wins outright, no popup (Cmajor floor 5)
+            out.append(f'instant win {bonus_pick()}'); continue
+        if find(boxes, r'^Crash$'):
+            tap_text(r'^Crash$', boxes=boxes); wait(r'Tap anywhere|Congratulations', 8); tap_wait(540, 120)
+            res = 'crash'
+        else:
+            tap_text(r'^Battle$', boxes=boxes); boxes = wait(r'^Start$', 8, (0, 1700, 1080, 1920))
+            im = grab()
+            ticks = sum(1 for cx in (160, 350, 540, 730, 920)
+                        if sum(1 for y in range(1180, 1300, 4) for x in range(cx - 50, cx + 50, 4)
+                               if (lambda p: p[1] > 190 and p[0] < 170 and p[2] < 110)(im.getpixel((x, y)))) > 15)
+            if ticks < 5: tap_wait(984, 1800); time.sleep(1)
+            tap_text(r'^Start$', (0, 1700, 1080, 1920), boxes)
+            r = joined(wait(r'Victory|Defeat', 150))
+            if 'Victory' not in r:
+                tap_text(r'^Confirm$'); out.append(f'floor {fl[1]} LOST'); return 'MANUAL ' + ', '.join(out)
+            tap_text(r'^Confirm$', (200, 1300, 880, 1500)); res = 'won'
+        out.append(f'floor {fl[1]} {res} {bonus_pick()}')
+        if fl[1] == '10': break
+    return 'climbed: ' + ', '.join(out) if out else 'nothing to climb'
+
+
 def sanctuary(cfg):
     adventure(r'Secret Sanctuary'); time.sleep(2); boxes = ocr()
     if find(boxes, r'Bonus Effects') and find(boxes, r'^Confirm$', (300, 1550, 800, 1700)):
-        tap_text(r'^Confirm$', (300, 1550, 800, 1700), boxes); boxes = ocr()
+        tap_text(r'^Confirm$', (300, 1550, 800, 1700), boxes); time.sleep(1.5); boxes = ocr()
     s = find(boxes, r'^Sweep$', (300, 1700, 800, 1860))
-    if not s: return 'MANUAL no Sweep offered -> climb (sanctuary_climb)'
-    tap_wait(*s); boxes = wait(r'^Confirm$', 6); tap_text(r'^Confirm$', boxes=boxes); time.sleep(2); tap_wait(540, 120)
-    return 'swept'
+    # the intro shows a greyed Sweep even on a fresh map; only a yellow one is real (Cmajor 2026-10-29 logged "swept"
+    # on a new Ice Citadel map, nothing swept)
+    if s and near(grab().getpixel((s[0] - 100, s[1])), (255, 182, 16), 40):
+        tap_wait(*s); boxes = wait(r'^Confirm$', 6); tap_text(r'^Confirm$', boxes=boxes); time.sleep(2); tap_wait(540, 120)
+        return 'swept'
+    return sanctuary_climb()
 
 
 def gate(cfg):

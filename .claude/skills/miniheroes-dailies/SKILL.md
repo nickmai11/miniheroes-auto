@@ -29,7 +29,7 @@ run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly 
 2. Run every account's runner in ONE background Bash command and wait for its completion notification (no polling):
    `for a in <acct>:<serial> ...; do (D=${a#*:} OUT=/tmp/miniheroes-$(date +%F)/${a%%:*} scripts/daily.py ${a%%:*} > /tmp/miniheroes-$(date +%F)/${a%%:*}.log 2>&1) & done; wait`
    Each log has one `OK|SKIP|FAIL|MANUAL <step>` line per step and ends with `LEFT FOR HELPER: …`
-   (judgment steps — Pet Arena Mon–Wed, plus MANUAL lines: Sanctuary climb (no Sweep, ~weekly after a map rotation),
+   (judgment steps — Pet Arena Mon–Wed, plus MANUAL lines: Sanctuary climb lost a floor,
    Canyon with no empty spot, event tabs with an unmapped red dot — plus any FAIL, each with `v_<step>.png`).
    Storm Rewards, Arena chests, Canyon empty spot, Canyon Points Reward and event milestones are runner steps
    since 2026-10-28. The runner retries each FAIL once at the end (then re-claims Daily Mission) — don't re-run

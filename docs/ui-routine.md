@@ -318,6 +318,11 @@ Keep the pre-selected lineup (Nick, 2026-10-26: don't bother picking the weakest
 
 ## Secret Sanctuary (sweep if offered, else climb 10 floors) — Nick, 2026-10-27
 
+**Runner step `sanctuary`** (2026-10-29, tested on Cmajor floors 4–10): sweeps only on a **yellow** Sweep (the intro
+shows a greyed one on a fresh map — it used to log a false "swept"), else climbs: next floor = node under the yellow
+marker (`floor_marker()`: flags have yellow stripes too, told apart by their red ones); a far weaker floor wins on the
+node tap itself (no popup, straight to the bonus screen); bonus/replace picked by the rules below via OCR. A loss → MANUAL.
+
 Sweep only exists for a while after a full clear (Nick: ~7 days); when the map rotates (2026-10-27:
 Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**. Mapped on Cmajor, ADB device coords.
 
