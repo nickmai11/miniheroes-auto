@@ -1,4 +1,6 @@
 {
+  "enabledPlugins": { "figma@claude-plugins-official": false },
+  "env": { "ENABLE_CLAUDEAI_MCP_SERVERS": "false" },
   "permissions": {
     "allow": [
       "Read", "Glob", "Grep",

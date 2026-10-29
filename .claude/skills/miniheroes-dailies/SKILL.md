@@ -29,7 +29,7 @@ run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly 
 2. Run every account's runner in ONE background Bash command and wait for its completion notification (no polling):
    `for a in <acct>:<serial> ...; do (D=${a#*:} OUT=/tmp/miniheroes-$(date +%F)/${a%%:*} scripts/daily.py ${a%%:*} > /tmp/miniheroes-$(date +%F)/${a%%:*}.log 2>&1) & done; wait`
    Each log has one `OK|SKIP|FAIL|MANUAL <step>` line per step and ends with `LEFT FOR HELPER: …`
-   (judgment steps — Pet Arena Mon–Wed, Sanctuary climb, Rune, grocery_buy, Fishing Benefit, plus MANUAL lines:
+   (judgment steps — Pet Arena Mon–Wed, plus MANUAL lines: Sanctuary climb (no Sweep, ~weekly after a map rotation),
    Canyon with no empty spot, event tabs with an unmapped red dot — plus any FAIL, each with `v_<step>.png`).
    Storm Rewards, Arena chests, Canyon empty spot, Canyon Points Reward and event milestones are runner steps
    since 2026-10-28. The runner retries each FAIL once at the end (then re-claims Daily Mission) — don't re-run
@@ -37,7 +37,8 @@ run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly 
    --line-buffered -E '^(FAIL|Traceback)'`.
 3. Per account with leftovers: ONE `mh-helper` whose prompt lists only those steps + their doc sections
    (`scripts/doc.sh …`) and the log's FAIL lines. Its final answer ≤15 lines (concerns, done/skipped, paid + price).
-4. Report from the logs + helper answers. A step's script is the doc's fallback text otherwise — see ui-routine "Speed".
+4. Report from `scripts/summary.sh <run dir>` (one call: FAIL/MANUAL/paid lines + LEFT per account — don't grep the logs
+   one by one; cost, Nick 2026-10-29) + helper answers. Script bugs found mid-run: note them, fix after the run. A step's script is the doc's fallback text otherwise — see ui-routine "Speed".
 Helpers that run a single mission by hand use the scripts too (`arena.py`, `trials.py`, `patrol.py`, `hero.py`,
 `tribe.py`, `adventure.py`, `storm.py`, `veins.py`, `grocery.py`, `fish_orders.py`) and handle exit 1.
 

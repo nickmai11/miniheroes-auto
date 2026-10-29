@@ -22,8 +22,7 @@ NOW = datetime.datetime.now()
 # screen, so they're recorded per game day and skipped on re-runs; every other step re-checks the screen counters.
 ONCE = {'hero', 'tower', 'beast', 'stage', 'sanctuary'}
 GAME_DAY = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=5)).date()
-MANUAL = {'pet_arena': 'Auto Deploy settings', 'sanctuary_climb': 'bonus-card choice', 'rune': 'locked-rune grid',
-          'grocery_buy': 'tile price vs balance', 'fishing_benefit': 'not mapped for OCR'}
+MANUAL = {'pet_arena': 'Auto Deploy settings'}   # always left for a helper (rune/grocery_buy/benefit scripted 2026-10-29)
 
 
 def is_main(im=None): return near((im or grab()).getpixel((92, 1788)), (0, 158, 230))
@@ -47,7 +46,7 @@ def home():
 def red_dot(x0, y0, x1, y1, im=None):
     im = im or grab()
     return sum(1 for y in range(y0, y1, 4) for x in range(x0, x1, 4)
-               if (lambda p: p[0] > 210 and p[1] < 70 and p[2] < 70)(im.getpixel((x, y)))) >= 4
+               if (lambda p: p[0] > 235 and p[1] < 70 and p[2] < 100)(im.getpixel((x, y)))) >= 4   # hub dots are (255,0,74)
 
 
 def script(name, *args):
@@ -103,8 +102,13 @@ def fishing(cfg, orders=True):
             if find(ocr(), r'Purchase'):                          # out of refresh tickets: close, buy nothing
                 tap_wait(540, 1600); print('    out of refresh tickets (none bought; helper may buy per config)')
         tap_wait(973, 270)
+    got = ''
+    if orders and red_dot(350, 1730, 420, 1800):          # Benefit dot (fishing-pass accounts); no pass = a $ page, no dot
+        tap_wait(330, 1800); c = find(wait(r'Benefit', 6), r'^Claim Reward$')
+        if c: tap_wait(*c); time.sleep(1); tap_wait(540, 120); got = 'benefit claimed, '
+        tap_wait(970, 238)
     boxes = ocr()
-    if find(boxes, r'Auto Fishing'): return 'auto already running'
+    if find(boxes, r'Auto Fishing'): return got + 'auto already running'
     for _ in range(2):                                   # Start sometimes doesn't take on the first tap (Aminor 2026-10-28)
         boxes = ocr()
         if not find(boxes, r'^Start$'): tap_wait(982, 1222); boxes = wait(r'^Start$', 8)   # settings dialog
@@ -112,7 +116,7 @@ def fishing(cfg, orders=True):
         try: wait(r'Auto Fishing', 4); break
         except Stop: pass
     else: raise Stop('Auto Fishing did not start')
-    return ('orders refreshed (no tickets bought), ' if mn else '') + 'auto started'
+    return got + ('orders refreshed (no tickets bought), ' if mn else '') + 'auto started'
 
 
 def patrol(cfg): return script('patrol.py', ACCOUNT)
@@ -290,6 +294,74 @@ def grocery(cfg):
     return out
 
 
+def rune(cfg):
+    """Backpack -> Rune tab -> scroll to the red (Mythic) runes -> first one without a lock -> Synthesize -> Quick
+    Equip (4 lowest-tier) -> Synthesize x1. Free. Mapped on the Kong instance 2026-10-29: tiles are red runs at
+    x=cx-62, lock = dark pixels at the tile's top-right; the popup (Synthesize vs 'Locked') is the final check."""
+    tap_wait(994, 1625); time.sleep(1); tap_wait(900, 1775); wait(r'Backpack', 8)
+    tap_wait(868, 1680); time.sleep(1); swipe(540, 1300, 540, 700, 800); time.sleep(1.2)
+    im = grab(); red = lambda p: p[0] > 200 and p[1] < 120 and p[2] < 120
+    tiles = []
+    for cx in (160, 350, 540, 730, 920):
+        s = None
+        for y in range(320, 1580, 2):
+            r = red(im.getpixel((cx - 62, y)))
+            if r and s is None: s = y
+            if not r and s is not None:
+                if y - s > 120: tiles.append((s, cx))    # full tile only (partly scrolled-off ones are shorter)
+                s = None
+    free = [(t, cx) for t, cx in sorted(tiles)
+            if not sum(1 for y in range(t - 14, t + 20) for x in range(cx + 50, cx + 80) if sum(im.getpixel((x, y))[:3]) < 150)]
+    for t, cx in free[:3]:
+        tap_wait(cx, t + 72); time.sleep(0.8); boxes = ocr()
+        s = find(boxes, r'^Synthesize$', (300, 1100, 780, 1300))
+        if not s: tap_wait(540, 200); time.sleep(0.8); continue   # outside the popup, inside Backpack; 'Locked Runes can't be synthesized' / misread
+        tap_wait(*s); tap_text(r'Quick ?Equip', (250, 1600, 580, 1720), wait(r'Quick ?Equip', 6))
+        boxes = wait(r'^Synthesize$', 4, (650, 1600, 1000, 1720))
+        if not find(boxes, r'^[xX]1$', (60, 1600, 200, 1720)): raise Stop('rune: multiplier is not x1')
+        tap_text(r'^Synthesize$', (650, 1600, 1000, 1720), boxes)
+        res = wait(r'Congratulations', 8); r = next((b[4] for b in res if 'Rune' in b[4]), 'rune')
+        tap_text(r'^Confirm$', boxes=res); time.sleep(0.8); tap_wait(972, 560); time.sleep(0.8); tap_wait(972, 238)
+        return f'synthesized -> {r}'
+    raise Stop(f'no unlocked red rune ({len(tiles)} red tiles, {len(free)} without lock)')
+
+
+SHOP_TABS = {'sanctuary': (452, False), 'tribe': (732, False), 'ruins': (980, False), 'realm': (604, True)}  # x, after tab-bar swipe
+
+
+def grocery_buy(cfg):
+    """Grocery shop tabs: buy each configured tile once, in the shop's own coin only (price icon colour == balance
+    icon), never over the balance; popup price must match the tile. Mapped on the Kong instance 2026-10-29."""
+    want = {k: [int(n) for n in re.findall(r'\d+', v)]
+            for k, v in re.findall(r'^\s{4}(\w+):\s*\[([^\]]*)\]', (re.search(r'grocery_buy:.*\n((?:\s{4}.*\n?)*)', cfg) or [''] * 2)[1], re.M)}
+    tap_wait(994, 1625); time.sleep(1); tap_wait(900, 1230); wait(r'Daily Specials', 10)
+    out = []
+    for tab in sorted(want, key=list(SHOP_TABS).index):
+        x, swiped = SHOP_TABS[tab]
+        if swiped: swipe(900, 546, 200, 546); time.sleep(1)
+        tap_wait(x, 546); time.sleep(1); boxes = ocr()
+        if not find(boxes, rf'(?i)^{tab}', (x - 160, 500, x + 160, 590)): raise Stop(f'{tab} shop tab not where expected')
+        for n in want[tab]:
+            im = grab(); boxes = ocr(im)
+            avg = lambda x0, y0: [sum(im.getpixel((x0 + dx, y0 + dy))[i] for dx in range(-6, 7, 3) for dy in range(-6, 7, 3)) // 25 for i in range(3)]
+            bal = next((num(b[4]) for b in boxes if b[0] < 300 and 350 < b[1] < 430 and re.fullmatch(r'[\d.]+[kKmM]?', b[4])), None)
+            bx, by = (163, 413, 663, 913)[(n - 1) % 4], (893, 1249, 1605)[(n - 1) // 4]
+            region = (bx - 125, by - 40, bx + 125, by + 40)
+            if find(boxes, r'Sold', region): out.append(f'{tab} {n} sold out'); continue
+            price = next((num(b[4]) for b in boxes if region[0] < b[0] + b[2] // 2 < region[2] and region[1] < b[1] + b[3] // 2 < region[3]
+                          and re.fullmatch(r'[\d.]+[kKmM]?', b[4])), None)
+            if bal is None or price is None: raise Stop(f'{tab} {n}: balance/price unreadable ({bal}, {price})')
+            if not near(avg(bx - 73, by), avg(90, 406), 35): out.append(f'{tab} {n} SKIPPED: not priced in the shop coin'); continue
+            if price > bal: out.append(f'{tab} {n} skipped: {price} > balance {bal}'); continue
+            tap_wait(bx, by); boxes = wait(r'^Purchase$', 6)
+            pp = next((num(b[4]) for b in boxes if 1040 < b[1] < 1140 and re.fullmatch(r'[\d.]+[kKmM]?', b[4])), None)
+            if pp != price: tap_wait(540, 1850); raise Stop(f'{tab} {n}: popup price {pp} != tile price {price}')
+            tap_text(r'^Purchase$', boxes=boxes); wait(r'Tap anywhere|Congratulations', 6); tap_wait(540, 1850); time.sleep(0.8)
+            out.append(f'{tab} {n} bought for {price} (balance {bal})')
+    tap_wait(966, 222)
+    return ', '.join(out) or 'nothing configured'
+
+
 def daily_mission(cfg):
     """Mapped on Kong 2026-10-28: menu icon dot ≈ (1040,1580); Mission = the ICON left of its label (the label doesn't
     react); top Claim row ≈ (860,672) claims all rows; chests above the 40/80/120/160 labels (y≈510) glow when reachable; tabs Daily (300,1686) — opens selected, no dot — and Weekly (778,1688), dot ≈ (976,1630)."""
@@ -386,15 +458,57 @@ def canyon(cfg):
         raise
 
 
-HUB_TABS = {'wish_festival': 310, 'pet_arena': 480, '7777': 650, 'match_event': 820, 'weekly_event': 990}
+HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet': 'pet_arena', r'^Draws|^7777': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event'}
+
+
+def hub_tabs():
+    """Event hub bottom tabs -> {tab: label x}. The set changes with the events, so tabs shift: find them by label
+    (Kong instance 2026-10-29: 4 tabs, Wish Festival at x=480 where fixed coords said Pet Arena)."""
+    tabs = {}
+    for x, y, w, h, t in ocr():
+        for pat, tab in HUB_TABS.items():
+            if y > 1800 and re.search(pat, t) and tab not in tabs: tabs[tab] = x + w // 2
+    return tabs
+
+
+def claim_yellow(title):
+    """Tap every exact 'Claim'/'Free' whose button is the yellow (255,182,16) - never 'Claim More', grey (locked) or
+    a $/gem button - dismissing each reward; stops when none is left or the dialog `title` is gone. No reward popup
+    after a tap (e.g. a no-pass account's video ad) -> Stop."""
+    n = 0
+    for _ in range(6):
+        im = grab(); boxes = ocr(im)
+        if not find(boxes, title): break
+        c = next(((x + w // 2, y + h // 2) for x, y, w, h, t in boxes if t.strip() in ('Claim', 'Free')
+                  and near(im.getpixel((x - 12, y + h // 2)), (255, 182, 16), 30)), None)
+        if not c: break
+        tap_wait(*c); wait(r'Tap anywhere|Congratulations', 4); tap_wait(540, 1880); time.sleep(0.8); n += 1
+    return n
+
+
+def wish_festival():
+    """Sign-In (today's yellow Claim; scroll: today is often below Day 6) and Gift (Free Pack Claim, Limited 2), each
+    only with its own red dot. Never Treasure Vault / Exchange / Rune Salvage (event-coin spends)."""
+    got = []
+    for name, icon, dot, title in (('sign-in', (880, 1520), (940, 1590, 1020, 1660), r'^Sign-In$'),
+                                   ('gift', (270, 1620), (340, 1590, 420, 1660), r'^Gift$')):
+        if not red_dot(*dot): continue
+        tap_wait(*icon); wait(title, 6); n = 0
+        for _ in range(3):                                # today's row may be below the fold
+            n += claim_yellow(title)
+            if name == 'gift' or n: break
+            swipe(540, 1500, 540, 700, 600); time.sleep(1.2)
+        if find(ocr(), title): tap_wait(966, 190); time.sleep(0.8)
+        got.append(f'{name} x{n}')
+    return got
 
 
 def events(cfg):
-    """Event hub (1st banner) bottom tabs with a red dot. Scripted: Match Event milestones, 7777 daily Claim.
-    Other tabs with a dot -> MANUAL. Never Again / Open All / draws / Tribe Clash (its dot never clears)."""
+    """Event hub (1st banner) bottom tabs with a red dot. Scripted: Wish Festival sign-in/gift, Weekly Event Free
+    Benefits, Match Event milestones, 7777 daily Claim. Other tabs with a dot -> MANUAL. Never Again / Open All / draws / Tribe Clash (its dot never clears)."""
     tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920))
     out, left = [], []
-    for tab, x in HUB_TABS.items():
+    for tab, x in hub_tabs().items():
         if not red_dot(x + 30, 1720, min(x + 95, 1080), 1795): continue
         tap_wait(x, 1840); time.sleep(1.2)
         if tab == 'match_event':
@@ -409,11 +523,14 @@ def events(cfg):
         elif tab == '7777':
             c = find(ocr(), r'^Claim$', (300, 1540, 780, 1680))   # never "Again"
             if c:
-                tap_wait(*c); time.sleep(1.5)
-                ok = find(ocr(), r'^Confirm$', (300, 1650, 780, 1850))   # 30-card draw result (Dino 2026-10-29)
-                tap_wait(*ok) if ok else tap_wait(300, 200); out.append('7777 daily')
+                tap_wait(*c)                             # 30-card result; its Confirm can take >1.5 s (Kong instance 2026-10-29)
+                tap_text(r'^Confirm$', (300, 1650, 780, 1850), wait(r'^Confirm$', 15, (300, 1650, 780, 1850))); out.append('7777 daily')
+        elif tab == 'wish_festival': out += wish_festival()
+        elif tab == 'weekly_event':                      # 2nd sub-tab (Wish Merchant / Pet Shop / Recruit Store): Free Benefits
+            tap_wait(410, 240); time.sleep(1); out.append(f'weekly free x{claim_yellow(r"Free Benefits")}')
         else: left.append(tab)
-        if red_dot(x + 30, 1720, min(x + 95, 1080), 1795) and tab not in left and tab != '7777': left.append(tab)  # 7777 dot stays
+        if red_dot(x + 30, 1720, min(x + 95, 1080), 1795) and tab not in left and tab not in ('7777', 'wish_festival'):
+            left.append(tab)                             # sticky dots: 7777 after its daily Claim, Wish Festival's Treasure Vault (coin draws, never)
     r = ', '.join(out) or 'nothing claimed'
     return f'MANUAL {r}; red dots left: {left}' if left else r
 
@@ -431,7 +548,7 @@ CATCHUP_MANUAL = []
 ORDER = [('fishing', fishing), ('patrol', patrol), ('storm', storm), ('arena', arena), ('shop', shop),
          ('play_pass', play_pass), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('beast', beast),
          ('trials', trials), ('recruit', recruit), ('hero', hero), ('tribe', tribe), ('divine', divine), ('relic_shovels', relic_shovels),
-         ('stage', stage), ('patrol_claim', patrol_claim), ('arena2', arena), ('grocery', grocery),
+         ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune), ('arena2', arena), ('grocery', grocery), ('grocery_buy', grocery_buy),
          ('storm_rewards', storm_rewards), ('arena_claims', arena_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
          ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission)]  # missions always last (Nick, 2026-10-29)
 # config key that must be present / truthy for a step to run
@@ -441,7 +558,7 @@ KEY = {'storm': None, 'arena': 'arena', 'arena2': 'arena', 'fishing': 'fishing',
        'tribe': 'tribe', 'divine': 'divine_weapon', 'relic_shovels': 'relic_shovels', 'stage': 'adventure_stage', 'grocery': 'grocery_free_chests',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
        'tribe_chat': 'tribe', 'common_recruit': 'recruit', 'storm_rewards': None, 'arena_claims': 'arena',
-       'canyon_rewards': None, 'events': None, 'canyon': 'canyon_clash'}
+       'canyon_rewards': None, 'events': None, 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
 
 
 def enabled(cfg, key):
@@ -472,8 +589,7 @@ def main(argv):
     if only: left = []                                 # single steps: report only their own leftovers
     elif catch_up: left = list(CATCHUP_MANUAL)
     else:
-        left = [k for k in MANUAL if k not in ('pet_arena',) or (NOW.weekday() < 3 and enabled(cfg, 'pet_arena'))]
-        left = [k for k in left if k != 'grocery_buy' or 'grocery_buy' in cfg]
+        left = ['pet_arena'] if NOW.weekday() < 3 and enabled(cfg, 'pet_arena') else []
     force = '--force' in argv; only = [a for a in only if a != '--force']
     state = f'/tmp/miniheroes-state/{ACCOUNT}-{GAME_DAY}.done'
     os.makedirs(os.path.dirname(state), exist_ok=True)

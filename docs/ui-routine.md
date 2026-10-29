@@ -54,7 +54,8 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 **Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
 main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
 Steps: fishing patrol storm arena shop play_pass tower sanctuary gate beast trials recruit hero tribe divine relic_shovels stage
-patrol_claim arena2 grocery daily_mission fishing_rewards.
+patrol_claim rune arena2 grocery grocery_buy storm_rewards arena_claims canyon canyon_rewards events fishing_rewards daily_mission.
+**Run overview: `scripts/summary.sh <run dir>`** — per account OK/SKIP counts, FAIL/MANUAL/paid lines, LEFT FOR HELPER (one call instead of grepping logs).
 
 Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png] [-w 270|540]` for every tap (device coords):
 it waits only until the screen changes and settles (~1 s per tap, max 4 s) instead of a fixed sleep,
@@ -437,7 +438,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started
    It handles both popups itself (WARN line on high quality) and returns `None` on any other popup (e.g. out of tickets).
 4. Out of tickets: buy with **50 gems** — `+` `(272,425)` next to the ticket count → **Purchase** `(540,1203)`
    (verify 50 gems); the popup stays open, close by tapping `(540,1600)`.
-5. Close ✕ `(973,270)`. **Benefit** `(330,1800)` **only if it has a red dot** — no red dot = don't open it → **Claim Reward** `(540,1662)`
+5. Close ✕ `(973,270)`. **Benefit** (runner: `fishing` step, 2026-10-29) `(330,1800)` **only if it has a red dot** — no red dot = don't open it → **Claim Reward** `(540,1662)`
    (60 bread, 5 refresh tickets, baits) → dismiss `(540,120)` → close ✕ `(970,238)`.
 6. **Auto** `(982,1222)` → *Auto Fish* settings (keep as-is: Auto-submit Orders ✓) → **Start** `(540,1485)`.
    Button becomes "Auto Fishing". Leave it.
@@ -506,6 +507,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords).
 
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
 
+**Runner step `rune`** (2026-10-29): finds red tiles + lock icons by pixel, the popup decides. Manual steps:
+
 1. Main screen → menu ☰ bottom-right `(994,1625)` → **Backpack** `(900,1775)` → **Rune** tab `(868,1680)`.
 2. Scroll down (`input swipe 540 1300 540 700 800`) to the red (Mythic) runes. Tap one **without a
    lock** — the grid's tiny lock icons are easy to misread; the popup is the truth: a locked rune
@@ -530,7 +533,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
    Manual: tap a chest showing **Free** → popup must say Free (never a gem price) → claim → wait ~4.5 s → dismiss
    `(540,1850)` (`(540,120)` can close Grocery). Popup Free pixel `(480,1344)`: green (123,206,49) = claimable,
    grey (173,178,189) = cooldown. Growth Chest gives +80 gems per claim; Resource Chest can roll +50.
-4. **`grocery_buy`** (per account, optional): for each shop tab listed, buy each listed tile **once**. Tabs at
+4. **`grocery_buy`** (per account, optional; **runner step `grocery_buy`** since 2026-10-29 — OCR price/balance, price icon colour = balance icon, popup price = tile price): for each shop tab listed, buy each listed tile **once**. Tabs at
    y=546: Sanctuary `(452,546)`, Tribe `(732,546)`, Ruins `(980,546)`; swipe the tab bar `900→200` → Realm
    `(604,546)` (Tundra further). Tiles are numbered 1–12 left→right, top→bottom; price buttons at
    x = `163 / 413 / 663 / 913`, y = `893 / 1249 / 1605`. Purchase popup `(540,1203)`, dismiss `(540,1850)`.
@@ -549,7 +552,7 @@ or gem price, never draw/spin with paid currency or event coins, never "Join" wi
 token, ticket, draw, coin or key, even free ones — just claim what's given. Back out
 `(88,1812)` when no red dots are left.
 
-- **Runner step `events`** (2026-10-28): hub tab red dots (box right-above each tab), Match Event milestones (Canyon Warrior `(160,320)`, Heroic Trial `(400,310)`, OCR'd Claim in the top row) and 7777's daily Claim; any other tab with a dot → MANUAL. Hub tabs at y=1840: Wish Festival 310, Pet Arena 480, 7777 650, Match Event 820, Weekly 990.
+- **Runner step `events`** (2026-10-28): hub tab red dots (box right-above each tab), Match Event milestones (Canyon Warrior `(160,320)`, Heroic Trial `(400,310)`, OCR'd Claim in the top row) and 7777's daily Claim; Wish Festival Sign-In/Gift and Weekly Event Free Benefits (2026-10-29: only yellow `Claim`/`Free` buttons); Pet Arena tab with a dot → MANUAL. Hub tabs at y=1840 **shift with the event set** — the runner finds them by label (Kong instance 2026-10-29: Wish 480, 7777 650, Match 815, Weekly 990). Sticky dots ignored: 7777 after its Claim, Wish Festival's Treasure Vault (coin draws). Hub dots are (255,0,74).
 - **Event hub:** the 1st banner taps at ≈ `(896,340)` (y≈166–210 misses). Any banner opens the shared hub; use its
   bottom tabs (y≈1820–1850) instead of timing the rotation: Wish Festival `(300,1820)`, 7777 Draws `(648,1850)`,
   Match Event `(860,1850)`, Weekly Event `(1000,1850)`. Banners rotate between screenshots.
