@@ -360,7 +360,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Endless-wave mode; progress
 3. **First chance — run it:** Start Challenge `(540,960)` → lineup (default top 10, keep it) →
    **Start Challenge** `(540,1806)` → *Tip* "Start challenge from Wave N?" → **Confirm** `(760,1164)`.
    **Never tap Restart** (resets wave progress).
-   - **Time cap 2m (Nick, 2026-10-29)** from Confirm. If still fighting: **Pause** `(866,1227)` (may need a 2nd tap) →
+   - **Time cap 3m (Nick, 2026-10-29)** from Confirm. If still fighting: **Pause** `(866,1227)` (may need a 2nd tap) →
      **Quit Battle** `(376,920)` (still counts as Victory) → **Confirm** `(540,1406)`.
    - If it ends earlier: *Victory* (kill count + rewards) → **Confirm** `(540,1406)`.
    - A network-error popup sends the game to the loading screen — that run uses no chance, re-run.

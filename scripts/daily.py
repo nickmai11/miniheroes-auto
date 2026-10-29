@@ -278,14 +278,14 @@ def gate(cfg):
     adventure(r'Gate of Darkness'); boxes = wait(r'Chances left today', 10)
     left = lambda b: int(re.search(r'Chances left today\W*(\d+)', joined(b)).group(1))
     n, out = left(boxes), []
-    if n >= 2:                                          # first chance: run it (time cap 2m, Nick 2026-10-29), never Restart
+    if n >= 2:                                          # first chance: run it (time cap 3m, Nick 2026-10-29), never Restart
         tap_text(r'^Start Challenge$', (200, 880, 880, 1040), boxes)
         boxes = wait(r'^Start Challenge$', 8, (0, 1700, 1080, 1920))
         tap_text(r'^Start Challenge$', (0, 1700, 1080, 1920), boxes)
         boxes = wait(r'Start challenge from Wave|^Confirm$', 8)
         tap_text(r'^Confirm$', (560, 1080, 960, 1250), boxes)
         t0 = time.time()
-        while time.time() - t0 < 120 and not find(ocr(), r'Victory|Kill Count'): time.sleep(2)
+        while time.time() - t0 < 180 and not find(ocr(), r'Victory|Kill Count'): time.sleep(2)
         if not find(ocr(), r'Victory|Kill Count'):     # still fighting: Pause -> Quit Battle (counts as Victory)
             tap_wait(866, 1227); b = ocr()
             if not find(b, r'Quit Battle'): tap_wait(866, 1227); b = ocr()
