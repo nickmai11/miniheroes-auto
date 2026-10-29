@@ -12,12 +12,6 @@ D=os.environ['D']
 row=int(sys.argv[1]); maxn=int(sys.argv[2]); mn=int(sys.argv[3]) if len(sys.argv)>3 else 4
 Y={1:567,2:921,3:1275}[row]; BY={1:704,2:1058,3:1412}[row]
 XS=[int(x/0.469) for x in (297,331,365,399,432)]
-def count(retry=3):
-    for _ in range(retry):
-        n=count1()
-        if n is not None: return n
-        time.sleep(1)
-    return None
 def count1():
     subprocess.run(f'adb -s {D} exec-out screencap -p > s.png',shell=True)
     im=Image.open('s.png').convert('RGB'); n=0
@@ -26,17 +20,19 @@ def count1():
         if p[0]>200 and p[1]>150: n+=1
         elif p==(58,85,115): pass
         else: return None
-    return n
+    return n or None   # 0 diamonds is impossible (every order has >=1): a misread mid-animation (Cmajor 2026-10-29)
 for i in range(maxn+1):
-    n=count1()
-    if n is None:
+    for _ in range(4):                         # popups can show up >3 s after the Refresh tap (Cmajor/Chien Than 2026-10-29)
+        n=count1()
+        if n is not None: break
         txt=' '.join(b[4] for b in ocr(Image.open('s.png')))
         if re.search(r'high quality', txt):    # refreshing an order the game calls good = we misread a row (Nick, 2026-10-29)
             subprocess.run(f'adb -s {D} shell input tap 320 1212',shell=True); time.sleep(1.5)   # Cancel
-            print(f'WARN row {row}: "order is of high quality" popup - cancelled, row left as is',flush=True); break
+            print(f'WARN row {row}: "order is of high quality" popup - cancelled, row left as is',flush=True); n='hq'; break
         if re.search(r'Confirm to refresh', txt):
-            subprocess.run(f'adb -s {D} shell input tap 757 1211',shell=True); time.sleep(1.5)   # Confirm
-        n=count()
+            subprocess.run(f'adb -s {D} shell input tap 757 1211',shell=True)
+        time.sleep(1.5)
+    if n=='hq': break
     print(i,n,flush=True)
     if n is None or n>=mn or i==maxn: break
     subprocess.run(f'adb -s {D} shell input tap 849 {BY}',shell=True); time.sleep(1.5)
