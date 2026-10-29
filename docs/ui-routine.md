@@ -246,10 +246,11 @@ Weekly win chests (10/20/35/50 wins) along the top bar, 10 ≈ `(376,210)`, 20 �
      buttons at the bottom, Week ≈ `(568,1828)`, Day ≈ `(895,1828)`; a red **gift box** on the button's top-right
      corner (≈ x+113, y 1700–1790) = claimable → tap the button: it claims at once ("Congratulations — Rewards for
      attaining N place", no Claim button; Cmajor Day 2026-10-29: 100 gems, 2 relic shards?, 12 medals) → dismiss `(540,120)`.
-     No gift box → skip. Arena back arrow `(120,1780)`; `(60,56)` opens Rules (close with `keyevent 4`).
+     No gift box → don't tap it, not even to check (Nick, 2026-10-29). Arena back arrow `(120,1780)`; `(60,56)` opens Rules (close with `keyevent 4`).
 
 **Interrupt: tickets full.** During any daily, a popup can say Match attempts are full. Its **Confirm**
-(`(696,1162)`–`(740,1162)`) only closes it — then go to the Arena yourself, run the routine above until tickets = 0
+(`(696,1162)`–`(740,1162)`) opens the Arena since 2026-10-29 (it used to only close it; `trials.py` now taps Cancel
+and continues) — either way, go to the Arena, run the routine above until tickets = 0
 (same tribe rules), and continue the daily you were on.
 
 ## Shop freebies (red dots)

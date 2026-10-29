@@ -7,13 +7,13 @@
 # Done today = 2 - free left, or 2 + purchases made (price ladder 80/160/240 -> 0/1/2 made; the purchase
 # max differs per account: Tiger had 4, Cmajor 5).
 # Stops as soon as the target is reached; the price cap is only a safeguard (Nick, 2026-10-29).
-# "Match tickets full" popup: Confirm,
+# "Match tickets full" popup: Cancel (Confirm opens the Arena),
 # keep going, print MATCH_FULL at the end. exit 0 = all dungeons handled, 1 = unexpected screen (v_trials.png).
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import os, re, subprocess, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait
-from flow import ocr, tap
+from flow import find, ocr, tap
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
@@ -31,9 +31,13 @@ class Stop(Exception): pass
 def text():
     """OCR the screen; closes the 'Match tickets full' popup if it is up."""
     global match_full
-    t = ' | '.join(b[4] for b in ocr(grab()))
-    if 'reached the' in t and 'max' in t:
-        match_full = True; tap_wait(720, 1162); t = ' | '.join(b[4] for b in ocr(grab()))
+    boxes = ocr(grab()); t = ' | '.join(b[4] for b in boxes)
+    if 'reached the' in t and 'max' in t:              # Confirm now opens the Arena (Bino/Dino 2026-10-29): Cancel, else back
+        match_full = True; c = find(boxes, r'^Cancel$')
+        if c: tap_wait(*c)
+        else: subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4']); time.sleep(1)
+        t = ' | '.join(b[4] for b in ocr(grab()))
+        if 'reached the' in t and 'max' in t: raise Stop('tickets-full popup did not close')
     return t
 
 
