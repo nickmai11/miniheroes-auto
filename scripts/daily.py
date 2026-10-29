@@ -46,7 +46,7 @@ def home():
 def red_dot(x0, y0, x1, y1, im=None):
     im = im or grab()
     return sum(1 for y in range(y0, y1, 4) for x in range(x0, x1, 4)
-               if (lambda p: p[0] > 235 and p[1] < 70 and p[2] < 100)(im.getpixel((x, y)))) >= 4   # hub dots are (255,0,74)
+               if (lambda p: p[0] > 210 and p[1] < 70 and p[2] < 100)(im.getpixel((x, y)))) >= 4   # hub dots (255,0,74), Storm Rewards (230,4,74)
 
 
 def script(name, *args):
@@ -64,7 +64,8 @@ def storm_arena():
     for _ in range(4):                                   # the 2nd event card rotates; tapping it usually opens Storm
         tap_wait(880, 480); time.sleep(1.5)
         im = grab(); p = im.getpixel((400, 1580))
-        if p[0] > 200 and p[1] > 150 and p[2] < 80: return  # yellow Start Match = Storm arena
+        # yellow Start Match + title: Treasure Vault's yellow Draw buttons passed the pixel alone (Bino 2026-10-29)
+        if p[0] > 200 and p[1] > 150 and p[2] < 80 and find(ocr(), r'Start Match'): return
         home()
     raise Stop('Storm arena did not open')
 
@@ -504,12 +505,12 @@ def fishing_rewards(cfg):
 # nothing claimable) - a red dot still there afterwards -> MANUAL (helper).
 
 def storm_rewards(cfg):
-    """Storm arena Rewards (96,880): reached rank rows claim by tapping the row's item icon (Gold/Silver/Bronze)."""
+    """Storm arena Rewards (96,880): reached rank rows (glowing outline) claim by tapping the row's item icon."""
     if NOW.weekday() == 0 and NOW.hour < 17: return 'SKIP closed until Mon 17:00'
     storm_arena()
     if not red_dot(110, 830, 180, 900): return 'no red dot'
     tap_wait(96, 880); time.sleep(1)
-    for y in (962, 1180, 1404):                          # an already-claimed / unreached icon only shows a tooltip
+    for y in (518, 740, 962, 1180, 1404):                # King, Glory, Gold, Silver, Bronze; an already-claimed / unreached icon only shows a tooltip
         tap_wait(372, y); time.sleep(1); tap_wait(540, 1900)
     tap_wait(972, 228); time.sleep(1)
     return 'MANUAL red dot still on Rewards' if red_dot(110, 830, 180, 900) else 'rank rewards claimed'
