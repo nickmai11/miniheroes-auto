@@ -9,7 +9,7 @@ import os, re, sys, time
 from flow import Stop, find, main, ocr, swipe, tap, tap_wait, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-STRIP = (170, 1430, 1080, 1540)   # card "Lv.N" labels; x < 170 is under the Quick Ascend button
+STRIP = (120, 1430, 1080, 1540)   # card "Lv.N" labels; the leftmost one is half under Quick Ascend (tap y 1580 is below it)
 
 
 def name(boxes): return next((t for x, y, w, h, t in boxes if y < 160 and x < 500), '')
@@ -31,7 +31,8 @@ def select(hero):
     seen = None
     for page in range(25):
         boxes = ocr()
-        cards = sorted({x + w // 2 for x, y, w, h, t in boxes if re.match(r'L[Vv]\.?\d', t)
+        # a bare number counts: Quick Ascend hides the "Lv.1" of the leftmost card (Bone Archer -> "60", Dminor 2026-10-29)
+        cards = sorted({x + w // 2 for x, y, w, h, t in boxes if re.match(r'(L[Vv]\.?\s*)?\d+$', t.strip())
                         and STRIP[0] <= x + w // 2 <= STRIP[2] and STRIP[1] <= y + h // 2 <= STRIP[3]}, reverse=True)
         if cards == seen: break                               # strip did not move: start reached
         seen = cards
