@@ -12,7 +12,7 @@
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import datetime, fcntl, os, re, subprocess, sys, time
 from stabilize import close_x
-from flow import Stop, adventure, battle, find, grab, joined, ocr, swipe, tap, tap_text, tap_wait, wait
+from flow import Stop, adventure, battle, find, grab, joined, ocr, swipe, tap, tap_text, tap_wait, tickets_full, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
@@ -34,6 +34,7 @@ def home():
     for _ in range(8):
         if is_main(): return True
         boxes = ocr()
+        if tickets_full(boxes): continue
         if find(boxes, r'Do not remind me today'):
             tap_text(r'Do not remind me today', boxes=boxes)
             x = close_x(grab())                                    # back arrow can't close event popups (Dino 2026-10-28)

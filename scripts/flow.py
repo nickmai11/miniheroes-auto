@@ -48,12 +48,25 @@ def find(boxes, pattern, region=(0, 0, 1080, 1920)):
 def joined(boxes): return ' | '.join(b[4] for b in boxes)
 
 
+def tickets_full(boxes):
+    """Close the "Current entry tickets have reached the max" popup (it can pop over any screen) with Cancel —
+    its Confirm opens the Arena (2026-10-29); the run's arena2 step spends the tickets. True if it was up."""
+    t = joined(boxes)
+    if not ('reached the' in t and 'max' in t): return False
+    c = find(boxes, r'^Cancel$')
+    if c: tap_wait(*c)
+    else: subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4']); time.sleep(1)
+    print('    tickets-full popup closed (Cancel)', flush=True)
+    return True
+
+
 def wait(pattern, timeout=10, region=(0, 0, 1080, 1920)):
     """Poll until a box matches; returns the boxes. Stop on timeout."""
     t0 = time.time()
     while True:
         boxes = ocr()
         if find(boxes, pattern, region): return boxes
+        if tickets_full(boxes): continue
         if time.time() - t0 > timeout: raise Stop(f'waited {timeout}s for {pattern!r}; screen: {joined(boxes)[:200]}')
         time.sleep(0.7)
 
