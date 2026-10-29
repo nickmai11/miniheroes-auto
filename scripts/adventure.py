@@ -5,7 +5,7 @@
 # for chances, never opens Shop. exit 1 = unexpected screen (v_adventure.png).
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import os, re, sys
-from flow import Stop, adventure, battle, main, ocr, wait
+from flow import Stop, adventure, battle, find, main, ocr, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -18,7 +18,9 @@ def run(account, mode):
     cfg = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
     if mode == 'tower':
         n = int(re.search(r'tower_of_the_throne:\s*(\d+)', cfg).group(1))
-        adventure(r'Tower of the Throne'); wait(r'^Challenge$', 10, (0, 1600, 1080, 1920))
+        adventure(r'Tower of the Throne'); boxes = wait(r'^Challenge$|^Claim Reward$', 10, (0, 1600, 1080, 1920))
+        if not find(boxes, r'^Challenge$', (0, 1600, 1080, 1920)):   # top floor cleared (Chien Than, Floor 2000, 2026-10-29)
+            print('SKIP tower fully cleared (no Challenge; "Claim Reward" not mapped, left for Nick)'); return
         for i in range(n):
             t = tickets()
             if t == 0: print('tower: 0 tickets left'); break
