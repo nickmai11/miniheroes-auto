@@ -14,7 +14,7 @@ Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Vein
    Relic tap + a retry lands you in Relic Display (back arrow `(80,1820)`). Screenshot before retrying anything.
 3. Dig one tile per tap until the shovel counter (`N/150`, top-left) is 0. Screenshot after every tap
    (`scripts/tap.py X,Y` — its 540-wide screenshot coords ×2 = device coords), re-read the whole board, re-plan.
-4. Report: items collected per account, shovels wasted (digs that neither went down nor got an item).
+4. Report per account: items collected (each chest's piece and level), shovels used, units per shovel.
 
 ## Board
 
@@ -26,17 +26,31 @@ Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Vein
 - Digging a bottom-row tile scrolls the board up one row (new bottom row appears). Each dig = 1 shovel
   and +1 on the "Mine N more times" bar.
 
-## Priorities (Nick, 2026-10-27)
+## Value model (Nick's facts 2026-10-30; scoring is Claude's)
 
-1. **Dig down.** Default move = cheapest path to the bottom row; new rows bring new items.
-2. **Relic chest (silver/blue chest)** — always go for it, even off the path.
-3. **2/4/6-square chests** — must get, even off the path.
-4. **Shovel tile** — free (costs nothing, refunds 1); take any reachable one.
-5. **Relic shard (blue fragment)** — only if on the path down or 1 dig off it. Don't spend 3–4 shovels on a lone shard (a cluster at ~1.5 shovels/shard is fine).
-   Grab any 1-dig shard right away — don't defer it.
-6. **Gold/purple chest** — ignore (gives Moon Essence, not relics); dig it only if it's on the path anyway.
+Score every target in **lv1-shard units per shovel**, not by fixed rules.
+- Relics: lv1 = stone, ribs, green crescent; lv2 = axe (2 crescent + 4 stone), saw (4 ribs + 2 stone),
+  sword (4 crescent + 2 ribs). So 1 lv2 piece = 6 units. Nothing is lost past a relic's cap.
+- **Board shard = 1 unit** (type unknown until dug — no type preference).
+- **Relic chest = 1 piece, lv1 or lv2 → ≈ 3.5 units** (assumes even odds; update from what chests actually give).
+- **2/4/6-square chests:** contents not measured — treat as ≥ a relic chest until logged.
+- Gold/purple chest (Moon Essence), milestone bar: **0** — a gold/purple chest is just a blocker.
+- Crafting a relic chest (2+2+2 lv1 = 6 units) returns ≈ 3.5 — a loss; crafting a lv2 directly is 6 → 6.
 
-With the last shovel(s), prefer a dig that opens a reachable item for the next shovel (shovels regenerate).
+**Real cost** of a target = new tiles to connect it to the dug area (dirt 1, light stone 2, dark stone avoid,
+shovel tile 0 net and it opens neighbours). Plan routes to item groups: a shared tunnel splits its cost.
+
+**Threshold:** take a target if `units / real cost ≥ r`, where r = average units per shovel from logged runs
+(no log yet: start with r ≈ 0.5). So a relic chest is worth up to ~7 digs, a lone shard up to ~2.
+
+**Digging down** is the source of new items: once a shaft is in the bottom row, each bottom-row dirt dig reveals
+a new 6-tile row for 1 shovel. Run the shaft next to item clusters (cheap side digs later), keep a foothold in
+the bottom row, branch off only for targets above the threshold.
+
+**The board keeps its state** — no dig is wasted. Spend every shovel; end on a dig toward the next target.
+Dig before the shovel count caps at 150 (regen past the cap is lost).
+
+Log each dig (`cost`, what it gave) to the account log so r and the chest values can be measured.
 
 ## Hard rules
 
