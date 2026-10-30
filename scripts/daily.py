@@ -413,8 +413,9 @@ def rune(cfg):
     free = [(t, cx) for t, cx in sorted(tiles)
             if not sum(1 for y in range(t - 14, t + 20) for x in range(cx + 50, cx + 80) if sum(im.getpixel((x, y))[:3]) < 150)]
     for t, cx in free[:3]:
-        tap_wait(cx, t + 72); time.sleep(0.8); boxes = ocr()
-        s = find(boxes, r'^Synthesize$', (300, 1100, 780, 1300))
+        tap_wait(cx, t + 72)
+        try: s = find(wait(r'^Synthesize$', 3, (300, 1100, 780, 1300)), r'^Synthesize$', (300, 1100, 780, 1300))
+        except Stop: s = None                     # 0.8 s fixed sleep missed the popup on Dino (2026-10-30)
         if not s: tap_wait(540, 200); time.sleep(0.8); continue   # outside the popup, inside Backpack; 'Locked Runes can't be synthesized' / misread
         tap_wait(*s); tap_text(r'Quick ?Equip', (250, 1600, 580, 1720), wait(r'Quick ?Equip', 6))
         boxes = wait(r'^Synthesize$', 4, (650, 1600, 1000, 1720))
