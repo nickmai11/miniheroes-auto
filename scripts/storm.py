@@ -6,7 +6,7 @@
 # the script closes the popup and stops. Never taps the 30-gem Redeem.
 # Lineup (Nick, 2026-10-27, after helpers played with the leftover 1-hero lineup): sets the full lineup
 # (Quick Deploy) before the first match and leaves only the first hero after (ui-routine Storm steps 2 + 6).
-# storm_max_rank in the account file (Nick, 2026-10-31: Aminor/Kong "King +10", default King +1): read the rank under the badge
+# storm_max_rank in the account file (Nick, 2026-10-31: Kong "King +10", the rest "King +1"; no setting = no cap): read the rank under the badge
 # ("King", "King +3", OCR) before every match; at/above the cap stop, even with tickets left.
 # UNTESTED (written 2026-10-27) — verify on one account before a multi-account run.
 import os, re, subprocess, sys, time
@@ -23,10 +23,10 @@ def rank(text):
 
 
 def max_rank(account):
-    """storm_max_rank from the account file; default King +1 (Nick, 2026-10-31: the rest stop at King +1)."""
+    """storm_max_rank from the account file; no setting = no cap, play every ticket (Nick, 2026-10-31)."""
     try: m = re.search(r'storm_max_rank:\s*([^#\n]+)', open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts', account + '.yaml')).read())
-    except (OSError, TypeError): m = None     # no account (old daily.py) -> default
-    return rank(m.group(1)) if m else (4, 1)
+    except (OSError, TypeError): return None
+    return m and rank(m.group(1))
 
 
 def cur_rank(im):
