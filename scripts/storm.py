@@ -1,16 +1,36 @@
 #!/usr/bin/env python3
 # Play Storm Battlefield matches until tickets run out. Arena screen (yellow "Start Match") must be open.
-# usage: D=<serial> scripts/storm.py   — polls every ~0.5 s, so a match costs only its real length.
+# usage: D=<serial> scripts/storm.py [account]   — polls every ~0.5 s, so a match costs only its real length.
 # Free tickets: in ONE visit of the "+" popup, tap the left green button (Free / Claim+video ad)
 # until it turns grey, watching the ad when there is one (Nick, 2026-10-26); the next time tickets hit 0
 # the script closes the popup and stops. Never taps the 30-gem Redeem.
 # Lineup (Nick, 2026-10-27, after helpers played with the leftover 1-hero lineup): sets the full lineup
 # (Quick Deploy) before the first match and leaves only the first hero after (ui-routine Storm steps 2 + 6).
+# storm_max_rank in the account file (Nick, 2026-10-31: Aminor/Kong "King +10", default King +1): read the rank under the badge
+# ("King", "King +3", OCR) before every match; at/above the cap stop, even with tickets left.
 # UNTESTED (written 2026-10-27) — verify on one account before a multi-account run.
-import os, subprocess, sys, time
+import os, re, subprocess, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait
-from flow import near
+from flow import near, ocr
+TIERS = ['Bronze', 'Silver', 'Gold', 'Glory', 'King']
+
+
+def rank(text):
+    """'King +10' -> (4, 10); 'King' / 'King 0' (the ⓘ icon) -> (4, 0); None if no tier."""
+    m = re.search(r'(' + '|'.join(TIERS) + r')\s*(?:\+\s*(\d+))?', text)
+    return m and (TIERS.index(m.group(1)), int(m.group(2) or 0))
+
+
+def max_rank(account):
+    """storm_max_rank from the account file; default King +1 (Nick, 2026-10-31: the rest stop at King +1)."""
+    try: m = re.search(r'storm_max_rank:\s*([^#\n]+)', open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts', account + '.yaml')).read())
+    except (OSError, TypeError): m = None     # no account (old daily.py) -> default
+    return rank(m.group(1)) if m else (4, 1)
+
+
+def cur_rank(im):
+    return rank(' '.join(t for x, y, w, h, t in ocr(im) if 400 < x + w // 2 < 700 and 560 < y + h // 2 < 720))
 D = os.environ['D']
 def arena(im): p = im.getpixel((400, 1580)); return p[0] > 200 and p[1] > 150 and p[2] < 80  # Start Match yellow
 # "+" popup: left button body. y=1274 hits the "Free" text / camera icon of the ad "Claim" variant, so
@@ -62,19 +82,25 @@ def lineup(full):
     print(f'lineup set: {"full (Quick Deploy)" if full else "first hero only"}', flush=True); return True
 
 
-def main():
+def main(account=None):
     if not arena(grab()):
         print('not on arena screen; stop'); return 1
+    cap = max_rank(account)
+    if cap and (cur_rank(grab()) or (-1,)) >= cap: print(f'rank {cur_rank(grab())} already at max {cap}; no matches'); return 0
     if not lineup(True): return 1
-    r = play()
+    r = play(cap)
     if r == 0 and not lineup(False): return 1
     return r
 
 
-def play():
+def play(cap=None):
     claimed, n = False, 0
     while n < 30:
         im = grab()
+        if cap and arena(im):
+            r = cur_rank(im)
+            if r is None: print('rank unreadable with a max rank set; stop'); return 1
+            if r >= cap: print(f'rank {TIERS[r[0]]} +{r[1]} reached max; done (tickets left)', flush=True); return 0
         if free_btn(im) and not arena(im):           # popup open (we opened it or the game did at 0 tickets)
             if claimed or free_btn(im) == 'grey':
                 close_popup(); print('out of tickets (free chances checked once); done'); return 0
@@ -101,4 +127,4 @@ def play():
 
 
 if __name__ == '__main__':
-    sys.exit(main())
+    sys.exit(main(sys.argv[1] if len(sys.argv) > 1 else None))

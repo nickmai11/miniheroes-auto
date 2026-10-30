@@ -73,7 +73,7 @@ def storm_arena():
 def storm(cfg):
     if NOW.weekday() == 0 and NOW.hour < 17: return 'SKIP closed until Mon 17:00'
     storm_arena()
-    return script('storm.py')
+    return script('storm.py', ACCOUNT)
 
 
 def ranking_rewards():
