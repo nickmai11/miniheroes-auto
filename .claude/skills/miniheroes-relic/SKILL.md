@@ -12,7 +12,7 @@ Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Vein
    Path: main screen → **Relic** (bottom bar, far right) `(972,1788)` → **Lost Continent** map → **Archaeology**
    `(540,1540)` → dig board. Careful: on the map, **Relic Display** sits right where the Relic button was — a late
    Relic tap + a retry lands you in Relic Display (back arrow `(80,1820)`). Screenshot before retrying anything.
-3. Dig one tile per tap until the shovel counter (`N/150`, top-left) is 0. Screenshot after every tap
+3. Dig one tile per tap (only tiles touching an empty cell — else "dig up the adjacent plot first", no shovel used) until the shovel counter (`N/150`, top-left) is 0. Screenshot after every tap
    (`scripts/tap.py X,Y` — its 540-wide screenshot coords ×2 = device coords), re-read the whole board, re-plan.
 4. Report per account: items collected (each chest's piece and level), shovels used, units per shovel.
 
@@ -22,26 +22,28 @@ Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Vein
   row y = `600, 770, 940, 1110, 1280, 1450, 1620` (row 7 = bottom row, below the yellow % line).
 - Dark brown = empty (already dug). **Lit** tiles (tan dirt, light grey stone) touch an empty cell → diggable.
   **Dark** tiles (dark dirt, dark grey stone) aren't reachable yet. Only tiles adjacent to empty cells can be dug.
-- Dirt = 1 hit. Light grey stone = 2 hits (cracks after the 1st). Dark grey stone untested — avoid.
+- Dirt = 1 hit. Light grey stone = 2 hits (cracks after the 1st) — one bottom-row stone stayed cracked after 2 (Dino 2026-10-30), may need 3. Dark grey stone untested — avoid.
 - Digging a bottom-row tile scrolls the board up one row (new bottom row appears). Each dig = 1 shovel
   and +1 on the "Mine N more times" bar.
 
 ## Value model (Nick's facts 2026-10-30; scoring is Claude's)
 
-Score every target in **lv1-shard units per shovel**, not by fixed rules.
-- Relics: lv1 = stone, ribs, green crescent; lv2 = axe (2 crescent + 4 stone), saw (4 ribs + 2 stone),
-  sword (4 crescent + 2 ribs). So 1 lv2 piece = 6 units. Nothing is lost past a relic's cap.
-- **Board shard = 1 unit** (type unknown until dug — no type preference).
-- **Relic chest = 1 piece, lv1 or lv2 → ≈ 3.5 units** (assumes even odds; update from what chests actually give).
+Score every target in **lv1-relic units per shovel**, not by fixed rules.
+- Relics: lv1 = stone, ribs, green crescent (20 fragments each); lv2 = axe (2 crescent + 4 stone), saw
+  (4 ribs + 2 stone), sword (4 crescent + 2 ribs) (30 fragments each). So lv1 fragment = 0.05, lv2 relic = 6,
+  lv2 fragment = 0.2. Nothing is lost past a relic's cap.
+- Dino 2026-10-30 (71 shovels): lv1 shard = 2–5 fragments (avg 3.7 → **≈ 0.19**), lv2 shard = 1–3 (avg 2 →
+  **≈ 0.4**), relic chest = 1 whole relic (3/3 were lv1 → **≈ 1**, more if lv2 ever drops). Run total ≈ 10.5
+  units → **r ≈ 0.15 / shovel**. Type/level isn't known until dug (shade of blue may hint — unverified).
 - **2/4/6-square chests:** contents not measured — treat as ≥ a relic chest until logged.
 - Gold/purple chest (Moon Essence), milestone bar: **0** — a gold/purple chest is just a blocker.
-- Crafting a relic chest (2+2+2 lv1 = 6 units) returns ≈ 3.5 — a loss; crafting a lv2 directly is 6 → 6.
 
 **Real cost** of a target = new tiles to connect it to the dug area (dirt 1, light stone 2, dark stone avoid,
 shovel tile 0 net and it opens neighbours). Plan routes to item groups: a shared tunnel splits its cost.
 
 **Threshold:** take a target if `units / real cost ≥ r`, where r = average units per shovel from logged runs
-(no log yet: start with r ≈ 0.5). So a relic chest is worth up to ~7 digs, a lone shard up to ~2.
+(r ≈ 0.15 from Dino 2026-10-30; re-measure). So a relic chest is worth up to ~7 digs, a lone shard ~1–2
+(lv1 1, lv2 2–3); shards sharing a tunnel split the cost.
 
 **Digging down** is the source of new items: once a shaft is in the bottom row, each bottom-row dirt dig reveals
 a new 6-tile row for 1 shovel. Run the shaft next to item clusters (cheap side digs later), keep a foothold in
