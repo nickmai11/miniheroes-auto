@@ -264,7 +264,8 @@ def sanctuary_climb():
 
 def sanctuary(cfg):
     adventure(r'Secret Sanctuary'); time.sleep(2); boxes = ocr()
-    if find(boxes, r'Bonus Effects') and find(boxes, r'^Confirm$', (300, 1550, 800, 1700)):
+    # map-effects intro: "Bonus Effects", or titled by the map ("Lava Cave" 2026-10-30, no "Bonus Effects") -> Confirm
+    if find(boxes, r'^Confirm$', (300, 1550, 800, 1700)):
         tap_text(r'^Confirm$', (300, 1550, 800, 1700), boxes); time.sleep(1.5); boxes = ocr()
     s = find(boxes, r'^Sweep$', (300, 1700, 800, 1860))
     # the intro shows a greyed Sweep even on a fresh map; only a yellow one is real (Cmajor 2026-10-29 logged "swept"
