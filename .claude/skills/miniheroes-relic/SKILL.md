@@ -52,11 +52,27 @@ the bottom row, branch off only for targets above the threshold.
 **The board keeps its state** — no dig is wasted. Spend every shovel; end on a dig toward the next target.
 Dig before the shovel count caps at 150 (regen past the cap is lost).
 
+## Boosters (drill, dynamite) — Nick 2026-10-30
+
+Supply: milestone bar only (≈2 per 500 digs, ~1 per 2–3 days); never buy. Placed on an explored (dug) tile;
+auto-collect every item in the area. Dynamite = diamond radius 2 (13 tiles). Drill = its whole column + the whole
+bottom row (~12 tiles); does NOT scroll the board.
+- **Value** = shovels saved: cheapest hand-dig cost of the same items (shared tunnel) + stone hits avoided.
+  Items in shovels: relic chest ≈7, lv2 shard ≈2–3, lv1 shard / shovel tile ≈1, gold/purple chest 0.
+- **Use it if it saves ≥ 6 shovels** (≈ 1 per run at a 30 stock). Stock < 10 → raise to 8; stock keeps
+  growing → lower to 5. Dynamite for a tight cluster, drill for a column of items / loaded bottom row.
+- **Fire late:** shovel-dig first, blast where the most value is left (an early blast clears tiles you'd dig anyway).
+- How: tap the booster button (drill `(~150,1855)`, dynamite `(~765,1855)` device), the board shows the area in red,
+  check it, then tap the target tile. Screenshot before the placing tap. Log what it collected.
+
+**Milestone bar** ("Mine N more time(s) to claim your reward", top): when N = 0, tap its reward icon
+top-right `(~980,250)` — free claim (boosters). Claim every time it's ready.
+
 Log each dig (`cost`, what it gave) to the account log so r and the chest values can be measured.
 
 ## Hard rules
 
-- Don't use the drill or bomb boosters (Nick: "no for now"), never tap the green **+** on the shovel
+- Boosters only by the rule above. Never tap the green **+** on the shovel
   button (buys shovels) — except the daily cap-checked buy in `scripts/relic_shovels.py` (dailies, Nick 2026-10-28), never use **One-Tap Mining**. No gems.
 - Never chain taps — a tap you thought was cancelled may still land. Screenshot, then tap.
 - Tap looks ignored (counters unchanged)? It may land late — re-screenshot before retrying, or you'll dig twice.
