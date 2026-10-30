@@ -542,10 +542,21 @@ def arena_claims(cfg):
     return f'wins {w}, chests claimed {got}' if got else f'wins {w}, nothing to claim'
 
 
+def open_canyon():
+    """Main -> Tribe -> Canyon map. The 8 h occupation ends with a *Resource* popup on entry ("resources gathering is
+    now completed", Collect Time 08:00:00) — "Attempts" shows behind it, so close it first: Confirm, dismiss (Nick, 2026-10-31)."""
+    tap_wait(448, 1780); time.sleep(1.5); tap_wait(540, 1090); boxes = wait(r'Attempts', 10)
+    for _ in range(2):
+        if not find(boxes, r'gathering is now completed|^Resource$'): return
+        c = find(boxes, r'^Confirm$'); tap_wait(*(c or (540, 1460))); time.sleep(1); boxes = ocr()
+        if find(boxes, r'Tap anywhere'): tap_wait(540, 120); boxes = ocr()   # gains popup; a low tap could hit a platform
+    raise Stop('Canyon Resource popup did not close')
+
+
 def canyon_rewards(cfg):
     """Tribe -> Canyon Clash -> Rewards (88,745) red dot -> Claim Reward (repeat while it's there)."""
     if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'
-    tap_wait(448, 1780); time.sleep(1.5); tap_wait(540, 1090); wait(r'Attempts', 10)
+    open_canyon()
     if not red_dot(110, 690, 175, 760): return 'no red dot'
     tap_wait(88, 745); n = 0
     for _ in range(6):
@@ -559,7 +570,7 @@ def canyon_rewards(cfg):
 def canyon(cfg):
     """Take a new EMPTY spot by the day's rule (scripts/canyon.py). No empty one -> MANUAL (helper may beat a Sentinel, never a player)."""
     if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'
-    tap_wait(448, 1780); time.sleep(1.5); tap_wait(540, 1090); wait(r'Attempts', 10)
+    open_canyon()
     # ponytail: one global lock - our accounts share the map and raced for the same spots (2026-10-29)
     lock = open('/tmp/miniheroes-canyon.lock', 'w'); fcntl.flock(lock, fcntl.LOCK_EX)   # freed on return
     try: return script('canyon.py', ACCOUNT)
