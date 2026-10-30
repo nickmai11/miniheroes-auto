@@ -29,8 +29,8 @@ Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Vein
 ## Value model (Nick's facts 2026-10-30; scoring is Claude's)
 
 Score every target in **lv1-relic units per shovel**, not by fixed rules.
-- Relics: lv1 = stone, ribs, green crescent (20 fragments each); lv2 = axe (2 crescent + 4 stone), saw
-  (4 ribs + 2 stone), sword (4 crescent + 2 ribs) (30 fragments each). So lv1 fragment = 0.05, lv2 relic = 6,
+- Relics: lv1 = stone (Limestone), ribs (Beast Bone), green crescent (Bronze Mirror) (20 fragments each); lv2 = axe (Stone Hammer: 2 crescent + 4 stone), saw (Bone Saw:
+  4 ribs + 2 stone), sword (Bronze Dagger: 4 crescent + 2 ribs) (30 fragments each). So lv1 fragment = 0.05, lv2 relic = 6,
   lv2 fragment = 0.2. Nothing is lost past a relic's cap.
 - Dino 2026-10-30 (71 shovels): lv1 shard = 2–5 fragments (avg 3.7 → **≈ 0.19**), lv2 shard = 1–3 (avg 2 →
   **≈ 0.4**), relic chest = 1 whole relic (3/3 were lv1 → **≈ 1**, more if lv2 ever drops). Run total ≈ 10.5
