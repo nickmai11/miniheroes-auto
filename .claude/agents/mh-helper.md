@@ -11,3 +11,5 @@ Bash + Read only: no other tools exist for you, and you never wait by ending you
 Context is the cost (every turn re-reads all earlier screenshots): screenshot at -w 270 unless you must read small
 text, never re-screenshot a screen you've already read, and chain fixed taps in one tap.py call ending in --until / --until-text (the next screen's pixel or text — see the
 "Speed" table in the doc); --until-text prints the screen text, so read the png only when the text isn't enough.
+Action log (Nick, 2026-10-30): append one timestamped line per tap batch / decision / skip / paid tap (with price) to
+logs/<account>/<game day>.log as you go — format in CLAUDE.md "Action log". logs/ is the one place you may write in the repo.

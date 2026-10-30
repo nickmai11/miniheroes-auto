@@ -57,6 +57,17 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 - **Coordinator:** wait for runner/helper completion notifications; check a helper's screen only if it says
   it's "pausing/waiting" (red flag) or a notification is overdue.
 
+## Action log (Nick, 2026-10-30 — every task, for retrospectives)
+
+Every session (coordinator, helper, or a non-game task like a code change) appends a timestamped line per action
+as it happens — not reconstructed at the end:
+`echo "$(date '+%F %T') [<who>] <action> -> <result/why>" >> <log>`
+- `<who>`: `coord`, `helper`, or `claude`. One line per tap batch / decision / script run / file edit / commit:
+  what was done, what was seen, why it was chosen (esp. skips, paid taps with price, retries, anything off-spec).
+- `<log>`: game work → `logs/<account>/<game day>.log` (same file `daily.py` writes, so one timeline per account;
+  game day = `$(TZ=UTC date -v-5H +%F)`); anything else → `logs/claude/<date>.log` (create the dir if missing).
+- `logs/` is gitignored, so helpers may write it despite "don't edit the repo".
+
 ## Reporting
 
 At the end, report per account: each mission done/skipped (and why), and every paid action
