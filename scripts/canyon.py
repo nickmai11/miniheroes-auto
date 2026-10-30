@@ -5,7 +5,7 @@
 #   Sat-Sun: empty Gold first, else empty purple.     canyon_clash: highest_free -> topmost empty platform of any kind.
 # Empty = a platform disc with no name label under it. Every pick is confirmed by the popup text "occupy the empty"
 # before Occupy; anything else ("About to challenge <name>'s ...") -> Cancel. Never attacks: no empty spot -> exit 2.
-# exit 0 = moved, 2 = no empty platform (helper decides: attack a Sentinel / non-tribe purple), 1 = unexpected screen.
+# exit 0 = moved, 2 = no empty platform (helper may beat a Sentinel; never a player), 1 = unexpected screen.
 import datetime, os, re, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from flow import Stop, find, main, near, ocr, swipe, tap_text, wait

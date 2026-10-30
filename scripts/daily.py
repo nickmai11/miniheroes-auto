@@ -557,7 +557,7 @@ def canyon_rewards(cfg):
 
 
 def canyon(cfg):
-    """Take a new EMPTY spot by the day's rule (scripts/canyon.py). No empty one -> MANUAL (helper may attack)."""
+    """Take a new EMPTY spot by the day's rule (scripts/canyon.py). No empty one -> MANUAL (helper may beat a Sentinel, never a player)."""
     if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'
     tap_wait(448, 1780); time.sleep(1.5); tap_wait(540, 1090); wait(r'Attempts', 10)
     # ponytail: one global lock - our accounts share the map and raced for the same spots (2026-10-29)

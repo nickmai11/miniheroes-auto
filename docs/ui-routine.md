@@ -666,7 +666,7 @@ first; otherwise a Sentinel-held spot (no player) counts as free — beat it to 
 name background = tribe member, **purple** = not in our tribe; your own spot shows a **green** name.
 
 **Scan the whole map first** (scroll top → bottom, screenshot each screen) and choose by priority — empty
-platform > Sentinel-held > non-tribe player — before tapping anything.
+platform > Sentinel-held — before tapping anything. Never a player-held spot (Nick, 2026-10-30).
 Silver (purple-platform) spots: consider **only the first 10** from the top (Nick, 2026-10-26) — ignore
 silver spots further down. Spots change while you scroll and fill within seconds when several workers run —
 re-screenshot before tapping and re-check the popup's name before confirming.
@@ -686,20 +686,19 @@ Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 c
 After Occupy/Victory the header can keep showing the old spot — back out to Tribe and re-enter to confirm
 (your name in green on the new platform).
 
-**`scripts/canyon.py <account>`** (runner step `canyon`, 2026-10-28) does this for EMPTY platforms: disc with no name label, popup text "occupy the empty" checked before Occupy, waits for map inertia. No empty spot → exit 2 → helper (attack choice).
+**`scripts/canyon.py <account>`** (runner step `canyon`, 2026-10-28) does this for EMPTY platforms: disc with no name label, popup text "occupy the empty" checked before Occupy, waits for map inertia. No empty spot → exit 2 → helper (Sentinel choice; never a player).
 **Take a new spot every run, even if you already hold one** (Nick, 2026-10-27) — a held spot doesn't count as
 done. Pick by the rules below; done once the header shows the newly taken spot. Never spend gems on attempts.
 
-- **Mon–Fri:** take a **purple (9/m) spot**. Prefer an **empty** one. If none is empty, attack a purple
-  spot held by someone **not** in our tribe (purple name background; cross-check `accounts/tribe_<name>.txt`).
-  Never attack a blue-name (tribe) player.
-- **Sat–Sun:** take **Glory** and **Gold** spots **only if they're free/empty** — never attack for them.
-  If no Glory/Gold spot is free: go for a **purple/silver** spot — prefer a **free** one; if none is free,
-  attack one held by a **non-tribemate** (purple name background). Never attack a blue-name (tribe) player.
+- **Never attack a player, of any kind** — tribe or not (Nick, 2026-10-30). Only empty or Sentinel-held (NPC)
+  spots. Nothing empty or Sentinel-held → skip and report.
+- **Mon–Fri:** take a **purple (9/m) spot**. Prefer an **empty** one, else beat a Silver Sentinel.
+- **Sat–Sun:** take a **Glory** or **Gold** spot if one is empty or Sentinel-held, else a **purple/silver** one
+  (empty first, else a Silver Sentinel).
 - Never spend gems.
 - **`canyon_clash: highest_free`** in the account file (Tiger, Nick 2026-10-28) replaces the day rules above, every day:
   take the **highest** spot on the map (topmost: Glory > Gold > Silver, any of the silver rows) that is **empty or
-  Sentinel-held** — occupy it, or beat the Sentinel. **Never attack a player**, tribe or not. If the current spot is
+  Sentinel-held** — occupy it, or beat the Sentinel. If the current spot is
   already higher than every free one, keep it (counts as done). Nothing free → skip and report.
 
 **Occupation lasts 8h** ("Collect Time 08:00:00"), then ends on its own: on the next visit a *Resource* popup
@@ -709,7 +708,7 @@ Swipe slowly (`540 700 → 540 1500`, 1500 ms) to come back up; fast swipes flin
 (`540 1500 → 540 700`, 1500 ms). Leave the map with the back arrow `(92,1810)` only: taps a little higher hit the
 left icon column (**Lineup** opens the Defense Lineup — Dminor, nothing saved). Empty purple spots can appear minutes
 after `canyon.py` found none (7 accounts, 2026-10-29: the helpers all found empty Silver spots right below the
-tribemate rows) — the helper re-checks for empty ones before attacking.
+tribemate rows) — the helper re-checks for empty ones before beating a Sentinel.
 
 **Points Reward** (runner step `canyon_rewards`): left-side **Rewards** `(88,745)` with a red dot → **Claim Reward** `(540,1618)` (free) →
 dismiss `(540,1880)` → close ✕ `(972,240)`.

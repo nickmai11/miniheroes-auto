@@ -13,7 +13,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
 3. **Runner first (Nick, 2026-10-28 — cost):** all accounts in ONE background Bash command, wait for its notification:
    `for a in <acct>:<serial> ...; do (D=${a#*:} OUT=/tmp/miniheroes-$(date +%F-%H)/${a%%:*} scripts/daily.py ${a%%:*} --catch-up > /tmp/miniheroes-$(date +%F-%H)/${a%%:*}.log 2>&1) & done; wait`
    It does ALL steps below (claims, Canyon empty spot and event milestones too since 2026-10-28) and ends with
-   `LEFT FOR HELPER:` = only MANUAL lines (no empty Canyon spot → attack choice; event tabs with an unmapped red dot)
+   `LEFT FOR HELPER:` = only MANUAL lines (no empty Canyon spot → Sentinel choice, never a player; event tabs with an unmapped red dot)
    and FAILs with `v_<step>.png`. Read them all with ONE `scripts/summary.sh <run dir>` (not log greps). Empty list → no helper for that account. Otherwise ONE `mh-helper` per account for
    only those, prompt below trimmed to them. While it runs, one Monitor surfaces failures live (Dino 2026-10-28 sat
    8 min on a FAIL start nobody saw): `tail -F <run dir>/*.log | grep --line-buffered -E '^(FAIL|Traceback)'`.
