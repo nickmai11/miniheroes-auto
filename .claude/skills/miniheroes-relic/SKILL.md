@@ -12,7 +12,7 @@ Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Vein
    Path: main screen → **Relic** (bottom bar, far right) `(972,1788)` → **Lost Continent** map → **Archaeology**
    `(540,1540)` → dig board. Careful: on the map, **Relic Display** sits right where the Relic button was — a late
    Relic tap + a retry lands you in Relic Display (back arrow `(80,1820)`). Screenshot before retrying anything.
-3. Dig one tile per tap (only tiles touching an empty cell — else "dig up the adjacent plot first", no shovel used) until the shovel counter (`N/150`, top-left) is 0. Screenshot after every tap
+3. Dig one tile per tap (only tiles touching an empty cell — else "dig up the adjacent plot first", no shovel used) until the shovel counter (`N/150`, Kong `N/100`, top-left) is 0. Screenshot after every tap
    (`scripts/tap.py X,Y` — its 540-wide screenshot coords ×2 = device coords), re-read the whole board, re-plan.
 4. Report per account: items collected (each chest's piece and level), shovels used, units per shovel.
 
@@ -40,6 +40,9 @@ Score every target in **lv1-relic units per shovel**, not by fixed rules.
 
 **Real cost** of a target = new tiles to connect it to the dug area (dirt 1, light stone 2, dark stone avoid,
 shovel tile 0 net and it opens neighbours). Plan routes to item groups: a shared tunnel splits its cost.
+**Check all 4 sides of the target first** — the cheapest route is often a lit dirt tile *beside* it, not a straight
+shaft from above: Kong 2026-10-31 dug stone r3c4 (2) + r4c4 (1) down to shard r5c4 when lit dirt r5c3 (1) touched it
+— 2 shovels wasted. Write the route + its cost in the log line before the first tap.
 
 **Threshold:** take a target if `units / real cost ≥ r`, where r = average units per shovel from logged runs
 (r ≈ 0.15 from Dino 2026-10-30; re-measure). So a relic chest is worth up to ~7 digs, a lone shard ~1–2
