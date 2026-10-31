@@ -381,10 +381,14 @@ def relic_shovels(cfg): return script('relic_shovels.py', ACCOUNT)
 
 
 def stage(cfg):
-    tap_wait(994, 964); boxes = wait(r'^Start$', 10, (0, 1700, 1080, 1920))
-    tap_text(r'^Start$', (0, 1700, 1080, 1920), boxes)
-    res = joined(wait(r'Tap anywhere to close|Victory|Defeat', 180)); tap_wait(540, 120)
-    return 'Victory' if 'Victory' in res else 'Defeat' if 'Defeat' in res else 'done'
+    out = []
+    for _ in range(int(re.search(r'adventure_stage:\s*(\d+)', cfg)[1])):
+        tap_wait(994, 964); boxes = wait(r'^Start$', 10, (0, 1700, 1080, 1920))
+        tap_text(r'^Start$', (0, 1700, 1080, 1920), boxes)
+        res = joined(wait(r'Tap anywhere to close|Victory|Defeat', 180)); tap_wait(540, 120)
+        out.append('Victory' if 'Victory' in res else 'Defeat' if 'Defeat' in res else 'done')
+        if not home(): break
+    return ', '.join(out)
 
 
 def grocery(cfg):

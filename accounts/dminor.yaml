@@ -47,7 +47,7 @@ missions:
     min_order_diamonds: 3
     ticket_pack_gem_price: 50
   divine_weapon: true
-  adventure_stage: 1
+  adventure_stage: 3
   patrol:
     speed_patrol: until_100   # keep buying until the price shows 100 gems, then stop
     max_gem_price: 50

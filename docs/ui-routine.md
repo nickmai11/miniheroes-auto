@@ -500,9 +500,9 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
 Price climbs per buy (Cmajor already showed 240 on 2026-10-28). Back: board `(92,1830)` → map `(80,1820)` → main.
 Never dig here as part of the dailies (that's the relic skill).
 
-## Adventure stage (1 run)
+## Adventure stage (3 runs)
 
-Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily task: challenge the current stage once.
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: challenge the current stage `adventure_stage` times (3).
 
 1. Main screen → blue **skull bubble** next to the hero `(994,964)` (not the stage map top-right).
 2. Battle setup "Stage: X-Y" (Illusionary mode locks most heroes; keep the lineup) → **Start** `(540,1806)`.
