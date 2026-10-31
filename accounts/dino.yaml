@@ -1,7 +1,7 @@
 account:
   name: Dino
   mumu_instance: Dino
-  game_id: null
+  game_id: 15579915
   enabled: true
 
 safety:

@@ -2,6 +2,7 @@ account:
   name: Kong
   mumu_instance: Kong
   game_id: 15847271
+  server: 220               # Settings > Server row "S220 Mr KonG" (S288 = MRKONG II, wrong one)
   enabled: true
   storm_max_rank: King +10   # Storm: stop at this rank even with tickets left (Nick, 2026-10-31)
 

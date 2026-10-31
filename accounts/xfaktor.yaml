@@ -1,7 +1,7 @@
 account:
   name: xFaktor
   mumu_instance: xFaktor
-  game_id: null
+  game_id: 15380506
   enabled: true
   storm_max_rank: King +1   # Storm: stop at this rank even with tickets left (Nick, 2026-10-31)
 

@@ -6,6 +6,9 @@ description: Bring Nick's Mini Heroes MuMuPlayer instances to a clean main scree
 # Stabilize
 
 All of it is `scripts/boot.sh` (start instance → restart game → Start → `stabilize.py` tick + X → `layout.js`).
+`stabilize.py` also checks the account (Nick, 2026-10-31): top-right ID must be the account file's `game_id`; if not and
+the file has `server:` it switches via ☰ → Settings → Server → `S<server>` row → Confirm (Kong: S220, not S288 MRKONG II).
+"wrong account … stop" = no `server:` set / row not visible → report, never run tasks on the wrong account.
 
 1. Pick MuMu indices: `"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" info all` lists index/name/state.
    "all" = the accounts in `accounts/*.yaml` (`mumu_instance:`), never every MuMu instance; names → their index;

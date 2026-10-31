@@ -32,7 +32,7 @@ boot() {
     [ $try = 3 ] && { echo "$name $s main-timeout"; return; }
   done
   # clear start-up event popups (tick "Do not remind me today" + X) -> "stable" = bare main screen (Nick, 2026-10-28)
-  local st; st=$(cd /tmp && D=$s python3 "$HERE/stabilize.py" | tail -1)
+  local st; st=$(cd /tmp && D=$s NAME="$name" python3 "$HERE/stabilize.py" | tail -1)
   case $st in stable*) echo "$name $s ready ($st)";; *) echo "$name $s popup-stuck ($st, /tmp/v_stabilize.png)";; esac
 }
 
