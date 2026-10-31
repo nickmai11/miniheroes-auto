@@ -2,6 +2,7 @@ account:
   name: Dino
   mumu_instance: Dino
   game_id: 15579915
+  server: 211               # Settings > Server, "Current" row (read 2026-10-31)
   enabled: true
 
 safety:

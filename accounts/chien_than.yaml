@@ -2,6 +2,7 @@ account:
   name: Chien Than
   mumu_instance: Chien Than
   game_id: 15649683
+  server: 213               # Settings > Server, "Current" row (read 2026-10-31)
   enabled: true
 
 safety:

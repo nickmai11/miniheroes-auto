@@ -3,6 +3,7 @@ account:
   name: Example
   mumu_instance: Example
   game_id: null
+  server: null
   enabled: true
 
 safety:

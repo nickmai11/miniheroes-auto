@@ -2,6 +2,7 @@ account:
   name: Aminor
   mumu_instance: Aminor
   game_id: 15305943
+  server: 201               # Settings > Server, "Current" row (read 2026-10-31)
   enabled: true
   storm_max_rank: King +1   # Storm: stop at this rank even with tickets left (Nick, 2026-10-31)
 
