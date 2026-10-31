@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # Babysit the game's own auto stage climb (occasional, not part of the dailies): auto stops after X-40 (3-wave boss)
 # -> close the reward, Next chapter, open the stage, Start; Defeat screen up 3 s -> Challenge again.
-# usage: scripts/climb.py <account>... [--minutes N]     (accounts/<account>.yaml; game must already be auto-climbing)
+# usage: scripts/climb.py <account>... [--minutes N]   |   scripts/climb.py <account> --swap     (accounts/<account>.yaml; game must already be auto-climbing)
 # Runs N minutes (default 9, fits one Bash call) then exits 0 "still climbing" — just run it again.
-# exit 2 = lost the same stage 3x in a row: swap lineups by hand (accounts/<a>.yaml stage_lineups), re-run.
+# Lost the same stage 3x in a row -> swap the losing wave's team with the next tab (stage_lineups cells in the account
+# yaml, which is rewritten), max 3 swaps per stage, then exit 2 (look by hand).
 # exit 1 = a step's screen didn't show or a stage didn't change for 4 min (climb_<name>.png in /tmp).
 # Seen 2026-10-31 (Bino/Dino): after a Challenge again the game sometimes goes to the next chapter itself.
 import json, os, re, subprocess, sys, time
@@ -43,6 +44,53 @@ def step(a, xy, pat, to=20):
 FIGHT = r'Victory|Defeat|Lv\.|x2|ATK'  # any of these = a battle (or its result) is on
 
 
+TAB = {1: 380, 2: 540, 3: 700}
+COLX, ROWY = [136, 336, 536, 736, 936], {1: 1250, 2: 1480, 3: 1280}   # row 3 after the swipe below
+
+
+def power():
+    m = re.search(r'([\d,]+)K', ' '.join(b[4] for b in flow.ocr(T.grab()) if b[0] < 540 and b[1] < 140))
+    return m and m.group(1)
+
+
+def swap(a):
+    """Losing wave = the open tab of the Challenge-again setup. Fresh setup from the main screen (Challenge-again
+    edits aren't saved), recall both tabs, deploy each other's cells (rows 1-3), check powers, rewrite the yaml, Start."""
+    T.D = flow.D = devs[a]; d = devs[a]
+    path = f'{R}/accounts/{a}.yaml'; y = open(path).read()
+    teams = {int(k): v.split(', ') for k, v in re.findall(r'^\s+(\d): \{power: [^,]*, cells: \[([^\]]*)\]', y, re.M)}
+    if len(teams) != 3: log(a, 'SWAP LINEUPS: no stage_lineups in the yaml'); sys.exit(2)
+    im = T.grab()
+    won = lambda t: sum(1 for dx in range(-40, 41, 4) for dy in range(-25, 26, 4)
+                        if (lambda p: p[1] > 170 and p[0] < 160 and p[2] < 120)(im.getpixel((TAB[t] + dx, 1088 + dy)))) >= 6
+    w = next((t for t in (1, 2, 3) if not won(t)), 3)   # first tab without the green check = the wave we lose
+    o = w % 3 + 1
+    log(a, f'losing wave {w} (tabs won: {[t for t in (1, 2, 3) if won(t)]}) -> swap with {o}')
+    step(a, '80,1810', 'Adventure', 10); time.sleep(1); step(a, '994,964', r'^Start$|\| Start \|')
+    old = {}
+    for t in (w, o):
+        step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.5); old[t] = power()
+        step(a, '1000,1080', 'Start')
+    def put(t, cells, rows):
+        step(a, f'{TAB[t]},1088', 'Start')
+        for c in cells:
+            r, col = int(c[1]), int(c[3])
+            if r in rows: subprocess.run(['adb', '-s', d, 'shell', 'input', 'tap', str(COLX[col - 1]), str(ROWY[r])]); time.sleep(0.6)
+    put(w, teams[o], (1, 2)); put(o, teams[w], (1, 2))
+    subprocess.run(['adb', '-s', d, 'shell', 'input', 'swipe', '540', '1450', '540', '1210', '800']); time.sleep(1.2)
+    put(w, teams[o], (3,)); put(o, teams[w], (3,))
+    got = {}
+    for t in (w, o): step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.5); got[t] = power()
+    if got[w] != old[o] or got[o] != old[w]:
+        log(a, f'SWAP LINEUPS FAILED: tab {w} {got[w]}K (want {old[o]}K), tab {o} {got[o]}K (want {old[w]}K) - left on setup'); sys.exit(2)
+    y = re.sub(rf'^(\s+){w}: \{{', r'\g<1>X: {', y, flags=re.M)
+    y = re.sub(rf'^(\s+){o}: \{{', rf'\g<1>{w}: {{', y, flags=re.M)
+    y = re.sub(r'^(\s+)X: \{', rf'\g<1>{o}: {{', y, flags=re.M)
+    open(path, 'w').write(y)
+    log(a, f'swapped lineups {w}<->{o} (tab {w} {got[w]}K, tab {o} {got[o]}K), yaml updated')
+    step(a, '540,1806', FIGHT, 30)
+
+
 def start(a):
     """Not on a stage battle/result/setup (Nick used the account) -> main screen (daily.home) -> skull -> Start."""
     T.D = flow.D = devs[a]
@@ -56,8 +104,9 @@ def start(a):
     log(a, 'was off the stage screen -> main -> started the stage')
 
 
+if '--swap' in args: swap(accts[0]); sys.exit(0)   # one swap now (account on a Challenge-again setup)
 for a in devs: start(a)
-seen, losses = {}, {}
+seen, losses, swaps = {}, {}, {}
 end = time.time() + minutes * 60
 while time.time() < end:
     for a, d in devs.items():
@@ -73,7 +122,9 @@ while time.time() < end:
                 log(a, f'Defeat {n} on {stage} -> Challenge again')
                 if n >= 3:  # Nick 2026-10-31: 3 losses in a row -> swap lineups (stage_lineups in the account yaml)
                     step(a, f'{ca[0]},{ca[1]}', r'^Start$|\| Start \|', 30)
-                    log(a, f'SWAP LINEUPS: lost {stage} 3x, left on the battle setup'); sys.exit(2)
+                    swaps[stage] = swaps.get(stage, 0) + 1
+                    if swaps[stage] > 3: log(a, f'SWAP LINEUPS: {stage} still lost after 3 swaps, left on the battle setup'); sys.exit(2)
+                    swap(a); losses.pop(a); seen.pop(a, None); continue
                 step(a, f'{ca[0]},{ca[1]}', 'Start|' + FIGHT, 30)
                 if flow.find(flow.ocr(T.grab()), r'^Start$'): step(a, '540,1806', FIGHT, 30)
                 seen.pop(a, None); continue

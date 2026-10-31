@@ -27,10 +27,11 @@ def grab():
     for attempt in range(3):  # screencap sometimes hangs with several workers on one adb server
         try:
             raw = subprocess.run(['adb', '-s', D, 'exec-out', 'screencap'], capture_output=True, timeout=10).stdout
-            break
-        except subprocess.TimeoutExpired:
-            if attempt == 2: raise
-    w, h = int.from_bytes(raw[0:4], 'little'), int.from_bytes(raw[4:8], 'little')
+            w, h = int.from_bytes(raw[0:4], 'little'), int.from_bytes(raw[4:8], 'little')
+            if w and h and len(raw) >= 12 + w * h * 4: break   # short buffer -> retry (Bino climb crash 2026-10-31)
+        except subprocess.TimeoutExpired: pass
+        if attempt == 2: raise RuntimeError('screencap failed 3x')
+        time.sleep(0.5)
     return Image.frombuffer('RGBA', (w, h), raw[-w * h * 4:], 'raw', 'RGBA', 0, 1).convert('RGB')
 
 

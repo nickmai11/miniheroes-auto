@@ -508,7 +508,7 @@ shows "Stage Reward" with no "Next Stage (Ns)" countdown) → main screen "Next 
 → Start `(540,1806)`. On Defeat, "Challenge again" (Nick, 2026-10-31). All automated:
 `scripts/climb.py <account>... [--minutes N]` (runs ~9 min per call, re-run to keep watching; exit 1 = look).
 
-**3 losses in a row on one stage → swap lineups** (Nick, 2026-10-31; climb.py exits 2 on the battle setup). Lineups +
+**3 losses in a row on one stage → swap lineups** (Nick, 2026-10-31; climb.py does it from `stage_lineups` cells — losing wave's team ↔ next tab, max 3 swaps per stage, then exit 2). Lineups +
 what each is good for: `stage_lineups` in the account yaml (update it after every swap). Steps:
 1. A setup opened via Challenge again keeps already-won waves locked and **doesn't save edits** — back `(80,1810)` to
    the main screen, skull `(994,964)` for a fresh setup.
