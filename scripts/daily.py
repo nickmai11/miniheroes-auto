@@ -65,8 +65,16 @@ def script(name, *args):
 
 # ---- steps (each: main screen -> ... -> returns a short result; Stop = failed) ----
 
+def storm_closed():
+    """Main screen: Storm card says 'Coming Soon' = season over (Sun 06:00, 2026-11-01: 4 blind card taps x retry on
+    every account before this)."""
+    boxes = ocr()
+    return bool(find(boxes, r'Storm Battlefield') and find(boxes, r'Coming Soon'))
+
+
 def storm_arena():
     for _ in range(4):                                   # the 2nd event card rotates; tapping it usually opens Storm
+        if storm_closed(): raise Stop('SKIP_CLOSED')
         tap_wait(880, 480); time.sleep(1.5)
         im = grab(); p = im.getpixel((400, 1580))
         # yellow Start Match + title: Treasure Vault's yellow Draw buttons passed the pixel alone (Bino 2026-10-29)
@@ -77,7 +85,10 @@ def storm_arena():
 
 def storm(cfg):
     if NOW.weekday() == 0 and NOW.hour < 17: return 'SKIP closed until Mon 17:00'
-    storm_arena()
+    try: storm_arena()
+    except Stop as e:
+        if 'SKIP_CLOSED' in str(e): return 'SKIP season closed (Storm card: Coming Soon)'
+        raise
     out = script('storm.py', ACCOUNT)
     rew = storm_rewards()                                # same visit: Rewards is part of Storm (Nick, 2026-10-31)
     return ('MANUAL ' if rew.startswith('MANUAL') else '') + f'{out}; rewards: {rew}'
