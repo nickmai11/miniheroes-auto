@@ -501,6 +501,13 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: challenge the curren
 2. Battle setup "Stage: X-Y" (Illusionary mode locks most heroes; keep the lineup) → **Start** `(540,1806)`.
 3. Result → close by tapping `(540,120)`; never "Challenge again".
 
+## Stage climb (occasional, not dailies)
+
+Nick sometimes leaves an account on the game's own auto stage climb. Auto stops after X-40 (a 3-wave boss; result
+shows "Stage Reward" with no "Next Stage (Ns)" countdown) → main screen "Next chapter" `(992,970)` → skull `(994,964)`
+→ Start `(540,1806)`. On Defeat, "Challenge again" (Nick, 2026-10-31). All automated:
+`scripts/climb.py <account>... [--minutes N]` (runs ~9 min per call, re-run to keep watching; exit 1 = look).
+
 ## Patrol (claim all + speed patrol)
 
 **Run `scripts/patrol.py <account>`** (`--claim-only` for the late Patrol step); steps below = exit-1 fallback.
