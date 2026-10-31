@@ -48,6 +48,12 @@ shaft from above: Kong 2026-10-31 dug stone r3c4 (2) + r4c4 (1) down to shard r5
 (r ≈ 0.15 from Dino 2026-10-30; re-measure). So a relic chest is worth up to ~7 digs, a lone shard ~1–2
 (lv1 1, lv2 2–3); shards sharing a tunnel split the cost.
 
+**Every dig needs a target** (Nick 2026-10-31, "gone wild"): each dig is either on the cheapest route to a named item
+(log it: `route to <item> rNcM, cost N`) or a bottom-row dig that reveals a new row. Never dig a tile just because it's
+reachable — plain dirt/stone off-route, the top rows, or "clearing the row" is waste. Chien Than 2026-10-31 mowed the
+whole board (top rows, stones with nothing behind them, ~25 of 37 shovels on no-target tiles, 2 lv1 shard + Moon
+Essence). No item reachable for ≤ 7 → dig down in the bottom row.
+
 **Digging down** is the source of new items: once a shaft is in the bottom row, each bottom-row dirt dig reveals
 a new 6-tile row for 1 shovel. Run the shaft next to item clusters (cheap side digs later), keep a foothold in
 the bottom row, branch off only for targets above the threshold.
