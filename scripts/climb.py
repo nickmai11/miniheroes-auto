@@ -41,6 +41,22 @@ def step(a, xy, pat, to=20):
 
 
 FIGHT = r'Victory|Defeat|Lv\.|x2|ATK'  # any of these = a battle (or its result) is on
+
+
+def start(a):
+    """Not on a stage battle/result/setup (Nick used the account) -> main screen (daily.home) -> skull -> Start."""
+    T.D = flow.D = devs[a]
+    b = flow.ocr(T.grab()); t = flow.joined(b)
+    if re.search(r'Stage: ?\d+-\d+', t) or 'x2' in t: return
+    r = subprocess.run(['python3', '-c', 'import daily; print(daily.home())'], cwd=HERE, env={**os.environ, 'D': devs[a]},
+                       capture_output=True, text=True)
+    if 'True' not in r.stdout: log(a, f'FAIL: could not reach the main screen ({r.stdout.strip()} {r.stderr.strip()[-200:]})'); sys.exit(1)
+    step(a, '994,964', r'^Start$|\| Start \|')
+    step(a, '540,1806', FIGHT, 30)
+    log(a, 'was off the stage screen -> main -> started the stage')
+
+
+for a in devs: start(a)
 seen, losses = {}, {}
 end = time.time() + minutes * 60
 while time.time() < end:
