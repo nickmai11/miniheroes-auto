@@ -7,7 +7,7 @@
 # Lineup (Nick, 2026-10-27, after helpers played with the leftover 1-hero lineup): sets the full lineup
 # (Quick Deploy) before the first match and leaves only the first hero after (ui-routine Storm steps 2 + 6).
 # storm_max_rank in the account file (Nick, 2026-10-31: Kong "King +10", the rest "King +1"; no setting = no cap): read the rank under the badge
-# ("King", "King +3", OCR) before every match; at/above the cap stop, even with tickets left.
+# (tier title + the number on the badge, OCR) before every match; at/above the cap stop, even with tickets left.
 # UNTESTED (written 2026-10-27) — verify on one account before a multi-account run.
 import os, re, subprocess, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -30,7 +30,12 @@ def max_rank(account):
 
 
 def cur_rank(im):
-    return rank(' '.join(t for x, y, w, h, t in ocr(im) if 400 < x + w // 2 < 700 and 560 < y + h // 2 < 720))
+    """Tier = title above the badge ('King'), level = the number ON the badge (King 16 = 'King +16'; Nick 2026-10-31 —
+    reading only the title gave King +0 every time, so the cap never fired). No number = +0."""
+    boxes = ocr(im)
+    tier = ' '.join(t for x, y, w, h, t in boxes if 400 < x + w // 2 < 700 and 560 < y + h // 2 < 720)
+    lvl = next((t.strip() for x, y, w, h, t in boxes if 430 < x + w // 2 < 650 and 1250 < y + h // 2 < 1370 and t.strip().isdigit()), '')
+    return rank(f'{tier} +{lvl}' if lvl else tier)
 D = os.environ['D']
 def arena(im): p = im.getpixel((400, 1580)); return p[0] > 200 and p[1] > 150 and p[2] < 80  # Start Match yellow
 # "+" popup: left button body. y=1274 hits the "Free" text / camera icon of the ad "Claim" variant, so
@@ -86,10 +91,14 @@ def main(account=None):
     if not arena(grab()):
         print('not on arena screen; stop'); return 1
     cap = max_rank(account)
-    if cap and (cur_rank(grab()) or (-1,)) >= cap: print(f'rank {cur_rank(grab())} already at max {cap}; no matches'); return 0
+    r = cur_rank(grab()); print(f'rank read {r}, max {cap}', flush=True)
+    if cap and (r or (-1,)) >= cap: print(f'rank {r} already at max {cap}; no matches'); return 0
     if not lineup(True): return 1
     r = play(cap)
-    if r == 0 and not lineup(False): return 1
+    if r == 0:
+        now = cur_rank(grab())
+        if now and now[0] == TIERS.index('King'): print(f'rank {now}: King, full lineup kept', flush=True)   # Nick 2026-10-31
+        elif not lineup(False): return 1
     return r
 
 
@@ -99,6 +108,11 @@ def play(cap=None):
         im = grab()
         if cap and arena(im):
             r = cur_rank(im)
+            for _ in range(6):                        # badge number updates after the screen is back (Kong 2026-10-31:
+                time.sleep(1.2); r2 = cur_rank(grab())  # read +8..+11 stale, stopped at +12 with cap +10): read until stable
+                if r2 == r: break
+                r = r2
+            print(f'    rank {r}', flush=True)
             if r is None: print('rank unreadable with a max rank set; stop'); return 1
             if r >= cap: print(f'rank {TIERS[r[0]]} +{r[1]} reached max; done (tickets left)', flush=True); return 0
         if free_btn(im) and not arena(im):           # popup open (we opened it or the game did at 0 tickets)

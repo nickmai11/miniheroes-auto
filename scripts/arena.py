@@ -82,7 +82,10 @@ def main(account):
         if last is not None and tix >= last: return stop(f'tickets did not drop ({last} -> {tix})')
         if tix == 0:
             tap_wait(972, 188); print(f'tickets 0 after {n} crashes; dialog closed'); return 0
-        if not rows: return stop('no opponent rows found')
+        if not rows:                                       # all visible rows shielded, the bot row cut off (Kong 2026-10-31)
+            subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', '540', '1500', '540', '900', '500']); time.sleep(1)
+            d = read_dialog(); rows = d[1] if d else []
+            if not rows: return stop('no opponent rows found')
         pick = None if bot_only else next(((y, nm) for y, k, nm in rows[:-1] if k == 'crash' and not tribemate(nm, roster)), None)
         if not pick:
             if rows[-1][0] > 1400 or rows[-1][1] != 'crash':  # a 6th row can be cut off (Dino: 6 rows, 2 shielded) -> scroll to the real last row (the bot)

@@ -12,35 +12,36 @@ Each mission's gotchas live in its own section — add new findings there, never
 
 Run the missions in this order on each account:
 
-0. **Pet Arena** — **Mon/Tue/Wed only** (skip other days): join + Auto Deploy (see "Pet Arena" below);
-   runs on its own.
-0b. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto — first, so Auto runs during the rest
-   (2026-10-29). Don't collect order rewards here.
-1. **Patrol** — Speed Patrol until the price is 100 gems (don't buy that one) + Claim All. Before Arena: its loot refills
-   the Arena tickets (they filled up mid-Trials on 5/9 accounts, 2026-10-29).
-2. **Storm Battlefield** (see "Storm Battlefield" below). Skip on Mondays — closed until 17:00; run `/catch-up` after 17:00.
-3. **Arena** — Ranking Rewards gift boxes, then exhaust tickets.
-4. **Shop** freebies.
-5. **Play Pass** claims.
-6. **Adventure** — everything in it: Tower of the Throne, Secret Sanctuary, Gate of Darkness, Beast Realm, Land of Trials
-   (+ any other mapped Adventure mode).
-7. **Recruit** free summons.
-8. **Hero** upgrade (after the potion-giving steps above).
-9. **Tribe** — sign-in, Trial, chat Request + Assist, **Canyon Clash** (skip on Mondays — it's closed until 17:00;
-   run `/catch-up` after 17:00).
-10. **Divine Weapon** — Benefit, Excelsior Veins, Forge.
-11. **Adventure stage** run (skull bubble).
-12. **Patrol** — Claim All only.
-13. **Rune** synthesis.
-14. **Arena** — exhaust tickets again before wrapping up.
-15. **Grocery** free chests, then the account's `grocery_buy` tiles (if any).
-16. **Events** — see "Events (red dots)".
-17. **Fishing** — the only place order rewards are collected (see Fishing step 7).
-18. **Daily Mission** — always the LAST step (Nick, 2026-10-29); any new step goes before it. A rerun of earlier steps
+Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
+
+0. **Pet Arena** — **Mon/Tue/Wed only**: join + Auto Deploy (see "Pet Arena"); left for a helper.
+1. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto — first, so Auto runs during the rest.
+   Don't collect order rewards here.
+2. **Arena** — Ranking Rewards gift boxes, then use all tickets.
+3. **Patrol** — **Claim All first**, then Speed Patrol until the price is 100 gems (don't buy that one).
+4. **Arena** again — patrol loot refills the tickets.
+5. **Storm Battlefield** (see "Storm Battlefield"), then its rank rewards. Skip on Mondays until 17:00 (`/catch-up` after).
+6. **Shop** freebies.
+7. **Play Pass** claims.
+8. **Adventure**, top to bottom: Land of Trials → Tower of the Throne → Secret Sanctuary → Gate of Darkness → Beast Realm.
+   Ancient Ruins is not part of the dailies (Nick).
+9. **Arena** again, then the weekly win chests.
+10. **Recruit** free summons.
+11. **Hero** upgrade (after the potion-giving steps above).
+12. **Tribe** — sign-in, Trial, chat Request + Assist, then **Canyon Clash** (empty spot + Points Reward; closed Mondays
+    until 17:00). Poseidon's Ruins has its own skill; Crystal Throne isn't mapped.
+13. **Divine Weapon** — Benefit, Excelsior Veins, Forge.
+14. **Stage** run ×3 (skull bubble).
+15. **Patrol** — Claim All only.
+16. **Rune** synthesis.
+17. **Grocery** — free chests, then the account's `grocery_buy` tiles (if any).
+18. **Events** — see "Events (red dots)".
+19. **Fishing** — the only place order rewards are collected (see Fishing step 7).
+20. **Daily Mission** — always the LAST step (Nick, 2026-10-29); any new step goes before it. A rerun of earlier steps
     (`daily.py <acct> <step>...`) should include `daily_mission` so their progress gets claimed.
 
-A "Match attempts full" popup can interrupt any step: Cancel it (`flow.tickets_full()`; its Confirm opens the Arena),
-the run's 2nd Arena pass spends the tickets.
+A "Match attempts full" popup can interrupt any step: **Confirm** (opens the Arena), spend every ticket (`arena.py`),
+back to main, then redo the interrupted step — `flow.tickets_full()` + the runner do this (Nick, 2026-10-31).
 
 Focus on the steps, not on resources: don't track gem/resource balances (they change all the time).
 The only money check is reading the price on screen before any paid tap and respecting the config caps.
@@ -53,8 +54,8 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 
 **Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
 main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
-Steps: fishing patrol storm arena shop play_pass tower sanctuary gate beast trials recruit hero tribe divine relic_shovels stage
-patrol_claim rune arena2 grocery grocery_buy storm_rewards arena_claims canyon canyon_rewards events fishing_rewards daily_mission.
+Steps: fishing arena patrol arena2 storm shop play_pass trials tower sanctuary gate beast arena3 recruit hero tribe divine
+stage patrol_claim rune grocery events fishing_rewards daily_mission.
 **Run overview: `scripts/summary.sh <run dir>`** — per account OK/SKIP counts, FAIL/MANUAL/paid lines, LEFT FOR HELPER (one call instead of grepping logs).
 
 Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png] [-w 270|540]` for every tap (device coords):
@@ -492,15 +493,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
    Else each anvil tap fills one slot (500 crystals, ~4 h) — fill every slot, stop when full or crystals < cost.
    Crystals only, never gems. Queue ≈ `(60,1250)`. Dino's forge stopped responding at 4/8 (cause unknown) — skip after 2 tries.
 
-## Relic shovels (buy with gems ≤ cap) — Nick, 2026-10-28
-
-**Run `scripts/relic_shovels.py <account>`** (config `relic_shovels.max_gem_price`, 80). Main screen → **Relic** `(972,1788)`
-→ Lost Continent map → **Archaeology** `(536,1632)` → dig board → green **+** on the shovel button `(650,1770)` → *Tip*
-"Spend P diamonds to buy N Shovel? (Remaining purchases: R)" → **Confirm** `(538,1158)` only if P ≤ cap, else ✕ `(938,636)`.
-Price climbs per buy (Cmajor already showed 240 on 2026-10-28). Back: board `(92,1830)` → map `(80,1820)` → main.
-Never dig here as part of the dailies (that's the relic skill).
-
-## Adventure stage (3 runs)
+## Stage (3 runs)
 
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: challenge the current stage `adventure_stage` times (3).
 
@@ -508,21 +501,21 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: challenge the curren
 2. Battle setup "Stage: X-Y" (Illusionary mode locks most heroes; keep the lineup) → **Start** `(540,1806)`.
 3. Result → close by tapping `(540,120)`; never "Challenge again".
 
-## Patrol (speed patrol ×3 + claim all)
+## Patrol (claim all + speed patrol)
 
-**Run `scripts/patrol.py <account>`** (`--claim-only` for step 12); steps below = exit-1 fallback.
+**Run `scripts/patrol.py <account>`** (`--claim-only` for the late Patrol step); steps below = exit-1 fallback.
 
-Mapped 2026-10-26 on Cmajor via ADB (device coords).
+Mapped 2026-10-26 on Cmajor via ADB (device coords). Order changed by Nick 2026-10-31: Arena (all tickets) →
+**Claim All first** → Speed Patrols → Arena again (the loot refills tickets).
 
-0. **First exhaust Arena tickets** (Arena routine) — Nick, 2026-10-26. Run Arena again afterwards if
-   patrol rewards added tickets.
 1. Main screen → patrol **bag** with timer, right side `(983,1463)` → *Loot* dialog.
-2. **Speed Patrol** `(337,1590)` → *Tip* "Obtain 4 hours of Patrol Gains" → price button `(540,1164)` →
+2. **Claim All** `(742,1590)` → *Congratulations* (auto-closes) → dismiss `(540,1880)`. Patrol timer resets to 00:00.
+   If that closed the Loot dialog, reopen the bag (step 1). *(Claim-first path untested, 2026-10-31.)*
+3. **Speed Patrol** `(337,1590)` → *Tip* "Obtain 4 hours of Patrol Gains" → price button `(540,1164)` →
    *Congratulations* → dismiss `(540,1700)` → the Tip reopens with the next price.
    Prices per day: **Free, Free, 50, 100, …** (escalates). Keep claiming until the button shows
    **100 gems** — don't buy that one, stop (Nick, 2026-10-26). Read the price on the button every time.
-3. Close the Tip ✕ `(936,638)` → **Claim All** `(742,1590)` → *Congratulations* (auto-closes) →
-   dismiss `(540,1880)`. Patrol timer resets to 00:00.
+4. Close the Tip ✕ `(936,638)`.
 
 ## Rune synthesis (1/day)
 
@@ -775,7 +768,7 @@ dailies. Monday: closed until 17:00 — run `/catch-up` after that.
    rows; tap a reached rank's highlighted item icon, not the row background (Bronze `(372,1404)`, Silver `(372,1180)`, Gold `(372,962)`) → claims the whole row (checkmarks) →
    dismiss `(540,1900)`. *Ranking Rewards* tab = end-of-season table, nothing to claim. Close ✕ `(972,228)`;
    the red dot should be gone.
-6. **Lineup** `(960,1600)` → quick-remove ↺ `(1006,1084)` (clears all) → tap only the **first** hero card
+6. **At King rank: skip this step** — keep the full lineup (Nick, 2026-10-31). Below King: **Lineup** `(960,1600)` → quick-remove ↺ `(1006,1084)` (clears all) → tap only the **first** hero card
    `(140,1250)` (highest) → **Save** `(540,1808)` ("Successfully saved"). Done.
 
 Tickets regen 1 per 2h (timer under the counter) — one can arrive right after storm.py stops.

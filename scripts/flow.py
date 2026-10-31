@@ -49,15 +49,24 @@ def joined(boxes): return ' | '.join(b[4] for b in boxes)
 
 
 def tickets_full(boxes):
-    """Close the "Current entry tickets have reached the max" popup (it can pop over any screen) with Cancel —
-    its Confirm opens the Arena (2026-10-29); the run's arena2 step spends the tickets. True if it was up."""
+    """"Current entry tickets have reached the max" popup (can pop over any screen): Confirm (opens the Arena), spend
+    every ticket with arena.py, back to the main screen. True if it was up. The interrupted step's screen is gone, so
+    callers redo it (Nick 2026-10-31: the rule is exhaust them now; Cancel + arena2 later wasted the refills)."""
     t = joined(boxes)
     if not ('reached the' in t and 'max' in t): return False
-    c = find(boxes, r'^Cancel$')
-    if c: tap_wait(*c)
-    else: subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4']); time.sleep(1)
-    print('    tickets-full popup closed (Cancel)', flush=True)
-    return True
+    acct = os.environ.get('ACCOUNT')
+    if not acct: raise Stop('MATCH_FULL popup but no ACCOUNT env to run arena.py with')
+    c = find(boxes, r'^Confirm$')
+    if not c: raise Stop('MATCH_FULL popup without a Confirm button')
+    tap_wait(*c); wait(r'^Lineup$|Ranking', 10)
+    r = subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'arena.py'), acct],
+                       capture_output=True, text=True)
+    print('    tickets-full popup: Confirm -> arena.py:', (r.stdout.strip().splitlines() or ['?'])[-1], flush=True)
+    if r.returncode: raise Stop('MATCH_FULL: arena.py failed (screenshot v_arena.png)')
+    for _ in range(3):                                   # Arena -> main (back can land on Recruit: back again)
+        tap_wait(92, 1810); time.sleep(1)
+        if near(grab().getpixel((92, 1788)), (0, 158, 230)): return True
+    raise Stop('MATCH_FULL: arena tickets spent but not back on the main screen')
 
 
 def wait(pattern, timeout=10, region=(0, 0, 1080, 1920)):
@@ -66,7 +75,7 @@ def wait(pattern, timeout=10, region=(0, 0, 1080, 1920)):
     while True:
         boxes = ocr()
         if find(boxes, pattern, region): return boxes
-        if tickets_full(boxes): continue
+        if tickets_full(boxes): raise Stop('MATCH_FULL: arena tickets spent, redo this step')
         if time.time() - t0 > timeout: raise Stop(f'waited {timeout}s for {pattern!r}; screen: {joined(boxes)[:200]}')
         time.sleep(0.7)
 

@@ -82,7 +82,7 @@ Log each dig (`cost`, what it gave) to the account log so r and the chest values
 ## Hard rules
 
 - Boosters only by the rule above. Never tap the green **+** on the shovel
-  button (buys shovels) — except the daily cap-checked buy in `scripts/relic_shovels.py` (dailies, Nick 2026-10-28), never use **One-Tap Mining**. No gems.
+  button (buys shovels) — no gem buys at all (the daily 80-gem buy was removed, Nick 2026-10-31), never use **One-Tap Mining**. No gems.
 - Never chain taps — a tap you thought was cancelled may still land. Screenshot, then tap.
 - Tap looks ignored (counters unchanged)? It may land late — re-screenshot before retrying, or you'll dig twice.
 - Unexpected screen/popup → stop and report.

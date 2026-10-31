@@ -33,7 +33,9 @@ def home():
     for _ in range(8):
         if is_main(): return True
         boxes = ocr()
-        if tickets_full(boxes): continue
+        try:
+            if tickets_full(boxes): continue
+        except Stop as e: print(f'    {e}', flush=True); return False
         if find(boxes, r'Do not remind me today'):
             tap_text(r'Do not remind me today', boxes=boxes)
             x = close_x(grab())                                    # back arrow can't close event popups (Dino 2026-10-28)
@@ -377,9 +379,6 @@ def divine(cfg, benefit=True):
     return ', '.join(out)
 
 
-def relic_shovels(cfg): return script('relic_shovels.py', ACCOUNT)
-
-
 def stage(cfg):
     out = []
     for _ in range(int(re.search(r'adventure_stage:\s*(\d+)', cfg)[1])):
@@ -404,18 +403,21 @@ def rune(cfg):
     x=cx-62, lock = dark pixels at the tile's top-right; the popup (Synthesize vs 'Locked') is the final check."""
     tap_wait(994, 1625); time.sleep(1); tap_wait(900, 1775); wait(r'Backpack', 8)
     tap_wait(868, 1680); time.sleep(1); swipe(540, 1300, 540, 700, 800); time.sleep(1.2)
-    im = grab(); red = lambda p: p[0] > 200 and p[1] < 120 and p[2] < 120
-    tiles = []
-    for cx in (160, 350, 540, 730, 920):
-        s = None
-        for y in range(320, 1580, 2):
-            r = red(im.getpixel((cx - 62, y)))
-            if r and s is None: s = y
-            if not r and s is not None:
-                if y - s > 120: tiles.append((s, cx))    # full tile only (partly scrolled-off ones are shorter)
-                s = None
-    free = [(t, cx) for t, cx in sorted(tiles)
-            if not sum(1 for y in range(t - 14, t + 20) for x in range(cx + 50, cx + 80) if sum(im.getpixel((x, y))[:3]) < 150)]
+    for page in range(5):                               # unlocked reds can sit below the locked ones (Cmajor/Kong 2026-10-31)
+        if page: swipe(540, 1300, 540, 700, 800); time.sleep(1.2)
+        im = grab(); red = lambda p: p[0] > 200 and p[1] < 120 and p[2] < 120
+        tiles = []
+        for cx in (160, 350, 540, 730, 920):
+            s = None
+            for y in range(320, 1580, 2):
+                r = red(im.getpixel((cx - 62, y)))
+                if r and s is None: s = y
+                if not r and s is not None:
+                    if y - s > 120: tiles.append((s, cx))    # full tile only (partly scrolled-off ones are shorter)
+                    s = None
+        free = [(t, cx) for t, cx in sorted(tiles)
+                if not sum(1 for y in range(t - 14, t + 20) for x in range(cx + 50, cx + 80) if sum(im.getpixel((x, y))[:3]) < 150)]
+        if free: break
     for t, cx in free[:3]:
         tap_wait(cx, t + 72)
         try: s = find(wait(r'^Synthesize$', 3, (300, 1100, 780, 1300)), r'^Synthesize$', (300, 1100, 780, 1300))
@@ -668,19 +670,36 @@ CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena
            ('storm_rewards', storm_rewards), ('arena_claims', arena_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
            ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission)]  # missions always last (Nick, 2026-10-29)
 CATCHUP_MANUAL = []
-# fishing first: Auto runs during the rest; patrol before arena: Speed Patrol loot refills the arena tickets, which then
-# filled up mid-Trials/Stage (tickets-full popup on 5/9 accounts, 2026-10-29)
-ORDER = [('fishing', fishing), ('patrol', patrol), ('storm', storm), ('arena', arena), ('shop', shop),
-         ('play_pass', play_pass), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('beast', beast),
-         ('trials', trials), ('recruit', recruit), ('hero', hero), ('tribe', tribe), ('divine', divine), ('relic_shovels', relic_shovels),
-         ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune), ('arena2', arena), ('grocery', grocery), ('grocery_buy', grocery_buy),
-         ('storm_rewards', storm_rewards), ('arena_claims', arena_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
-         ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission)]  # missions always last (Nick, 2026-10-29)
+def seq(*parts):
+    """One runner step made of sub-steps (fn, config key or None), back to main between them. MANUAL/SKIP tags of a
+    part carry over to the whole step; a part whose config key is off is left out."""
+    def run(cfg):
+        out = []
+        for fn, key in parts:
+            if not enabled(cfg, key): continue
+            if out and not home(): raise Stop('lost the main screen between sub-steps')
+            out.append(str(fn(cfg)))
+        tag = next((t for t in ('MANUAL', 'SKIP') if any(o.startswith(t) for o in out)), '')
+        return (tag + ' ' if tag and not out[0].startswith(tag) else '') + '; '.join(out)
+    return run
+
+
+# Daily run order — reviewed with Nick 2026-10-31 (dailies-sequence.md): Arena before and after Patrol (patrol loot
+# refills tickets) and again after Adventure; Storm/Arena/Tribe/Grocery carry their own reward claims; Adventure top
+# to bottom (Trials first); Canyon inside Tribe; Daily Mission always last.
+ORDER = [('fishing', fishing), ('arena', arena), ('patrol', patrol), ('arena2', arena),
+         ('storm', seq((storm, None), (storm_rewards, None))), ('shop', shop), ('play_pass', play_pass),
+         ('trials', trials), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('beast', beast),
+         ('arena3', seq((arena, None), (arena_claims, None))), ('recruit', recruit), ('hero', hero),
+         ('tribe', seq((tribe, None), (canyon, 'canyon_clash'), (canyon_rewards, None))), ('divine', divine),
+         ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune),
+         ('grocery', seq((grocery, 'grocery_free_chests'), (grocery_buy, 'grocery_buy'))),
+         ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission)]
 # config key that must be present / truthy for a step to run
 KEY = {'storm': None, 'arena': 'arena', 'arena2': 'arena', 'fishing': 'fishing', 'patrol': 'patrol', 'patrol_claim': 'patrol',
        'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',
        'gate': 'gate_of_darkness', 'beast': 'beast_realm', 'trials': 'land_of_trials', 'recruit': 'recruit', 'hero': 'hero_upgrade',
-       'tribe': 'tribe', 'divine': 'divine_weapon', 'relic_shovels': 'relic_shovels', 'stage': 'adventure_stage', 'grocery': 'grocery_free_chests',
+       'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
        'tribe_chat': 'tribe', 'common_recruit': 'recruit', 'storm_rewards': None, 'arena_claims': 'arena',
        'canyon_rewards': None, 'events': None, 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
@@ -708,6 +727,7 @@ def main(argv):
     catch_up = '--catch-up' in argv
     argv = [a for a in argv if a != '--catch-up']
     ACCOUNT = argv[0]; only = argv[1:]
+    os.environ['ACCOUNT'] = ACCOUNT                     # flow.tickets_full runs arena.py for it
     cfg = open(os.path.join(HERE, '..', 'accounts', ACCOUNT + '.yaml')).read()
     out = os.environ.get('OUT') or f'/tmp/miniheroes-{NOW:%F}/{ACCOUNT}'
     os.makedirs(out, exist_ok=True); os.chdir(out)
@@ -732,7 +752,12 @@ def main(argv):
         """Run one step; True = OK/SKIP/MANUAL, False = FAIL, None = lost the main screen."""
         t0, ok = time.time(), True
         try:
-            r = fn(cfg)
+            try: r = fn(cfg)
+            except Exception as e:                       # tickets-full popup: tickets spent, step's screen gone -> redo once
+                if 'MATCH_FULL' not in str(e): raise
+                print(f'    {name}: {e}', flush=True)
+                if not home(): raise
+                r = fn(cfg)
             tag = 'MANUAL' if str(r).startswith('MANUAL') else 'SKIP' if str(r).startswith('SKIP') else 'OK'
             if tag == 'MANUAL': left.append(name)
             if tag == 'OK' and name in ONCE: open(state, 'a').write(name + '\n')

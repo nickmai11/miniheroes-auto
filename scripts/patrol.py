@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Patrol: Speed Patrol while the price is Free or <= patrol.max_gem_price (never the 100 one), then Claim All.
+# Patrol: Claim All, then Speed Patrol while the price is Free or <= patrol.max_gem_price (never the 100 one).
 # usage: D=<serial> scripts/patrol.py <account> [--claim-only]     (main screen must be open)
 # The Tip shows "(Remaining chances today: N)" and a price button (Free / 50 / 100 …), both read with OCR before
 # every tap; N must drop by 1 after each buy. exit 0 = done, 1 = unexpected screen (v_patrol.png).
@@ -25,8 +25,13 @@ def run(account, claim_only=False):
     cap = int(re.search(r'patrol:(?:\n\s+.*)*?\n\s+max_gem_price:\s*(\d+)', cfg).group(1))
     tap_wait(983, 1463)                                   # patrol bag -> Loot dialog
     wait(r'Speed Patrol', 8)
+    p = find(ocr(), r'Claim All')                         # Claim All FIRST, then the extra Speed Patrols (Nick, 2026-10-31)
+    if not p: raise Stop('Claim All not found')
+    tap_wait(*p); time.sleep(2); tap_wait(540, 1880)      # Congratulations (auto-closes) -> dismiss at the very bottom
     bought = []
     if not claim_only:
+        if not find(ocr(), r'Speed Patrol'):              # the dismiss can close the Loot dialog: reopen it
+            tap_wait(983, 1463); wait(r'Speed Patrol', 8)
         tap_wait(337, 1590)
         while len(bought) < 10:
             n, price = tip()
@@ -42,10 +47,6 @@ def run(account, claim_only=False):
             if n is not None and n2 != n - 1: raise Stop(f'chances {n} -> {n2} after a Speed Patrol')
             bought.append(price or 'Free'); print(f'Speed Patrol: {price or "Free"}', flush=True)
         tap_wait(936, 638)                                # close the Tip
-        wait(r'Claim All', 8)
-    p = find(ocr(), r'Claim All')
-    if not p: raise Stop('Claim All not found')
-    tap_wait(*p); time.sleep(2); tap_wait(540, 1880)      # Congratulations (auto-closes) -> dismiss at the very bottom
     print(f'patrol done: speed {bought}, Claim All tapped')
 
 
