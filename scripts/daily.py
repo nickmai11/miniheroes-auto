@@ -42,6 +42,9 @@ def home():
             if x: tap_wait(*x); time.sleep(1); continue
         if find(boxes, r'^Exit') and find(boxes, r'^Confirm$'): tap_text(r'^Confirm$', boxes=boxes); continue
         tap_wait(92, 1810); time.sleep(0.8)
+    for _ in range(3):                                   # screens without the back arrow (hero detail, Cmajor 2026-10-31):
+        if is_main(): return True                        # Android Back - never on main (it opens a dialog there)
+        subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4']); time.sleep(1.2)
     return is_main()
 
 

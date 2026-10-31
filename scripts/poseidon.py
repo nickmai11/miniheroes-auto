@@ -73,7 +73,9 @@ def run():
     # ---- navigate to the map ----
     if not find(ocr(), r'Attack Attempts'):
         if not find(ocr(), r"Poseidon"):
-            if not is_main(): raise Stop('not on the main screen, Tribe screen or the Ruins map')
+            if not is_main():                           # other screen -> go to main, don't stop (Nick, 2026-10-31)
+                from daily import home
+                if not home(): raise Stop('could not reach the main screen')
             for _ in range(2):  # first Tribe tap right after the main screen appears can be ignored
                 tap_wait(448, 1780)
                 try: wait(r'Poseidon', 6); break
