@@ -771,7 +771,7 @@ dailies. Monday: closed until 17:00 — run `/catch-up` after that.
    Then close `(100,1150)`, play the new tickets; next time tickets hit 0 → close the popup and stop.
    Button state: sample `(260,1250)` — green (123,206,49) / grey (181,178,181). `(260,1274)` hits the "Free" text or
    the camera icon: that made storm.py miss the ad popup, "dismiss" it as a Victory and count fake 5 s matches.
-5. **Rewards** `(96,880)` (left side) — runner step `storm_rewards` (red dot box `(110,830)-(180,900)`; taps the Gold/Silver/Bronze icons, MANUAL if the dot stays) — if it has a red dot: *Rank Reward* tab lists King/Glory/Gold/Silver/Bronze
+5. **Rewards** `(96,880)` (left side) — runner: end of step `storm`, same visit (red dot box `(110,830)-(180,900)`; taps the Gold/Silver/Bronze icons, MANUAL if the dot stays) — if it has a red dot: *Rank Reward* tab lists King/Glory/Gold/Silver/Bronze
    rows; tap a reached rank's highlighted item icon, not the row background (Bronze `(372,1404)`, Silver `(372,1180)`, Gold `(372,962)`) → claims the whole row (checkmarks) →
    dismiss `(540,1900)`. *Ranking Rewards* tab = end-of-season table, nothing to claim. Close ✕ `(972,228)`;
    the red dot should be gone.

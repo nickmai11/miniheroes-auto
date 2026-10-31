@@ -75,7 +75,9 @@ def storm_arena():
 def storm(cfg):
     if NOW.weekday() == 0 and NOW.hour < 17: return 'SKIP closed until Mon 17:00'
     storm_arena()
-    return script('storm.py', ACCOUNT)
+    out = script('storm.py', ACCOUNT)
+    rew = storm_rewards()                                # same visit: Rewards is part of Storm (Nick, 2026-10-31)
+    return ('MANUAL ' if rew.startswith('MANUAL') else '') + f'{out}; rewards: {rew}'
 
 
 def ranking_rewards():
@@ -513,11 +515,12 @@ def fishing_rewards(cfg):
 # Each one: red dot / OCR'd free button first, never a price. UNTESTED on a real claim (mapped on Tiger with
 # nothing claimable) - a red dot still there afterwards -> MANUAL (helper).
 
-def storm_rewards(cfg):
-    """Storm arena Rewards (96,880): OCR the rank banner above the shield, tap only that rank's row in the panel.
-    Lower rows only if the red dot survives (rank jumped since the last claim)."""
-    if NOW.weekday() == 0 and NOW.hour < 17: return 'SKIP closed until Mon 17:00'
-    storm_arena()
+def storm_rewards():
+    """Storm arena Rewards (96,880), called by storm() on its arena screen: OCR the rank banner above the shield, tap
+    only that rank's row in the panel. Lower rows only if the red dot survives (rank jumped since the last claim)."""
+    im = grab(); p = im.getpixel((400, 1580))
+    if not (p[0] > 200 and p[1] > 150 and p[2] < 80):    # storm.py left a popup / other screen -> reopen Storm
+        home(); storm_arena()
     if not red_dot(110, 830, 180, 900): return 'no red dot'
     rows = {'King': 518, 'Glory': 740, 'Gold': 962, 'Silver': 1180, 'Bronze': 1404}   # panel row y, top -> bottom
     rank = next((r for r in rows if find(ocr(), rf'^{r}', (380, 600, 700, 710))), None)
@@ -667,7 +670,7 @@ def events(cfg):
 CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena), ('storm', storm),   # fishing first: Auto runs during the rest (Nick, 2026-10-29)
            ('veins_forge', lambda c: divine(c, benefit=False)), ('patrol_claim', patrol_claim), ('arena2', arena),
            ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
-           ('storm_rewards', storm_rewards), ('arena_claims', arena_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
+           ('arena_claims', arena_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
            ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission)]  # missions always last (Nick, 2026-10-29)
 CATCHUP_MANUAL = []
 def seq(*parts):
@@ -688,7 +691,7 @@ def seq(*parts):
 # refills tickets) and again after Adventure; Storm/Arena/Tribe/Grocery carry their own reward claims; Adventure top
 # to bottom (Trials first); Canyon inside Tribe; Daily Mission always last.
 ORDER = [('fishing', fishing), ('arena', arena), ('patrol', patrol), ('arena2', arena),
-         ('storm', seq((storm, None), (storm_rewards, None))), ('shop', shop), ('play_pass', play_pass),
+         ('storm', storm), ('shop', shop), ('play_pass', play_pass),
          ('trials', trials), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('beast', beast),
          ('arena3', seq((arena, None), (arena_claims, None))), ('recruit', recruit), ('hero', hero),
          ('tribe', seq((tribe, None), (canyon, 'canyon_clash'), (canyon_rewards, None))), ('divine', divine),
@@ -701,7 +704,7 @@ KEY = {'storm': None, 'arena': 'arena', 'arena2': 'arena', 'fishing': 'fishing',
        'gate': 'gate_of_darkness', 'beast': 'beast_realm', 'trials': 'land_of_trials', 'recruit': 'recruit', 'hero': 'hero_upgrade',
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
-       'tribe_chat': 'tribe', 'common_recruit': 'recruit', 'storm_rewards': None, 'arena_claims': 'arena',
+       'tribe_chat': 'tribe', 'common_recruit': 'recruit', 'arena_claims': 'arena',
        'canyon_rewards': None, 'events': None, 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
 
 

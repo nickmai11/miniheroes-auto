@@ -25,8 +25,9 @@ def rank(text):
 def max_rank(account):
     """storm_max_rank from the account file; no setting = no cap, play every ticket (Nick, 2026-10-31)."""
     try: m = re.search(r'storm_max_rank:\s*([^#\n]+)', open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts', account + '.yaml')).read())
-    except (OSError, TypeError): return None
-    return m and rank(m.group(1))
+    except (OSError, TypeError): m = None
+    caps = [c for c in (m and rank(m.group(1)), rank(os.environ.get('STORM_MAX_RANK', ''))) if c]
+    return min(caps) if caps else None  # env STORM_MAX_RANK = one-run ceiling on top of the file cap (Nick, 2026-10-31)
 
 
 def cur_rank(im):
