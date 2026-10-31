@@ -582,8 +582,6 @@ def canyon(cfg):
     if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'
     open_canyon()
     rew = canyon_rewards()                               # same visit, before canyon.py: Rewards is part of Canyon (Nick, 2026-10-31)
-    # ponytail: one global lock - our accounts share the map and raced for the same spots (2026-10-29)
-    lock = open('/tmp/miniheroes-canyon.lock', 'w'); fcntl.flock(lock, fcntl.LOCK_EX)   # freed on return
     try: return f"{script('canyon.py', ACCOUNT)}; rewards: {rew}"
     except Stop as e:
         if 'exit 2' in str(e): return f'MANUAL no empty platform (attack choice); rewards: {rew}'

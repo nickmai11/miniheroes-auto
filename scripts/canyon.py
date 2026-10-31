@@ -6,7 +6,7 @@
 # Empty = a platform disc with no name label under it. Every pick is confirmed by the popup text "occupy the empty"
 # before Occupy; anything else ("About to challenge <name>'s ...") -> Cancel. Never attacks: no empty spot -> exit 2.
 # exit 0 = moved, 2 = no empty platform (helper may beat a Sentinel; never a player), 1 = unexpected screen.
-import datetime, os, re, sys, time
+import datetime, fcntl, os, re, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from flow import Stop, find, main, near, ocr, swipe, tap_text, wait
 from tap import grab, tap as tap_wait
@@ -42,6 +42,9 @@ def settled():
 
 
 def try_occupy(x, y):
+    # ponytail: one global lock around tap -> popup -> Occupy only; accounts scan in parallel. Our accounts share the
+    # map and raced for one spot (2026-10-29); a whole-run lock queued them for minutes (2026-10-31). Freed on return.
+    lock = open('/tmp/miniheroes-canyon.lock', 'w'); fcntl.flock(lock, fcntl.LOCK_EX)
     tap_wait(x, y)
     for _ in range(6):                                  # popup slides in
         time.sleep(0.5); boxes = ocr(); t = ' '.join(b[4] for b in boxes)
