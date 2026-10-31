@@ -37,6 +37,18 @@ def cur_rank(im):
     tier = ' '.join(t for x, y, w, h, t in boxes if 400 < x + w // 2 < 700 and 560 < y + h // 2 < 720)
     lvl = next((t.strip() for x, y, w, h, t in boxes if 430 < x + w // 2 < 650 and 1250 < y + h // 2 < 1370 and t.strip().isdigit()), '')
     return rank(f'{tier} +{lvl}' if lvl else tier)
+
+
+def capped_rank(cap):
+    """Rank for the cap check. The badge number is often missed by OCR -> 'King' alone read as +0 let Aminor (+2),
+    Tiger, Kong (+12) past their caps (2026-10-31/11-01). Re-read up to 5x; still no number in the cap's tier -> None
+    (unreadable = stop), since +0 can't be told from a missed digit."""
+    r = None
+    for _ in range(5):
+        r = cur_rank(grab())
+        if r is None or r[1] > 0 or r[0] < cap[0]: return r
+        time.sleep(1)
+    return None
 D = os.environ['D']
 def arena(im): p = im.getpixel((400, 1580)); return p[0] > 200 and p[1] > 150 and p[2] < 80  # Start Match yellow
 # "+" popup: left button body. y=1274 hits the "Free" text / camera icon of the ad "Claim" variant, so
@@ -92,8 +104,9 @@ def main(account=None):
     if not arena(grab()):
         print('not on arena screen; stop'); return 1
     cap = max_rank(account)
-    r = cur_rank(grab()); print(f'rank read {r}, max {cap}', flush=True)
-    if cap and (r or (-1,)) >= cap: print(f'rank {r} already at max {cap}; no matches'); return 0
+    r = capped_rank(cap) if cap else cur_rank(grab()); print(f'rank read {r}, max {cap}', flush=True)
+    if cap and r is None: print('rank unreadable with a max rank set; no matches'); return 0
+    if cap and r >= cap: print(f'rank {r} already at max {cap}; no matches'); return 0
     if not lineup(True): return 1
     r = play(cap)
     if r == 0:
@@ -108,10 +121,10 @@ def play(cap=None):
     while n < 30:
         im = grab()
         if cap and arena(im):
-            r = cur_rank(im)
+            r = capped_rank(cap)
             for _ in range(6):                        # badge number updates after the screen is back (Kong 2026-10-31:
-                time.sleep(1.2); r2 = cur_rank(grab())  # read +8..+11 stale, stopped at +12 with cap +10): read until stable
-                if r2 == r: break
+                time.sleep(1.2); r2 = capped_rank(cap)  # read +8..+11 stale, stopped at +12 with cap +10): read until stable
+                if r2 == r or r2 is None: break
                 r = r2
             print(f'    rank {r}', flush=True)
             if r is None: print('rank unreadable with a max rank set; stop'); return 1
