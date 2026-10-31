@@ -43,8 +43,16 @@ def check_account():
     """Main screen: 'ok' (right account / nothing to check), 'switched' (popups come back) or 'fail'."""
     gid, server = account()
     if not gid: return 'ok'
-    top = ' '.join(t for x, y, w, h, t in ocr() if y < 40)
-    if gid in top: return 'ok'
+    # switch only on a different full ID read twice: an empty/garbled read (ID not drawn yet) is not a wrong account
+    seen = []
+    for _ in range(8):
+        top = ' '.join(t for x, y, w, h, t in ocr() if y < 40)
+        if gid in top: return 'ok'
+        m = re.search(r'\d{8}', top)
+        if m: seen.append(m.group())
+        if len(seen) >= 2 and seen[-1] == seen[-2]: break
+        time.sleep(1)
+    else: print(f'account ID unreadable ({top[:30]}); not switching'); return 'ok'
     if not server: print(f'wrong account ({top[:30]}), no server in the account file; stop'); return 'fail'
     print(f'wrong account ({top[:30]}), switching to S{server}', flush=True)
     tap_wait(994, 1625); b = wait(r'^Settings$'); tap_wait(820, find(b, r'^Settings$')[1])
