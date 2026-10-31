@@ -227,7 +227,7 @@ the source of truth: free used = 2 − remaining free; paid used = 5 − remaini
 ## Arena
 
 Renamed from "Match" (Nick, 2026-10-29) — the main-screen icon is still labelled **Match** in game.
-**Runner step `arena` claims the Ranking Rewards gift boxes first, then runs `scripts/arena.py <account>` from the Arena screen** (see Speed); step 6's win chests = runner step `arena_claims` (reads the win count, taps reached chests without a green ✓). Steps 1–5 below are arena.py's exit-1 fallback.
+**Runner step `arena` claims the Ranking Rewards gift boxes first, then runs `scripts/arena.py <account>` from the Arena screen** (see Speed); step 6's win chests = end of the same `arena` step, same visit (reads the win count, taps reached chests without a green ✓). Steps 1–5 below are arena.py's exit-1 fallback.
 
 Mapped 2026-10-26 on Cmajor via ADB. **Device coords (1080×1920)**; window coords not mapped yet.
 
@@ -710,7 +710,7 @@ left icon column (**Lineup** opens the Defense Lineup — Dminor, nothing saved)
 after `canyon.py` found none (7 accounts, 2026-10-29: the helpers all found empty Silver spots right below the
 tribemate rows) — the helper re-checks for empty ones before beating a Sentinel.
 
-**Points Reward** (runner step `canyon_rewards`): left-side **Rewards** `(88,745)` with a red dot → **Claim Reward** `(540,1618)` (free) →
+**Points Reward** (runner: start of step `canyon`, same visit): left-side **Rewards** `(88,745)` with a red dot → **Claim Reward** `(540,1618)` (free) →
 dismiss `(540,1880)` → close ✕ `(972,240)`.
 
 Tribe chat pinned notice (Peakaboo, 2026-10-27): "Canyon: Move to 8/m if you reached 80k early. Dont attack

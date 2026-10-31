@@ -15,7 +15,7 @@ Use when Nick asks for "arena", "match", or "crash" on a Mini Heroes account.
    do the loop by hand from its screenshot: Loop until tickets = 0: open Challenge, pick the **topmost** **Crash** row not on the roster
    (the **last row is a bot — always attackable**, use it when nothing above qualifies),
    crash, dismiss, verify the ticket count dropped.
-5. Claim any reached (glowing) weekly win chest: `daily.py <account> arena_claims` (Arena doc step 6).
+5. Claim any reached (glowing) weekly win chest: done by `daily.py <account> arena` at the end of the same visit (Arena doc step 6).
 6. Report: claims, opponents crashed (name, CP) and any tribemates skipped.
 
 Also triggered mid-dailies by a "Match attempts full" popup: Confirm, exhaust tickets, then resume the interrupted daily.

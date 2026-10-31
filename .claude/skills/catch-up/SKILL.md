@@ -28,12 +28,12 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    only what shows a red dot — no red dot = nothing to collect, don't open it to check.
    1. Fishing **first** (Nick, 2026-10-29 — Auto then runs during everything else): only start Auto (fishing) and
       claim completed order rewards — no order refreshing, no Benefit
-   2. Arena: Ranking Rewards gift boxes first (Nick, 2026-10-29), then exhaust free tickets (`scripts/arena.py <account>`), then the win-chest claims
+   2. Arena: Ranking Rewards gift boxes first (Nick, 2026-10-29), then exhaust free tickets (`scripts/arena.py <account>`), then the win-chest claims — same visit, every runner arena step
    3. Storm Battlefield (skip if its season is closed: Mon 05:00-17:00): run `scripts/storm.py` from the arena
       screen — it sets the full lineup first and resets to 1 hero after (ui-routine Storm steps 2–4, 6); report its output.
       Then **Rewards** (left side) if it has a red dot — same visit, inside runner step `storm`
    4. Canyon Clash (skip if its season is closed: Mon 06:00-17:00): **take a new spot even if one is already held**
-      (`scripts/canyon.py`: empty spots only, popup text checked; no empty one → helper)
+      (`scripts/canyon.py`: empty spots only, popup text checked; no empty one → helper); Points Rewards red dot claimed first, same visit
    5. Divine Weapon: Excelsior Veins via `scripts/veins.py` (stops at 0 pickaxes), then Forge: fill every free slot (N/M) while crystals ≥ cost, even if a forge is already running (Nick, 2026-10-28) — no Benefit; skip Forge if the account has `divine_forge: false` (Kong, 2026-10-30)
    6. Patrol: Claim All only (`scripts/patrol.py <account> --claim-only`) — no Speed Patrol. Claim All often gives Arena tickets → re-run Arena right after
    7. Tribe chat Request + Assist (Tribe section, step 4 only — by hand; `tribe.py` also signs in / fights the Trial)

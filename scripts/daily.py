@@ -94,7 +94,8 @@ def ranking_rewards():
 
 def arena(cfg):
     tap_wait(100, 1280); wait(r'^Lineup$|Ranking', 10)   # main-screen icon is labelled "Match" in game
-    return ranking_rewards() + script('arena.py', ACCOUNT)
+    out = ranking_rewards() + script('arena.py', ACCOUNT)
+    return f'{out}; {arena_claims()}'                   # same visit: win chests are part of Arena (Nick, 2026-10-31)
 
 
 def fishing(cfg, orders=True):
@@ -537,9 +538,11 @@ def storm_rewards():
     return f'rank rewards claimed ({rank})'
 
 
-def arena_claims(cfg):
-    """Arena: weekly win chests 10/20/35/50 at y≈210; reached (wins >= N) and no green check -> tap, dismiss."""
-    tap_wait(100, 1280); boxes = wait(r'Winnings', 10)
+def arena_claims():
+    """Called by arena() on its screen: weekly win chests 10/20/35/50 at y≈210; reached (wins >= N) and no green check -> tap, dismiss."""
+    boxes = ocr()
+    if not find(boxes, r'Winnings'):                     # arena.py left another screen -> reopen Arena
+        home(); tap_wait(100, 1280); boxes = wait(r'Winnings', 10)
     w = next((int(b[4]) for b in boxes if b[4].strip().isdigit() and b[0] < 240 and 260 < b[1] < 340), None)
     if w is None: raise Stop('win count unreadable')
     im, got = grab(), []
@@ -562,17 +565,15 @@ def open_canyon():
     raise Stop('Canyon Resource popup did not close')
 
 
-def canyon_rewards(cfg):
-    """Tribe -> Canyon Clash -> Rewards (88,745) red dot -> Claim Reward (repeat while it's there)."""
-    if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'
-    open_canyon()
+def canyon_rewards():
+    """Called by canyon() on the fresh Canyon map: Rewards (88,745) red dot -> Claim Reward (repeat while it's there)."""
     if not red_dot(110, 690, 175, 760): return 'no red dot'
     tap_wait(88, 745); n = 0
     for _ in range(6):
         c = find(ocr(), r'^Claim Reward$')
         if not c: break
         tap_wait(*c); time.sleep(1.2); tap_wait(540, 1880); n += 1
-    tap_wait(972, 240)
+    tap_wait(972, 240); wait(r'Attempts', 10)            # back on the map for canyon.py
     return f'points rewards claimed x{n}'
 
 
@@ -580,11 +581,12 @@ def canyon(cfg):
     """Take a new EMPTY spot by the day's rule (scripts/canyon.py). No empty one -> MANUAL (helper may beat a Sentinel, never a player)."""
     if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'
     open_canyon()
+    rew = canyon_rewards()                               # same visit, before canyon.py: Rewards is part of Canyon (Nick, 2026-10-31)
     # ponytail: one global lock - our accounts share the map and raced for the same spots (2026-10-29)
     lock = open('/tmp/miniheroes-canyon.lock', 'w'); fcntl.flock(lock, fcntl.LOCK_EX)   # freed on return
-    try: return script('canyon.py', ACCOUNT)
+    try: return f"{script('canyon.py', ACCOUNT)}; rewards: {rew}"
     except Stop as e:
-        if 'exit 2' in str(e): return 'MANUAL no empty platform (attack choice)'
+        if 'exit 2' in str(e): return f'MANUAL no empty platform (attack choice); rewards: {rew}'
         raise
 
 
@@ -670,7 +672,7 @@ def events(cfg):
 CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena), ('storm', storm),   # fishing first: Auto runs during the rest (Nick, 2026-10-29)
            ('veins_forge', lambda c: divine(c, benefit=False)), ('patrol_claim', patrol_claim), ('arena2', arena),
            ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
-           ('arena_claims', arena_claims), ('canyon', canyon), ('canyon_rewards', canyon_rewards),
+           ('canyon', canyon),
            ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission)]  # missions always last (Nick, 2026-10-29)
 CATCHUP_MANUAL = []
 def seq(*parts):
@@ -693,8 +695,8 @@ def seq(*parts):
 ORDER = [('fishing', fishing), ('arena', arena), ('patrol', patrol), ('arena2', arena),
          ('storm', storm), ('shop', shop), ('play_pass', play_pass),
          ('trials', trials), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('beast', beast),
-         ('arena3', seq((arena, None), (arena_claims, None))), ('recruit', recruit), ('hero', hero),
-         ('tribe', seq((tribe, None), (canyon, 'canyon_clash'), (canyon_rewards, None))), ('divine', divine),
+         ('arena3', arena), ('recruit', recruit), ('hero', hero),
+         ('tribe', seq((tribe, None), (canyon, 'canyon_clash'))), ('divine', divine),
          ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune),
          ('grocery', seq((grocery, 'grocery_free_chests'), (grocery_buy, 'grocery_buy'))),
          ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission)]
@@ -704,8 +706,8 @@ KEY = {'storm': None, 'arena': 'arena', 'arena2': 'arena', 'fishing': 'fishing',
        'gate': 'gate_of_darkness', 'beast': 'beast_realm', 'trials': 'land_of_trials', 'recruit': 'recruit', 'hero': 'hero_upgrade',
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
-       'tribe_chat': 'tribe', 'common_recruit': 'recruit', 'arena_claims': 'arena',
-       'canyon_rewards': None, 'events': None, 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
+       'tribe_chat': 'tribe', 'common_recruit': 'recruit',
+       'events': None, 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
 
 
 def enabled(cfg, key):
