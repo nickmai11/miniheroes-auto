@@ -508,6 +508,15 @@ shows "Stage Reward" with no "Next Stage (Ns)" countdown) → main screen "Next 
 → Start `(540,1806)`. On Defeat, "Challenge again" (Nick, 2026-10-31). All automated:
 `scripts/climb.py <account>... [--minutes N]` (runs ~9 min per call, re-run to keep watching; exit 1 = look).
 
+**3 losses in a row on one stage → swap lineups** (Nick, 2026-10-31; climb.py exits 2 on the battle setup). Lineups +
+what each is good for: `stage_lineups` in the account yaml (update it after every swap). Steps:
+1. A setup opened via Challenge again keeps already-won waves locked and **doesn't save edits** — back `(80,1810)` to
+   the main screen, skull `(994,964)` for a fresh setup.
+2. Tabs 1/2/3 `(380|540|700,1088)`. The circular arrow `(1000,1080)` = **recall all** of the open tab (no swap button).
+3. Recall both tabs, then tap the other team's cells into each (tapping a free card deploys it; locked = in another
+   tab). Grid at top: row1 y 1250, row2 y 1480, cols x 136/336/536/736/936; row 3+ → swipe `540,1450→540,1210`
+   (800 ms) and screenshot for its y. Check the tab's power equals the other team's old power, then Start.
+
 ## Patrol (claim all + speed patrol)
 
 **Run `scripts/patrol.py <account>`** (`--claim-only` for the late Patrol step); steps below = exit-1 fallback.

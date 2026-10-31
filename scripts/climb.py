@@ -3,6 +3,7 @@
 # -> close the reward, Next chapter, open the stage, Start; Defeat screen up 3 s -> Challenge again.
 # usage: scripts/climb.py <account>... [--minutes N]     (accounts/<account>.yaml; game must already be auto-climbing)
 # Runs N minutes (default 9, fits one Bash call) then exits 0 "still climbing" — just run it again.
+# exit 2 = lost the same stage 3x in a row: swap lineups by hand (accounts/<a>.yaml stage_lineups), re-run.
 # exit 1 = a step's screen didn't show or a stage didn't change for 4 min (climb_<name>.png in /tmp).
 # Seen 2026-10-31 (Bino/Dino): after a Challenge again the game sometimes goes to the next chapter itself.
 import json, os, re, subprocess, sys, time
@@ -40,7 +41,7 @@ def step(a, xy, pat, to=20):
 
 
 FIGHT = r'Victory|Defeat|Lv\.|x2|ATK'  # any of these = a battle (or its result) is on
-seen = {}
+seen, losses = {}, {}
 end = time.time() + minutes * 60
 while time.time() < end:
     for a, d in devs.items():
@@ -50,7 +51,13 @@ while time.time() < end:
         if 'Defeat' in t and flow.find(b, r'Challenge again'):
             time.sleep(3); b = flow.ocr(T.grab()); ca = flow.find(b, r'Challenge again')
             if ca:
-                log(a, f'Defeat on {st and st.group(0)} -> Challenge again')
+                stage = st and st.group(0)
+                n = losses[a][1] + 1 if losses.get(a, ('',))[0] == stage else 1
+                losses[a] = (stage, n)
+                log(a, f'Defeat {n} on {stage} -> Challenge again')
+                if n >= 3:  # Nick 2026-10-31: 3 losses in a row -> swap lineups (stage_lineups in the account yaml)
+                    step(a, f'{ca[0]},{ca[1]}', r'^Start$|\| Start \|', 30)
+                    log(a, f'SWAP LINEUPS: lost {stage} 3x, left on the battle setup'); sys.exit(2)
                 step(a, f'{ca[0]},{ca[1]}', 'Start|' + FIGHT, 30)
                 if flow.find(flow.ocr(T.grab()), r'^Start$'): step(a, '540,1806', FIGHT, 30)
                 seen.pop(a, None); continue
