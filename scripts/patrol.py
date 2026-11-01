@@ -30,8 +30,10 @@ def run(account, claim_only=False):
     tap_wait(*p); time.sleep(2); tap_wait(540, 1880)      # Congratulations (auto-closes) -> dismiss at the very bottom
     bought = []
     if not claim_only:
-        if not find(ocr(), r'Speed Patrol'):              # the dismiss can close the Loot dialog: reopen it
-            tap_wait(983, 1463); wait(r'Speed Patrol', 8)
+        for _ in range(3):                                # the dismiss can close the Loot dialog: reopen it. A tap during
+            if find(ocr(), r'Speed Patrol'): break          # the closing animation is ignored (6/9 accounts 2026-11-01)
+            time.sleep(1); tap_wait(983, 1463); time.sleep(1.5)
+        else: wait(r'Speed Patrol', 4)
         tap_wait(337, 1590)
         while len(bought) < 10:
             n, price = tip()

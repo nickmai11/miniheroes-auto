@@ -795,18 +795,12 @@ def main(argv):
         if not enabled(cfg, KEY[name]): print(f'SKIP {name}: not in config', flush=True); continue
         if name in ONCE and name in done and not force: print(f'SKIP {name}: already OK this game day ({GAME_DAY})', flush=True); continue
         r = step(name, fn)
+        # one retry, right away: most FAILs are transient (2026-10-29: 18 of 19 passed on a re-run; steps re-read their
+        # counters, so a retry never double-spends). In place, not at the end: Chien Than's Speed Patrol ran after Daily
+        # Mission and Arena (2026-11-01), so its mission points and patrol Arena tickets came too late.
+        if r is False: print(f'--- retrying {name}', flush=True); r = step(name, fn)
         if r is None: print('LEFT FOR HELPER:', ', '.join(left + failed + [name])); return 1
         if not r: failed.append(name)
-    # one retry of each failed step: most first-pass FAILs were transient (2026-10-29: the coordinator re-ran them by
-    # hand and 18 of 19 passed). Steps re-read their on-screen counters, so a retry never double-spends.
-    if failed:
-        print(f'--- retrying {failed}', flush=True)
-        again = [n for n in failed if n != 'daily_mission'] + ['daily_mission']   # retried progress -> claim it
-        for name in again:
-            if name == 'daily_mission' and not enabled(cfg, KEY[name]): continue
-            r = step(name, dict(steps)[name])
-            if r is None: print('LEFT FOR HELPER:', ', '.join(left + failed)); return 1
-            if r and name in failed: failed.remove(name)
     left += failed
     print('LEFT FOR HELPER:', ', '.join(f'{k} ({MANUAL[k]})' if k in MANUAL else k for k in left))
     return 0

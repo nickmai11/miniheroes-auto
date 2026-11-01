@@ -100,7 +100,9 @@ def battle(start_screen, timeout=180):
         boxes = ocr()
         if find(boxes, start_screen): return res
         c = find(boxes, r'^Confirm$')
-        tap(*(c or (540, 1700))); time.sleep(1.5)   # Confirm, or tap below "Challenge again" (never on it)
+        # Confirm, or 'Tap anywhere' at the TOP: (540,1700) below "Challenge again" started the next Tower floor on a
+        # Victory (Bino/Chien Than/Dino 2026-11-01: a new fight was running when the close loop gave up)
+        tap(*(c or (540, 120))); time.sleep(1.5)
     raise Stop(f'result screen did not close back to {start_screen!r}')
 
 

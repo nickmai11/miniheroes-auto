@@ -32,7 +32,7 @@ run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly 
    (judgment steps — Pet Arena Mon–Wed, plus MANUAL lines: Sanctuary climb lost a floor,
    Canyon with no empty spot, event tabs with an unmapped red dot — plus any FAIL, each with `v_<step>.png`).
    Storm Rewards, Arena chests, Canyon empty spot, Canyon Points Reward and event milestones are runner steps
-   since 2026-10-28. The runner retries each FAIL once at the end (then re-claims Daily Mission) — don't re-run
+   since 2026-10-28. The runner retries each FAIL once right away, in order (2026-11-01) — don't re-run
    FAILed steps by hand; only what it still lists. Exit 1 = lost the main screen; exit 2 = a runner already holds that account. Watch failures live: Monitor `tail -F <dir>/*.log | grep
    --line-buffered -E '^(FAIL|Traceback)'`.
 3. Per account with leftovers: ONE `mh-helper` whose prompt lists only those steps + their doc sections
