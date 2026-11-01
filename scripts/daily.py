@@ -558,7 +558,7 @@ def arena_claims():
     if not find(boxes, r'Winnings'):                     # arena.py left another screen -> reopen Arena
         home(); tap_wait(100, 1280); boxes = wait(r'Winnings', 10)
     w = next((int(b[4]) for b in boxes if b[4].strip().isdigit() and b[0] < 240 and 260 < b[1] < 340), None)
-    if w is None: raise Stop('win count unreadable')
+    if w is None: return 'win count unreadable; no chest tapped'   # a lone '0' after the weekly reset isn't OCR'd (xFaktor 2026-11-02); claims only, never fail Arena for it
     im, got = grab(), []
     for n, x in ((10, 376), (20, 536), (35, 696), (50, 864)):
         green = sum(1 for yy in range(200, 290, 3) for xx in range(x - 40, x + 40, 3)
