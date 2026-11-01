@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # Babysit the game's own auto stage climb (occasional, not part of the dailies): auto stops after X-40 (3-wave boss)
 # -> close the reward, Next chapter, open the stage, Start; Defeat screen up 3 s -> Challenge again.
-# usage: scripts/climb.py <account>... [--minutes N]   |   scripts/climb.py <account> --swap | --record
+# usage: scripts/climb.py <account>... [--minutes N]   |   scripts/climb.py <account> --swap | --record | --apply
+# --apply: put the yaml stage_lineups back on all 3 tabs (after a SWAP LINEUPS FAILED), then Start.
 # --record [--no-start]: from any screen -> fresh battle setup, read each tab's deployed cells (green checks), write
 # stage_lineups, then Start (unless --no-start). Grid rows are found by measuring each slow-drag scroll.
 # Accounts = accounts/<account>.yaml names; the game is moved to the stage if it's elsewhere.
@@ -72,9 +73,10 @@ def to_top(d):
 def scroll(d):
     """Slow-drag the grid up and return how far it really moved (~280-320 px). A quick swipe flings a varying,
     longer way and rows repeat every PITCH, so the shift can't be measured (Chien Than's row-3 taps hit other rows,
-    2026-11-01); the slow drag stays in range and is matched by comparing the grid strip before/after."""
+    2026-11-01); the slow drag stays in range and is matched by comparing the grid strip before/after. Search 150-340 only:
+    shift-PITCH (~50-110) also matches (Dino got Lv.160 heroes deployed, 2026-11-01)."""
     b = gray(); adb(d, 'swipe', 540, 1450, 540, 1220, 2000); time.sleep(1.2); a = gray()
-    return min(range(20, 341, 2), key=lambda s: abs(a[1150:1230] - b[1150 + s:1230 + s]).mean())
+    return min(range(150, 341, 2), key=lambda s: abs(a[1150:1230] - b[1150 + s:1230 + s]).mean())
 
 
 def grid_pass(d, rows_needed, fn):
@@ -96,7 +98,7 @@ def power():
             return re.search(r'(\d[\d,]*)K', t[1:] if x < 125 else t).group(1)
 
 
-def swap(a):
+def swap(a, k=1):
     """Losing wave = the open tab of the Challenge-again setup. Fresh setup from the main screen (Challenge-again
     edits aren't saved), recall both tabs, deploy each other's cells (rows 1-3), check powers, rewrite the yaml, Start."""
     T.D = flow.D = devs[a]; d = devs[a]
@@ -107,7 +109,8 @@ def swap(a):
     won = lambda t: sum(1 for dx in range(-40, 41, 4) for dy in range(-25, 26, 4)
                         if (lambda p: p[1] > 170 and p[0] < 160 and p[2] < 120)(im.getpixel((TAB[t] + dx, 1088 + dy)))) >= 6
     w = next((t for t in (1, 2, 3) if not won(t)), 3)   # first tab without the green check = the wave we lose
-    o = w % 3 + 1
+    o = (w + k - 1) % 3 + 1   # 1st swap on a stage: next tab, 2nd: the other one (Dino flip-flopped 1<->2, 2026-11-01)
+    o = o % 3 + 1 if o == w else o
     log(a, f'losing wave {w} (tabs won: {[t for t in (1, 2, 3) if won(t)]}) -> swap with {o}')
     step(a, '80,1810', 'Adventure', 10); time.sleep(1); step(a, '994,964', r'^Start$|\| Start \|')
     old = {}
@@ -129,6 +132,27 @@ def swap(a):
     y = re.sub(r'^(\s+)X: \{', rf'\g<1>{o}: {{', y, flags=re.M)
     open(path, 'w').write(y)
     log(a, f'swapped lineups {w}<->{o} (tab {w} {got[w]}K, tab {o} {got[o]}K), yaml updated')
+    step(a, '540,1806', FIGHT, 30)
+
+
+def apply(a):
+    T.D = flow.D = devs[a]; d = devs[a]
+    y = open(f'{R}/accounts/{a}.yaml').read()
+    rows = re.findall(r'^\s+(\d): \{power: ([^,]*), cells: \[([^\]]*)\]', y, re.M)
+    teams, want = {int(k): v.split(', ') for k, _, v in rows}, {int(k): p for k, p, _ in rows}
+    r = subprocess.run(['python3', '-c', 'import daily; print(daily.home())'], cwd=HERE, env={**os.environ, 'D': d}, capture_output=True, text=True)
+    if 'True' not in r.stdout: log(a, 'apply: could not reach the main screen'); sys.exit(1)
+    step(a, '994,964', r'^Start$|\| Start \|')
+    for t in (1, 2, 3): step(a, f'{TAB[t]},1088', 'Start'); step(a, '1000,1080', 'Start')
+    def place(vis):
+        for t in (1, 2, 3):
+            step(a, f'{TAB[t]},1088', 'Start')
+            for c in teams[t]:
+                if int(c[1]) in vis: adb(d, 'tap', COLX[int(c[3]) - 1], vis[int(c[1])]); time.sleep(0.6)
+    grid_pass(d, sorted({int(c[1]) for v in teams.values() for c in v}), place)
+    got = {}
+    for t in (1, 2, 3): step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.5); got[t] = power()
+    log(a, f'applied yaml lineups: powers {got} (yaml {want})')
     step(a, '540,1806', FIGHT, 30)
 
 
@@ -180,6 +204,9 @@ def start(a):
 if '--record' in args:
     for a in accts: record(a)
     sys.exit(0)
+if '--apply' in args:   # put the yaml stage_lineups back on all 3 tabs (after a failed swap), then Start
+    for a in accts: apply(a)
+    sys.exit(0)
 if '--swap' in args: swap(accts[0]); sys.exit(0)   # one swap now (account on a Challenge-again setup)
 for a in devs: start(a)
 seen, losses, swaps = {}, {}, {}
@@ -200,7 +227,7 @@ while time.time() < end:
                     step(a, f'{ca[0]},{ca[1]}', r'^Start$|\| Start \|', 30)
                     swaps[stage] = swaps.get(stage, 0) + 1
                     if swaps[stage] > 3: log(a, f'SWAP LINEUPS: {stage} still lost after 3 swaps, left on the battle setup'); sys.exit(2)
-                    swap(a); losses.pop(a); seen.pop(a, None); continue
+                    swap(a, swaps[stage]); losses.pop(a); seen.pop(a, None); continue
                 step(a, f'{ca[0]},{ca[1]}', 'Start|' + FIGHT, 30)
                 if flow.find(flow.ocr(T.grab()), r'^Start$'): step(a, '540,1806', FIGHT, 30)
                 seen.pop(a, None); continue
