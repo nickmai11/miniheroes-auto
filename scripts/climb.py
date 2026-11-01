@@ -2,7 +2,8 @@
 # Babysit the game's own auto stage climb (occasional, not part of the dailies): auto stops after X-40 (3-wave boss)
 # -> close the reward, Next chapter, open the stage, Start; Defeat screen up 3 s -> Challenge again.
 # usage: scripts/climb.py <account>... [--minutes N]   |   scripts/climb.py <account> --swap | --record
-# --record: from any screen -> fresh battle setup, read each tab's deployed cells (green checks), write stage_lineups.     (accounts/<account>.yaml; game must already be auto-climbing)
+# --record [--no-start]: from any screen -> fresh battle setup, read each tab's deployed cells (green checks), write
+# stage_lineups, then Start (unless --no-start). Grid rows are found by measuring each slow-drag scroll.     (accounts/<account>.yaml; game must already be auto-climbing)
 # Runs N minutes (default 9, fits one Bash call) then exits 0 "still climbing" — just run it again.
 # Lost the same stage 3x in a row -> swap the losing wave's team with the next tab (stage_lineups cells in the account
 # yaml, which is rewritten), max 3 swaps per stage, then exit 2 (look by hand).
@@ -47,7 +48,43 @@ FIGHT = r'Victory|Defeat|Lv\.|x2|ATK'  # any of these = a battle (or its result)
 
 
 TAB = {1: 380, 2: 540, 3: 700}
-COLX, ROWY = [136, 336, 536, 736, 936], {1: 1250, 2: 1480, 3: 1280, 4: 1490}   # rows 3-4 after the swipe below
+COLX = [136, 336, 536, 736, 936]
+ROW1, PITCH = 1255, 232          # card centers at the top of the grid: row r at ROW1 + (r-1)*PITCH
+
+
+def adb(d, *a): subprocess.run(['adb', '-s', d, 'shell', 'input', *map(str, a)])
+
+
+def gray(): return __import__('numpy').asarray(T.grab().convert('L'), dtype=float)[:, ::4]
+
+
+def to_top(d):
+    """Swipe down until the grid stops moving (long hero lists need many swipes: Chien Than 2026-11-01)."""
+    prev = None
+    for _ in range(15):
+        adb(d, 'swipe', 540, 1150, 540, 1700, 300); time.sleep(0.8); g = gray()[1150:1570]
+        if prev is not None and abs(g - prev).mean() < 2: return
+        prev = g
+    raise RuntimeError('hero grid never reached the top')
+
+
+def scroll(d):
+    """Slow-drag the grid up and return how far it really moved (~280-320 px). A quick swipe flings a varying,
+    longer way and rows repeat every PITCH, so the shift can't be measured (Chien Than's row-3 taps hit other rows,
+    2026-11-01); the slow drag stays in range and is matched by comparing the grid strip before/after."""
+    b = gray(); adb(d, 'swipe', 540, 1450, 540, 1220, 2000); time.sleep(1.2); a = gray()
+    return min(range(20, 341, 2), key=lambda s: abs(a[1150:1230] - b[1150 + s:1230 + s]).mean())
+
+
+def grid_pass(d, rows_needed, fn):
+    """Call fn({row: y}) for the rows visible at each scroll position (each row once), scrolling down as needed."""
+    to_top(d); off, done = 0, set()
+    for _ in range(5):
+        vis = {r: ROW1 + (r - 1) * PITCH - off for r in rows_needed if r not in done and 1180 < ROW1 + (r - 1) * PITCH - off < 1520}
+        if vis: fn(vis); done |= set(vis)
+        if done >= set(rows_needed): return
+        off += scroll(d)
+    raise RuntimeError(f'rows {set(rows_needed) - done} never visible')
 
 
 def power():
@@ -76,14 +113,12 @@ def swap(a):
     for t in (w, o):
         step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.5); old[t] = power()
         step(a, '1000,1080', 'Start')
-    def put(t, cells, rows):
-        step(a, f'{TAB[t]},1088', 'Start')
-        for c in cells:
-            r, col = int(c[1]), int(c[3])
-            if r in rows: subprocess.run(['adb', '-s', d, 'shell', 'input', 'tap', str(COLX[col - 1]), str(ROWY[r])]); time.sleep(0.6)
-    put(w, teams[o], (1, 2)); put(o, teams[w], (1, 2))
-    subprocess.run(['adb', '-s', d, 'shell', 'input', 'swipe', '540', '1450', '540', '1210', '800']); time.sleep(1.2)
-    put(w, teams[o], (3, 4)); put(o, teams[w], (3, 4))
+    def place(vis):
+        for t, cells in ((w, teams[o]), (o, teams[w])):
+            step(a, f'{TAB[t]},1088', 'Start')
+            for c in cells:
+                if int(c[1]) in vis: adb(d, 'tap', COLX[int(c[3]) - 1], vis[int(c[1])]); time.sleep(0.6)
+    grid_pass(d, sorted({int(c[1]) for c in teams[o] + teams[w]}), place)
     got = {}
     for t in (w, o): step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.5); got[t] = power()
     if got[w] != old[o] or got[o] != old[w]:
@@ -107,24 +142,23 @@ def record(a):
     r = subprocess.run(['python3', '-c', 'import daily; print(daily.home())'], cwd=HERE, env={**os.environ, 'D': d}, capture_output=True, text=True)
     if 'True' not in r.stdout: log(a, 'record: could not reach the main screen'); sys.exit(1)
     step(a, '994,964', r'^Start$|\| Start \|')
-    subprocess.run(['adb', '-s', d, 'shell', 'input', 'swipe', '540', '1150', '540', '1600', '600']); time.sleep(1.2)
     teams, pw = {1: [], 2: [], 3: []}, {}
-    for rows, ys in (((1, 2), {1: (1170, 1330), 2: (1400, 1560)}), ((3, 4), {3: (1180, 1380), 4: (1400, 1570)})):
-        if rows == (3, 4):
-            subprocess.run(['adb', '-s', d, 'shell', 'input', 'swipe', '540', '1450', '540', '1210', '800']); time.sleep(1.2)
+    def read(vis):
         for t in (1, 2, 3):
             step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.6); im = T.grab(); pw[t] = power()
-            teams[t] += [f'r{rw}c{c + 1}' for rw in rows for c, x in enumerate(COLX) if checked(im, x, *ys[rw])]
+            teams[t] += [f'r{r}c{c + 1}' for r, yc in vis.items() for c, x in enumerate(COLX) if checked(im, x, yc - 75, yc + 75)]
+    grid_pass(d, [1, 2, 3, 4, 5], read)
     multi = {c for t in teams for c in teams[t] if sum(c in v for v in teams.values()) > 1}   # green card art (xFaktor r4c2)
     teams = {t: [c for c in v if c not in multi] for t, v in teams.items()}
     bad = [t for t in teams if len(teams[t]) != 5]
-    if bad: log(a, f'record: tabs {bad} not 5 cells in rows 1-4: {teams} (heroes further down?) - not written'); sys.exit(1)
+    if bad: log(a, f'record: tabs {bad} not 5 cells in rows 1-5: {teams} (heroes further down?) - not written'); sys.exit(1)
     path = f'{R}/accounts/{a}.yaml'; y = open(path).read()
     y = re.sub(r'\n  stage_lineups:.*?(?=\n  \S|\Z)', '', y, flags=re.S)
     y = y.rstrip('\n') + '\n  stage_lineups:   # see bino.yaml; recorded by climb.py --record ' + time.strftime('%F') + '\n' + ''.join(
         f'    {t}: {{power: {pw[t]}K, cells: [{", ".join(teams[t])}], good_for: ""}}\n' for t in (1, 2, 3))
     open(path, 'w').write(y)
     log(a, f'recorded stage_lineups {teams} powers {pw}')
+    if '--no-start' in args: return
     step(a, '540,1806', FIGHT, 30)
     log(a, 'started the stage')
 
