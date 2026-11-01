@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # Babysit the game's own auto stage climb (occasional, not part of the dailies): auto stops after X-40 (3-wave boss)
 # -> close the reward, Next chapter, open the stage, Start; Defeat screen up 3 s -> Challenge again.
-# usage: scripts/climb.py <account>... [--minutes N]   |   scripts/climb.py <account> --swap     (accounts/<account>.yaml; game must already be auto-climbing)
+# usage: scripts/climb.py <account>... [--minutes N]   |   scripts/climb.py <account> --swap | --record
+# --record: from any screen -> fresh battle setup, read each tab's deployed cells (green checks), write stage_lineups.     (accounts/<account>.yaml; game must already be auto-climbing)
 # Runs N minutes (default 9, fits one Bash call) then exits 0 "still climbing" — just run it again.
 # Lost the same stage 3x in a row -> swap the losing wave's team with the next tab (stage_lineups cells in the account
 # yaml, which is rewritten), max 3 swaps per stage, then exit 2 (look by hand).
@@ -20,6 +21,7 @@ for a in accts:
     inst = re.search(r'mumu_instance:\s*(.+)', open(f'{R}/accounts/{a}.yaml').read()).group(1).strip()
     if not ports.get(inst): sys.exit(f'{a}: instance {inst} not running')
     devs[a] = f'127.0.0.1:{ports[inst]}'
+    subprocess.run(['adb', 'connect', devs[a]], capture_output=True)   # drops after the Mac sleeps (2026-11-01)
 os.environ['D'] = next(iter(devs.values()))
 sys.path.insert(0, HERE)
 import flow, tap as T
@@ -45,12 +47,15 @@ FIGHT = r'Victory|Defeat|Lv\.|x2|ATK'  # any of these = a battle (or its result)
 
 
 TAB = {1: 380, 2: 540, 3: 700}
-COLX, ROWY = [136, 336, 536, 736, 936], {1: 1250, 2: 1480, 3: 1280}   # row 3 after the swipe below
+COLX, ROWY = [136, 336, 536, 736, 936], {1: 1250, 2: 1480, 3: 1280, 4: 1490}   # rows 3-4 after the swipe below
 
 
 def power():
-    m = re.search(r'([\d,]+)K', ' '.join(b[4] for b in flow.ocr(T.grab()) if b[0] < 540 and b[1] < 140))
-    return m and m.group(1)
+    """Our team power (top-left "4015K"). OCR sometimes reads the fist icon left of it as a digit ("24015K",
+    2026-11-01): a box starting over the icon (x < 125) loses its first char."""
+    for x, y, w, h, t in flow.ocr(T.grab()):
+        if x < 540 and y < 140 and re.search(r'\d+K', t):
+            return re.search(r'(\d[\d,]*)K', t[1:] if x < 125 else t).group(1)
 
 
 def swap(a):
@@ -78,7 +83,7 @@ def swap(a):
             if r in rows: subprocess.run(['adb', '-s', d, 'shell', 'input', 'tap', str(COLX[col - 1]), str(ROWY[r])]); time.sleep(0.6)
     put(w, teams[o], (1, 2)); put(o, teams[w], (1, 2))
     subprocess.run(['adb', '-s', d, 'shell', 'input', 'swipe', '540', '1450', '540', '1210', '800']); time.sleep(1.2)
-    put(w, teams[o], (3,)); put(o, teams[w], (3,))
+    put(w, teams[o], (3, 4)); put(o, teams[w], (3, 4))
     got = {}
     for t in (w, o): step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.5); got[t] = power()
     if got[w] != old[o] or got[o] != old[w]:
@@ -89,6 +94,39 @@ def swap(a):
     open(path, 'w').write(y)
     log(a, f'swapped lineups {w}<->{o} (tab {w} {got[w]}K, tab {o} {got[o]}K), yaml updated')
     step(a, '540,1806', FIGHT, 30)
+
+
+def checked(im, x, y0, y1):
+    """Green deploy check on the card at column x between y0..y1."""
+    return sum(1 for dx in range(-50, 51, 6) for y in range(y0, y1, 6)
+               if (lambda p: p[1] > 170 and p[0] < 160 and p[2] < 120)(im.getpixel((x + dx, y)))) >= 8
+
+
+def record(a):
+    T.D = flow.D = devs[a]; d = devs[a]
+    r = subprocess.run(['python3', '-c', 'import daily; print(daily.home())'], cwd=HERE, env={**os.environ, 'D': d}, capture_output=True, text=True)
+    if 'True' not in r.stdout: log(a, 'record: could not reach the main screen'); sys.exit(1)
+    step(a, '994,964', r'^Start$|\| Start \|')
+    subprocess.run(['adb', '-s', d, 'shell', 'input', 'swipe', '540', '1150', '540', '1600', '600']); time.sleep(1.2)
+    teams, pw = {1: [], 2: [], 3: []}, {}
+    for rows, ys in (((1, 2), {1: (1170, 1330), 2: (1400, 1560)}), ((3, 4), {3: (1180, 1380), 4: (1400, 1570)})):
+        if rows == (3, 4):
+            subprocess.run(['adb', '-s', d, 'shell', 'input', 'swipe', '540', '1450', '540', '1210', '800']); time.sleep(1.2)
+        for t in (1, 2, 3):
+            step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.6); im = T.grab(); pw[t] = power()
+            teams[t] += [f'r{rw}c{c + 1}' for rw in rows for c, x in enumerate(COLX) if checked(im, x, *ys[rw])]
+    multi = {c for t in teams for c in teams[t] if sum(c in v for v in teams.values()) > 1}   # green card art (xFaktor r4c2)
+    teams = {t: [c for c in v if c not in multi] for t, v in teams.items()}
+    bad = [t for t in teams if len(teams[t]) != 5]
+    if bad: log(a, f'record: tabs {bad} not 5 cells in rows 1-4: {teams} (heroes further down?) - not written'); sys.exit(1)
+    path = f'{R}/accounts/{a}.yaml'; y = open(path).read()
+    y = re.sub(r'\n  stage_lineups:.*?(?=\n  \S|\Z)', '', y, flags=re.S)
+    y = y.rstrip('\n') + '\n  stage_lineups:   # see bino.yaml; recorded by climb.py --record ' + time.strftime('%F') + '\n' + ''.join(
+        f'    {t}: {{power: {pw[t]}K, cells: [{", ".join(teams[t])}], good_for: ""}}\n' for t in (1, 2, 3))
+    open(path, 'w').write(y)
+    log(a, f'recorded stage_lineups {teams} powers {pw}')
+    step(a, '540,1806', FIGHT, 30)
+    log(a, 'started the stage')
 
 
 def start(a):
@@ -104,6 +142,9 @@ def start(a):
     log(a, 'was off the stage screen -> main -> started the stage')
 
 
+if '--record' in args:
+    for a in accts: record(a)
+    sys.exit(0)
 if '--swap' in args: swap(accts[0]); sys.exit(0)   # one swap now (account on a Challenge-again setup)
 for a in devs: start(a)
 seen, losses, swaps = {}, {}, {}
