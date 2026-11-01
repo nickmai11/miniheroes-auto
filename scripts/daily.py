@@ -652,17 +652,23 @@ def events(cfg):
     Benefits, Match Event milestones, 7777 daily Claim. Other tabs with a dot -> MANUAL. Never Again / Open All / draws / Tribe Clash (its dot never clears)."""
     tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920))
     out, left = [], []
-    tabs = hub_tabs()
-    dots = {t: red_dot(x + 30, 1720, min(x + 95, 1080), 1795) for t, x in tabs.items()}
+    time.sleep(1.5); tabs = hub_tabs()
+    # The SELECTED tab hides its own red dot and the hub opens on the last-used tab, so that tab was always skipped
+    # (Dino's Match Event, 2026-11-01). Read with 2 different tabs selected; every tab shows its dot in one of them.
+    read = lambda: {t: red_dot(x + 30, 1720, min(x + 95, 1080), 1795) for t, x in tabs.items()}
+    dots = read()
+    for t in [t for t in tabs if not dots[t]][:2]:
+        tap_wait(tabs[t], 1840); time.sleep(1.2)
+        dots = {k: v or d for (k, v), d in zip(dots.items(), read().values())}
     print(f'    hub tabs (red dot): {dots}', flush=True)   # 'nothing claimed' couldn't tell no tab / no dot / missed (2026-11-01)
     for tab, x in tabs.items():
         if not dots[tab]: continue
         tap_wait(x, 1840); time.sleep(1.2)
         if tab == 'match_event':
             n = 0
-            for sub in ((160, 320), (400, 310)):         # Canyon Warrior, Heroic Trial
+            for sub in ((160, 320), (400, 310)):         # the week's 2 sub-events (Canyon Warrior / Heroic Trial, Arena King / Lord's Challenge)
                 tap_wait(*sub); time.sleep(1)
-                for _ in range(8):                       # top row's Claim rolls to the next milestone
+                for _ in range(25):                      # top row's Claim rolls to the next milestone; 8 left 2 on Dino (2026-11-01)
                     c = find(ocr(), r'^Claim$', (740, 960, 1060, 1090))
                     if not c: break
                     tap_wait(*c); time.sleep(1.2); tap_wait(300, 200); n += 1
