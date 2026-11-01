@@ -40,7 +40,7 @@ def log(a, msg):
 
 
 def step(a, xy, pat, to=20):
-    r = subprocess.run(['python3', f'{HERE}/tap.py', xy, '-o', f'/tmp/climb_{a}.png', '-w', '270', '--until-text', pat,
+    r = subprocess.run(['python3', f'{HERE}/tap.py', *([xy] if xy else []), '-o', f'/tmp/climb_{a}.png', '-w', '270', '--until-text', pat,
                         '--timeout', str(to)], env={**os.environ, 'D': devs[a]}, capture_output=True, text=True)
     if r.returncode: log(a, f'FAIL waiting {pat!r} after {xy}: {r.stdout.strip()[-300:]}'); sys.exit(1)
     return r.stdout
@@ -71,18 +71,20 @@ def to_top(d):
 
 
 def scroll(d):
-    """Slow-drag the grid up and return how far it really moved (~280-320 px). A quick swipe flings a varying,
-    longer way and rows repeat every PITCH, so the shift can't be measured (Chien Than's row-3 taps hit other rows,
-    2026-11-01); the slow drag stays in range and is matched by comparing the grid strip before/after. Search 150-340 only:
-    shift-PITCH (~50-110) also matches (Dino got Lv.160 heroes deployed, 2026-11-01)."""
-    b = gray(); adb(d, 'swipe', 540, 1450, 540, 1220, 2000); time.sleep(1.2); a = gray()
-    return min(range(150, 341, 2), key=lambda s: abs(a[1150:1230] - b[1150 + s:1230 + s]).mean())
+    """Slow-drag the grid up ~170-200 px and return how far it really moved. Rows repeat every PITCH, so a shift
+    near/over a row is ambiguous (fixed y and 230-px drags put wrong heroes in, Chien Than/Dino 2026-11-01): the
+    short drag keeps the true shift the only match in 20-300; a poor best match raises instead of guessing."""
+    b = gray(); adb(d, 'swipe', 540, 1450, 540, 1330, 2000); time.sleep(1.2); a = gray()
+    err = {s: abs(a[1150:1230] - b[1150 + s:1230 + s]).mean() for s in range(20, 301, 2)}
+    s = min(err, key=err.get)
+    if err[s] > 12: raise RuntimeError(f'grid scroll not measurable (best {s}px, err {err[s]:.0f})')
+    return s
 
 
 def grid_pass(d, rows_needed, fn):
     """Call fn({row: y}) for the rows visible at each scroll position (each row once), scrolling down as needed."""
     to_top(d); off, done = 0, set()
-    for _ in range(5):
+    for _ in range(10):
         vis = {r: ROW1 + (r - 1) * PITCH - off for r in rows_needed if r not in done and 1180 < ROW1 + (r - 1) * PITCH - off < 1520}
         if vis: fn(vis); done |= set(vis)
         if done >= set(rows_needed): return
@@ -135,13 +137,21 @@ def swap(a, k=1):
     step(a, '540,1806', FIGHT, 30)
 
 
+def to_main(a):
+    """Main screen; a running fight has no back arrow -> wait for its result and close it first."""
+    d = devs[a]
+    if 'x2' in flow.joined(flow.ocr(T.grab())):
+        step(a, '', r'Victory|Defeat', 300); time.sleep(1); adb(d, 'tap', 540, 1880); time.sleep(1.5)
+    r = subprocess.run(['python3', '-c', 'import daily; print(daily.home())'], cwd=HERE, env={**os.environ, 'D': d}, capture_output=True, text=True)
+    if 'True' not in r.stdout: log(a, 'could not reach the main screen'); sys.exit(1)
+
+
 def apply(a):
     T.D = flow.D = devs[a]; d = devs[a]
     y = open(f'{R}/accounts/{a}.yaml').read()
     rows = re.findall(r'^\s+(\d): \{power: ([^,]*), cells: \[([^\]]*)\]', y, re.M)
     teams, want = {int(k): v.split(', ') for k, _, v in rows}, {int(k): p for k, p, _ in rows}
-    r = subprocess.run(['python3', '-c', 'import daily; print(daily.home())'], cwd=HERE, env={**os.environ, 'D': d}, capture_output=True, text=True)
-    if 'True' not in r.stdout: log(a, 'apply: could not reach the main screen'); sys.exit(1)
+    to_main(a)
     step(a, '994,964', r'^Start$|\| Start \|')
     for t in (1, 2, 3): step(a, f'{TAB[t]},1088', 'Start'); step(a, '1000,1080', 'Start')
     def place(vis):
@@ -164,8 +174,7 @@ def checked(im, x, y0, y1):
 
 def record(a):
     T.D = flow.D = devs[a]; d = devs[a]
-    r = subprocess.run(['python3', '-c', 'import daily; print(daily.home())'], cwd=HERE, env={**os.environ, 'D': d}, capture_output=True, text=True)
-    if 'True' not in r.stdout: log(a, 'record: could not reach the main screen'); sys.exit(1)
+    to_main(a)
     step(a, '994,964', r'^Start$|\| Start \|')
     teams, pw = {1: [], 2: [], 3: []}, {}
     def read(vis):
@@ -227,7 +236,8 @@ while time.time() < end:
                     step(a, f'{ca[0]},{ca[1]}', r'^Start$|\| Start \|', 30)
                     swaps[stage] = swaps.get(stage, 0) + 1
                     if swaps[stage] > 3: log(a, f'SWAP LINEUPS: {stage} still lost after 3 swaps, left on the battle setup'); sys.exit(2)
-                    swap(a, swaps[stage]); losses.pop(a); seen.pop(a, None); continue
+                    log(a, f'SWAP NEEDED: lost {stage} 3x - swaps off until name-based (Nick 2026-11-01)'); sys.exit(2)
+                    # swap(a, swaps[stage]); losses.pop(a); seen.pop(a, None); continue
                 step(a, f'{ca[0]},{ca[1]}', 'Start|' + FIGHT, 30)
                 if flow.find(flow.ocr(T.grab()), r'^Start$'): step(a, '540,1806', FIGHT, 30)
                 seen.pop(a, None); continue
