@@ -72,7 +72,12 @@ def run(account):
         p = find(boxes, r'^Level Up$', (200, 1050, 880, 1300))
         if lv is None or not p: raise Stop('hero level / Level Up not readable')
         tap_wait(*p); time.sleep(1)
-        lv2 = level(ocr(), (300, 340, 800, 460))
+        for _ in range(4):                                   # label redraws after the tap: re-read before deciding
+            lv2 = level(ocr(), (300, 340, 800, 460))
+            if lv2 is not None and lv2 != lv: break
+            time.sleep(1)
+        if lv2 is None:   # unreadable != failed: a FAIL got retried and levelled again (Cmajor 63->64->65, 2026-11-01)
+            print(f'{hero} level unreadable after Level Up from {lv}; counted as levelled, not retried', flush=True); continue
         if lv2 != lv + 1: raise Stop(f'{hero} level {lv} -> {lv2} after one Level Up (not enough potions?)')
         print(f'{hero}: Lv.{lv} -> Lv.{lv2}', flush=True)
     for _ in range(n_gear):
