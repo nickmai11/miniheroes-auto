@@ -200,8 +200,10 @@ def record(a):
 def start(a):
     """Not on a stage battle/result/setup (Nick used the account) -> main screen (daily.home) -> skull -> Start."""
     T.D = flow.D = devs[a]
-    b = flow.ocr(T.grab()); t = flow.joined(b)
-    if re.search(r'Stage: ?\d+-\d+', t) or 'x2' in t: return
+    for _ in range(5):   # between fights the screen can be blank/loading (xFaktor 2026-11-01): look a few times
+        t = flow.joined(flow.ocr(T.grab()))
+        if re.search(r'Stage: ?\d+-\d+|x2|Victory|Defeat|Challenge|Next Stage|Tap anywhere', t): return
+        time.sleep(1.5)
     r = subprocess.run(['python3', '-c', 'import daily; print(daily.home())'], cwd=HERE, env={**os.environ, 'D': devs[a]},
                        capture_output=True, text=True)
     if 'True' not in r.stdout: log(a, f'FAIL: could not reach the main screen ({r.stdout.strip()} {r.stderr.strip()[-200:]})'); sys.exit(1)
