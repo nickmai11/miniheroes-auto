@@ -26,8 +26,10 @@ def run(account, mode):
             if t == 0: print('tower: 0 tickets left'); break
             res = battle(r'Tower of the Throne', timeout=150)
             t2 = tickets()
-            if t is not None and t2 != t - 1: raise Stop(f'tower tickets {t} -> {t2} after a fight')
-            print(f'tower {i + 1}/{n}: {"Victory" if "Victory" in res else "Defeat" if "Defeat" in res else "?"}, tickets {t2}', flush=True)
+            won = 'Victory' in res                         # a win costs no ticket (Chien Than 9 -> 9 at Floor 2020, 2026-11-01)
+            if t is not None and t2 != t - 1 and not (won and t2 == t): raise Stop(f'tower tickets {t} -> {t2} after a fight')
+            print(f'tower {i + 1}/{n}: {"Victory" if won else "Defeat" if "Defeat" in res else "?"}, tickets {t2}', flush=True)
+            if find(ocr(), r'^Claim Reward$', (0, 1600, 1080, 1920)): print('tower: top floor cleared (Claim Reward)'); break
     elif mode == 'beast':
         adventure(r'Beast Realm'); wait(r'Next Beast', 10)
         res = battle(r'Next Beast', timeout=150)
