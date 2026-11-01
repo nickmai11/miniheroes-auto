@@ -3,7 +3,8 @@
 # -> close the reward, Next chapter, open the stage, Start; Defeat screen up 3 s -> Challenge again.
 # usage: scripts/climb.py <account>... [--minutes N]   |   scripts/climb.py <account> --swap | --record
 # --record [--no-start]: from any screen -> fresh battle setup, read each tab's deployed cells (green checks), write
-# stage_lineups, then Start (unless --no-start). Grid rows are found by measuring each slow-drag scroll.     (accounts/<account>.yaml; game must already be auto-climbing)
+# stage_lineups, then Start (unless --no-start). Grid rows are found by measuring each slow-drag scroll.
+# Accounts = accounts/<account>.yaml names; the game is moved to the stage if it's elsewhere.
 # Runs N minutes (default 9, fits one Bash call) then exits 0 "still climbing" — just run it again.
 # Lost the same stage 3x in a row -> swap the losing wave's team with the next tab (stage_lineups cells in the account
 # yaml, which is rewritten), max 3 swaps per stage, then exit 2 (look by hand).

@@ -64,5 +64,5 @@ missions:
   stage_lineups:   # see bino.yaml for the format. good_for: Nick fills in.
     # 8-28 (2026-10-31): wave 3 kept losing; swapped 1<->2 (still lost wave 3), then 2<->3 (cleared). 8-32 lost wave 2 -> 1<->2 (cleared); 8-35 lost wave 1 -> 1<->3 (then lost wave 3) -> 2<->3 (cleared to 8-40). 9-1 lost wave 2 -> 1<->2:
     3: {power: 4407K, cells: [r1c2, r1c5, r2c4, r3c1, r3c2], heroes: "dark horned, skull elder, purple-hat wizard, golden armor, flame knight", good_for: ""}
-    2: {power: 4402K, cells: [r1c1, r1c3, r2c3, r3c4, r3c5], heroes: "black-hair boy, purple crystal, golden blonde gunner, flower girl, black-hair girl", good_for: ""}
-    1: {power: 4310K, cells: [r1c4, r2c1, r2c2, r2c5, r3c3], heroes: "silver valkyrie, dark knight, red-helmet knight, horned demon, blue-goggles robot", good_for: ""}
+    1: {power: 4402K, cells: [r1c1, r1c3, r2c3, r3c4, r3c5], heroes: "black-hair boy, purple crystal, golden blonde gunner, flower girl, black-hair girl", good_for: ""}
+    2: {power: 4310K, cells: [r1c4, r2c1, r2c2, r2c5, r3c3], heroes: "silver valkyrie, dark knight, red-helmet knight, horned demon, blue-goggles robot", good_for: ""}
