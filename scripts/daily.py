@@ -652,8 +652,11 @@ def events(cfg):
     Benefits, Match Event milestones, 7777 daily Claim. Other tabs with a dot -> MANUAL. Never Again / Open All / draws / Tribe Clash (its dot never clears)."""
     tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920))
     out, left = [], []
-    for tab, x in hub_tabs().items():
-        if not red_dot(x + 30, 1720, min(x + 95, 1080), 1795): continue
+    tabs = hub_tabs()
+    dots = {t: red_dot(x + 30, 1720, min(x + 95, 1080), 1795) for t, x in tabs.items()}
+    print(f'    hub tabs (red dot): {dots}', flush=True)   # 'nothing claimed' couldn't tell no tab / no dot / missed (2026-11-01)
+    for tab, x in tabs.items():
+        if not dots[tab]: continue
         tap_wait(x, 1840); time.sleep(1.2)
         if tab == 'match_event':
             n = 0
