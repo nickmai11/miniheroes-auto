@@ -79,8 +79,10 @@ def main():
         boxes = ocr(im)
         if find(boxes, r'Do not remind me today'): tap_text(r'Do not remind me today', boxes=boxes); time.sleep(0.5)
         x = close_x(grab())
-        if not x: break
-        tap_wait(*x); time.sleep(1)
+        # 'Stargems Running Out!' (Cancel / GO, X not detected; Chien Than/Bino/xFaktor 2026-10-31..11-01): Cancel, never GO
+        c = None if x else find(boxes, r'^Cancel$')
+        if not (x or c): break
+        tap_wait(*(x or c)); time.sleep(1)
     grab().resize((540, 960)).save('v_stabilize.png'); print('popup not closable; stop (screenshot v_stabilize.png)'); return 1
 
 
