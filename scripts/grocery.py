@@ -3,6 +3,7 @@
 # Grocery: claim any top-row chest whose button is green "Free" (gem-priced buttons aren't green); wait cooldowns.
 import subprocess, time, os
 from PIL import Image
+from flow import find, ocr
 D=os.environ['D']; T=os.path.join(os.path.dirname(os.path.abspath(__file__)),'tap.py')
 def shot(o='g.png'): subprocess.run([T,'-o',o],env=os.environ); return Image.open(o).convert('RGB')
 def green(p): return p[1]>180 and p[0]<150 and p[2]<90
@@ -20,5 +21,7 @@ while idle<8:   # ~12 s of no Free button (cooldowns are 5–8 s) = done
             else: print('popup has no green Free; closing',x,flush=True); subprocess.run([T,'540,1850','-o','g.png'],env=os.environ)
             break
     if got: idle=0
+    elif find(ocr(im), r'Tap anywhere to close'):   # reward popup that came up after the dismiss tap dims every Free
+        tap(540,1850); time.sleep(1)                 # button -> looked idle, quit with 8 chests left (Dino 2026-11-01)
     else: idle+=1; time.sleep(1.5)
 print('done')
