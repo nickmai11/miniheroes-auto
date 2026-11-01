@@ -63,6 +63,6 @@ missions:
     sprites: 4
   stage_lineups:   # Stage battle setup tabs 1-3: cells = hero grid r<row>c<col> (5 per row, grid at top, sorted by level);
                    # written by climb.py --record / swaps (2026-11-01). good_for: Nick fills in.
-    1: {power: 3987K, cells: [r1c3, r2c2, r2c4, r3c3, r3c5], good_for: ""}
-    2: {power: 4147K, cells: [r1c1, r1c2, r3c1, r3c2, r3c4], good_for: ""}
-    3: {power: 4153K, cells: [r1c4, r1c5, r2c1, r2c3, r2c5], good_for: ""}
+    2: {power: 3987K, cells: [r1c3, r2c2, r2c4, r3c3, r3c5], good_for: ""}
+    3: {power: 4147K, cells: [r1c1, r1c2, r3c1, r3c2, r3c4], good_for: ""}
+    1: {power: 4153K, cells: [r1c4, r1c5, r2c1, r2c3, r2c5], good_for: ""}

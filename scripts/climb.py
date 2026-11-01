@@ -236,8 +236,7 @@ while time.time() < end:
                     step(a, f'{ca[0]},{ca[1]}', r'^Start$|\| Start \|', 30)
                     swaps[stage] = swaps.get(stage, 0) + 1
                     if swaps[stage] > 3: log(a, f'SWAP LINEUPS: {stage} still lost after 3 swaps, left on the battle setup'); sys.exit(2)
-                    log(a, f'SWAP NEEDED: lost {stage} 3x - swaps off until name-based (Nick 2026-11-01)'); sys.exit(2)
-                    # swap(a, swaps[stage]); losses.pop(a); seen.pop(a, None); continue
+                    swap(a, swaps[stage]); losses.pop(a); seen.pop(a, None); continue
                 step(a, f'{ca[0]},{ca[1]}', 'Start|' + FIGHT, 30)
                 if flow.find(flow.ocr(T.grab()), r'^Start$'): step(a, '540,1806', FIGHT, 30)
                 seen.pop(a, None); continue
