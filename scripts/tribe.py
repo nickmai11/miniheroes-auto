@@ -29,7 +29,8 @@ def sign_in_and_trial():
     elif find(boxes, r'^Signed-In$'): print('sign-in: already signed in (toast, no dialog)')  # Kong 2026-10-28
     else: print('sign-in: already signed in'); tap_wait(540, 1680)
     time.sleep(1.5); wait(r'Tribe Trial', 8)
-    if trial_red_dot():
+    # dot read once right after the sign-in dialog closed was missed (dimmed?) - Chien Than's Trial left 0/1 (2026-11-01)
+    if any(trial_red_dot() or time.sleep(1) for _ in range(3)):
         tap_wait(540, 735)
         wait(r'Flame Lord|Single Highest', 10)
         res = battle(r'Single Highest|Flame Lord', timeout=120)
