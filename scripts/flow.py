@@ -87,11 +87,12 @@ def tap_text(pattern, region=(0, 0, 1080, 1920), boxes=None, settle=True):
     return p
 
 
-def battle(start_screen, timeout=180):
+def battle(start_screen, timeout=180, setup=None):
     """Challenge (bottom) -> lineup Start -> result -> close -> back on start_screen. Never 'Challenge again'.
-    Returns the result screen's text."""
+    setup() runs on the lineup screen before Start. Returns the result screen's text."""
     tap_text(r'^Challenge$', (0, 1600, 1080, 1920))
     boxes = wait(r'^Start$', 10)
+    if setup: setup(); boxes = wait(r'^Start$', 10)
     if not find(boxes, r'^Start$', (0, 1650, 1080, 1920)): raise Stop('Start not at the bottom of the lineup screen')
     tap_text(r'^Start$', (0, 1650, 1080, 1920), boxes)
     res = joined(wait(r'Tap anywhere to close', timeout))
@@ -128,3 +129,30 @@ def main(fn, *args):
         name = os.path.splitext(os.path.basename(sys.argv[0]))[0]
         grab().resize((540, 960)).save(f'v_{name}.png')
         print(f'{e}; stop (screenshot v_{name}.png)'); sys.exit(1)
+
+
+def find_img(path, region=(0, 1150, 1080, 1590), im=None):
+    """Template match (gray, 1/4 scale) of a png crop inside region -> (x, y, diff): device center of the best spot and
+    its mean abs gray diff (0 = identical; Bone Archer card ~<15, other cards ~40+)."""
+    import numpy as np
+    from PIL import Image
+    g = np.asarray((im or grab()).crop(region).convert('L').reduce(4), dtype=np.float32)
+    t = np.asarray(Image.open(path).convert('L').reduce(4), dtype=np.float32)
+    d = np.abs(np.lib.stride_tricks.sliding_window_view(g, t.shape) - t).mean(axis=(2, 3))
+    y, x = np.unravel_index(d.argmin(), d.shape)
+    return region[0] + 4 * x + 2 * t.shape[1], region[1] + 4 * y + 2 * t.shape[0], round(float(d.min()), 1)
+
+
+def lone_hero(tabs=False):
+    """Battle setup (Tower, Stage tab 1) -> Bone Archer alone (Nick 2026-11-02: fast daily fights; never set back).
+    Recall all, archer filter, find its card by template (an undeployed card scores ~10, others ~50), tap it, filter
+    back to all (climb.py reads the all-heroes grid), check our power isn't 0."""
+    if tabs: tap_wait(380, 1088)                         # Stage: tab 1
+    tap_wait(1006, 1082); tap_wait(670, 1644)            # recall all, archer filter
+    for _ in range(8):
+        x, y, d = find_img(os.path.join(HERE, 'bone_archer.png'))
+        if d < 25: break
+        swipe(540, 1500, 540, 1300, 800); time.sleep(1)
+    else: raise Stop('Bone Archer card not found in the archer grid (deployed on another tab = padlock?)')
+    tap_wait(x, y); tap_wait(270, 1644)
+    wait(r'[1-9]\d*K', 4, (0, 0, 540, 140))

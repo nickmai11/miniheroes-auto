@@ -12,7 +12,7 @@
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import datetime, fcntl, os, re, subprocess, sys, time
 from stabilize import close_x
-from flow import Stop, adventure, battle, find, grab, joined, ocr, swipe, tap, tap_text, tap_wait, tickets_full, wait
+from flow import Stop, adventure, battle, find, grab, joined, lone_hero, ocr, swipe, tap, tap_text, tap_wait, tickets_full, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
@@ -20,9 +20,8 @@ near = lambda p, c, tol=40: all(abs(a - b) <= tol for a, b in zip(p, c))
 NOW = datetime.datetime.now()
 # game day resets 05:00 UTC (Land of Trials refresh timer, 2026-10-28). ONCE steps can't read a 'done today' counter on
 # screen, so they're recorded per game day and skipped on re-runs; every other step re-checks the screen counters.
-ONCE = {'hero', 'tower', 'beast', 'stage', 'sanctuary'}
+ONCE = {'hero', 'tower', 'beast', 'stage', 'sanctuary', 'pet_arena'}
 GAME_DAY = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=5)).date()
-MANUAL = {'pet_arena': 'Auto Deploy settings'}   # always left for a helper (rune/grocery_buy/benefit scripted 2026-10-29)
 
 
 def is_main(im=None): return near((im or grab()).getpixel((92, 1788)), (0, 158, 230))
@@ -141,6 +140,75 @@ def fishing(cfg, orders=True):
 
 def patrol(cfg): return script('patrol.py', ACCOUNT)
 def patrol_claim(cfg): return script('patrol.py', ACCOUNT, '--claim-only')
+
+
+PET_ORDER = {'high_to_low': 'High to Low', 'low_to_high': 'Low to High', 'random': 'Random Selection'}
+# Auto Deploy dialog check boxes -> wanted state (stamina order on, per-pet rows off, Auto-Stop on, slots fallback on)
+PET_BOXES = {(898, 620): True, (898, 900): False, (898, 1210): True, (898, 1376): True}
+
+
+def ticked(im, x, y): return sum(1 for dx in range(-36, 37, 4) for dy in range(-36, 37, 4)
+                                 if (lambda p: p[1] > 150 and p[0] < 170 and p[2] < 120)(im.getpixel((x + dx, y + dy)))) >= 8
+
+
+def pet_state():
+    """After Join: 'running' (Auto Deploying), 'used' (free attempts used up), 'open' (slots left) or 'full' (64/64 or
+    a fight on). Closes the round-result popup ("Result of this round") - it pops after every round."""
+    t0 = time.time()
+    while time.time() - t0 < 10:
+        boxes = ocr(); t = joined(boxes)
+        if 'attempts used up' in t: return 'used'          # toast; the dialog's own line says 'attempts are used up'
+        if 'Result of this round' in t: tap(972, 548); time.sleep(0.8); continue
+        if find(boxes, r'^Auto Deploying'): return 'running'
+        m = re.search(r'Participating Pet\W*(\d+)\s*/\s*64', t)
+        if m: return 'open' if int(m.group(1)) < 64 and find(boxes, r'^Auto Deploy$') else 'full'
+        time.sleep(0.8)
+    return 'full'
+
+
+def pet_arena(cfg):
+    """Pet Arena, game days Mon-Wed, FIRST step (Nick 2026-11-02): event hub -> Pet Arena -> Join -> Auto Deploy with
+    the config's sprites + stamina order -> Start, left running. The game keeps the dialog settings, so usually nothing
+    changes. Full arena (64 pets) = a fight on: 'Exit this match' ends it sooner (Nick), then Join again."""
+    if GAME_DAY.weekday() > 2: return 'SKIP closed (Mon-Wed only)'
+    blk = re.search(r'^  pet_arena:.*?(?=\n  \S|\Z)', cfg, re.M | re.S).group(0)
+    get = lambda k: (re.search(rf'{k}:\s*(\S+)', blk) or [None, None])[1]
+    if get('strategy') != 'stamina_order': return f'MANUAL strategy {get("strategy")} (per-pet dropdowns not scripted)'
+    sprites, order = get('sprites'), PET_ORDER[get('order')]
+    tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920)); time.sleep(1.5)
+    x = hub_tabs().get('pet_arena')
+    if not x: raise Stop('no Pet Arena tab in the event hub')
+    tap_wait(x, 1840)
+    for i in range(6):
+        tap_text(r'^Join$', (300, 1400, 780, 1650), wait(r'^Join$', 10, (300, 1400, 780, 1650)), settle=False)
+        st = pet_state()
+        if st == 'used': return 'free attempts already used up today'
+        if st == 'running': return 'Auto Deploying already on'
+        if st == 'open': break
+        tap(92, 1810); tap_text(r'^Confirm$', boxes=wait(r'Exit this match', 6))   # full: exit ends the fight sooner
+    else: raise Stop('arena still full after 6 exit + rejoin')
+    tap(956, 1640); boxes = wait(r'Deployed Sprite per Battle', 6)
+    changed = []
+    v = find(boxes, rf'^{sprites}$', (600, 400, 800, 500))
+    if not v:
+        tap_wait(700, 454); tap_text(rf'^{sprites}$', (600, 100, 800, 400), wait(rf'^{sprites}$', 4, (600, 100, 800, 400)))
+        changed.append(f'sprites {sprites}')
+    if not find(boxes, order, (540, 580, 860, 660)):
+        tap_wait(700, 620); tap_text(order, (540, 340, 860, 560), wait(order, 4, (540, 340, 860, 560)))
+        changed.append(order)
+    im = grab()
+    for (bx, by), want in PET_BOXES.items():
+        if ticked(im, bx, by) != want: tap_wait(bx, by); changed.append(f'box y{by} {"on" if want else "off"}')
+    im = grab(); boxes = ocr(im)
+    bad = [f'box y{by}' for (bx, by), want in PET_BOXES.items() if ticked(im, bx, by) != want]
+    if not find(boxes, rf'^{sprites}$', (600, 400, 800, 500)): bad.append('sprites')
+    if not find(boxes, order, (540, 580, 860, 660)): bad.append('order')
+    if bad: raise Stop(f'Auto Deploy settings still wrong: {bad}')
+    tap_text(r'^Start$', (300, 1480, 780, 1660), boxes)
+    if pet_state() != 'running': raise Stop('no "Auto Deploying" after Start')
+    tap(92, 1810); c = wait(r'Exit this match|^Join$', 6)            # leave it running
+    if find(c, r'Exit this match'): tap_text(r'^Confirm$', boxes=c)
+    return f'Auto Deploying: {sprites} sprites, {order}' + (f' (changed: {", ".join(changed)})' if changed else '')
 
 
 def shop(cfg):
@@ -297,7 +365,10 @@ def sanctuary(cfg):
 
 def gate(cfg):
     adventure(r'Gate of Darkness'); boxes = wait(r'Chances left today', 10)
-    left = lambda b: int(re.search(r'Chances left today\W*(\d+)', joined(b)).group(1))
+    def left(b):                                        # Vision reads a lone 0 as 'O' at full size (Cmajor 2026-11-02)
+        m = re.search(r'Chances left today\W*([\dOolI]+)', joined(b))
+        if not m: raise Stop(f'no chances count: {joined(b)[:150]}')
+        return int(m.group(1).translate(str.maketrans('OolI', '0011')))
     n, out = left(boxes), []
     if n >= 2:                                          # first chance: run it (time cap 3m, Nick 2026-10-29), never Restart
         tap_text(r'^Start Challenge$', (200, 880, 880, 1040), boxes)
@@ -339,13 +410,32 @@ def recruit(cfg, common_only=False):
         if find(boxes, r'^Free$', (150, 1290, 470, 1420)):
             tap_text(r'^Free$', (150, 1290, 470, 1420), boxes)
             tap_text(r'^Confirm$', boxes=wait(r'^Confirm$', 15)); got.append('ancestor')
-    if want('artifact') and not common_only:
-        tap_wait(618, 1840); time.sleep(1); boxes = ocr()
-        p = grab().getpixel((900, 1658))
-        if p[1] > 170 and p[0] < 150: got.append('ARTIFACT SKIPPED: Auto toggle is ON (helper: turn it off, draw Free)')
-        elif find(boxes, r'^Free$', (380, 1580, 700, 1700)):
-            tap_text(r'^Free$', (380, 1580, 700, 1700), boxes); time.sleep(2); tap_wait(540, 120); got.append('artifact')
+    if want('artifact') and not common_only:            # Free + Wishes (stars) up to the config count, Auto OFF (Nick 2026-11-02)
+        tap_wait(618, 1840); time.sleep(1)
+        auto_on = lambda: (lambda p: p[1] > 170 and p[0] < 150)(grab().getpixel((900, 1658)))
+        if auto_on(): tap_wait(900, 1658); time.sleep(0.5)
+        if auto_on(): got.append('ARTIFACT SKIPPED: Auto toggle stays ON')
+        else:
+            n = 0
+            for _ in range(want('artifact')):
+                boxes = ocr(); b = find(boxes, r'^(Free|Wish)$', (300, 1580, 780, 1700))
+                if not b or find(boxes, r'^280$', (300, 1580, 780, 1700)): break     # 280 = gem price: never
+                g0 = gems(boxes); tap_wait(*b); time.sleep(1.5); tap_wait(540, 120)   # fragment can sit over the button
+                for _ in range(8):                       # fragment / new-artifact display (Confirm) -> back to the button
+                    boxes = ocr()
+                    if find(boxes, r'^(Free|Wish)$', (300, 1580, 780, 1700)): break
+                    c = find(boxes, r'^Confirm$'); tap_wait(*(c or (540, 120)))
+                if gems(ocr()) < g0: raise Stop(f'artifact: gems dropped {g0} -> {gems(ocr())}')
+                n += 1
+            got.append(f'artifact x{n}')
     return f'free draws {got or "none available"}'
+
+
+def gems(boxes):
+    """Top-left gem counter (Recruit / Artifact screens)."""
+    g = [t for x, y, w, h, t in boxes if 60 <= x + w // 2 <= 260 and 40 <= y + h // 2 <= 100 and re.fullmatch(r'\d+', t)]
+    if not g: raise Stop(f'gem counter unreadable: {joined(boxes)[:200]}')
+    return int(g[0])
 
 
 def hero(cfg): return script('hero.py', ACCOUNT)
@@ -398,8 +488,9 @@ def divine(cfg, benefit=True):
 
 def stage(cfg):
     out = []
-    for _ in range(int(re.search(r'adventure_stage:\s*(\d+)', cfg)[1])):
+    for i in range(int(re.search(r'adventure_stage:\s*(\d+)', cfg)[1])):
         tap_wait(994, 964); boxes = wait(r'^Start$', 10, (0, 1700, 1080, 1920))
+        if i == 0: lone_hero(tabs=True); boxes = wait(r'^Start$', 10, (0, 1700, 1080, 1920))   # Bone Archer alone, sticks
         tap_text(r'^Start$', (0, 1700, 1080, 1920), boxes)
         res = joined(wait(r'Tap anywhere to close|Victory|Defeat', 180)); tap_wait(540, 120)
         out.append('Victory' if 'Victory' in res else 'Defeat' if 'Defeat' in res else 'done')
@@ -430,7 +521,9 @@ def rune(cfg):
                 r = red(im.getpixel((cx - 62, y)))
                 if r and s is None: s = y
                 if not r and s is not None:
-                    if y - s > 120: tiles.append((s, cx))    # full tile only (partly scrolled-off ones are shorter)
+                    # full tile only: ~162 px. The cut-off top row (122 px, starts at the scan edge) has its lock
+                    # hidden above the edge -> it passed as unlocked and got tapped (Nick 2026-11-02 "picking locked rune")
+                    if y - s > 150 and s > 322: tiles.append((s, cx))
                     s = None
         free = [(t, cx) for t, cx in sorted(tiles)
                 if not sum(1 for y in range(t - 14, t + 20) for x in range(cx + 50, cx + 80) if sum(im.getpixel((x, y))[:3]) < 150)]
@@ -713,7 +806,7 @@ def seq(*parts):
 # Daily run order — reviewed with Nick 2026-10-31 (dailies-sequence.md): Arena before and after Patrol (patrol loot
 # refills tickets) and again after Adventure; Storm/Arena/Tribe/Grocery carry their own reward claims; Adventure top
 # to bottom (Trials first); Canyon inside Tribe; Daily Mission always last.
-ORDER = [('fishing', fishing), ('arena', arena), ('patrol', patrol), ('arena2', arena),
+ORDER = [('pet_arena', pet_arena), ('fishing', fishing), ('arena', arena), ('patrol', patrol), ('arena2', arena),
          ('storm', storm), ('shop', shop), ('play_pass', play_pass),
          ('trials', trials), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('beast', beast),
          ('arena3', arena), ('recruit', recruit), ('hero', hero),
@@ -722,7 +815,7 @@ ORDER = [('fishing', fishing), ('arena', arena), ('patrol', patrol), ('arena2', 
          ('grocery', seq((grocery, 'grocery_free_chests'), (grocery_buy, 'grocery_buy'))),
          ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission)]
 # config key that must be present / truthy for a step to run
-KEY = {'storm': None, 'arena': 'arena', 'arena2': 'arena', 'fishing': 'fishing', 'patrol': 'patrol', 'patrol_claim': 'patrol',
+KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'arena', 'fishing': 'fishing', 'patrol': 'patrol', 'patrol_claim': 'patrol',
        'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',
        'gate': 'gate_of_darkness', 'beast': 'beast_realm', 'trials': 'land_of_trials', 'recruit': 'recruit', 'hero': 'hero_upgrade',
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
@@ -759,8 +852,7 @@ def main(argv):
     os.makedirs(out, exist_ok=True); os.chdir(out)
     if only: left = []                                 # single steps: report only their own leftovers
     elif catch_up: left = list(CATCHUP_MANUAL)
-    else:
-        left = ['pet_arena'] if NOW.weekday() < 3 and enabled(cfg, 'pet_arena') else []
+    else: left = []
     force = '--force' in argv; only = [a for a in only if a != '--force']
     state = f'/tmp/miniheroes-state/{ACCOUNT}-{GAME_DAY}.done'
     os.makedirs(os.path.dirname(state), exist_ok=True)
@@ -811,7 +903,7 @@ def main(argv):
         if r is None: print('LEFT FOR HELPER:', ', '.join(left + failed + [name])); return 1
         if not r: failed.append(name)
     left += failed
-    print('LEFT FOR HELPER:', ', '.join(f'{k} ({MANUAL[k]})' if k in MANUAL else k for k in left))
+    print('LEFT FOR HELPER:', ', '.join(left))
     return 0
 
 

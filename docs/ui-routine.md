@@ -14,8 +14,8 @@ Run the missions in this order on each account:
 
 Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
 
-0. **Pet Arena** — **Mon/Tue/Wed only**: join + Auto Deploy (see "Pet Arena"); a helper does it BEFORE `daily.py` starts
-   (Nick, 2026-11-02: first thing, not with the end-of-run leftovers).
+0. **Pet Arena** — **Mon/Tue/Wed only** (game days): join + Auto Deploy (see "Pet Arena"); first thing (Nick, 2026-11-02).
+   `daily.py` step `pet_arena` since 2026-11-02.
 1. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto — first, so Auto runs during the rest.
    Don't collect order rewards here.
 2. **Arena** — Ranking Rewards gift boxes, then use all tickets.
@@ -313,7 +313,9 @@ Keep the pre-selected lineup (Nick, 2026-10-26: don't bother picking the weakest
 
 1. Main screen → **Adventure** `(100,1460)` → Tower of the Throne **GO** `(787,687)`.
    Ticket count top-left (10/day on Cmajor).
-2. **Challenge** `(540,1805)` → lineup screen (5 strongest heroes pre-selected) — leave as-is.
+2. **Challenge** `(540,1805)` → lineup screen. **Bone Archer alone** (Nick, 2026-11-02: if 5 heroes are set, set only
+   Bone Archer; never set them back): recall all `(1006,1082)` → archer filter `(670,1644)` → its card (skull; template
+   `scripts/bone_archer.png`, scroll the grid) → filter back to all `(270,1644)`. `flow.lone_hero()` does it.
 3. **Start** `(540,1808)` → result screen. Dismiss by tapping `(540,1700)` (below the
    "Challenge again" button — never tap that). Verify tickets dropped by 1.
 4. Repeat steps 2–3 until the configured count is done (stop early if tickets hit 0).
@@ -397,11 +399,12 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: **2 Common, 1 Ancest
 3. **Ancestor Summon** tab `(896,1610)` → **Free** `(310,1355)` (red dot) → result → **Confirm**
    `(300,1755)`. **Never "Recruit 1"** on the result screen (spends a ticket). Button then shows
    "Free after HH:MM:SS".
-4. **Artifact** bottom tab `(618,1840)`. Check the **Auto** toggle (`(882,1658)`–`(935,1658)`) is **off** (grey;
-   it was ON on Chien Than). Tap **Free** `(540,1638)` once → fragment shown; the button turns into
-   **Wish (500 stars)** — stop, that's paid. Tiers with a gem price (Brilliance 280) are paid summons; ignore.
+4. **Artifact** bottom tab `(618,1840)`. **Auto** toggle (`(882,1658)`–`(935,1658)`) must be **off** (grey; tap it
+   if green). **Roll `recruit.artifact` times (5) WITHOUT Auto** (Nick, 2026-11-02): **Free** `(540,1638)` first, then
+   **Wish** (stars) on the same button; dismiss each result (`(540,120)`, or Confirm on a new artifact). Never a button
+   showing **280** (Brilliance tier gem price); gem count must not drop.
 
-## Hero upgrade (Bone Archer +1 level, 1st gear +1)
+## Hero upgrade (Bone Archer +5 levels, 1st gear +5 — Nick, 2026-11-02)
 
 **Run `scripts/hero.py <account>`**; steps below = exit-1 fallback.
 
@@ -412,7 +415,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Costs potions/gold/stones o
 2. **Bone Archer** (skeleton, 3 purple stars, Mythic) — position varies, find it by screenshot and verify the name
    top-left: Cmajor `(787,1580)`; Bino/Aminor ≈ `(764–774,1580)`; xFaktor/Dino/Tiger last card ≈ `(940–976,1600)`;
    Kong mid-strip ≈ `(586,1580)`; Dminor `(216,1580)`.
-3. **Level Up** `(540,1178)` **once** → level +1 (cost ~23000 potions). Its position shifts after
+3. **Level Up** `(540,1178)` **`hero_levels` times (5)**, stop when out of potions → level +1 each (cost ~23000 potions). Its position shifts after
    the first tap ("↑ Lv.90" quick-level button appears above it at `(540,1060)`) — never tap that.
 4. 1st gear (bow, top-left slot) `(117,360)` — or `(117,400)` (Cmajor, Tiger) / `(124,400)` (Kong) → popup
    "Swift Longbow LV.N » N+1", cost gold (+ stones). **Enhance** `(540,1395)` / `(540,1384)` **once**.
@@ -499,7 +502,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: challenge the current stage `adventure_stage` times (3).
 
 1. Main screen → blue **skull bubble** next to the hero `(994,964)` (not the stage map top-right).
-2. Battle setup "Stage: X-Y" (Illusionary mode locks most heroes; keep the lineup) → **Start** `(540,1806)`.
+2. Battle setup "Stage: X-Y" → **tab 1 = Bone Archer alone** like Tower (Nick, 2026-11-02, all accounts —
+   breaks climb accounts' tab 1: re-set lineups + `climb.py --record` before a climb) → **Start** `(540,1806)`.
 3. Result → close by tapping `(540,120)`; never "Challenge again".
 
 ## Stage climb (occasional, not dailies)
@@ -637,9 +641,16 @@ no red dot on the side-menu icon / **Mission** entry → skip, nothing to claim.
 
 ## Pet Arena (join + Auto Deploy)
 
-**Only open Mon, Tue, Wed** — skip on other days. Run it first in the dailies.
-Added by Nick 2026-10-26. Strategy is per account (`missions.pet_arena` in the config); for now all accounts
-use **Stamina order High to Low, 4 sprites**.
+**Only open Mon, Tue, Wed** — skip on other days. Run it first in the dailies. **Scripted: `daily.py <acct> pet_arena`**
+(2026-11-02; checks/sets sprites + order + check boxes, `per_pet` → MANUAL); steps below = its fallback.
+Added by Nick 2026-10-26. Strategy is per account (`missions.pet_arena` in the config): **Stamina order High to Low,
+4 sprites**, except Cmajor **Random Selection, 2 sprites** (Nick, 2026-11-02).
+- **Cap 64 pets per arena** (Nick, 2026-11-02): at 64/64 the fight starts and you can't deploy until it ends —
+  back arrow → "Exit this match?" Confirm ends it sooner, then Join again.
+- The **"Champion" popup** ("Result of this round" / "Match Details") is the round result, not last season's: it pops
+  after every round, so don't wait around in the arena — Start, then leave. Auto Deploy keeps running off-screen.
+- Dropdowns open upward: sprites `(700,454)` → options 1–4 at y≈136/212/286/360; order `(700,620)` → High to Low /
+  Low to High / Random Selection at y≈398/474/541 (x≈700). Check boxes `(898, 620/900/1210/1376)`.
 
 1. Main screen → **1st event banner** (top right) → bottom tab **Pet Arena** `(480,1850)` →
    **Join** `(540,1528)`. Last-season *Champion* popup ✕ `(972,548)` — it reopens a few s later, so

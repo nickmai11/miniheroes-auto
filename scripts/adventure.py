@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # Adventure battles with the pre-selected lineup: Tower of the Throne (config count) and Beast Realm (1 challenge).
 # usage: D=<serial> scripts/adventure.py <account> tower|beast     (main screen must be open; ends on the mode screen)
-# Tower: ticket count top-left must drop by 1 per fight; stops early at 0. Never "Challenge again", never pays
+# Tower: Bone Archer alone (flow.lone_hero, Nick 2026-11-02); ticket count top-left must drop by 1 per fight; stops early at 0. Never "Challenge again", never pays
 # for chances, never opens Shop. exit 1 = unexpected screen (v_adventure.png).
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import os, re, sys
-from flow import Stop, adventure, battle, find, main, ocr, wait
+from flow import Stop, adventure, battle, find, lone_hero, main, ocr, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -24,7 +24,7 @@ def run(account, mode):
         for i in range(n):
             t = tickets()
             if t == 0: print('tower: 0 tickets left'); break
-            res = battle(r'Tower of the Throne', timeout=150)
+            res = battle(r'Tower of the Throne', timeout=150, setup=lone_hero if i == 0 else None)   # lineup sticks
             t2 = tickets()
             won = 'Victory' in res                         # a win costs no ticket (Chien Than 9 -> 9 at Floor 2020, 2026-11-01)
             if t is not None and t2 != t - 1 and not (won and t2 == t): raise Stop(f'tower tickets {t} -> {t2} after a fight')

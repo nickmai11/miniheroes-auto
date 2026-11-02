@@ -78,7 +78,9 @@ def run(account):
             time.sleep(1)
         if lv2 is None:   # unreadable != failed: a FAIL got retried and levelled again (Cmajor 63->64->65, 2026-11-01)
             print(f'{hero} level unreadable after Level Up from {lv}; counted as levelled, not retried', flush=True); continue
-        if lv2 != lv + 1: raise Stop(f'{hero} level {lv} -> {lv2} after one Level Up (not enough potions?)')
+        if lv2 == lv:     # out of potions: normal with 5 level-ups/day (Nick 2026-11-02) -> on to the gear
+            print(f'{hero}: Lv.{lv} unchanged after Level Up (not enough potions?); stopped levelling', flush=True); break
+        if lv2 != lv + 1: raise Stop(f'{hero} level {lv} -> {lv2} after one Level Up')
         print(f'{hero}: Lv.{lv} -> Lv.{lv2}', flush=True)
     for _ in range(n_gear):
         for y in (360, 400):                                 # slot 1 sits at 360 or 400 depending on the account

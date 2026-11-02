@@ -31,12 +31,12 @@ missions:
   recruit:
     common: 2
     ancestor: 1
-    artifact: 1
+    artifact: 5
   hero_upgrade:
     hero: Bone Archer
-    hero_levels: 1
+    hero_levels: 5
     gear_slot: 1
-    gear_levels: 1
+    gear_levels: 5
   tribe:
     sign_in: true
     trial: 1
@@ -59,4 +59,7 @@ missions:
     tribe: [1]
     ruins: [1]
     realm: [1]
-  pet_arena: false
+  pet_arena:          # Nick 2026-11-02: 2 random pets
+    strategy: stamina_order
+    order: random
+    sprites: 2
