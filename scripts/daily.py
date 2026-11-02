@@ -74,6 +74,7 @@ def storm_closed():
 def storm_welcome(boxes):
     """New season (Mon 17:00): Storm opens on 'Welcome to Storm Battlefield! Please deploy your Heroes' instead of the
     arena (every account failed 'arena did not open', 2026-11-02). Deploy -> Quick Deploy -> Save -> back -> Start."""
+    boxes = wait(r'^(Deploy|Start)$', 6, (300, 1150, 780, 1300))   # the title shows before the button (Cmajor 2026-11-02)
     if find(boxes, r'^Deploy$', (300, 1150, 780, 1300)):
         tap_text(r'^Deploy$', (300, 1150, 780, 1300), boxes); wait(r'Quick Deploy', 6)
         tap_wait(984, 1800); wait(r'[1-9]\d*K', 5, (300, 150, 780, 240))
