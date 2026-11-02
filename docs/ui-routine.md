@@ -14,7 +14,8 @@ Run the missions in this order on each account:
 
 Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
 
-0. **Pet Arena** — **Mon/Tue/Wed only**: join + Auto Deploy (see "Pet Arena"); left for a helper.
+0. **Pet Arena** — **Mon/Tue/Wed only**: join + Auto Deploy (see "Pet Arena"); a helper does it BEFORE `daily.py` starts
+   (Nick, 2026-11-02: first thing, not with the end-of-run leftovers).
 1. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto — first, so Auto runs during the rest.
    Don't collect order rewards here.
 2. **Arena** — Ranking Rewards gift boxes, then use all tickets.

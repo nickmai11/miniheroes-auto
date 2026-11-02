@@ -26,6 +26,9 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 **Cost — runner first, helpers only for leftovers (Nick, 2026-10-28 — urgent).** One helper per account for the whole
 run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly for 8 accounts). Now:
 1. `scripts/boot.sh <idx>...`, close event popups (one screenshot per account).
+   **Mon–Wed: Pet Arena FIRST** (Nick, 2026-11-02): right after boot, one `mh-helper` per account with `pet_arena`
+   enabled, Pet Arena only; start that account's runner when its helper is done. Never launch runners first — they
+   leave Pet Arena to the end-of-run helper, i.e. last (2026-11-02 run had to be stopped after Trials).
 2. Run every account's runner in ONE background Bash command and wait for its completion notification (no polling):
    `for a in <acct>:<serial> ...; do (D=${a#*:} OUT=/tmp/miniheroes-$(date +%F)/${a%%:*} scripts/daily.py ${a%%:*} > /tmp/miniheroes-$(date +%F)/${a%%:*}.log 2>&1) & done; wait`
    Each log has one `OK|SKIP|FAIL|MANUAL <step>` line per step and ends with `LEFT FOR HELPER: …`
