@@ -765,6 +765,11 @@ pick the next ship. Lineup cards can render black for a moment; Start still work
 
 ## Storm Battlefield (right after Pet Arena)
 
+**One account per server block at a time** (Nick, 2026-11-02): s201–210 (Aminor, Cmajor, xFaktor, Dminor) and
+s211–220 (Bino, Dino, Chien Than, Kong) can be matched against each other — never overlap their Storm runs.
+`daily.py` step `storm` holds a per-block lock (`storm_block()`, from `server:` in the yaml); a helper running
+`storm.py` by hand must wait until no other account of its block is in Storm.
+
 Added by Nick 2026-10-26; mapped on Cmajor via ADB (device coords). Free tickets only.
 
 **Season: opens Monday 17:00, closes the next Monday 05:00** (like Canyon Clash). Tue–Sun: part of the normal

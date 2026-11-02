@@ -31,6 +31,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    2. Arena: Ranking Rewards gift boxes first (Nick, 2026-10-29), then exhaust free tickets (`scripts/arena.py <account>`), then the win-chest claims — same visit, every runner arena step
    3. Storm Battlefield (skip if its season is closed: Mon 05:00-17:00): run `scripts/storm.py` from the arena
       screen — it sets the full lineup first and resets to 1 hero after (ui-routine Storm steps 2–4, 6); report its output.
+      Never two accounts of one server block (s201–210, s211–220) in Storm at once — the runner's step locks per block.
       Then **Rewards** (left side) if it has a red dot — same visit, inside runner step `storm`
    4. Canyon Clash (skip if its season is closed: Mon 06:00-17:00): **take a new spot even if one is already held**
       (`scripts/canyon.py`: empty spots only, popup text checked; no empty one → helper); Points Rewards red dot claimed first, same visit

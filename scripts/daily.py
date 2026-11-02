@@ -82,14 +82,24 @@ def storm_arena():
     raise Stop('Storm arena did not open')
 
 
+def storm_block(cfg):
+    """Server block s201-210, s211-220, ...: our accounts in one block can be matched against each other in Storm."""
+    srv = int((re.search(r'^\s+server:\s*(\d+)', cfg, re.M) or [0, 0])[1])
+    return f's{(srv - 1) // 10 * 10 + 1}'
+
+
 def storm(cfg):
     if NOW.weekday() == 0 and NOW.hour < 17: return 'SKIP closed until Mon 17:00'
-    try: storm_arena()
-    except Stop as e:
-        if 'SKIP_CLOSED' in str(e): return 'SKIP season closed (Storm card: Coming Soon)'
-        raise
-    out = script('storm.py', ACCOUNT)
-    rew = storm_rewards()                                # same visit: Rewards is part of Storm (Nick, 2026-10-31)
+    # one Storm at a time per server block - parallel runners wait here (Nick 2026-11-02: they'd attack each other)
+    with open(f'/tmp/miniheroes-state/storm-{storm_block(cfg)}.lock', 'w') as lock:
+        t0 = time.time(); fcntl.flock(lock, fcntl.LOCK_EX)
+        if time.time() - t0 > 2: print(f'    storm: waited {time.time() - t0:.0f}s for {storm_block(cfg)}', flush=True)
+        try: storm_arena()
+        except Stop as e:
+            if 'SKIP_CLOSED' in str(e): return 'SKIP season closed (Storm card: Coming Soon)'
+            raise
+        out = script('storm.py', ACCOUNT)
+        rew = storm_rewards()                            # same visit: Rewards is part of Storm (Nick, 2026-10-31)
     return ('MANUAL ' if rew.startswith('MANUAL') else '') + f'{out}; rewards: {rew}'
 
 
