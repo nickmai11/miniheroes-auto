@@ -755,7 +755,8 @@ def events(cfg):
         dots = {k: v or d for (k, v), d in zip(dots.items(), read().values())}
     print(f'    hub tabs (red dot): {dots}', flush=True)   # 'nothing claimed' couldn't tell no tab / no dot / missed (2026-11-01)
     for tab, x in tabs.items():
-        if not dots[tab]: continue
+        # 7777: always look - its dot read False on Aminor/Bino/Cmajor with the daily Claim still up (Nick 2026-11-02)
+        if not dots[tab] and tab != '7777': continue
         tap_wait(x, 1840); time.sleep(1.2)
         if tab == 'match_event':
             n = 0
@@ -772,6 +773,9 @@ def events(cfg):
                 tap_wait(*c)                             # 30-card result; its Confirm can take >1.5 s (Kong instance 2026-10-29)
                 tap_text(r'^Confirm$', (300, 1650, 780, 1850), wait(r'^Confirm$', 15, (300, 1650, 780, 1850))); out.append('7777 daily')
         elif tab == 'wish_festival': out += wish_festival()
+        elif tab == 'pet_arena' and red_dot(100, 620, 160, 680):   # Achievement: free deployment-milestone Claims (2026-11-02)
+            tap_wait(90, 700); wait(r'^Achievement$', 6); out.append(f'pet achievement x{claim_yellow(r"^Achievement$")}')
+            tap_wait(972, 226)
         elif tab == 'weekly_event':                      # 2nd sub-tab (Wish Merchant / Pet Shop / Recruit Store): Free Benefits
             tap_wait(410, 240); time.sleep(1); out.append(f'weekly free x{claim_yellow(r"Free Benefits")}')
         else: left.append(tab)
