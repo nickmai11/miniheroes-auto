@@ -704,7 +704,7 @@ The map opens scrolled to your current area.
 
 Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 challenge attempt" → **Challenge**
 `(742,1334)` (Cancel `(336,1334)`) → lineup (top 5 pre-selected, keep) → **Start** `(540,1808)` → battle ~10–45 s
-(poll; it may return straight to the map with no Victory screen — check the header) → *Victory* → tap anywhere `(540,1500)`.
+(poll; it may return straight to the map with no Victory screen — check the header) → *Victory* → tap the TOP `(540,150)` — never `(540,1500)`: it hits the map behind and chained 4 extra Sentinel fights, all 5 attempts gone (Kong 2026-11-02); confirm Attempts −1 exactly.
 After Occupy/Victory the header can keep showing the old spot — back out to Tribe and re-enter to confirm
 (your name in green on the new platform).
 
