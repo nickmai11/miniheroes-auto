@@ -71,13 +71,29 @@ def storm_closed():
     return bool(find(boxes, r'Storm Battlefield') and find(boxes, r'Coming Soon'))
 
 
+def storm_welcome(boxes):
+    """New season (Mon 17:00): Storm opens on 'Welcome to Storm Battlefield! Please deploy your Heroes' instead of the
+    arena (every account failed 'arena did not open', 2026-11-02). Deploy -> Quick Deploy -> Save -> back -> Start."""
+    if find(boxes, r'^Deploy$', (300, 1150, 780, 1300)):
+        tap_text(r'^Deploy$', (300, 1150, 780, 1300), boxes); wait(r'Quick Deploy', 6)
+        tap_wait(984, 1800); wait(r'[1-9]\d*K', 5, (300, 150, 780, 240))
+        tap_wait(540, 1808); time.sleep(0.8); tap_wait(88, 1812)
+        boxes = wait(r'^Start$', 6, (300, 1150, 780, 1300))
+    tap_text(r'^Start$', (300, 1150, 780, 1300), boxes); wait(r'Start Match', 8)
+    print('    storm: new-season welcome -> team deployed (Quick Deploy), Start', flush=True)
+
+
 def storm_arena():
-    for _ in range(4):                                   # the 2nd event card rotates; tapping it usually opens Storm
+    for _ in range(6):                                   # the 2nd event card rotates: a tap opens Storm only while it shows
         if storm_closed(): raise Stop('SKIP_CLOSED')
-        tap_wait(880, 480); time.sleep(1.5)
-        im = grab(); p = im.getpixel((400, 1580))
-        # yellow Start Match + title: Treasure Vault's yellow Draw buttons passed the pixel alone (Bino 2026-10-29)
-        if p[0] > 200 and p[1] > 150 and p[2] < 80 and find(ocr(), r'Start Match'): return
+        tap(880, 480); t0 = time.time()
+        while time.time() - t0 < 3:
+            boxes = ocr()
+            if find(boxes, r'Welcome to Storm'): storm_welcome(boxes); boxes = ocr()
+            p = grab().getpixel((400, 1580))
+            # yellow Start Match + title: Treasure Vault's yellow Draw buttons passed the pixel alone (Bino 2026-10-29)
+            if p[0] > 200 and p[1] > 150 and p[2] < 80 and find(boxes, r'Start Match'): return
+            time.sleep(0.4)
         home()
     raise Stop('Storm arena did not open')
 

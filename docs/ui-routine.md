@@ -779,6 +779,9 @@ dailies. Monday: closed until 17:00 — run `/catch-up` after that.
    Dragon Temple…); swiping it doesn't work. Pixel `(760,450)` gold ≈ `(230,150,66)` = Storm showing (use y=450
    for `--until`; at y=460 it reads darker), blue = other event; then tap `(880,480)` — tapping while another
    card shows usually still opens the event screen on the Storm tab. Event tabs at the bottom.
+   **New season (Mon 17:00): the card opens "Welcome to Storm Battlefield! Please deploy your Heroes"** — Deploy
+   `(540,1223)` → Quick Deploy `(984,1800)` → Save `(540,1808)` → back `(88,1812)` → **Start** `(540,1219)` → arena
+   (`daily.storm_welcome()`, 2026-11-02: every account failed "arena did not open" before it).
    **Monday ≥ 17:00 with the game already running since before 17:00: restart the game first**
    (`am force-stop com.and.brawlen.web` + relaunch) — otherwise the Storm card never shows (Nick, 2026-10-26).
 2. **Always start with a full lineup** — the previous run left only 1 hero (step 6). `scripts/storm.py` does
