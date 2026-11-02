@@ -722,6 +722,8 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
   take the **highest** spot on the map (topmost: Glory > Gold > Silver, any of the silver rows) that is **empty or
   Sentinel-held** — occupy it, or beat the Sentinel. If the current spot is
   already higher than every free one, keep it (counts as done). Nothing free → skip and report.
+  `canyon.py` reads the header ("Glory/Gold/Silver Battlefield") and never moves a highest_free account down a tier
+  (it took Tiger Glory → empty Gold on 2026-11-03 before that check).
 
 **Occupation lasts 8h** ("Collect Time 08:00:00"), then ends on its own: on the next visit a *Resource* popup
 shows the gains → **Confirm** `(540,1460)` → dismiss `(540,1210)`; header shows "Unoccupied" → take a spot again.

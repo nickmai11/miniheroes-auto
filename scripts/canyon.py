@@ -62,12 +62,17 @@ def try_occupy(x, y):
 
 def run(account):
     cfg = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts', account + '.yaml')).read()
-    wait(r'Attempts', 10)
+    head = wait(r'Attempts', 10)
     highest = bool(re.search(r'canyon_clash:\s*highest_free', cfg))
+    # highest_free keeps a spot that's higher than any empty one: it moved Tiger Glory -> Gold (2026-11-03)
+    cur = next((t for t in ('Glory', 'Gold', 'Silver') if find(head, rf'^{t} Battlefield', (0, 0, 1080, 330))), '')
+    tier = {'Glory': 3, 'Gold': 2, 'Silver': 1}.get(cur, 0)
     weekend = datetime.datetime.now().weekday() >= 5
     for _ in range(6): swipe(540, 600, 540, 1500, 300)                # to the top of the map
     time.sleep(1)
     colours = [GOLD, PURPLE] if highest or weekend else [PURPLE]
+    if highest: colours = [c for c in colours if {GOLD: 2, PURPLE: 1}[c] >= tier]
+    if not colours: print(f'keeping the current {cur} spot: higher than any empty one (highest_free)'); return 0
     purple_screens = 0
     for screen in range(12):
         im = settled(); boxes = ocr(im); im.resize((270, 480)).save(f'canyon{screen}.png')   # per-screen record (2026-10-29)
