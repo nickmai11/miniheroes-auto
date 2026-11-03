@@ -16,7 +16,8 @@ Ordered by impact. Status: ✅ fixed · 🧪 fixed, waiting for a live test (`do
 | 9   | Storm lock wait          | Cmajor idle 246 s                                 | ❌           |
 | 10  | Sanctuary (Dino)         | No floor popup once                               | ✅ transient |
 | 11  | Boot (Aminor)            | Game never launched, 90 s wait                    | ✅           |
-| 12  | Coordination             | Slow feedback, piecemeal fixes, helper mis-taps   | 🟡           |
+| 12  | Events (all accounts)    | Golden Woods + Pet Free Pack never collected      | ✅           |
+| 13  | Coordination             | Slow feedback, piecemeal fixes, helper mis-taps   | 🟡           |
 
 Not struggles: Tower 3/3 and Stage 3/3 Defeat (by design — Bone Archer alone); Grocery "price > balance" skips.
 
@@ -127,7 +128,17 @@ target instead of close + re-open per fight (Cmajor 38 s for 3, was ~52 s).
 - Game sat on the Android home screen; boot waited its 90 s Start timeout.
 - `boot.sh` now relaunches every 30 s, 3 tries.
 
-## 12. Coordination — 🟡
+## 12. Events not all collected — ✅
+
+- Nick (evening): "you failed to collect everything, some are left".
+- Golden Woods (new hub tab) was unknown to `events()` → its free claims (Exploration Quest keys, Sign-In, Expedition
+  gift) were never touched and never reported. Pet Arena's Free Pack was in the doc but not in the script.
+- Fixed: `golden_woods()`, Pet Free Pack, `close_reward()` (tap the "Tap anywhere to close" line — the popup centre
+  is the reward icon), and unknown dotted hub tabs now report `MANUAL … unmapped tab <label>` (checked on 3 pre-claim
+  screenshots). Collected on all 8 accounts; a verification pass on all 8: `nothing claimed`, no MANUAL.
+- Side effect: my "look" tap on Tiger's Expedition gift icon claimed it (20 gems, free).
+
+## 13. Coordination — 🟡
 
 Still open: helpers mixing screenshot and device coords.
 

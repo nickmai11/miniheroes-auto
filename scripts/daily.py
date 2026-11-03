@@ -833,7 +833,7 @@ def canyon(cfg):
         raise
 
 
-HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Draws|^7777': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event'}
+HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Golden': 'golden_woods', r'^Draws|^7777': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event'}
 
 
 def hub_tabs():
@@ -846,18 +846,51 @@ def hub_tabs():
     return tabs
 
 
-def claim_yellow(title):
+def golden_woods(left):
+    """Golden Woods (2026-11-03): free collects only - Exploration Quest (1 Claim = all quest rows, Treasury Keys),
+    Sign-In Rewards (today's yellow Claim; never "Continue to claim" = $ Deluxe), Woods Expedition gift icon (top-left,
+    20 gems). Never King's Treasury (Shuffle Cards spends keys), Expedition Draw / Daily Pack ($). Sub-tab red dots sit
+    ~63 px right of the sub-tab centre, y~190; the tab's own dot sticks (keys to shuffle) - judged by these."""
+    got, dot = [], lambda x: red_dot(x + 40, 165, x + 90, 215)
+    for name, x, title in (('quests', 412, r'Exploration Quest'), ('sign-in', 660, r'Sign-In Rewards')):
+        tap_wait(x, 300); wait(title, 6)
+        if claim_yellow(title, dismiss=(540, 960)): got.append(name)
+    tap_wait(908, 300); wait(r'Woods Expedition', 6)
+    if red_dot(115, 490, 155, 530):
+        tap_wait(88, 550); close_reward(); got.append('expedition gift')
+    if dot(412) or dot(660) or red_dot(115, 490, 155, 530): left.append('golden_woods')
+    return [f'golden woods {g}' for g in got]
+
+
+def unmapped_tabs(im=None):
+    """Event hub tab labels (their 1st line) that match no HUB_TABS pattern and carry a red dot."""
+    im = im or grab()
+    return [t for x, y, w, h, t in ocr(im) if 1800 < y < 1848 and len(t.strip()) > 2
+            and not any(re.search(p, t) for p in HUB_TABS) and red_dot(x + w // 2 + 30, 1720, min(x + w // 2 + 95, 1080), 1795, im)]
+
+
+def close_reward(dismiss=(540, 1880)):
+    """Reward popup -> tap its own "Tap anywhere to close" line (the popup centre is the reward icon: tapping it didn't
+    close Golden Woods' Sign-In reward, 2026-11-03); `dismiss` only when that line isn't shown."""
+    b = wait(r'Tap anywhere|Congratulations', 4)
+    tap_wait(*(find(b, r'Tap anywhere') or dismiss))
+    for _ in range(6):
+        if not find(ocr(), r'Tap anywhere to close'): return
+        time.sleep(0.4)
+
+
+def claim_yellow(title, dismiss=(540, 1880)):
     """Tap every exact 'Claim'/'Free' whose button is the yellow (255,182,16) - never 'Claim More', grey (locked) or
     a $/gem button - dismissing each reward; stops when none is left or the dialog `title` is gone. No reward popup
     after a tap (e.g. a no-pass account's video ad) -> Stop."""
     n = 0
-    for _ in range(6):
+    for _ in range(12):
         im = grab(); boxes = ocr(im)
         if not find(boxes, title): break
         c = next(((x + w // 2, y + h // 2) for x, y, w, h, t in boxes if t.strip() in ('Claim', 'Free')
                   and near(im.getpixel((x - 12, y + h // 2)), (255, 182, 16), 30)), None)
         if not c: break
-        tap_wait(*c); wait(r'Tap anywhere|Congratulations', 4); tap_wait(540, 1880); time.sleep(0.8); n += 1
+        tap_wait(*c); close_reward(dismiss); n += 1
     return n
 
 
@@ -880,7 +913,7 @@ def wish_festival():
 
 def events(cfg):
     """Event hub (1st banner) bottom tabs with a red dot. Scripted: Wish Festival sign-in/gift, Weekly Event Free
-    Benefits, Match Event milestones, 7777 daily Claim. Other tabs with a dot -> MANUAL. Never Again / Open All / draws / Tribe Clash (its dot never clears)."""
+    Benefits, Match Event milestones, 7777 daily Claim, Golden Woods Exploration Quest claims. Other tabs with a dot -> MANUAL. Never Again / Open All / draws / Tribe Clash (its dot never clears)."""
     tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920))
     out, left = [], []
     time.sleep(1.5); tabs = hub_tabs()
@@ -892,6 +925,9 @@ def events(cfg):
         tap_wait(tabs[t], 1840); time.sleep(1.2)
         dots = {k: v or d for (k, v), d in zip(dots.items(), read().values())}
     print(f'    hub tabs (red dot): {dots}', flush=True)   # 'nothing claimed' couldn't tell no tab / no dot / missed (2026-11-01)
+    # a tab nobody mapped is invisible to hub_tabs(): Golden Woods' quests went uncollected on every account (2026-11-03)
+    new_tabs = unmapped_tabs()
+    if new_tabs: left += [f'unmapped tab {t}' for t in new_tabs]
     for tab, x in tabs.items():
         # 7777: always look - its dot read False on Aminor/Bino/Cmajor with the daily Claim still up (Nick 2026-11-02)
         if not dots[tab] and tab != '7777': continue
@@ -911,13 +947,21 @@ def events(cfg):
                 tap_wait(*c)                             # 30-card result; its Confirm can take >1.5 s (Kong instance 2026-10-29)
                 tap_text(r'^Confirm$', (300, 1650, 780, 1850), wait(r'^Confirm$', 15, (300, 1650, 780, 1850))); out.append('7777 daily')
         elif tab == 'wish_festival': out += wish_festival()
-        elif tab == 'pet_arena' and red_dot(100, 620, 160, 680):   # Achievement: free deployment-milestone Claims (2026-11-02)
-            tap_wait(90, 700); wait(r'^Achievement$', 6); out.append(f'pet achievement x{claim_yellow(r"^Achievement$")}')
-            tap_wait(972, 226)
+        elif tab == 'pet_arena':
+            time.sleep(1); pet_popup(joined(ocr()))       # round-result popup over the lobby
+            if red_dot(105, 290, 160, 345):              # Pack: Free Pack (20 gems, Limited 1) - never the $ packs (2026-11-03)
+                tap_wait(90, 365); wait(r'^Pack$', 6); out.append(f'pet free pack x{claim_yellow(r"^Pack$", dismiss=(540, 960))}')
+                for _ in range(3):                       # X, until the Pack popup is really gone
+                    tap_wait(972, 236); time.sleep(0.6)
+                    if not find(ocr(), r'Value Offer'): break
+            if red_dot(100, 620, 160, 680):              # Achievement: free deployment-milestone Claims (2026-11-02)
+                tap_wait(90, 700); wait(r'^Achievement$', 6); out.append(f'pet achievement x{claim_yellow(r"^Achievement$")}')
+                tap_wait(972, 226)
+        elif tab == 'golden_woods': out += golden_woods(left)
         elif tab == 'weekly_event':                      # 2nd sub-tab (Wish Merchant / Pet Shop / Recruit Store): Free Benefits
             tap_wait(410, 240); time.sleep(1); out.append(f'weekly free x{claim_yellow(r"Free Benefits")}')
         else: left.append(tab)
-        if red_dot(x + 30, 1720, min(x + 95, 1080), 1795) and tab not in left and tab not in ('7777', 'wish_festival'):
+        if red_dot(x + 30, 1720, min(x + 95, 1080), 1795) and tab not in left and tab not in ('7777', 'wish_festival', 'golden_woods'):
             left.append(tab)                             # sticky dots: 7777 after its daily Claim, Wish Festival's Treasure Vault (coin draws, never)
     r = ', '.join(out) or 'nothing claimed'
     return f'MANUAL {r}; red dots left: {left}' if left else r

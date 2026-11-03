@@ -623,7 +623,19 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
 - **Event hub:** the 1st banner taps at ≈ `(896,340)` (y≈166–210 misses). Any banner opens the shared hub; use its
   bottom tabs (y≈1820–1850) instead of timing the rotation: Wish Festival `(300,1820)`, 7777 Draws `(648,1850)`,
   Match Event `(860,1850)`, Weekly Event `(1000,1850)`. Banners rotate between screenshots.
-- **Pet Arena:** Pack `(88,370)` → Free `(866,834)`; Achievement `(88,690)` → one Claim `(866,606)` claims all.
+- **Pet Arena:** Pack `(88,370)` (dot ≈ `(132,318)`) → Free Pack Claim (20 gems, Limited 1; never the $ packs) → ✕
+  `(972,236)`; Achievement `(88,690)` → one Claim `(866,606)` claims all. Runner claims both (Pack since 2026-11-03 —
+  it was documented here but never scripted, so it went uncollected).
+- **Golden Woods** (2026-11-03; runner `golden_woods()`): sub-tabs King's Treasury `(165,300)`, Exploration Quest
+  `(412,300)`, Sign-In Rewards `(660,300)`, Woods Expedition `(908,300)`; each sub-tab's red dot ≈ 63 px right of
+  it, y≈190. Collect: **Exploration Quest** (one yellow Claim claims every quest row → Treasury Keys), **Sign-In**
+  (today's yellow Claim; "Continue to claim" = $8.99 Deluxe → never), **Expedition gift** (icon top-left `(88,550)`,
+  dot ≈ `(134,509)`, 20 gems). Never **King's Treasury** (Shuffle Cards spends keys; its "select the prize" dot
+  sticks), Expedition **Draw** / Daily Pack ($). The hub tab's own dot sticks while keys are left.
+- **Reward popups** ("Congratulations … Tap anywhere to close"): tap the **"Tap anywhere to close" line** — the popup
+  centre is the reward icon and doesn't close it (`close_reward()`).
+- **Unknown hub tab with a red dot** → the runner reports `MANUAL … unmapped tab <label>` (Golden Woods went
+  uncollected on every account until 2026-11-03 because unknown tabs were invisible) → map it here + in `events()`.
 - **Wish Festival:** Sign-In ≈ `(876,1500–1560)` → today's Claim `(862,1498)`; Gift `(270,1600–1660)` → Free Pack
   `(866,912)` ×2 (Limited: 2), close ✕ `(966,190)`. Treasure Vault = event-coin draws → skip.
 - **7777 Draws:** daily Claim `(540,1606)` (collects 30 draws; shows a 30-hero-card result → **Confirm** `(540,1748)`) — then stop: **never Open All** / draw (Nick, 2026-10-28:
