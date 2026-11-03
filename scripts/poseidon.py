@@ -138,7 +138,10 @@ def run():
             wait(r'Attack Attempts', 10)
         finally:
             shutil.rmtree(lk, ignore_errors=True)
-        left = attempts()
+        for _ in range(5):  # right after the result closes another number can sit by the label: 4 accounts read
+            left = attempts()  # 1 -> 34/25/19/8 after their last fight, the map then showed 0 (2026-11-03)
+            if left == n - 1: break
+            time.sleep(0.8)
         print(f'  {"Victory" if win else "Defeat"} vs {name}; attempts {n} -> {left}', flush=True)
         if left != n - 1: raise Stop(f'attempts did not drop by 1 ({n} -> {left})')
         n = left

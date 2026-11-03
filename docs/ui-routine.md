@@ -910,10 +910,16 @@ Schedule: Preparation Mon → **Battle Tue/Wed/Thu 10:00–22:00** (server time 
 (declare war) opens 19:00. Stamina caps at 60 (regen +3 / ~15 min). It's reset to 30 at 05:00 Mon/Wed/Thu, so
 stamina left over before a reset is lost.
 
-1. Main screen → **Floating Realm** banner `(880,628)` (right column, under Dragon Temple) → event screen
+1. Main screen → **Floating Realm** banner `(880,628)` (right column, under Dragon Temple; loads a few s late after a
+   boot; if taps on it do nothing while other buttons work, restart the game — xFaktor/Aminor 2026-11-03) → event screen
    (day tabs, **Target** `(976,1320)` = stamina-used milestones 50…4100, **Enter** `(540,1476)`).
+   **Target Rewards** (red "!" on Target and on the main-screen banner = a milestone reached): green **Claim** at the
+   row's right `(864,622)` for the top row → _Congratulations_ → close on its "Tap anywhere to close" text `(540,1208)`;
+   a claimed row drops to the bottom. ✕ `(972,228)`. realm.py claims them after exploring (Nick, 2026-11-03).
+   Bottom **Rewards** = ranking-prize Preview only (sent by email after the event), nothing to claim.
 2. Explore screen: **Explore** `(540,1380)` (cost 1 on F1, 2 on F2, 3 on F3). A **1x** toggle `(340,1516)` appears left of
-   Explore once enough stamina is spent (the 3× explore unlock; not used yet). Each explore = 1 event; the event's
+   Explore once enough stamina is spent (the 3× explore unlock; not used yet). **Skip** checkbox `(816,1532)` right of Explore: keep it
+   ticked (green check) before exploring (Nick, 2026-11-03; it was off on Tiger); realm.py ticks it. Each explore = 1 event; the event's
    button sits at the same spot:
    - _Gold/Silver Treasure_ → **Claim** `(540,1380)` → "Tap anywhere to close" `(540,500)`. ~1,000–1,500 pts.
    - Monster (e.g. _Drift Ship_ ~1.5M CP vs our 6.75M) → dialog with **Crush** `(540,1264)` = instant win,
@@ -924,7 +930,10 @@ stamina left over before a reset is lost.
      from another tribe, 5–6.4M, ~5,100 pts), same Attack flow (Kong won all 4, 2026-11-03). **Always Attack, CP doesn't matter; Defeat → always Mark it for tribe assist (Nick).**
      _Defeat_ (Kong vs a 91M player on F3): still pays a little (3000 gold + 100 pts) and knocks their supply −5%;
      Confirm `(540,1454)` → the event dialog returns with **Mark** `(320,1264)` | **Bypass** `(760,1264)` → Mark →
-     straight back to the explore screen (no confirm). Losing your own attack does **not** drop you a floor. No X on the dialog: every event must be done before the next explore.
+     straight back to the explore screen (no confirm). Losing your own attack does **not** drop you a floor.
+     **Another player beating you** (F3) pops _Encounter Battle_ "You were defeated by [player], lost one [core], and have
+     been returned to the previous floor" with only **Confirm** `(538,1259)` (Chien Than 2026-11-03: Confirm ignored 8×
+     = connection lost; a game restart cleared it, the account was back on F2). No X on the dialog: every event must be done before the next explore.
    - _Monster Lair_: stake one of your beast cores on a breakthrough (rows ~`(540,1064/1228/1392)`, Refuse last).
      **Failure keeps the core unchanged** and still pays ~2,600 pts → never Refuse. **Rule (Nick):** highest tier
      first, same tier ATK → DEF → HP. Tiers: blue 10y < purple 100y < orange 1ky < red (name unseen). Success =
@@ -937,7 +946,8 @@ stamina left over before a reset is lost.
    **kill 2 Cloud Bandits** _or_ **use a Floating Realm Treasure Map** (green Go `(844,1034)`). A "conditions
    met, proceed?" tip pops up as soon as you hold a map.
    Counts are read off the screen at each decision (map's top-left scroll counter = maps held, the dialog's
-   "Kill X (k/2)"); nothing has to be remembered across a stop. Whether the dialog's "(m/1)" caps at 1 is unknown.
+   "Kill X (k/2)"); nothing has to be remembered across a stop. The dialog's "(m/1)" shows all maps held (Dino: 3), not capped at 1. The floor card label
+   (top right) updates a beat after the explore screen shows: wait for it, don't read it once.
    **Map strategy (Nick, 2026-11-03), any day.** One map item works on every floor:
    - **F1→F2:** 0/2 Cloud Bandits → use a map. 1/2 → hunt the 2nd bandit. Every round (day) restarts on F1, and
      knockbacks drop you to F2, never F1, so this costs at most 1 map per day (3 per event).
@@ -948,7 +958,7 @@ stamina left over before a reset is lost.
    "Limited to 1 purchases per day", button ~166 px below the row title, "Sold Out" once bought:
    Free Pack (20 gems) · **Support Pack** (4 stamina + 1000 coins, **80 gems**) · **Motivation Pack** (potion + 2 bags, **400 gems** on Dminor; all accounts but Chien Than/xFaktor, Nick) ·
    **Value Pack $0.99** · **Joy Pack $4.99** · Deluxe $9.99 / Supreme $19.99 / King $49.99 (never). The $ buttons
-   are paid in **Stargems** (the white currency next to the gems, top left). Runner step `realm_packs` buys the
+   are paid in **Stargems** (the white currency next to the gems, top left). Runner step `realm_packs` (dailies only, not the catch-up — Nick) buys the
    account's `floating_realm_packs` (Nick, 2026-11-03), reading the balances from crops of the counters (whole-screen
    OCR read Stargems "620" as "6201ng Realm"). Close ✕ `(972,228)`.
    Free Pack's button reads **Claim**; Support (80 gems) and Motivation (400 gems) buy straight away → reward popup →

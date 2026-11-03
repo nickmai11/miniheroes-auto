@@ -1047,11 +1047,13 @@ def realm_packs(cfg):
     if [k for k in want if k not in REALM_PACKS]: raise Stop(f'unknown floating_realm_packs {want}')
     if not want: return 'SKIP no floating_realm_packs'
     p = find(ocr(), r'Floating Realm', (600, 400, 1080, 900))
+    if not p: time.sleep(3); p = find(ocr(), r'Floating Realm', (600, 400, 1080, 900))   # loads late after a boot (Tiger)
     if not p: return 'SKIP no Floating Realm banner (not its event week)'
-    for _ in range(2):                                   # the banner tap can be ignored (Aminor 2026-11-03)
+    for _ in range(2):                                   # the banner tap can be ignored; xFaktor ignored every tap until
+                                                         # a game restart (boot.sh), Aminor too (2026-11-03)
         tap_wait(*p); time.sleep(1); b = ocr()
         if find(b, r'^Enter$'): break
-    else: raise Stop('Floating Realm screen did not open')
+    else: raise Stop('Floating Realm screen did not open (banner stuck? restart the game: boot.sh <idx>)')
     pk = find(b, r'^Pack$')
     if not pk: return 'SKIP no Pack button (truce)'
     tap_wait(*pk); wait(r'Daily Special', 8)
@@ -1137,7 +1139,7 @@ CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena
            ('veins_forge', lambda c: divine(c, benefit=False)), ('patrol_claim', patrol_claim), ('arena2', arena),
            ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
            ('canyon', canyon),
-           ('events', events), ('realm_packs', realm_packs), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),  # missions always last (Nick, 2026-10-29)
+           ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),  # missions always last (Nick, 2026-10-29); FR packs: dailies only (Nick 2026-11-03)
            ('play_pass2', play_pass2),   # after the missions: the run's activity unlocks new Play Pass claims (Nick 2026-11-03)
            ('pet_check', pet_check)]    # Mon-Wed: re-check all 40 free Pet Arena attempts used (Nick 2026-11-03)
 CATCHUP_MANUAL = []
