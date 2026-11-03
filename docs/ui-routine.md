@@ -896,3 +896,42 @@ Tickets regen 1 per 2h (timer under the counter) — one can arrive right after 
 
 **Open question (2026-10-27):** Aminor's Canyon spot showed 1043k CP = the 1-hero Storm lineup, while
 tribemates' spots show 2.7–4.9M. If Canyon defence uses the Storm lineup, step 6 weakens it — ask Nick.
+
+## Floating Realm (Tribe cross-server event, every 2 weeks) — learning, Kong 2026-11-03
+
+Mapped on Kong via ADB (device coords). Skill: `miniheroes-realm`. **Script:** `scripts/realm.py <account>` does all
+of this (untested end-to-end); by hand only on its exit 1.
+
+Schedule: Preparation Mon → **Battle Tue/Wed/Thu 10:00–22:00** (server time = UTC) → Claim Fri. Battlefield
+(declare war) opens 19:00. Stamina caps at 60 (regen +3 / ~15 min). It's reset to 30 at 05:00 Mon/Wed/Thu, so
+stamina left over before a reset is lost.
+
+1. Main screen → **Floating Realm** banner `(880,628)` (right column, under Dragon Temple) → event screen
+   (day tabs, **Target** `(976,1320)` = stamina-used milestones 50…4100, **Enter** `(540,1476)`).
+2. Explore screen: **Explore** `(540,1380)` (cost 1 on F1, 2 on F2, 3 on F3). A **1x** toggle `(340,1516)` appears left of
+   Explore once enough stamina is spent (the 3× explore unlock; not used yet). Each explore = 1 event; the event's
+   button sits at the same spot:
+   - _Gold/Silver Treasure_ → **Claim** `(540,1380)` → "Tap anywhere to close" `(540,500)`. ~1,000–1,500 pts.
+   - Monster (e.g. _Drift Ship_ ~1.5M CP vs our 6.75M) → dialog with **Crush** `(540,1264)` = instant win,
+     ~1,100–1,200 pts + a beast core (CP grows during the run: 6752k → 6977k after 4).
+   - Stronger monster (F2 _Veteran Pilot_ 2.3M, 4 skulls) → **Attack** `(540,1264)` → lineup screen (empty the
+     first time: **Quick Deploy** `(984,1800)`, beast cores show in its CP) → **Start** `(540,1808)` → Victory
+     ~2,700 pts → Confirm. F3: _Sky Overlord_ (monster, 2.8M, ~4,900 pts) and _Encounter Battle_ (a player
+     from another tribe, 5–6.4M, ~5,100 pts), same Attack flow (Kong won all 4, 2026-11-03). **Always Attack, CP doesn't matter; Defeat → always Mark it for tribe assist (Nick).**
+     _Defeat_ (Kong vs a 91M player on F3): still pays a little (3000 gold + 100 pts) and knocks their supply −5%;
+     Confirm `(540,1454)` → the event dialog returns with **Mark** `(320,1264)` | **Bypass** `(760,1264)` → Mark →
+     straight back to the explore screen (no confirm). Losing your own attack does **not** drop you a floor. No X on the dialog: every event must be done before the next explore.
+   - _Monster Lair_: stake one of your beast cores on a breakthrough (rows ~`(540,1064/1228/1392)`, Refuse last).
+     **Failure keeps the core unchanged** and still pays ~2,600 pts → never Refuse. **Rule (Nick):** highest tier
+     first (orange 1ky > blue 10y), same tier ATK → DEF → HP.
+   - **Taps ignored but the screen looks normal** (timers tick, stamina doesn't drop) = the game lost its
+     connection to the account (Kong 2026-11-03, after a Lair) → stop and report, don't keep tapping.
+3. Floors: F1 Nagrand Island → F2 Land of Blaze → F3 Floating Castle (players from other tribes; losing to one
+   sends you back a floor). Map: **Next Area** `(924,320)` → tap the floor's Go → entry dialog:
+   **kill 2 Cloud Bandits** _or_ **use a Floating Realm Treasure Map** (green Go `(844,1034)`). A "conditions
+   met, proceed?" tip pops up as soon as you hold a map.
+   **Map strategy (Nick, 2026-11-03), any day.** One map item works on every floor:
+   - **F1→F2:** 0/2 Cloud Bandits → use a map. 1/2 → hunt the 2nd bandit. Every round (day) restarts on F1, and
+     knockbacks drop you to F2, never F1, so this costs at most 1 map per day (3 per event).
+   - **F2→F3:** keep **5 maps for the last battle day (Thu)**. Tue/Wed climb by killing 2 Veteran Pilots. A map may be spent before Thu only if 5 would still be left, and only at 0 kills. At 1 kill, hunt
+     the rest even then. Thu: use the maps to reach and get back to F3.
