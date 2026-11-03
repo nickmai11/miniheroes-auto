@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # Floating Realm (Tribe cross-server event, every 2 weeks; battle Tue/Wed/Thu 10:00-22:00 UTC): spend all stamina
 # exploring. Rules: docs/ui-routine.md "Floating Realm" (Nick, 2026-11-03).
-# usage: D=<serial> scripts/realm.py <account>      (main screen or the explore screen; ends on the main screen)
+# usage: D=<serial> scripts/realm.py <account> [--max-floor N]   (main or explore screen; ends on the main screen)
+#        --max-floor 2 = never climb to F3 (Nick asks per account)
 # Treasure -> Claim, weak monster -> Crush, monster/player -> Attack whatever the CP, Defeat -> Mark (Nick), Monster Lair -> stake
 # the best core, next floor -> kills or a Treasure Map (map strategy). Anything else -> exit 1 (v_realm.png).
 # Never taps the stamina "+" (gems). UNTESTED end-to-end (written 2026-11-03 from Kong's first run) - watch it.
@@ -91,16 +92,18 @@ def go_up(fl):
     Returns (gate monster name, entered)."""
     tap_wait(924, 320)
     b = wait(r'Current Hostile', 10)
+    # held maps: the scroll counter top left of the map; the dialog's "(m/1)" may be capped at the 1 needed
+    held = [int(x[4]) for x in b if x[0] < 300 and x[1] < 120 and x[4].isdigit()]
     name = [k for k, n in FLOORS.items() if n == fl + 1][0]
     p = find(b, r'^Go$|^G$') or find(b, name)
     tap_wait(*p)
     b = wait(r'Entry Requirements', 8); t = joined(b)
     k, m = re.search(r'Kill (.+?)\s*\((\d+)/(\d+)\)', t), re.search(r'Treasure Map\s*\((\d+)/', t)
     if not k: raise Stop(f'entry dialog unreadable: {t[:250]}')
-    gate, kills, need, maps = k[1], int(k[2]), int(k[3]), int(m[1]) if m else 0
+    gate, kills, need, maps = k[1], int(k[2]), int(k[3]), held[0] if held else int(m[1]) if m else 0
     gos = sorted((x for x in b if re.fullmatch(r'G[oO]', x[4])), key=lambda x: x[1])
     how = climb(fl, kills, need, maps, NOW.weekday())
-    say(f'  F{fl}->F{fl + 1}: {gate} {kills}/{need}, maps {maps} -> {how}')
+    say(f'  F{fl}->F{fl + 1}: {gate} {kills}/{need}, maps {maps} (counter {held}, dialog {m and m[1]}) -> {how}')
     if how != 'stay':
         i = 0 if how == 'kills' else 1
         if len(gos) <= i: raise Stop(f'entry dialog: {len(gos)} Go buttons')
@@ -112,17 +115,18 @@ def go_up(fl):
     return gate, False
 
 
-def run(account):
+def run(account, max_floor=3):
     global LOG
     if not battle_on(): print('Floating Realm: no battle round now'); return
     os.makedirs(f'{R}/logs/{account}', exist_ok=True)
     LOG = f'{R}/logs/{account}/{(NOW - datetime.timedelta(hours=5)).date()}.log'
     b = ocr()
     if not find(b, r'Stamina Cost'):                       # already exploring (re-run after a stop) -> carry on
-        p = find(b, r'Floating Realm', (600, 400, 1080, 900))
-        if not p: raise Stop('no Floating Realm banner on the main screen')
-        tap_wait(*p)
-        tap_text(r'^Enter$', boxes=wait(r'^Enter$', 10))
+        if not find(b, r'^Enter$'):                        # not on the event screen yet -> main screen banner
+            p = find(b, r'Floating Realm', (600, 400, 1080, 900))
+            if not p: raise Stop('no Floating Realm banner on the main screen')
+            tap_wait(*p); b = wait(r'^Enter$', 10)
+        tap_text(r'^Enter$', boxes=b)
         b = wait(r'Stamina Cost', 15)
     start = re.search(r'Points: (-?\d+)', joined(b))
     st0 = re.search(r'(\d+)/(\d+)', ' '.join(x[4] for x in b if 1150 < x[1] < 1250))
@@ -143,7 +147,7 @@ def run(account):
             else: fight(b, title)
             continue
         if not find(b, r'^Explore$', (0, 1250, 1080, 1500)): raise Stop(f'unknown screen: {t[:300]}')
-        if fl and fl < 3 and fl not in held and find(b, r'Next Area', (760, 250, 1080, 400)):
+        if fl and fl < max_floor and fl not in held and find(b, r'Next Area', (760, 250, 1080, 400)):
             gates[fl], entered = go_up(fl)
             if not entered: held.add(fl)
             continue
@@ -162,10 +166,10 @@ def run(account):
     raise Stop('not back on the main screen')
 
 
-def logged(account):
-    try: return run(account)
+def logged(account, max_floor):
+    try: return run(account, max_floor)
     except Stop as e: say(f'STOP: {e}'); raise
 
 
 if __name__ == '__main__':
-    main(logged, sys.argv[1])
+    main(logged, sys.argv[1], int(sys.argv[sys.argv.index('--max-floor') + 1]) if '--max-floor' in sys.argv else 3)

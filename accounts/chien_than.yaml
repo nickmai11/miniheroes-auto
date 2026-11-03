@@ -57,6 +57,7 @@ missions:
     tribe: [12]
     ruins: [1]
     realm: [4]        # red stone x1000
+  floating_realm_packs: [free, support]   # FR Pack, its event week: free 20 gems + Support 80 gems (+ motivation, 400 gems: all but Chien Than/xFaktor); $ packs (Stargems): value $0.99, joy $4.99 (Nick, 2026-11-03)
   pet_arena:          # Nick 2026-11-03: same as Cmajor - 2 random pets
     strategy: stamina_order
     order: random

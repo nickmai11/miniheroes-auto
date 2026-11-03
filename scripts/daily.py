@@ -12,6 +12,7 @@
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import datetime, fcntl, os, re, subprocess, sys, time
 from stabilize import close_x
+from tap import diff, thumb
 from flow import Stop, adventure, battle, find, grab, joined, lone_hero, ocr, swipe, tap, tap_text, tap_wait, tickets_full, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -976,6 +977,104 @@ def wish_festival():
     return got
 
 
+# Floating Realm Pack (Nick, 2026-11-03): daily in its event week, Mon-Thu (Preparation + Battle; none in the truce).
+# key -> (row title, button text, paid with, max cost). $ buttons open a Tip "Pay with N Stargems" -> Confirm.
+REALM_PACKS = {'free': ('Free Pack', r'^(Free|Claim)$', None, 0),
+               'support': ('Support Pack', r'^\D?80$', 'gems', 80),
+               'motivation': ('Motivation Pack', r'^\D?\d{2,3}$', 'gems', 400),     # 400 on Dminor
+               'value': ('Value Pack', r'^\$0\.99$', 'stargems', 60),               # Tip: 60 Stargems (Dminor)
+               'joy': ('Joy Pack', r'^\$4\.99$', 'stargems', 300)}                  # ponytail: 300 = 5x Value, unseen
+
+
+def balance(box):
+    """A currency counter top left of the Pack popup - gems (60,40,260,100), Stargems (300,40,500,100) - OCR'd alone:
+    the whole-screen OCR glued '620' to the title behind it ('6201ng Realm', Aminor 2026-11-03)."""
+    c = grab().crop(box); c = c.resize((c.width * 2, c.height * 2))
+    d = [t for *_, t in ocr(c) if t.isdigit()]
+    if not d: raise Stop(f'balance unreadable at {box}')
+    return int(d[0])
+
+
+def drag(y0, y1, x=540):
+    """Scroll by holding the finger still before lifting: no fling. A plain 680 px swipe glided ~1300 px and an OCR of
+    the still-moving list put taps at stale spots (FR Pack, Dminor 2026-11-03). Moves ~60 px less than y0-y1 (slop)."""
+    ys = ' '.join(str(y) for y in range(y0 - 100, y1, -100)) + f' {y1}'
+    subprocess.run(['adb', '-s', D, 'shell', f'input motionevent DOWN {x} {y0}; for y in {ys}; do input motionevent MOVE {x} $y; '
+                    f'done; sleep 0.6; input motionevent UP {x} {y1}'])
+
+
+def settle(limit=4):
+    """Wait until the screen stops moving (a scrolled list keeps gliding after the swipe)."""
+    prev, t0 = thumb(grab()), time.time()
+    while time.time() - t0 < limit:
+        time.sleep(0.3); cur = thumb(grab())
+        if diff(cur, prev) < 1: return
+        prev = cur
+
+
+def realm_buy(btn, price, cur, cap):
+    """One pack row's button: Sold Out / not the expected price / balance short -> report; else tap, check any Tip's
+    amount against cap (Cancel if over or unreadable) -> Confirm -> reward popup. Returns the result text."""
+    if any('Sold Out' in s for *_, s in btn): return 'already'
+    hit = next((c for c in btn if re.search(price, c[2])), None)
+    if not hit: return f'NOT bought: button {[c[2] for c in btn]}'
+    if cur:
+        have = balance((60, 40, 260, 100) if cur == 'gems' else (300, 40, 500, 100))
+        if have < cap: return f'NOT bought: {cur} {have} < {cap}'
+    tap_wait(hit[0], hit[1]); time.sleep(1)
+    b = ocr(); r = joined(b); paid = hit[2]
+    if find(b, r'^Tip$') and find(b, r'^Confirm$'):
+        tip = joined([x for x in b if 640 < x[1] < 1100])  # the Tip's own text, not the price buttons behind it
+        num = re.sub(r'\D', '', hit[2])                 # gem packs: the Tip must name the button's own price
+        n = re.search(r'Pay with (\d+) Stargems', tip) if cur == 'stargems' else re.search(rf'\b{num}\b', tip)
+        if not n or int(n[1] if cur == 'stargems' else n[0]) > cap:
+            tap_text(r'^Cancel$', boxes=b); return f'NOT bought: Tip {tip[:80]!r} (cap {cap})'
+        paid = f'{hit[2]} = {n[1]} Stargems' if cur == 'stargems' else hit[2]
+        tap_text(r'^Confirm$', boxes=b); time.sleep(1); b = ocr(); r = joined(b)
+    if not re.search(r'Tap anywhere|Congratulations', r):
+        if find(b, price, (700, 600, 1080, 1560)): return f'NOT bought: the {hit[2]} tap had no effect'
+        raise Stop(f'unexpected screen after the {hit[2]} tap: {r[:200]}')
+    close_reward()
+    sold = find(ocr(), r'Sold Out', (700, hit[1] - 80, 1080, hit[1] + 80))
+    return f'bought ({paid}{"" if sold else ", not Sold Out after?"})'
+
+
+def realm_packs(cfg):
+    """Floating Realm banner -> Pack -> the account's floating_realm_packs, each 1/day (REALM_PACKS: price read off
+    the button, balance off the counter, a Tip's amount checked before Confirm)."""
+    m = re.search(r'^\s+floating_realm_packs:\s*\[(.*?)\]', cfg, re.M)
+    want = [k.strip() for k in m.group(1).split(',') if k.strip()] if m else []
+    if [k for k in want if k not in REALM_PACKS]: raise Stop(f'unknown floating_realm_packs {want}')
+    if not want: return 'SKIP no floating_realm_packs'
+    p = find(ocr(), r'Floating Realm', (600, 400, 1080, 900))
+    if not p: return 'SKIP no Floating Realm banner (not its event week)'
+    for _ in range(2):                                   # the banner tap can be ignored (Aminor 2026-11-03)
+        tap_wait(*p); time.sleep(1); b = ocr()
+        if find(b, r'^Enter$'): break
+    else: raise Stop('Floating Realm screen did not open')
+    pk = find(b, r'^Pack$')
+    if not pk: return 'SKIP no Pack button (truce)'
+    tap_wait(*pk); wait(r'Daily Special', 8)
+    for _ in range(2): swipe(540, 900, 540, 1500, 400)   # it reopens where it was left (Motivation hid under the banner)
+    settle()
+    out, todo = [], list(want)
+    for i in range(4):
+        # top: Free + Support; one 2-row drag shows Motivation, Value and Joy together (Nick, 2026-11-03)
+        if i: drag(1400, 640 if i == 1 else 1100); settle()
+        b = ocr()
+        for k in list(todo):
+            title, price, cur, cap = REALM_PACKS[k]
+            t = find(b, rf'^{title}$', (0, 600, 600, 1560))   # above y 600 the "Value Deal" banner covers the list
+            if not t or t[1] + 250 > 1560: continue      # its button sits ~166 px below the title
+            btn = [(x + w // 2, y + h // 2, s) for x, y, w, h, s in b if x > 700 and t[1] + 80 < y + h // 2 < t[1] + 250]
+            todo.remove(k); out.append(f'{k} {realm_buy(btn, price, cur, cap)}')
+            b = ocr()
+        if not todo: break
+    tap_wait(972, 228)
+    r = ', '.join(out + [f'{k} not found' for k in todo])
+    return f'MANUAL {r}' if 'NOT' in r or 'not found' in r or '?' in r else r
+
+
 def events(cfg):
     """Event hub (1st banner) bottom tabs with a red dot. Scripted: Wish Festival sign-in/gift, Weekly Event Free
     Benefits, Match Event milestones, 7777 daily Claim, Golden Woods Exploration Quest claims. Other tabs with a dot -> MANUAL. Never Again / Open All / draws / Tribe Clash (its dot never clears)."""
@@ -1038,7 +1137,7 @@ CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena
            ('veins_forge', lambda c: divine(c, benefit=False)), ('patrol_claim', patrol_claim), ('arena2', arena),
            ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
            ('canyon', canyon),
-           ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),  # missions always last (Nick, 2026-10-29)
+           ('events', events), ('realm_packs', realm_packs), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),  # missions always last (Nick, 2026-10-29)
            ('play_pass2', play_pass2),   # after the missions: the run's activity unlocks new Play Pass claims (Nick 2026-11-03)
            ('pet_check', pet_check)]    # Mon-Wed: re-check all 40 free Pet Arena attempts used (Nick 2026-11-03)
 CATCHUP_MANUAL = []
@@ -1066,7 +1165,7 @@ ORDER = [('pet_arena', pet_arena), ('fishing', fishing), ('arena', arena), ('pat
          ('tribe', seq((tribe, None), (canyon, 'canyon_clash'))), ('divine', divine),
          ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune),
          ('grocery', seq((grocery, 'grocery_free_chests'), (grocery_buy, 'grocery_buy'))),
-         ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
+         ('events', events), ('realm_packs', realm_packs), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
          ('play_pass2', play_pass2),   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
          ('pet_check', pet_check)]    # very last: all 40 free Pet Arena attempts used today (Nick 2026-11-03)
 # config key that must be present / truthy for a step to run
@@ -1076,7 +1175,7 @@ KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'are
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
        'tribe_chat': 'tribe', 'common_recruit': 'recruit',
-       'events': None, 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
+       'events': None, 'realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
 
 
 def enabled(cfg, key):

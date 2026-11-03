@@ -13,6 +13,7 @@ game accounts. Each account lives in its own **MuMuPlayer** Android instance on 
 ## Computer-use access
 
 Request access for these apps only (Nick prefers the minimum):
+
 - `MuMuPlayer` (bundle `com.netease.mumu.nemux-global`) — the instance list / launcher
 - `MuMu Android Device` (bundle `com.netease.mumu.nemux-global.emulator`) — the game windows
 - `Proxyman` (`com.proxyman.NSProxy`) — only if inspecting traffic
@@ -26,13 +27,15 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 ## Hard rules
 
 - **Never spend gems beyond what the account config allows.** Each mission entry gives a
-  total sweep count *including* free attempts. Free attempts are used first; paid sweeps
+  total sweep count _including_ free attempts. Free attempts are used first; paid sweeps
   (button shows a gem icon + price) only up to the configured total.
 - If a paid sweep's gem price is higher than `max_gem_price_per_sweep` in the config, stop
   that mission and report instead of paying.
 - Verify the attempt counter on screen before **and** after each sweep — never tap blindly.
 - Don't touch anything outside the missions listed in the config (shop, purchases, settings).
-  Exception: the free red-dot claims in `docs/ui-routine.md` ("Shop freebies", "Play Pass claims"); never a $ button.
+  Exception: the free red-dot claims in `docs/ui-routine.md` ("Shop freebies", "Play Pass claims"); never a $ button —
+  except the Floating Realm packs in an account's `floating_realm_packs` (Support 80 gems, Motivation ≤ 400 gems; `value` $0.99 / `joy` $4.99,
+  paid in Stargems), each once a day at exactly that price, only with the balance on screen covering it (Nick, 2026-11-03).
 - **Look only at decision points** (Nick, 2026-10-28, token cost): chain a step's fixed taps in ONE `tap.py` call with `--until x,y,r,g,b` on the expected next screen — exit 1 / timeout = unexpected → screenshot and decide. Read a screenshot before: any paid/priced tap, picking a target/opponent/row, reading a counter, the first tap of a step, and after any failed check. Never chain past a price or a choice.
 - Account on a different screen than the task needs → move it there (`home()` in daily.py: back arrow, popups, Android
   Back), don't stop (Nick, 2026-10-31, every task). Stop and report only if that fails or the screen shows a choice/price.
@@ -63,6 +66,7 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 Every session (coordinator, helper, or a non-game task like a code change) appends a timestamped line per action
 as it happens — not reconstructed at the end:
 `echo "$(date '+%F %T') [<who>] <action> -> <result/why>" >> <log>`
+
 - `<who>`: `coord`, `helper`, or `claude`. One line per tap batch / decision / script run / file edit / commit:
   what was done, what was seen, why it was chosen (esp. skips, paid taps with price, retries, anything off-spec).
 - `<log>`: game work → `logs/<account>/<game day>.log` (same file `daily.py` writes, so one timeline per account;

@@ -124,6 +124,10 @@ Forest `(870,1310)`, Temple `(870,1696)`.
 
 ## General gotchas
 
+- **Scroll lists slowly, never fling** (Nick, 2026-11-03: "you keep swiping past the packs"). The game's lists keep
+  gliding after a swipe (a 680 px swipe moved ~1300 px) and OCR of a moving list puts taps at stale spots. Use a
+  held drag (`drag()` in daily.py: DOWN, MOVE, pause, UP — moves ~60 px less than asked), then wait for it to settle.
+
 - **The game UI is English on every account** (Nick, 2026-10-28). The scripts match English button text.
 - **Screenshot coords ≠ device coords** — scale both axes (×2 from 540 wide, ×4 from 270). Workers keep
   mis-tapping by passing screenshot coords directly; a y-only miscalc makes taps miss silently.
@@ -923,15 +927,31 @@ stamina left over before a reset is lost.
      straight back to the explore screen (no confirm). Losing your own attack does **not** drop you a floor. No X on the dialog: every event must be done before the next explore.
    - _Monster Lair_: stake one of your beast cores on a breakthrough (rows ~`(540,1064/1228/1392)`, Refuse last).
      **Failure keeps the core unchanged** and still pays ~2,600 pts → never Refuse. **Rule (Nick):** highest tier
-     first (orange 1ky > blue 10y), same tier ATK → DEF → HP.
+     first, same tier ATK → DEF → HP. Tiers: blue 10y < purple 100y < orange 1ky < red (name unseen). Success =
+     the core moves up a tier (Cmajor 1ky ATK → red, 2026-11-03); its result screen closes like the failed one.
+     **Warehouse** `(988,1812)` lists the cores and the total ATK/DEF/HP bonus (exploration only).
    - **Taps ignored but the screen looks normal** (timers tick, stamina doesn't drop) = the game lost its
      connection to the account (Kong 2026-11-03, after a Lair) → stop and report, don't keep tapping.
 3. Floors: F1 Nagrand Island → F2 Land of Blaze → F3 Floating Castle (players from other tribes; losing to one
    sends you back a floor). Map: **Next Area** `(924,320)` → tap the floor's Go → entry dialog:
    **kill 2 Cloud Bandits** _or_ **use a Floating Realm Treasure Map** (green Go `(844,1034)`). A "conditions
    met, proceed?" tip pops up as soon as you hold a map.
+   Counts are read off the screen at each decision (map's top-left scroll counter = maps held, the dialog's
+   "Kill X (k/2)"); nothing has to be remembered across a stop. Whether the dialog's "(m/1)" caps at 1 is unknown.
    **Map strategy (Nick, 2026-11-03), any day.** One map item works on every floor:
    - **F1→F2:** 0/2 Cloud Bandits → use a map. 1/2 → hunt the 2nd bandit. Every round (day) restarts on F1, and
      knockbacks drop you to F2, never F1, so this costs at most 1 map per day (3 per event).
    - **F2→F3:** keep **5 maps for the last battle day (Thu)**. Tue/Wed climb by killing 2 Veteran Pilots. A map may be spent before Thu only if 5 would still be left, and only at 0 kills. At 1 kill, hunt
      the rest even then. Thu: use the maps to reach and get back to F3.
+
+4. **Pack** (event screen, right column `(980,1684)`; Mon–Thu, none in the truce) → _Daily Special_ list, each row
+   "Limited to 1 purchases per day", button ~166 px below the row title, "Sold Out" once bought:
+   Free Pack (20 gems) · **Support Pack** (4 stamina + 1000 coins, **80 gems**) · **Motivation Pack** (potion + 2 bags, **400 gems** on Dminor; all accounts but Chien Than/xFaktor, Nick) ·
+   **Value Pack $0.99** · **Joy Pack $4.99** · Deluxe $9.99 / Supreme $19.99 / King $49.99 (never). The $ buttons
+   are paid in **Stargems** (the white currency next to the gems, top left). Runner step `realm_packs` buys the
+   account's `floating_realm_packs` (Nick, 2026-11-03), reading the balances from crops of the counters (whole-screen
+   OCR read Stargems "620" as "6201ng Realm"). Close ✕ `(972,228)`.
+   Free Pack's button reads **Claim**; Support (80 gems) and Motivation (400 gems) buy straight away → reward popup →
+   Sold Out. A **$ button opens a Tip "Pay with N Stargems … Cancel | Confirm"** ($0.99 = 60 Stargems) → Confirm →
+   reward popup (Dminor, 2026-11-03). All target packs are at the top (Nick): Free + Support on the first screen, then
+   **one slow 2-row drag** (`drag(1400, 640)`) shows Motivation, Value and Joy together.

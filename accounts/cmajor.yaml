@@ -59,6 +59,7 @@ missions:
     tribe: [1]
     ruins: [1]
     realm: [1]
+  floating_realm_packs: [free, support, motivation, value, joy]   # FR Pack, its event week: free 20 gems + Support 80 gems; $ packs (Stargems): value $0.99, joy $4.99 (Nick, 2026-11-03)
   pet_arena:          # Nick 2026-11-02: 2 random pets
     strategy: stamina_order
     order: random
