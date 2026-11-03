@@ -5,7 +5,7 @@
 # for chances, never opens Shop. exit 1 = unexpected screen (v_adventure.png).
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import os, re, sys
-from flow import Stop, adventure, battle, find, lone_hero, main, ocr, wait
+from flow import Stop, adventure, battle, find, lone_hero, main, ocr, tap_text, tap_wait, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -14,13 +14,20 @@ def tickets():
     return next((int(t) for x, y, w, h, t in ocr() if y < 120 and x < 300 and t.strip().isdigit()), None)
 
 
+def claim_tower():
+    """Treasure Chest Level reached ("Claim Reward", Remaining floor(s): 0): free claim -> Congratulations -> the next
+    floors open with Challenge (Chien Than Floor 2030 -> 2031, 2026-11-03). Was skipped, which cost the Daily Mission
+    "Challenged the Tower" row (150/160)."""
+    tap_text(r'^Claim Reward$', (0, 1600, 1080, 1920)); wait(r'Congratulations|Tap anywhere', 8); tap_wait(540, 120)
+    wait(r'^Challenge$', 10, (0, 1600, 1080, 1920)); print('tower: chest level -> Claim Reward claimed', flush=True)
+
+
 def run(account, mode):
     cfg = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
     if mode == 'tower':
         n = int(re.search(r'tower_of_the_throne:\s*(\d+)', cfg).group(1))
         adventure(r'Tower of the Throne'); boxes = wait(r'^Challenge$|^Claim Reward$', 10, (0, 1600, 1080, 1920))
-        if not find(boxes, r'^Challenge$', (0, 1600, 1080, 1920)):   # top floor cleared (Chien Than, Floor 2000, 2026-10-29)
-            print('SKIP tower fully cleared (no Challenge; "Claim Reward" not mapped, left for Nick)'); return
+        if not find(boxes, r'^Challenge$', (0, 1600, 1080, 1920)): claim_tower()
         for i in range(n):
             t = tickets()
             if t == 0: print('tower: 0 tickets left'); break
@@ -29,7 +36,7 @@ def run(account, mode):
             won = 'Victory' in res                         # a win costs no ticket (Chien Than 9 -> 9 at Floor 2020, 2026-11-01)
             if t is not None and t2 != t - 1 and not (won and t2 == t): raise Stop(f'tower tickets {t} -> {t2} after a fight')
             print(f'tower {i + 1}/{n}: {"Victory" if won else "Defeat" if "Defeat" in res else "?"}, tickets {t2}', flush=True)
-            if find(ocr(), r'^Claim Reward$', (0, 1600, 1080, 1920)): print('tower: top floor cleared (Claim Reward)'); break
+            if find(ocr(), r'^Claim Reward$', (0, 1600, 1080, 1920)): claim_tower()
     elif mode == 'beast':
         adventure(r'Beast Realm'); wait(r'Next Beast', 10)
         res = battle(r'Next Beast', timeout=150)

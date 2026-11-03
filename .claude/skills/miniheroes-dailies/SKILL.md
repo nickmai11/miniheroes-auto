@@ -26,6 +26,9 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
    The runner follows the **Daily run order** in `docs/ui-routine.md` and skips missions not in the account config.
 4. **Report** per account: each mission done/skipped (and why) and every paid action with its price (the runner prints
    each). Don't track gem/resource balances — they change constantly.
+   **Every account must reach the 160 Daily Mission chest** (Nick, 2026-11-03): 16 of the 18 rows are scripted (not
+   Upgrade Statue, Purchase with Diamonds). Below 160 → open that account's Daily Mission, match the open rows to
+   their steps (`scripts/doc.sh "Daily Mission"`, "The 18 daily rows"), run / helper the missed step, then report.
 
 **Cost — runner first, helpers only for leftovers (Nick, 2026-10-28 — urgent).** One helper per account for the whole
 run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly for 8 accounts). Now:

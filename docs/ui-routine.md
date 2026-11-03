@@ -322,6 +322,10 @@ Keep the pre-selected lineup (Nick, 2026-10-26: don't bother picking the weakest
 3. **Start** `(540,1808)` → result screen. Dismiss by tapping `(540,1700)` (below the
    "Challenge again" button — never tap that). Verify tickets dropped by 1.
 4. Repeat steps 2–3 until the configured count is done (stop early if tickets hit 0).
+5. **Treasure Chest Level** (all floors of a block cleared: "Remaining floor(s): 0", bottom button **Claim Reward**
+   instead of Challenge): tap **Claim Reward** (free) → _Congratulations_ → `(540,120)` → the next floors open with
+   **Challenge** → go on (Chien Than Floor 2030 → 2031, 2026-11-03; `adventure.py` `claim_tower`). It used to be
+   skipped, which lost the Daily Mission "Challenged the Tower" row.
 
 ## Secret Sanctuary (sweep if offered, else climb 10 floors) — Nick, 2026-10-27
 
@@ -601,6 +605,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
    - Skip tiles already **Sold Out**, and tiles whose price is more than the shop's balance (top left) — report
      (e.g. Sanctuary tile 12 = 10000 coins, usually more than a day's balance).
    - The price icon must be that shop's own currency (the one next to the balance) — never gems or $.
+     Compare the **whole** coin icon (mean of its coloured pixels, left of the number) with the balance icon — a single
+     sample point hit the icon's edge and skipped Realm tile 4 every day from late Oct to 2026-11-03 (fixed, bought on Dino).
 5. Close ✕ `(966,222)`.
 
 ## Events (red dots)
@@ -665,6 +671,14 @@ title `(540,240)` — `(540,120)` is outside the dialog and closes it; Weekly ta
    - Top bar activity chests (Daily: **40 / 80 / 120 / 160** points): tap **one** reachable (glowing, no ✓) chest —
      it claims all reachable ones; dismiss the reward. All ✓ = done.
 3. Report per tab each chest still unclaimable and the current points.
+
+**The 18 daily rows** (10 points each; 160 = 16 rows) — every row is scripted except **Upgrade Statue** and **Purchase
+with Diamonds in Grocery** (Nick, 2026-11-03), so a full runner pass must reach **160**; anything less = a step failed
+or was skipped → find it. Rows → step: Stage → `stage`; Leveled-up any Hero + Enhanced Equipment → `hero`; Speed
+Patrol + Claimed Patrol Rewards ×2 → `patrol` / `patrol_claim`; Recruitment ×2 + Artifact Wishing → `recruit`; Land
+of Trials → `trials`; Match Challenges ×3 → `arena`; Tribe Trial → `tribe`; Canyon Clash → `canyon` (closed Mon
+daytime); Won 1 wave at Secret Sanctuary → `sanctuary`; Synthesized Runes → `rune`; 10 Bread in Fishing → `fishing`;
+Gate of Darkness → `gate`; Challenged the Tower → `tower` (incl. the chest-level Claim Reward).
 
 ## Pet Arena (join + Auto Deploy)
 

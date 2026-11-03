@@ -674,6 +674,14 @@ def rune(cfg):
 SHOP_TABS = {'sanctuary': (452, False), 'tribe': (732, False), 'ruins': (980, False), 'realm': (604, True)}  # x, after tab-bar swipe
 
 
+def coin(im, x0, x1, cy):
+    """Mean colour of a coin icon's coloured pixels (left of its number): the paw / edges / background average out.
+    A fixed sample point hit the icon edge and skipped Realm tile 4 every day since late Oct (24x); whole icon: all 12
+    Realm tiles within 2-4 of the balance icon (Dino 2026-11-03)."""
+    px = [p for p in (im.getpixel((x, y)) for x in range(x0, x1, 2) for y in range(cy - 16, cy + 17, 2)) if max(p) - min(p) > 80]
+    return [sum(p[i] for p in px) // len(px) for i in range(3)] if px else [0, 0, 0]
+
+
 def grocery_buy(cfg):
     """Grocery shop tabs: buy each configured tile once, in the shop's own coin only (price icon colour == balance
     icon), never over the balance; popup price must match the tile. Mapped on the Kong instance 2026-10-29."""
@@ -688,15 +696,17 @@ def grocery_buy(cfg):
         if not find(boxes, rf'(?i)^{tab}', (x - 160, 500, x + 160, 590)): raise Stop(f'{tab} shop tab not where expected')
         for n in want[tab]:
             im = grab(); boxes = ocr(im)
-            avg = lambda x0, y0: [sum(im.getpixel((x0 + dx, y0 + dy))[i] for dx in range(-6, 7, 3) for dy in range(-6, 7, 3)) // 25 for i in range(3)]
-            bal = next((num(b[4]) for b in boxes if b[0] < 300 and 350 < b[1] < 430 and re.fullmatch(r'[\d.]+[kKmM]?', b[4])), None)
+            bb = next((b for b in boxes if b[0] < 300 and 350 < b[1] < 430 and re.fullmatch(r'[\d.]+[kKmM]?', b[4])), None)
+            bal = bb and num(bb[4])
             bx, by = (163, 413, 663, 913)[(n - 1) % 4], (893, 1249, 1605)[(n - 1) // 4]
             region = (bx - 125, by - 40, bx + 125, by + 40)
             if find(boxes, r'Sold', region): out.append(f'{tab} {n} sold out'); continue
-            price = next((num(b[4]) for b in boxes if region[0] < b[0] + b[2] // 2 < region[2] and region[1] < b[1] + b[3] // 2 < region[3]
-                          and re.fullmatch(r'[\d.]+[kKmM]?', b[4])), None)
+            pb = next((b for b in boxes if region[0] < b[0] + b[2] // 2 < region[2] and region[1] < b[1] + b[3] // 2 < region[3]
+                       and re.fullmatch(r'[\d.]+[kKmM]?', b[4])), None)
+            price = pb and num(pb[4])
             if bal is None or price is None: raise Stop(f'{tab} {n}: balance/price unreadable ({bal}, {price})')
-            if not near(avg(bx - 73, by), avg(90, 406), 35): out.append(f'{tab} {n} SKIPPED: not priced in the shop coin'); continue
+            if not near(coin(im, pb[0] - 70, pb[0] - 12, pb[1] + pb[3] // 2), coin(im, bb[0] - 66, bb[0] - 8, bb[1] + bb[3] // 2), 35):
+                out.append(f'{tab} {n} SKIPPED: not priced in the shop coin'); continue
             if price > bal: out.append(f'{tab} {n} skipped: {price} > balance {bal}'); continue
             tap_wait(bx, by); boxes = wait(r'^Purchase$', 6)
             pp = next((num(b[4]) for b in boxes if 1040 < b[1] < 1140 and re.fullmatch(r'[\d.]+[kKmM]?', b[4])), None)

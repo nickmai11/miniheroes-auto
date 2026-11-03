@@ -9,8 +9,8 @@ Ordered by impact. Status: ✅ fixed · 🧪 fixed, waiting for a live test (`do
 | 1   | Pet Arena (8 accounts)   | Failed everywhere; ran last instead of first      | 🧪           |
 | 2   | Hero (6 FAILs)           | Card not found, mid-animation reads               | 🧪           |
 | 3   | Rune (Bino ×2, Tiger ×1) | Taps from a still-scrolling list hit locked tiles | 🧪           |
-| 4   | Grocery Realm tile 4     | Skipped 24× since late Oct — never bought         | ❌           |
-| 5   | Chien Than daily 150/160 | Remaining rows not doable by script               | ❓           |
+| 4   | Grocery Realm tile 4     | Skipped 24× since late Oct — never bought         | ✅           |
+| 5   | Chien Than daily 150/160 | Tower chest level skipped → Tower row missing     | ✅           |
 | 6   | Tiger Stage              | Bone Archer locked on team 2                      | ❌           |
 | 8   | Dminor Events            | False MANUAL → out-of-scope "Again" tap           | ❌           |
 | 9   | Storm lock wait          | Cmajor idle 246 s                                 | ❌           |
@@ -79,22 +79,25 @@ target instead of close + re-open per fight (Cmajor 38 s for 3, was ~52 s).
 - Live dry run (popup opened, nothing synthesized): Tiger and Bino each picked an unlocked Mythic rune on the first
   tap, 8–9 s. Untested: the swipe-to-next-page path (both found one on the first screen) → `docs/untested.md`.
 
-## 4. Grocery Realm tile 4 — ❌
+## 4. Grocery Realm tile 4 — ✅
 
 - `realm 4 SKIPPED: not priced in the shop coin` — **24 times** in the logs since late October; never bought.
 - Live check on Dino: tile 4 = red stone ×1000 for 3000, paw coin like the rest of the Realm Shop.
-- Cause: coin colour sampled at a fixed offset `bx - 73`; on tile 4 it lands on the icon's dark edge.
-  Balance icon `[215,118,36]` vs tile 4 `[197,82,19]` → green differs by 36 > tolerance 35.
-- Sampling just left of the OCR'd price text (`x - 30`) reads every tile's icon cleanly (~`[230,105,30]`).
-- To do: sample relative to the price text, not a fixed offset.
+- Cause: the coin colour was one small sample at a fixed offset `bx - 73`; it hit the icon's edge / paw (tile 4 green
+  82 vs balance 118, tolerance 35). Even text-relative points varied 13–54 — the paw print inside the coin.
+- Fix (`daily.py` `coin`): mean of the icon's coloured pixels left of the price text vs the same for the balance icon →
+  all 12 Realm tiles within 2–4 of the balance. Live: Dino `realm 4 bought for 3000`.
+- Still open (audit): tiles are picked by slot number from the config; the item itself isn't checked — a reordered
+  shop would buy the wrong item.
 
-## 5. Chien Than daily 150/160 — ❓
+## 5. Chien Than daily 150/160 — ✅
 
-Open rows (each +10, any one gives 160):
-
-- Challenged the Tower 1 time — tower fully cleared, "Claim Reward" not mapped.
-- Upgrade Statue 1 time — not mapped.
-- Purchase with Diamonds in Grocery 1 time — costs gems, not in the config.
+- Open rows: Upgrade Statue, Purchase with Diamonds in Grocery, Challenged the Tower.
+- Nick: only **2** of the 18 rows aren't scriptable (Statue, Diamonds) — 16 rows = 160 exactly, so Tower had to be
+  doable. It was: Tower stood on the Treasure Chest Level ("Claim Reward", no Challenge) and `adventure.py` SKIPped it.
+- Fix (`adventure.py` `claim_tower`): Claim Reward (free) → next floors open with Challenge → fight on. Chien Than:
+  Floor 2030 claimed, 3 challenges, **daily chests [160]**. Doc: Tower step 5 + the 18 rows → steps list in
+  "Daily Mission". The script's claim path itself → `docs/untested.md` (the claim was tapped by hand before the run).
 
 ## 6. Tiger Stage — ❌
 
