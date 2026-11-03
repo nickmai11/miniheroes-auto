@@ -38,8 +38,10 @@ Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
 17. **Grocery** — free chests, then the account's `grocery_buy` tiles (if any).
 18. **Events** — see "Events (red dots)".
 19. **Fishing** — the only place order rewards are collected (see Fishing step 7).
-20. **Daily Mission** — always the LAST step (Nick, 2026-10-29); any new step goes before it. A rerun of earlier steps
-    (`daily.py <acct> <step>...`) should include `daily_mission` so their progress gets claimed.
+20. **Daily Mission** — the last mission (Nick, 2026-10-29); any new mission step goes before it. A rerun of earlier
+    steps (`daily.py <acct> <step>...`) should include `daily_mission` so their progress gets claimed.
+21. **Play Pass again** (`play_pass2`) — after the missions, re-check Play Pass for red dots: the run's activity unlocks
+    new claims (Nick, 2026-11-03). Same in the catch-up.
 
 A "Match attempts full" popup can interrupt any step: **Confirm** (opens the Arena), spend every ticket (`arena.py`),
 back to main, then redo the interrupted step — `flow.tickets_full()` + the runner do this (Nick, 2026-10-31).
@@ -56,7 +58,7 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 **Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
 main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
 Steps: pet_arena (Mon–Wed) fishing arena patrol arena2 storm shop play_pass trials tower sanctuary gate beast arena3 recruit hero tribe divine
-stage patrol_claim rune grocery events fishing_rewards daily_mission.
+stage patrol_claim rune grocery events fishing_rewards daily_mission play_pass2.
 **Run overview: `scripts/summary.sh <run dir>`** — per account OK/SKIP counts, FAIL/MANUAL/paid lines, LEFT FOR HELPER (one call instead of grepping logs).
 
 Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png] [-w 270|540]` for every tap (device coords):
@@ -486,8 +488,11 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started
    Automate with `D=<serial> scripts/fish_orders.py ROW MAX MIN` (MIN = `min_order_diamonds`, default 4; pixel check
    on the diamonds; row y = 567/921/1275, diamond x = 633/706/778/851/921; filled = R>200, empty = (58,85,115)).
    It handles both popups itself (WARN line on high quality) and returns `None` on any other popup (e.g. out of tickets).
-4. Out of tickets: buy with **50 gems** — `+` `(272,425)` next to the ticket count → **Purchase** `(540,1203)`
-   (verify 50 gems); the popup stays open, close by tapping `(540,1600)`.
+4. Out of tickets: **buy as many packs as needed** until every order reaches `min_order_diamonds` (Nick, 2026-11-03:
+   "unlimited, buy as lacking, don't care about price" — always 50 gems). A Refresh tap with 0 scrolls opens the
+   _Order Refresh Scroll_ popup (also `+` `(272,425)` next to the count): **5 scrolls**, price above the button →
+   **Purchase** `(540,1203)`; the popup stays open, close by tapping `(540,1600)`. The scroll count (left of `+`) must
+   go up after each buy — else stop (runner `buy_scrolls()`; price only logged).
 5. Close ✕ `(973,270)`. **Benefit** (runner: `fishing` step, 2026-10-29) `(330,1800)` **only if it has a red dot** — no red dot = don't open it → **Claim Reward** `(540,1662)`
    (60 bread, 5 refresh tickets, baits) → dismiss `(540,120)` → close ✕ `(970,238)`.
 6. **Auto** `(982,1222)` → _Auto Fish_ settings (keep as-is: Auto-submit Orders ✓) → **Start** `(540,1485)`.
@@ -700,8 +705,8 @@ Gate of Darkness → `gate`; Challenged the Tower → `tower` (incl. the chest-l
 
 **Only open Mon, Tue, Wed** — skip on other days. Run it first in the dailies. **Scripted: `daily.py <acct> pet_arena`**
 (2026-11-02; checks/sets sprites + order + check boxes, `per_pet` → MANUAL); steps below = its fallback.
-Added by Nick 2026-10-26. Strategy is per account (`missions.pet_arena` in the config): **Stamina order High to Low,
-4 sprites**, except Cmajor **Random Selection, 2 sprites** (Nick, 2026-11-02).
+Added by Nick 2026-10-26. Strategy per account (`missions.pet_arena`): **all accounts Random Selection, 2 sprites** (Nick, 2026-11-03 — was
+High to Low / 4 except Cmajor). The game's own default is 4 / High to Low, so each account's first run changes both dropdowns once.
 
 - **Be fast, touch only what's wrong** (Nick, 2026-11-03): the arena is busy right after the reset. 4 sprites / High to
   Low is the game's default and it keeps the dialog settings — if the dialog already shows the expected values, don't

@@ -58,7 +58,7 @@ missions:
     tribe: [12]
     ruins: [1]
     # realm: [4]        # red stone x1000
-  pet_arena:
+  pet_arena:          # Nick 2026-11-03: same as Cmajor - 2 random pets
     strategy: stamina_order
-    order: high_to_low
-    sprites: 4
+    order: random
+    sprites: 2

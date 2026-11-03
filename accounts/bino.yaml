@@ -57,10 +57,10 @@ missions:
     tribe: [12]
     ruins: [1]
     realm: [4]        # red stone x1000
-  pet_arena:
+  pet_arena:          # Nick 2026-11-03: same as Cmajor - 2 random pets
     strategy: stamina_order
-    order: high_to_low
-    sprites: 4
+    order: random
+    sprites: 2
   stage_lineups:   # Stage battle setup tabs 1-3: cells = hero grid r<row>c<col> (5 per row, grid at top, sorted by level);
                    # written by climb.py --record / swaps (2026-11-01). good_for: Nick fills in.
     2: {power: 3987K, cells: [r1c3, r2c2, r2c4, r3c3, r3c5], good_for: ""}

@@ -60,5 +60,5 @@ missions:
     realm: [4]        # red stone x1000
   pet_arena:
     strategy: stamina_order
-    order: high_to_low
-    sprites: 4
+    order: random
+    sprites: 2

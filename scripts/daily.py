@@ -138,15 +138,36 @@ def arena(cfg):
     return f'{out}; {arena_claims()}'                   # same visit: win chests are part of Arena (Nick, 2026-10-31)
 
 
+def scrolls():
+    """Order Refresh Scroll count, top-left of the Daily Order dialog (left of its '+')."""
+    return next((int(t) for x, y, w, h, t in ocr() if 120 < x + w // 2 < 250 and 390 < y + h // 2 < 460 and t.strip().isdigit()), None)
+
+
+def buy_scrolls():
+    """Out of refresh scrolls (the Refresh tap opened the purchase popup): buy one pack - 5 Order Refresh Scrolls, 50
+    gems (Nick 2026-11-03: "unlimited, buy as lacking, don't care about price"). The price is only logged; the scroll
+    count must go up, else stop (a misread must never loop into spending)."""
+    b = wait(r'Order Refresh Scroll', 5)
+    p = next((t.strip() for x, y, w, h, t in b if 1040 < y + h // 2 < 1130 and t.strip().isdigit()), '?')
+    before = scrolls()
+    tap_text(r'^Purchase$', boxes=b); time.sleep(1.2); tap_wait(540, 1600); time.sleep(0.8)   # the popup stays open
+    after = scrolls()
+    if after is None or (before or 0) >= after: raise Stop(f'scrolls {before} -> {after} after buying a pack')
+    print(f'    bought 5 refresh scrolls for {p} gems ({before} -> {after})', flush=True)
+    return int(p) if p.isdigit() else 0
+
+
 def fishing(cfg, orders=True):
     mn = orders and re.search(r'min_order_diamonds:\s*(\d+)', cfg)
     tap_wait(624, 1780); boxes = wait(r'Order Info', 10)
+    packs = gems = 0
     if mn:
         tap_text(r'Order Info', boxes=boxes); wait(r'Daily Order', 8)
         for row in (1, 2, 3):
-            script('fish_orders.py', str(row), '6', mn.group(1))   # confirms Order Refresh popups, stops on any other
-            if find(ocr(), r'Purchase'):                          # out of refresh tickets: close, buy nothing
-                tap_wait(540, 1600); print('    out of refresh tickets (none bought; helper may buy per config)')
+            for _ in range(10):                        # ponytail: <=60 refreshes per row, only a runaway guard
+                last = script('fish_orders.py', str(row), '6', mn.group(1)).split()   # confirms Order Refresh popups
+                if find(ocr(), r'Order Refresh Scroll'): gems += buy_scrolls(); packs += 1; continue   # out of scrolls
+                if len(last) != 2 or not last[1].isdigit() or int(last[1]) >= int(mn.group(1)): break   # done / WARN
         tap_wait(973, 270)
     got = ''
     if orders and red_dot(350, 1730, 420, 1800):          # Benefit dot (fishing-pass accounts); no pass = a $ page, no dot
@@ -162,7 +183,7 @@ def fishing(cfg, orders=True):
         try: wait(r'Auto Fishing', 4); break
         except Stop: pass
     else: raise Stop('Auto Fishing did not start')
-    return got + ('orders refreshed (no tickets bought), ' if mn else '') + 'auto started'
+    return got + (f'orders refreshed ({packs} scroll packs bought, {gems} gems), ' if mn else '') + 'auto started'
 
 
 def patrol(cfg): return script('patrol.py', ACCOUNT)
@@ -440,7 +461,9 @@ def sanctuary_climb():
             tap_text(r'^Confirm$', (200, 1300, 880, 1500)); res = 'won'
         out.append(f'floor {fl[1]} {res} {bonus_pick()}')
         if fl[1] == '10': break
-    return 'climbed: ' + ', '.join(out) if out else 'nothing to climb'
+    else:                                                # DoD = all floors won (Nick 2026-11-03): a marker left = not done
+        if floor_marker(grab()): return 'MANUAL climb not finished: ' + ', '.join(out)
+    return 'climbed: ' + ', '.join(out) if out else 'nothing to climb (all floors won)'
 
 
 def sanctuary(cfg):
@@ -973,7 +996,8 @@ CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena
            ('veins_forge', lambda c: divine(c, benefit=False)), ('patrol_claim', patrol_claim), ('arena2', arena),
            ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
            ('canyon', canyon),
-           ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission)]  # missions always last (Nick, 2026-10-29)
+           ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),  # missions always last (Nick, 2026-10-29)
+           ('play_pass2', play_pass)]   # after the missions: the run's activity unlocks new Play Pass claims (Nick 2026-11-03)
 CATCHUP_MANUAL = []
 def seq(*parts):
     """One runner step made of sub-steps (fn, config key or None), back to main between them. MANUAL/SKIP tags of a
@@ -999,10 +1023,11 @@ ORDER = [('pet_arena', pet_arena), ('fishing', fishing), ('arena', arena), ('pat
          ('tribe', seq((tribe, None), (canyon, 'canyon_clash'))), ('divine', divine),
          ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune),
          ('grocery', seq((grocery, 'grocery_free_chests'), (grocery_buy, 'grocery_buy'))),
-         ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission)]
+         ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
+         ('play_pass2', play_pass)]   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
 # config key that must be present / truthy for a step to run
 KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'arena', 'fishing': 'fishing', 'patrol': 'patrol', 'patrol_claim': 'patrol',
-       'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',
+       'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'play_pass2': 'play_pass_claims', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',
        'gate': 'gate_of_darkness', 'beast': 'beast_realm', 'trials': 'land_of_trials', 'recruit': 'recruit', 'hero': 'hero_upgrade',
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
