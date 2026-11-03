@@ -326,6 +326,38 @@ def pet_arena(cfg):
     return f'Auto Deploying: {sprites} sprites, {order}' + (f' (changed: {", ".join(changed)})' if changed else '')
 
 
+def pet_deployments():
+    """Main screen -> Pet Arena -> Achievement: "Cumulative pet deployments completed: N" (whole event, Mon-Wed)."""
+    tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920)); time.sleep(1.2)
+    x = hub_tabs().get('pet_arena')
+    if not x: raise Stop('no Pet Arena tab in the event hub')
+    tap_wait(x, 1840); time.sleep(1.5); pet_popup(joined(ocr()))
+    tap_wait(90, 700); t = joined(wait(r'Cumulative pet deployments', 6))
+    m = re.search(r'Cumulative pet deployments completed\D*?\d+ times\s*\|\s*(\d+)\s*/', t) or re.search(r'(\d+)\s*/\s*\d+', t[t.find('Cumulative'):])
+    if not m: raise Stop(f'cumulative deployments unreadable: {t[:150]}')
+    tap_wait(972, 226)
+    return int(m.group(1))
+
+
+def pet_check(cfg):
+    """LAST dailies step, Mon-Wed (Nick 2026-11-03): all 40 free Pet Arena attempts used today = the Achievement's
+    cumulative deployments grew by 40 since yesterday (Bino / Tiger read 80 on Tue). Yesterday's value comes from its
+    log; Monday = 0; no logged value -> 40 per earlier event day. Short -> Auto Deploy (re)started via pet_arena(),
+    MANUAL so the catch-up re-checks."""
+    if GAME_DAY.weekday() > 2: return 'SKIP closed (Mon-Wed only)'
+    n = pet_deployments()
+    prev = 0
+    if GAME_DAY.weekday():
+        try: logged = re.findall(r'pet deployments (\d+)', open(os.path.join(HERE, '..', 'logs', ACCOUNT, f'{GAME_DAY - datetime.timedelta(days=1)}.log')).read())
+        except OSError: logged = []
+        prev = int(logged[-1]) if logged else 40 * GAME_DAY.weekday()
+    print(f'    pet deployments {n} (yesterday {prev}, +{n - prev} today)', flush=True)
+    if n - prev >= 40: return f'all 40 free deployments used (pet deployments {n}, +{n - prev})'
+    if not home(): raise Stop('lost the main screen after reading the deployments')
+    r = pet_arena(cfg)
+    return f'MANUAL only +{n - prev} of 40 deployments so far ({r}) - re-check in the catch-up'
+
+
 def shop(cfg):
     tap_wait(100, 330); boxes = wait(r'Value Pack|Free Benefits', 10)
     got = []
@@ -997,7 +1029,8 @@ CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena
            ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
            ('canyon', canyon),
            ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),  # missions always last (Nick, 2026-10-29)
-           ('play_pass2', play_pass)]   # after the missions: the run's activity unlocks new Play Pass claims (Nick 2026-11-03)
+           ('play_pass2', play_pass),   # after the missions: the run's activity unlocks new Play Pass claims (Nick 2026-11-03)
+           ('pet_check', pet_check)]    # Mon-Wed: re-check all 40 free Pet Arena attempts used (Nick 2026-11-03)
 CATCHUP_MANUAL = []
 def seq(*parts):
     """One runner step made of sub-steps (fn, config key or None), back to main between them. MANUAL/SKIP tags of a
@@ -1024,10 +1057,11 @@ ORDER = [('pet_arena', pet_arena), ('fishing', fishing), ('arena', arena), ('pat
          ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune),
          ('grocery', seq((grocery, 'grocery_free_chests'), (grocery_buy, 'grocery_buy'))),
          ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
-         ('play_pass2', play_pass)]   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
+         ('play_pass2', play_pass),   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
+         ('pet_check', pet_check)]    # very last: all 40 free Pet Arena attempts used today (Nick 2026-11-03)
 # config key that must be present / truthy for a step to run
 KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'arena', 'fishing': 'fishing', 'patrol': 'patrol', 'patrol_claim': 'patrol',
-       'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'play_pass2': 'play_pass_claims', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',
+       'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'play_pass2': 'play_pass_claims', 'pet_check': 'pet_arena', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',
        'gate': 'gate_of_darkness', 'beast': 'beast_realm', 'trials': 'land_of_trials', 'recruit': 'recruit', 'hero': 'hero_upgrade',
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',

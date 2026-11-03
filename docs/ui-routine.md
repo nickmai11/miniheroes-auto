@@ -42,6 +42,9 @@ Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
     steps (`daily.py <acct> <step>...`) should include `daily_mission` so their progress gets claimed.
 21. **Play Pass again** (`play_pass2`) — after the missions, re-check Play Pass for red dots: the run's activity unlocks
     new claims (Nick, 2026-11-03). Same in the catch-up.
+22. **Pet Arena check** (`pet_check`, Mon–Wed, the very last step; also in the catch-up) — Pet Arena → Achievement
+    "Cumulative pet deployments completed: N" must be **+40 since yesterday** (= all 40 free attempts used; Mon: 40,
+    Tue: 80, Wed: 120 when no day was missed). Short → Auto Deploy (re)started + MANUAL, the catch-up re-checks.
 
 A "Match attempts full" popup can interrupt any step: **Confirm** (opens the Arena), spend every ticket (`arena.py`),
 back to main, then redo the interrupted step — `flow.tickets_full()` + the runner do this (Nick, 2026-10-31).
@@ -58,7 +61,7 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 **Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
 main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
 Steps: pet_arena (Mon–Wed) fishing arena patrol arena2 storm shop play_pass trials tower sanctuary gate beast arena3 recruit hero tribe divine
-stage patrol_claim rune grocery events fishing_rewards daily_mission play_pass2.
+stage patrol_claim rune grocery events fishing_rewards daily_mission play_pass2 pet_check.
 **Run overview: `scripts/summary.sh <run dir>`** — per account OK/SKIP counts, FAIL/MANUAL/paid lines, LEFT FOR HELPER (one call instead of grepping logs).
 
 Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png] [-w 270|540]` for every tap (device coords):

@@ -52,6 +52,8 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
        free draw was on cooldown earlier (~5 min) — draw if Free, else skip.
    12. Play Pass again (runner step `play_pass2`, after the missions — Nick, 2026-11-03): claim any Play Pass red dot the
        run's activity unlocked; never a $ button.
+   13. Pet Arena check (runner step `pet_check`, Mon–Wed): Achievement cumulative deployments +40 since yesterday = all
+       40 free attempts used; short → Auto Deploy restarted, reported.
        **After all helpers finish**, one more runner pass on **only the accounts that had a helper** (orders keep completing
        during the helpers; Nick, 2026-10-28): `daily.py <acct> --catch-up common_recruit fishing_rewards` — drop
        `fishing_rewards` if that account's earlier line said `AUTO STOPPED, bread N` (no bread = no new orders; Nick

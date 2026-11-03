@@ -21,7 +21,8 @@ screen. Not done → the runner retries once → a helper does that one step →
 
 ## Dailies (run order)
 
-1. **Pet Arena** (Mon–Wed) — "Auto Deploying" on screen, or "Not enough free deployment attempts".
+1. **Pet Arena** (Mon–Wed) — "Auto Deploying" on screen, or "Not enough free deployment attempts". Proven at the
+   end by step 25.
 2. **Fishing** — every order worth ≥ min diamonds (refresh scrolls bought as needed) and the button shows "Auto Fishing".
 3. **Arena** (runs 3× in the day) — tickets **0**; Ranking Rewards gift box has no red dot; reached win chests ✓.
 4. **Patrol** — Speed Patrol bought until the next price hits the config limit (e.g. 100); Claim All done.
@@ -48,6 +49,8 @@ screen. Not done → the runner retries once → a helper does that one step →
 22. **Fishing rewards** — no yellow Claim left on the orders.
 23. **Daily Mission** — rows and chests claimed, **160 ✓** (see "Whole run").
 24. **Play Pass again** — no red dot on the Play Pass icon or any of its tabs (after the missions).
+25. **Pet Arena check** (Mon–Wed, very last) — Achievement "Cumulative pet deployments completed" is **+40 since
+    yesterday** (all 40 free attempts used). Short → Auto Deploy restarted, re-checked in the catch-up.
 
 ## Catch-up
 
@@ -59,6 +62,7 @@ Same as the dailies step with the same name, except:
 - **Recruit** — free Common draws only (cooldown → one more try at the end).
 - **Daily Mission** — claim, then report the points and the chests still locked (160 only if the dailies ran today).
 - **Play Pass again** — same as dailies step 24.
+- **Pet Arena check** — same as dailies step 25.
 
 ## Where the scripts say OK without proving it (fix list)
 
