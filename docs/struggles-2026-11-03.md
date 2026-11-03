@@ -2,7 +2,7 @@
 
 Source: runner logs `/tmp/miniheroes-2026-11-03/*.log`, helper answers in `logs/<account>/2026-11-03.log`.
 Ordered by impact. Status: ✅ fixed · 🧪 fixed, waiting for a live test (`docs/untested.md`) · 🟡 partly (something still open) · ❌ open · ❓ needs Nick. Kong is out of scope for this review (Nick). Untested fixes are tracked in
-`docs/untested.md` (tested on one account in the dailies Pre-flight). Last updated: 2026-11-03 evening (statuses split 🧪/🟡).
+`docs/untested.md` (tested on one account in the dailies Pre-flight). Last updated: 2026-11-03 20:05 (catch-up: Pet Arena restart + dropdown change passed live).
 
 | #   | Task                     | What went wrong                                   | Status       |
 | --- | ------------------------ | ------------------------------------------------- | ------------ |
@@ -38,8 +38,9 @@ Not struggles: Tower 3/3 and Stage 3/3 Defeat (by design — Bone Archer alone);
 - Nick's notes (2026-11-03): defaults 4 / High to Low — don't open a dropdown if it already shows the expected
   value; no free attempts = done; be fast after the reset; exit a fight right away.
 - Done: `pet_arena` rewritten (`pet_state`, `pet_dialog`, `pet_back`, `pet_sprites`); passes on all 8 in 18–28 s.
-- **Open:** a run that actually starts Auto Deploy, a dropdown change, and the busy arena after the reset are untested
-  live (all accounts had used their attempts) → `docs/untested.md`, first real test at the next reset (Wed).
+- **Passed live (catch-up 2026-11-03 20:03):** Chien Than `pet_check` at +38/40 restarted Auto Deploy with a dropdown
+  change (`changed: sprites 2, Random Selection`, matches its config); re-check a minute later: +40.
+- **Open:** the busy arena after the reset → `docs/untested.md`, first real test at the next reset (Wed).
 
 ## 2. Hero — 🧪
 
