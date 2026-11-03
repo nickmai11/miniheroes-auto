@@ -13,3 +13,5 @@ text, never re-screenshot a screen you've already read, and chain fixed taps in 
 "Speed" table in the doc); --until-text prints the screen text, so read the png only when the text isn't enough.
 Action log (Nick, 2026-10-30): append one timestamped line per tap batch / decision / skip / paid tap (with price) to
 logs/<account>/<game day>.log as you go — format in CLAUDE.md "Action log". logs/ is the one place you may write in the repo.
+
+Definition of Done (Nick, 2026-11-03): check the step's DoD in `docs/dod.md` before moving to the next task — the on-screen evidence, not just an OK line; not met → its "Not done →" action, never move on silently.

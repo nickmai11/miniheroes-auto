@@ -22,6 +22,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
    account (the step named there, watched live). Pass → remove the row, run all accounts. Fail → fix or report, and
    leave that step to helpers on the other accounts. Changes made during a run that can't be tested that day → add a
    row (what, how to test, what passing looks like). Mon–Wed: the Pet Arena rows ARE that account's first step.
+   **Definition of Done (Nick, 2026-11-03): check the step's DoD in `docs/dod.md` before moving to the next task** — the on-screen evidence, not just an OK line; not met → its "Not done →" action, never move on silently.
 3. **Run** — see "Cost" below: boot, `daily.py` per account in parallel, then one helper per account for its leftovers.
    The runner follows the **Daily run order** in `docs/ui-routine.md` and skips missions not in the account config.
 4. **Report** per account: each mission done/skipped (and why) and every paid action with its price (the runner prints

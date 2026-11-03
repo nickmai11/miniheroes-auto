@@ -3,13 +3,14 @@
 # usage: D=<serial> scripts/trials.py <account>     (Land of Trials list screen must be open)
 # Counters and prices are read with OCR (scripts/ocr) before and after every sweep:
 #   dialog "Challenge Attempts: N" = free/bought left, "Remaining Purchase Attempts: N" = purchases left (max 5),
-#   Tip popup "Spend P diamonds ..." = the price, checked against safety.max_gem_price_per_sweep before Confirm.
+#   the gem price on the Sweep button itself (80 / 160 / 240) = the next purchase - read BEFORE tapping (Nick
+#   2026-11-03: "if you have to click on the sweep and see this popup to know that you have reached the limit,
+#   something is wrong"); the Tip popup "Spend P diamonds" is only the Confirm, its price must equal the button's.
 # Done today = 2 - free left, or 2 + purchases made (price ladder 80/160/240 -> 0/1/2 made; the purchase
 # max differs per account: Tiger had 4, Cmajor 5).
-# Stops as soon as the target is reached; the price cap is only a safeguard (Nick, 2026-10-29).
+# Sweep the configured count and move on; safety.max_gem_price_per_sweep is only a safeguard (Nick, 2026-10-29/11-03).
 # "Match tickets full" popup: flow.tickets_full spends them (Confirm -> arena.py), then exit 1 with MATCH_FULL so the
 # runner redoes trials. exit 0 = all dungeons handled, 1 = unexpected screen (v_trials.png).
-# UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import os, re, subprocess, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait
@@ -43,6 +44,16 @@ def counter():
     return None
 
 
+def button_price():
+    """Gem price printed on the dialog's Sweep button (buy mode), or None."""
+    for _ in range(3):
+        boxes = ocr(grab())
+        if find(boxes, r'^Sweep$', (300, 1320, 800, 1430)):
+            p = [int(t) for x, y, w, h, t in boxes if 300 < x + w // 2 < 800 and 1320 < y + h // 2 < 1430 and t.strip().isdigit()]
+            if p: return p[0]
+        time.sleep(0.7)
+
+
 def sweep_and_dismiss():
     tap(540, 1372); time.sleep(7.5); tap(540, 700); time.sleep(1.5)  # reward popup auto-closes ~3 s; dismiss once
 
@@ -50,23 +61,23 @@ def sweep_and_dismiss():
 def dungeon(key, target, cap):
     c = counter()
     if not c: raise Stop(f'{key}: sweep dialog not readable')
-    done = FREE_MAX - c[1] if c[0] == 'free' else FREE_MAX  # buy mode: paid count comes from the Tip price below
+    done = FREE_MAX - c[1] if c[0] == 'free' else FREE_MAX  # buy mode: paid count comes from the Sweep button price below
     runs, paid = 0, []
     known = c[0] == 'free'                            # buy mode on entry: done today only readable from the next price
     while True:
         if known and done >= target: break            # target reached: never open the Tip just to see the next price (Nick)
         if c[0] == 'buy':
             if c[1] == 0: print(f'{key}: no purchases left'); break
-            tap_wait(540, 1372)                       # Sweep -> Tip popup (nothing bought yet)
-            m = re.search(r'Spend (\d+)', text())
-            if not m: raise Stop(f'{key}: Tip popup price not readable')
-            price = int(m.group(1))
+            price = button_price()                    # read on the Sweep button - no tap to find it out
+            if price is None: raise Stop(f'{key}: Sweep button price not readable')
             if price % 80: raise Stop(f'{key}: price {price} is not on the 80/160/240 ladder')
             done, known = FREE_MAX + price // 80 - 1, True   # purchases already made today
-            if done >= target or price > cap:
-                tap_wait(540, 120)
-                if done < target: print(f'{key}: next sweep costs {price} > cap {cap}; stopped')
-                break
+            if done >= target: break
+            if price > cap: print(f'{key}: next sweep costs {price} > cap {cap} (safeguard); stopped'); break
+            tap_wait(540, 1372)                       # Sweep -> Tip = the Confirm for this purchase
+            m = re.search(r'Spend (\d+)', text())
+            if not m or int(m.group(1)) != price:
+                tap_wait(540, 120); raise Stop(f'{key}: Tip price {m and m.group(1)} != button price {price}')
             tap_wait(540, 1162); time.sleep(1.5)      # Confirm = buy 1 attempt
             if counter() != ('free', 1): raise Stop(f'{key}: after buying, dialog does not show Challenge Attempts: 1')
             paid.append(price); expect = lambda n, left=c[1]: n == ('buy', left - 1)

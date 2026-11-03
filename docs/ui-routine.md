@@ -162,8 +162,11 @@ Main-screen check pixel: Recruit icon `(92,1788)` ≈ `(0,158,230)`; Start butto
 
 **Run `scripts/trials.py <account>` from the list screen** (see Speed); the steps below are for its exit-1 fallback.
 
-Sweep exactly the configured total per dungeon, then stop — don't open the paid Tip to see the next price once the
-total is reached. `max_gem_price_per_sweep` is only a safeguard (Nick, 2026-10-29).
+Sweep exactly the configured total per dungeon, then move to the next — `max_gem_price_per_sweep` is only a
+safeguard (Nick, 2026-10-29/11-03). **Read the next price on the Sweep button itself** (gem icon + 80/160/240) before
+tapping: it tells both the price and how many were already bought today (80 = 0, 160 = 1, 240 = 2). Needing to tap
+Sweep and see the Tip to learn the price or the limit = something is wrong (Nick, 2026-11-03). The Tip is only the
+Confirm of a purchase you already decided; its price must equal the button's.
 
 Path: main screen → **Adventure** `(66, 984)` → **Land of Trials** card, `GO` `(516, 306)`.
 
@@ -215,8 +218,9 @@ while done < target:
     screenshot dialog
     if "Challenge Attempts: N" (N>0): free sweep
     elif "Remaining Purchase Attempts":
-        read gem price on button; if price > max_gem_price_per_sweep → stop, report
-        tap Sweep → Tip popup (verify price) → Confirm → now "Challenge Attempts: 1"
+        read gem price on the Sweep button → done today = 2 + price/80 − 1; done ≥ target → next dungeon (no tap)
+        if price > max_gem_price_per_sweep → stop that dungeon (safeguard), report
+        tap Sweep → Tip popup (price = the button's) → Confirm → now "Challenge Attempts: 1"
     else: stop, report unexpected state
     tap Sweep (352,932); screenshot → expect Congratulations; dismiss
     screenshot → verify counter decreased (or switched to purchase mode); done += 1

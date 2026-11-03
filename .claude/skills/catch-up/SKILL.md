@@ -50,10 +50,10 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
    11. Fishing orders again (very end): claim any order reward that completed during the run (Auto fishing
        keeps filling them) — claim only, no refresh, don't touch Auto (Nick, 2026-10-27). Also retry Common Recruitment once if its
        free draw was on cooldown earlier (~5 min) — draw if Free, else skip.
-   **After all helpers finish**, one more runner pass on **only the accounts that had a helper** (orders keep completing
-   during the helpers; Nick, 2026-10-28): `daily.py <acct> --catch-up common_recruit fishing_rewards` — drop
-   `fishing_rewards` if that account's earlier line said `AUTO STOPPED, bread N` (no bread = no new orders; Nick
-   2026-10-29: the order claim ran 3-4x per account). Never re-run a step just to read something off the screen.
+       **After all helpers finish**, one more runner pass on **only the accounts that had a helper** (orders keep completing
+       during the helpers; Nick, 2026-10-28): `daily.py <acct> --catch-up common_recruit fishing_rewards` — drop
+       `fishing_rewards` if that account's earlier line said `AUTO STOPPED, bread N` (no bread = no new orders; Nick
+       2026-10-29: the order claim ran 3-4x per account). Never re-run a step just to read something off the screen.
 4. Workers don't edit the repo; afterwards add new findings to the docs and commit.
 5. Report: lead with **Concerns / issues / errors** (see CLAUDE.md "Reporting"), then per account: each step
    done/skipped (and why), every paid action with its price, and which Daily Mission chests are still
@@ -75,7 +75,7 @@ Rules: look only at decision points — chain a step's fixed taps in one tap.py 
 screen's pixel; read a screenshot before prices, target picks, counters, a step's first tap, and after a failed check; no gems/money beyond the config; poll waits inside the command (1–2 s), never
 background timers or "pausing"; game crash → relaunch (monkey -p com.and.brawlen.web …, Start 540,1508), max 3;
 own loops must re-check the stop condition (counter/popup) every pass — never a fixed-count blind loop;
-can't do a step after 2 tries → skip + note why. Nick may tap the screen himself.
+can't do a step after 2 tries → skip + note why. Before the next step, check this step's DoD (docs/dod.md). Nick may tap the screen himself.
 Last command before your final answer: `touch <dir>/DONE` (the coordinator's idle watch skips finished helpers).
 Final answer: CONCERNS/ISSUES/ERRORS first (mis-taps, out-of-scope screens opened, wrong lineup, crashes, anything
 left in a bad state), then per step done/skipped (+why), every paid action + price, Daily Mission chests still
@@ -86,6 +86,8 @@ locked + points, new findings (coords/behaviour not in the docs).
 Append each helper's final answer to the same file (`=== helper` header) — it's the record of what each account did.
 
 ## Hard rules
+
+- **Definition of Done (Nick, 2026-11-03): check the step's DoD in `docs/dod.md` before moving to the next task** — the on-screen evidence, not just an OK line; not met → its "Not done →" action, never move on silently.
 
 - Same as the dailies: free attempts first, paid only within the account config caps.
 - Look at decision points only (CLAUDE.md hard rules); unexpected screen → stop and report.
