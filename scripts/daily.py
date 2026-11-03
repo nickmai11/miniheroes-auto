@@ -178,63 +178,130 @@ def ticked(im, x, y): return sum(1 for dx in range(-36, 37, 4) for dy in range(-
                                  if (lambda p: p[1] > 150 and p[0] < 170 and p[2] < 120)(im.getpixel((x + dx, y + dy)))) >= 8
 
 
+def pet_popup(t):
+    """Round-result popup ('Champion' / 'Runner-up', 'Result of this round') pops after every round, over anything -> X."""
+    if 'Runner-up' in t or 'Result of this round' in t:
+        print('    pet: round popup closed', flush=True); tap(972, 548); time.sleep(0.5); return True
+
+
 def pet_state():
-    """After Join: 'running' (Auto Deploying), 'used' (free attempts used up), 'open' (slots left) or 'full' (64/64 or
-    a fight on). Closes the round-result popup ("Result of this round") - it pops after every round."""
-    t0 = time.time()
+    """After Join: 'running' (Auto Deploying), 'used' (no free attempts), 'open' (slots left) or 'full' (64/64 or a
+    fight on: only the "N Arena" header reads, Dino 2026-11-03)."""
+    t0, fight, t_join = time.time(), 0, time.time()
     while time.time() - t0 < 10:
         boxes = ocr(); t = joined(boxes)
-        if 'attempts used up' in t: return 'used'          # toast; the dialog's own line says 'attempts are used up'
-        if 'Result of this round' in t: tap(972, 548); time.sleep(0.8); continue
+        if re.search(r'attempts used up|Not enough free', t): return 'used'
+        if pet_popup(t): continue
         if find(boxes, r'^Auto Deploying'): return 'running'
         m = re.search(r'Participating Pet\W*(\d+)\s*/\s*64', t)
-        if m: return 'open' if int(m.group(1)) < 64 and find(boxes, r'^Auto Deploy$') else 'full'
-        time.sleep(0.8)
+        # count alone: the "X has deployed Y" ticker hides the Auto Deploy label in a busy arena (trace, Dino 2026-11-03)
+        if m and int(m.group(1)) < 64: return 'open'
+        j = find(boxes, r'^Join$', (300, 1400, 780, 1650))
+        # Join tap lost: re-tap only after 2 s - a re-tap during the load lands on the pool's Deploy button (Bino)
+        if j and time.time() - t_join > 2: tap(*j); fight, t_join = 0, time.time(); continue
+        if j: fight = 0; time.sleep(0.3); continue
+        # 64/64, or a fight (only the "N Arena" header reads): 4 reads in a row, not 1 (the arena draws in parts)
+        fight = fight + 1 if 'Arena' in t else 0
+        if fight >= 4: print(f'    pet: full/fight ({t[:90]})', flush=True); return 'full'
+        time.sleep(0.3)
+    grab().resize((540, 960)).save('v_pet_state.png'); print(f'    pet: 10 s undecided ({t[:120]})', flush=True)
     return 'full'
 
 
+def pet_sprites(im, boxes, want):
+    """Sprites field shows `want`? OCR misses the lone digit on some frames (Dino/Aminor 2026-11-03): try the full
+    frame, then the field crop enlarged 3x."""
+    if find(boxes, rf'^{want}$', (600, 400, 800, 500)): return True
+    c = im.crop((580, 410, 820, 500)); return any(t.strip() == want for *_, t in ocr(c.resize((720, 270))))
+
+
+def pet_dialog(sprites, order):
+    """Auto Deploy -> (im, boxes, sprites ok, order ok) once the dialog has settled (an early frame missed "4"), or
+    None when it doesn't open in 4 s (a fight began between Join and the tap: Chien Than 2026-11-03)."""
+    tap(956, 1640); t0 = t_tap = time.time(); reopen = False
+    while time.time() - t0 < 4:
+        im = grab(); boxes = ocr(im); t = joined(boxes)
+        if pet_popup(t): reopen = True; continue
+        if 'Deployed Sprite' in t:
+            ok_s = pet_sprites(im, boxes, sprites); ok_o = find(boxes, order, (540, 580, 860, 660))
+            if ok_s and ok_o or time.time() - t0 > 3: return im, boxes, ok_s, ok_o
+        elif reopen or time.time() - t_tap > 2: tap(956, 1640); reopen = False; t_tap = time.time()   # covered / lost
+        time.sleep(0.3)
+    print('    pet: Auto Deploy dialog did not open', flush=True)
+
+
+def pet_back(to_join=False):
+    """Back out of the arena (Auto Deploy keeps running): to the Join screen (`to_join`) or the main screen. Back from
+    the pet pool goes straight to Join; only a fight asks 'Exit this match?' -> Confirm (probe, Dino 2026-11-03).
+    Round popups reopen on the way (Chien Than) - closed here, plain home() could give up and stop the runner."""
+    for _ in range(10):
+        if is_main(): return
+        boxes = ocr(); t = joined(boxes)
+        if pet_popup(t): continue
+        if 'Exit this match' in t: tap_text(r'^Confirm$', boxes=boxes); time.sleep(0.5); continue
+        if to_join and find(boxes, r'^Join$', (300, 1400, 780, 1650)): return
+        tap(92, 1810); time.sleep(0.6)
+    raise Stop(f'could not back out of the Pet Arena; screen: {joined(ocr())[:150]}')
+
+
 def pet_arena(cfg):
-    """Pet Arena, game days Mon-Wed, FIRST step (Nick 2026-11-02): event hub -> Pet Arena -> Join -> Auto Deploy with
-    the config's sprites + stamina order -> Start, left running. The game keeps the dialog settings, so usually nothing
-    changes. Full arena (64 pets) = a fight on: 'Exit this match' ends it sooner (Nick), then Join again."""
+    """Pet Arena, game days Mon-Wed, FIRST step: event hub -> Pet Arena -> Join -> Auto Deploy -> Start, left running.
+    Nick 2026-11-03: be fast (the arena is busy right after the reset) - open a dropdown only when its value is wrong
+    (default = 4 sprites, High to Low, kept by the game); a fight on = exit it right away, then Join again; no free
+    attempts left = done for the day, however it got done."""
     if GAME_DAY.weekday() > 2: return 'SKIP closed (Mon-Wed only)'
     blk = re.search(r'^  pet_arena:.*?(?=\n  \S|\Z)', cfg, re.M | re.S).group(0)
     get = lambda k: (re.search(rf'{k}:\s*(\S+)', blk) or [None, None])[1]
     if get('strategy') != 'stamina_order': return f'MANUAL strategy {get("strategy")} (per-pet dropdowns not scripted)'
     sprites, order = get('sprites'), PET_ORDER[get('order')]
-    tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920)); time.sleep(1.5)
-    x = hub_tabs().get('pet_arena')
+    done = 'no free attempts left - done for today'
+    tap_wait(896, 340); x = None
+    for _ in range(12):                                  # tab bar slides in: same x twice = settled
+        x2 = hub_tabs().get('pet_arena')
+        if x2 and x2 == x: break
+        x = x2; time.sleep(0.3)
     if not x: raise Stop('no Pet Arena tab in the event hub')
     tap_wait(x, 1840)
-    for i in range(6):
-        tap_text(r'^Join$', (300, 1400, 780, 1650), wait(r'^Join$', 10, (300, 1400, 780, 1650)), settle=False)
+    for _ in range(6):
+        t0 = time.time()
+        while True:                                      # Champion popup can cover Join
+            boxes = ocr()
+            if pet_popup(joined(boxes)): continue
+            if find(boxes, r'^Join$', (300, 1400, 780, 1650)): break
+            if time.time() - t0 > 15: raise Stop(f'no Join; screen: {joined(boxes)[:150]}')
+            time.sleep(0.3)
+        tap_text(r'^Join$', (300, 1400, 780, 1650), boxes, settle=False)
         st = pet_state()
-        if st == 'used': return 'free attempts already used up today'
-        if st == 'running': return 'Auto Deploying already on'
-        if st == 'open': break
-        tap(92, 1810); tap_text(r'^Confirm$', boxes=wait(r'Exit this match', 6))   # full: exit ends the fight sooner
+        if st == 'used': pet_back(); return done
+        if st == 'running': pet_back(); return 'Auto Deploying already on'
+        if st == 'open':
+            r = pet_dialog(sprites, order)
+            if r: im, boxes, ok_s, ok_o = r; break
+        pet_back(to_join=True)                           # fight on (also one starting just now): exit, rejoin (Nick)
     else: raise Stop('arena still full after 6 exit + rejoin')
-    tap(956, 1640); boxes = wait(r'Deployed Sprite per Battle', 6)
     changed = []
-    v = find(boxes, rf'^{sprites}$', (600, 400, 800, 500))
-    if not v:
-        tap_wait(700, 454); tap_text(rf'^{sprites}$', (600, 100, 800, 400), wait(rf'^{sprites}$', 4, (600, 100, 800, 400)))
-        changed.append(f'sprites {sprites}')
-    if not find(boxes, order, (540, 580, 860, 660)):
-        tap_wait(700, 620); tap_text(order, (540, 340, 860, 560), wait(order, 4, (540, 340, 860, 560)))
-        changed.append(order)
-    im = grab()
+    if not ok_s:   # dropdown opens upward, rows 1-4; OCR misses lone digits there -> tap the row
+        tap_wait(700, 454); time.sleep(0.5); tap_wait(684, 152 + (int(sprites) - 1) * 74); changed.append(f'sprites {sprites}')
+    if not ok_o:
+        tap_wait(700, 620); tap_text(order, (540, 340, 860, 560), wait(order, 4, (540, 340, 860, 560))); changed.append(order)
+    if changed: time.sleep(0.5); im = grab()
     for (bx, by), want in PET_BOXES.items():
         if ticked(im, bx, by) != want: tap_wait(bx, by); changed.append(f'box y{by} {"on" if want else "off"}')
-    im = grab(); boxes = ocr(im)
-    bad = [f'box y{by}' for (bx, by), want in PET_BOXES.items() if ticked(im, bx, by) != want]
-    if not find(boxes, rf'^{sprites}$', (600, 400, 800, 500)): bad.append('sprites')
-    if not find(boxes, order, (540, 580, 860, 660)): bad.append('order')
-    if bad: raise Stop(f'Auto Deploy settings still wrong: {bad}')
-    tap_text(r'^Start$', (300, 1480, 780, 1660), boxes)
-    if pet_state() != 'running': raise Stop('no "Auto Deploying" after Start')
-    tap(92, 1810); c = wait(r'Exit this match|^Join$', 6)            # leave it running
-    if find(c, r'Exit this match'): tap_text(r'^Confirm$', boxes=c)
+    if changed:                                          # verify only what we touched
+        im = grab(); boxes = ocr(im)
+        bad = [f'box y{by}' for (bx, by), want in PET_BOXES.items() if ticked(im, bx, by) != want]
+        if not pet_sprites(im, boxes, sprites): bad.append('sprites')
+        if not find(boxes, order, (540, 580, 860, 660)): bad.append('order')
+        if bad: raise Stop(f'Auto Deploy settings still wrong: {bad}')
+    tap(*(find(boxes, r'^Start$', (300, 1480, 780, 1660)) or (540, 1570))); t0 = time.time()
+    while True:
+        t = joined(ocr())
+        if 'Auto Deploying' in t: break
+        if re.search(r'Not enough free|attempts used up', t): tap(938, 282); time.sleep(0.5); pet_back(); return done
+        if pet_popup(t): continue
+        if time.time() - t0 > 8: raise Stop('no "Auto Deploying" after Start')
+        time.sleep(0.3)
+    pet_back()
     return f'Auto Deploying: {sprites} sprites, {order}' + (f' (changed: {", ".join(changed)})' if changed else '')
 
 
@@ -722,7 +789,7 @@ def canyon(cfg):
         raise
 
 
-HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet': 'pet_arena', r'^Draws|^7777': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event'}
+HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Draws|^7777': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event'}
 
 
 def hub_tabs():

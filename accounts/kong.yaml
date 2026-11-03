@@ -30,7 +30,7 @@ missions:
   recruit:
     common: 2
     ancestor: 1
-    artifact: 5
+    artifact: 1
   hero_upgrade:
     hero: Bone Archer
     hero_levels: 5

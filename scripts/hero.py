@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 # Hero upgrade: config hero +hero_levels (Level Up), 1st gear +gear_levels (Enhance). Potions/gold only, never gems.
 # usage: D=<serial> scripts/hero.py <account>     (main screen must be open; ends on the hero screen)
-# Finds the hero among the LAST strip cards (lowest CP) (their "Lv.N" labels give the x) and reads the name top-left.
+# Finds the hero by name: taps strip cards from the end (lowest CP) back, cards found from the grey gaps.
 # Level "Lv.N" / gear "LV.N" are read before and after every tap and must go up by exactly 1.
 # Never taps the "↑ Lv.N" quick-level buttons, Quick Ascend, Rebirth or Reset (only exact "Level Up" / "Enhance").
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
-import os, re, sys, time
+import datetime, os, re, sys, time
 from flow import Stop, find, grab, main, ocr, swipe, tap, tap_wait, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-STRIP = (120, 1430, 1080, 1540)   # card "Lv.N" labels; the leftmost one is half under Quick Ascend (tap y 1580 is below it)
 
 
 def name(boxes): return next((t for x, y, w, h, t in boxes if y < 160 and x < 500), '')
@@ -32,30 +31,35 @@ def settle():
         a = b
 
 
-def fill(xs):
-    """Insert cards between two read labels 2+ card pitches (~190 px) apart."""
-    out = xs[:1]
-    for a, b in zip(xs, xs[1:]):
-        k = round((b - a) / 190)
-        out += [a + (b - a) * i // k for i in range(1, k)] + [b]
-    return out
+def cards(im, y=1620):
+    """Card centre x's, read from the strip itself: cards are the runs between the grey (189,190,197) gaps — no
+    "Lv.N" labels, no card pitch (Nick 2026-11-03: OCR missed "Lv.97" and the hero on xFaktor)."""
+    runs, x0 = [], None
+    for x in range(1081):
+        grey = x == 1080 or sum(abs(a - b) for a, b in zip(im.getpixel((x, y))[:3], (189, 190, 197))) < 15
+        if not grey and x0 is None: x0 = x
+        if grey and x0 is not None:
+            if runs and x0 - runs[-1][1] < 6: runs[-1][1] = x      # a stray grey pixel inside a card
+            else: runs.append([x0, x])
+            x0 = None
+    return [(a + b) // 2 for a, b in runs if b - a > 100]
 
 
 def select(hero):
-    """The config hero is among the lowest-CP heroes = always at the END of the strip (Nick, 2026-10-29): try the last
-    cards right to left, re-swiping to the end before every tap (a tap can shift the strip; stale x's missed it on Aminor)."""
+    """The config hero is among the lowest-CP heroes = at the END of the strip (Nick, 2026-10-29): try every card
+    right to left, page by page back to the start. Re-swipe before every tap (a tap can shift the strip, Aminor)."""
     if hero.lower() in name(ocr()).lower(): return
-    for i in range(6):
-        for _ in range(15 if i == 0 else 6): swipe(950, 1536, 150, 1536, 300)
-        settle(); boxes = ocr()
-        # partial labels count: Quick Ascend hides "Lv.1" ("60", Dminor), OCR drops "Lv"/"L" (".91"/"V.91", Aminor);
-        # fill() adds cards whose label wasn't read at all ("Lv.157", Aminor) — 2026-10-29
-        cards = fill(sorted({x + w // 2 for x, y, w, h, t in boxes if re.match(r'([LlI]?[Vv])?\.?\s*\d+$', t.strip())
-                             and STRIP[0] <= x + w // 2 <= STRIP[2] and STRIP[1] <= y + h // 2 <= STRIP[3]}))[::-1]
-        if i >= len(cards): break
-        tap_wait(cards[i], 1580)
+    page, i, prev = 0, 0, None
+    while True:
+        for _ in range(15): swipe(950, 1536, 150, 1536, 300)
+        for _ in range(page): swipe(150, 1536, 950, 1536, 300)
+        settle(); im = grab(); xs = cards(im)[::-1]
+        if i >= len(xs):
+            strip = list(im.crop((0, 1420, 1080, 1700)).getdata())[::97]
+            if strip == prev: raise Stop(f'{hero!r} not on the hero strip')   # back-swipe didn't move: start reached
+            prev, page, i = strip, page + 1, 0; continue
+        tap_wait(xs[i], 1580); i += 1
         if hero.lower() in name(ocr()).lower(): return
-    raise Stop(f'{hero!r} not among the last 6 cards of the hero strip')
 
 
 def run(account):
@@ -64,13 +68,22 @@ def run(account):
     get = lambda k, d=0: (re.search(rf'{k}:\s*(.+)', block) or [None, d])[1]
     hero, n_lv, slot, n_gear = get('hero').strip(), int(get('hero_levels')), int(get('gear_slot', 1)), int(get('gear_levels'))
     if slot != 1: raise Stop(f'gear_slot {slot} not mapped (only slot 1)')
+    # daily cap, not per run: a retry restarted at 0 and took Aminor +9 instead of +5 (2026-11-03)
+    day = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=5)).date()
+    try: done = open(os.path.join(HERE, '..', 'logs', account, f'{day}.log')).read()
+    except OSError: done = ''
+    n_lv -= len(re.findall(rf'{re.escape(hero)}: Lv\.\d+ -> Lv\.\d+', done))
+    n_gear -= len(re.findall(r'gear 1: LV\.\d+ -> LV\.\d+', done))
     tap_wait(274, 1810)                                      # Hero
     wait(r'^Level Up$', 10)
     select(hero)
     for _ in range(n_lv):
-        boxes = ocr(); lv = level(boxes, (300, 340, 800, 460))
-        p = find(boxes, r'^Level Up$', (200, 1050, 880, 1300))
-        if lv is None or not p: raise Stop('hero level / Level Up not readable')
+        for _ in range(7):        # poll: a single read mid-animation failed Aminor after 4 levels (2026-11-03)
+            boxes = ocr(); lv = level(boxes, (300, 340, 800, 460))
+            p = find(boxes, r'^Level Up$', (200, 1050, 880, 1300))
+            if lv is not None and p: break
+            time.sleep(0.7)
+        else: raise Stop('hero level / Level Up not readable')
         tap_wait(*p); time.sleep(1)
         for _ in range(4):                                   # label redraws after the tap: re-read before deciding
             lv2 = level(ocr(), (300, 340, 800, 460))
@@ -85,9 +98,8 @@ def run(account):
     for _ in range(n_gear):
         for y in (360, 400):                                 # slot 1 sits at 360 or 400 depending on the account
             tap_wait(117, y)
-            boxes = ocr()
-            if find(boxes, r'^Enhance$', (200, 1300, 880, 1460)): break
-            tap_wait(540, 120)
+            try: boxes = wait(r'^Enhance$', 4, (200, 1300, 880, 1460)); break   # poll, popup animates in (Kong 2026-11-03)
+            except Stop: tap_wait(540, 120)
         else: raise Stop('gear popup (Enhance) did not open')
         lv = level(boxes, (600, 330, 1000, 450))
         tap_wait(*find(boxes, r'^Enhance$', (200, 1300, 880, 1460))); time.sleep(1)

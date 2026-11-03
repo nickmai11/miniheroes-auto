@@ -512,6 +512,8 @@ Nick sometimes leaves an account on the game's own auto stage climb. Auto stops 
 shows "Stage Reward" with no "Next Stage (Ns)" countdown) → main screen "Next chapter" `(992,970)` → skull `(994,964)`
 → Start `(540,1806)`. On Defeat, "Challenge again" (Nick, 2026-10-31). All automated:
 `scripts/climb.py <account>... [--minutes N]` (runs ~9 min per call, re-run to keep watching; exit 1 = look).
+**Before starting a stage, recheck the lineups** (Nick, 2026-11-02): screenshot tabs 1/2/3 and confirm the heroes, not just power — a mis-tapped swap + `--apply` matched powers with wrong heroes on Chien Than.
+**No swap, no climb** (Nick, 2026-11-02): run the climb only if the account can swap (fresh `--record`, swap not failing). Can't swap → tell Nick, don't run; a failed swap (exit 2) = stop and report, never `--apply` + Start.
 
 **3 losses in a row on one stage → swap lineups** (Nick, 2026-10-31; climb.py does it from `stage_lineups` cells — losing wave's team ↔ next tab, max 3 swaps per stage, then exit 2). Lineups +
 what each is good for: `stage_lineups` in the account yaml — new account: `scripts/climb.py <account> --record`
@@ -645,6 +647,17 @@ no red dot on the side-menu icon / **Mission** entry → skip, nothing to claim.
 (2026-11-02; checks/sets sprites + order + check boxes, `per_pet` → MANUAL); steps below = its fallback.
 Added by Nick 2026-10-26. Strategy is per account (`missions.pet_arena` in the config): **Stamina order High to Low,
 4 sprites**, except Cmajor **Random Selection, 2 sprites** (Nick, 2026-11-02).
+- **Be fast, touch only what's wrong** (Nick, 2026-11-03): the arena is busy right after the reset. 4 sprites / High to
+  Low is the game's default and it keeps the dialog settings — if the dialog already shows the expected values, don't
+  open a dropdown, just Start. **No free attempts left** ("Not enough free deployment attempts" after Start, or "attempts
+  used up" on Join) **= done for the day**, however it got done. The top-left ticket counter is NOT the free attempts
+  (it read 0 on accounts that could still Start).
+- **Reading the arena** (traced 2026-11-03): pool = "Participating Pet: N/64" → N < 64 = open (decide on the count —
+  the "X has deployed Y" ticker often hides the "Auto Deploy" label); a fight = only the "N Arena" header + a bar.
+  Back from the pool goes straight to the Join screen (no dialog); only a fight asks "Exit this match?".
+  A fight can start between Join and the Auto Deploy tap → the dialog never opens → exit, Join again.
+  Don't re-tap Join while the arena loads: the spot lands on the pool's big **Deploy** button (manual deploy panel).
+- The sprites value is a lone digit: OCR misses it on some frames — read the settled dialog, retry on an enlarged crop.
 - **Cap 64 pets per arena** (Nick, 2026-11-02): at 64/64 the fight starts and you can't deploy until it ends —
   back arrow → "Exit this match?" Confirm ends it sooner, then Join again.
 - The **"Champion" popup** ("Result of this round" / "Match Details") is the round result, not last season's: it pops
@@ -652,9 +665,10 @@ Added by Nick 2026-10-26. Strategy is per account (`missions.pet_arena` in the c
 - Dropdowns open upward: sprites `(700,454)` → options 1–4 at y≈136/212/286/360; order `(700,620)` → High to Low /
   Low to High / Random Selection at y≈398/474/541 (x≈700). Check boxes `(898, 620/900/1210/1376)`.
 
-1. Main screen → **1st event banner** (top right) → bottom tab **Pet Arena** `(480,1850)` →
-   **Join** `(540,1528)`. Last-season *Champion* popup ✕ `(972,548)` — it reopens a few s later, so
-   open Auto Deploy right after closing it. "Free attempts used up" toast / 0 tickets top-left = already ran today.
+1. Main screen → event hub `(896,340)` (the banner rotates; any banner opens the hub) → bottom tab **Pet Arena** —
+   find it by label: the tabs shift with the events (≈`(310,1840)` on 2026-11-03), and its red dot hides "Pet" from
+   OCR, so match "Arena" → **Join** `(540,1528)`. *Champion* round popup ✕ `(972,548)` — it reopens a few s later,
+   so open Auto Deploy right after closing it.
 2. **Auto Deploy** `(956,1640)` → *Auto Deploy* dialog:
    - **Deployed Sprite per Battle** = config `sprites` (4).
    - Strategy `stamina_order`: tick **Deploy by Stamina Order** (right checkbox) and set its dropdown to
@@ -664,8 +678,8 @@ Added by Nick 2026-10-26. Strategy is per account (`missions.pet_arena` in the c
      stamina dropdowns from config `pets` (only the first `sprites` rows are used). E.g. Cmajor: 2 sprites,
      Pet 1 = Eternal + Highest Stamina, Pet 2 = Eternal + Lowest Stamina.
    - Keep **Auto-Stop when free attempts are used up** ✓ and **If available slots < set amount…** ✓.
-3. **Start** `(540,1570)`. Leave it running. Never buy attempts. Dialog ✕ `(938,282)`; backing out asks
-   "Exit?" → Confirm `(760,1162)`.
+3. **Start** `(540,1570)` → "Auto Deploying" shows. Leave it running. Never buy attempts. Dialog ✕ `(938,282)`;
+   back from the pool → Join screen; from a fight → "Exit this match?" → Confirm `(760,1162)`.
 
 ## Canyon Clash (Tribe group)
 

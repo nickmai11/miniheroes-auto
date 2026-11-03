@@ -21,9 +21,14 @@ boot() {
     sleep 1; t=$((t+1)); [ $t -ge 90 ] && { echo "$name $s boot-timeout"; return; }
   done
   adb -s "$s" shell am force-stop $PKG
-  adb -s "$s" shell monkey -p $PKG -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1
   # yellow Start button, then the blue Recruit icon of the bottom bar (dimmed while a popup is open -> still ok after timeout)
-  D=$s python3 "$TAP" -o "/tmp/boot_$port.png" --until 440,1508,255,182,16 --timeout 90 || { echo "$name $s start-timeout"; return; }
+  # launch can silently not happen (Aminor 2026-11-03 sat on the Android home 90 s) -> relaunch every 30 s, 3 tries
+  local ok=
+  for try in 1 2 3; do
+    adb -s "$s" shell monkey -p $PKG -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1
+    D=$s python3 "$TAP" -o "/tmp/boot_$port.png" --until 440,1508,255,182,16 --timeout 30 && { ok=1; break; }
+  done
+  [ -n "$ok" ] || { echo "$name $s start-timeout"; return; }
   # Start tap is sometimes ignored (xFaktor/Cmajor 2026-10-27) -> re-tap up to 3x, but ONLY while the Start
   # button is still there: a blind re-tap hit an event popup's GO and opened a web page (Bino/Dino 2026-10-27).
   for try in 1 2 3; do

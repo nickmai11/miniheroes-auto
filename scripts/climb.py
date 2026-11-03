@@ -83,12 +83,16 @@ def scroll(d):
 
 def grid_pass(d, rows_needed, fn):
     """Call fn({row: y}) for the rows visible at each scroll position (each row once), scrolling down as needed."""
-    to_top(d); off, done = 0, set()
+    to_top(d); off, done, retries = 0, set(), 0
     for _ in range(10):
         vis = {r: ROW1 + (r - 1) * PITCH - off for r in rows_needed if r not in done and 1180 < ROW1 + (r - 1) * PITCH - off < 1520}
         if vis: fn(vis); done |= set(vis)
         if done >= set(rows_needed): return
-        off += scroll(d)
+        try: off += scroll(d)
+        except RuntimeError:   # a slow drag sometimes flings far past 300 px (Chien Than 7-20, 2026-11-02): from the top again
+            retries += 1
+            if retries > 2: raise
+            to_top(d); off = 0
     raise RuntimeError(f'rows {set(rows_needed) - done} never visible')
 
 
@@ -104,9 +108,6 @@ def swap(a, k=1):
     """Losing wave = the open tab of the Challenge-again setup. Fresh setup from the main screen (Challenge-again
     edits aren't saved), recall both tabs, deploy each other's cells (rows 1-3), check powers, rewrite the yaml, Start."""
     T.D = flow.D = devs[a]; d = devs[a]
-    path = f'{R}/accounts/{a}.yaml'; y = open(path).read()
-    teams = {int(k): v.split(', ') for k, v in re.findall(r'^\s+(\d): \{power: [^,]*, cells: \[([^\]]*)\]', y, re.M)}
-    if len(teams) != 3: log(a, 'SWAP LINEUPS: no stage_lineups in the yaml'); sys.exit(2)
     im = T.grab()
     won = lambda t: sum(1 for dx in range(-40, 41, 4) for dy in range(-25, 26, 4)
                         if (lambda p: p[1] > 170 and p[0] < 160 and p[2] < 120)(im.getpixel((TAB[t] + dx, 1088 + dy)))) >= 6
@@ -115,10 +116,11 @@ def swap(a, k=1):
     o = o % 3 + 1 if o == w else o
     log(a, f'losing wave {w} (tabs won: {[t for t in (1, 2, 3) if won(t)]}) -> swap with {o}')
     step(a, '80,1810', 'Adventure', 10); time.sleep(1); step(a, '994,964', r'^Start$|\| Start \|')
-    old = {}
-    for t in (w, o):
-        step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.5); old[t] = power()
-        step(a, '1000,1080', 'Start')
+    # the yaml goes stale when Nick edits lineups: it put a team-1 hero into the swap and the "Move hero?" Tip
+    # blocked every tap after it (Chien Than 2026-11-02) -> read the real lineups first, swap nothing if unsure
+    teams, old = read_lineups(a)
+    if any(len(teams[t]) != 5 for t in (w, o)): log(a, f'SWAP LINEUPS: lineups unreadable {teams}, nothing changed'); sys.exit(2)
+    for t in (w, o): step(a, f'{TAB[t]},1088', 'Start'); step(a, '1000,1080', 'Start')
     def place(vis):
         for t, cells in ((w, teams[o]), (o, teams[w])):
             step(a, f'{TAB[t]},1088', 'Start')
@@ -129,12 +131,9 @@ def swap(a, k=1):
     for t in (w, o): step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.5); got[t] = power()
     if got[w] != old[o] or got[o] != old[w]:
         log(a, f'SWAP LINEUPS FAILED: tab {w} {got[w]}K (want {old[o]}K), tab {o} {got[o]}K (want {old[w]}K) - left on setup'); sys.exit(2)
-    y = re.sub(rf'^(\s+){w}: \{{', r'\g<1>X: {', y, flags=re.M)
-    y = re.sub(rf'^(\s+){o}: \{{', rf'\g<1>{w}: {{', y, flags=re.M)
-    y = re.sub(r'^(\s+)X: \{', rf'\g<1>{o}: {{', y, flags=re.M)
-    open(path, 'w').write(y)
+    teams[w], teams[o] = teams[o], teams[w]; write_lineups(a, teams, {**old, **got})
     log(a, f'swapped lineups {w}<->{o} (tab {w} {got[w]}K, tab {o} {got[o]}K), yaml updated')
-    step(a, '540,1806', FIGHT, 30)
+    if '--no-start' not in args: step(a, '540,1806', FIGHT, 30)
 
 
 def to_main(a):
@@ -172,10 +171,9 @@ def checked(im, x, y0, y1):
                if (lambda p: p[1] > 170 and p[0] < 160 and p[2] < 120)(im.getpixel((x + dx, y)))) >= 8
 
 
-def record(a):
-    T.D = flow.D = devs[a]; d = devs[a]
-    to_main(a)
-    step(a, '994,964', r'^Start$|\| Start \|')
+def read_lineups(a):
+    """On a fresh battle setup: each tab's deployed cells (green checks, rows 1-5) and power."""
+    d = devs[a]
     teams, pw = {1: [], 2: [], 3: []}, {}
     def read(vis):
         for t in (1, 2, 3):
@@ -183,18 +181,29 @@ def record(a):
             teams[t] += [f'r{r}c{c + 1}' for r, yc in vis.items() for c, x in enumerate(COLX) if checked(im, x, yc - 75, yc + 75)]
     grid_pass(d, [1, 2, 3, 4, 5], read)
     multi = {c for t in teams for c in teams[t] if sum(c in v for v in teams.values()) > 1}   # green card art (xFaktor r4c2)
-    teams = {t: [c for c in v if c not in multi] for t, v in teams.items()}
+    return {t: [c for c in v if c not in multi] for t, v in teams.items()}, pw
+
+
+def record(a):
+    T.D = flow.D = devs[a]
+    to_main(a)
+    step(a, '994,964', r'^Start$|\| Start \|')
+    teams, pw = read_lineups(a)
     bad = [t for t in teams if len(teams[t]) != 5]
     if bad: log(a, f'record: tabs {bad} not 5 cells in rows 1-5: {teams} (heroes further down?) - not written'); sys.exit(1)
+    write_lineups(a, teams, pw)
+    log(a, f'recorded stage_lineups {teams} powers {pw}')
+    if '--no-start' in args: return
+    step(a, '540,1806', FIGHT, 30)
+    log(a, 'started the stage')
+
+
+def write_lineups(a, teams, pw):
     path = f'{R}/accounts/{a}.yaml'; y = open(path).read()
     y = re.sub(r'\n  stage_lineups:.*?(?=\n  \S|\Z)', '', y, flags=re.S)
     y = y.rstrip('\n') + '\n  stage_lineups:   # see bino.yaml; recorded by climb.py --record ' + time.strftime('%F') + '\n' + ''.join(
         f'    {t}: {{power: {pw[t]}K, cells: [{", ".join(teams[t])}], good_for: ""}}\n' for t in (1, 2, 3))
     open(path, 'w').write(y)
-    log(a, f'recorded stage_lineups {teams} powers {pw}')
-    if '--no-start' in args: return
-    step(a, '540,1806', FIGHT, 30)
-    log(a, 'started the stage')
 
 
 def start(a):
@@ -218,7 +227,7 @@ if '--record' in args:
 if '--apply' in args:   # put the yaml stage_lineups back on all 3 tabs (after a failed swap), then Start
     for a in accts: apply(a)
     sys.exit(0)
-if '--swap' in args: swap(accts[0]); sys.exit(0)   # one swap now (account on a Challenge-again setup)
+if '--swap' in args: swap(accts[0]); sys.exit(0)   # one swap now (account on a Challenge-again setup) [--no-start]
 for a in devs: start(a)
 seen, losses, swaps = {}, {}, {}
 end = time.time() + minutes * 60
