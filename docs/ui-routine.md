@@ -40,7 +40,7 @@ Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
 19. **Fishing** — the only place order rewards are collected (see Fishing step 7).
 20. **Daily Mission** — the last mission (Nick, 2026-10-29); any new mission step goes before it. A rerun of earlier
     steps (`daily.py <acct> <step>...`) should include `daily_mission` so their progress gets claimed.
-21. **Play Pass again** (`play_pass2`) — after the missions, re-check Play Pass for red dots: the run's activity unlocks
+21. **Play Pass again** (`play_pass2`) — after the missions, only if the Play Pass icon has a red dot (≈`(156,443)`): the run's activity unlocks
     new claims (Nick, 2026-11-03). Same in the catch-up.
 22. **Pet Arena check** (`pet_check`, Mon–Wed, the very last step; also in the catch-up) — Pet Arena → Achievement
     "Cumulative pet deployments completed: N" must be **+40 since yesterday** (= all 40 free attempts used; Mon: 40,
@@ -439,6 +439,10 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Costs potions/gold/stones o
    may pop a purchase dialog). Hero / gear levels themselves don't matter — Bone Archer is only for the dailies.
    Never the "↑ Lv.69" quick button or Reset (Rebirth + ↑ Lv.90 only in the out-of-potions case below).
 5. Close popup `(540,120)`.
+
+**Above Lv.135 → Rebirth + quick Lv.90** at the start of the hero step (Nick, 2026-11-03; `hero.py`). **Below Lv.90 →
+quick Lv.90** (the gear is padlocked at low levels). A quick Lv.90 counts as 90 level-ups, so the daily "Leveled-up
+any Hero" row is done — **no further Level Ups** that day, straight to the gear (Nick, 2026-11-03).
 
 **Out of potions → Rebirth + quick Lv.90** (Nick, 2026-11-03; `hero.py` `rebirth_90`, mapped on Cmajor): only when
 Level Up doesn't raise the level AND the potion line above Level Up shows have < need (e.g. `18M/30300` = enough —

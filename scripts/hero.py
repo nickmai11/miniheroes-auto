@@ -90,10 +90,32 @@ def confirm(title, timeout=6):
     raise Stop(f'{title}: Confirm ignored 3x')
 
 
+LV90 = r'(?i)L[vy]\.?\s*90$'                       # OCR: 'Lv.90' (Cmajor), 'Ly.90' (Kong 2026-11-03)
+
+
+def quick_90(hero):
+    """Hero below Lv.90 (after a Rebirth, or a retry that levelled from Lv.2 - Kong 2026-11-03: the gear stays padlocked
+    that low): the "↑ Lv.90" quick button above Level Up -> Quick Level Up "Lv.N -> Lv.90" (potions) -> Confirm."""
+    b = ocr()
+    if not find(b, LV90, (200, 980, 880, 1110)):              # shows after one Level Up
+        tap_wait(*find(wait(r'^Level Up$', 6, (200, 1050, 880, 1300)), r'^Level Up$', (200, 1050, 880, 1300)))
+        b = wait(LV90, 6, (200, 980, 880, 1110))
+    tap_wait(*find(b, LV90, (200, 980, 880, 1110)))
+    b = wait(r'Quick Level Up', 5)
+    if not find(b, LV90) or not any(re.search(r'[\d.]+[kKmM]?\s*/\s*[\d.]+[kKmM]?$', t.strip()) for *_, t in b):   # OCR: '25M / 1328k' (Kong)
+        raise Stop('Quick Level Up: not "-> Lv.90" for potions; stop')    # never a gem price
+    confirm('Quick Level Up')
+    for _ in range(6):
+        lv = level(ocr(), (300, 340, 800, 460))
+        if lv == 90: break
+        time.sleep(0.7)
+    else: raise Stop(f'Lv.{lv} after Quick Level Up, expected 90')
+    print(f'{hero}: quick Lv.90', flush=True)
+
+
 def rebirth_90(hero):
     """Not enough potions for the next level (Nick 2026-11-03): Rebirth (free, 100% of the hero AND gear materials back -
-    the gear resets to 0 too), Level Up once, then the "↑ Lv.90" quick button -> Quick Level Up (potions) -> Lv.90.
-    Mapped on Cmajor 2026-11-03 (Lv.96 -> 1 -> 2 -> 90)."""
+    the gear resets to 0 too) -> quick Lv.90. Mapped on Cmajor 2026-11-03 (Lv.96 -> 1 -> 2 -> 90)."""
     r = find(ocr(), r'^Rebirth$')
     if not r: raise Stop('no Rebirth button')
     tap_wait(r[0], r[1] - 40)                               # icon above the label
@@ -102,19 +124,8 @@ def rebirth_90(hero):
     confirm('Rebirth Preview'); wait(r'Congratulations', 6); tap_wait(540, 120)
     b = wait(r'^Level Up$', 6, (200, 1050, 880, 1300))
     if level(b, (300, 340, 800, 460)) != 1: raise Stop('hero not at Lv.1 after Rebirth')
-    tap_wait(*find(b, r'^Level Up$', (200, 1050, 880, 1300)))
-    b = wait(r'Lv\.90$', 6, (200, 980, 880, 1110))         # quick button "↑ Lv.90" appears above Level Up
-    tap_wait(*find(b, r'Lv\.90$', (200, 980, 880, 1110)))
-    b = wait(r'Quick Level Up', 5)
-    if not find(b, r'Lv\.90') or not any(re.search(r'[\d.]+[kKmM]?/[\d.]+[kKmM]?$', t.strip()) for *_, t in b):
-        raise Stop('Quick Level Up: not "-> Lv.90" for potions; stop')    # never a gem price
-    confirm('Quick Level Up')
-    for _ in range(6):
-        lv = level(ocr(), (300, 340, 800, 460))
-        if lv == 90: break
-        time.sleep(0.7)
-    else: raise Stop(f'Lv.{lv} after Quick Level Up, expected 90')
-    print(f'{hero}: out of potions -> Rebirth -> Lv.1 -> Level Up -> quick Lv.90 (gear reset to 0)', flush=True)
+    print(f'{hero}: out of potions -> Rebirth -> Lv.1 (gear reset to 0)', flush=True)
+    quick_90(hero)
 
 
 def run(account):
@@ -126,6 +137,10 @@ def run(account):
     tap_wait(274, 1810)                                      # Hero
     wait(r'^Level Up$', 10)
     select(hero)
+    lv = level(ocr(), (300, 340, 800, 460))
+    # a quick Lv.90 = 90 level-ups: the daily "Leveled-up any Hero" row is done, no more Level Ups (Nick 2026-11-03)
+    if lv is not None and lv > 135: print(f'{hero}: Lv.{lv} > 135 -> reset', flush=True); rebirth_90(hero); n_lv = 0
+    elif lv is not None and lv < 90: quick_90(hero); n_lv = 0   # gear slots are padlocked at low levels (Kong Lv.7)
     for _ in range(n_lv):
         for _ in range(7):        # poll: a single read mid-animation failed Aminor after 4 levels (2026-11-03)
             boxes = ocr(); lv = level(boxes, (300, 340, 800, 460))

@@ -369,6 +369,12 @@ def shop(cfg):
     return f'claimed {got or "nothing"}'
 
 
+def play_pass2(cfg):
+    """After the missions: open Play Pass only if its main-screen icon has a red dot (Nick 2026-11-03); dot at
+    (142-170, 430-456) on Chien Than / Dminor."""
+    return play_pass(cfg) if red_dot(135, 420, 180, 465) else 'no red dot'
+
+
 def play_pass(cfg):
     tap_wait(100, 500); wait(r'Play Pass', 10)
     got = []
@@ -907,11 +913,15 @@ def golden_woods(left):
     20 gems). Never King's Treasury (Shuffle Cards spends keys), Expedition Draw / Daily Pack ($). Sub-tab red dots sit
     ~63 px right of the sub-tab centre, y~190; the tab's own dot sticks (keys to shuffle) - judged by these."""
     got, dot = [], lambda x: red_dot(x + 40, 165, x + 90, 215)
+    def sub(x, title):                                   # a tap during the reward close is ignored (Kong 2026-11-03)
+        for _ in range(2):
+            tap_wait(x, 300)
+            try: wait(title, 4); return True
+            except Stop: pass
+        left.append(f'golden_woods {title}'); return False
     for name, x, title in (('quests', 412, r'Exploration Quest'), ('sign-in', 660, r'Sign-In Rewards')):
-        tap_wait(x, 300); wait(title, 6)
-        if claim_yellow(title, dismiss=(540, 960)): got.append(name)
-    tap_wait(908, 300); wait(r'Woods Expedition', 6)
-    if red_dot(115, 490, 155, 530):
+        if sub(x, title) and claim_yellow(title, dismiss=(540, 960)): got.append(name)
+    if sub(908, r'Woods Expedition') and red_dot(115, 490, 155, 530):
         tap_wait(88, 550); close_reward(); got.append('expedition gift')
     if dot(412) or dot(660) or red_dot(115, 490, 155, 530): left.append('golden_woods')
     return [f'golden woods {g}' for g in got]
@@ -1029,7 +1039,7 @@ CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena
            ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
            ('canyon', canyon),
            ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),  # missions always last (Nick, 2026-10-29)
-           ('play_pass2', play_pass),   # after the missions: the run's activity unlocks new Play Pass claims (Nick 2026-11-03)
+           ('play_pass2', play_pass2),   # after the missions: the run's activity unlocks new Play Pass claims (Nick 2026-11-03)
            ('pet_check', pet_check)]    # Mon-Wed: re-check all 40 free Pet Arena attempts used (Nick 2026-11-03)
 CATCHUP_MANUAL = []
 def seq(*parts):
@@ -1057,7 +1067,7 @@ ORDER = [('pet_arena', pet_arena), ('fishing', fishing), ('arena', arena), ('pat
          ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune),
          ('grocery', seq((grocery, 'grocery_free_chests'), (grocery_buy, 'grocery_buy'))),
          ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
-         ('play_pass2', play_pass),   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
+         ('play_pass2', play_pass2),   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
          ('pet_check', pet_check)]    # very last: all 40 free Pet Arena attempts used today (Nick 2026-11-03)
 # config key that must be present / truthy for a step to run
 KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'arena', 'fishing': 'fishing', 'patrol': 'patrol', 'patrol_claim': 'patrol',

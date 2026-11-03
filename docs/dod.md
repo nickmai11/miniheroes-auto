@@ -48,7 +48,7 @@ screen. Not done → the runner retries once → a helper does that one step →
     Event**) and none on the weekly tribe events (**Floating Realm, Tribe Clash**) (Nick, 2026-11-03).
 22. **Fishing rewards** — no yellow Claim left on the orders.
 23. **Daily Mission** — rows and chests claimed, **160 ✓** (see "Whole run").
-24. **Play Pass again** — no red dot on the Play Pass icon or any of its tabs (after the missions).
+24. **Play Pass again** — no red dot on the Play Pass icon (opened only when the icon has one; Nick, 2026-11-03).
 25. **Pet Arena check** (Mon–Wed, very last) — Achievement "Cumulative pet deployments completed" is **+40 since
     yesterday** (all 40 free attempts used). Short → Auto Deploy restarted, re-checked in the catch-up.
 
