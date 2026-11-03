@@ -55,13 +55,14 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 
 **Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
 main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
-Steps: fishing arena patrol arena2 storm shop play_pass trials tower sanctuary gate beast arena3 recruit hero tribe divine
+Steps: pet_arena (Mon–Wed) fishing arena patrol arena2 storm shop play_pass trials tower sanctuary gate beast arena3 recruit hero tribe divine
 stage patrol_claim rune grocery events fishing_rewards daily_mission.
 **Run overview: `scripts/summary.sh <run dir>`** — per account OK/SKIP counts, FAIL/MANUAL/paid lines, LEFT FOR HELPER (one call instead of grepping logs).
 
 Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png] [-w 270|540]` for every tap (device coords):
 it waits only until the screen changes and settles (~1 s per tap, max 4 s) instead of a fixed sleep,
 and saves a screenshot `-w` px wide (default 540: coords ×2 for device; 270: ×4). No args = screenshot only (~0.4 s).
+
 - `-w 270` for navigation, `-w 540` to read small text or place taps on small/bottom-row icons (270 math misses there).
 - Chain known taps of a flow in one call; screenshot-check only at decision points (prices, counters,
   unexpected popups). Always check the current screen before the first tap of a flow.
@@ -85,6 +86,7 @@ and saves a screenshot `-w` px wide (default 540: coords ×2 for device; 270: ×
   - main → ☰ `994,1625` → Backpack `900,1775`: `--until-text 'Backpack'`
   - reward / claim tap: `--until-text 'Tap anywhere|Congratulations'`
   - battle Start: `--until-text 'Victory|Defeat|Tap anywhere' --timeout 180`
+
 - Storm matches: `D=<serial> scripts/storm.py` (plays until tickets run out incl. one free-ticket claim, ~0.5 s polling;
   exit 1 = unexpected screen, screenshot and report — don't re-run it in a loop).
   Grocery: `scripts/grocery.py`; Fishing orders: `scripts/fish_orders.py`.
@@ -169,13 +171,13 @@ Screen header: "Free attempts refresh in: HH:MM:SS" (daily reset).
 
 Dungeon list (scroll position = top; scroll by dragging `(352,1100)→(352,300)` to reveal Gem Mine):
 
-| Dungeon | `GO` tap (top of list) | `GO` tap (scrolled to bottom) |
-|---|---|---|
-| Abandoned Mine | `(568, 390)` | – |
-| Ancient Battlefield | `(570, 640)` | `(570, 448)` |
-| Mysterious Forest | `(570, 892)` | `(570, 698)` |
-| Moonlight Temple | `(570, 1142)` | `(570, 950)` |
-| Gem Mine | – | `(570, 1200)` |
+| Dungeon             | `GO` tap (top of list) | `GO` tap (scrolled to bottom) |
+| ------------------- | ---------------------- | ----------------------------- |
+| Abandoned Mine      | `(568, 390)`           | –                             |
+| Ancient Battlefield | `(570, 640)`           | `(570, 448)`                  |
+| Mysterious Forest   | `(570, 892)`           | `(570, 698)`                  |
+| Moonlight Temple    | `(570, 1142)`          | `(570, 950)`                  |
+| Gem Mine            | –                      | `(570, 1200)`                 |
 
 The card shows `Attempts: N` (free left) or `Remaining purchases: N` (free exhausted).
 
@@ -186,16 +188,17 @@ The card shows `Attempts: N` (free left) or `Remaining purchases: N` (free exhau
   - **"Challenge Attempts: N"** + plain yellow **Sweep** button → free sweep.
   - **"Remaining Purchase Attempts: N"** + **Sweep** button with a gem icon and price
     → **paid** sweep. Price escalates per dungeon per day: 80, 160, 240, … (one purchase each).
-  - Tapping a paid **Sweep** opens a *Tip* popup "Spend N diamonds to purchase 1 challenge
+  - Tapping a paid **Sweep** opens a _Tip_ popup "Spend N diamonds to purchase 1 challenge
     attempt?" → **Confirm** (window coords unverified, ≈ `(352, 790)`; device `(540,1162)`)
-    only *buys* the attempt; the dialog then shows "Challenge Attempts: 1" and you tap
+    only _buys_ the attempt; the dialog then shows "Challenge Attempts: 1" and you tap
     **Sweep** again to actually sweep.
   - Gem Mine's reward popup animates for a few seconds; wait before dismissing.
 - **Sweep** button: `(352, 932)` once the dialog has settled.
 - Close dialog ✕: `(632, 408)` (device `(970,570)`, may need a second tap).
 
 Gotchas:
-- Each free sweep = two taps (Sweep, then dismiss *Congratulations*); a paid one = four (Sweep → Confirm → Sweep → dismiss).
+
+- Each free sweep = two taps (Sweep, then dismiss _Congratulations_); a paid one = four (Sweep → Confirm → Sweep → dismiss).
   The reward popup auto-closes after ~3 s — a dismiss tap after that hits the list behind (opened the next dungeon once),
   and `(540,120)` can close the whole dialog. Sweep → wait 7–8 s → dismiss once at `(540,700)` (device).
 - Wait ~1.5 s after the dialog opens / after buying, or the Sweep tap is lost.
@@ -256,7 +259,7 @@ Goal: spend every free ticket crashing the **topmost attackable** opponent (not 
    row above it qualifies, so tickets never go unused (e.g. Dminor's list is all its own server — still crash the bot).
    If the account has `arena.skip_same_server: true`, also skip opponents on the account's own server
    ("S###" tag, or "War Zone: AreaNNN" on the opponent profile). Server unknown → skip.
-   The dialog closes and shows *Congratulations* (+40 arena points, 11000 gold).
+   The dialog closes and shows _Congratulations_ (+40 arena points, 11000 gold).
    Dismiss with `(540,120)`, confirm the ticket count dropped by 1 on the Challenge button.
 5. Repeat from step 2 until tickets = 0. The opponent list changes after every crash.
 
@@ -282,7 +285,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Nick explicitly allows this
 claim the **free** red-dot items only. Every other button in the Shop costs real money ($) — never tap them.
 
 1. Main screen → **Shop** `(100,330)` (opens on Value Pack tab).
-2. **Value Pack** → *Free Benefits* row → **Claim** `(894,787)` (10 gems + 1000 gold; button
+2. **Value Pack** → _Free Benefits_ row → **Claim** `(894,787)` (10 gems + 1000 gold; button
    becomes "Sold Out"). Dismiss with `(540,120)`.
 3. **Hero Pack** tab `(480,1846)` → **Select Hero** `(895,420)` (red dot): just opening the dialog
    grants **20 gems**. Dismiss `(540,120)`, then close the dialog ✕ `(972,300)` **without picking a hero**.
@@ -332,13 +335,13 @@ Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**.
 
 1. Main screen → **Adventure** `(100,1460)` → Secret Sanctuary **GO** `(787,962)` → map.
    First time: "Bonus Effects" intro → Confirm `(540,1616)`.
-2. If a plain **Sweep** `(540,1778)` shows: Sweep → *Tip* **Confirm** `(533,1197)` → dismiss `(540,120)`. Done.
+2. If a plain **Sweep** `(540,1778)` shows: Sweep → _Tip_ **Confirm** `(533,1197)` → dismiss `(540,120)`. Done.
 3. Else climb. Floor nodes (yellow marker = next), Lava Cave: 1 `(664,1440)`, 2 `(526,1210)`,
    3 `(786,1040)`, 4 `(552,956)`, 5 `(264,860)`, 6 `(502,786)`, 7 `(746,724)`, 8 `(630,574)`,
    9 `(414,506)`, 10 boss `(590,340)` (other maps: read the node off the screenshot).
-   - Floor popup: yellow **Crash** `(540,1380)` = instant win (we out-power it) → *Congratulations* → dismiss `(540,120)`.
+   - Floor popup: yellow **Crash** `(540,1380)` = instant win (we out-power it) → _Congratulations_ → dismiss `(540,120)`.
    - Green **Battle** `(540,1380)` → lineup (HP **carries over** between floors) → if fewer than 5 ticked,
-     **Quick Deploy** `(984,1800)` → **Start** `(540,1808)` → ~25 s → *Victory* → **Confirm** `(540,1404)`.
+     **Quick Deploy** `(984,1800)` → **Start** `(540,1808)` → ~25 s → _Victory_ → **Confirm** `(540,1404)`.
      Wait with `tap.py 540,1808 --until 400,1404,123,206,49,25` (returns when the Victory Confirm shows).
      A loss: stop and report (don't use Recovery Potion).
 4. After each floor: **Select Bonus Effect** (3 cards at `(192|540|884, 950)` → **Confirm Selection** `(540,1426)`).
@@ -362,11 +365,11 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Endless-wave mode; progress
    the animation opens an item-info popup; close it by tapping `(540,1400)`) → Gate of Darkness **GO** `(787,1238)`.
 2. Screen shows "Chances left today: N" under **Start Challenge** `(540,960)`.
 3. **First chance — run it:** Start Challenge `(540,960)` → lineup (default top 10, keep it) →
-   **Start Challenge** `(540,1806)` → *Tip* "Start challenge from Wave N?" → **Confirm** `(760,1164)`.
+   **Start Challenge** `(540,1806)` → _Tip_ "Start challenge from Wave N?" → **Confirm** `(760,1164)`.
    **Never tap Restart** (resets wave progress).
    - **Time cap 3m (Nick, 2026-10-29)** from Confirm. If still fighting: **Pause** `(866,1227)` (may need a 2nd tap) →
      **Quit Battle** `(376,920)` (still counts as Victory) → **Confirm** `(540,1406)`.
-   - If it ends earlier: *Victory* (kill count + rewards) → **Confirm** `(540,1406)`.
+   - If it ends earlier: _Victory_ (kill count + rewards) → **Confirm** `(540,1406)`.
    - A network-error popup sends the game to the loading screen — that run uses no chance, re-run.
 4. **Second chance — Sweep** `(942,1058)` (appears next to Start Challenge after a run) → Confirm ≈ `(760,1370)`–`(770,1390)`.
 5. Verify "Chances left today" dropped each time.
@@ -410,17 +413,30 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: **2 Common, 1 Ancest
 
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Costs potions/gold/stones only, never gems.
 
-1. Main screen → **Hero** `(274,1810)`. Hero strip at y≈1536–1590: swipe left to the end
-   (`input swipe 950 1536 150 1536 300`, ~15×; small rosters need no scroll).
-2. **Bone Archer** (skeleton, 3 purple stars, Mythic) — position varies, find it by screenshot and verify the name
-   top-left: Cmajor `(787,1580)`; Bino/Aminor ≈ `(764–774,1580)`; xFaktor/Dino/Tiger last card ≈ `(940–976,1600)`;
-   Kong mid-strip ≈ `(586,1580)`; Dminor `(216,1580)`.
+1. Main screen → **Hero** `(274,1810)`.
+2. **Bone Archer** — find him by his **avatar**, not Lv / stars / position (Nick, 2026-11-03): expand icon above the
+   strip `(1008,1400)` → **Marksman** filter (green bow) `(662,1800)` (the game keeps it; a 2nd tap keeps it on) →
+   scroll to the bottom → his face (template `scripts/bone_archer_strip.png`) — usually last, not always (Bino: one
+   Lv.160 after him) → tap → name top-left = "Bone Archer" → close the list ✕ `(1008,1100)`.
 3. **Level Up** `(540,1178)` **`hero_levels` times (5)**, stop when out of potions → level +1 each (cost ~23000 potions). Its position shifts after
    the first tap ("↑ Lv.90" quick-level button appears above it at `(540,1060)`) — never tap that.
 4. 1st gear (bow, top-left slot) `(117,360)` — or `(117,400)` (Cmajor, Tiger) / `(124,400)` (Kong) → popup
-   "Swift Longbow LV.N » N+1", cost gold (+ stones). **Enhance** `(540,1395)` / `(540,1384)` **once**.
-   Never the "↑ Lv.69" quick button or Reset.
-5. Close popup `(540,120)`; verify the gear badge shows N+1.
+   "Swift Longbow LV.N » N+1", cost gold (+ stones). Open it **once** and tap **Enhance** `(540,1395)` / `(540,1384)`
+   `gear_levels` times in a row (Nick, 2026-11-03), checking the button is still there before each tap (out of gold
+   may pop a purchase dialog). Hero / gear levels themselves don't matter — Bone Archer is only for the dailies.
+   Never the "↑ Lv.69" quick button or Reset (Rebirth + ↑ Lv.90 only in the out-of-potions case below).
+5. Close popup `(540,120)`.
+
+**Out of potions → Rebirth + quick Lv.90** (Nick, 2026-11-03; `hero.py` `rebirth_90`, mapped on Cmajor): only when
+Level Up doesn't raise the level AND the potion line above Level Up shows have < need (e.g. `18M/30300` = enough —
+Kong's Lv.170 stuck with `1557k/1351k` is NOT a shortage, don't Rebirth), and the hero is above Lv.90.
+
+1. **Rebirth** (icon above its label, bottom-left ≈`(128,1170)`) → _Rebirth Preview_: free, "100% of the materials
+   used during hero **and equipment** level up will be returned" — the gear resets to 0 too → **Confirm** (first tap
+   during the pop-in is ignored; re-tap) → _Congratulations_ → `(540,120)`. Hero = Lv.1, gear slots padlocked.
+2. **Level Up** once → Lv.2; the **↑ Lv.90** quick button appears above it `(540,1050)`.
+3. ↑ Lv.90 → _Quick Level Up_ "Lv.2 → Lv.90", potion cost (`19M/1328k`) → **Confirm** `(740,1160)` → Lv.90, gear
+   slots unlocked at LV.0 (the gear step then enhances from 0).
 
 ## Tribe (sign-in, Tribe Trial, chat request/assist)
 
@@ -436,15 +452,15 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). All free.
    → Flame Lord boss → **Challenge** `(540,1806)` → lineup screen.
    The 5 heroes on the field are this mode's preset lineup; keep it → **Start** `(540,1806)`.
    Timed boss fight (~1 min, runs on its own). Poll and Confirm `(540,1483)`
-   as soon as *Challenge Complete* shows — never wait blind longer than ~80 s.
+   as soon as _Challenge Complete_ shows — never wait blind longer than ~80 s.
 4. Back `(92,1810)` → Tribe screen → **Chat** `(800,1806)` (opening it auto-claims assist rewards) →
-   **Request** `(174,1631)` (red dot; may need a 2nd tap at `(174,1636)`) → *Help Request Info* dialog:
+   **Request** `(174,1631)` (red dot; may need a 2nd tap at `(174,1636)`) → _Help Request Info_ dialog:
    - **Request** `(334,1660)`: send our own help request (greyed with a cooldown timer if already sent).
    - **Assist** `(740,1660)`: helps every listed request at once; list empties.
    - Close ✕ `(968,228)`.
-   Back from Chat usually goes straight to the main screen — but can land on Recruit; screenshot and back again.
-   Aminor (2026-10-27): helper found only the compose-bar Request and per-line "A" (translate) icons, no Assist
-   — re-check Aminor's chat layout.
+     Back from Chat usually goes straight to the main screen — but can land on Recruit; screenshot and back again.
+     Aminor (2026-10-27): helper found only the compose-bar Request and per-line "A" (translate) icons, no Assist
+     — re-check Aminor's chat layout.
 5. Never type or send chat messages.
 
 ## Fishing (orders, benefit, auto fish)
@@ -452,10 +468,10 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). All free.
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started; leave it running.
 
 1. Main screen → **Fishing** `(624,1780)`.
-2. **Order Info** `(190,786)` → *Daily Order* dialog: 3 orders, refresh-ticket count top-left.
+2. **Order Info** `(190,786)` → _Daily Order_ dialog: 3 orders, refresh-ticket count top-left.
    Tier = filled diamonds (5 max): 1 common, 2 rare, 3 legend, 4 mythic, 5 eternal (name turns red at 4+).
    Target per account: `missions.fishing.min_order_diamonds` (Cmajor: 4 = Mythic+).
-3. Refresh buttons x=`849`, y = `704 / 1058 / 1412` (orders 1–3). Costs **1 refresh ticket**. *Order Refresh*
+3. Refresh buttons x=`849`, y = `704 / 1058 / 1412` (orders 1–3). Costs **1 refresh ticket**. _Order Refresh_
    confirm "Confirm to refresh orders? Cost x1" → **Confirm** `(757,1211)`. Never tick "Do not remind me today".
    "The order is of high quality, continue to refresh?" = something's wrong (we'd refresh a good order) → **Cancel**
    `(320,1212)` and report (Nick, 2026-10-29).
@@ -466,7 +482,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started
    (verify 50 gems); the popup stays open, close by tapping `(540,1600)`.
 5. Close ✕ `(973,270)`. **Benefit** (runner: `fishing` step, 2026-10-29) `(330,1800)` **only if it has a red dot** — no red dot = don't open it → **Claim Reward** `(540,1662)`
    (60 bread, 5 refresh tickets, baits) → dismiss `(540,120)` → close ✕ `(970,238)`.
-6. **Auto** `(982,1222)` → *Auto Fish* settings (keep as-is: Auto-submit Orders ✓) → **Start** `(540,1485)`.
+6. **Auto** `(982,1222)` → _Auto Fish_ settings (keep as-is: Auto-submit Orders ✓) → **Start** `(540,1485)`.
    Button becomes "Auto Fishing". Leave it.
 7. **Order rewards (end of run only):** Order Info → a completed order shows a yellow **Claim** where Refresh
    normally is (`(849, 704|1058|1412)`) → tap → dismiss `(540,1880)` (+50/60 hammers each). Orders keep completing
@@ -488,7 +504,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
    regenerates over time). Keep the "Automatically advance to next floor" tick as-is.
 4. **Run `D=<serial> scripts/veins.py`** on the grid — it does the loop below and stops at the first buy popup
    (Bino 2026-10-28: a hand-written loop kept tapping 42x past 0 pickaxes, each time opening the 120-diamond buy popup).
-   By hand: **One-Click Mining** `(896,1612)` → *Congratulations* → dismiss `(540,120)`. Repeat until pickaxes = 0
+   By hand: **One-Click Mining** `(896,1612)` → _Congratulations_ → dismiss `(540,120)`. Repeat until pickaxes = 0
    (pickaxes found in the mine are added back: 1–6 taps). At 0 it opens "120 diamonds for 5 pickaxes" → close ✕ `(938,636)`.
    Don't use the dynamite / drill items or the `+` on the pickaxe (buys more).
    The Veins back arrow returns to Arsenal, not the main screen.
@@ -504,7 +520,10 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: challenge the curren
 1. Main screen → blue **skull bubble** next to the hero `(994,964)` (not the stage map top-right).
 2. Battle setup "Stage: X-Y" → **tab 1 = Bone Archer alone** like Tower (Nick, 2026-11-02, all accounts —
    breaks climb accounts' tab 1: re-set lineups + `climb.py --record` before a climb) → **Start** `(540,1806)`.
-3. Result → close by tapping `(540,120)`; never "Challenge again".
+3. **Defeat** → **Challenge again** (shows ~3 s after) = back on the hero selection, lineup kept → **Start**; repeat
+   until `adventure_stage` fights (Nick, 2026-11-03 — no close + re-open per fight). A **Victory** moves the stage on →
+   close `(540,120)` and re-open from the skull. After the last fight close `(540,120)`. (Tower: still never
+   "Challenge again" — it starts the next floor.)
 
 ## Stage climb (occasional, not dailies)
 
@@ -518,6 +537,7 @@ shows "Stage Reward" with no "Next Stage (Ns)" countdown) → main screen "Next 
 **3 losses in a row on one stage → swap lineups** (Nick, 2026-10-31; climb.py does it from `stage_lineups` cells — losing wave's team ↔ next tab, max 3 swaps per stage, then exit 2). Lineups +
 what each is good for: `stage_lineups` in the account yaml — new account: `scripts/climb.py <account> --record`
 (reads the green deploy checks, rows 1-4). Manual steps:
+
 1. A setup opened via Challenge again keeps already-won waves locked and **doesn't save edits** — back `(80,1810)` to
    the main screen, skull `(994,964)` for a fresh setup.
 2. Tabs 1/2/3 `(380|540|700,1088)`. The circular arrow `(1000,1080)` = **recall all** of the open tab (no swap button).
@@ -532,11 +552,11 @@ what each is good for: `stage_lineups` in the account yaml — new account: `scr
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Order changed by Nick 2026-10-31: Arena (all tickets) →
 **Claim All first** → Speed Patrols → Arena again (the loot refills tickets).
 
-1. Main screen → patrol **bag** with timer, right side `(983,1463)` → *Loot* dialog.
-2. **Claim All** `(742,1590)` → *Congratulations* (auto-closes) → dismiss `(540,1880)`. Patrol timer resets to 00:00.
-   If that closed the Loot dialog, reopen the bag (step 1). *(Claim-first path untested, 2026-10-31.)*
-3. **Speed Patrol** `(337,1590)` → *Tip* "Obtain 4 hours of Patrol Gains" → price button `(540,1164)` →
-   *Congratulations* → dismiss `(540,1700)` → the Tip reopens with the next price.
+1. Main screen → patrol **bag** with timer, right side `(983,1463)` → _Loot_ dialog.
+2. **Claim All** `(742,1590)` → _Congratulations_ (auto-closes) → dismiss `(540,1880)`. Patrol timer resets to 00:00.
+   If that closed the Loot dialog, reopen the bag (step 1). _(Claim-first path untested, 2026-10-31.)_
+3. **Speed Patrol** `(337,1590)` → _Tip_ "Obtain 4 hours of Patrol Gains" → price button `(540,1164)` →
+   _Congratulations_ → dismiss `(540,1700)` → the Tip reopens with the next price.
    Prices per day: **Free, Free, 50, 100, …** (escalates). Keep claiming until the button shows
    **100 gems** — don't buy that one, stop (Nick, 2026-10-26). Read the price on the button every time.
 4. Close the Tip ✕ `(936,638)`.
@@ -545,14 +565,17 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Order changed by Nick 2026-
 
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
 
-**Runner step `rune`** (2026-10-29): finds red tiles + lock icons by pixel, the popup decides. Manual steps:
+**Runner step `rune`** (2026-10-29; precise picking 2026-11-03): finds red tiles + lock icons by pixel. **Decide
+from the backpack, click precisely** (Nick, 2026-11-03 — misclicks on locked runes): the list keeps coasting ~1–2 s
+after a swipe, so scan only a still frame (two equal grabs), skip every tile with the padlock on its top-right corner,
+tap the tile's centre. A "Locked" reply means the scan was wrong → stop, never tap another tile to "try". Manual steps:
 
 1. Main screen → menu ☰ bottom-right `(994,1625)` → **Backpack** `(900,1775)` → **Rune** tab `(868,1680)`.
-2. Scroll down (`input swipe 540 1300 540 700 800`) to the red (Mythic) runes. Tap one **without a
-   lock** — the grid's tiny lock icons are easy to misread; the popup is the truth: a locked rune
-   says "Locked Runes can't be synthesized", an unlocked one shows **Synthesize** `(540,1200)`.
-   Never tap the lock toggle in the popup.
-3. *Synthesize Runes* dialog → **Quick Equip** `(417,1668)` (fills 4 same-quality runes — it picks the
+2. Red (Mythic) runes: often on the first screen, else scroll (`input swipe 540 1300 540 700 800`) and **wait until
+   the list stops** before reading it. Locked tile = small padlock on its top-right corner (screenshot at `-w 540` or
+   full size; `-w 270` is too small to see it). Tap the centre of a tile **without** the padlock → popup shows
+   **Synthesize** (`(540,1203)` with 4 stat lines; lower with more). Never tap the lock toggle in the popup.
+3. _Synthesize Runes_ dialog → **Quick Equip** `(417,1668)` (fills 4 same-quality runes — it picks the
    lowest tier, e.g. 4 blue → 1 purple; that's fine) → **Synthesize** `(824,1668)` with ×1.
 4. Result → **Confirm** `(540,1190)` → close ✕ `(972,560)` → close Backpack ✕ `(972,238)`.
 
@@ -560,7 +583,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
 
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
 
-1. Main screen → menu ☰ `(994,1625)` → **Grocery** `(900,1230)` → *Daily Specials* tab.
+1. Main screen → menu ☰ `(994,1625)` → **Grocery** `(900,1230)` → _Daily Specials_ tab.
 2. Top row = 4 free chests, **Free** buttons at y=`893`, x = `163 / 413 / 663 / 913`.
    Rows below have gem prices — never tap them.
    - Chest 1 Gold Coin Pack: 1 claim.
@@ -612,12 +635,13 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
 Nick names 3 tribes each time (1st, 2nd, 3rd) — never pick them yourself. **`D=<serial> scripts/clash_guess.py <1st> <2nd> <3rd>`**
 from the main screen or the Tribe Clash screen (names case/space-insensitive, e.g. `"dragon slayers" potato "purple gang"`).
 Free, no gems. Only open while "Remaining guessing time" runs (on Battle days).
+
 - Entry: main-screen **Tribe Clash** banner → **Guess** (dice, bottom right ≈ `(989,1825)`; the label still OCRs under the
   open dialog — a tap there closes it). Dialog: slots 2 / **1** / 3 left→middle→right (`(236,520)` `(538,490)` `(840,520)`),
   slot names OCR at y≈595; 8 tribe tiles (4×2), tap the icon ≈100 px above the name. A pick fills the selected slot
   and moves the selection 1→2→3. **Save** `(540,1656)` (green once all 3 are set; OCR can't read it), no toast →
   close ✕ `(972,222)` (no reopen check, Nick 2026-10-29). Exit 1 → `v_clash_guess.png`.
-- **Guesses already there → clear them and start from scratch** (Nick, 2026-10-29): tap the picked tile *in the list*
+- **Guesses already there → clear them and start from scratch** (Nick, 2026-10-29): tap the picked tile _in the list_
   to remove it (tapping the slot does nothing). The script does this.
 - **No unguessing:** clearing all 3 slots + Save does not stick — reopen shows the old picks (Kong 2026-10-29).
   Picks can only be replaced with 3 new ones.
@@ -627,8 +651,9 @@ Free, no gems. Only open while "Remaining guessing time" runs (on Battle days).
 Last step of `/catch-up` (then a final Fishing order claim). **Only if there's a red dot** (Nick, 2026-10-28):
 no red dot on the side-menu icon / **Mission** entry → skip, nothing to claim.
 **Verified on Kong 2026-10-28 (`daily.py … daily_mission`):** menu dot ≈ `(1040,1580)`; tap the Mission **icon** ≈ `(820,1380)`
-   — its label doesn't react; top Claim ≈ `(860,672)`; reachable chests glow (above labels at y≈510); dismiss on the
-   title `(540,240)` — `(540,120)` is outside the dialog and closes it; Weekly tab dot ≈ `(976,1630)`; Daily opens selected.
+— its label doesn't react; top Claim ≈ `(860,672)`; reachable chests glow (above labels at y≈510); dismiss on the
+title `(540,240)` — `(540,120)` is outside the dialog and closes it; Weekly tab dot ≈ `(976,1630)`; Daily opens selected.
+
 1. Main screen → list icon with red dot near the Tribe-chat strip ≈ `(990,1630)` → side menu (Settings, Notice,
    E-mail, Lobby, Grocery, **Mission**, Friends, Backpack) → **Mission** ≈ `(800,1360)`. Close ✕ `(972,238)`.
    Tabs at the bottom of the popup: **Daily** ≈ `(297,1693)`, **Weekly** ≈ `(779,1693)` (estimated from a
@@ -647,6 +672,7 @@ no red dot on the side-menu icon / **Mission** entry → skip, nothing to claim.
 (2026-11-02; checks/sets sprites + order + check boxes, `per_pet` → MANUAL); steps below = its fallback.
 Added by Nick 2026-10-26. Strategy is per account (`missions.pet_arena` in the config): **Stamina order High to Low,
 4 sprites**, except Cmajor **Random Selection, 2 sprites** (Nick, 2026-11-02).
+
 - **Be fast, touch only what's wrong** (Nick, 2026-11-03): the arena is busy right after the reset. 4 sprites / High to
   Low is the game's default and it keeps the dialog settings — if the dialog already shows the expected values, don't
   open a dropdown, just Start. **No free attempts left** ("Not enough free deployment attempts" after Start, or "attempts
@@ -667,9 +693,9 @@ Added by Nick 2026-10-26. Strategy is per account (`missions.pet_arena` in the c
 
 1. Main screen → event hub `(896,340)` (the banner rotates; any banner opens the hub) → bottom tab **Pet Arena** —
    find it by label: the tabs shift with the events (≈`(310,1840)` on 2026-11-03), and its red dot hides "Pet" from
-   OCR, so match "Arena" → **Join** `(540,1528)`. *Champion* round popup ✕ `(972,548)` — it reopens a few s later,
+   OCR, so match "Arena" → **Join** `(540,1528)`. _Champion_ round popup ✕ `(972,548)` — it reopens a few s later,
    so open Auto Deploy right after closing it.
-2. **Auto Deploy** `(956,1640)` → *Auto Deploy* dialog:
+2. **Auto Deploy** `(956,1640)` → _Auto Deploy_ dialog:
    - **Deployed Sprite per Battle** = config `sprites` (4).
    - Strategy `stamina_order`: tick **Deploy by Stamina Order** (right checkbox) and set its dropdown to
      config `order` (**High to Low**; options High to Low / Low to High / Random Selection). The per-pet
@@ -708,7 +734,7 @@ silver spots further down. Spots change while you scroll and fill within seconds
 re-screenshot before tapping and re-check the popup's name before confirming.
 
 Empty platform: tap it (wait for map scroll inertia to stop first, or the tap misses) → popup "About to occupy
-the empty <Type> Battlefield — costs no challenge attempts" → **Occupy** `(744,1340)` → wait ~3–5 s: if you already held a spot, a *Resource* popup ("you left the old
+the empty <Type> Battlefield — costs no challenge attempts" → **Occupy** `(744,1340)` → wait ~3–5 s: if you already held a spot, a _Resource_ popup ("you left the old
 Battlefield", gains from it) appears → **Confirm** `(540,1460)`. Moving to an empty spot is free, so it's fine to
 move later — but pick the empty spot first anyway (saves an attempt).
 **Read the popup text before confirming:** "About to challenge <Tribe> <name>'s …" means it isn't empty — if it's
@@ -718,7 +744,7 @@ The map opens scrolled to your current area.
 
 Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 challenge attempt" → **Challenge**
 `(742,1334)` (Cancel `(336,1334)`) → lineup (top 5 pre-selected, keep) → **Start** `(540,1808)` → battle ~10–45 s
-(poll; it may return straight to the map with no Victory screen — check the header) → *Victory* → tap the TOP `(540,150)` — never `(540,1500)`: it hits the map behind and chained 4 extra Sentinel fights, all 5 attempts gone (Kong 2026-11-02); confirm Attempts −1 exactly.
+(poll; it may return straight to the map with no Victory screen — check the header) → _Victory_ → tap the TOP `(540,150)` — never `(540,1500)`: it hits the map behind and chained 4 extra Sentinel fights, all 5 attempts gone (Kong 2026-11-02); confirm Attempts −1 exactly.
 After Occupy/Victory the header can keep showing the old spot — back out to Tribe and re-enter to confirm
 (your name in green on the new platform).
 
@@ -739,7 +765,7 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
   `canyon.py` reads the header ("Glory/Gold/Silver Battlefield") and never moves a highest_free account down a tier
   (it took Tiger Glory → empty Gold on 2026-11-03 before that check).
 
-**Occupation lasts 8h** ("Collect Time 08:00:00"), then ends on its own: on the next visit a *Resource* popup
+**Occupation lasts 8h** ("Collect Time 08:00:00"), then ends on its own: on the next visit a _Resource_ popup
 shows the gains → **Confirm** `(540,1460)` → dismiss `(540,1210)`; header shows "Unoccupied" → take a spot again.
 Swipe slowly (`540 700 → 540 1500`, 1500 ms) to come back up; fast swipes fling far.
 2026-10-29: a fast swipe (600 ms) on the map once kicked Cmajor back to the main screen — scroll down slowly too
@@ -766,9 +792,9 @@ Added by Nick 2026-10-26; mapped on xFaktor via ADB (device coords). Skill: `min
 3. Enemy ships in rows of 3, sorted by CP high → low (big ships first, rowboats at the bottom). Each shows
    name + CP and 3 hearts: **red** = alive, **grey + fire** = sunk. Scroll with `input swipe 540 1500 540 700 800`
    (~3 swipes reach the bottom). Sunk ships move down the list after a fight.
-4. Pick the **lowest-CP ship with a red heart** → tap the ship → *Plunder* popup ("Consume 1 attempt") →
+4. Pick the **lowest-CP ship with a red heart** → tap the ship → _Plunder_ popup ("Consume 1 attempt") →
    **Attack** `(742,1336)` (Cancel `(336,1336)`) → lineup pre-selected (top 5, keep) → **Start** `(540,1808)`
-   → fight ~8 s → *Victory* → tap `(540,1700)`. Back on the map: attempts −1, target −1 heart.
+   → fight ~8 s → _Victory_ → tap `(540,1700)`. Back on the map: attempts −1, target −1 heart.
 5. Repeat on the same target until attempts = 0; if it sinks or is being attacked, take the next-lowest
    ship with red hearts. Tribemates attack live — hearts change between screenshot and tap; the Plunder popup
    shows the current hearts, so re-check there.
@@ -807,7 +833,7 @@ dailies. Monday: closed until 17:00 — run `/catch-up` after that.
    welcome screen). Verify the CP is the top-5 value before the first Start Match (helpers have skipped this
    and played with the 1-hero lineup).
 3. Arena screen: tickets `N/5` at `(540,1428)`. **Start Match** `(540,1610)` → matches vary: some are instant (~5–8 s), close ones are
-   real fights (~60–80 s) — poll until the arena screen is back → *Victory/Defeat* → tap `(540,120)`. Repeat until 0/5.
+   real fights (~60–80 s) — poll until the arena screen is back → _Victory/Defeat_ → tap `(540,120)`. Repeat until 0/5.
 4. **Free tickets — one visit of the + popup per run** (Nick, 2026-10-26). `scripts/storm.py` does steps 3–4: plays
    until 0, then (popup opens itself on Start Match at 0, or via **+**) taps the **left green button** until it's grey.
    Three looks: **Free** (pass accounts, instant), **Claim** with a camera icon
@@ -817,9 +843,9 @@ dailies. Monday: closed until 17:00 — run `/catch-up` after that.
    Then close `(100,1150)`, play the new tickets; next time tickets hit 0 → close the popup and stop.
    Button state: sample `(260,1250)` — green (123,206,49) / grey (181,178,181). `(260,1274)` hits the "Free" text or
    the camera icon: that made storm.py miss the ad popup, "dismiss" it as a Victory and count fake 5 s matches.
-5. **Rewards** `(96,880)` (left side) — runner: end of step `storm`, same visit (red dot box `(110,830)-(180,900)`; taps the Gold/Silver/Bronze icons, MANUAL if the dot stays) — if it has a red dot: *Rank Reward* tab lists King/Glory/Gold/Silver/Bronze
+5. **Rewards** `(96,880)` (left side) — runner: end of step `storm`, same visit (red dot box `(110,830)-(180,900)`; taps the Gold/Silver/Bronze icons, MANUAL if the dot stays) — if it has a red dot: _Rank Reward_ tab lists King/Glory/Gold/Silver/Bronze
    rows; tap a reached rank's highlighted item icon, not the row background (Bronze `(372,1404)`, Silver `(372,1180)`, Gold `(372,962)`) → claims the whole row (checkmarks) →
-   dismiss `(540,1900)`. *Ranking Rewards* tab = end-of-season table, nothing to claim. Close ✕ `(972,228)`;
+   dismiss `(540,1900)`. _Ranking Rewards_ tab = end-of-season table, nothing to claim. Close ✕ `(972,228)`;
    the red dot should be gone.
 6. **At King rank: skip this step** — keep the full lineup (Nick, 2026-10-31). Below King: **Lineup** `(960,1600)` → quick-remove ↺ `(1006,1084)` (clears all) → tap only the **first** hero card
    `(140,1250)` (highest) → **Save** `(540,1808)` ("Successfully saved"). Done.

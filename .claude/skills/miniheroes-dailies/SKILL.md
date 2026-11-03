@@ -18,6 +18,10 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
    - `accounts/<account>.yaml` for each requested account (all `enabled: true` accounts if he says "all")
    - `docs/setup.md` only if the emulator/network looks wrong
 2. **ADB** (Nick approved; computer use only if he asks): everything below runs over ADB.
+   **Pre-flight (Nick, 2026-11-03):** after boot, before the real run, test every row of `docs/untested.md` on ONE
+   account (the step named there, watched live). Pass → remove the row, run all accounts. Fail → fix or report, and
+   leave that step to helpers on the other accounts. Changes made during a run that can't be tested that day → add a
+   row (what, how to test, what passing looks like). Mon–Wed: the Pet Arena rows ARE that account's first step.
 3. **Run** — see "Cost" below: boot, `daily.py` per account in parallel, then one helper per account for its leftovers.
    The runner follows the **Daily run order** in `docs/ui-routine.md` and skips missions not in the account config.
 4. **Report** per account: each mission done/skipped (and why) and every paid action with its price (the runner prints
@@ -25,6 +29,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
 
 **Cost — runner first, helpers only for leftovers (Nick, 2026-10-28 — urgent).** One helper per account for the whole
 run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly for 8 accounts). Now:
+
 1. `scripts/boot.sh <idx>...`, close event popups (one screenshot per account).
 2. Run every account's runner in ONE background Bash command and wait for its completion notification (no polling):
    `for a in <acct>:<serial> ...; do (D=${a#*:} OUT=/tmp/miniheroes-$(date +%F)/${a%%:*} scripts/daily.py ${a%%:*} > /tmp/miniheroes-$(date +%F)/${a%%:*}.log 2>&1) & done; wait`
@@ -33,14 +38,14 @@ run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly 
    Canyon with no empty spot, event tabs with an unmapped red dot — plus any FAIL, each with `v_<step>.png`).
    Storm Rewards, Arena chests, Canyon empty spot, Canyon Points Reward and event milestones are runner steps
    since 2026-10-28. The runner retries each FAIL once right away, in order (2026-11-01) — don't re-run
-   FAILed steps by hand; only what it still lists. Exit 1 = lost the main screen; exit 2 = a runner already holds that account. Watch failures live: Monitor `tail -F <dir>/*.log | grep
-   --line-buffered -E '^(FAIL|Traceback)'`.
+   FAILed steps by hand; only what it still lists. Exit 1 = lost the main screen; exit 2 = a runner already holds that account.
+   Watch failures live: Monitor `tail -F <dir>/*.log | grep --line-buffered -E '^(FAIL|Traceback)'`.
 3. Per account with leftovers: ONE `mh-helper` whose prompt lists only those steps + their doc sections
    (`scripts/doc.sh …`) and the log's FAIL lines. Its final answer ≤15 lines (concerns, done/skipped, paid + price).
 4. Report from `scripts/summary.sh <run dir>` (one call: FAIL/MANUAL/paid lines + LEFT per account — don't grep the logs
    one by one; cost, Nick 2026-10-29) + helper answers. Script bugs found mid-run: note them, fix after the run. A step's script is the doc's fallback text otherwise — see ui-routine "Speed".
-Helpers that run a single mission by hand use the scripts too (`arena.py`, `trials.py`, `patrol.py`, `hero.py`,
-`tribe.py`, `adventure.py`, `storm.py`, `veins.py`, `grocery.py`, `fish_orders.py`) and handle exit 1.
+   Helpers that run a single mission by hand use the scripts too (`arena.py`, `trials.py`, `patrol.py`, `hero.py`,
+   `tribe.py`, `adventure.py`, `storm.py`, `veins.py`, `grocery.py`, `fish_orders.py`) and handle exit 1.
 
 Instances must be 1080×1920 (`adb shell wm size 1080x1920 && adb shell wm density 480`, then restart the game) so the
 documented coords apply. Helpers never edit the repo.

@@ -581,14 +581,23 @@ def divine(cfg, benefit=True):
 
 
 def stage(cfg):
-    out = []
-    for i in range(int(re.search(r'adventure_stage:\s*(\d+)', cfg)[1])):
-        tap_wait(994, 964); boxes = wait(r'^Start$', 10, (0, 1700, 1080, 1920))
-        if i == 0: lone_hero(tabs=True); boxes = wait(r'^Start$', 10, (0, 1700, 1080, 1920))   # Bone Archer alone, sticks
-        tap_text(r'^Start$', (0, 1700, 1080, 1920), boxes)
-        res = joined(wait(r'Tap anywhere to close|Victory|Defeat', 180)); tap_wait(540, 120)
+    """Stage x adventure_stage: skull -> tab 1 = Bone Archer alone (once, it sticks) -> Start. Defeat -> "Challenge
+    again" (shows ~3 s after) = back on the hero selection, lineup kept -> Start, until the target (Nick 2026-11-03: no
+    close + re-open per fight). A Victory moves the stage on -> close and re-open it."""
+    n, out, S = int(re.search(r'adventure_stage:\s*(\d+)', cfg)[1]), [], (0, 1700, 1080, 1920)
+    tap_wait(994, 964); wait(r'^Start$', 10, S); lone_hero(tabs=True); boxes = wait(r'^Start$', 10, S)
+    while True:
+        tap_text(r'^Start$', S, boxes)
+        res = joined(wait(r'Tap anywhere to close|Victory|Defeat', 180))
         out.append('Victory' if 'Victory' in res else 'Defeat' if 'Defeat' in res else 'done')
-        if not home(): break
+        if len(out) >= n: tap_wait(540, 120); break
+        if out[-1] == 'Defeat':
+            ca = find(wait(r'Challenge again', 6), r'Challenge again'); tap_wait(*ca)
+        else:
+            tap_wait(540, 120)
+            if not home(): raise Stop('lost the main screen after a stage Victory')
+            tap_wait(994, 964)
+        boxes = wait(r'^Start$', 10, S)
     return ', '.join(out)
 
 
@@ -599,42 +608,67 @@ def grocery(cfg):
     return out
 
 
-def rune(cfg):
-    """Backpack -> Rune tab -> scroll to the red (Mythic) runes -> first one without a lock -> Synthesize -> Quick
-    Equip (4 lowest-tier) -> Synthesize x1. Free. Mapped on the Kong instance 2026-10-29: tiles are red runs at
-    x=cx-62, lock = dark pixels at the tile's top-right; the popup (Synthesize vs 'Locked') is the final check."""
+def rune_tiles(im):
+    """Full red (Mythic) tiles -> [(top y, cx, locked)]. Tiles = red runs at x=cx-62; the padlock sits on the tile's
+    top-right corner (dark outline at cx+50..80, top-14..top+20) - checked on Tiger's 4 pages 2026-11-03: 12/12 locks."""
+    red = lambda p: p[0] > 200 and p[1] < 120 and p[2] < 120
+    tiles = []
+    for cx in (160, 350, 540, 730, 920):
+        s = None
+        for y in range(320, 1580, 2):
+            r = red(im.getpixel((cx - 62, y)))
+            if r and s is None: s = y
+            if not r and s is not None:
+                # full tile only (~162 px): a cut-off top row hides its lock above the edge (Nick 2026-11-02)
+                if y - s > 150 and s > 322: tiles.append((s, cx))
+                s = None
+    lock = lambda t, cx: any(sum(im.getpixel((x, y))[:3]) < 150 for y in range(t - 14, t + 20) for x in range(cx + 50, cx + 80))
+    return [(t, cx, lock(t, cx)) for t, cx in sorted(tiles)]
+
+
+def still():
+    """Grab once the rune list has stopped coasting: a swipe keeps it moving ~1-2 s, and taps placed from a moving frame
+    hit other tiles - locked ones (Nick 2026-11-03: "misclicked too many times on the locked runes")."""
+    a = grab().crop((60, 320, 1020, 1580))
+    for _ in range(12):
+        time.sleep(0.3); b = grab()
+        if list(b.crop((60, 320, 1020, 1580)).getdata())[::53] == list(a.getdata())[::53]: return b
+        a = b.crop((60, 320, 1020, 1580))
+    raise Stop('rune list never stopped moving')
+
+
+def rune_pick():
+    """Open the Synthesize popup of an unlocked red rune -> its Synthesize button, or Stop. Never taps a padlocked tile;
+    a 'Locked' reply = the detector was wrong -> stop, don't try more tiles."""
     tap_wait(994, 1625); time.sleep(1); tap_wait(900, 1775); wait(r'Backpack', 8)
-    tap_wait(868, 1680); time.sleep(1); swipe(540, 1300, 540, 700, 800); time.sleep(1.2)
-    for page in range(5):                               # unlocked reds can sit below the locked ones (Cmajor/Kong 2026-10-31)
-        if page: swipe(540, 1300, 540, 700, 800); time.sleep(1.2)
-        im = grab(); red = lambda p: p[0] > 200 and p[1] < 120 and p[2] < 120
-        tiles = []
-        for cx in (160, 350, 540, 730, 920):
-            s = None
-            for y in range(320, 1580, 2):
-                r = red(im.getpixel((cx - 62, y)))
-                if r and s is None: s = y
-                if not r and s is not None:
-                    # full tile only: ~162 px. The cut-off top row (122 px, starts at the scan edge) has its lock
-                    # hidden above the edge -> it passed as unlocked and got tapped (Nick 2026-11-02 "picking locked rune")
-                    if y - s > 150 and s > 322: tiles.append((s, cx))
-                    s = None
-        free = [(t, cx) for t, cx in sorted(tiles)
-                if not sum(1 for y in range(t - 14, t + 20) for x in range(cx + 50, cx + 80) if sum(im.getpixel((x, y))[:3]) < 150)]
-        if free: break
-    for t, cx in free[:3]:
-        tap_wait(cx, t + 72)
-        try: s = find(wait(r'^Synthesize$', 3, (300, 1100, 780, 1300)), r'^Synthesize$', (300, 1100, 780, 1300))
-        except Stop: s = None                     # 0.8 s fixed sleep missed the popup on Dino (2026-10-30)
-        if not s: tap_wait(540, 200); time.sleep(0.8); continue   # outside the popup, inside Backpack; 'Locked Runes can't be synthesized' / misread
-        tap_wait(*s); tap_text(r'Quick ?Equip', (250, 1600, 580, 1720), wait(r'Quick ?Equip', 6))
-        boxes = wait(r'^Synthesize$', 4, (650, 1600, 1000, 1720))
-        if not find(boxes, r'^[xX]1$', (60, 1600, 200, 1720)): raise Stop('rune: multiplier is not x1')
-        tap_text(r'^Synthesize$', (650, 1600, 1000, 1720), boxes)
-        res = wait(r'Congratulations', 8); r = next((b[4] for b in res if 'Rune' in b[4]), 'rune')
-        tap_text(r'^Confirm$', boxes=res); time.sleep(0.8); tap_wait(972, 560); time.sleep(0.8); tap_wait(972, 238)
-        return f'synthesized -> {r}'
-    raise Stop(f'no unlocked red rune ({len(tiles)} red tiles, {len(free)} without lock)')
+    tap_wait(868, 1680)
+    seen = 0
+    for page in range(6):                               # unlocked reds can sit below the locked ones (Cmajor/Kong 2026-10-31)
+        if page: swipe(540, 1300, 540, 700, 800)
+        im = still(); tiles = rune_tiles(im); seen += len(tiles)
+        free = [(t, cx) for t, cx, locked in tiles if not locked]
+        if not free: continue
+        t, cx = free[0]
+        tap_wait(cx, t + 81)                            # tile centre
+        for _ in range(8):                              # Synthesize sits lower the more stat lines the rune has (Bino)
+            boxes = ocr(); s = find(boxes, r'^Synthesize$', (200, 900, 880, 1750))
+            if s: return s
+            if find(boxes, r'(?i)locked'): raise Stop(f'tapped a locked rune at ({cx},{t + 81}) - lock detector missed it')
+            time.sleep(0.4)
+        raise Stop(f'rune at ({cx},{t + 81}): no Synthesize popup')
+    raise Stop(f'no unlocked red rune ({seen} red tiles seen, all locked)')
+
+
+def rune(cfg):
+    """Backpack -> Rune tab -> first unlocked red (Mythic) rune -> Synthesize -> Quick Equip (4 lowest-tier) ->
+    Synthesize x1. Free. Mapped on the Kong instance 2026-10-29; precise picking 2026-11-03."""
+    tap_wait(*rune_pick()); tap_text(r'Quick ?Equip', (250, 1600, 580, 1720), wait(r'Quick ?Equip', 6))
+    boxes = wait(r'^Synthesize$', 4, (650, 1600, 1000, 1720))
+    if not find(boxes, r'^[xX]1$', (60, 1600, 200, 1720)): raise Stop('rune: multiplier is not x1')
+    tap_text(r'^Synthesize$', (650, 1600, 1000, 1720), boxes)
+    res = wait(r'Congratulations', 8); r = next((b[4] for b in res if 'Rune' in b[4]), 'rune')
+    tap_text(r'^Confirm$', boxes=res); time.sleep(0.8); tap_wait(972, 560); time.sleep(0.8); tap_wait(972, 238)
+    return f'synthesized -> {r}'
 
 
 SHOP_TABS = {'sanctuary': (452, False), 'tribe': (732, False), 'ruins': (980, False), 'realm': (604, True)}  # x, after tab-bar swipe
