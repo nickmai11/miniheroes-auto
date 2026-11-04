@@ -327,11 +327,10 @@ assert relic.cell(Image.new('RGB', (1080, 1920), (0, 200, 0)), 0, 0)[0] == '?'  
 print('ok')
 
 # planner (Chien Than 2026-11-04, Nick): of two 5-dig routes to a relic chest, the bottom row with 2 shards beats the
-# column tunnel past 2 gold chests; and with 2 shovels left the lit shard is dug, not the first step of a 5-dig route.
+# column tunnel past 2 gold chests. The shovels left never shorten a route (Nick 2026-11-04: they recover, the next run continues).
 _rows = ['. . . . . .', '. . . . . .', 'G . . . . .', 'd d d d . d', 'g d d d . d', 'd d d d . d', 'c d r d R d']
 _g = [[(t.upper(), t.isupper()) if t != '.' else ('.', False) for t in r.split()] for r in _rows]
 _p = relic.plan(_g); assert _p[:2] == (6, 4) and 'relic chest' in _p[2] and 'cost 5' in _p[2], _p
-_p = relic.plan(_g, budget=2); assert _p[:2] == (6, 4) and 'shard' in _p[2], _p
 print('planner ok')
 
 # a lit multi chest opens for free (Cmajor 2026-11-04: shovels 1->1, Mine bar unchanged) -> dug before anything else
@@ -342,9 +341,8 @@ _p = relic.plan(_g, blocked={(4, 3), (4, 4), (4, 5), (5, 3), (5, 4), (5, 5)}); a
 print('multi chest ok')
 
 # a multi chest outranks a relic chest (Nick 2026-11-04): a 3-dig route to an unlit multi chest beats the lit relic chest
-# next to it (1 dig, better ratio); the chest is still collected after
+# next to it (1 dig, better ratio), however few shovels are left
 _rows = ['. . . . . .', '. . . . . .', '. . . . . .', '. C . . . .', '. . . D . .', '. . . s m m', '. . . d m m']
 _g = [[(t.upper(), t.isupper()) if t != '.' else ('.', False) for t in r.split()] for r in _rows]
 _p = relic.plan(_g); assert _p[:2] == (4, 3) and 'multi chest' in _p[2] and 'cost 3' in _p[2], _p
-_p = relic.plan(_g, budget=2); assert _p[:2] == (3, 1) and 'relic chest' in _p[2], _p   # can't afford the 3 digs -> the chest
 print('multi first ok')

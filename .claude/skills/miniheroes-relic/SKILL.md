@@ -38,7 +38,7 @@ Dijkstra over dig costs from the lit tiles (dirt 1, stone 2, pickaxe 0) over the
 (0.99 per tile: a corridor there that could beat a known tunnel through stone makes the first dig the dig-down that
 reveals it — `via the next row`, Nick 2026-11-04), target = best value/cost ≥ 0.14 lv1-relic units per shovel (shard
 0.28, relic chest 1.6, gold chest 0; **a multi-square chest outranks everything** — Nick 2026-11-04: value 3.2 and its
-route is taken first at any cost the shovels left can cover, a lit one opens free before anything), otherwise the
+route is taken first at any cost, a lit one opens free before anything), otherwise the
 cheapest bottom-row dig (reveals a new row).
 A bottom-row dig scrolls row 1 off for good, so an item there worth its route is dug first (`before the scroll loses
 it`; `letting … go` = not worth its route). Every dig is
@@ -109,7 +109,7 @@ Facts (Lost Continent map → **Archive** `(470,1810)`; Relic Display → **Frag
 
 Script values (Nick 2026-11-04, "I trust you"): **relic chest 1.6**, **multi-square chest 3.2 and first in line** (Nick
 2026-11-04: "most important, more than relic chest" — the planner targets it before any relic chest or shard route
-whatever the ratio, within the shovels left), gold chest 0, **shard 0.28, threshold r = 0.14** — the shard is kept above the measured 0.21
+whatever the ratio), gold chest 0, **shard 0.28, threshold r = 0.14** — the shard is kept above the measured 0.21
 because every call Nick has made (a lone shard up to 2 digs, two shards sharing a 3–4-dig tunnel, the Kong left
 cluster) only holds at ~0.28/0.14; the measured 0.21 would need r ≈ 0.10 to match them and that would send the
 planner 16 digs after a chest. At 1.6 a chest pays for up to ~11 digs (was 7).
@@ -137,8 +137,8 @@ shard 1–2; shards sharing a tunnel split the cost — the script credits every
 
 **Routes collect on the way** (Nick 2026-11-04, Chien Than): of two routes of the same cost, take the one through
 shards/chests — the search treats item tiles as free to pass, so a 5-dig bottom row with 2 shards beats a 5-dig tunnel
-past 2 gold chests (and bottom-row digs reveal rows on the way). **A route must fit the shovels left**: with 2 shovels
-the planner digs a lit shard, never the first 2 digs of a 4-dig route (`budget` in `plan()`).
+past 2 gold chests (and bottom-row digs reveal rows on the way). **The shovels left never shorten a route** (Nick 2026-11-04: shovels recover over time; a half-dug tunnel is
+continued by the next run).
 
 **Every dig needs a target** (Nick 2026-10-31, "gone wild"): each dig is either on the cheapest route to a named item
 (log it: `route to <item> rNcM, cost N`) or a bottom-row dig that reveals a new row. Never dig a tile just because it's

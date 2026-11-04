@@ -177,9 +177,9 @@ def multi_groups(g):
     return comp
 
 
-def target(g, dist, prev, blocked=(), rows=range(7), budget=None):
-    """The item in `rows` with the best value/cost >= RATIO -> (r, c, why) of its first dig, or None.
-    `budget` = shovels left: a route that can't be finished isn't started (Chien Than 2026-11-04: 2 digs of a 4-dig route)."""
+def target(g, dist, prev, blocked=(), rows=range(7)):
+    """The item in `rows` with the best value/cost >= RATIO -> (r, c, why) of its first dig, or None. The shovels left
+    don't matter (Nick 2026-11-04: they recover; a half-dug tunnel is finished by the next run)."""
     worth = lambda r, c: g[r][c][0] in VALUE and VALUE[g[r][c][0]] > 0 and (r, c) not in blocked
     comp = multi_groups(g)
     best = None
@@ -199,9 +199,8 @@ def target(g, dist, prev, blocked=(), rows=range(7), budget=None):
         v = sum(once(a, b)[0] for a, b in p); ex = [once(a, b) for a, b in extra]
         v += sum(x[0] for x in ex); cst = d + sum(x[1] for x in ex)
         if cst <= 0: continue                                     # a free (lit) chest is _next()'s job
-        multi = g[r][c][0] == 'M'                                 # Nick 2026-11-04: a multi chest outranks everything, at any cost it can afford
+        multi = g[r][c][0] == 'M'                                 # Nick 2026-11-04: a multi chest outranks everything, at any cost
         key = (multi, v / cst, -cst, r)
-        if budget is not None and d > budget + 1e-9: continue
         if (multi or v / cst >= RATIO - 1e-9) and (best is None or key > best[0]): best = (key, (r, c), d, len(extra), v / cst, p)
     if not best: return None
     (r, c), d, n, ratio, p = best[1:]
@@ -209,15 +208,15 @@ def target(g, dist, prev, blocked=(), rows=range(7), budget=None):
                                 f'{" via the next row" if any(a >= 7 for a, b in p) else ""}, cost {d:.0f}, {ratio:.2f}/shovel')
 
 
-def plan(g, blocked=(), budget=None):
+def plan(g, blocked=()):
     """-> (r, c, why) for the next dig, or None: a lit pickaxe (free), else the best item by value/cost (>= RATIO) over
     the board plus its hidden next row, else the cheapest bottom-row dig. A bottom-row dig scrolls row 1 off the board
     for good, so an item there that is worth its route goes first (Nick 2026-11-04: "collect the resources at the top
     before going down")."""
-    nxt = _next(g, blocked, budget)
+    nxt = _next(g, blocked)
     if nxt and nxt[0] == 6:
         dist0, prev0 = routes(g, set(blocked) | {(6, c) for c in range(6)})            # routes that don't scroll
-        top = target(g, dist0, prev0, blocked, rows=(0,), budget=budget)
+        top = target(g, dist0, prev0, blocked, rows=(0,))
         if top: return top[0], top[1], top[2] + ', before the scroll loses it'
         lost = [f'{NAME[g[0][c][0]]} r1c{c + 1} ({f"cost {dist0[(0, c)]:.0f}" if (0, c) in dist0 else "no route"})'
                 for c in range(6) if g[0][c][0] in NAME]
@@ -225,7 +224,7 @@ def plan(g, blocked=(), budget=None):
     return nxt
 
 
-def _next(g, blocked, budget=None):
+def _next(g, blocked):
     # a lit pickaxe costs nothing net; one in the bottom row reveals a new row before we commit to a route
     # (Nick 2026-11-04, Kong: the script dug a 7-shovel tunnel to a chest while a free pickaxe sat lit in the bottom row)
     # a lit multi chest opens for free (Cmajor 2026-11-04) -> first of all
@@ -236,7 +235,7 @@ def _next(g, blocked, budget=None):
         return r, c, f'free pickaxe r{r + 1}c{c + 1}' + (' (reveals a row)' if r == 6 else '')
     g8 = g + [[('D', False)] * 6]                                   # the hidden row a bottom-row dig reveals (HIDDEN per tile)
     dist, prev = routes(g8, blocked)
-    t = target(g8, dist, prev, blocked, budget=budget)
+    t = target(g8, dist, prev, blocked)
     if t: return t
     bottom = [(d, g[6][c][0] != 'D', abs(c - 2.5), c) for c in range(6) for d in [dist.get((6, c))] if d is not None]
     if not bottom: return None
@@ -489,7 +488,7 @@ def run(account, dry=False, max_digs=None):
                 g, im = stable_board()
                 if g is None: raise Stop('left the dig board after the milestone claim')
                 boxes = ocr(im)
-            p = plan(g, blocked, n[0])
+            p = plan(g, blocked)
             if p is None: log(f'nothing diggable (lit cells unknown/blocked: {unknown(g) or "-"}) -> stop'); break
             r, c, why = p
             k0 = g[r][c]; n0 = n[0]
