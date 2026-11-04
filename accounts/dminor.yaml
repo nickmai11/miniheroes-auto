@@ -19,7 +19,7 @@ missions:
 
   arena:
     tribe: Peakaboo
-    skip_same_server: true
+    attack_tribemates: true # Nick, 2026-11-04: anyone (tribemates too), but never Nick's own accounts (accounts/own_accounts.txt)
     crash_all_tickets: true
 
   shop_freebies: true
