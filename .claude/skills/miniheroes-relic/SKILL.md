@@ -71,7 +71,9 @@ arrow `(80,1820)`). Screenshot before retrying anything.
   Then **shovel buys**: the green **+** on the shovel button `(656,1770)` → Tip "Spend N diamonds to buy 10 Shovel?
   (Remaining purchases: k)" → **Confirm** `(540,1162)` only while N is one of the account's `relic_shovel_buys`
   (default `[80]`; Kong `[80, 160, 240]`; Cmajor `[80, 160]`) and the gem counter covers it; any other price → ✕
-  `(938,636)` and stop (Aminor 2026-11-04: 320 on screen = the 80 was already bought by hand). Prices escalate
+  `(938,636)` and stop (Aminor 2026-11-04: 320 on screen = the 80 was already bought by hand). The day's buys and the
+  last price seen are remembered (`/tmp/miniheroes-state/<acct>-<day>.relic_buys`), so a re-run never opens the Tip
+  again (Nick 2026-11-04: every pass re-opening it looked like extra buy taps). Prices escalate
   80 → 160 → 240 → 320 within the day; each buy is verified by the counter (+10).
 - **Milestone bar** ("Mine N more time(s) to claim your reward", top): at N = 0 tap its reward icon top-right
   `(1010,280)` → Congratulations popup → tap anywhere. Free (boosters / shovels); claim every time it's ready.

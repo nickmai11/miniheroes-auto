@@ -396,12 +396,21 @@ def benefit():
     return got
 
 
-def buy_shovels(prices):
+def buy_shovels(prices, account):
     """Shovel + (green, on the shovel button) -> Tip "Spend N diamonds to buy 10 Shovel? (Remaining purchases: k)".
     Confirm only while N is one of the account's configured prices (relic_shovel_buys, Nick 2026-11-04: default 80;
     Kong 80/160/240; Cmajor 80/160) and the gem counter covers it; any other price -> X, stop. Each buy is verified by
     the shovel counter (+10)."""
-    out, left = [], list(prices)
+    # per game day: prices bought + the next price seen -> a re-run doesn't open the Tip again (Nick 2026-11-04: "you
+    # seem to have clicked too many times on the buy shovels" - every pass re-opened and closed it to read the price)
+    day = time.strftime('%F', time.gmtime(time.time() - 5 * 3600))
+    st = f'/tmp/miniheroes-state/{account}-{day}.relic_buys'; os.makedirs('/tmp/miniheroes-state', exist_ok=True)
+    done = [int(x) for x in open(st).read().split()] if os.path.exists(st) else []
+    bought, nxt = [x for x in done if x > 0], [-x for x in done if x < 0]       # negative = the next price seen (not bought)
+    left = [x for x in prices if x not in bought]
+    if not left or (nxt and nxt[-1] not in left):
+        return f'shovel buy: nothing left today (bought {bought}, next price {nxt[-1] if nxt else "?"})'
+    out = []
     tip = lambda boxes: re.search(r'Spend\D*(\d+)\D+buy\D*(\d+)\s*Shovel', joined(boxes))
     boxes = ocr()
     while left:
@@ -416,11 +425,11 @@ def buy_shovels(prices):
         gm = re.search(r'(\d+)', ' '.join(b[4] for b in boxes if b[1] < 90 and b[0] < 320))
         gems = int(gm.group(1)) if gm else -1
         if price not in left or gems < price:
-            out.append(f'shovel buy skipped: {price} gems on screen not in {left} (gems {gems})'); break
+            open(st, 'a').write(f' -{price}'); out.append(f'shovel buy skipped: {price} gems on screen not in {left} (gems {gems})'); break
         tap_wait(540, 1162); time.sleep(1.2)             # Confirm
         boxes = ocr(); n1 = shovels(boxes) or n0
         if n1[0] < n0[0] + cnt: raise Stop(f'shovel buy at {price}: counter {n0[0]} -> {n1[0]}, expected +{cnt}')
-        left.remove(price); out.append(f'bought {cnt} shovels for {price} gems ({n0[0]} -> {n1[0]})')
+        open(st, 'a').write(f' {price}'); left.remove(price); out.append(f'bought {cnt} shovels for {price} gems ({n0[0]} -> {n1[0]})')
     for _ in range(3):                                   # X on a Tip left open (the next price)
         if not tip(boxes): break
         tap_wait(938, 636); time.sleep(0.5); boxes = ocr()
@@ -436,7 +445,7 @@ def run(account, dry=False, max_digs=None):
         y = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
         m = re.search(r'^\s*relic_shovel_buys:\s*\[([^\]]*)\]', y, re.M)
         prices = [int(x) for x in re.findall(r'\d+', m.group(1))] if m else [80]
-        log(buy_shovels(prices))
+        log(buy_shovels(prices, account))
         g, im = stable_board()
         if g is None: raise Stop('not on the dig board after Benefit / shovel buys')
     boxes = ocr(im)
