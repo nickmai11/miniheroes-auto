@@ -59,15 +59,22 @@ def run():
     from flow import Stop, find, grab, joined, ocr, swipe, tap, tap_text, tap_wait, wait
     is_main = lambda: all(abs(a - b) <= 40 for a, b in zip(grab().getpixel((92, 1788)), (0, 158, 230)))
 
-    def attempts():
-        for _ in range(3):
-            boxes = ocr()
+    def attempts(im=None):
+        """The pill right of "Attack Attempts" (same row as the "Battling: hh:mm:ss" timer, which a trailing-digits
+        match read as 34/24/4822 when OCR missed the lone "0": Cmajor/Chien Than/Bino 2026-11-04). Pure digits only,
+        inside the pill (x 40-220 right of the label centre); a lone digit missed -> label+pill crop enlarged 3x."""
+        for _ in range(5):
+            im = im or grab(); boxes = ocr(im)
             a = find(boxes, r'Attack Attempts', (0, 100, 400, 220))
             if a:
                 for x, y, w, h, t in boxes:
-                    m = re.search(r'(\d+)\s*$', t)
-                    if m and abs(y + h / 2 - a[1]) < 30 and x < 400: return int(m.group(1))
-            time.sleep(0.7)
+                    if re.fullmatch(r'\d+', t.strip()) and abs(y + h / 2 - a[1]) < 30 and 40 < x + w / 2 - a[0] < 220:
+                        return int(t)
+                c = im.crop((0, a[1] - 45, 330, a[1] + 45))     # label + pill, 3x: reads "Attack Attempts 0" (a lone pill crop reads "ts O")
+                for *_, t in ocr(c.resize((c.width * 3, c.height * 3))):
+                    m = re.search(r'Attempts\W*([0-9O]+)\s*$', t)
+                    if m: return int(m.group(1).replace('O', '0'))
+            im = None; time.sleep(0.7)
         raise Stop('Attack Attempts counter unreadable')
 
     # ---- navigate to the map ----

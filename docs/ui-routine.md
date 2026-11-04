@@ -850,7 +850,9 @@ Added by Nick 2026-10-26; mapped on xFaktor via ADB (device coords). Skill: `min
 1. Main screen → **Tribe** `(448,1780)` (first tap right after the main screen appears may be ignored — retry once)
    → **Poseidon's Ruins** card `(540,1440)` (red dot = attempts left; "In Battle: hh:mm:ss") → Loading ~3 s →
    battle map, **Enemies** tab selected (Allies/Enemies at the bottom).
-2. Header: **Attack Attempts N** top-left (3/day on xFaktor). Ignore Report / Rewards / Contribute.
+2. Header: **Attack Attempts N** top-left (3/day on xFaktor) — the number is the pill right of the label; the green
+   **Battling: hh:mm:ss** timer sits on the same row (OCR'd it as the count when the lone "0" was missed, 2026-11-04).
+   Ignore Report / Rewards / Contribute.
 3. Enemy ships in rows of 3, sorted by CP high → low (big ships first, rowboats at the bottom). Each shows
    name + CP and 3 hearts: **red** = alive, **grey + fire** = sunk. Scroll with `input swipe 540 1500 540 700 800`
    (~3 swipes reach the bottom). Sunk ships move down the list after a fight.
