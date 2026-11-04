@@ -570,12 +570,16 @@ def recruit(cfg, common_only=False):
             tap_text(r'^Confirm$', boxes=wait(r'^Confirm$', 15)); got.append('ancestor')
     if want('artifact') and not common_only:            # Free + Wishes (stars) up to the config count, Auto OFF (Nick 2026-11-02)
         tap_wait(618, 1840); time.sleep(1)
-        auto_on = lambda: (lambda p: p[1] > 170 and p[0] < 150)(grab().getpixel((900, 1658)))
-        if auto_on(): tap_wait(900, 1658); time.sleep(0.5)
+        def auto_on():   # Auto = checkbox, ticked = green check at ~(866,1658); old 1-pixel test at 900 missed it (Chien Than 2026-11-04)
+            im = grab().convert('RGB')
+            return sum(1 for x in range(830, 900, 3) for y in range(1630, 1690, 3)
+                       if (lambda q: q[1] > 150 and q[1] > q[0] + 40 and q[1] > q[2] + 40)(im.getpixel((x, y)))) >= 5
+        if auto_on(): tap_wait(866, 1658); time.sleep(0.5)
         if auto_on(): got.append('ARTIFACT SKIPPED: Auto toggle stays ON')
         else:
             n = 0
             for _ in range(want('artifact')):
+                if auto_on(): got.append('ARTIFACT STOPPED: Auto ticked mid-run'); break
                 boxes = ocr(); b = find(boxes, r'^(Free|Wish)$', (300, 1580, 780, 1700))
                 if not b or find(boxes, r'^280$', (300, 1580, 780, 1700)): break     # 280 = gem price: never
                 g0 = gems(boxes); tap_wait(*b); time.sleep(1.5); tap_wait(540, 120)   # fragment can sit over the button

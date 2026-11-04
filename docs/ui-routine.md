@@ -335,6 +335,8 @@ Keep the pre-selected lineup (Nick, 2026-10-26: don't bother picking the weakest
 2. **Challenge** `(540,1805)` → lineup screen. **Bone Archer alone** (Nick, 2026-11-02: if 5 heroes are set, set only
    Bone Archer; never set them back): recall all `(1006,1082)` → archer filter `(670,1644)` → its card (skull; template
    `scripts/bone_archer.png`, scroll the grid) → filter back to all `(270,1644)`. `flow.lone_hero()` does it.
+   **Any 1 hero already set → keep it**, no recall / archer search (Nick, 2026-11-04): `flow.one_hero()` reads idle
+   motion over ~1 s, back slot x < 140 moving and slots 2–5 (x 180–500) still.
 3. **Start** `(540,1808)` → result screen. Dismiss by tapping `(540,1700)` (below the
    "Challenge again" button — never tap that). Verify tickets dropped by 1.
 4. Repeat steps 2–3 until the configured count is done (stop early if tickets hit 0).
@@ -422,8 +424,9 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: **2 Common, 1 Ancest
 3. **Ancestor Summon** tab `(896,1610)` → **Free** `(310,1355)` (red dot) → result → **Confirm**
    `(300,1755)`. **Never "Recruit 1"** on the result screen (spends a ticket). Button then shows
    "Free after HH:MM:SS".
-4. **Artifact** bottom tab `(618,1840)`. **Auto** toggle (`(882,1658)`–`(935,1658)`) must be **off** (grey; tap it
-   if green). **Roll `recruit.artifact` times (5) WITHOUT Auto** (Nick, 2026-11-02): **Free** `(540,1638)` first, then
+4. **Artifact** bottom tab `(618,1840)`. **Auto** checkbox `(866,1658)` must be **unticked** (empty; ticked = green
+   check — tap it; the old 1-pixel test at x 900 missed the check and Chien Than Auto-wished, Nick 2026-11-04). Re-check
+   before every roll; a reward popup over it eats the tap (close it first). **Roll `recruit.artifact` times (5) WITHOUT Auto** (Nick, 2026-11-02): **Free** `(540,1638)` first, then
    **Wish** (stars) on the same button; dismiss each result (`(540,120)`, or Confirm on a new artifact). Never a button
    showing **280** (Brilliance tier gem price); gem count must not drop.
 

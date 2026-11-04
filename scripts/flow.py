@@ -143,11 +143,23 @@ def find_img(path, region=(0, 1150, 1080, 1590), im=None):
     return region[0] + 4 * x + 2 * t.shape[1], region[1] + 4 * y + 2 * t.shape[0], round(float(d.min()), 1)
 
 
+def one_hero():
+    """Battle setup: exactly 1 hero deployed? Idle animation over ~1 s: motion in our back slot (x<140), none in slots
+    2-5 (x 180-500). Measured xFaktor 3-35 (archer alone): 0-140 ~13k moving px, 180-500 0; enemy 5 heroes span ~500 px.
+    ponytail: a moving background in slots 2-5 reads as "more heroes" -> lone_hero() just redoes the lineup (safe)."""
+    import numpy as np
+    fr = []
+    for _ in range(6): fr.append(np.asarray(grab().convert('L'), dtype=float)[700:1010, 0:540]); time.sleep(0.2)
+    cols = (np.max([abs(a - fr[0]) for a in fr[1:]], axis=0) > 25).sum(axis=0)
+    return cols[:140].sum() > 1000 and cols[180:500].sum() < 300
+
+
 def lone_hero(tabs=False):
     """Battle setup (Tower, Stage tab 1) -> Bone Archer alone (Nick 2026-11-02: fast daily fights; never set back).
     Recall all, archer filter, find its card by template (an undeployed card scores ~10, others ~50), tap it, filter
     back to all (climb.py reads the all-heroes grid), check our power isn't 0."""
     if tabs: tap_wait(380, 1088)                         # Stage: tab 1
+    if one_hero(): return                                 # any 1 hero already set: keep it (Nick 2026-11-04)
     tap_wait(1006, 1082); tap_wait(670, 1644)            # recall all, archer filter
     for _ in range(8):
         x, y, d = find_img(os.path.join(HERE, 'bone_archer.png'))
