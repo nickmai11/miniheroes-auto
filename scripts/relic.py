@@ -36,7 +36,7 @@ KINDS = {'empty': ('.', False), 'pit': ('.', False), 'dirt': ('D', None), 'stone
          'frame': ('.', False)}   # gold-frame tile of a multi chest without the chest art: read() joins it to the art it touches
 COST = {'D': 1, 'K': 1, 'S': 2, 'R': 1, 'C': 1, 'G': 1, 'P': 0, 'M': 0}   # pickaxe: its shovel comes back -> net 0;
                                                                          # multi chest: always opens for free (Nick 2026-11-04; Cmajor: shovels 1->1, Mine bar unchanged)
-VALUE = {'R': 0.28, 'C': 1.6, 'M': 1.6, 'G': 0.0}  # base-relic units. Chest 1.6 = measured 2026-11-04 (29 base + 4 fused of 33,
+VALUE = {'R': 0.28, 'C': 1.6, 'M': 3.2, 'G': 0.0}  # base-relic units. Multi chest: the most important item, above the relic chest (Nick 2026-11-04) -> target() takes its routes first, whatever the ratio. Chest 1.6 = measured 2026-11-04 (29 base + 4 fused of 33,
                                                    # a fused Common = 6 base by fusion). Shard: measured 0.21, kept at Nick's 0.28 (see
                                                    # skill). Pickaxe = free tile, not a target.
 RATIO = 0.14                                               # units per shovel a target must beat (measured r ~0.13-0.15)
@@ -199,9 +199,10 @@ def target(g, dist, prev, blocked=(), rows=range(7), budget=None):
         v = sum(once(a, b)[0] for a, b in p); ex = [once(a, b) for a, b in extra]
         v += sum(x[0] for x in ex); cst = d + sum(x[1] for x in ex)
         if cst <= 0: continue                                     # a free (lit) chest is _next()'s job
-        key = (v / cst, -cst, r)
+        multi = g[r][c][0] == 'M'                                 # Nick 2026-11-04: a multi chest outranks everything, at any cost it can afford
+        key = (multi, v / cst, -cst, r)
         if budget is not None and d > budget + 1e-9: continue
-        if v / cst >= RATIO - 1e-9 and (best is None or key > best[0]): best = (key, (r, c), d, len(extra), v / cst, p)
+        if (multi or v / cst >= RATIO - 1e-9) and (best is None or key > best[0]): best = (key, (r, c), d, len(extra), v / cst, p)
     if not best: return None
     (r, c), d, n, ratio, p = best[1:]
     return p[-1][0], p[-1][1], (f'route to {NAME[g[r][c][0]]} r{r + 1}c{c + 1}{f" +{n} beside it" if n else ""}'

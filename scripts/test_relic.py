@@ -340,3 +340,11 @@ _g = [[(t.upper(), t.isupper()) if t != '.' else ('.', False) for t in r.split()
 _p = relic.plan(_g); assert _p[:2] in {(r, c) for r in (4, 5) for c in (3, 4, 5)} and 'opens free' in _p[2], _p   # any tile of the chest
 _p = relic.plan(_g, blocked={(4, 3), (4, 4), (4, 5), (5, 3), (5, 4), (5, 5)}); assert 'opens free' not in _p[2], _p   # a refused chest is left alone
 print('multi chest ok')
+
+# a multi chest outranks a relic chest (Nick 2026-11-04): a 3-dig route to an unlit multi chest beats the lit relic chest
+# next to it (1 dig, better ratio); the chest is still collected after
+_rows = ['. . . . . .', '. . . . . .', '. . . . . .', '. C . . . .', '. . . D . .', '. . . s m m', '. . . d m m']
+_g = [[(t.upper(), t.isupper()) if t != '.' else ('.', False) for t in r.split()] for r in _rows]
+_p = relic.plan(_g); assert _p[:2] == (4, 3) and 'multi chest' in _p[2] and 'cost 3' in _p[2], _p
+_p = relic.plan(_g, budget=2); assert _p[:2] == (3, 1) and 'relic chest' in _p[2], _p   # can't afford the 3 digs -> the chest
+print('multi first ok')
