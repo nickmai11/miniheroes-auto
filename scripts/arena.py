@@ -2,7 +2,7 @@
 # Arena: crash the topmost attackable opponent until tickets = 0 (ui-routine "Arena", steps 2-5).
 # usage: D=<serial> scripts/arena.py <account>     e.g. scripts/arena.py cmajor   (Arena screen must be open)
 # Reads the Challenge dialog with macOS Vision OCR (scripts/ocr): tickets "N/M", row names, blue Crash buttons.
-# Attackable = blue Crash + name not on accounts/tribe_<tribe>.txt; else the last row (always a bot).
+# Attackable = blue Crash + name not on accounts/tribe_<tribe>.txt (accounts/own_accounts.txt instead if arena.attack_tribemates: true); else the last row (always a bot).
 # skip_same_server accounts: last row (bot) only — the server tag isn't read. Never taps "+", Refresh or a
 # yellow Challenge. exit 0 = tickets 0 + dialog closed, 1 = unexpected screen (screenshot -> v_arena.png).
 # Win chests / Ranking Rewards claims (step 6) stay with the helper.
@@ -67,8 +67,9 @@ def main(account):
     cfg = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
     tribe = re.search(r'arena:\s*\n\s+tribe:\s*(.+)', cfg).group(1).strip()
     bot_only = bool(re.search(r'skip_same_server:\s*true', cfg))
-    roster = [norm(l) for l in open(os.path.join(HERE, '..', 'accounts', f'tribe_{tribe.lower().replace(" ", "_")}.txt'))
-              if l.strip() and not l.startswith('#')]
+    # Dino/Bino (attack_tribemates): tribemates fair game, but never Nick's own accounts (Nick, 2026-11-04)
+    rfile = 'own_accounts.txt' if re.search(r'attack_tribemates:\s*true', cfg) else f'tribe_{tribe.lower().replace(" ", "_")}.txt'
+    roster = [norm(l) for l in open(os.path.join(HERE, '..', 'accounts', rfile)) if l.strip() and not l.startswith('#')]
     tap_wait(540, 1594)  # Arena -> Challenge
     last, n = None, 0
     while n < 20:
