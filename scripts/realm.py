@@ -16,6 +16,8 @@ TIER = {'y': 1, 'ky': 1000}                # beast cores seen: 10y (blue), 1ky (
 STAT = {'ATK': 0, 'DEF': 1, 'HP': 2}       # same tier: ATK -> DEF -> HP (Nick)
 NOW = datetime.datetime.now(datetime.timezone.utc)
 LOG = None
+KEEP = False      # realm_lineup: keep in the account file (Kong, Cmajor): lineup left alone (Nick, 2026-11-04)
+FRESH = set()     # 'fight' once the fight lineup was re-picked this run
 
 
 def say(msg):
@@ -62,8 +64,9 @@ def fight(b, title):
     if not find(b, r'Tap anywhere'):
         # our CP (top left) '0' = empty lineup the first time. OCR reads the fist icon as a 1st char ('Z9100K', '27519K')
         deployed = lambda b: any(re.search(r'[1-9]\d*K$', x[4], re.I) for x in b if x[0] < 540 and 40 < x[1] < 140)
-        if not deployed(b):
-            tap_text(r'Quick Deploy', boxes=b); b = wait(r'^Start$', 5)
+        if not deployed(b) or (not KEEP and 'fight' not in FRESH):   # 5 strongest: quick-remove + Quick Deploy (Nick, 2026-11-04)
+            if not KEEP: tap_wait(1006, 1084); time.sleep(0.8)
+            FRESH.add('fight'); tap_text(r'Quick Deploy', boxes=b); b = wait(r'^Start$', 5)
             if not deployed(b): raise Stop('lineup still empty after Quick Deploy')
         tap_text(r'^Start$', (0, 1650, 1080, 1920), b)
         b = wait(r'Tap anywhere', 150)
@@ -75,6 +78,21 @@ def fight(b, title):
     # Defeat -> the event dialog returns with Mark | Bypass -> always Mark (Nick) -> straight back to Explore (Kong 11-03)
     b = wait(r'^Mark', 8); tap_text(r'^Mark', boxes=b)
     say(f'  marked {title} for tribe assist')
+
+
+def defense_lineup():
+    """Explore screen's Lineup (533,1877) -> Defense Lineup: quick-remove (1006,1084) + Quick Deploy (984,1800) = the 5
+    strongest -> Save -> back to the explore screen (Nick, 2026-11-04: before exploring; not on realm_lineup: keep)."""
+    tap_wait(533, 1877); wait(r'Defense Lineup', 8)
+    tap_wait(1006, 1084); time.sleep(0.8); tap_wait(984, 1800); time.sleep(1)
+    v = [cp(x[4]) for x in ocr() if 150 < x[1] < 240 and cp(x[4])]                      # CP badge under the title
+    if not v or not v[0]: raise Stop(f'defense lineup: CP {v} after Quick Deploy')
+    tap_wait(540, 1808); say(f'  defense lineup: 5 strongest (Quick Deploy), {v[0]:.0f}k, saved')
+    for _ in range(3):
+        time.sleep(1)
+        if find(ocr(), r'Stamina Cost'): return
+        tap_wait(88, 1812)
+    raise Stop('defense lineup: not back on the explore screen')
 
 
 def climb(fl, kills, need, maps, weekday):
@@ -147,8 +165,9 @@ def targets():
 
 
 def run(account, max_floor=3):
-    global LOG
+    global LOG, KEEP
     if not battle_on(): print('Floating Realm: no battle round now'); return
+    KEEP = bool(re.search(r'^\s*realm_lineup:\s*keep', open(f'{R}/accounts/{account}.yaml').read(), re.M))
     os.makedirs(f'{R}/logs/{account}', exist_ok=True)
     LOG = f'{R}/logs/{account}/{(NOW - datetime.timedelta(hours=5)).date()}.log'
     b = ocr()
@@ -162,6 +181,7 @@ def run(account, max_floor=3):
     start = re.search(r'Points: (-?\d+)', joined(b))
     st0 = re.search(r'(\d+)/(\d+)', ' '.join(x[4] for x in b if 1150 < x[1] < 1250))
     say(f'start: F{floor(b)}, {joined(b)[joined(b).find("Points"):][:14]}, stamina {st0 and st0[0]}')
+    if not KEEP: defense_lineup()
     gates, held, explores, idle, last, skips, knocks = {}, set(), 0, 0, None, 0, 0
     while True:
         im = grab(); b = ocr(im); t = joined(b)

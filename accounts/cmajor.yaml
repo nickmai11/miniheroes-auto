@@ -65,3 +65,4 @@ missions:
     strategy: stamina_order
     order: random
     sprites: 2
+  realm_lineup: keep       # Floating Realm: keep the lineup as is; every other account gets clear + Quick Deploy (5 strongest) before exploring (Nick, 2026-11-04)

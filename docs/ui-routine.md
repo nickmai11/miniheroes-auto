@@ -939,7 +939,8 @@ stamina left over before a reset is lost.
    row's right `(864,622)` for the top row → _Congratulations_ → close on its "Tap anywhere to close" text `(540,1208)`;
    a claimed row drops to the bottom. ✕ `(972,228)`. realm.py claims them after exploring (Nick, 2026-11-03).
    Bottom **Rewards** = ranking-prize Preview only (sent by email after the event), nothing to claim.
-2. Explore screen: **Explore** `(540,1380)` (cost 1 on F1, 2 on F2, 3 on F3). A **1x** toggle `(340,1516)` appears left of
+2. Explore screen, **before exploring** (Nick, 2026-11-04): bottom-bar **Lineup** `(533,1877)` → _Defense Lineup_ (same screen as Storm's: quick-remove ↺ `(1006,1084)` recalls all, CP badge `(540,194)` reads 0, **Quick Deploy** `(984,1800)` picks the 5 strongest, **Save** `(540,1808)`, back `(88,1812)`) — realm.py `defense_lineup()`; the first Attack's lineup screen gets the same ↺ + Quick Deploy. Skipped on accounts with `realm_lineup: keep` (Kong, Cmajor keep their own lineups).
+   **Explore** `(540,1380)` (cost 1 on F1, 2 on F2, 3 on F3). A **1x** toggle `(340,1516)` appears left of
    Explore once enough stamina is spent (the 3× explore unlock; not used yet). **Skip** checkbox `(816,1532)` right of Explore: keep it
    ticked (green check) before exploring (Nick, 2026-11-03; it was off on Tiger); realm.py ticks it. Each explore = 1 event; the event's
    button sits at the same spot:
