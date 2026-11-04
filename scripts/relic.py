@@ -35,7 +35,7 @@ KINDS = {'empty': ('.', False), 'pit': ('.', False), 'dirt': ('D', None), 'stone
          'shard': ('R', None), 'chest': ('C', None), 'gold': ('G', None), 'pick': ('P', None), 'multi': ('M', None),
          'frame': ('.', False)}   # gold-frame tile of a multi chest without the chest art: read() joins it to the art it touches
 COST = {'D': 1, 'K': 1, 'S': 2, 'R': 1, 'C': 1, 'G': 1, 'P': 0, 'M': 0}   # pickaxe: its shovel comes back -> net 0;
-                                                                         # multi chest: opens for free (Cmajor 2026-11-04: shovels 1->1, Mine bar unchanged)
+                                                                         # multi chest: always opens for free (Nick 2026-11-04; Cmajor: shovels 1->1, Mine bar unchanged)
 VALUE = {'R': 0.28, 'C': 1.6, 'M': 1.6, 'G': 0.0}  # base-relic units. Chest 1.6 = measured 2026-11-04 (29 base + 4 fused of 33,
                                                    # a fused Common = 6 base by fusion). Shard: measured 0.21, kept at Nick's 0.28 (see
                                                    # skill). Pickaxe = free tile, not a target.

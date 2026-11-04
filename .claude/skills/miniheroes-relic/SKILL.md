@@ -68,7 +68,7 @@ arrow `(80,1820)`). Screenshot before retrying anything.
   gold-frame tiles, which look exactly like the opened pit; `read()` turns a frame block touching an art tile into one
   `M` chest (value once, other tiles cost 0) and a frame block with no art into empty. A new shape → the art tile reads
   `UNKNOWN`: `--learn` it as `multi_lit`, its plain tiles as `frame` if they read `UNKNOWN` too.
-  **Opening costs no shovel** and doesn't count on the Mine bar (Cmajor 2026-11-04: tap on a frame tile → chest gone,
+  **Opening is always free** — no shovel, no Mine-bar count (Nick 2026-11-04; seen on Cmajor: tap on a frame tile → chest gone,
   shovels 1→1, bar 63→62 over that tap + one real dig) → the script opens a lit one first, like a free pickaxe, and
   logs the reward popup's text (`popup: …`).
 - Reward banner ("Bone Saw FragmentX2") crosses row 1 for ~1 s after an item dig; "Limestone X1" (no "Fragment") = a
