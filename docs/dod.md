@@ -48,7 +48,9 @@ screen. Not done → the runner retries once → a helper does that one step →
 21. **Events** — no red dot on any event hub tab (**Pet Arena, Golden Woods, 7777 Draws, Match Event, Weekly
     Event**) and none on the weekly tribe events (**Floating Realm, Tribe Clash**) (Nick, 2026-11-03).
 22. **Fishing rewards** — no yellow Claim left on the orders.
-23. **Daily Mission** — rows and chests claimed, **160 ✓** (see "Whole run").
+23. **Daily Mission** — Daily tab: rows and chests claimed, **160 ✓** (see "Whole run"). **Weekly tab too**: no yellow
+    Claim left, its chests up to the points claimed, and **no red dot on either tab** (the step reads both at the end;
+    2026-11-04: the Weekly tab was skipped on every account and Nick found 4 unclaimed rows on Aminor).
 24. **Play Pass again** — no red dot on the Play Pass icon (opened only when the icon has one; Nick, 2026-11-03).
 
 ## Catch-up

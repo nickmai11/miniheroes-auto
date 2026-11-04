@@ -705,13 +705,17 @@ title `(540,240)` — `(540,120)` is outside the dialog and closes it; Weekly ta
    E-mail, Lobby, Grocery, **Mission**, Friends, Backpack) → **Mission** ≈ `(800,1360)`. Close ✕ `(972,238)`.
    Tabs at the bottom of the popup: **Daily** ≈ `(297,1693)`, **Weekly** ≈ `(779,1693)` (estimated from a
    screenshot, verify on first use); a red dot on a tab's top-right corner = something to claim there.
-2. Do **both tabs** that have a red dot (Daily, then Weekly). On each:
+2. Do **both tabs, always** (Daily, then Weekly) — never gate the Weekly tab on its red dot: the daily chest reward popup
+   dims the tab bar and the dot with it, which skipped the Weekly tab on every account on 2026-11-04 (Nick found 4
+   unclaimed rows on Aminor). Close every "Tap anywhere to close" popup before tapping a tab. On each:
    - Tap **one** yellow **Claim** row — it claims all rows (confirmed on 5 accounts).
      Never tap **GO** (it navigates to the mission, e.g. Grocery diamond purchase / Statue upgrade).
    - **Never scroll**: claimable rows always sort to the top. Top row is GO / grey ✓ → that list is done.
-   - Top bar activity chests (Daily: **40 / 80 / 120 / 160** points): tap **one** reachable (glowing, no ✓) chest —
-     it claims all reachable ones; dismiss the reward. All ✓ = done.
-3. Report per tab each chest still unclaimable and the current points.
+   - Top bar activity chests (Daily: **40 / 80 / 120 / 160** points; Weekly: **45 / 90 / 135 / 180**): tap **one**
+     reachable (glowing, no ✓) chest — it claims all reachable ones; dismiss the reward. All ✓ = done.
+3. **Evidence before leaving** (`daily_mission` does it): no yellow Claim in the top row of either tab and **no red dot on
+   either tab** — the selected tab hides its own dot, so read Daily's dot from the Weekly tab, switch, read Weekly's
+   (≈ `(972,1636)`). A dot left → MANUAL with a screenshot, not OK. Report per tab each chest still unclaimable and the points.
 
 **The 18 daily rows** (10 points each; 160 = 16 rows) — every row is scripted except **Upgrade Statue** and **Purchase
 with Diamonds in Grocery** (Nick, 2026-11-03), so a full runner pass must reach **160**; anything less = a step failed

@@ -803,29 +803,45 @@ def grocery_buy(cfg):
 
 def daily_mission(cfg):
     """Mapped on Kong 2026-10-28: menu icon dot ≈ (1040,1580); Mission = the ICON left of its label (the label doesn't
-    react); top Claim row ≈ (860,672) claims all rows; chests above the 40/80/120/160 labels (y≈510) glow when reachable; tabs Daily (300,1686) — opens selected, no dot — and Weekly (778,1688), dot ≈ (976,1630)."""
-    if not red_dot(1000, 1545, 1080, 1615): return "no red dot"
+    react); top Claim row ≈ (860,672) claims all rows; chests above the level labels (y≈510) glow when reachable; tabs
+    Daily (300,1686) / Weekly (778,1688), each tab's red dot at its top-right (Weekly ≈ (972,1636)), hidden while selected.
+    Both tabs are always opened (2026-11-04: the Weekly tab was gated on its dot, which the daily chest reward popup still
+    dimmed -> every account skipped 4 claimable weekly rows, Nick). Ends with the dot check = the step's DoD."""
+    if not red_dot(1000, 1545, 1080, 1615): return "no red dot"   # menu icon dot (Mission / Lobby / Backpack)
     tap_wait(994, 1625); wait(r'^Mission$', 6); time.sleep(1.2)   # side menu slides in: read the position once settled
     m = find(ocr(), r'^Mission$')
     if not m: raise Stop('Mission entry not in the side menu')
     tap_wait(m[0] - 120, m[1] - 30); wait(r'Daily Mission', 10)
     out = []
-    for tab, x in (('daily', 300), ('weekly', 778)):
+    TABS = {'daily': (300, r'Daily Mission', (40, 80, 120, 160)), 'weekly': (778, r'Weekly Mission', (45, 90, 135, 180))}
+    dot = {'daily': (420, 1595, 540, 1665), 'weekly': (898, 1595, 1018, 1665)}   # x+120..x+240 (Weekly dot y 1618-1650 Aminor)
+    def no_popup():                                       # reward popups ("Tap anywhere to close") dim the whole dialog
+        for _ in range(8):
+            if not find(ocr(), r'Tap anywhere'): return True
+            tap_wait(540, 240); time.sleep(0.8)
+        return False
+    for tab, (x, title, levels) in TABS.items():
         if tab == 'weekly':
-            time.sleep(1.5)                               # reward popup from the daily chests can still dim the tab bar
-            if not red_dot(x + 120, 1595, x + 240, 1665): continue
-            tap_wait(x, 1688); time.sleep(1)
-        c = find(ocr(), r'^Cla[il]m$', (700, 560, 1060, 780))  # top row only — never scroll, never GO
-        if c: tap_wait(*c); time.sleep(1.2); tap_wait(540, 240); out.append(f'{tab} rows')
+            no_popup(); tap_wait(x, 1688); time.sleep(1)
+            if not find(ocr(), title): tap_wait(x, 1688); wait(title, 6)   # tab tap eaten by a late popup -> once more
+        for _ in range(4):                                # top row Claim claims every claimable row (Kong); repeat while one shows
+            c = find(ocr(), r'^Cla[il]m$', (700, 560, 1060, 780))   # top row only — never scroll, never GO
+            if not c: break
+            tap_wait(*c); time.sleep(1.2); tap_wait(540, 240); out.append(f'{tab} rows'); no_popup()
         im = grab()                                       # reachable chests glow yellow (~350 px vs ~50 locked, Kong)
-        glow = [lv for lv, cx in ((40, 423), (80, 592), (120, 762), (160, 930))
+        glow = [lv for lv, cx in zip(levels, (423, 592, 762, 930))
                 if sum(1 for y in range(330, 470, 3) for x in range(cx - 70, cx + 70, 3)
                        if (lambda p: p[0] > 235 and p[1] > 215 and p[2] < 160)(im.getpixel((x, y)))) > 150]
         if glow:                                          # one reachable chest claims every reachable one
-            cx = {40: 423, 80: 592, 120: 762, 160: 930}[glow[0]]
-            tap_wait(cx, 420); time.sleep(1.2); tap_wait(540, 240); out.append(f'{tab} chests {glow}')
+            cx = dict(zip(levels, (423, 592, 762, 930)))[glow[0]]
+            tap_wait(cx, 420); time.sleep(1.2); tap_wait(540, 240); out.append(f'{tab} chests {glow}'); no_popup()
+    # DoD: no tab dot left. The selected tab hides its own dot: read Daily's from the Weekly tab, then switch and read Weekly's.
+    left = ['daily'] if red_dot(*dot['daily']) else []
+    tap_wait(300, 1688); time.sleep(1)
+    if red_dot(*dot['weekly']): left.append('weekly')
+    if left: grab().save('v_daily_mission.png'); out.append(f'{left} tab still has a red dot (v_daily_mission.png)')
     tap_wait(972, 238)
-    return f'{out or "nothing"}'
+    return ('MANUAL ' if left else '') + f'{out or "nothing"}'
 
 
 def fishing_rewards(cfg):
