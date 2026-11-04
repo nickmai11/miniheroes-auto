@@ -173,9 +173,10 @@ def run(account, max_floor=3):
     b = ocr()
     if not find(b, r'Stamina Cost'):                       # already exploring (re-run after a stop) -> carry on
         if not find(b, r'^Enter$'):                        # not on the event screen yet -> main screen banner
-            p = find(b, r'Floating Realm', (600, 400, 1080, 900))
-            if not p: raise Stop('no Floating Realm banner on the main screen')
-            tap_wait(*p); b = wait(r'^Enter$', 10)
+            # the banner column fills a few s after a boot (Kong 2026-11-05: read once at 04:32:07 -> STOP, the banner was
+            # there on the stop screenshot; the round's stamina was lost) -> poll for it
+            b = wait(r'Floating Realm', 15, (600, 400, 1080, 900))
+            tap_wait(*find(b, r'Floating Realm', (600, 400, 1080, 900))); b = wait(r'^Enter$', 10)
         tap_text(r'^Enter$', boxes=b)
         b = wait(r'Stamina Cost', 15)
     start = re.search(r'Points: (-?\d+)', joined(b))
