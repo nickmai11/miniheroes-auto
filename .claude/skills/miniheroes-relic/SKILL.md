@@ -15,21 +15,31 @@ Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Vein
    `/tmp/miniheroes-relic/<account>/`, every dig also in `logs/<account>/<game day>.log`.
    One account: `D=<serial> scripts/relic.py <account> [--dry] [--max-digs N]` — from the main screen, the Lost
    Continent map or the board; `--dry` only prints the board and the next dig.
-2. **`exit 1` = it stopped** (unexpected screen, 3 refused digs, nothing diggable): read `out.txt` + `v_relic.png` there,
-   then a helper finishes **that account only** by hand with the board rules below. Never re-run the script blindly on it.
+   Run it in the background with one Monitor on its output for `exit 1` lines and act **the moment one appears** — never
+   wait for the whole batch (2026-11-04: 3 accounts failed in the first 15 s, handled 8 min later; Nick: too slow).
+2. **`exit 1` = it stopped** (unexpected screen, 3 refused digs, nothing diggable): read `out.txt` + `v_relic.png` there.
+   `could not reach the dig board` with the account on some other screen (Tribe after catch-up) → the script now taps
+   back itself; if it still stops, go home (back arrow `(80,1820)`) and re-run that account at once. Anything else: a
+   helper finishes **that account only** by hand with the board rules below. Never re-run the script blindly on it.
    `UNKNOWN cells rXcY` in the log = a tile the reader has never seen (it digs around them): look at the screenshot,
    teach it — `scripts/relic.py --learn <png> <row> <col> <label>` (labels: `empty pit dirt_lit dirt_dark stone_lit
 stone_dark cracked_lit shard_lit shard_dark chest_lit chest_dark gold_lit gold_dark pick_lit pick_dark multi_lit
 multi_dark`; never learn from r6c1, the % label sits there) — `python3 scripts/test_relic.py` must still pass, then run again.
 3. Report per account: the `done:` line (digs, items, shovels left), any `UNKNOWN` / `refused` / `no effect` lines, and
-   the `booster hint` line (the script never fires drill/dynamite — Nick decides, rule below).
+   every `dynamite` / `drill` line (fired by the rule below) or else the `booster hint (not used)` line.
 
 What the script does (details in the `scripts/relic.py` header): matches each of the 42 tiles against the sprite crops in
-`scripts/relic_tiles/` (two identical reads needed — banners, dust, scrolling), Dijkstra over dig costs from the lit
-tiles, target = best value/cost ≥ 0.14 lv1-relic units per shovel (shard 0.28, relic chest 1, multi-square chest 1,
-pickaxe 0.14 = a shovel back, gold chest 0), otherwise the cheapest bottom-row dig (reveals a new row). Every dig is
+`scripts/relic_tiles/` (two identical reads needed — banners, dust, scrolling; a tile beside a dug cell counts as diggable
+whatever shade it was read as — Kong 2026-11-04, a bottom-row gold chest read dark hid 2 shards); a **lit pickaxe is dug first** (free —
+its shovel comes back; in the bottom row it reveals a new row before any route is committed to; Nick 2026-11-04), then
+Dijkstra over dig costs from the lit tiles (dirt 1, stone 2, pickaxe 0) over the board **plus the hidden row below it**
+(0.99 per tile: a corridor there that could beat a known tunnel through stone makes the first dig the dig-down that
+reveals it — `via the next row`, Nick 2026-11-04), target = best value/cost ≥ 0.14 lv1-relic units per shovel (shard
+0.28, relic chest 1, multi-square chest 1, gold chest 0), otherwise the cheapest bottom-row dig (reveals a new row).
+A bottom-row dig scrolls row 1 off for good, so an item there worth its route is dug first (`before the scroll loses
+it`; `letting … go` = not worth its route). Every dig is
 verified (tile changed / board scrolled / counter), reward popups closed, the milestone reward claimed at "Mine 0 more";
-it never taps the shovel **+**, One-Tap Mining or a booster. Proven live 2026-11-03 on all 9 accounts (≈770 digs, 0 refused taps); classifier checked on 65 saved boards (`scripts/test_relic.py`).
+it never taps the shovel **+** or One-Tap Mining; boosters only by the rule below. Proven live 2026-11-03 on all 9 accounts (≈770 digs, 0 refused taps); classifier checked on 65 saved boards (`scripts/test_relic.py`).
 
 ## Board (finishing by hand, or changing the script)
 
@@ -57,25 +67,49 @@ arrow `(80,1820)`). Screenshot before retrying anything.
 - **Milestone bar** ("Mine N more time(s) to claim your reward", top): at N = 0 tap its reward icon top-right
   `(1010,280)` → Congratulations popup → tap anywhere. Free (boosters / shovels); claim every time it's ready.
 
-## Value model (Nick's facts 2026-10-30; scoring is Claude's)
+## Value model — game data read 2026-11-04 (Relic Archive / Fusion Archive / Fragment screens, Kong); scoring is Claude's
 
-Score every target in **lv1-relic units per shovel**, not by fixed rules.
+Facts (Lost Continent map → **Archive** `(470,1810)`; Relic Display → **Fragment**; read-only — never Combine / Quick Combine):
 
-- Relics: lv1 = stone (Limestone), ribs (Beast Bone), green crescent (Bronze Mirror) (20 fragments each); lv2 = axe
-  (Stone Hammer: 2 crescent + 4 stone), saw (Bone Saw: 4 ribs + 2 stone), sword (Bronze Dagger: 4 crescent + 2 ribs)
-  (30 fragments each). So lv1 fragment = 0.05, lv2 relic = 6, lv2 fragment = 0.2. Nothing is lost past a relic's cap.
-- Dino 2026-10-30 (71 shovels): lv1 shard = 2–5 fragments (avg 3.7 → **≈ 0.19**), lv2 shard = 1–3 (avg 2 →
-  **≈ 0.4**), relic chest = 1 whole relic (29 lv1 + 5 lv2 of 34 on 2026-11-03 → **≈ 1.7**; the script still uses 1.0 until Nick says otherwise). Run total ≈ 10.5
-  units → **r ≈ 0.15 / shovel** (xFaktor 2026-10-31: 0.13). Type/level isn't known until dug.
-- Multi-square chest: currency, not relics (above) — Nick still wants them ("must get"); scored like a relic chest.
-- Gold/purple chest (Legend Spiritstone ×50 or Moon Essence ×30, 2026-11-03), milestone bar: **0** — a gold chest is just a blocker (1 hit, tunnel through it).
+- Tiers: Common (blue) → Rare (purple) → Legend (orange) → Mythic (red) → Eternal (unique). Fragments to assemble one:
+  **20** base (Limestone / Beast Bone / Bronze Mirror), **30** fused Common (Stone Hammer / Bone Saw / Bronze Dagger),
+  40 Rare, 50 Legend, 60 Mythic and Eternal. The dig yields only the 6 Commons (whole, from relic chests) and their
+  fragments (shards); gold/purple chests give Legend Spiritstone ×50 or Moon Essence ×30 (currency).
+- Fusion (irreversible; unenhanced, unequipped relics only): Stone Hammer = 2 Bronze Mirror + 4 Limestone; Bone Saw =
+  4 Beast Bone + 2 Limestone; Bronze Dagger = 4 Bronze Mirror + 2 Beast Bone; random fused Common = 2 + 2 + 2. Every
+  Rare = 3 fused Commons (Mithril Axe = Dagger + 2 Hammer, Tribal Goblet = Saw + 2 Hammer, …; random Rare = Dagger +
+  Saw + Hammer); every Legend = 3 Rares; a Mythic (chest) = 3 Legends; an Eternal (chest) = 3 Mythics + a crystal.
+- So, in base relics: fused Common = 6, Rare = 18, Legend = 54, Mythic = 162; a base fragment = 1/20 = 0.05, a fused
+  Common fragment = 6/30 = 0.2. Base relics stack (Kong shows 7 Limestones) and can't ascend ("At Max Stars").
+- Measured 2026-11-04 (713 digs, 10 runs): lv1 shard = 3.3 fragments (0.17 units), lv2 shard = 1.8 (0.36), lv2 = 25 %
+  of shards → **mean shard 0.21**; relic chest = 29 base + 4 fused → **mean chest 1.6**; the whole process yielded
+  **0.16 units per shovel**, shards 54 % of it, chests 46 %.
+
+Script values (Nick 2026-11-04, "I trust you"): **relic chest 1.6**, multi-square chest 1.6 (currency, "must get" —
+scored like a relic chest), gold chest 0, **shard 0.28, threshold r = 0.14** — the shard is kept above the measured 0.21
+because every call Nick has made (a lone shard up to 2 digs, two shards sharing a 3–4-dig tunnel, the Kong left
+cluster) only holds at ~0.28/0.14; the measured 0.21 would need r ≈ 0.10 to match them and that would send the
+planner 16 digs after a chest. At 1.6 a chest pays for up to ~11 digs (was 7).
 
 **Real cost** of a target = new tiles to connect it to the dug area (dirt 1, stone 2, pickaxe tile 0 net).
 **Check all 4 sides of the target first** — the cheapest route is often a lit dirt tile _beside_ it, not a straight
 shaft from above (Kong 2026-10-31 dug stone r3c4 (2) + r4c4 (1) down to shard r5c4 when lit dirt r5c3 (1) touched it).
 Write the route + its cost in the log line before the first tap.
 
-**Threshold:** take a target if `units / real cost ≥ r` (r ≈ 0.14–0.15): a relic chest is worth up to ~7 digs, a lone
+**Look before the hard way** (Nick 2026-11-04): a lit pickaxe tile costs nothing net — take it before committing to any
+route; in the bottom row it shows the next row, which may hold a cheaper way to the target (Kong 2026-11-04: the script
+dug a 7-shovel tunnel to a relic chest while the free pickaxe it had just uncovered sat lit in the bottom row). The same
+for a paid dig-down, shards included: when the route to a target is hard (stone) and the row below the board could hold
+a cheaper corridor, dig down first and re-plan on what it shows — a dig-down is a dig we make anyway. A reveal can't
+shorten the route to an item high on the board (a new path has to come back up through rows already visible), so there
+the known route is taken.
+
+**Top row first** (Nick 2026-11-04): every bottom-row dig scrolls row 1 off the board for good — collect an item there
+before any dig-down (free pickaxes included) if it's worth its route; one that isn't (a shard 4 digs away) is let go,
+logged `letting … go`. The point is not to lose a shard the planner would have collected anyway — not to chase every
+top-row item (Nick, 2026-11-04: row 1 is gone for good once it scrolls off).
+
+**Threshold:** take a target if `units / real cost ≥ r` (r = 0.14): a relic chest is worth up to ~11 digs, a lone
 shard 1–2; shards sharing a tunnel split the cost — the script credits every item on or beside a route (Nick 2026-11-03, Bino: a gold chest + a pickaxe tile on the way to 2 shards = 4 digs, worth it).
 
 **Every dig needs a target** (Nick 2026-10-31, "gone wild"): each dig is either on the cheapest route to a named item
@@ -87,19 +121,26 @@ whole board: ~25 of 37 shovels on no-target tiles).
 the bottom row, branch off only for targets above the threshold. **The board keeps its state** — no dig is wasted.
 Spend every shovel; dig before the count caps.
 
-## Boosters (drill, dynamite) — Nick 2026-10-30
+## Boosters (drill, dynamite) — rule Nick 2026-10-30; mechanics verified on the Kong instance 2026-11-04 (4 firings)
 
-Supply: milestone bar only (≈2 per 500 digs); never buy. Placed on an explored (dug) tile; auto-collect every item in
-the area. Dynamite = diamond radius 2 (13 tiles). Drill = its whole column + the whole bottom row (~12 tiles); does NOT
-scroll the board.
+Supply: milestone bar only (≈2 per 500 digs); never buy. Stock = the badge on each button (the script OCRs it, re-reads once when a badge is missed — the OCR is flaky there; a kind with no reading is never fired).
 
-- **Value** = shovels saved: cheapest hand-dig cost of the same items (shared tunnel) + stone hits avoided.
-  Items in shovels: relic chest ≈7, lv2 shard ≈2–3, lv1 shard / pickaxe tile ≈1, gold/purple chest 0.
-- **Use it if it saves ≥ 6 shovels** (≈ 1 per run at a 30 stock). Stock < 10 → raise to 8; stock keeps
-  growing → lower to 5. Dynamite for a tight cluster, drill for a column of items / loaded bottom row.
-- **Fire late:** shovel-dig first, blast where the most value is left. The script only logs a `booster hint`.
-- How (by hand): tap the booster button (drill `(~150,1855)`, dynamite `(~765,1855)` device), the board shows the
-  area in red, check it, then tap the target tile. Screenshot before the placing tap. Log what it collected.
+- **How they work:** **drag** the button onto a dug tile (`adb input swipe <bx> 1820 <X> <Y> 700`; drill button x=310,
+  dynamite x=766 — a tap does nothing). While dragging, the area shows in **green** under the finger; release = fire,
+  no confirm. **Dynamite** digs the diamond of radius 2 around the drop tile (13 tiles). **Drill** highlights its
+  column + the whole bottom row but digs **only the bottom row** (6 tiles; the column is just the preview, drop it
+  anywhere dug). Stone goes in one hit, every dug tile counts +1 on the milestone bar, pickaxe tiles still refund a
+  shovel, items show the usual banner (gold chest = `Legend SpiritstoneX50` / `+30` Moon Essence).
+- **A booster that digs any bottom-row tile scrolls the board one row** (once, whether 3 or 6 tiles) — row 1 is lost
+  for good; dynamite dropped in rows 1–4 doesn't touch the bottom row and doesn't scroll.
+- **Value** = shovels saved: per item collected the cheaper of its hand-dig cost and its worth in shovels (relic chest
+  ≈11, shard 2, pickaxe 1, gold chest 0), +1 for the row a scroll reveals, minus the row-1 items the planner would still
+  have collected (the scroll loses them). Lit items in the bottom row are worth only 1 each to a drill.
+- **Use it if it saves ≥ 6 shovels** — one number, no stock-based adjustments (Nick 2026-11-04). Dynamite for a tight
+  cluster; the drill only for a loaded bottom row.
+- **Fire late:** `relic.py` does it after the digs (`boosters()`): best candidate first, fired while it saves ≥ 6, each verified by the badge going down by 1 (`dynamite r4c3 (saves ~8, stock 12->11) -> Limestone x1`);
+  otherwise `booster hint (not used): best … saves ~N shovels, stock …`.
+  `D=<serial> scripts/relic.py <account> --max-digs 0` = boosters only, on the current board.
 
 ## Hard rules
 

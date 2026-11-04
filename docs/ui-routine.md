@@ -31,7 +31,7 @@ Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
 11. **Hero** upgrade (after the potion-giving steps above).
 12. **Tribe** — sign-in, Trial, chat Request + Assist, then **Canyon Clash** (empty spot + Points Reward; closed Mondays
     until 17:00). Poseidon's Ruins has its own skill; Crystal Throne isn't mapped.
-13. **Divine Weapon** — Benefit, Excelsior Veins, Forge.
+13. **Divine Weapon** — Excelsior Veins, Forge, then Benefit (its milestones count the forging just done — Nick, 2026-11-04).
 14. **Stage** run ×3 (skull bubble).
 15. **Patrol** — Claim All only.
 16. **Rune** synthesis.
@@ -524,7 +524,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
 
 1. Main screen → **Divine Weapon** `(798,1780)` → Arsenal.
 2. **Benefit** `(309,1810)` (red dot) → **Claim Reward** `(540,1662)` (1500 crystals, 2 potions,
-   2 embers) → dismiss `(540,120)` → close ✕ `(970,238)`. Accounts without the forging pass ($8.99) have no Benefit.
+   2 embers) → dismiss `(540,120)` → close ✕ `(970,238)`. Accounts without the forging pass ($8.99) have no Benefit. Do it **after** Forge (step 5): the Benefit milestones ("Divine Weapon dismantled N times") count the
+   dismantles the forging just made (Nick, 2026-11-04); `daily.py` claims every Claim Reward there.
 3. **Excelsior Veins** `(980,1810)` → mining grid. Attempts = pickaxes `N/80` (bottom centre;
    regenerates over time). Keep the "Automatically advance to next floor" tick as-is.
 4. **Run `D=<serial> scripts/veins.py`** on the grid — it does the loop below and stops at the first buy popup
@@ -826,6 +827,9 @@ dismiss `(540,1880)` → close ✕ `(972,240)`.
 
 Tribe chat pinned notice (Peakaboo, 2026-10-27): "Canyon: Move to 8/m if you reached 80k early. Dont attack
 people not 80k yet." — not yet reflected in the rules above; ask Nick.
+
+- **Points Rewards** `(88,745)` (left HUD with Records / Rank / Lineup — fixed while the map scrolls) → **Claim Reward**,
+  repeat while it shows → ✕ `(972,240)`. Do it **after** occupying: the new spot earns the points (Nick, 2026-11-04).
 
 ## Poseidon's Ruins (Tribe, 3 attacks)
 

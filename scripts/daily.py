@@ -616,31 +616,38 @@ def slash_less(t):
     return c.pop() if len(c) == 1 else None
 
 
-def divine(cfg, benefit=True):
+def divine(cfg):
     tap_wait(798, 1780); wait(r'Arsenal', 10)
     out = []
-    if benefit and red_dot(330, 1730, 420, 1800):     # Benefit (forging-pass accounts only)
-        tap_wait(309, 1810); c = find(wait(r'Claim Reward', 6), r'^Claim Reward$')
-        tap_wait(*c); time.sleep(1); tap_wait(540, 120); tap_wait(970, 238); out.append('benefit')
     tap_wait(980, 1810); time.sleep(2)
     out.append(script('veins.py'))
-    if re.search(r'^\s*divine_forge:\s*false', cfg, re.M): return ', '.join(out + ['forge off (config)'])
     tap_wait(92, 1810); wait(r'Arsenal', 8)
-    last = None
-    for _ in range(14):                                 # Forge: one slot per anvil tap; crystals only, never gems
-        for _ in range(4):                              # forge hammer animation hides the counters for a few s (Bino/xFaktor)
-            boxes = ocr(); t = joined(boxes)
-            fr = [(y, num(m.group(1)), num(m.group(2))) for x, y, w, h, b in boxes
-                  for m in [re.fullmatch(r'([\d.]+[kKmM]?)/([\d.]+[kKmM]?)', b.strip())] if m]
-            fr += [(y, *slash_less(b.strip())) for x, y, w, h, b in boxes if 440 < x < 600 and 1460 < y < 1520 and slash_less(b.strip())]
-            slots = next((f for f in fr if f[2] <= 20), None)
-            cry = next((f for f in fr if slots and 0 < f[0] - slots[0] < 160 and f[2] > 20), None)  # owned/cost under the anvil
-            if slots and cry: break
-            time.sleep(1.5)
-        if not slots or not cry: raise Stop(f'forge counters unreadable: {t[:150]}')
-        if slots[1] >= slots[2] or cry[1] < cry[2]: out.append(f'forge {slots[1]}/{slots[2]}'); break
-        if slots[1] == last: out.append(f'forge did not respond at {slots[1]}/{slots[2]}'); break
-        last = slots[1]; tap_wait(540, 1484); time.sleep(1.5)   # counter animates; re-read at the loop top
+    if re.search(r'^\s*divine_forge:\s*false', cfg, re.M): out.append('forge off (config)')
+    else:
+        last = None
+        for _ in range(14):                                 # Forge: one slot per anvil tap; crystals only, never gems
+            for _ in range(4):                              # forge hammer animation hides the counters for a few s (Bino/xFaktor)
+                boxes = ocr(); t = joined(boxes)
+                fr = [(y, num(m.group(1)), num(m.group(2))) for x, y, w, h, b in boxes
+                      for m in [re.fullmatch(r'([\d.]+[kKmM]?)/([\d.]+[kKmM]?)', b.strip())] if m]
+                fr += [(y, *slash_less(b.strip())) for x, y, w, h, b in boxes if 440 < x < 600 and 1460 < y < 1520 and slash_less(b.strip())]
+                slots = next((f for f in fr if f[2] <= 20), None)
+                cry = next((f for f in fr if slots and 0 < f[0] - slots[0] < 160 and f[2] > 20), None)  # owned/cost under the anvil
+                if slots and cry: break
+                time.sleep(1.5)
+            if not slots or not cry: raise Stop(f'forge counters unreadable: {t[:150]}')
+            if slots[1] >= slots[2] or cry[1] < cry[2]: out.append(f'forge {slots[1]}/{slots[2]}'); break
+            if slots[1] == last: out.append(f'forge did not respond at {slots[1]}/{slots[2]}'); break
+            last = slots[1]; tap_wait(540, 1484); time.sleep(1.5)   # counter animates; re-read at the loop top
+    # Benefit (forging-pass accounts) AFTER the forging: its milestones ("Divine Weapon dismantled N times") count the
+    # dismantles just made (Nick 2026-11-04); every Claim Reward there
+    if red_dot(330, 1730, 420, 1800):                   # catch-up too (Nick 2026-11-04)
+        tap_wait(309, 1810); n = 0; time.sleep(1.5)
+        for _ in range(5):
+            c = find(ocr(), r'^Claim Reward$')
+            if not c: break
+            tap_wait(*c); time.sleep(1); tap_wait(540, 120); n += 1
+        tap_wait(970, 238); out.append(f'benefit x{n}' if n else 'benefit: red dot but nothing to claim')
     return ', '.join(out)
 
 
@@ -882,19 +889,21 @@ def canyon_rewards():
         c = find(ocr(), r'^Claim Reward$')
         if not c: break
         tap_wait(*c); time.sleep(1.2); tap_wait(540, 1880); n += 1
-    tap_wait(972, 240); wait(r'Attempts', 10)            # back on the map for canyon.py
+    tap_wait(972, 240); wait(r'Attempts', 10)            # back on the map
     return f'points rewards claimed x{n}'
 
 
 def canyon(cfg):
-    """Take a new EMPTY spot by the day's rule (scripts/canyon.py). No empty one -> MANUAL (helper may beat a Sentinel, never a player)."""
+    """Take a new EMPTY spot by the day's rule (scripts/canyon.py), then the Points Rewards — occupying earns the points
+    (Nick 2026-11-04). No empty one -> MANUAL (helper may beat a Sentinel, never a player)."""
     if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'
     open_canyon()
-    rew = canyon_rewards()                               # same visit, before canyon.py: Rewards is part of Canyon (Nick, 2026-10-31)
-    try: return f"{script('canyon.py', ACCOUNT)}; rewards: {rew}"
+    try: out = script('canyon.py', ACCOUNT)
     except Stop as e:
-        if 'exit 2' in str(e): return f'MANUAL no empty platform (attack choice); rewards: {rew}'
-        raise
+        if 'exit 2' not in str(e): raise
+        out = 'MANUAL no empty platform (attack choice)'
+    time.sleep(1)                                        # the points land after the Occupy popup closes
+    return f'{out}; rewards: {canyon_rewards()}'         # Rewards is fixed HUD: same spot wherever canyon.py left the map
 
 
 HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Golden': 'golden_woods', r'^Draws|^7777': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event'}
@@ -1138,7 +1147,7 @@ def events(cfg):
 # catch-up (.claude/skills/catch-up): Fishing auto only, Arena, Storm, Veins + Forge (no Benefit), Patrol Claim All,
 # Arena again, Tribe chat Request/Assist, Common Recruitment, Daily Mission, Fishing order rewards
 CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena), ('storm', storm),   # fishing first: Auto runs during the rest (Nick, 2026-10-29)
-           ('veins_forge', lambda c: divine(c, benefit=False)), ('patrol_claim', patrol_claim), ('arena2', arena),
+           ('veins_forge', divine), ('patrol_claim', patrol_claim), ('arena2', arena),
            ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
            ('canyon', canyon),
            ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),  # missions always last (Nick, 2026-10-29); FR packs: dailies only (Nick 2026-11-03)

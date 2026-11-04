@@ -34,8 +34,8 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every acco
       Never two accounts of one server block (s201–210, s211–220) in Storm at once — the runner's step locks per block.
       Then **Rewards** (left side) if it has a red dot — same visit, inside runner step `storm`
    4. Canyon Clash (skip if its season is closed: Mon 06:00-17:00): **take a new spot even if one is already held**
-      (`scripts/canyon.py`: empty spots only, popup text checked; no empty one → helper); Points Rewards red dot claimed first, same visit
-   5. Divine Weapon: Excelsior Veins via `scripts/veins.py` (stops at 0 pickaxes), then Forge: fill every free slot (N/M) while crystals ≥ cost, even if a forge is already running (Nick, 2026-10-28) — no Benefit; skip Forge if the account has `divine_forge: false` (Kong, 2026-10-30)
+      (`scripts/canyon.py`: empty spots only, popup text checked; no empty one → helper); Points Rewards claimed **after** the spot (occupying earns the points — Nick 2026-11-04), same visit
+   5. Divine Weapon: Excelsior Veins via `scripts/veins.py` (stops at 0 pickaxes), then Forge: fill every free slot (N/M) while crystals ≥ cost, even if a forge is already running (Nick, 2026-10-28), then Benefit's Claim Rewards (pass accounts; after the forging — Nick 2026-11-04); skip Forge if the account has `divine_forge: false` (Kong, 2026-10-30)
    6. Patrol: Claim All only (`scripts/patrol.py <account> --claim-only`) — no Speed Patrol. Claim All often gives Arena tickets → re-run Arena right after
    7. Tribe chat Request + Assist (Tribe section, step 4 only — by hand; `tribe.py` also signs in / fights the Trial)
    8. Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available; if it's on

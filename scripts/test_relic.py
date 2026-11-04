@@ -43,7 +43,7 @@ g = grid("""
 . . . D . .
 d d S d d d""")
 assert plan(g)[:2] == (5, 3), plan(g)          # the lit dirt above the bottom row (cost 1) then r7c4
-# relic chest worth up to ~7 digs, a shard only ~2
+# relic chest (1.6) worth up to ~11 digs, a shard only ~2
 g = grid("""
 . . . . . .
 D d d d c .
@@ -110,7 +110,109 @@ g = grid("""
 . . . r . .
 D d d d d d""")
 assert plan(g)[:2] == (2, 3) and 'shard' in plan(g)[2], plan(g)   # the 2nd shard is on the path or beside it
-# Bino 2026-11-03 (Nick): through a gold chest and a pickaxe tile to 2 shards = 4 digs for ~0.7 units -> take it
+# Kong 2026-11-04 (Nick): a lit pickaxe is free and a bottom-row one reveals a row -> dig it before any route, even the
+# relic chest (5 digs away here; the script dug 7 to it past the free pickaxe); blocked -> the chest route as before
+g = grid("""
+. . . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+g s s D . .
+c d d d P d""")
+assert plan(g)[:2] == (6, 4) and 'free pickaxe' in plan(g)[2], plan(g)
+assert plan(g, blocked={(6, 4)})[:2] == (5, 3) and 'relic chest' in plan(g, blocked={(6, 4)})[2], plan(g, blocked={(6, 4)})
+# a pickaxe on a route costs 0 (its shovel comes back): shard 2 net digs away is worth it (3 digs, 1 back)
+g = grid("""
+. . . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+D p r . . .""")
+assert plan(g)[:2] == (6, 0) and 'shard' in plan(g)[2], plan(g)
+# Nick 2026-11-04: "dig down to see the path before choosing the hard way" — chest r7c1 behind 3 stones (7 digs): the
+# hidden row below may hold a cheaper corridor from the lit dirt r7c5 -> dig down there first, then re-plan
+g = grid("""
+. . . . . .
+. . . . . .
+. . . . . .
+S . . . . .
+s . . . . .
+s . . . . .
+c s s s D .""")
+assert plan(g)[:2] == (6, 4) and 'via the next row' in plan(g)[2], plan(g)
+# ... the revealed row was all stone -> the known route it is (the hidden row below that can't lure it further down)
+g = grid("""
+. . . . . .
+. . . . . .
+S . . . . .
+s . . . . .
+s . . . . .
+c s s s . .
+s s s s S s""")
+assert 'via' not in plan(g)[2] and 'cost 7' in plan(g)[2], plan(g)
+# a reveal can't shorten a 3-dig route from above: no dig-down first
+g = grid("""
+. . . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+S . . . . .
+c s s s D .""")
+assert plan(g)[:2] == (5, 0) and 'via' not in plan(g)[2], plan(g)
+# Nick 2026-11-04: a bottom-row dig scrolls row 1 off for good -> a worthwhile item up there is collected first,
+# even before a free pickaxe; one not worth its route (shard 4 digs away) is let go and logged
+g = grid("""
+. R . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+. . P . . .""")
+assert plan(g)[:2] == (0, 1) and 'before the scroll' in plan(g)[2], plan(g)
+g = grid("""
+r d d D . .
+. . . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+. . P . . .""")
+assert plan(g)[:2] == (6, 2) and 'letting shard r1c1 (cost 4) go' in plan(g)[2], plan(g)
+# boosters (mechanics verified 2026-11-04): shovels saved = hand-dig cost capped by the item's worth (chest ~7, shard 2,
+# pickaxe 1): a stone-locked relic chest (7 by hand) + a lit shard two tiles away, in a diamond that touches the bottom
+# row (+1, the row it reveals) = 9; the drill digs the bottom row only (nothing there -> 1); a worthwhile row-1 shard is
+# lost by the scroll -> -1
+g = grid("""
+. . . . . .
+. . . . . .
+. . S . . .
+. . s . . .
+. . s . . .
+R ? c ? . .
+s s s s s s""")
+c = relic.booster_plan(g)
+assert c[0][1] == 'dynamite' and abs(c[0][0] - 9) < 0.01 and [x for x in c if x[1] == 'drill'][0][0] == 1, c[:3]
+g[0][0] = ('R', True)
+assert abs(relic.booster_plan(g)[0][0] - 8) < 0.01, relic.booster_plan(g)[:2]
+# Kong 2026-11-04 (Nick): the gold chest r7c3 beside the dug r6c3 was read dark, so the 2 shards behind it looked 4+ digs
+# away and a stone dig-down won; a tile beside a dug cell is diggable whatever its shade -> 3 digs for both shards
+raw = grid("""
+D D . . . .
+. . . D . D
+D . . D D D
+. D . . D D
+s g D . . D
+g s . D D d
+r r g s s s""")
+assert 'dig down' in plan(raw)[2], plan(raw)
+g = relic.light(raw)
+assert g[6][2] == ('G', True) and plan(g)[:2] == (6, 2) and 'shard r7c2 +1 beside it' in plan(g)[2], plan(g)
+# Bino 2026-11-03 (Nick): through a gold chest and a pickaxe tile to 2 shards = 4 digs (3 net) for ~0.7 units -> take it
 g = grid("""
 . . . . . .
 . . . . . .
@@ -119,7 +221,7 @@ g = grid("""
 . . . . . .
 D g p r . .
 D d d r d d""")
-assert plan(g)[:2] == (5, 0) and 'shard r6c4 +1 beside it' in plan(g)[2], plan(g)
+assert plan(g)[:2] == (5, 0) and 'shard' in plan(g)[2], plan(g)   # same tunnel; named after r7c4 since the pickaxe is no item
 # a shard on the way to a relic chest counts as well
 g = grid("""
 . . . . . .

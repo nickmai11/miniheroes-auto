@@ -39,7 +39,8 @@ screen. Not done → the runner retries once → a helper does that one step →
     potions → Rebirth → quick Lv.90.
 15. **Tribe** — signed in; Tribe Trial has no red dot; Request + Assist done. **Canyon:** a new spot occupied
     (our name on it) and Points Rewards has no red dot.
-16. **Divine Weapon** — pickaxes 0; every free Forge slot filled (or not enough crystals / forge off in config).
+16. **Divine Weapon** — pickaxes 0; every free Forge slot filled (or not enough crystals / forge off in config). Benefit
+    (pass accounts) claimed after the forging — no red dot left on it.
 17. **Stage** — 3 fights done (Defeat → Challenge again).
 18. **Patrol claim** — Claim All → "Congratulations".
 19. **Rune** — 1 synthesis ("Congratulations … Rune"), no locked rune tapped.
@@ -57,7 +58,7 @@ screen. Not done → the runner retries once → a helper does that one step →
 Same as the dailies step with the same name, except:
 
 - **Fishing** — only Auto started (no order refresh).
-- **Divine Weapon** — veins + forge, no Benefit.
+- **Divine Weapon** — veins + forge, then Benefit claimed (pass accounts; no red dot left).
 - **Tribe** — Request + Assist only.
 - **Recruit** — free Common draws only (cooldown → one more try at the end).
 - **Daily Mission** — claim, then report the points and the chests still locked (160 only if the dailies ran today).
@@ -66,9 +67,11 @@ Same as the dailies step with the same name, except:
 
 ## Relics (on request, `scripts/relic_all.sh`)
 
-- **Done** = the account's line says `exit 0 (done: N digs, shovels 0/<cap> left, …)` and the game is back on the main
-  screen. `exit 1` → `out.txt` + `v_relic.png` in `/tmp/miniheroes-relic/<account>/`, a helper finishes that account by
-  hand; `UNKNOWN cells` → teach the sprite (`relic.py --learn`), re-run.
+- **Done** = the account's line says `exit 0 (done: N digs, shovels 0/<cap> left, …)`, a booster line precedes it
+  (`dynamite/drill rXcY (saves ~N, stock a->b) -> …` or `booster hint (not used)`), and the game is back on the main
+  screen. `exit 1` → `out.txt` + `v_relic.png` in `/tmp/miniheroes-relic/<account>/`: on some other screen → it taps back
+  itself, else go home and re-run that account at once; otherwise a helper finishes that account by hand;
+  `UNKNOWN cells` → teach the sprite (`relic.py --learn`), re-run. Not done: `refused` / `no effect` / `booster not consumed` lines.
 
 ## Where the scripts say OK without proving it (fix list)
 

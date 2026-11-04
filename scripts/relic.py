@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Relics (Archaeology dig board): spend every shovel by the relic skill's value model, no LLM (Nick, 2026-11-03).
 # usage: D=<serial> scripts/relic.py <account> [--dry] [--max-digs N]   (main screen, the Lost Continent map or the
+#        board; --max-digs 0 = boosters only, on the current board;
 #        board; ends on the main screen; --dry = read + plan only, no tap; exit 1 = stopped early, see v_relic.png)
 #        scripts/relic.py --boards PNG...            offline: print each screenshot's board + plan (no device)
 #        scripts/relic.py --learn PNG rN cM LABEL    add that cell as a tile exemplar (relic_tiles/LABEL.<n>.png) —
@@ -8,9 +9,13 @@
 # Reading: each of the 42 cells is matched against the exemplar crops in relic_tiles/ (nearest 24x24 thumb);
 # no exemplar within THRESH -> '?' = never dug, never crossed (reported). Two consecutive reads must agree
 # (reward banners / dig dust). Shovel counter and banners by OCR (flow.ocr).
-# Planning (skill: "every dig needs a target"): Dijkstra over dig costs from the lit (diggable) cells; the item with
-# the best value/cost >= RATIO is the target, its first path cell is dug; nothing worth it -> the cheapest bottom-row
-# dig (reveals a new row). Boosters, One-Tap Mining, the shovel "+" are never tapped; the milestone reward is claimed.
+# Planning (skill: "every dig needs a target"): a lit pickaxe is dug first (free; in the bottom row it reveals a row);
+# then Dijkstra over dig costs (pickaxe 0) from the lit (diggable) cells, over the board plus the hidden row below it
+# (HIDDEN per tile: a cheaper corridor there -> the first dig is the dig-down that shows it, Nick 2026-11-04); the item
+# with the best value/cost >= RATIO is the target, its first path cell is dug; nothing worth it -> the cheapest
+# bottom-row dig (reveals a new row). A bottom-row dig scrolls row 1 off for good: an item there worth its route goes first. Boosters, One-Tap Mining, the shovel "+" are never tapped; the milestone reward is claimed.
+# Boosters (skill rule; mechanics verified 2026-11-04): after the digs, dynamite/drill are DRAGGED onto the board where
+# they save >= SAVES shovels (booster_plan), verified by the badge; otherwise a hint line.
 import glob, os, re, sys, time, heapq
 import numpy as np
 from PIL import Image
@@ -28,8 +33,10 @@ FRAME = {(22, 1512): (173, 134, 107), (1058, 1512): (115, 81, 58), (540, 512): (
 # (Moon Essence, worth 0)  P pickaxe (shovel back)  M multi-square chest  ? unknown
 KINDS = {'empty': ('.', False), 'pit': ('.', False), 'dirt': ('D', None), 'stone': ('S', None), 'cracked': ('K', None),
          'shard': ('R', None), 'chest': ('C', None), 'gold': ('G', None), 'pick': ('P', None), 'multi': ('M', None)}
-COST = {'D': 1, 'K': 1, 'S': 2, 'R': 1, 'C': 1, 'G': 1, 'P': 1, 'M': 1}
-VALUE = {'R': 0.28, 'C': 1.0, 'M': 1.0, 'P': 0.14, 'G': 0.0}  # lv1-relic units (skill: shard lv1 .19 / lv2 .4, chest ~1)
+COST = {'D': 1, 'K': 1, 'S': 2, 'R': 1, 'C': 1, 'G': 1, 'P': 0, 'M': 1}   # pickaxe: its shovel comes back -> net 0
+VALUE = {'R': 0.28, 'C': 1.6, 'M': 1.6, 'G': 0.0}  # base-relic units. Chest 1.6 = measured 2026-11-04 (29 base + 4 fused of 33,
+                                                   # a fused Common = 6 base by fusion). Shard: measured 0.21, kept at Nick's 0.28 (see
+                                                   # skill). Pickaxe = free tile, not a target.
 RATIO = 0.14                                               # units per shovel a target must beat (measured r ~0.13-0.15)
 ITEMS = re.compile(r'((?:Limestone|Beast Bone|Bronze Mirror|Stone Hammer|Bone Saw|Bronze Dagger|Moon Essence|Legend Spiritstone)'
                    r'(?: Fragment)?)\s*[Xx×]\s*(\d+)')   # "Limestone FragmentX3" = shard, "Limestone X1" = whole relic (chest)
@@ -78,9 +85,17 @@ def cell(im, r, c):
     return kind, lit, label, d
 
 
+def light(g):
+    """A tile beside a dug cell is diggable whatever shade it was read as — the game's own rule; shade and adjacency agree
+    on every eye-checked board. Kong 2026-11-04: a bottom-row gold chest read dark hid 2 shards behind it (Nick)."""
+    return [[(k, lit or (k not in '.?' and any(0 <= r + dr < 7 and 0 <= c + dc < 6 and g[r + dr][c + dc][0] == '.'
+                                               for dr, dc in ((1, 0), (-1, 0), (0, 1), (0, -1)))))
+             for c, (k, lit) in enumerate(row)] for r, row in enumerate(g)]
+
+
 def read(im):
     """7x6 grid of (kind, lit)."""
-    return [[cell(im, r, c)[:2] for c in range(6)] for r in range(7)]
+    return light([[cell(im, r, c)[:2] for c in range(6)] for r in range(7)])
 
 
 def show(g):
@@ -93,15 +108,22 @@ def on_board(im): return all(max(abs(a - b) for a, b in zip(im.getpixel(p), c)) 
 
 # ---------- planning ----------
 
-def plan(g, blocked=()):
-    """-> (r, c, why) for the next dig, or None. Dijkstra from the lit cells (cost = that cell's own dig cost) through
-    diggable kinds; '?' and blocked cells are walls. Target = best value/cost >= RATIO; else cheapest bottom-row dig."""
+HIDDEN = 0.99   # assumed dig cost of a tile in the still-hidden row below the board (see routes); just under dirt, so
+                # a toss-up between a known tunnel and "dig down and look" goes to looking (Nick 2026-11-04)
+NAME = {'R': 'shard', 'C': 'relic chest', 'M': 'multi chest'}
+
+
+def routes(g, blocked=()):
+    """Dijkstra from the lit cells (cost = that cell's own dig cost) through diggable kinds; '?' and blocked cells are
+    walls. A row past the 7th is the hidden row a bottom-row dig would reveal, at HIDDEN per tile: a corridor there can
+    beat a known route through stone, so the plan's first step becomes the dig-down that shows it (Nick 2026-11-04:
+    "dig down to see the path before choosing the hard way"). -> (dist, prev)."""
     INF = 1e9
     def cost(r, c):
-        k, lit = g[r][c]
-        return INF if k in '.?' or (r, c) in blocked else COST[k]
+        k = g[r][c][0]
+        return INF if k in '.?' or (r, c) in blocked else HIDDEN if r >= 7 else COST[k]
     dist, prev, q = {}, {}, []
-    for r in range(7):
+    for r in range(len(g)):
         for c in range(6):
             if g[r][c][1] and cost(r, c) < INF:
                 dist[(r, c)] = cost(r, c); prev[(r, c)] = None; heapq.heappush(q, (cost(r, c), r, c))
@@ -110,46 +132,144 @@ def plan(g, blocked=()):
         if d > dist.get((r, c), INF): continue
         for dr, dc in ((1, 0), (-1, 0), (0, 1), (0, -1)):
             nr, nc = r + dr, c + dc
-            if 0 <= nr < 7 and 0 <= nc < 6 and cost(nr, nc) < INF and d + cost(nr, nc) < dist.get((nr, nc), INF):
+            if 0 <= nr < len(g) and 0 <= nc < 6 and cost(nr, nc) < INF and d + cost(nr, nc) < dist.get((nr, nc), INF):
                 dist[(nr, nc)] = d + cost(nr, nc); prev[(nr, nc)] = (r, c); heapq.heappush(q, (dist[(nr, nc)], nr, nc))
-    def first(t):
-        while prev[t] is not None: t = prev[t]
-        return t
-    name = {'R': 'shard', 'C': 'relic chest', 'M': 'multi chest', 'P': 'pickaxe'}
+    return dist, prev
+
+
+def path(prev, t):
+    """Route to t: the target first, the lit cell to dig now last."""
+    out = []
+    while t is not None: out.append(t); t = prev[t]
+    return out
+
+
+def target(g, dist, prev, blocked=(), rows=range(7)):
+    """The item in `rows` with the best value/cost >= RATIO -> (r, c, why) of its first dig, or None."""
     worth = lambda r, c: g[r][c][0] in VALUE and VALUE[g[r][c][0]] > 0 and (r, c) not in blocked
     best = None
     for (r, c), d in dist.items():
-        if not worth(r, c): continue
+        if r not in rows or not worth(r, c): continue
         # shared tunnel (Nick 2026-11-03: a gold chest is a fine stepping stone to 2+ shards): unlit items beside the
         # route become 1 dig each once it's dug -> they count toward this route's value and cost
-        path, t = [], (r, c)
-        while t is not None: path.append(t); t = prev[t]
-        extra = {(nr, nc) for pr, pc in path for nr, nc in ((pr + 1, pc), (pr - 1, pc), (pr, pc + 1), (pr, pc - 1))
-                 if 0 <= nr < 7 and 0 <= nc < 6 and (nr, nc) not in path and not g[nr][nc][1] and worth(nr, nc)}
-        v = sum(VALUE.get(g[a][b][0], 0) for a, b in path) + sum(VALUE[g[a][b][0]] for a, b in extra)   # items on the way count too
+        p = path(prev, (r, c))
+        extra = {(nr, nc) for pr, pc in p for nr, nc in ((pr + 1, pc), (pr - 1, pc), (pr, pc + 1), (pr, pc - 1))
+                 if 0 <= nr < 7 and 0 <= nc < 6 and (nr, nc) not in p and not g[nr][nc][1] and worth(nr, nc)}
+        v = sum(VALUE.get(g[a][b][0], 0) for a, b in p) + sum(VALUE[g[a][b][0]] for a, b in extra)   # items on the way count too
         cst = d + sum(COST[g[a][b][0]] for a, b in extra)
         key = (v / cst, -cst, r)
-        if v / cst >= RATIO - 1e-9 and (best is None or key > best[0]): best = (key, (r, c), d, len(extra), v / cst)
-    if best:
-        (r, c), d, n, ratio = best[1:]
-        fr, fc = first((r, c))
-        return fr, fc, f'route to {name[g[r][c][0]]} r{r + 1}c{c + 1}{f" +{n} beside it" if n else ""}, cost {d}, {ratio:.2f}/shovel'
+        if v / cst >= RATIO - 1e-9 and (best is None or key > best[0]): best = (key, (r, c), d, len(extra), v / cst, p)
+    if not best: return None
+    (r, c), d, n, ratio, p = best[1:]
+    return p[-1][0], p[-1][1], (f'route to {NAME[g[r][c][0]]} r{r + 1}c{c + 1}{f" +{n} beside it" if n else ""}'
+                                f'{" via the next row" if any(a >= 7 for a, b in p) else ""}, cost {d:.0f}, {ratio:.2f}/shovel')
+
+
+def plan(g, blocked=()):
+    """-> (r, c, why) for the next dig, or None: a lit pickaxe (free), else the best item by value/cost (>= RATIO) over
+    the board plus its hidden next row, else the cheapest bottom-row dig. A bottom-row dig scrolls row 1 off the board
+    for good, so an item there that is worth its route goes first (Nick 2026-11-04: "collect the resources at the top
+    before going down")."""
+    nxt = _next(g, blocked)
+    if nxt and nxt[0] == 6:
+        dist0, prev0 = routes(g, set(blocked) | {(6, c) for c in range(6)})            # routes that don't scroll
+        top = target(g, dist0, prev0, blocked, rows=(0,))
+        if top: return top[0], top[1], top[2] + ', before the scroll loses it'
+        lost = [f'{NAME[g[0][c][0]]} r1c{c + 1} ({f"cost {dist0[(0, c)]:.0f}" if (0, c) in dist0 else "no route"})'
+                for c in range(6) if g[0][c][0] in NAME]
+        if lost: nxt = nxt[0], nxt[1], nxt[2] + f'; letting {", ".join(lost)} go (not worth it)'
+    return nxt
+
+
+def _next(g, blocked):
+    # a lit pickaxe costs nothing net; one in the bottom row reveals a new row before we commit to a route
+    # (Nick 2026-11-04, Kong: the script dug a 7-shovel tunnel to a chest while a free pickaxe sat lit in the bottom row)
+    picks = [(r, c) for r in range(7) for c in range(6) if g[r][c] == ('P', True) and (r, c) not in blocked]
+    if picks:
+        r, c = min(picks, key=lambda p: (p[0] != 0, -p[0]))     # row 1 first (the next scroll loses it), else bottom first
+        return r, c, f'free pickaxe r{r + 1}c{c + 1}' + (' (reveals a row)' if r == 6 else '')
+    g8 = g + [[('D', False)] * 6]                                   # the hidden row a bottom-row dig reveals (HIDDEN per tile)
+    dist, prev = routes(g8, blocked)
+    t = target(g8, dist, prev, blocked)
+    if t: return t
     bottom = [(d, g[6][c][0] != 'D', abs(c - 2.5), c) for c in range(6) for d in [dist.get((6, c))] if d is not None]
     if not bottom: return None
     d, _, _, c = min(bottom)
-    fr, fc = first((6, c))
-    return fr, fc, f'dig down via r7c{c + 1}, cost {d}' if (fr, fc) != (6, c) else f'dig down r7c{c + 1}, cost {d}'
+    fr, fc = path(prev, (6, c))[-1]
+    return fr, fc, f'dig down via r7c{c + 1}, cost {d:.0f}' if (fr, fc) != (6, c) else f'dig down r7c{c + 1}, cost {d:.0f}'
+
+BOOST = {'dynamite': 766, 'drill': 310}   # bottom-bar buttons (x; y 1820): DRAG one onto a dug tile — a tap does nothing
 
 
-def booster_hint(g):
-    """Where dynamite (diamond r=2) or the drill (column + bottom row) would collect the most items — logged only."""
-    items = {(r, c) for r in range(7) for c in range(6) if g[r][c][0] in 'RCM'}
-    if not items: return ''
+def stock(im):
+    """Booster badges (small digits under the buttons) -> {'drill': n, 'dynamite': n}; a kind is missing when unreadable.
+    Each badge is cropped and scaled x3 onto a blank screen and OCRed there: the full-screen OCR read the drill's '130'
+    as '732' or not at all (2026-11-04)."""
+    canvas, out = Image.new('RGB', (1080, 1920)), {}
+    for i, (k, x) in enumerate(BOOST.items()):
+        canvas.paste(im.crop((x - 90, 1830, x + 90, 1900)).resize((540, 210), Image.BILINEAR), (0, 300 * i))
+    for b in ocr(canvas):
+        m = re.fullmatch(r'\D*(\d+)\D*', b[4])
+        if m and b[1] < 600: out[list(BOOST)[int(b[1]) // 300]] = int(m.group(1))
+    return out
+
+
+SAVES = 6                                                           # fire a booster when it saves this many shovels (Nick 2026-11-04: one number)
+
+
+def booster_plan(g, blocked=()):
+    """Candidates (shovels saved, kind, r, c), best first. Mechanics verified on the Kong instance 2026-11-04: dynamite
+    digs the diamond of radius 2 around the drop tile; the drill digs the whole bottom row (its column is only the
+    preview); stone goes in one hit; a booster that digs any bottom-row tile scrolls the board one row. Saved = per item
+    collected the cheaper of its hand-dig cost and its worth in shovels (VALUE/RATIO, pickaxe 1), +1 for the row a scroll
+    reveals, minus the row-1 items the planner would still have collected (the scroll loses them)."""
+    dist, _ = routes(g, blocked)
+    def saved(r, c):
+        k = g[r][c][0]
+        if k == 'P': return 1
+        return min(dist.get((r, c), 1e9), VALUE[k] / RATIO) if VALUE.get(k, 0) > 0 else 0
+    def kept(c):                                   # a row-1 item the planner would still collect -> lost at a scroll
+        k, d = g[0][c][0], dist.get((0, c))
+        if d is None: return 0
+        if k == 'P': return 1 if g[0][c][1] else 0
+        return d if VALUE.get(k, 0) / d >= RATIO - 1e-9 else 0
+    scroll = 1 - sum(kept(c) for c in range(6))
     empties = [(r, c) for r in range(7) for c in range(6) if g[r][c][0] == '.']
-    dyn = max(((sum(1 for (ir, ic) in items if abs(ir - r) + abs(ic - c) <= 2), r, c) for r, c in empties), default=(0, 0, 0))
-    drl = max(((sum(1 for (ir, ic) in items if ic == c or ir == 6), r, c) for r, c in empties), default=(0, 0, 0))
-    return f'booster hint (not used): dynamite r{dyn[1] + 1}c{dyn[2] + 1} -> {dyn[0]} items, drill r{drl[1] + 1}c{drl[2] + 1} -> {drl[0]} items'
+    cands = [(sum(saved(a, b) for a in range(7) for b in range(6) if abs(a - r) + abs(b - c) <= 2) + (scroll if r >= 4 else 0),
+              'dynamite', r, c) for r, c in empties]
+    if empties: cands.append((sum(saved(6, c) for c in range(6)) + scroll, 'drill', *empties[0]))
+    return sorted(cands, reverse=True)
 
+
+def booster_hint(g, im=None):
+    c = booster_plan(g)
+    if not c: return 'booster hint: no dug tile to drop on'
+    s, kind, r, c0 = c[0]
+    return f'booster hint (not used): best {kind} r{r + 1}c{c0 + 1} saves ~{s:.0f} shovels' + (f', stock {stock(im)}' if im else '')
+
+
+def boosters(g, blocked, im, got):
+    """Fire late (Nick 2026-10-30): after the digs, the best booster while it saves >= SAVES shovels; each firing is
+    verified by the badge going down by 1. -> (grid, image) afterwards."""
+    for _ in range(3):
+        st, cands = stock(im), booster_plan(g, blocked)
+        pick = next(((s, k, r, c) for s, k, r, c in cands if st.get(k) and s >= SAVES - 1e-9), None)
+        if not pick:
+            if cands: s, k, r, c = cands[0]; log(f'booster hint (not used): best {k} r{r + 1}c{c + 1} saves ~{s:.0f} shovels, stock {st}')
+            return g, im
+        s, k, r, c = pick
+        swipe(BOOST[k], 1820, X[c], Y[r], 700); time.sleep(1.2)
+        b2 = ocr()
+        if dismiss(b2): b2 = ocr()
+        reward = ' '.join(f'{m.group(1)} x{m.group(2)}' for m in ITEMS.finditer(joined(b2)))
+        g2, im = stable_board()
+        if g2 is None: raise Stop('left the dig board after a booster')
+        st2 = stock(im)
+        log(f'{k} r{r + 1}c{c + 1} (saves ~{s:.0f}, stock {st[k]}->{st2.get(k)}) -> {reward or "no banner"}')
+        if reward: got.append(reward)
+        if st2.get(k) != st[k] - 1: log('booster not consumed -> no more boosters'); return g2, im
+        g, blocked = g2, set()                                   # a scroll moved everything: stale blocked cells
+    return g, im
 
 # ---------- device ----------
 
@@ -181,16 +301,19 @@ def stable_board(tries=12):
 
 
 def open_board():
-    """Main screen / Lost Continent map / popup -> the dig board."""
+    """Main screen / Lost Continent map / popup / other screen (back arrow) -> the dig board."""
+    loading = False            # True right after our own navigation tap: the next screen gets one pass to draw
     for _ in range(10):
         im = grab()
         if on_board(im): return
         boxes = ocr(im)
-        if is_main(im): tap_wait(972, 1788); time.sleep(0.5); continue
+        if is_main(im): tap_wait(972, 1788); time.sleep(0.5); loading = True; continue
         a = find(boxes, r'Archaeology')
-        if a: tap_wait(*a); time.sleep(0.5); continue
+        if a: tap_wait(*a); time.sleep(0.5); loading = True; continue
         if find(boxes, r'Tap anywhere|Do not remind'): tap_wait(540, 120); continue
-        time.sleep(1)
+        # any other screen (Tribe left by catch-up, Dino/Dminor/Bino 2026-11-04): back arrow at once, no waiting
+        if loading: time.sleep(1); loading = False
+        else: tap_wait(80, 1820); time.sleep(0.6)
     raise Stop(f'could not reach the dig board; screen: {joined(ocr())[:160]}')
 
 
@@ -224,7 +347,7 @@ def run(account, dry=False, max_digs=None):
         + (f', UNKNOWN cells {unknown(g)}' if unknown(g) else ''))
     log('board:\n' + show(g))
     if dry:
-        p = plan(g); log(f'plan: {p and f"r{p[0] + 1}c{p[1] + 1} ({p[2]})"}'); log(booster_hint(g)); return 0
+        p = plan(g); log(f'plan: {p and f"r{p[0] + 1}c{p[1] + 1} ({p[2]})"}'); log(booster_hint(g, im)); return 0
     digs, blocked, refused, got = 0, set(), 0, []
     cap = n[0] + 60 if max_digs is None else max_digs            # pickaxe refunds + regen add digs; 60 is a hard stop
     while n[0] > 0 and digs < cap:                                  # until the counter reads 0 (Aminor: 3 left over when it counted digs)
@@ -261,11 +384,11 @@ def run(account, dry=False, max_digs=None):
         after = f'scrolled, now {g2[r][c][0]}' if r == 6 else g2[r][c][0]
         log(f'dig r{r + 1}c{c + 1} {k0[0]} ({why}) -> {reward + ", " if reward else ""}{after}; shovels {n0}->{n2[0]}')
         g, n = g2, n2
-    log(booster_hint(g))
+    g, im = boosters(g, blocked, im, got)                         # fire late, by the rule
     log(f'done: {digs} digs, shovels {n[0]}/{n[1]} left, items: {", ".join(got) or "none"}'
         + (f', UNKNOWN cells {unknown(g)}' if unknown(g) else '') + '\n' + show(g))
     if not leave(): raise Stop('not back on the main screen')
-    return 0 if n[0] == 0 or (max_digs and digs >= max_digs) else 1
+    return 0 if n[0] == 0 or (max_digs is not None and digs >= max_digs) else 1
 
 
 def learn(png, r, c, label):
@@ -282,12 +405,14 @@ if __name__ == '__main__':
     if a[:1] == ['--learn']: learn(*a[1:5]); sys.exit()
     if a[:1] == ['--boards']:
         for f in a[1:]:
-            im = Image.open(f).convert('RGB'); g = read(im); p = plan(g)
+            im = Image.open(f).convert('RGB')
+            if im.size != (1080, 1920): full = Image.new('RGB', (1080, 1920)); full.paste(im, (0, 510)); im = full   # board crop (relic_tiles/boards)
+            g = read(im); p = plan(g)
             print(f'{os.path.basename(f)}  board={on_board(im)}\n{show(g)}\nplan: {p and f"r{p[0] + 1}c{p[1] + 1} ({p[2]})"}\n')
         sys.exit()
     sys.path.insert(0, HERE)
     from tap import grab, tap as tap_wait
-    from flow import Stop, find, joined, ocr, main
+    from flow import Stop, find, joined, ocr, main, swipe
     ACCOUNT = a[0]; dry = '--dry' in a
     mx = int(a[a.index('--max-digs') + 1]) if '--max-digs' in a else None
     day = time.strftime('%F', time.gmtime(time.time() - 5 * 3600))
