@@ -54,16 +54,20 @@ def fight(b, title):
     """Monster/player dialog with Attack: always attack, CP doesn't matter; a Defeat is Marked (Nick, 2026-11-03)."""
     foe = cps(b, 540, 640)
     tap_text(r'^Attack$', (0, 1150, 1080, 1400), b)
-    try: b = wait(r'^Start$', 10)
+    # 'Tap anywhere' too: a late-registering Attack ran the whole fight before the retry looked for the button again
+    # and the retry stopped on the Victory screen (Tiger 2026-11-04)
+    try: b = wait(r'^Start$|Tap anywhere', 10)
     except Stop:   # Attack tap ignored, dialog still up (Tiger 2026-11-03) -> one more try
-        tap_text(r'^Attack$', (0, 1150, 1080, 1400)); b = wait(r'^Start$', 10)
-    # our CP (top left) '0' = empty lineup the first time. OCR reads the fist icon as a 1st char ('Z9100K', '27519K')
-    deployed = lambda b: any(re.search(r'[1-9]\d*K$', x[4], re.I) for x in b if x[0] < 540 and 40 < x[1] < 140)
-    if not deployed(b):
-        tap_text(r'Quick Deploy', boxes=b); b = wait(r'^Start$', 5)
-        if not deployed(b): raise Stop('lineup still empty after Quick Deploy')
-    tap_text(r'^Start$', (0, 1650, 1080, 1920), b)
-    r = joined(wait(r'Tap anywhere', 150))
+        tap_text(r'^Attack$', (0, 1150, 1080, 1400)); b = wait(r'^Start$|Tap anywhere', 10)
+    if not find(b, r'Tap anywhere'):
+        # our CP (top left) '0' = empty lineup the first time. OCR reads the fist icon as a 1st char ('Z9100K', '27519K')
+        deployed = lambda b: any(re.search(r'[1-9]\d*K$', x[4], re.I) for x in b if x[0] < 540 and 40 < x[1] < 140)
+        if not deployed(b):
+            tap_text(r'Quick Deploy', boxes=b); b = wait(r'^Start$', 5)
+            if not deployed(b): raise Stop('lineup still empty after Quick Deploy')
+        tap_text(r'^Start$', (0, 1650, 1080, 1920), b)
+        b = wait(r'Tap anywhere', 150)
+    r = joined(b)
     won = 'Victory' in r
     say(f'  attack {title} {foe}k: {"Victory" if won else "Defeat"}, {r[r.find("Rewards"):r.find("Confirm")]}')
     c = find(ocr(), r'^Confirm$'); tap_wait(*(c or (540, 1700)))

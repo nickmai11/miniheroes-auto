@@ -250,7 +250,8 @@ Renamed from "Match" (Nick, 2026-10-29) — the main-screen icon is still labell
 
 Mapped 2026-10-26 on Cmajor via ADB. **Device coords (1080×1920)**; window coords not mapped yet.
 
-Goal: spend every free ticket crashing the **topmost attackable** opponent (not in our tribe) — Nick, 2026-10-27.
+Goal: spend every free ticket attacking the **topmost attackable** opponent (not in our tribe) — Nick, 2026-10-27;
+Crash, or Challenge only when the opponent's CP is below ours (Nick, 2026-11-04).
 
 1. **Tribe roster:** members are fixed (Nick, 2026-10-26). Use the saved list in `accounts/tribe_<name>.txt`;
    only read it in-game if that file doesn't exist yet (then save it). Main screen → **Tribe** `(448,1780)`
@@ -265,11 +266,14 @@ Goal: spend every free ticket crashing the **topmost attackable** opponent (not 
    CP and a button at x=`866`, y ≈ `559, 796, 1033, 1267, 1504` (row 1–5). The list can have only 1–2 rows.
    A 6th row can be cut off: swipe `540,1500→540,900`, then Crash ≈ `(866,1652)`; rows shift ~+100 px after
    scrolling — re-read the screenshot before tapping.
-   - Blue **Crash** = instant win vs. a weaker opponent (1 ticket). Use these.
-   - Yellow **Challenge** = real fight vs. a stronger one. Not used.
+   - Blue **Crash** = instant win vs. a weaker opponent (1 ticket).
+   - Yellow **Challenge** = real fight vs. a stronger one (1 ticket): lineup **Start** `(540,1808)` → Victory/Defeat →
+     dismiss `(540,120)` (never the bottom: "Challenge again"). Taken only when its CP is **below ours** (Nick, 2026-11-04;
+     flow unverified). Our CP = the fist number of the own row pinned at the bottom of the Arena ranking list, above the
+     Challenge button (≈ `(614,1414)`; Cmajor 6338k). Row CP in the dialog ≈ `(498, button y)`.
    - A crashed row turns into a shield timer (tapping it does nothing) — re-read rows every round.
    - Don't touch `+` (buys tickets) or **Refresh** (cost unknown).
-4. Pick the **topmost** attackable row (scan from row 1 down): blue **Crash** and name not on the roster → tap it.
+4. Pick the **topmost** attackable row (scan from row 1 down): Crash, or Challenge below our CP; name not on the roster → tap it.
    **The last row is always a bot — always attackable** (no tribe/server check needed); use it when no
    row above it qualifies, so tickets never go unused (e.g. Dminor's list is all its own server — still crash the bot).
    If the account has `arena.attack_tribemates: true` (Dino, Bino — Nick, 2026-11-04), use `accounts/own_accounts.txt`
@@ -278,7 +282,7 @@ Goal: spend every free ticket crashing the **topmost attackable** opponent (not 
    ("S###" tag, or "War Zone: AreaNNN" on the opponent profile). Server unknown → skip.
    The dialog closes and shows _Congratulations_ (+40 arena points, 11000 gold).
    Dismiss with `(540,120)`, confirm the ticket count dropped by 1 on the Challenge button.
-5. Repeat from step 2 until tickets = 0. The opponent list changes after every crash.
+5. Repeat from step 2 until tickets = 0. The opponent list changes after every attack.
 
 Weekly win chests (10/20/35/50 wins) along the top bar, 10 ≈ `(376,210)`, 20 ≈ `(536,210)`, 35 ≈ `(696,210)`,
 50 ≈ `(864,210)` — free once reached.
