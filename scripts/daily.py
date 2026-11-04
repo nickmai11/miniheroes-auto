@@ -1183,8 +1183,8 @@ ORDER = [('pet_arena', pet_arena), ('fishing', fishing), ('arena', arena), ('pat
          ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune),
          ('grocery', seq((grocery, 'grocery_free_chests'), (grocery_buy, 'grocery_buy'))),
          ('events', events), ('realm_packs', realm_packs), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
-         ('play_pass2', play_pass2),   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
-         ('pet_check', pet_check)]    # very last: all 40 free Pet Arena attempts used today (Nick 2026-11-03)
+         ('play_pass2', play_pass2)]   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
+# pet_check: catch-up only (removed from the dailies, Nick 2026-11-04: Auto Deploy isn't done by then)
 # config key that must be present / truthy for a step to run
 KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'arena', 'fishing': 'fishing', 'patrol': 'patrol', 'patrol_claim': 'patrol',
        'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'play_pass2': 'play_pass_claims', 'pet_check': 'pet_arena', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',
