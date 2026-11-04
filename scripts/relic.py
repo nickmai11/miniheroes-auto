@@ -493,7 +493,9 @@ def run(account, dry=False, max_digs=None):
             r, c, why = p
             k0 = g[r][c]; n0 = n[0]
             b2 = ocr(tap_wait(X[c], Y[r]))                                # banner "Limestone FragmentX2" shows right after
-            if dismiss(b2): log(f'  popup: {joined(b2)[:140]}'); b2 = ocr()   # multi chest reward (currency), logged since 2026-11-04
+            if dismiss(b2):                                               # multi chest reward popup: log its own text (Kong 2026-11-05 logged the board header)
+                t = joined(b2); i = t.find('Congratulations'); j = t.find('Tap anywhere')
+                log(f'  popup: {t[i:i + 160] if i >= 0 else t[max(j - 160, 0):j + 12]}'); b2 = ocr()
             if find(b2, r'adjacent plot'):
                 blocked.add((r, c)); refused += 1; log(f'dig r{r + 1}c{c + 1} refused ("adjacent plot") -> blocked')
                 if refused >= 3: raise Stop('3 refused digs')
