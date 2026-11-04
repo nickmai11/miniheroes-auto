@@ -26,7 +26,7 @@ Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Vein
    `UNKNOWN cells rXcY` in the log = a tile the reader has never seen (it digs around them): look at the screenshot,
    teach it — `scripts/relic.py --learn <png> <row> <col> <label>` (labels: `empty pit dirt_lit dirt_dark stone_lit
 stone_dark cracked_lit shard_lit shard_dark chest_lit chest_dark gold_lit gold_dark pick_lit pick_dark multi_lit
-multi_dark`; never learn from r6c1, the % label sits there) — `python3 scripts/test_relic.py` must still pass, then run again.
+multi_dark frame`; never learn from r6c1, the % label sits there) — `python3 scripts/test_relic.py` must still pass, then run again.
 3. Report per account: the `done:` line (digs, items, shovels left), any `UNKNOWN` / `refused` / `no effect` lines, and
    every `dynamite` / `drill` line (fired by the rule below) or else the `booster hint (not used)` line.
 
@@ -63,7 +63,11 @@ arrow `(80,1820)`). Screenshot before retrying anything.
 - **Multi-square chest** = one big golden-framed chest over 2/4/6 tiles. Tap any of its tiles once lit → "Congratulations"
   popup, **Tap anywhere to close** (Aminor 2026-10-31: 104 gems + 1040 red gems + 3 tokens — currency, no relic); the
   area then stays a golden pit that counts as empty. One 2-square chest in the top row never opened (3 taps no-op) —
-  leave such a chest after one refused tap. The script has no sprite for them yet → `UNKNOWN`, teach it (`multi_lit`).
+  leave such a chest after one refused tap. Sprites: `multi_lit` = the tiles carrying the chest art (2×2 silver: its lower
+  2 tiles, Aminor 2026-11-04; 2×3 red relic chest: only the bottom-middle tile, Cmajor 2026-11-04), `frame` = its plain
+  gold-frame tiles, which look exactly like the opened pit; `read()` turns a frame block touching an art tile into one
+  `M` chest (value once, other tiles cost 0) and a frame block with no art into empty. A new shape → the art tile reads
+  `UNKNOWN`: `--learn` it as `multi_lit`, its plain tiles as `frame` if they read `UNKNOWN` too.
 - Reward banner ("Bone Saw FragmentX2") crosses row 1 for ~1 s after an item dig; "Limestone X1" (no "Fragment") = a
   whole relic from a relic chest.
 - **Top-up, when the shovels are out** (Nick, 2026-11-04: "only when out of shovel, once per day"; `relic.py` `topup()`,

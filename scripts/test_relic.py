@@ -293,9 +293,34 @@ p D . D g d
 p D . S g r
 d R . D d r
 d d D s d d""",
+    'aminor_1104_multi': """
+. . . . . D
+. G D . G P
+D G . . . .
+d D M M S D
+G . M M S d
+d D . D r r
+s s D d r d""",
+    'aminor_1104_multi_pit': """
+. G D . G .
+D G . . . .
+d D . . S D
+G . . . S d
+. . . . . R
+S . . . . D
+s D D S S s""",
+    'cmajor_1104_multi6': """
+S . D S D .
+D . . . . .
+. . D D D .
+G S s S D .
+d s D M M M
+d p D M M M
+d g d D D D""",
 }
 for name, want in EXPECT.items():
-    im = Image.new('RGB', (1080, 1920)); im.paste(Image.open(os.path.join(relic.TILES, 'boards', name + '.png')), (0, 510))
+    im = Image.open(os.path.join(relic.TILES, 'boards', name + '.png')).convert('RGB')
+    if im.size != (1080, 1920): full = Image.new('RGB', (1080, 1920)); full.paste(im, (0, 510)); im = full   # board crop (y 510-1710) or a full screenshot
     got = show(read(im))
     assert got == want.strip(), f'{name}:\n{got}\nwanted\n{want.strip()}'
 assert relic.cell(Image.new('RGB', (1080, 1920), (0, 200, 0)), 0, 0)[0] == '?'   # a never-seen tile reads unknown

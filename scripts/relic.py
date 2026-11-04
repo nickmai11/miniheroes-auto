@@ -32,7 +32,8 @@ FRAME = {(22, 1512): (173, 134, 107), (1058, 1512): (115, 81, 58), (540, 512): (
 # label -> (kind, lit). kinds: . empty  D dirt  S stone(2 hits)  K cracked stone  R shard  C relic chest  G gold chest
 # (Moon Essence, worth 0)  P pickaxe (shovel back)  M multi-square chest  ? unknown
 KINDS = {'empty': ('.', False), 'pit': ('.', False), 'dirt': ('D', None), 'stone': ('S', None), 'cracked': ('K', None),
-         'shard': ('R', None), 'chest': ('C', None), 'gold': ('G', None), 'pick': ('P', None), 'multi': ('M', None)}
+         'shard': ('R', None), 'chest': ('C', None), 'gold': ('G', None), 'pick': ('P', None), 'multi': ('M', None),
+         'frame': ('.', False)}   # gold-frame tile of a multi chest without the chest art: read() joins it to the art it touches
 COST = {'D': 1, 'K': 1, 'S': 2, 'R': 1, 'C': 1, 'G': 1, 'P': 0, 'M': 1}   # pickaxe: its shovel comes back -> net 0
 VALUE = {'R': 0.28, 'C': 1.6, 'M': 1.6, 'G': 0.0}  # base-relic units. Chest 1.6 = measured 2026-11-04 (29 base + 4 fused of 33,
                                                    # a fused Common = 6 base by fusion). Shard: measured 0.21, kept at Nick's 0.28 (see
@@ -94,12 +95,20 @@ def light(g):
 
 
 def read(im):
-    """7x6 grid of (kind, lit). A 2x2 multi chest's upper tiles look exactly like its opened golden pit (Aminor
-    2026-11-04): the sprites keep only its lower tiles (chest art) -> a '.' right above an 'M' is the chest's top."""
-    g = [[cell(im, r, c)[:2] for c in range(6)] for r in range(7)]
-    for r in range(1, 7):
-        for c in range(6):
-            if g[r][c][0] == 'M' and g[r - 1][c][0] == '.': g[r - 1][c] = g[r][c]
+    """7x6 grid of (kind, lit). A multi chest = one gold frame over 2/4/6 tiles with the chest art on only some of them
+    (2x2 silver: its lower tiles, Aminor 2026-11-04; 2x3 red: the bottom-middle tile, Cmajor 2026-11-04). Its plain
+    frame tiles ('frame') look exactly like its opened golden pit -> a frame block touching an 'M' is all that chest;
+    a frame block with no art is a pit (empty)."""
+    cells = [[cell(im, r, c) for c in range(6)] for r in range(7)]
+    g = [[k[:2] for k in row] for row in cells]
+    todo = {(r, c) for r in range(7) for c in range(6) if cells[r][c][2].startswith('frame') or g[r][c][0] == 'M'}
+    while todo:
+        comp, stack = set(), [todo.pop()]
+        while stack:
+            r, c = stack.pop(); comp.add((r, c)); todo.discard((r, c))
+            stack += [q for q in ((r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)) if q in todo]
+        art = any(g[r][c][0] == 'M' for r, c in comp)
+        for r, c in comp: g[r][c] = ('M', True) if art else ('.', False)
     return light(g)
 
 
@@ -520,7 +529,7 @@ def run(account, dry=False, max_digs=None):
 def learn(png, r, c, label):
     im = Image.open(png).convert('RGB'); r, c = int(r) - 1, int(c) - 1
     k = cell(im, r, c)
-    n = len(glob.glob(os.path.join(TILES, label + '.*.png'))) + 1
+    n = max([int(f.split('.')[-2]) for f in glob.glob(os.path.join(TILES, label + '.*.png'))] + [0]) + 1   # gaps: count+1 overwrote multi_lit.3 (2026-11-04)
     out = os.path.join(TILES, f'{label}.{n}.png')
     im.crop((X[c] - H, Y[r] - H, X[c] + H, Y[r] + H)).save(out)
     print(f'{out}: nearest before = {k[2]} ({k[3]:.1f})')
