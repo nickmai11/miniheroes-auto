@@ -300,3 +300,11 @@ for name, want in EXPECT.items():
     assert got == want.strip(), f'{name}:\n{got}\nwanted\n{want.strip()}'
 assert relic.cell(Image.new('RGB', (1080, 1920), (0, 200, 0)), 0, 0)[0] == '?'   # a never-seen tile reads unknown
 print('ok')
+
+# planner (Chien Than 2026-11-04, Nick): of two 5-dig routes to a relic chest, the bottom row with 2 shards beats the
+# column tunnel past 2 gold chests; and with 2 shovels left the lit shard is dug, not the first step of a 5-dig route.
+_rows = ['. . . . . .', '. . . . . .', 'G . . . . .', 'd d d d . d', 'g d d d . d', 'd d d d . d', 'c d r d R d']
+_g = [[(t.upper(), t.isupper()) if t != '.' else ('.', False) for t in r.split()] for r in _rows]
+_p = relic.plan(_g); assert _p[:2] == (6, 4) and 'relic chest' in _p[2] and 'cost 5' in _p[2], _p
+_p = relic.plan(_g, budget=2); assert _p[:2] == (6, 4) and 'shard' in _p[2], _p
+print('planner ok')

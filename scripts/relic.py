@@ -94,8 +94,13 @@ def light(g):
 
 
 def read(im):
-    """7x6 grid of (kind, lit)."""
-    return light([[cell(im, r, c)[:2] for c in range(6)] for r in range(7)])
+    """7x6 grid of (kind, lit). A 2x2 multi chest's upper tiles look exactly like its opened golden pit (Aminor
+    2026-11-04): the sprites keep only its lower tiles (chest art) -> a '.' right above an 'M' is the chest's top."""
+    g = [[cell(im, r, c)[:2] for c in range(6)] for r in range(7)]
+    for r in range(1, 7):
+        for c in range(6):
+            if g[r][c][0] == 'M' and g[r - 1][c][0] == '.': g[r - 1][c] = g[r][c]
+    return light(g)
 
 
 def show(g):
@@ -122,18 +127,22 @@ def routes(g, blocked=()):
     def cost(r, c):
         k = g[r][c][0]
         return INF if k in '.?' or (r, c) in blocked else HIDDEN if r >= 7 else COST[k]
-    dist, prev, q = {}, {}, []
+    def key(r, c):   # search cost: an item tile is free to pass through, so of two routes of equal real cost the one that
+        k = g[r][c][0]   # collects shards/chests wins (Chien Than 2026-11-04: a 5-dig tunnel past 2 gold chests was chosen
+        return 0 if r < 7 and VALUE.get(k, 0) > 0 else cost(r, c)   # over the 5-dig bottom row with 2 shards, Nick)
+    dist, kd, prev, q = {}, {}, {}, []
     for r in range(len(g)):
         for c in range(6):
             if g[r][c][1] and cost(r, c) < INF:
-                dist[(r, c)] = cost(r, c); prev[(r, c)] = None; heapq.heappush(q, (cost(r, c), r, c))
+                dist[(r, c)] = cost(r, c); kd[(r, c)] = key(r, c); prev[(r, c)] = None; heapq.heappush(q, (key(r, c), r, c))
     while q:
         d, r, c = heapq.heappop(q)
-        if d > dist.get((r, c), INF): continue
+        if d > kd.get((r, c), INF): continue
         for dr, dc in ((1, 0), (-1, 0), (0, 1), (0, -1)):
             nr, nc = r + dr, c + dc
-            if 0 <= nr < len(g) and 0 <= nc < 6 and cost(nr, nc) < INF and d + cost(nr, nc) < dist.get((nr, nc), INF):
-                dist[(nr, nc)] = d + cost(nr, nc); prev[(nr, nc)] = (r, c); heapq.heappush(q, (dist[(nr, nc)], nr, nc))
+            if 0 <= nr < len(g) and 0 <= nc < 6 and cost(nr, nc) < INF and d + key(nr, nc) < kd.get((nr, nc), INF):
+                kd[(nr, nc)] = d + key(nr, nc); dist[(nr, nc)] = dist[(r, c)] + cost(nr, nc); prev[(nr, nc)] = (r, c)
+                heapq.heappush(q, (kd[(nr, nc)], nr, nc))
     return dist, prev
 
 
@@ -144,9 +153,25 @@ def path(prev, t):
     return out
 
 
-def target(g, dist, prev, blocked=(), rows=range(7)):
-    """The item in `rows` with the best value/cost >= RATIO -> (r, c, why) of its first dig, or None."""
+def multi_groups(g):
+    """cell -> id of its connected 'M' block: a multi-square chest is ONE item over 2/4/6 tiles (Aminor 2026-11-04)."""
+    comp, n = {}, 0
+    for r in range(len(g)):
+        for c in range(len(g[r])):
+            if g[r][c][0] == 'M' and (r, c) not in comp:
+                n += 1; stack = [(r, c)]
+                while stack:
+                    a, b = stack.pop()
+                    if (a, b) in comp or not (0 <= a < len(g) and 0 <= b < len(g[a])) or g[a][b][0] != 'M': continue
+                    comp[(a, b)] = n; stack += [(a + 1, b), (a - 1, b), (a, b + 1), (a, b - 1)]
+    return comp
+
+
+def target(g, dist, prev, blocked=(), rows=range(7), budget=None):
+    """The item in `rows` with the best value/cost >= RATIO -> (r, c, why) of its first dig, or None.
+    `budget` = shovels left: a route that can't be finished isn't started (Chien Than 2026-11-04: 2 digs of a 4-dig route)."""
     worth = lambda r, c: g[r][c][0] in VALUE and VALUE[g[r][c][0]] > 0 and (r, c) not in blocked
+    comp = multi_groups(g)
     best = None
     for (r, c), d in dist.items():
         if r not in rows or not worth(r, c): continue
@@ -155,9 +180,16 @@ def target(g, dist, prev, blocked=(), rows=range(7)):
         p = path(prev, (r, c))
         extra = {(nr, nc) for pr, pc in p for nr, nc in ((pr + 1, pc), (pr - 1, pc), (pr, pc + 1), (pr, pc - 1))
                  if 0 <= nr < 7 and 0 <= nc < 6 and (nr, nc) not in p and not g[nr][nc][1] and worth(nr, nc)}
-        v = sum(VALUE.get(g[a][b][0], 0) for a, b in p) + sum(VALUE[g[a][b][0]] for a, b in extra)   # items on the way count too
-        cst = d + sum(COST[g[a][b][0]] for a, b in extra)
+        seen = set()
+        def once(a, b):   # items on the way count too; a multi chest's tiles: value once per route, its other tiles cost 0
+            k = g[a][b][0]
+            if k != 'M': return VALUE.get(k, 0), COST.get(k, 0)
+            if comp[(a, b)] in seen: return 0, 0
+            seen.add(comp[(a, b)]); return VALUE['M'], COST['M']
+        v = sum(once(a, b)[0] for a, b in p); ex = [once(a, b) for a, b in extra]
+        v += sum(x[0] for x in ex); cst = d + sum(x[1] for x in ex)
         key = (v / cst, -cst, r)
+        if budget is not None and d > budget + 1e-9: continue
         if v / cst >= RATIO - 1e-9 and (best is None or key > best[0]): best = (key, (r, c), d, len(extra), v / cst, p)
     if not best: return None
     (r, c), d, n, ratio, p = best[1:]
@@ -165,15 +197,15 @@ def target(g, dist, prev, blocked=(), rows=range(7)):
                                 f'{" via the next row" if any(a >= 7 for a, b in p) else ""}, cost {d:.0f}, {ratio:.2f}/shovel')
 
 
-def plan(g, blocked=()):
+def plan(g, blocked=(), budget=None):
     """-> (r, c, why) for the next dig, or None: a lit pickaxe (free), else the best item by value/cost (>= RATIO) over
     the board plus its hidden next row, else the cheapest bottom-row dig. A bottom-row dig scrolls row 1 off the board
     for good, so an item there that is worth its route goes first (Nick 2026-11-04: "collect the resources at the top
     before going down")."""
-    nxt = _next(g, blocked)
+    nxt = _next(g, blocked, budget)
     if nxt and nxt[0] == 6:
         dist0, prev0 = routes(g, set(blocked) | {(6, c) for c in range(6)})            # routes that don't scroll
-        top = target(g, dist0, prev0, blocked, rows=(0,))
+        top = target(g, dist0, prev0, blocked, rows=(0,), budget=budget)
         if top: return top[0], top[1], top[2] + ', before the scroll loses it'
         lost = [f'{NAME[g[0][c][0]]} r1c{c + 1} ({f"cost {dist0[(0, c)]:.0f}" if (0, c) in dist0 else "no route"})'
                 for c in range(6) if g[0][c][0] in NAME]
@@ -181,7 +213,7 @@ def plan(g, blocked=()):
     return nxt
 
 
-def _next(g, blocked):
+def _next(g, blocked, budget=None):
     # a lit pickaxe costs nothing net; one in the bottom row reveals a new row before we commit to a route
     # (Nick 2026-11-04, Kong: the script dug a 7-shovel tunnel to a chest while a free pickaxe sat lit in the bottom row)
     picks = [(r, c) for r in range(7) for c in range(6) if g[r][c] == ('P', True) and (r, c) not in blocked]
@@ -190,7 +222,7 @@ def _next(g, blocked):
         return r, c, f'free pickaxe r{r + 1}c{c + 1}' + (' (reveals a row)' if r == 6 else '')
     g8 = g + [[('D', False)] * 6]                                   # the hidden row a bottom-row dig reveals (HIDDEN per tile)
     dist, prev = routes(g8, blocked)
-    t = target(g8, dist, prev, blocked)
+    t = target(g8, dist, prev, blocked, budget=budget)
     if t: return t
     bottom = [(d, g[6][c][0] != 'D', abs(c - 2.5), c) for c in range(6) for d in [dist.get((6, c))] if d is not None]
     if not bottom: return None
@@ -223,10 +255,12 @@ def booster_plan(g, blocked=()):
     preview); stone goes in one hit; a booster that digs any bottom-row tile scrolls the board one row. Saved = per item
     collected the cheaper of its hand-dig cost and its worth in shovels (VALUE/RATIO, pickaxe 1), +1 for the row a scroll
     reveals, minus the row-1 items the planner would still have collected (the scroll loses them)."""
-    dist, _ = routes(g, blocked)
+    dist, _ = routes(g, blocked); comp = multi_groups(g); seen = set()
     def saved(r, c):
         k = g[r][c][0]
         if k == 'P': return 1
+        if k == 'M' and comp[(r, c)] in seen: return 0   # a multi chest (2/4/6 tiles) opens once: Aminor 2026-11-04 dynamite -> golden pit
+        if k == 'M': seen.add(comp[(r, c)])
         return min(dist.get((r, c), 1e9), VALUE[k] / RATIO) if VALUE.get(k, 0) > 0 else 0
     def kept(c):                                   # a row-1 item the planner would still collect -> lost at a scroll
         k, d = g[0][c][0], dist.get((0, c))
@@ -235,9 +269,11 @@ def booster_plan(g, blocked=()):
         return d if VALUE.get(k, 0) / d >= RATIO - 1e-9 else 0
     scroll = 1 - sum(kept(c) for c in range(6))
     empties = [(r, c) for r in range(7) for c in range(6) if g[r][c][0] == '.']
-    cands = [(sum(saved(a, b) for a in range(7) for b in range(6) if abs(a - r) + abs(b - c) <= 2) + (scroll if r >= 4 else 0),
+    def total(cells):
+        seen.clear(); return sum(saved(a, b) for a, b in cells)
+    cands = [(total([(a, b) for a in range(7) for b in range(6) if abs(a - r) + abs(b - c) <= 2]) + (scroll if r >= 4 else 0),
               'dynamite', r, c) for r, c in empties]
-    if empties: cands.append((sum(saved(6, c) for c in range(6)) + scroll, 'drill', *empties[0]))
+    if empties: cands.append((total([(6, c) for c in range(6)]) + scroll, 'drill', *empties[0]))
     return sorted(cands, reverse=True)
 
 
@@ -311,6 +347,7 @@ def open_board():
         a = find(boxes, r'Archaeology')
         if a: tap_wait(*a); time.sleep(0.5); loading = True; continue
         if find(boxes, r'Tap anywhere|Do not remind'): tap_wait(540, 120); continue
+        if find(boxes, r'Shovel\?|Remaining purchases'): tap_wait(938, 636); time.sleep(0.5); continue   # shovel Tip left open
         # any other screen (Tribe left by catch-up, Dino/Dminor/Bino 2026-11-04): back arrow at once, no waiting
         if loading: time.sleep(1); loading = False
         else: tap_wait(80, 1820); time.sleep(0.6)
@@ -334,10 +371,74 @@ def dismiss(boxes):
     return False
 
 
+def benefit():
+    """Board's Benefit icon (top-right) with a red dot -> open, tap the yellow Claim (daily login: 1 dynamite, 1 drill,
+    15 shovels on pass accounts), close. Never the purchase button (Nick 2026-11-04: check Benefit before digging)."""
+    im = grab()
+    dot = sum(1 for y in range(360, 420, 3) for x in range(1020, 1075, 3)
+              if (lambda q: q[0] > 210 and q[1] < 70 and q[2] < 100)(im.getpixel((x, y))))
+    if dot < 4: return 'benefit: no red dot'
+    tap_wait(1015, 430); boxes = ocr(); t0 = time.time()
+    while not find(boxes, r'^Benefit$') and time.time() - t0 < 6: time.sleep(0.4); boxes = ocr()
+    if not find(boxes, r'^Benefit$'): raise Stop(f'Benefit did not open; screen: {joined(boxes)[:120]}')
+    got = 'benefit: nothing to claim (button grey / absent)'
+    im = grab(); boxes = ocr(im)
+    for x, y, w, h, t in boxes:
+        q = im.getpixel((x - 14, y + h // 2))            # button colour left of the text: green "Claim Reward" (xFaktor
+        if re.fullmatch(r'Claim( Reward)?', t.strip()) and y > 1500 and \
+                max(q) - min(q) > 60 and q[0] < 240:     # 2026-11-04) or yellow; grey "Claimed" has no saturation
+            tap_wait(x + w // 2, y + h // 2); time.sleep(0.8); b2 = ocr()
+            got = 'benefit: claimed' + (' (reward popup closed)' if dismiss(b2) else '')
+            break
+    for _ in range(3):                                   # X, until the Benefit dialog is really gone
+        tap_wait(974, 240); time.sleep(0.5)
+        if not find(ocr(), r'^Benefit$'): break
+    return got
+
+
+def buy_shovels(prices):
+    """Shovel + (green, on the shovel button) -> Tip "Spend N diamonds to buy 10 Shovel? (Remaining purchases: k)".
+    Confirm only while N is one of the account's configured prices (relic_shovel_buys, Nick 2026-11-04: default 80;
+    Kong 80/160/240; Cmajor 80/160) and the gem counter covers it; any other price -> X, stop. Each buy is verified by
+    the shovel counter (+10)."""
+    out, left = [], list(prices)
+    tip = lambda boxes: re.search(r'Spend\D*(\d+)\D+buy\D*(\d+)\s*Shovel', joined(boxes))
+    boxes = ocr()
+    while left:
+        n0 = shovels(boxes) or (0, 0)
+        if not tip(boxes):                               # after a Confirm the Tip stays open with the NEXT price (Bino 2026-11-04) -> no + tap then
+            tap_wait(656, 1770); boxes = ocr(); t0 = time.time()
+            while not tip(boxes) and time.time() - t0 < 4: time.sleep(0.4); boxes = ocr()
+        m = tip(boxes)
+        if not m:
+            out.append(f'shovel buy: no price popup ({joined(boxes)[:80]})'); dismiss(boxes); break
+        price, cnt = int(m.group(1)), int(m.group(2))
+        gm = re.search(r'(\d+)', ' '.join(b[4] for b in boxes if b[1] < 90 and b[0] < 320))
+        gems = int(gm.group(1)) if gm else -1
+        if price not in left or gems < price:
+            out.append(f'shovel buy skipped: {price} gems on screen not in {left} (gems {gems})'); break
+        tap_wait(540, 1162); time.sleep(1.2)             # Confirm
+        boxes = ocr(); n1 = shovels(boxes) or n0
+        if n1[0] < n0[0] + cnt: raise Stop(f'shovel buy at {price}: counter {n0[0]} -> {n1[0]}, expected +{cnt}')
+        left.remove(price); out.append(f'bought {cnt} shovels for {price} gems ({n0[0]} -> {n1[0]})')
+    for _ in range(3):                                   # X on a Tip left open (the next price)
+        if not tip(boxes): break
+        tap_wait(938, 636); time.sleep(0.5); boxes = ocr()
+    return '; '.join(out) or 'shovel buy: none configured'
+
+
 def run(account, dry=False, max_digs=None):
     open_board()
     g, im = stable_board()
     if g is None: raise Stop('not on the dig board')
+    if not dry:                                          # before digging: Benefit red dot, then the configured shovel buys (Nick 2026-11-04)
+        log(benefit())
+        y = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
+        m = re.search(r'^\s*relic_shovel_buys:\s*\[([^\]]*)\]', y, re.M)
+        prices = [int(x) for x in re.findall(r'\d+', m.group(1))] if m else [80]
+        log(buy_shovels(prices))
+        g, im = stable_board()
+        if g is None: raise Stop('not on the dig board after Benefit / shovel buys')
     boxes = ocr(im)
     n = shovels(boxes)
     if n is None: raise Stop('cannot read the shovel counter')
@@ -357,7 +458,7 @@ def run(account, dry=False, max_digs=None):
             g, im = stable_board()
             if g is None: raise Stop('left the dig board after the milestone claim')
             boxes = ocr(im)
-        p = plan(g, blocked)
+        p = plan(g, blocked, n[0])
         if p is None: log(f'nothing diggable (lit cells unknown/blocked: {unknown(g) or "-"}) -> stop'); break
         r, c, why = p
         k0 = g[r][c]; n0 = n[0]

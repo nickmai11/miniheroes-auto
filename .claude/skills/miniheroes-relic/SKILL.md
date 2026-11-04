@@ -10,6 +10,7 @@ Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Vein
 ## Run it — script, no helper (Nick 2026-11-03: "a script that reliably does the work")
 
 1. Instances at the main screen (`scripts/boot.sh <mumu index>...`), then **`scripts/relic_all.sh [account ...]`** — runs
+   (each account: Benefit red dot → Claim, the configured shovel buys, then the digs)
    `relic.py` on every `accounts/*.yaml` account in parallel (~4 s per dig, 150 shovels ≈ 10 min). One line per
    account: `<account> exit 0 (done: N digs, shovels 0/150 left, items: …)`; output + screenshots in
    `/tmp/miniheroes-relic/<account>/`, every dig also in `logs/<account>/<game day>.log`.
@@ -64,6 +65,14 @@ arrow `(80,1820)`). Screenshot before retrying anything.
   leave such a chest after one refused tap. The script has no sprite for them yet → `UNKNOWN`, teach it (`multi_lit`).
 - Reward banner ("Bone Saw FragmentX2") crosses row 1 for ~1 s after an item dig; "Limestone X1" (no "Fragment") = a
   whole relic from a relic chest.
+- **Before digging** (Nick, 2026-11-04; `relic.py` start): **Benefit** icon top-right of the board `(1015,430)` — open it
+  **only with a red dot** (≈ x 1020–1075, y 360–420) → yellow **Claim** at the bottom `(540,1666)` (daily login: 1 dynamite,
+  1 drill, 15 shovels on pass accounts; grey "Claimed" = done) → ✕ `(974,240)`. Never its purchase button.
+  Then **shovel buys**: the green **+** on the shovel button `(656,1770)` → Tip "Spend N diamonds to buy 10 Shovel?
+  (Remaining purchases: k)" → **Confirm** `(540,1162)` only while N is one of the account's `relic_shovel_buys`
+  (default `[80]`; Kong `[80, 160, 240]`; Cmajor `[80, 160]`) and the gem counter covers it; any other price → ✕
+  `(938,636)` and stop (Aminor 2026-11-04: 320 on screen = the 80 was already bought by hand). Prices escalate
+  80 → 160 → 240 → 320 within the day; each buy is verified by the counter (+10).
 - **Milestone bar** ("Mine N more time(s) to claim your reward", top): at N = 0 tap its reward icon top-right
   `(1010,280)` → Congratulations popup → tap anywhere. Free (boosters / shovels); claim every time it's ready.
 
@@ -112,6 +121,11 @@ top-row item (Nick, 2026-11-04: row 1 is gone for good once it scrolls off).
 **Threshold:** take a target if `units / real cost ≥ r` (r = 0.14): a relic chest is worth up to ~11 digs, a lone
 shard 1–2; shards sharing a tunnel split the cost — the script credits every item on or beside a route (Nick 2026-11-03, Bino: a gold chest + a pickaxe tile on the way to 2 shards = 4 digs, worth it).
 
+**Routes collect on the way** (Nick 2026-11-04, Chien Than): of two routes of the same cost, take the one through
+shards/chests — the search treats item tiles as free to pass, so a 5-dig bottom row with 2 shards beats a 5-dig tunnel
+past 2 gold chests (and bottom-row digs reveal rows on the way). **A route must fit the shovels left**: with 2 shovels
+the planner digs a lit shard, never the first 2 digs of a 4-dig route (`budget` in `plan()`).
+
 **Every dig needs a target** (Nick 2026-10-31, "gone wild"): each dig is either on the cheapest route to a named item
 (log it: `route to <item> rNcM, cost N`) or a bottom-row dig that reveals a new row. Never dig a tile just because it's
 reachable — plain dirt/stone off-route, the top rows, or "clearing the row" is waste (Chien Than 2026-10-31 mowed the
@@ -144,8 +158,10 @@ Supply: milestone bar only (≈2 per 500 digs); never buy. Stock = the badge on 
 
 ## Hard rules
 
-- Boosters only by the rule above. Never tap the green **+** on the shovel button (buys shovels) — no gem buys at all
-  (the daily 80-gem buy was removed, Nick 2026-10-31), never **One-Tap Mining**. No gems.
+- Boosters only by the rule above. The green **+** on the shovel button buys shovels: only the account's
+  `relic_shovel_buys` prices (default 80 gems once; Kong 80/160/240; Cmajor 80/160 — Nick 2026-11-04), each confirmed
+  only when that exact price is on the Tip popup; any other price → ✕. Never **One-Tap Mining**, no other gems.
+- Before the first dig: the board's **Benefit** icon with a red dot → Claim (free), never its purchase button.
 - By hand: never chain taps — a tap you thought was cancelled may still land. Screenshot, then tap. Tap looks
   ignored (counters unchanged)? Re-screenshot before retrying, or you'll dig twice.
 - Unexpected screen/popup → stop and report.
