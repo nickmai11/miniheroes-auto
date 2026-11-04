@@ -436,18 +436,24 @@ def buy_shovels(prices, account):
     return '; '.join(out) or 'shovel buy: none configured'
 
 
+def topup(account):
+    """Out of free shovels -> Benefit red dot (Claim) + the configured shovel buys, ONCE per game day (Nick 2026-11-04:
+    "benefit check and buy only when out of shovel, only once per day"); marker /tmp/miniheroes-state/<acct>-<day>.relic_topup."""
+    day = time.strftime('%F', time.gmtime(time.time() - 5 * 3600))
+    st = f'/tmp/miniheroes-state/{account}-{day}.relic_topup'; os.makedirs('/tmp/miniheroes-state', exist_ok=True)
+    if os.path.exists(st): return f'top-up: done today ({open(st).read().strip()[:120]})'
+    y = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
+    m = re.search(r'^\s*relic_shovel_buys:\s*\[([^\]]*)\]', y, re.M)
+    prices = [int(x) for x in re.findall(r'\d+', m.group(1))] if m else [80]
+    r = benefit() + '; ' + buy_shovels(prices, account)
+    open(st, 'w').write(r)
+    return 'top-up: ' + r
+
+
 def run(account, dry=False, max_digs=None):
     open_board()
     g, im = stable_board()
     if g is None: raise Stop('not on the dig board')
-    if not dry:                                          # before digging: Benefit red dot, then the configured shovel buys (Nick 2026-11-04)
-        log(benefit())
-        y = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
-        m = re.search(r'^\s*relic_shovel_buys:\s*\[([^\]]*)\]', y, re.M)
-        prices = [int(x) for x in re.findall(r'\d+', m.group(1))] if m else [80]
-        log(buy_shovels(prices, account))
-        g, im = stable_board()
-        if g is None: raise Stop('not on the dig board after Benefit / shovel buys')
     boxes = ocr(im)
     n = shovels(boxes)
     if n is None: raise Stop('cannot read the shovel counter')
@@ -460,40 +466,50 @@ def run(account, dry=False, max_digs=None):
         p = plan(g); log(f'plan: {p and f"r{p[0] + 1}c{p[1] + 1} ({p[2]})"}'); log(booster_hint(g, im)); return 0
     digs, blocked, refused, got = 0, set(), 0, []
     cap = n[0] + 60 if max_digs is None else max_digs            # pickaxe refunds + regen add digs; 60 is a hard stop
-    while n[0] > 0 and digs < cap:                                  # until the counter reads 0 (Aminor: 3 left over when it counted digs)
-        if re.search(r'Mine 0 more', joined(boxes)):                  # milestone reward ready -> claim (free)
-            tap_wait(1010, 280); time.sleep(0.6); b2 = ocr()
-            log('milestone claim -> ' + (f'got: {joined(b2)[:100]}' if dismiss(b2) else 'no popup: ' + joined(b2)[:80]))
-            g, im = stable_board()
-            if g is None: raise Stop('left the dig board after the milestone claim')
-            boxes = ocr(im)
-        p = plan(g, blocked, n[0])
-        if p is None: log(f'nothing diggable (lit cells unknown/blocked: {unknown(g) or "-"}) -> stop'); break
-        r, c, why = p
-        k0 = g[r][c]; n0 = n[0]
-        b2 = ocr(tap_wait(X[c], Y[r]))                                # banner "Limestone FragmentX2" shows right after
-        if dismiss(b2): b2 = ocr()
-        if find(b2, r'adjacent plot'):
-            blocked.add((r, c)); refused += 1; log(f'dig r{r + 1}c{c + 1} refused ("adjacent plot") -> blocked')
-            if refused >= 3: raise Stop('3 refused digs')
-            g, im = stable_board(); boxes = ocr(im); continue
-        g2, im = stable_board()
-        if g2 is None: raise Stop('left the dig board after a tap')
-        boxes = ocr(im); n2 = shovels(boxes) or n
-        reward = ' '.join(f'{m.group(1)} x{m.group(2)}' for m in ITEMS.finditer(joined(b2)))
-        changed = lambda: g2[r][c] != k0 or (r == 6 and g2 != g)
-        if not changed() and n2[0] >= n0 and k0[0] != 'P':
-            time.sleep(1.5); g2, im = stable_board(); boxes = ocr(im); n2 = shovels(boxes) or n   # late tap?
-            if not changed() and n2[0] >= n0:
-                blocked.add((r, c)); refused += 1
-                log(f'dig r{r + 1}c{c + 1} {k0[0]}: no effect (shovels {n0}->{n2[0]}) -> blocked')
-                if refused >= 3: raise Stop('3 digs without effect')
-                g = g2; continue
-        digs += 1; refused = 0
-        if reward: got.append(reward)
-        after = f'scrolled, now {g2[r][c][0]}' if r == 6 else g2[r][c][0]
-        log(f'dig r{r + 1}c{c + 1} {k0[0]} ({why}) -> {reward + ", " if reward else ""}{after}; shovels {n0}->{n2[0]}')
-        g, n = g2, n2
+    topped = False
+    while True:
+        while n[0] > 0 and digs < cap:                                  # until the counter reads 0 (Aminor: 3 left over when it counted digs)
+            if re.search(r'Mine 0 more', joined(boxes)):                  # milestone reward ready -> claim (free)
+                tap_wait(1010, 280); time.sleep(0.6); b2 = ocr()
+                log('milestone claim -> ' + (f'got: {joined(b2)[:100]}' if dismiss(b2) else 'no popup: ' + joined(b2)[:80]))
+                g, im = stable_board()
+                if g is None: raise Stop('left the dig board after the milestone claim')
+                boxes = ocr(im)
+            p = plan(g, blocked, n[0])
+            if p is None: log(f'nothing diggable (lit cells unknown/blocked: {unknown(g) or "-"}) -> stop'); break
+            r, c, why = p
+            k0 = g[r][c]; n0 = n[0]
+            b2 = ocr(tap_wait(X[c], Y[r]))                                # banner "Limestone FragmentX2" shows right after
+            if dismiss(b2): b2 = ocr()
+            if find(b2, r'adjacent plot'):
+                blocked.add((r, c)); refused += 1; log(f'dig r{r + 1}c{c + 1} refused ("adjacent plot") -> blocked')
+                if refused >= 3: raise Stop('3 refused digs')
+                g, im = stable_board(); boxes = ocr(im); continue
+            g2, im = stable_board()
+            if g2 is None: raise Stop('left the dig board after a tap')
+            boxes = ocr(im); n2 = shovels(boxes) or n
+            reward = ' '.join(f'{m.group(1)} x{m.group(2)}' for m in ITEMS.finditer(joined(b2)))
+            changed = lambda: g2[r][c] != k0 or (r == 6 and g2 != g)
+            if not changed() and n2[0] >= n0 and k0[0] != 'P':
+                time.sleep(1.5); g2, im = stable_board(); boxes = ocr(im); n2 = shovels(boxes) or n   # late tap?
+                if not changed() and n2[0] >= n0:
+                    blocked.add((r, c)); refused += 1
+                    log(f'dig r{r + 1}c{c + 1} {k0[0]}: no effect (shovels {n0}->{n2[0]}) -> blocked')
+                    if refused >= 3: raise Stop('3 digs without effect')
+                    g = g2; continue
+            digs += 1; refused = 0
+            if reward: got.append(reward)
+            after = f'scrolled, now {g2[r][c][0]}' if r == 6 else g2[r][c][0]
+            log(f'dig r{r + 1}c{c + 1} {k0[0]} ({why}) -> {reward + ", " if reward else ""}{after}; shovels {n0}->{n2[0]}')
+            g, n = g2, n2
+
+        if topped or max_digs is not None or n[0] > 0: break   # only when the shovels are out: Benefit + buys, once per game day (Nick 2026-11-04)
+        topped = True; log(topup(account))
+        g, im = stable_board()
+        if g is None: raise Stop('not on the dig board after the top-up')
+        boxes = ocr(im); n = shovels(boxes) or n
+        if n[0] == 0: break
+        cap = digs + n[0] + 60
     g, im = boosters(g, blocked, im, got)                         # fire late, by the rule
     log(f'done: {digs} digs, shovels {n[0]}/{n[1]} left, items: {", ".join(got) or "none"}'
         + (f', UNKNOWN cells {unknown(g)}' if unknown(g) else '') + '\n' + show(g))

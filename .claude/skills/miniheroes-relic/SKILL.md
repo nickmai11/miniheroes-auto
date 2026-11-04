@@ -10,7 +10,8 @@ Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Vein
 ## Run it — script, no helper (Nick 2026-11-03: "a script that reliably does the work")
 
 1. Instances at the main screen (`scripts/boot.sh <mumu index>...`), then **`scripts/relic_all.sh [account ...]`** — runs
-   (each account: Benefit red dot → Claim, the configured shovel buys, then the digs)
+   (each account: the free shovels, then — only when the counter hits 0, once per game day — Benefit red dot → Claim
+   and the configured shovel buys, then those shovels)
    `relic.py` on every `accounts/*.yaml` account in parallel (~4 s per dig, 150 shovels ≈ 10 min). One line per
    account: `<account> exit 0 (done: N digs, shovels 0/150 left, items: …)`; output + screenshots in
    `/tmp/miniheroes-relic/<account>/`, every dig also in `logs/<account>/<game day>.log`.
@@ -65,7 +66,8 @@ arrow `(80,1820)`). Screenshot before retrying anything.
   leave such a chest after one refused tap. The script has no sprite for them yet → `UNKNOWN`, teach it (`multi_lit`).
 - Reward banner ("Bone Saw FragmentX2") crosses row 1 for ~1 s after an item dig; "Limestone X1" (no "Fragment") = a
   whole relic from a relic chest.
-- **Before digging** (Nick, 2026-11-04; `relic.py` start): **Benefit** icon top-right of the board `(1015,430)` — open it
+- **Top-up, when the shovels are out** (Nick, 2026-11-04: "only when out of shovel, once per day"; `relic.py` `topup()`,
+  marker `/tmp/miniheroes-state/<acct>-<day>.relic_topup`): **Benefit** icon top-right of the board `(1015,430)` — open it
   **only with a red dot** (≈ x 1020–1075, y 360–420) → yellow **Claim** at the bottom `(540,1666)` (daily login: 1 dynamite,
   1 drill, 15 shovels on pass accounts; grey "Claimed" = done) → ✕ `(974,240)`. Never its purchase button.
   Then **shovel buys**: the green **+** on the shovel button `(656,1770)` → Tip "Spend N diamonds to buy 10 Shovel?
@@ -163,7 +165,7 @@ Supply: milestone bar only (≈2 per 500 digs); never buy. Stock = the badge on 
 - Boosters only by the rule above. The green **+** on the shovel button buys shovels: only the account's
   `relic_shovel_buys` prices (default 80 gems once; Kong 80/160/240; Cmajor 80/160 — Nick 2026-11-04), each confirmed
   only when that exact price is on the Tip popup; any other price → ✕. Never **One-Tap Mining**, no other gems.
-- Before the first dig: the board's **Benefit** icon with a red dot → Claim (free), never its purchase button.
+- When the shovels run out (once a day): the board's **Benefit** icon with a red dot → Claim (free), never its purchase button.
 - By hand: never chain taps — a tap you thought was cancelled may still land. Screenshot, then tap. Tap looks
   ignored (counters unchanged)? Re-screenshot before retrying, or you'll dig twice.
 - Unexpected screen/popup → stop and report.

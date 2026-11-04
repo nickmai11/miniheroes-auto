@@ -69,7 +69,8 @@ Same as the dailies step with the same name, except:
 
 ## Relics (on request, `scripts/relic_all.sh`)
 
-- **Start** (Nick, 2026-11-04): a `benefit: …` line (red dot → `claimed`; else `no red dot`) and a shovel-buy line per
+- **Top-up** (Nick, 2026-11-04; after the free shovels hit 0, once per game day): a `top-up: benefit: …` line (red dot →
+  `claimed`; else `no red dot`) and a shovel-buy line per
   configured price — `bought 10 shovels for 80 gems (a -> b)` with the counter up by 10, or `shovel buy skipped: N gems
 on screen not in […]` for any other price (never a Confirm on it). Not done: a Tip popup left open, or a buy at a price
   that isn't in the account's `relic_shovel_buys`.
