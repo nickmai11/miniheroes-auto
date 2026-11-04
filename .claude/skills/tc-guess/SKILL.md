@@ -1,11 +1,12 @@
 ---
 name: tc-guess
-description: Mini Heroes: Magic Throne Tribe Clash → Guess - set Nick's 1st/2nd/3rd tribe picks and Save, on his MuMuPlayer accounts via ADB (scripts/clash_guess.py).
+description: Mini Heroes: Magic Throne Tribe Clash → Guess - set Nick's 1st/2nd/3rd tribe picks and Save, on his MuMuPlayer accounts via ADB (scripts/clash_guess.py). Also "fr guess": the Floating Realm Guess (scripts/realm_guess.py).
 ---
 
 # Tribe Clash Guess
 
-Use when Nick says "tribe clash guess", "guess" + 3 tribe names, on one or more accounts.
+Use when Nick says "tribe clash guess" / "tc guess" or "fr guess" + 3 tribe names, on one or more accounts.
+**"fr guess" = Floating Realm Guess**: same steps with `scripts/realm_guess.py` (doc section "Floating Realm Guess").
 
 1. Picks come from Nick's message, in order 1st, 2nd, 3rd ("today: dragon slayers, potato, purple gang" → 1 Dragon
    Slayers, 2 Potato, 3 Purple Gang). Missing or ambiguous → ask; never choose tribes yourself.

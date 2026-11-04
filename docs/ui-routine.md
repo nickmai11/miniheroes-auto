@@ -681,6 +681,21 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
 - **Tribe Clash** banner `(880,624)` → Pack `(976–994,1630)` → Free `(866,934)` (20 gems, 1/day). **Never its
   Treasures or "Enter"** (Nick, 2026-10-27). Its red dot can persist with nothing claimable.
 
+## Floating Realm Guess
+
+Nick names 3 tribes (1st, 2nd, 3rd; shorthand is fine: "ace purple kitchen" → ACE, PurpleGang, TheKitchen) — never pick
+them yourself. **`D=<serial> scripts/realm_guess.py <1st> <2nd> <3rd>`** per account, in parallel, each in its own cwd
+(exit 1 → `v_realm_guess.png` there). Mapped on xFaktor 2026-11-05, ran on 8 accounts the same day.
+
+- Entry: main-screen **Floating Realm** banner (polled 15 s, it loads late) → event screen; a **Match Result** ranking
+  popup can sit over it (5 of 9 accounts) → "Tap anywhere to close" `(540,1486)` → **Guess** (dice, bottom right
+  `(987,1826)`; the label OCRs at `(987,1876)`) → the same dialog as the Tribe Clash Guess: 3 banners (slot 1 red centre
+  filled first, then 2 blue left, 3 purple right), tiles with the name under the icon, **Save** `(540,1656)`, ✕ `(974,224)`.
+- The tile list **scrolls**: 16 tribes, 4 per row, row pitch ≈375 px. One slow swipe of 2 rows = one page (Nick
+  2026-11-05: 2 rows at a time); the script scrolls to the top, then a page at a time, until the name shows.
+- Existing guesses → cleared first by tapping their tiles in the list (Tribe Clash rule); the picked name must show
+  in its banner band (y 280–760) before the next pick. Ends on the main screen.
+
 ## Tribe Clash Guess
 
 Nick names 3 tribes each time (1st, 2nd, 3rd) — never pick them yourself. **`D=<serial> scripts/clash_guess.py <1st> <2nd> <3rd>`**
