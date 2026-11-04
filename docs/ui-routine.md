@@ -320,8 +320,9 @@ owns. Never tap a $ / purchase button. Weekly/Monthly cards may be unowned on so
    (Day 1 = `(203,1099)`; grid of 3 columns x≈203/540/877, rows y≈1099/1486) → 20 stars, tile shows "Claimed".
 4. **Lifetime Card** → **Claim Reward** `(540,1658)` → 288 gems + 3 arena tickets, button turns "Claimed".
 5. **Monthly Card not owned:** each "Points reached" row's left free-track item has its own yellow **Claim**
-   (red dot, x≈830–896, scroll the list; rows shift as you scroll; dismiss `(300,200)`) — free. Never the green
-   "Continue to claim" (paid track).
+   (red dot, x≈830–896, scroll the list; rows shift as you scroll; dismiss `(300,200)`) — free. The green
+   **"Continue to claim"** = the card track: free when its yellow box has **no padlock** (top-right corner, card owned —
+   Nick, 2026-11-04; Cmajor got 10 shards + 2000 gold, gems unchanged); padlock = paid, never.
 6. Dismiss every reward popup with `(540,120)`; back arrow `(92,1810)`.
 
 ## Tower of the Throne (3 daily challenges)

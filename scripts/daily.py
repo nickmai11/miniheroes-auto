@@ -395,10 +395,19 @@ def play_pass(cfg):
                 if p[0] > 200 and 100 < p[1] < 170 and p[2] < 80:
                     tap_wait(x2, y2); time.sleep(1); tap_wait(540, 120); got.append('weekly day'); break
         else:
-            for _ in range(10):                          # free-track Claim buttons; never "Continue to claim"
+            for _ in range(10):                          # free-track Claim buttons
                 c = find(ocr(), r'^Claim$', (780, 300, 960, 1750))
                 if not c: break
                 tap_wait(*c); time.sleep(1); tap_wait(300, 200); got.append('monthly row')
+            for _ in range(10):                          # "Continue to claim" = card track: free when it has no padlock
+                boxes = ocr(); c = find(boxes, r'^Continue', (780, 300, 1060, 1750))   # (Nick 2026-11-04; Cmajor: 10 shards + 2000 gold, gems same)
+                if not c: break
+                im = grab()                              # padlock straddles the card box's top-right corner, ~(-170,-110) from the button
+                dark = sum(1 for x in range(c[0] - 206, c[0] - 136, 2) for y in range(c[1] - 149, c[1] - 79, 2) if max(im.getpixel((x, y))[:3]) < 80)
+                if dark >= 10: got.append('monthly card track locked'); break
+                g0 = gems(boxes); tap_wait(*c); time.sleep(1); tap_wait(300, 200)
+                if gems(ocr()) < g0: raise Stop(f'monthly continue: gems dropped {g0} -> {gems(ocr())}')
+                got.append('monthly card row')
     return f'claimed {got or "nothing"}'
 
 
@@ -1101,8 +1110,10 @@ def events(cfg):
     # The SELECTED tab hides its own red dot and the hub opens on the last-used tab, so that tab was always skipped
     # (Dino's Match Event, 2026-11-01). Read with 2 different tabs selected; every tab shows its dot in one of them.
     read = lambda: {t: red_dot(x + 30, 1720, min(x + 95, 1080), 1795) for t, x in tabs.items()}
+    # Always 2 DIFFERENT tabs: picking "tabs without a dot" picked only the hidden (selected) tab itself when every other
+    # tab had a dot -> Weekly Event Free Benefits missed on xFaktor + Bino (2026-11-04).
     dots = read()
-    for t in [t for t in tabs if not dots[t]][:2]:
+    for t in list(tabs)[:2]:
         tap_wait(tabs[t], 1840); time.sleep(1.2)
         dots = {k: v or d for (k, v), d in zip(dots.items(), read().values())}
     print(f'    hub tabs (red dot): {dots}', flush=True)   # 'nothing claimed' couldn't tell no tab / no dot / missed (2026-11-01)
