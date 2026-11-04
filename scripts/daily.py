@@ -336,6 +336,8 @@ def pet_deployments():
     tap_wait(90, 700); t = joined(wait(r'Cumulative pet deployments', 6))
     m = re.search(r'Cumulative pet deployments completed\D*?\d+ times\s*\|\s*(\d+)\s*/', t) or re.search(r'(\d+)\s*/\s*\d+', t[t.find('Cumulative'):])
     if not m: raise Stop(f'cumulative deployments unreadable: {t[:150]}')
+    # milestones reached after the events step (the last deployments finish late) -> claim them here (Nick 2026-11-03)
+    print(f'    pet achievement x{claim_yellow(r"^Achievement$")}', flush=True)
     tap_wait(972, 226)
     return int(m.group(1))
 

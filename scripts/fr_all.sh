@@ -3,6 +3,8 @@
 # "ready" one in parallel, one result line per account. Outside a battle round it exits before booting anything.
 # launchd: ~/Library/LaunchAgents/com.nickm.miniheroes-fr.plist, Wed/Thu/Fri 04:30 local (+07) = Tue/Wed/Thu 21:30 UTC,
 # 30 min before the round ends; output -> logs/launchd-fr.log, per-account lines -> logs/<account>/<game day>.log.
+# The plist runs it under `caffeinate -i -s` (idle sleep is 1 min: after a scheduled wake the Mac slept mid-boot risk).
+# Needs AC power + lid open (or an external display): a closed lid sleeps regardless.
 #   reload after plist edits: launchctl bootout gui/$(id -u)/com.nickm.miniheroes-fr; launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.nickm.miniheroes-fr.plist
 # A STOP / boot failure is left for Nick (nobody to finish it at 4:30): "<account> exit 1" line + v_realm.png in /tmp/miniheroes-fr/<account>.
 HERE="$(cd "$(dirname "$0")" && pwd)"; R="$(dirname "$HERE")"; W=/tmp/miniheroes-fr

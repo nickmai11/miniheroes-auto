@@ -50,7 +50,7 @@ screen. Not done → the runner retries once → a helper does that one step →
 23. **Daily Mission** — rows and chests claimed, **160 ✓** (see "Whole run").
 24. **Play Pass again** — no red dot on the Play Pass icon (opened only when the icon has one; Nick, 2026-11-03).
 25. **Pet Arena check** (Mon–Wed, very last) — Achievement "Cumulative pet deployments completed" is **+40 since
-    yesterday** (all 40 free attempts used). Short → Auto Deploy restarted, re-checked in the catch-up.
+    yesterday** (all 40 free attempts used), and no yellow Claim left there (claimed while reading). Short → Auto Deploy restarted, re-checked in the catch-up.
 
 ## Catch-up
 
@@ -63,6 +63,12 @@ Same as the dailies step with the same name, except:
 - **Daily Mission** — claim, then report the points and the chests still locked (160 only if the dailies ran today).
 - **Play Pass again** — same as dailies step 24.
 - **Pet Arena check** — same as dailies step 25.
+
+## Relics (on request, `scripts/relic_all.sh`)
+
+- **Done** = the account's line says `exit 0 (done: N digs, shovels 0/<cap> left, …)` and the game is back on the main
+  screen. `exit 1` → `out.txt` + `v_relic.png` in `/tmp/miniheroes-relic/<account>/`, a helper finishes that account by
+  hand; `UNKNOWN cells` → teach the sprite (`relic.py --learn`), re-run.
 
 ## Where the scripts say OK without proving it (fix list)
 

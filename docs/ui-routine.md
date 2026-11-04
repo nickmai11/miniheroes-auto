@@ -44,7 +44,8 @@ Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
     new claims (Nick, 2026-11-03). Same in the catch-up.
 22. **Pet Arena check** (`pet_check`, Mon–Wed, the very last step; also in the catch-up) — Pet Arena → Achievement
     "Cumulative pet deployments completed: N" must be **+40 since yesterday** (= all 40 free attempts used; Mon: 40,
-    Tue: 80, Wed: 120 when no day was missed). Short → Auto Deploy (re)started + MANUAL, the catch-up re-checks.
+    Tue: 80, Wed: 120 when no day was missed). Short → Auto Deploy (re)started + MANUAL, the catch-up re-checks. While the
+    Achievement is open it also claims every yellow Claim (milestones reached after the `events` step; Nick, 2026-11-03).
 
 A "Match attempts full" popup can interrupt any step: **Confirm** (opens the Arena), spend every ticket (`arena.py`),
 back to main, then redo the interrupted step — `flow.tickets_full()` + the runner do this (Nick, 2026-10-31).
