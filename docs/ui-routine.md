@@ -710,6 +710,8 @@ Free, no gems. Only open while "Remaining guessing time" runs (on Battle days).
 - **Guesses already there → clear them and start from scratch** (Nick, 2026-10-29): tap the picked tile _in the list_
   to remove it (tapping the slot does nothing). The script does this.
 - **No unguessing:** clearing all 3 slots + Save does not stick — reopen shows the old picks (Kong 2026-10-29).
+- **Scrolling list** (Nick 2026-11-05, shared with the Floating Realm Guess): a tribe not on screen → the script scrolls
+  to the top, then one page = 2 rows per slow swipe (row pitch ≈375 px) until it shows. Not yet seen on a Tribe Clash list.
   Picks can only be replaced with 3 new ones.
 
 ## Daily Mission (claim all + activity chests) — Nick, 2026-10-27/28

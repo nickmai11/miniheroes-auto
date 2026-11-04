@@ -5,9 +5,11 @@
 # (1 first) and moves the selection 1 -> 2 -> 3 (Cmajor 2026-10-29). Existing guesses are cleared first
 # (tap the picked tile in the list), then all 3
 # picked fresh (Nick 2026-10-29). Save shows no toast; not re-verified (Nick 2026-10-29: no double check).
+# The tile list may scroll: a name not on screen -> scroll to the top, then one page (2 rows) per slow swipe (Nick
+# 2026-11-05; shared with realm_guess.py, where the list has 16 tribes). Untested on a Tribe Clash list since.
 # Ends on the Tribe Clash screen, dialog closed. Tested on Cmajor 2026-10-29. exit 1 -> v_clash_guess.png.
 import re, sys, time
-from flow import Stop, find, joined, main, ocr, tap_text, tap_wait, wait
+from flow import Stop, find, joined, main, ocr, swipe, tap_text, tap_wait, wait
 
 SLOTS = {1: (390, 690), 2: (0, 390), 3: (690, 1080)}     # slot x ranges; names show at y~595 under each banner
 norm = lambda s: re.sub(r'[^a-z0-9]', '', s.lower())
@@ -46,15 +48,30 @@ def tile(boxes, name):
     return p
 
 
-def pick(boxes, picks):
-    for rank in (1, 2, 3):                 # Nick: existing guesses -> tap them off, start fresh (tapping the slot does nothing)
-        if slot_name(boxes, rank):
-            print(f'{rank}: clearing {slot_name(boxes, rank)}'); tap_wait(*tile(boxes, slot_name(boxes, rank))); boxes = ocr()
-    if any(slot_name(boxes, r) for r in (1, 2, 3)): raise Stop(f'slots not cleared: {[slot_name(boxes, r) for r in (1, 2, 3)]}')
-    for rank, want in enumerate(picks, 1):
-        tap_wait(*tile(boxes, want))
+ROW = 375                                                 # tile row pitch; a swipe moves 2 rows = one page of 8 (Nick 2026-11-05)
+
+
+def visible(name):
+    """Scroll the tile list (top first, then a page per slow swipe) until the tribe shows -> (tap point, boxes)."""
+    swipe(540, 800, 540, 800 + 2 * ROW, 800); time.sleep(0.8)
+    for i in range(3):
         boxes = ocr()
-        have = slot_name(boxes, rank)
+        try: return tile(boxes, name), boxes
+        except Stop:
+            if i == 2: raise
+            swipe(540, 800 + 2 * ROW, 540, 800, 800); time.sleep(1)
+
+
+def pick(boxes, picks, slot=slot_name):
+    """Clear old guesses, pick the 3, Save, close. `slot` reads a banner's tribe name (the Floating Realm band differs)."""
+    for rank in (1, 2, 3):                 # Nick: existing guesses -> tap them off, start fresh (tapping the slot does nothing)
+        if slot(boxes, rank):
+            print(f'{rank}: clearing {slot(boxes, rank)}'); p, _ = visible(slot(boxes, rank)); tap_wait(*p); boxes = ocr()
+    if any(slot(boxes, r) for r in (1, 2, 3)): raise Stop(f'slots not cleared: {[slot(boxes, r) for r in (1, 2, 3)]}')
+    for rank, want in enumerate(picks, 1):
+        p, _ = visible(want); tap_wait(*p); time.sleep(0.8)
+        boxes = ocr()
+        have = slot(boxes, rank)
         if norm(want) not in norm(have): raise Stop(f'slot {rank} shows {have!r} after tapping {want!r}')
         print(f'{rank}: {have}')
     tap_wait(540, 1656)                                       # Save (OCR misses it once it turns green)
