@@ -333,3 +333,10 @@ _g = [[(t.upper(), t.isupper()) if t != '.' else ('.', False) for t in r.split()
 _p = relic.plan(_g); assert _p[:2] == (6, 4) and 'relic chest' in _p[2] and 'cost 5' in _p[2], _p
 _p = relic.plan(_g, budget=2); assert _p[:2] == (6, 4) and 'shard' in _p[2], _p
 print('planner ok')
+
+# a lit multi chest opens for free (Cmajor 2026-11-04: shovels 1->1, Mine bar unchanged) -> dug before anything else
+_rows = ['. . . . . .', '. . . . . .', '. . . . . .', 'G S s S D .', 'd s D M M M', 'd p D M M M', 'd g d D D D']
+_g = [[(t.upper(), t.isupper()) if t != '.' else ('.', False) for t in r.split()] for r in _rows]
+_p = relic.plan(_g); assert _p[:2] == (4, 3) and 'opens free' in _p[2], _p
+_p = relic.plan(_g, blocked={(4, 3), (4, 4), (4, 5), (5, 3), (5, 4), (5, 5)}); assert 'opens free' not in _p[2], _p   # a refused chest is left alone
+print('multi chest ok')

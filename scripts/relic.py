@@ -34,7 +34,8 @@ FRAME = {(22, 1512): (173, 134, 107), (1058, 1512): (115, 81, 58), (540, 512): (
 KINDS = {'empty': ('.', False), 'pit': ('.', False), 'dirt': ('D', None), 'stone': ('S', None), 'cracked': ('K', None),
          'shard': ('R', None), 'chest': ('C', None), 'gold': ('G', None), 'pick': ('P', None), 'multi': ('M', None),
          'frame': ('.', False)}   # gold-frame tile of a multi chest without the chest art: read() joins it to the art it touches
-COST = {'D': 1, 'K': 1, 'S': 2, 'R': 1, 'C': 1, 'G': 1, 'P': 0, 'M': 1}   # pickaxe: its shovel comes back -> net 0
+COST = {'D': 1, 'K': 1, 'S': 2, 'R': 1, 'C': 1, 'G': 1, 'P': 0, 'M': 0}   # pickaxe: its shovel comes back -> net 0;
+                                                                         # multi chest: opens for free (Cmajor 2026-11-04: shovels 1->1, Mine bar unchanged)
 VALUE = {'R': 0.28, 'C': 1.6, 'M': 1.6, 'G': 0.0}  # base-relic units. Chest 1.6 = measured 2026-11-04 (29 base + 4 fused of 33,
                                                    # a fused Common = 6 base by fusion). Shard: measured 0.21, kept at Nick's 0.28 (see
                                                    # skill). Pickaxe = free tile, not a target.
@@ -197,6 +198,7 @@ def target(g, dist, prev, blocked=(), rows=range(7), budget=None):
             seen.add(comp[(a, b)]); return VALUE['M'], COST['M']
         v = sum(once(a, b)[0] for a, b in p); ex = [once(a, b) for a, b in extra]
         v += sum(x[0] for x in ex); cst = d + sum(x[1] for x in ex)
+        if cst <= 0: continue                                     # a free (lit) chest is _next()'s job
         key = (v / cst, -cst, r)
         if budget is not None and d > budget + 1e-9: continue
         if v / cst >= RATIO - 1e-9 and (best is None or key > best[0]): best = (key, (r, c), d, len(extra), v / cst, p)
@@ -225,9 +227,11 @@ def plan(g, blocked=(), budget=None):
 def _next(g, blocked, budget=None):
     # a lit pickaxe costs nothing net; one in the bottom row reveals a new row before we commit to a route
     # (Nick 2026-11-04, Kong: the script dug a 7-shovel tunnel to a chest while a free pickaxe sat lit in the bottom row)
-    picks = [(r, c) for r in range(7) for c in range(6) if g[r][c] == ('P', True) and (r, c) not in blocked]
-    if picks:
-        r, c = min(picks, key=lambda p: (p[0] != 0, -p[0]))     # row 1 first (the next scroll loses it), else bottom first
+    # a lit multi chest opens for free (Cmajor 2026-11-04) -> first of all
+    free = [(r, c) for r in range(7) for c in range(6) if g[r][c][0] in 'PM' and g[r][c][1] and (r, c) not in blocked]
+    if free:
+        r, c = min(free, key=lambda p: (g[p[0]][p[1]][0] != 'M', p[0] != 0, -p[0]))   # chest, then row 1 (the next scroll loses it), else bottom first
+        if g[r][c][0] == 'M': return r, c, f'multi chest r{r + 1}c{c + 1} (opens free)'
         return r, c, f'free pickaxe r{r + 1}c{c + 1}' + (' (reveals a row)' if r == 6 else '')
     g8 = g + [[('D', False)] * 6]                                   # the hidden row a bottom-row dig reveals (HIDDEN per tile)
     dist, prev = routes(g8, blocked)
@@ -489,7 +493,7 @@ def run(account, dry=False, max_digs=None):
             r, c, why = p
             k0 = g[r][c]; n0 = n[0]
             b2 = ocr(tap_wait(X[c], Y[r]))                                # banner "Limestone FragmentX2" shows right after
-            if dismiss(b2): b2 = ocr()
+            if dismiss(b2): log(f'  popup: {joined(b2)[:140]}'); b2 = ocr()   # multi chest reward (currency), logged since 2026-11-04
             if find(b2, r'adjacent plot'):
                 blocked.add((r, c)); refused += 1; log(f'dig r{r + 1}c{c + 1} refused ("adjacent plot") -> blocked')
                 if refused >= 3: raise Stop('3 refused digs')
