@@ -202,6 +202,7 @@ def ticked(im, x, y): return sum(1 for dx in range(-36, 37, 4) for dy in range(-
 
 def pet_popup(t):
     """Round-result popup ('Champion' / 'Runner-up', 'Result of this round') pops after every round, over anything -> X."""
+    if 'Deployed Sprite' in t: return False              # Auto Deploy dialog on top of it: handle the dialog first (Kong 2026-11-04 looped on the hidden X)
     if 'Runner-up' in t or 'Result of this round' in t:
         print('    pet: round popup closed', flush=True); tap(972, 548); time.sleep(0.5); return True
 
@@ -261,6 +262,7 @@ def pet_back(to_join=False):
         boxes = ocr(); t = joined(boxes)
         if pet_popup(t): continue
         if 'Exit this match' in t: tap_text(r'^Confirm$', boxes=boxes); time.sleep(0.5); continue
+        if 'Deployed Sprite' in t: tap(938, 282); time.sleep(0.6); continue   # Auto Deploy dialog: its X (back arrow is under it)
         if to_join and find(boxes, r'^Join$', (300, 1400, 780, 1650)): return
         tap(92, 1810); time.sleep(0.6)
     raise Stop(f'could not back out of the Pet Arena; screen: {joined(ocr())[:150]}')
