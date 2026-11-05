@@ -45,3 +45,15 @@ rules popup scrolls ~300 px per page inside y 600–1420). Not automated: nothin
 - Promotion: weeks 1–3, top 2 regular → elite, bottom 2 elite → regular (elite earns more event points). After week 4
   the 4 areas merge; top 8 → Champion Showdown, 9–16 Glory, 17–24 Gold.
 - Guessing opens in the final stage: pick the top 3 of the 8 Champion tribes; rewards by mail.
+
+## Operating rules for a live match (Nick, 2026-11-05)
+
+Nick commands, Claude executes on all accounts in parallel — never picks targets itself.
+
+- **Orders** come from Nick in the session (or Discord): target base + action (march / attack / station). Unknown map
+  until the first battlefield; naming agreed during the Sun 02:00 setup window.
+- **Free revives: automatically, as soon as available** (a per-account watcher during the match, no order needed).
+- **Revive scrolls (item revives): only on Nick's order.**
+- **Every move: one 20-diamond speed-up** (exactly one per march; tick "Don't show again" on its confirm popup if it
+  appears). Note the rules: no speed-up is offered when the remaining march is ≤ 10 s, i.e. a single hop.
+- Speed target: order typed → all accounts acting in ~10 s (script path, no screenshot reads in the loop).
