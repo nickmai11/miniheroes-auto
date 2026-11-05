@@ -30,7 +30,7 @@ Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
 10. **Recruit** free summons.
 11. **Hero** upgrade (after the potion-giving steps above).
 12. **Tribe** — sign-in, Trial, chat Request + Assist, then **Canyon Clash** (empty spot + Points Reward; closed Mondays
-    until 17:00). Poseidon's Ruins has its own skill; Crystal Throne isn't mapped.
+    until 17:00). Poseidon's Ruins has its own skill; Crystal Throne: rules in `docs/crystal-throne.md`, not automated.
 13. **Divine Weapon** — Excelsior Veins, Forge, then Benefit (its milestones count the forging just done — Nick, 2026-11-04).
 14. **Stage** run ×3 (skull bubble).
 15. **Patrol** — Claim All only.
