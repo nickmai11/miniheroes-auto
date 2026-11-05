@@ -61,39 +61,35 @@ Nick commands, Claude executes on all accounts in parallel — never picks targe
   appears). Note the rules: no speed-up is offered when the remaining march is ≤ 10 s, i.e. a single hop.
 - Speed target: order typed → all accounts acting in ~10 s (script path, no screenshot reads in the loop).
 
-## Map and target names (proposed 2026-11-05, from Nick's screenshot `docs/crystal-throne-map.png`, 819×835)
+## Map and target names (agreed with Nick 2026-11-05)
 
-The coloured lines and digits drawn on the screenshot are someone's annotations, not game content — ignore them (Nick).
-Fixed grid names, independent of which tribe sits where. Rows A–E top→bottom, columns 1–5 left→right. Icon types are a
-guess until seen in-game (⚡ = the lightning/beacon icon, 10 of them; 🏰 = tower icon, 4; the centre hex cluster = the
-Fortress). Coordinates are image pixels of the screenshot, for calibrating the tap table on the real device.
+Screenshot `docs/crystal-throne-map.png` (819×835; the coloured lines and digits on it are someone's annotations, not
+game content — ignore them). **Labelled version: `docs/crystal-throne-names.png`** — open it before a match.
 
-| Name | Type (guess)  | Image x,y | Where                               |
-| ---- | ------------- | --------- | ----------------------------------- |
-| A1   | ⚡ Watchtower | 180,235   | below NW main base                  |
-| A3   | ⚡ Watchtower | 415,230   | below N main base                   |
-| A5   | ⚡ Watchtower | 620,225   | below NE main base                  |
-| B2   | 🏰 Stronghold | 305,320   | inner ring, upper left              |
-| B3   | ⚡ Watchtower | 415,320   | inner ring, top                     |
-| B4   | 🏰 Stronghold | 525,320   | inner ring, upper right             |
-| C1   | ⚡ Watchtower | 210,430   | right of W main base                |
-| F    | Fortress      | 415,435   | centre (alias C3)                   |
-| C5   | ⚡ Watchtower | 620,435   | left of E main base                 |
-| D2   | 🏰 Stronghold | 305,545   | inner ring, lower left              |
-| D3   | ⚡ Watchtower | 415,540   | inner ring, bottom                  |
-| D4   | 🏰 Stronghold | 525,545   | inner ring, lower right             |
-| E1   | ⚡ Watchtower | 210,645   | above SW main base                  |
-| E3   | ⚡ Watchtower | 415,650   | above S main base                   |
-| E5   | ⚡ Watchtower | 650,630   | above SE main base                  |
-| NW   | Main base     | 180,120   | top-left tribe                      |
-| N    | Main base     | 415,105   | top-centre tribe                    |
-| NE   | Main base     | 690,130   | top-right tribe                     |
-| W    | Main base     | 80,375    | left tribe                          |
-| E    | Main base     | 755,480   | right tribe                         |
-| SW   | Main base     | 180,745   | bottom-left tribe                   |
-| S    | Main base     | 415,760   | bottom-centre tribe                 |
-| SE   | Main base     | 655,745   | bottom-right tribe (Peakaboo 11-05) |
-| H    | our main base | —         | alias for whichever one is ours     |
+- **Nodes:** rows A–E top→bottom, numbered 1–3 left→right within the row (no gaps): A1 A2 A3 in front of the top
+  bases; B1 B2 B3 inner ring top; C1 / **F** (centre Fortress) / C3 on the sides; D1 D2 D3 inner ring bottom;
+  E1 E2 E3 in front of the bottom bases.
+- **Main bases are called by the server number shown on the map** ("Зона 201 Peakaboo" → `201`), never by tribe name
+  or compass. `H` = our own base, whichever number it is that week (201 on 11-05).
+- Icon types are a guess until seen in-game: ⚡ lightning/beacon icon (A1 A2 A3 B2 C1 C3 D2 E1 E2 E3, 10 of them) =
+  Watchtower 30 pts; 🏰 tower icon (B1 B3 D1 D3) = Stronghold 60 pts; centre hex cluster F = Fortress 150 pts.
 
-Order grammar: `<who> <action> <target>` — who = `all`, `g1`, `g2`, account names; action = `march`, `attack`,
-`station`, `revive` (scroll); e.g. `all attack B4`, `g1 march E5`, `kong tiger station H`.
+| Node | Image x,y | Node | Image x,y | Node | Image x,y |
+| ---- | --------- | ---- | --------- | ---- | --------- |
+| A1   | 180,235   | A2   | 415,230   | A3   | 620,225   |
+| B1   | 305,320   | B2   | 415,320   | B3   | 525,320   |
+| C1   | 210,430   | F    | 415,435   | C3   | 620,435   |
+| D1   | 305,545   | D2   | 415,540   | D3   | 525,545   |
+| E1   | 210,645   | E2   | 415,650   | E3   | 650,630   |
+
+Main bases on the 11-05 map (image x,y): top-left 180,120 · top 415,105 · top-right 690,130 · left 80,375 ·
+right 755,480 · bottom-left 180,745 · bottom 415,760 · bottom-right 655,745 (Peakaboo, 201). Pixel positions are for
+calibrating the device tap table at the first battlefield (Sun 2026-11-08 02:00 local).
+
+**Order grammar:** `<who> <action> <target>` — who = `all`, `g1`, `g2`, account names; action = `march`, `attack`,
+`station`, `revive` (scroll revive; free revives are automatic); target = node or base number or `H`.
+Examples: `all attack B3`, `g1 march E3`, `kong tiger station H`, `all attack 190`, `all revive`.
+
+**Still to build (planned `scripts/ct.sh` console + per-account revive watcher):** nothing exists yet; the map-specific
+taps (node positions on the device, the tap-on-base popup with March / Attack / Station, the 20-diamond speed-up popup
+and its "Don't show again" tick) get mapped during the setup hour and written here.
