@@ -559,6 +559,9 @@ def gate(cfg):
         tap_text(r'Sweep', (850, 1000, 1060, 1110), boxes); boxes = wait(r'^Confirm$', 6)
         tap_text(r'^Confirm$', (560, 1300, 960, 1460), boxes); time.sleep(2); tap_wait(540, 120)
         n2 = left(wait(r'Chances left today', 10))
+        for _ in range(8):                              # counter redraws late (Cmajor 2026-11-05: read 1, screenshot showed 0)
+            if n2 == n - 1: break
+            time.sleep(0.75); n2 = left(wait(r'Chances left today', 10))
         if n2 != n - 1: raise Stop(f'gate chances {n} -> {n2} after the sweep')
         out.append('sweep')
     return f'{out or "nothing left"}'

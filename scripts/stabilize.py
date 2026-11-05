@@ -81,6 +81,8 @@ def main():
         x = close_x(grab())
         # 'Stargems Running Out!' (Cancel / GO, X not detected; Chien Than/Bino/xFaktor 2026-10-31..11-01): Cancel, never GO
         c = None if x else find(boxes, r'^Cancel$')
+        # no-X event splash (Golden Woods 2026-11-05, 5 accounts stuck): tap its own "Tap anywhere to close" line, never GO
+        c = c or (None if x else find(boxes, r'Tap anywhere to close'))
         if not (x or c): break
         tap_wait(*(x or c)); time.sleep(1)
     grab().resize((540, 960)).save('v_stabilize.png'); print('popup not closable; stop (screenshot v_stabilize.png)'); return 1

@@ -12,7 +12,7 @@
 import os, re, subprocess, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait
-from flow import near, ocr
+from flow import find, near, ocr
 TIERS = ['Bronze', 'Silver', 'Gold', 'Glory', 'King']
 
 
@@ -133,7 +133,12 @@ def play(cap=None):
             if claimed or free_btn(im) == 'grey':
                 close_popup(); print('out of tickets (free chances checked once); done'); return 0
             claimed = True; print(f'tapped free button {claim_free()}x', flush=True); continue
-        if not arena(im):
+        if not arena(im):                             # a fight still on (Tiger 2026-11-05: "match 5: 13s", then a fight
+            t0 = time.time()                          # with 73 s left read as unexpected): wait it out once, then stop
+            while time.time() - t0 < 150 and not (arena(im) or free_btn(im)):
+                if find(ocr(im), r'Victory|Defeat|Tap anywhere'): tap(540, 120)  # result only: never tap blind
+                time.sleep(0.5); im = grab()
+            if arena(im) or free_btn(im): continue
             print('unexpected screen; stop'); return 1
         before = im.getpixel((560, 1430))             # ticket counter digit
         tap(540, 1610); t0 = time.time(); time.sleep(1.5)

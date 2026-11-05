@@ -110,6 +110,10 @@ def main(account):
         if pick[2] == 'challenge':  # real fight (same screens as flow.battle): lineup Start -> result -> fall through to the dismiss loop
             try:
                 b = wait(r'^Start$', 10); tap_text(r'^Start$', (0, 1650, 1080, 1920), b)
+                for _ in range(2):  # Start tap can be lost (Bino 2026-11-05: lineup still up 180 s later) -> re-tap, at most twice
+                    time.sleep(3); b = ocr()
+                    if not (find(b, r'^Start$') and find(b, r'Quick Deploy')): break
+                    print('  Start did not register; tapping again', flush=True); tap_text(r'^Start$', (0, 1650, 1080, 1920), b)
                 r = joined(wait(r'Tap anywhere', 180)); print(f'  {"Victory" if "Victory" in r else "Defeat"}', flush=True)
             except Stop as e: return stop(f'challenge fight: {e}')
         t0 = time.time()
