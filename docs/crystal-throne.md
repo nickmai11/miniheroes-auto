@@ -34,7 +34,10 @@ rules popup scrolls ~300 px per page inside y 600–1420). Not automated: nothin
 - Deployment lineup must be set, else the Arena defence lineup is used.
 - Each hero has 100 energy; fights cost energy (winner loses less the bigger the power gap); the loser's heroes drop to
   1 energy and are out. Low energy lowers all stats.
-- Revives: 5 free (60 s wait each) + 6 item revives (no wait; more in the finals); a short protection after respawn.
+- Revives: 5 free (60 s wait each) + 6 item revives (no wait; more in the finals); energy back to 100 after a revive;
+  a short protection after respawn.
+- Community guide (Nick, 2026-11-05: https://hackmd.io/@1khp-7TMSpWxNFF5QFSp5g/B1ft-MNI1l) repeats these rules and adds
+  only generic tips (use the 15-min shield to grab nearby points, focus high-point structures); nothing on the map or UI.
 
 ## Scoring and rewards
 
