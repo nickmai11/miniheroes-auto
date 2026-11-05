@@ -60,3 +60,39 @@ Nick commands, Claude executes on all accounts in parallel — never picks targe
 - **Every move: one 20-diamond speed-up** (exactly one per march; tick "Don't show again" on its confirm popup if it
   appears). Note the rules: no speed-up is offered when the remaining march is ≤ 10 s, i.e. a single hop.
 - Speed target: order typed → all accounts acting in ~10 s (script path, no screenshot reads in the loop).
+
+## Map and target names (proposed 2026-11-05, from Nick's screenshot `docs/crystal-throne-map.png`, 819×835)
+
+Fixed grid names, independent of which tribe sits where. Rows A–E top→bottom, columns 1–5 left→right. Icon types are a
+guess until seen in-game (⚡ = the lightning/beacon icon, 10 of them; 🏰 = tower icon, 4; the centre hex cluster = the
+Fortress). Coordinates are image pixels of the screenshot, for calibrating the tap table on the real device.
+
+| Name | Type (guess)  | Image x,y | Where                               |
+| ---- | ------------- | --------- | ----------------------------------- |
+| A1   | ⚡ Watchtower | 180,235   | below NW main base                  |
+| A3   | ⚡ Watchtower | 415,230   | below N main base                   |
+| A5   | ⚡ Watchtower | 620,225   | below NE main base                  |
+| B2   | 🏰 Stronghold | 305,320   | inner ring, upper left              |
+| B3   | ⚡ Watchtower | 415,320   | inner ring, top                     |
+| B4   | 🏰 Stronghold | 525,320   | inner ring, upper right             |
+| C1   | ⚡ Watchtower | 210,430   | right of W main base                |
+| F    | Fortress      | 415,435   | centre (alias C3)                   |
+| C5   | ⚡ Watchtower | 620,435   | left of E main base                 |
+| D2   | 🏰 Stronghold | 305,545   | inner ring, lower left              |
+| D3   | ⚡ Watchtower | 415,540   | inner ring, bottom                  |
+| D4   | 🏰 Stronghold | 525,545   | inner ring, lower right             |
+| E1   | ⚡ Watchtower | 210,645   | above SW main base                  |
+| E3   | ⚡ Watchtower | 415,650   | above S main base                   |
+| E5   | ⚡ Watchtower | 650,630   | above SE main base                  |
+| NW   | Main base     | 180,120   | top-left tribe                      |
+| N    | Main base     | 415,105   | top-centre tribe                    |
+| NE   | Main base     | 690,130   | top-right tribe                     |
+| W    | Main base     | 80,375    | left tribe                          |
+| E    | Main base     | 755,480   | right tribe                         |
+| SW   | Main base     | 180,745   | bottom-left tribe                   |
+| S    | Main base     | 415,760   | bottom-centre tribe                 |
+| SE   | Main base     | 655,745   | bottom-right tribe (Peakaboo 11-05) |
+| H    | our main base | —         | alias for whichever one is ours     |
+
+Order grammar: `<who> <action> <target>` — who = `all`, `g1`, `g2`, account names; action = `march`, `attack`,
+`station`, `revive` (scroll); e.g. `all attack B4`, `g1 march E5`, `kong tiger station H`.
