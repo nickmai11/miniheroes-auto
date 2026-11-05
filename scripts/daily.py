@@ -916,15 +916,18 @@ def open_canyon():
 
 
 def canyon_rewards():
-    """Called by canyon() on the fresh Canyon map: Rewards (88,745) red dot -> Claim Reward (repeat while it's there)."""
-    if not red_dot(110, 690, 175, 760): return 'no red dot'
-    tap_wait(88, 745); n = 0
+    """Called by canyon() on the fresh Canyon map: always open Rewards (88,745) — no red-dot gate, the dot was never
+    seen on 11-05 — and Claim Reward while its button isn't grey (95,96,95 = nothing reached). Returns the points read
+    on the panel as evidence."""
+    tap_wait(88, 745); boxes = wait(r'Points Reward', 10); n = 0
+    pts = next((t for x, y, w, h, t in boxes if 240 <= x + w // 2 <= 420 and re.fullmatch(r'\d{3,6}', t.strip())), '?')
     for _ in range(6):
-        c = find(ocr(), r'^Claim Reward$')
+        im = grab(); c = find(ocr(im), r'^Claim Reward$')
         if not c: break
+        if not near(im.getpixel((c[0], c[1] + 40)), (255, 182, 16), 30): break   # grey button = no tier reached (text pixels mislead: Cmajor 11-05)
         tap_wait(*c); time.sleep(1.2); tap_wait(540, 1880); n += 1
     tap_wait(972, 240); wait(r'Attempts', 10)            # back on the map
-    return f'points rewards claimed x{n}'
+    return f'points {pts}, claimed x{n}'
 
 
 def canyon(cfg):

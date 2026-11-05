@@ -854,14 +854,16 @@ left icon column (**Lineup** opens the Defense Lineup — Dminor, nothing saved)
 after `canyon.py` found none (7 accounts, 2026-10-29: the helpers all found empty Silver spots right below the
 tribemate rows) — the helper re-checks for empty ones before beating a Sentinel.
 
-**Points Reward** (runner: start of step `canyon`, same visit): left-side **Rewards** `(88,745)` with a red dot → **Claim Reward** `(540,1618)` (free) →
-dismiss `(540,1880)` → close ✕ `(972,240)`.
+**Points Reward** (runner: end of step `canyon`, same visit): left-side **Rewards** `(88,745)` — always open it, no red-dot gate
+(2026-11-05: the run saw no dot at 13:27, four accounts had a claimable tier by 17:00 — points accrue with occupation time) →
+**Claim Reward** `(540,1618)` while its button is yellow (grey = no tier reached, free either way) → dismiss `(540,1880)` → close ✕ `(972,240)`.
+The runner logs `points N, claimed xK`.
 
 Tribe chat pinned notice (Peakaboo, 2026-10-27): "Canyon: Move to 8/m if you reached 80k early. Dont attack
 people not 80k yet." — not yet reflected in the rules above; ask Nick.
 
 - **Points Rewards** `(88,745)` (left HUD with Records / Rank / Lineup — fixed while the map scrolls) → **Claim Reward**,
-  repeat while it shows → ✕ `(972,240)`. Do it **after** occupying: the new spot earns the points (Nick, 2026-11-04).
+  repeat while its button is yellow → ✕ `(972,240)`. Do it **after** occupying: the new spot earns the points (Nick, 2026-11-04).
 
 ## Poseidon's Ruins (Tribe, 3 attacks)
 
