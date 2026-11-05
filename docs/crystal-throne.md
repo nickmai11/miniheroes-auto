@@ -93,8 +93,13 @@ number** or `H`. Examples: `g1 atk 150`, `all go B3`, `kong tiger def H`, `all r
 **Base numbers → positions (Nick, 2026-11-05):** at the start of each match Nick feeds the map; Claude must then resolve
 every base number to its map position itself, before the first order — one OCR pass over the device map (the "Зона NNN"
 / zone label under each main base) builds the `number → x,y` table, so an order like `g1 atk 150` needs no screenshot.
-Nodes are fixed positions; only the 8 base numbers change per match. Re-read the map if a base is relocated
-(Displaced). If a number can't be read, say so at once rather than guess.
+Nodes are fixed positions; only the 8 base numbers change per match. If a number can't be read, say so at once rather
+than guess.
+
+**Captured bases (Nick, 2026-11-05):** when a tribe takes another tribe's main base, that base is then named by the
+captor's number plus an index — e.g. `150 base 2` (also accepted as `150b2`). A tribe's original base is `150` (= base 1).
+The table must therefore map `<number> [base N]` → position: after any capture or Displaced relocation Nick says so
+(or an order names a base not in the table) → one more OCR pass over the map before acting.
 
 **Still to build (planned `scripts/ct.sh` console + per-account revive watcher):** nothing exists yet; the map-specific
 taps (node positions on the device, the tap-on-base popup with March / Attack / Station, the 20-diamond speed-up popup
