@@ -269,7 +269,7 @@ Crash, or Challenge only when the opponent's CP is below ours (Nick, 2026-11-04)
    - Blue **Crash** = instant win vs. a weaker opponent (1 ticket).
    - Yellow **Challenge** = real fight vs. a stronger one (1 ticket): lineup **Start** `(540,1808)` → Victory/Defeat →
      dismiss `(540,120)` (never the bottom: "Challenge again"). Taken only when its CP is **below ours** (Nick, 2026-11-04;
-     flow unverified). Our CP = the fist number of the own row pinned at the bottom of the Arena ranking list, above the
+     flow verified on Bino 2026-11-06: Svi 3431k → Victory). Our CP = the fist number of the own row pinned at the bottom of the Arena ranking list, above the
      Challenge button (≈ `(614,1414)`; Cmajor 6338k). Row CP in the dialog ≈ `(498, button y)`.
    - A crashed row turns into a shield timer (tapping it does nothing) — re-read rows every round.
    - Don't touch `+` (buys tickets) or **Refresh** (cost unknown).

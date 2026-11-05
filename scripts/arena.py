@@ -61,7 +61,8 @@ def read_dialog():
         names = [(y, t) for x, y, w, h, t in boxes if 250 <= x <= 700 and by - 140 <= y <= by - 25]
         cp = cp_in(boxes, (440, by - 50, 640, by + 30))
         rows.append((by, kind, min(names)[1] if names else '', cp[0] if cp else None))
-    return tix, rows
+    rows += [(y + h // 2, 'shield', '', None) for x, y, w, h, t in boxes if x > 700 and re.fullmatch(r'\d\d:\d\d:\d\d', t.strip())]  # crashed rows keep their place: the bot is the LAST row, not the last button (Bino 2026-11-06)
+    return tix, sorted(rows, key=lambda r: r[0])
 
 
 def stop(msg):
@@ -92,17 +93,13 @@ def main(account):
         if last is not None and tix >= last: return stop(f'tickets did not drop ({last} -> {tix})')
         if tix == 0:
             tap_wait(972, 188); print(f'tickets 0 after {n} crashes; dialog closed'); return 0
-        if not rows:                                       # all visible rows shielded, the bot row cut off (Kong 2026-10-31)
-            subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', '540', '1500', '540', '900', '500']); time.sleep(1)
-            d = read_dialog(); rows = d[1] if d else []
-            if not rows: return stop('no opponent rows found')
         # topmost row: Crash, or Challenge below our CP — no Crash preference (Nick, 2026-11-04)
         pick = None if bot_only else next(((y, f'{nm} {cp}k', k) for y, k, nm, cp in rows[:-1] if ok(k, cp) and not tribemate(nm, roster)), None)
-        if not pick:
-            if rows[-1][0] > 1400:  # a 6th row can be cut off (Dino: 6 rows, 2 shielded) -> scroll to the real last row (the bot)
-                subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', '540', '1500', '540', '900', '500']); time.sleep(1)
-                d = read_dialog(); rows = d[1] if d else []
+        if not pick:  # the last row (bot) can be cut off (Dino: 6 rows; Bino 2026-11-06: 4 shields hid a Crash bot) -> always scroll to the bottom first
+            subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', '540', '1500', '540', '900', '500']); time.sleep(1)
+            d = read_dialog(); rows = d[1] if d else []
             if not rows: return stop('no last row (bot) found')
+            if rows[-1][1] == 'shield': return stop('last row (bot) already crashed (shielded); nothing attackable')
             if not ok(rows[-1][1], rows[-1][3]): return stop(f'last row (bot) is a Challenge at {rows[-1][3]}k, not below our {ours}k')
             pick = (rows[-1][0], f'{rows[-1][2]} {rows[-1][3]}k (last row)', rows[-1][1])
         print(f'tickets {tix}: {pick[2]} {pick[1]!r}', flush=True)
