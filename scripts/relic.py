@@ -102,15 +102,21 @@ def read(im):
     a frame block with no art is a pit (empty)."""
     cells = [[cell(im, r, c) for c in range(6)] for r in range(7)]
     g = [[k[:2] for k in row] for row in cells]
+    chests = []
     todo = {(r, c) for r in range(7) for c in range(6) if cells[r][c][2].startswith('frame') or g[r][c][0] == 'M'}
     while todo:
         comp, stack = set(), [todo.pop()]
         while stack:
             r, c = stack.pop(); comp.add((r, c)); todo.discard((r, c))
             stack += [q for q in ((r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)) if q in todo]
-        art = any(g[r][c][0] == 'M' for r, c in comp)
-        for r, c in comp: g[r][c] = ('M', True) if art else ('.', False)
-    return light(g)
+        art = [g[r][c] for r, c in comp if g[r][c][0] == 'M']
+        for r, c in comp: g[r][c] = ('M', any(lit for _, lit in art)) if art else ('.', False)
+        if art: chests.append(comp)
+    g = light(g)
+    for comp in chests:                 # one chest: lit as a whole when any of its tiles is (Cmajor 2026-11-05: a dark 2x1
+        if any(g[r][c][1] for r, c in comp):   # chest read lit was tapped and refused)
+            for r, c in comp: g[r][c] = ('M', True)
+    return g
 
 
 def show(g):

@@ -66,10 +66,18 @@ arrow `(80,1820)`). Screenshot before retrying anything.
   popup, **Tap anywhere to close** (Aminor 2026-10-31: 104 gems + 1040 red gems + 3 tokens — currency, no relic); the
   area then stays a golden pit that counts as empty. One 2-square chest in the top row never opened (3 taps no-op) —
   leave such a chest after one refused tap. Sprites: `multi_lit` = the tiles carrying the chest art (2×2 silver: its lower
-  2 tiles, Aminor 2026-11-04; 2×3 red relic chest: only the bottom-middle tile, Cmajor 2026-11-04), `frame` = its plain
+  2 tiles, Aminor 2026-11-04; 2×3 red relic chest: only the bottom-middle tile, Cmajor 2026-11-04; **2×1 wooden chest:
+  the art straddles both tiles**, Cmajor 2026-11-05 — `multi_dark.1-2` unlit / `multi_lit.6-7` lit), `frame` = its plain
   gold-frame tiles, which look exactly like the opened pit; `read()` turns a frame block touching an art tile into one
-  `M` chest (value once, other tiles cost 0) and a frame block with no art into empty. A new shape → the art tile reads
-  `UNKNOWN`: `--learn` it as `multi_lit`, its plain tiles as `frame` if they read `UNKNOWN` too.
+  `M` chest (value once, other tiles cost 0, lit as a whole when any of its tiles is) and a frame block with no art into
+  empty. A new shape → the art tile reads `UNKNOWN`: `--learn` it as `multi_lit`/`multi_dark` (it looks different: an
+  unlit chest has a dull gold frame, a lit one glows bright yellow), its plain tiles as `frame` if they read `UNKNOWN`
+  too. All item shapes seen so far: 2×1, 2×2, 2×3 (Nick 2026-11-05: the 2×1 was the last one).
+  Seen on the 2×1 (Cmajor 2026-11-05): unlit = a tap on it is refused like any dark tile (no shovel used); the moment
+  it's lit the tiles **beside it** light up too (stone r5c3, shard r6c2 turned bright before the chest was opened);
+  opened from a tap on either tile → 75 gems + 750 Mythic Spiritstone (the red gems) + 2 tokens, shovels and Mine bar
+  unchanged. **"Tap anywhere to close" — not on the reward icons** (y≈920): a tap at `(540,1000)` opened the
+  Spiritstone tooltip; use the top `(540,120)` (the script) or the bottom `(540,1700)`.
   **Opening is always free** — no shovel, no Mine-bar count (Nick 2026-11-04; seen on Cmajor: tap on a frame tile → chest gone,
   shovels 1→1, bar 63→62 over that tap + one real dig) → the script opens a lit one first, like a free pickaxe, and
   logs the reward popup's text (`popup: …`).

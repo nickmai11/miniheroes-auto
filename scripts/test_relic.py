@@ -317,6 +317,32 @@ G S s S D .
 d s D M M M
 d p D M M M
 d g d D D D""",
+    # Cmajor 2026-11-05: 2x1 chest, bottom row, both tiles carry art; dark (no empty beside it: tapped and refused),
+    # lit after the shard beside it was dug (bright frame), then its pit
+    'cmajor_1105_multi2_dark': """
+. . . D S .
+D . . D S .
+D . S S . .
+s S s D . D
+s s p D . .
+s s s d D .
+s r m m r R""",
+    'cmajor_1105_multi2_lit': """
+D . . D S .
+D . S S . .
+s S s D . D
+s s p D . .
+s s S D D .
+s R M M . .
+d d R R P R""",
+    'cmajor_1105_multi2_pit': """
+D . . D S .
+D . S S . .
+s S s D . D
+s s p D . .
+s s S D D .
+s R . . . .
+d d R R P R""",
 }
 for name, want in EXPECT.items():
     im = Image.open(os.path.join(relic.TILES, 'boards', name + '.png')).convert('RGB')
