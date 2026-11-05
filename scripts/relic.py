@@ -325,9 +325,11 @@ def boosters(g, blocked, im, got):
         g2, im = stable_board()
         if g2 is None: raise Stop('left the dig board after a booster')
         st2 = stock(im)
-        log(f'{k} r{r + 1}c{c + 1} (saves ~{s:.0f}, stock {st[k]}->{st2.get(k)}) -> {reward or "no banner"}')
+        if st2.get(k) is None: time.sleep(1); im = grab(); st2 = stock(im)   # badge OCR misses (Tiger 2026-11-06: drill fired, read None)
+        fired = st2.get(k) == st[k] - 1 or (st2.get(k) is None and g2 != g)  # unreadable badge: the board changing is the proof
+        log(f'{k} r{r + 1}c{c + 1} (saves ~{s:.0f}, stock {st[k]}->{st2.get(k)}{"" if st2.get(k) is not None else ", board changed" if g2 != g else ""}) -> {reward or "no banner"}')
         if reward: got.append(reward)
-        if st2.get(k) != st[k] - 1: log('booster not consumed -> no more boosters'); return g2, im
+        if not fired: log('booster not consumed -> no more boosters'); return g2, im
         g, blocked = g2, set()                                   # a scroll moved everything: stale blocked cells
     return g, im
 
