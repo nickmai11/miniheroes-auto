@@ -23,7 +23,7 @@ Also triggered mid-dailies by a "Match attempts full" popup: Confirm, exhaust ti
 ## Hard rules
 
 - Never attack a tribe member (the last-row bot is never one). If unsure, tap the avatar and read `Tribe:` on the profile.
-  Exception: accounts with `arena.attack_tribemates: true` (Dino, Bino, Dminor — Nick, 2026-11-04) may crash tribemates, but never Nick's own accounts (`accounts/own_accounts.txt`).
+  Exception: accounts with `arena.attack_tribemates: true` (Dino, Bino, Dminor — Nick, 2026-11-04) may crash tribemates on **Mon–Wed game days only** (Nick, 2026-11-06; other days the normal tribe rule), but never Nick's own accounts (`accounts/own_accounts.txt`).
 - A yellow **Challenge** only against a lower CP than ours; never a stronger opponent.
 - Only free tickets: never tap `+` (buy tickets) or Refresh. No gems.
 - Screenshot before each target pick and counter check; chain only fixed navigation taps with `--until` (CLAUDE.md). Unexpected screen → stop and report.

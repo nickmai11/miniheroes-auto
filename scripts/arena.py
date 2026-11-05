@@ -2,13 +2,13 @@
 # Arena: attack the topmost attackable opponent until tickets = 0 (ui-routine "Arena", steps 2-5).
 # usage: D=<serial> scripts/arena.py <account>     e.g. scripts/arena.py cmajor   (Arena screen must be open)
 # Reads the Challenge dialog with macOS Vision OCR (scripts/ocr): tickets "N/M", row names, blue Crash buttons.
-# Attackable = any row (blue Crash or yellow Challenge, Nick 2026-11-04) whose name is not on accounts/tribe_<tribe>.txt (accounts/own_accounts.txt instead if arena.attack_tribemates: true); else the last row (always a bot).
+# Attackable = any row (blue Crash or yellow Challenge, Nick 2026-11-04) whose name is not on accounts/tribe_<tribe>.txt (accounts/own_accounts.txt instead if arena.attack_tribemates: true, Mon-Wed game days only); else the last row (always a bot).
 # skip_same_server accounts: last row (bot) only — the server tag isn't read. Never taps "+" or Refresh.
 # A yellow Challenge is a real fight, taken only when the row's CP is below ours (Nick 2026-11-04; ours = the pinned own row at the
 # bottom of the Arena ranking list): Start -> Victory/Defeat -> dismiss (UNTESTED, 2026-11-04). exit 0 = tickets 0 + dialog closed, 1 = unexpected screen (screenshot -> v_arena.png).
 # Win chests / Ranking Rewards claims (step 6) stay with the helper.
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
-import difflib, os, re, subprocess, sys, time, unicodedata
+import datetime, difflib, os, re, subprocess, sys, time, unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait
 from flow import Stop, find, joined, near, ocr, tap, tap_text, wait
@@ -73,8 +73,10 @@ def main(account):
     cfg = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
     tribe = re.search(r'arena:\s*\n\s+tribe:\s*(.+)', cfg).group(1).strip()
     bot_only = bool(re.search(r'skip_same_server:\s*true', cfg))
-    # Dino/Bino (attack_tribemates): tribemates fair game, but never Nick's own accounts (Nick, 2026-11-04)
-    rfile = 'own_accounts.txt' if re.search(r'attack_tribemates:\s*true', cfg) else f'tribe_{tribe.lower().replace(" ", "_")}.txt'
+    # Dino/Bino/Dminor (attack_tribemates): tribemates fair game Mon-Wed game days only (Nick, 2026-11-06), never Nick's own accounts (Nick, 2026-11-04)
+    game_day = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=5)).date()
+    rfile = 'own_accounts.txt' if re.search(r'attack_tribemates:\s*true', cfg) and game_day.weekday() <= 2 else f'tribe_{tribe.lower().replace(" ", "_")}.txt'
+    print(f'roster {rfile}', flush=True)
     roster = [norm(l) for l in open(os.path.join(HERE, '..', 'accounts', rfile)) if l.strip() and not l.startswith('#')]
     ours = cp_in(ocr(), (500, 1340, 800, 1480))     # own pinned row above the Challenge button (Cmajor 11-04: 6338k at (614,1414))
     ours = ours[0] if ours else None

@@ -276,8 +276,9 @@ Crash, or Challenge only when the opponent's CP is below ours (Nick, 2026-11-04)
 4. Pick the **topmost** attackable row (scan from row 1 down): Crash, or Challenge below our CP; name not on the roster → tap it.
    **The last row is always a bot — always attackable** (no tribe/server check needed); use it when no
    row above it qualifies, so tickets never go unused.
-   If the account has `arena.attack_tribemates: true` (Dino, Bino, Dminor — Nick, 2026-11-04), use `accounts/own_accounts.txt`
-   (Nick's own accounts) as the roster instead of the tribe list: tribemates are attackable, Nick's accounts never.
+   If the account has `arena.attack_tribemates: true` (Dino, Bino, Dminor — Nick, 2026-11-04), **on Mon–Wed game days only**
+   (Nick, 2026-11-06; Thu–Sun = normal tribe rule) use `accounts/own_accounts.txt` (Nick's own accounts) as the roster instead of the
+   tribe list: tribemates are attackable, Nick's accounts never.
    If the account has `arena.skip_same_server: true` (none since 2026-11-04 — Dminor switched to `attack_tribemates`), also skip opponents on the account's own server
    ("S###" tag, or "War Zone: AreaNNN" on the opponent profile). Server unknown → skip.
    The dialog closes and shows _Congratulations_ (+40 arena points, 11000 gold).

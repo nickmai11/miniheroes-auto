@@ -19,7 +19,7 @@ missions:
 
   arena:
     tribe: Peakaboo
-    attack_tribemates: true # Nick, 2026-11-04: anyone (tribemates too), but never Nick's own accounts (accounts/own_accounts.txt)
+    attack_tribemates: true # Mon-Wed game days only (Nick, 2026-11-06); Nick, 2026-11-04: anyone (tribemates too), but never Nick's own accounts (accounts/own_accounts.txt)
     crash_all_tickets: true
 
   shop_freebies: true
