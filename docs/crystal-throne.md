@@ -96,8 +96,10 @@ every base number to its map position itself, before the first order — one OCR
 Nodes are fixed positions; only the 8 base numbers change per match. If a number can't be read, say so at once rather
 than guess.
 
-**Captured bases (Nick, 2026-11-05):** when a tribe takes another tribe's main base, that base is then named by the
-captor's number plus an index — e.g. `150 base 2` (also accepted as `150b2`). A tribe's original base is `150` (= base 1).
+**Captured bases (Nick, 2026-11-05):** when a tribe takes another tribe's main base, its on-screen label becomes the
+captor's zone line plus a second line, e.g. `150 PurpleGang` / `Base 2` (two lines under the base icon). Nick orders it
+as `150 base 2` (also accepted as `150b2`); the OCR must match the number on the first line and the `Base N` on the
+second, ignoring the tribe name. A tribe's original base is `150` (= Base 1, no second line).
 The table must therefore map `<number> [base N]` → position: after any capture or Displaced relocation Nick says so
 (or an order names a base not in the table) → one more OCR pass over the map before acting.
 
