@@ -52,9 +52,12 @@ def try_occupy(x, y):
     else: return False                                  # no popup: the tap missed, nothing to close
     if re.search(r'occupy the empty', t, re.I) and find(boxes, r'^Occupy$'):
         tap_text(r'^Occupy$', boxes=boxes)
-        for _ in range(10):                             # "you left the old Battlefield" gains popup
-            time.sleep(0.5); b2 = ocr()
-            if find(b2, r'^Confirm$'): tap_text(r'^Confirm$', boxes=b2); break
+        seen = False                                    # old spot's gains: "Resource" Confirm popup and/or a
+        for i in range(24):                             # "Congratulations" one (Tap anywhere to close); either ate the
+            time.sleep(0.5); b2 = ocr()                 # Rewards tap -> FAIL -> retry re-occupied (7 accounts 11-05)
+            if find(b2, r'^Confirm$'): tap_text(r'^Confirm$', boxes=b2); seen = True; continue
+            if find(b2, r'Congratulations|Tap anywhere'): tap_wait(540, 1300); seen = True; continue
+            if seen or i >= 10: break                   # popups gone (or none within 5 s: no old spot)
         return True
     tap_text(r'^Cancel$', boxes=boxes)
     return False

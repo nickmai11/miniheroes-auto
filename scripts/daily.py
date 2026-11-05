@@ -935,12 +935,18 @@ def canyon(cfg):
     (Nick 2026-11-04). No empty one -> MANUAL (helper may beat a Sentinel, never a player)."""
     if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'
     open_canyon()
-    try: out = script('canyon.py', ACCOUNT)
-    except Stop as e:
-        if 'exit 2' not in str(e): raise
-        out = 'MANUAL no empty platform (attack choice)'
+    if canyon.taken: out = 'spot taken earlier this run'  # the runner's retry re-occupied after a rewards FAIL (Dino 11-05)
+    else:
+        try: out = script('canyon.py', ACCOUNT)
+        except Stop as e:
+            if 'exit 2' not in str(e): raise
+            out = 'MANUAL no empty platform (attack choice)'
+        canyon.taken = out.startswith('occupied')
     time.sleep(1)                                        # the points land after the Occupy popup closes
     return f'{out}; rewards: {canyon_rewards()}'         # Rewards is fixed HUD: same spot wherever canyon.py left the map
+
+
+canyon.taken = False
 
 
 HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Golden': 'golden_woods', r'^Draws|^7777': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event'}
