@@ -137,7 +137,8 @@ shard 1–2; shards sharing a tunnel split the cost — the script credits every
 
 **Routes collect on the way** (Nick 2026-11-04, Chien Than): of two routes of the same cost, take the one through
 shards/chests — the search treats item tiles as free to pass, so a 5-dig bottom row with 2 shards beats a 5-dig tunnel
-past 2 gold chests (and bottom-row digs reveal rows on the way). **The shovels left never shorten a route** (Nick 2026-11-04: shovels recover over time; a half-dug tunnel is
+past 2 gold chests (and bottom-row digs reveal rows on the way). Of two routes of the same cost, the one that digs a **bottom-row** tile wins — it reveals a row as
+well (Dminor 2026-11-05, Nick: the dirt above a shard was dug while the bottom tile beside the shaft reached it just the same). **The shovels left never shorten a route** (Nick 2026-11-04: shovels recover over time; a half-dug tunnel is
 continued by the next run).
 
 **Every dig needs a target** (Nick 2026-10-31, "gone wild"): each dig is either on the cheapest route to a named item

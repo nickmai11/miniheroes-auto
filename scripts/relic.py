@@ -140,19 +140,24 @@ def routes(g, blocked=()):
     def key(r, c):   # search cost: an item tile is free to pass through, so of two routes of equal real cost the one that
         k = g[r][c][0]   # collects shards/chests wins (Chien Than 2026-11-04: a 5-dig tunnel past 2 gold chests was chosen
         return 0 if r < 7 and VALUE.get(k, 0) > 0 else cost(r, c)   # over the 5-dig bottom row with 2 shards, Nick)
-    dist, kd, prev, q = {}, {}, {}, []
+    # kd = (search cost, real cost, -bottom-row digs): equal search costs go to the cheaper real route, then to the one
+    # with more bottom-row digs - each reveals a row (Dminor 2026-11-05, Nick: the dirt above a shard was dug while the
+    # bottom tile beside the shaft reached it for the same 2 shovels)
+    dist, kd, prev, q, NONE = {}, {}, {}, [], (INF, INF, 0)
     for r in range(len(g)):
         for c in range(6):
             if g[r][c][1] and cost(r, c) < INF:
-                dist[(r, c)] = cost(r, c); kd[(r, c)] = key(r, c); prev[(r, c)] = None; heapq.heappush(q, (key(r, c), r, c))
+                dist[(r, c)] = cost(r, c); kd[(r, c)] = (key(r, c), cost(r, c), -(r == 6 and cost(r, c) > 0)); prev[(r, c)] = None
+                heapq.heappush(q, (kd[(r, c)], r, c))
     while q:
         d, r, c = heapq.heappop(q)
-        if d > kd.get((r, c), INF): continue
+        if d > kd.get((r, c), NONE): continue
         for dr, dc in ((1, 0), (-1, 0), (0, 1), (0, -1)):
             nr, nc = r + dr, c + dc
-            if 0 <= nr < len(g) and 0 <= nc < 6 and cost(nr, nc) < INF and d + key(nr, nc) < kd.get((nr, nc), INF):
-                kd[(nr, nc)] = d + key(nr, nc); dist[(nr, nc)] = dist[(r, c)] + cost(nr, nc); prev[(nr, nc)] = (r, c)
-                heapq.heappush(q, (kd[(nr, nc)], nr, nc))
+            if not (0 <= nr < len(g) and 0 <= nc < 6) or cost(nr, nc) >= INF: continue
+            nd = (d[0] + key(nr, nc), d[1] + cost(nr, nc), d[2] - (nr == 6 and cost(nr, nc) > 0))   # paid digs only: free pickaxe steps must not loop
+            if nd < kd.get((nr, nc), NONE):
+                kd[(nr, nc)] = nd; dist[(nr, nc)] = nd[1]; prev[(nr, nc)] = (r, c); heapq.heappush(q, (nd, nr, nc))
     return dist, prev
 
 

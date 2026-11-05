@@ -346,3 +346,10 @@ _rows = ['. . . . . .', '. . . . . .', '. . . . . .', '. C . . . .', '. . . D . 
 _g = [[(t.upper(), t.isupper()) if t != '.' else ('.', False) for t in r.split()] for r in _rows]
 _p = relic.plan(_g); assert _p[:2] == (4, 3) and 'multi chest' in _p[2] and 'cost 3' in _p[2], _p
 print('multi first ok')
+
+# equal-cost routes: the one through the bottom row wins, it reveals a row too (Dminor 2026-11-05, Nick): the shard
+# r7c4 is 2 digs away via the dirt above it (r6c4) or via the bottom-row dirt beside the shaft (r7c5) -> r7c5 first
+_rows = ['d d S . . D', 'd d D D . D', 'd d D . . D', 'd d D S . D', 'p d D . . d', 'd g D D . s', 'd r d r D d']
+_g = [[(t.upper(), t.isupper()) if t != '.' else ('.', False) for t in r.split()] for r in _rows]
+_p = relic.plan(_g); assert _p[:2] == (6, 4) and 'shard r7c4' in _p[2] and 'cost 2' in _p[2], _p
+print('bottom-row tie ok')
