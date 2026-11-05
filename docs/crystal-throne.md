@@ -63,6 +63,7 @@ Nick commands, Claude executes on all accounts in parallel — never picks targe
 
 ## Map and target names (proposed 2026-11-05, from Nick's screenshot `docs/crystal-throne-map.png`, 819×835)
 
+The coloured lines and digits drawn on the screenshot are someone's annotations, not game content — ignore them (Nick).
 Fixed grid names, independent of which tribe sits where. Rows A–E top→bottom, columns 1–5 left→right. Icon types are a
 guess until seen in-game (⚡ = the lightning/beacon icon, 10 of them; 🏰 = tower icon, 4; the centre hex cluster = the
 Fortress). Coordinates are image pixels of the screenshot, for calibrating the tap table on the real device.

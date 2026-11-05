@@ -33,7 +33,7 @@ def battle_on():
 
 def cp(t):
     """'7177k' / '2310K' / '12.3M' -> thousands, else None."""
-    m = re.fullmatch(r'(\d+(?:\.\d+)?)([kKmM])', t.strip())
+    m = re.fullmatch(r'\W*(\d+(?:\.\d+)?)([kKmM])', t.strip())    # \W*: the paw icon OCRs as '*' (Dino 11-05: '*11404K')
     return m and float(m[1]) * (1000 if m[2] in 'mM' else 1)
 
 
@@ -187,7 +187,8 @@ def run(account, max_floor=3):
     while True:
         im = grab(); b = ocr(im); t = joined(b)
         title = ' '.join(x[4] for x in b if 380 < x[1] + x[3] // 2 < 460)    # event dialog title
-        if 'Tap anyw' in t or 'Click Anywhere' in t:
+        # 'Exploration Success' = core breakthrough popup after a Lair stake; its 'Click Anywhere to Close' line is too dim for OCR (Dino 11-05)
+        if 'Tap anyw' in t or 'Click Anywhere' in t or 'Exploration Success' in t:
             c = find(b, r'^Confirm$'); tap_wait(*(c or (540, 500))); continue
         if 'next realm floor' in t: tap_text(r'^Cancel$', boxes=b); continue
         if 'You were defeated by' in t:      # a player beat us: lost a core, back a floor; Confirm only (Chien Than 11-03)
