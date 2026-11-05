@@ -86,9 +86,15 @@ Main bases on the 11-05 map (image x,y): top-left 180,120 · top 415,105 · top-
 right 755,480 · bottom-left 180,745 · bottom 415,760 · bottom-right 655,745 (Peakaboo, 201). Pixel positions are for
 calibrating the device tap table at the first battlefield (Sun 2026-11-08 02:00 local).
 
-**Order grammar:** `<who> <action> <target>` — who = `all`, `g1`, `g2`, account names; action = `march`, `attack`,
-`station`, `revive` (scroll revive; free revives are automatic); target = node or base number or `H`.
-Examples: `all attack B3`, `g1 march E3`, `kong tiger station H`, `all attack 190`, `all revive`.
+**Order grammar:** `<who> <action> <target>` — who = `all`, `g1`, `g2`, account names; action = `atk` (attack),
+`go` (march), `def` (station), `revive` (scroll revive; free revives are automatic); target = node or base **server
+number** or `H`. Examples: `g1 atk 150`, `all go B3`, `kong tiger def H`, `all revive`.
+
+**Base numbers → positions (Nick, 2026-11-05):** at the start of each match Nick feeds the map; Claude must then resolve
+every base number to its map position itself, before the first order — one OCR pass over the device map (the "Зона NNN"
+/ zone label under each main base) builds the `number → x,y` table, so an order like `g1 atk 150` needs no screenshot.
+Nodes are fixed positions; only the 8 base numbers change per match. Re-read the map if a base is relocated
+(Displaced). If a number can't be read, say so at once rather than guess.
 
 **Still to build (planned `scripts/ct.sh` console + per-account revive watcher):** nothing exists yet; the map-specific
 taps (node positions on the device, the tap-on-base popup with March / Attack / Station, the 20-diamond speed-up popup
