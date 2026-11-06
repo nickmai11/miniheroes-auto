@@ -157,7 +157,7 @@ def one_hero():
 def lone_hero(tabs=False):
     """Battle setup (Tower, Stage tab 1) -> Bone Archer alone (Nick 2026-11-02: fast daily fights; never set back).
     Recall all, archer filter, find its card by template (an undeployed card scores ~10, others ~50), tap it, filter
-    back to all (climb.py reads the all-heroes grid), check our power isn't 0."""
+    back to all (climb_stage.py reads the all-heroes grid), check our power isn't 0."""
     if tabs: tap_wait(380, 1088)                         # Stage: tab 1
     if one_hero(): return                                 # any 1 hero already set: keep it (Nick 2026-11-04)
     tap_wait(1006, 1082); tap_wait(670, 1644)            # recall all, archer filter

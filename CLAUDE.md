@@ -9,7 +9,7 @@ game accounts. Each account lives in its own **MuMuPlayer** Android instance on 
    A coordinator that delegates to helpers needs just the skill file — helpers read their own sections.
 2. Read the account file(s) in `accounts/` for the account(s) you were asked to run ("group 1/2" → `accounts/groups.yaml`).
    No accounts named, or "all" → `scripts/accounts.py <task>` (per-task lists in `accounts/tasks.yaml`: dailies, catchup,
-   arena, poseidon, realm, relic, tc_guess, fr_guess, survey, stabilize, artifact_roll, gear, climb — Nick, 2026-11-06).
+   arena, poseidon, realm, relic, tc_guess, fr_guess, survey, stabilize, artifact_roll, gear, climb_stage — Nick, 2026-11-06).
 3. Skim `docs/setup.md` if something about the emulator/proxy looks off.
 
 ## Computer-use access
@@ -28,6 +28,9 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 
 ## Hard rules
 
+- **Power doesn't matter** (Nick, 2026-11-06, every task): never store, check, compare or report team power, and never
+  predict a fight from it; lineups are judged only by which heroes are on them. Mission rules that pick a target by
+  the CP shown on screen (Arena Challenge, Poseidon lowest-CP ship) are unchanged.
 - **Never spend gems beyond what the account config allows.** Each mission entry gives a
   total sweep count _including_ free attempts. Free attempts are used first; paid sweeps
   (button shows a gem icon + price) only up to the configured total.

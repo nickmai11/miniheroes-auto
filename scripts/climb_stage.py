@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Babysit the game's own auto stage climb (occasional, not part of the dailies): auto stops after X-40 (3-wave boss)
 # -> close the reward, Next chapter, open the stage, Start; Defeat screen up 3 s -> Challenge again.
-# usage: scripts/climb.py <account>... [--minutes N]   |   scripts/climb.py <account> --swap | --record | --apply
+# usage: scripts/climb_stage.py <account>... [--minutes N]   |   scripts/climb_stage.py <account> --swap | --record | --apply
 # --apply: put the yaml stage_lineups back on all 3 tabs (after a SWAP LINEUPS FAILED), then Start.
 # --record [--no-start]: from any screen -> fresh battle setup, read each tab's deployed cells (green checks), write
 # stage_lineups, then Start (unless --no-start). Grid rows are found by measuring each slow-drag scroll.
@@ -9,7 +9,7 @@
 # Runs N minutes (default 9, fits one Bash call) then exits 0 "still climbing" — just run it again.
 # Lost the same stage 3x in a row -> swap the losing wave's team with the next tab (stage_lineups cells in the account
 # yaml, which is rewritten), max 3 swaps per stage, then exit 2 (look by hand).
-# exit 1 = a step's screen didn't show or a stage didn't change for 4 min (climb_<name>.png in /tmp).
+# exit 1 = a step's screen didn't show or a stage didn't change for 4 min (climb_stage_<name>.png in /tmp).
 # Seen 2026-10-31 (Bino/Dino): after a Challenge again the game sometimes goes to the next chapter itself.
 import json, os, re, subprocess, sys, time
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -33,14 +33,14 @@ gd = subprocess.run('TZ=UTC date -v-5H +%F', shell=True, capture_output=True, te
 
 
 def log(a, msg):
-    line = f"{time.strftime('%F %T')} [climb] {msg}"
+    line = f"{time.strftime('%F %T')} [climb_stage] {msg}"
     print(a, line, flush=True)
     os.makedirs(f'{R}/logs/{a}', exist_ok=True)
     open(f'{R}/logs/{a}/{gd}.log', 'a').write(line + '\n')
 
 
 def step(a, xy, pat, to=20):
-    r = subprocess.run(['python3', f'{HERE}/tap.py', *([xy] if xy else []), '-o', f'/tmp/climb_{a}.png', '-w', '270', '--until-text', pat,
+    r = subprocess.run(['python3', f'{HERE}/tap.py', *([xy] if xy else []), '-o', f'/tmp/climb_stage_{a}.png', '-w', '270', '--until-text', pat,
                         '--timeout', str(to)], env={**os.environ, 'D': devs[a]}, capture_output=True, text=True)
     if r.returncode: log(a, f'FAIL waiting {pat!r} after {xy}: {r.stdout.strip()[-300:]}'); sys.exit(1)
     return r.stdout
@@ -96,17 +96,10 @@ def grid_pass(d, rows_needed, fn):
     raise RuntimeError(f'rows {set(rows_needed) - done} never visible')
 
 
-def power():
-    """Our team power (top-left "4015K"). OCR sometimes reads the fist icon left of it as a digit ("24015K",
-    2026-11-01): a box starting over the icon (x < 125) loses its first char."""
-    for x, y, w, h, t in flow.ocr(T.grab()):
-        if x < 540 and y < 140 and re.search(r'\d+K', t):
-            return re.search(r'(\d[\d,]*)K', t[1:] if x < 125 else t).group(1)
-
-
 def swap(a, k=1):
     """Losing wave = the open tab of the Challenge-again setup. Fresh setup from the main screen (Challenge-again
-    edits aren't saved), recall both tabs, deploy each other's cells (rows 1-3), check powers, rewrite the yaml, Start."""
+    edits aren't saved), recall both tabs, deploy each other's cells (rows 1-3), re-read the cells, rewrite the yaml, Start.
+    Power is never a check (Nick 2026-11-06: power doesn't matter) - only which heroes sit on which tab."""
     T.D = flow.D = devs[a]; d = devs[a]
     im = T.grab()
     won = lambda t: sum(1 for dx in range(-40, 41, 4) for dy in range(-25, 26, 4)
@@ -118,7 +111,7 @@ def swap(a, k=1):
     step(a, '80,1810', 'Adventure', 10); time.sleep(1); step(a, '994,964', r'^Start$|\| Start \|')
     # the yaml goes stale when Nick edits lineups: it put a team-1 hero into the swap and the "Move hero?" Tip
     # blocked every tap after it (Chien Than 2026-11-02) -> read the real lineups first, swap nothing if unsure
-    teams, old = read_lineups(a)
+    teams = read_lineups(a)
     if any(len(teams[t]) != 5 for t in (w, o)): log(a, f'SWAP LINEUPS: lineups unreadable {teams}, nothing changed'); sys.exit(2)
     for t in (w, o): step(a, f'{TAB[t]},1088', 'Start'); step(a, '1000,1080', 'Start')
     def place(vis):
@@ -127,12 +120,12 @@ def swap(a, k=1):
             for c in cells:
                 if int(c[1]) in vis: adb(d, 'tap', COLX[int(c[3]) - 1], vis[int(c[1])]); time.sleep(0.6)
     grid_pass(d, sorted({int(c[1]) for c in teams[o] + teams[w]}), place)
-    got = {}
-    for t in (w, o): step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.5); got[t] = power()
-    if got[w] != old[o] or got[o] != old[w]:
-        log(a, f'SWAP LINEUPS FAILED: tab {w} {got[w]}K (want {old[o]}K), tab {o} {got[o]}K (want {old[w]}K) - left on setup'); sys.exit(2)
-    teams[w], teams[o] = teams[o], teams[w]; write_lineups(a, teams, {**old, **got})
-    log(a, f'swapped lineups {w}<->{o} (tab {w} {got[w]}K, tab {o} {got[o]}K), yaml updated')
+    want = {**teams, w: teams[o], o: teams[w]}
+    got = read_lineups(a)
+    if any(sorted(got[t]) != sorted(want[t]) for t in (1, 2, 3)):
+        log(a, f'SWAP LINEUPS FAILED: tabs read {got}, want {want} - left on setup'); sys.exit(2)
+    write_lineups(a, want)
+    log(a, f'swapped lineups {w}<->{o}: {want}, yaml updated')
     if '--no-start' not in args: step(a, '540,1806', FIGHT, 30)
 
 
@@ -148,8 +141,7 @@ def to_main(a):
 def apply(a):
     T.D = flow.D = devs[a]; d = devs[a]
     y = open(f'{R}/accounts/{a}.yaml').read()
-    rows = re.findall(r'^\s+(\d): \{power: ([^,]*), cells: \[([^\]]*)\]', y, re.M)
-    teams, want = {int(k): v.split(', ') for k, _, v in rows}, {int(k): p for k, p, _ in rows}
+    teams = {int(k): v.split(', ') for k, v in re.findall(r'^\s+(\d): \{cells: \[([^\]]*)\]', y, re.M)}
     to_main(a)
     step(a, '994,964', r'^Start$|\| Start \|')
     for t in (1, 2, 3): step(a, f'{TAB[t]},1088', 'Start'); step(a, '1000,1080', 'Start')
@@ -159,9 +151,10 @@ def apply(a):
             for c in teams[t]:
                 if int(c[1]) in vis: adb(d, 'tap', COLX[int(c[3]) - 1], vis[int(c[1])]); time.sleep(0.6)
     grid_pass(d, sorted({int(c[1]) for v in teams.values() for c in v}), place)
-    got = {}
-    for t in (1, 2, 3): step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.5); got[t] = power()
-    log(a, f'applied yaml lineups: powers {got} (yaml {want})')
+    got = read_lineups(a)
+    if any(sorted(got[t]) != sorted(teams[t]) for t in (1, 2, 3)):
+        log(a, f'APPLY FAILED: tabs read {got}, yaml {teams} - left on setup'); sys.exit(2)
+    log(a, f'applied yaml lineups {teams}')
     step(a, '540,1806', FIGHT, 30)
 
 
@@ -172,37 +165,37 @@ def checked(im, x, y0, y1):
 
 
 def read_lineups(a):
-    """On a fresh battle setup: each tab's deployed cells (green checks, rows 1-5) and power."""
+    """On a fresh battle setup: each tab's deployed cells (green checks, rows 1-5)."""
     d = devs[a]
-    teams, pw = {1: [], 2: [], 3: []}, {}
+    teams = {1: [], 2: [], 3: []}
     def read(vis):
         for t in (1, 2, 3):
-            step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.6); im = T.grab(); pw[t] = power()
+            step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.6); im = T.grab()
             teams[t] += [f'r{r}c{c + 1}' for r, yc in vis.items() for c, x in enumerate(COLX) if checked(im, x, yc - 75, yc + 75)]
     grid_pass(d, [1, 2, 3, 4, 5], read)
     multi = {c for t in teams for c in teams[t] if sum(c in v for v in teams.values()) > 1}   # green card art (xFaktor r4c2)
-    return {t: [c for c in v if c not in multi] for t, v in teams.items()}, pw
+    return {t: [c for c in v if c not in multi] for t, v in teams.items()}
 
 
 def record(a):
     T.D = flow.D = devs[a]
     to_main(a)
     step(a, '994,964', r'^Start$|\| Start \|')
-    teams, pw = read_lineups(a)
+    teams = read_lineups(a)
     bad = [t for t in teams if len(teams[t]) != 5]
     if bad: log(a, f'record: tabs {bad} not 5 cells in rows 1-5: {teams} (heroes further down?) - not written'); sys.exit(1)
-    write_lineups(a, teams, pw)
-    log(a, f'recorded stage_lineups {teams} powers {pw}')
+    write_lineups(a, teams)
+    log(a, f'recorded stage_lineups {teams}')
     if '--no-start' in args: return
     step(a, '540,1806', FIGHT, 30)
     log(a, 'started the stage')
 
 
-def write_lineups(a, teams, pw):
+def write_lineups(a, teams):
     path = f'{R}/accounts/{a}.yaml'; y = open(path).read()
     y = re.sub(r'\n  stage_lineups:.*?(?=\n  \S|\Z)', '', y, flags=re.S)
-    y = y.rstrip('\n') + '\n  stage_lineups:   # see bino.yaml; recorded by climb.py --record ' + time.strftime('%F') + '\n' + ''.join(
-        f'    {t}: {{power: {pw[t]}K, cells: [{", ".join(teams[t])}], good_for: ""}}\n' for t in (1, 2, 3))
+    y = y.rstrip('\n') + '\n  stage_lineups:   # see bino.yaml; recorded by climb_stage.py --record ' + time.strftime('%F') + '\n' + ''.join(
+        f'    {t}: {{cells: [{", ".join(teams[t])}], good_for: ""}}\n' for t in (1, 2, 3))
     open(path, 'w').write(y)
 
 

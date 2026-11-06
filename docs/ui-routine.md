@@ -568,23 +568,23 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: challenge the curren
 
 1. Main screen → blue **skull bubble** next to the hero `(994,964)` (not the stage map top-right).
 2. Battle setup "Stage: X-Y" → **tab 1 = Bone Archer alone** like Tower (Nick, 2026-11-02, all accounts —
-   breaks climb accounts' tab 1: re-set lineups + `climb.py --record` before a climb) → **Start** `(540,1806)`.
+   breaks climb accounts' tab 1: re-set lineups + `climb_stage.py --record` before a climb) → **Start** `(540,1806)`.
 3. **Defeat** → **Challenge again** (shows ~3 s after) = back on the hero selection, lineup kept → **Start**; repeat
    until `adventure_stage` fights (Nick, 2026-11-03 — no close + re-open per fight). A **Victory** moves the stage on →
    close `(540,120)` and re-open from the skull. After the last fight close `(540,120)`. (Tower: still never
    "Challenge again" — it starts the next floor.)
 
-## Stage climb (occasional, not dailies)
+## Climb stage (occasional, not dailies)
 
 Nick sometimes leaves an account on the game's own auto stage climb. Auto stops after X-40 (a 3-wave boss; result
 shows "Stage Reward" with no "Next Stage (Ns)" countdown) → main screen "Next chapter" `(992,970)` → skull `(994,964)`
 → Start `(540,1806)`. On Defeat, "Challenge again" (Nick, 2026-10-31). All automated:
-`scripts/climb.py <account>... [--minutes N]` (runs ~9 min per call, re-run to keep watching; exit 1 = look).
-**Before starting a stage, recheck the lineups** (Nick, 2026-11-02): screenshot tabs 1/2/3 and confirm the heroes, not just power — a mis-tapped swap + `--apply` matched powers with wrong heroes on Chien Than.
+`scripts/climb_stage.py <account>... [--minutes N]` (runs ~9 min per call, re-run to keep watching; exit 1 = look). Skill: `climb-stage`.
+**Before starting a stage, recheck the lineups** (Nick, 2026-11-02): screenshot tabs 1/2/3 and confirm the heroes. Power never counts (Nick, 2026-11-06) — a mis-tapped swap + `--apply` matched powers with wrong heroes on Chien Than.
 **No swap, no climb** (Nick, 2026-11-02): run the climb only if the account can swap (fresh `--record`, swap not failing). Can't swap → tell Nick, don't run; a failed swap (exit 2) = stop and report, never `--apply` + Start.
 
-**3 losses in a row on one stage → swap lineups** (Nick, 2026-10-31; climb.py does it from `stage_lineups` cells — losing wave's team ↔ next tab, max 3 swaps per stage, then exit 2). Lineups +
-what each is good for: `stage_lineups` in the account yaml — new account: `scripts/climb.py <account> --record`
+**3 losses in a row on one stage → swap lineups** (Nick, 2026-10-31; climb_stage.py does it from `stage_lineups` cells — losing wave's team ↔ next tab, max 3 swaps per stage, then exit 2). Lineups +
+what each is good for: `stage_lineups` in the account yaml — new account: `scripts/climb_stage.py <account> --record`
 (reads the green deploy checks, rows 1-4). Manual steps:
 
 1. A setup opened via Challenge again keeps already-won waves locked and **doesn't save edits** — back `(80,1810)` to
@@ -592,7 +592,7 @@ what each is good for: `stage_lineups` in the account yaml — new account: `scr
 2. Tabs 1/2/3 `(380|540|700,1088)`. The circular arrow `(1000,1080)` = **recall all** of the open tab (no swap button).
 3. Recall both tabs, then tap the other team's cells into each (tapping a free card deploys it; locked = in another
    tab). Grid at top: row1 y 1250, row2 y 1480, cols x 136/336/536/736/936; row 3+ → swipe `540,1450→540,1210`
-   (800 ms) and screenshot for its y. Check the tab's power equals the other team's old power, then Start.
+   (800 ms) and screenshot for its y. Re-read the green checks: each tab holds the other team's cells, then Start.
 
 ## Patrol (claim all + speed patrol)
 
