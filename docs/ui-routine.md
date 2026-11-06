@@ -472,6 +472,17 @@ Kong's Lv.170 stuck with `1557k/1351k` is NOT a shortage, don't Rebirth), and th
 3. ↑ Lv.90 → _Quick Level Up_ "Lv.2 → Lv.90", potion cost (`19M/1328k`) → **Confirm** `(740,1160)` → Lv.90, gear
    slots unlocked at LV.0 (the gear step then enhances from 0).
 
+## Gear catch-up (all gears of the first N heroes to ≥ L — Nick, 2026-11-06, PuPu)
+
+**Run `cd <scratch>; D=<serial> scripts/gear.py --heroes 15 --target 150`** from the Hero screen (skill `gear`). Gold only.
+Mapped on PuPu (1080x1920 — the instance was 600x1080, fixed with `adb shell wm size 1080x1920` + `wm density 480`):
+
+- Expanded hero list `(1008,1400)`: 5 columns x=140/336/536/734/932, rows y=1250/1490, row 3 half under the filter bar
+  → tap y=1690. Close ✕ `(1008,1100)`. The grid order = the strip order (default sort).
+- Gear slots left of the hero `(120, 400/550/700/850)`, level labels ~40 px above each slot (x<130).
+- Gear popup: `LV.N » N+1` at y≈400, gold `have/need` at y≈1240, **Enhance** `(540,1384)`, Reset (never). Close `(540,120)`.
+  PuPu 11-06: LV.130→150 cost well under the 36M gold on hand per gear (~20 Enhances each, 6 heroes done).
+
 ## Tribe (sign-in, Tribe Trial, chat request/assist)
 
 **Run `scripts/tribe.py`** (steps 1–4); steps below = exit-1 fallback.
