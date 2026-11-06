@@ -1,0 +1,17 @@
+# Which accounts each task runs on when Nick doesn't name any (or says "all") — Nick, 2026-11-06.
+# Items: an account (accounts/<name>.yaml), a group (accounts/groups.yaml), `all`, or `-name` / `-group` to drop it,
+# applied left to right, e.g. [all, -kong] or [group1, tiger]. A task not listed here = all.
+# `internal` (accounts/groups.yaml) = every account with a config as of 2026-11-06; a new account joins a task only when added. Check: scripts/accounts.py <task>. Accounts named in the request always win over this file.
+dailies: [internal]
+catchup: [internal]
+arena: [internal]
+poseidon: [internal]
+realm: [internal]
+relic: [internal]
+tc_guess: [internal]
+fr_guess: [internal]
+survey: [internal]
+stabilize: [internal]
+artifact_roll: [internal]
+gear: [internal]
+climb: [internal]

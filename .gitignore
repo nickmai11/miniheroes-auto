@@ -7,3 +7,4 @@ logs/
 .claude/scheduled_tasks.lock
 scripts/ocr
 __pycache__/
+v.png

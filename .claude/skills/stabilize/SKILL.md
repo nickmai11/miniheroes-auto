@@ -11,7 +11,7 @@ the file has `server:` it switches via ☰ → Settings → Server → `S<server
 "wrong account … stop" = no `server:` set / row not visible → report, never run tasks on the wrong account.
 
 1. Pick MuMu indices: `"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" info all` lists index/name/state.
-   "all" = the accounts in `accounts/*.yaml` (`mumu_instance:`), never every MuMu instance; names → their index;
+   "all" = `scripts/accounts.py stabilize` (`accounts/tasks.yaml`), never every MuMu instance; names → their index;
    drop any "except" names. Skip ones already on a clean main screen, then run `layout.js` once (no ONLY) over all.
 2. In `~/projects/chidojiro/miniheroes-auto`: `scripts/boot.sh <index>...` (timeout ~3 min).
    It restarts the game, so anything open (fight, menu) is dropped — that's what makes it reach the main screen.

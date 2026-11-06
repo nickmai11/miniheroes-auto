@@ -1,3 +1,5 @@
 # Account groups (Nick, 2026-10-27). "group 1" / "group 2" in a request means these accounts.
 group1: [aminor, cmajor, chien_than, dminor, kong, xfaktor]
 group2: [dino, bino, tiger]
+internal: [aminor, bino, chien_than, cmajor, dino, dminor, kong, tiger, xfaktor]
+external: [seabze, chloe, cris, wyck, pupu, cino, swayze, freak]

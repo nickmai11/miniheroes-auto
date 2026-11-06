@@ -12,7 +12,7 @@ Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Vein
 1. Instances at the main screen (`scripts/boot.sh <mumu index>...`), then **`scripts/relic_all.sh [account ...]`** — runs
    (each account: the free shovels, then — only when the counter hits 0, once per game day — Benefit red dot → Claim
    and the configured shovel buys, then those shovels)
-   `relic.py` on every `accounts/*.yaml` account in parallel (~4 s per dig, 150 shovels ≈ 10 min). One line per
+   `relic.py` on every `scripts/accounts.py relic` account (`accounts/tasks.yaml`) in parallel (~4 s per dig, 150 shovels ≈ 10 min). One line per
    account: `<account> exit 0 (done: N digs, shovels 0/150 left, items: …)`; output + screenshots in
    `/tmp/miniheroes-relic/<account>/`, every dig also in `logs/<account>/<game day>.log`.
    One account: `D=<serial> scripts/relic.py <account> [--dry] [--max-digs N]` — from the main screen, the Lost

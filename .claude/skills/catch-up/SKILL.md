@@ -5,7 +5,7 @@ description: Mini Heroes: Magic Throne catch-up run - Arena (incl. Ranking Rewar
 
 # Mini Heroes catch-up
 
-Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: every account in `accounts/*.yaml`, unless Nick names accounts.
+Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: `scripts/accounts.py catchup` (`accounts/tasks.yaml`), unless Nick names accounts.
 
 1. In `~/projects/chidojiro/miniheroes-auto`, read the account files (not `docs/ui-routine.md` — helpers read their sections).
 2. `scripts/boot.sh <mumu index>...` — boots, **restarts** the game, clears event popups (must print "ready (stable …)").

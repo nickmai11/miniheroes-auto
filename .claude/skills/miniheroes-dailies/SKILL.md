@@ -15,7 +15,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
    - `CLAUDE.md`
    - Only the `docs/ui-routine.md` sections for the missions you'll run: `scripts/doc.sh <section>...`
      (coordinator: just "Daily run order"; each helper: its missions)
-   - `accounts/<account>.yaml` for each requested account (all `enabled: true` accounts if he says "all")
+   - `accounts/<account>.yaml` for each requested account (`scripts/accounts.py dailies` if he says "all" or names none)
    - `docs/setup.md` only if the emulator/network looks wrong
 2. **ADB** (Nick approved; computer use only if he asks): everything below runs over ADB.
    **Pre-flight (Nick, 2026-11-03):** after boot, before the real run, test every row of `docs/untested.md` on ONE

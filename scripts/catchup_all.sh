@@ -1,16 +1,18 @@
 #!/bin/bash
-# "catch-up all" with no LLM (Nick, 2026-11-03: scheduled): boot every accounts/*.yaml instance, daily.py --catch-up on
+# "catch-up all" with no LLM (Nick, 2026-11-03: scheduled): boot every accounts/tasks.yaml `catchup` instance, daily.py --catch-up on
 # each "ready" one in parallel, one result line per account. Leftovers (LEFT FOR HELPER / FAIL) are for Nick or a
 # helper later: scripts/summary.sh /tmp/miniheroes-catchup. Output -> logs/launchd-catchup.log when run by launchd.
 HERE="$(cd "$(dirname "$0")" && pwd)"; R="$(dirname "$HERE")"; W=/tmp/miniheroes-catchup
 echo "=== $(date)"
 pairs=$(python3 - "$R" <<'PY'
 import glob, json, re, subprocess, sys
+sys.path.insert(0, sys.argv[1] + '/scripts'); from accounts import for_task
+want = for_task('catchup')   # accounts/tasks.yaml
 info = json.loads(subprocess.check_output(['/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli', 'info', 'all']))
 idx = {r['name']: r['index'] for r in info['return']['results']}
 for f in sorted(glob.glob(sys.argv[1] + '/accounts/*.yaml')):
     m = re.search(r'mumu_instance:\s*(.+)', open(f).read())
-    if m and m[1].strip() in idx: print(f"{idx[m[1].strip()]}|{f.rsplit('/', 1)[1][:-5]}|{m[1].strip()}")
+    if m and m[1].strip() in idx and f.rsplit('/', 1)[1][:-5] in want: print(f"{idx[m[1].strip()]}|{f.rsplit('/', 1)[1][:-5]}|{m[1].strip()}")
 PY
 )
 boot=$(for i in $(cut -d'|' -f1 <<<"$pairs"); do "$HERE/boot.sh" "$i" & done; wait)

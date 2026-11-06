@@ -1,5 +1,5 @@
 #!/bin/bash
-# "fr all" with no LLM (Nick, 2026-11-03: scheduler at 4:30 AM): boot every accounts/*.yaml instance, realm.py on each
+# "fr all" with no LLM (Nick, 2026-11-03: scheduler at 4:30 AM): boot every accounts/tasks.yaml `realm` instance, realm.py on each
 # "ready" one in parallel, one result line per account. Outside a battle round it exits before booting anything.
 # launchd: ~/Library/LaunchAgents/com.nickm.miniheroes-fr.plist, Wed/Thu/Fri 04:30 local (+07) = Tue/Wed/Thu 21:30 UTC,
 # 30 min before the round ends; output -> logs/launchd-fr.log, per-account lines -> logs/<account>/<game day>.log.
@@ -15,11 +15,13 @@ echo "=== $(date)"
 # "<index>|<account>|<instance name>" per accounts/*.yaml mumu_instance (the template's "Example" has no instance)
 pairs=$(python3 - "$R" <<'EOF'
 import glob, json, re, subprocess, sys
+sys.path.insert(0, sys.argv[1] + '/scripts'); from accounts import for_task
+want = for_task('realm')   # accounts/tasks.yaml
 info = json.loads(subprocess.check_output(['/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli', 'info', 'all']))
 idx = {r['name']: r['index'] for r in info['return']['results']}
 for f in sorted(glob.glob(sys.argv[1] + '/accounts/*.yaml')):
     m = re.search(r'mumu_instance:\s*(.+)', open(f).read())
-    if m and m[1].strip() in idx: print(f"{idx[m[1].strip()]}|{f.rsplit('/', 1)[1][:-5]}|{m[1].strip()}")
+    if m and m[1].strip() in idx and f.rsplit('/', 1)[1][:-5] in want: print(f"{idx[m[1].strip()]}|{f.rsplit('/', 1)[1][:-5]}|{m[1].strip()}")
 EOF
 )
 # one boot.sh per index: a multi-index boot.sh ends with layout.js (osascript window tiling), pointless unattended

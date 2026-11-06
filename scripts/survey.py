@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Submit a Google Form survey (from an in-game mail) once per account, neutral answers (Nick, 2026-11-06).
 
-usage: scripts/survey.py <form url | adb serial> [account ...]     (default: every accounts/*.yaml with a game_id)
+usage: scripts/survey.py <form url | adb serial> [account ...]     (default: accounts/tasks.yaml `survey` accounts with a game_id)
   url    = forms.gle/... or docs.google.com/forms/... link
   serial = 127.0.0.1:<port> of an instance whose mail link was just tapped: the URL is read from the browser intent
 Answers: short/paragraph text -> 'n/a'; linear scale -> the middle; radio/checkbox -> an option saying fine/no change
@@ -18,11 +18,12 @@ def curl(url, data=None):  # curl, not urllib: python has no system certs here (
 
 
 def accounts(names):
-    out = {}
+    from accounts import for_task
+    names, out = names or for_task('survey'), {}
     for f in sorted(glob.glob(os.path.join(ROOT, 'accounts', '*.yaml'))):
         n = os.path.basename(f)[:-5]
         g = re.search(r'^\s*game_id:\s*(\d+)', open(f).read(), re.M)
-        if g and (not names or n in names): out[n] = g.group(1)
+        if g and n in names: out[n] = g.group(1)
     return out
 
 
