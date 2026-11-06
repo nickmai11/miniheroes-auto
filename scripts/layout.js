@@ -1,6 +1,6 @@
-// Tile running MuMu instance windows on the main screen: each 1/2 of the usable height,
+// Tile running MuMu instance windows on the main screen. Layout 1 (default): each 1/2 of the usable height,
 // packed in 2 rows from the left edge (accounts/layout.yaml `top`/`bottom`), then `right` instances at full height; skipping names in accounts/layout.yaml `exclude`.
-// usage: osascript -l JavaScript scripts/layout.js
+// usage: [LAYOUT=2] osascript -l JavaScript scripts/layout.js   (LAYOUT=2 = layout 2: one row, all evenly wide)
 // Needs Accessibility permission for the terminal app (System Settings > Privacy & Security > Accessibility).
 ObjC.import('AppKit')
 const app = Application.currentApplication(); app.includeStandardAdditions = true
@@ -27,12 +27,19 @@ const place = (r, y, wh) => {
   const p = se.processes.whose({ unixId: r.pid })
   if (!p.length || !p[0].windows.length) { console.log(`${r.name}: no window`); return 0 }
   const w = p[0].windows[0]
+  w.position = [x, y]   // move first: a bottom-row window grown in place ran off-screen and macOS clamped its size (LAYOUT=2 first try)
   w.size = [Math.round(wh * 9 / 16), wh]   // MuMu may snap width to its aspect; we read it back below
-  w.position = [x, y]
   console.log(`${r.name}: ${w.position()} ${w.size()}`)
   return w.size()[0]
 }
-for (let c = 0; c < Math.max(grid[0].length, grid[1].length); c++) {
+// Layout 2 (LAYOUT=2): all instances in 1 row, each 1/n of the usable width (Nick, 2026-11-06), by layout.yaml order
+if (($.NSProcessInfo.processInfo.environment.objectForKey('LAYOUT').js || '') === '2') {
+  const all = [...grid[0], ...grid[1], ...right.map(n => insts.find(r => r.name === n)).filter(Boolean)]
+  const wh = Math.min(v.size.height, Math.floor(v.size.width / all.length * 16 / 9))
+  all.forEach(r => { x += place(r, top, wh) })
+  grid.length = 0; right.length = 0
+}
+for (let c = 0; grid.length && c < Math.max(grid[0].length, grid[1].length); c++) {
   let colW = 0
   grid.forEach((row, i) => { if (row[c]) colW = Math.max(colW, place(row[c], top + i * h, h)) })
   x += colW

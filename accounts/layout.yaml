@@ -1,4 +1,4 @@
-# Window layout for scripts/layout.js (Nick, 2026-10-27). MuMu instance names left where they are.
+# Window layout for scripts/layout.js (Nick, 2026-10-27): layout 1 = top/bottom rows + right; layout 2 (LAYOUT=2) = all in 1 row, same order. MuMu instance names left where they are.
 exclude: []
 # Rows, left to right. Unlisted running instances fill the shorter row, by MuMu index.
 top: [Aminor, Dminor, Dino, Bino]
