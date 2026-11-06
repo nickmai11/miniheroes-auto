@@ -11,9 +11,10 @@
 - Instance settings (⋮ → Settings, or menu _MuMu Android Device → Settings for "<name>"_):
   - _Developer_ tab: Root Access, System Disk Mode (Readonly/Writable), ADB default port.
   - Menu _Developer → Open ADB (<port>)_ shows the instance's ADB port.
-- Display: most instances are 1080×1920 (9:16). **Chien Than and xFaktor** are 600×1080 with an `adb shell wm size
-1080x1920` override, so scripts still get 1080×1920 coords, but their windows keep the 600:1080 ratio, about 7 px
-  narrower at full height (layout 2, 2026-11-06). Right after boot a screenshot can still come back at 600×1080 (`tap.py`).
+- Display: every instance is 1080×1920, 360 dpi (`mumu-cli config <i> --setting '{"resolutionWidthHeight":"1080x1920","resolutionDPI":360}'`,
+  applies on restart). Chien Than, Cris, PuPu and xFaktor were 600×1080 with an `adb shell wm size 1080x1920` override
+  (windows ~7 px narrower) until 2026-11-06 (Nick: all instances same config). A restart can move the ADB port by 1
+  (26752 → 26753): always read it from `mumu-cli info`.
 
 | Instance | ADB port                                     | Root | System disk | Wi-Fi proxy               | Proxyman CA                           |
 | -------- | -------------------------------------------- | ---- | ----------- | ------------------------- | ------------------------------------- |
