@@ -18,7 +18,6 @@ Request access for these apps only (Nick prefers the minimum):
 
 - `MuMuPlayer` (bundle `com.netease.mumu.nemux-global`) — the instance list / launcher
 - `MuMu Android Device` (bundle `com.netease.mumu.nemux-global.emulator`) — the game windows
-- `Proxyman` (`com.proxyman.NSProxy`) — only if inspecting traffic
 
 Work in **background mode** with the `computer_app_*` tools (screenshot/click on the emulator
 window). Don't request full-screen control unless Nick agrees.

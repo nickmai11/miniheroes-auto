@@ -16,30 +16,10 @@
   (windows ~7 px narrower) until 2026-11-06 (Nick: all instances same config). A restart can move the ADB port by 1
   (26752 → 26753): always read it from `mumu-cli info`.
 
-| Instance | ADB port                                     | Root | System disk | Wi-Fi proxy               | Proxyman CA                           |
-| -------- | -------------------------------------------- | ---- | ----------- | ------------------------- | ------------------------------------- |
-| Cmajor   | 26625 (was 26624; check `mumu-cli info all`) | on   | Writable    | 192.168.1.2:9090 (manual) | installed as system cert `d69f971d.0` |
+- Same config on every instance (Nick, 2026-11-06): root off, system disk read-only, no Wi-Fi proxy.
 
-> Cmajor's Wi-Fi proxy points at Proxyman on Nick's Mac. If Proxyman isn't running, the game
-> on Cmajor loses connectivity — set the proxy back to _None_ (Settings → Network & internet →
-> Internet → ⚙ on the Wi-Fi → ✎ → Advanced options → Proxy) when not capturing.
-> A MuMuPlayer update resets the Writable system disk (and the installed cert).
+## Traffic capture — removed 2026-11-06
 
-## Traffic capture (optional — only needed for API investigation)
-
-1. Proxyman listens on `192.168.1.2:9090` (Nick's Mac LAN IP; check Proxyman's title bar).
-2. In the instance: Wi-Fi → Advanced → Proxy _Manual_, host `192.168.1.2`, port `9090`.
-3. SSL proxying enabled in Proxyman for: `us-su-bldld.maxngame.com`, `us-cdn-bldld.maxngame.com`,
-   `heart.maxngame.com`, `api.mgamestore.com`, `passport.mgamestore.com`.
-4. Install the Proxyman CA as a system cert (needs Root + Writable system disk, then restart):
-
-```bash
-# export first: Proxyman → Certificate → Export → Root Certificate as PEM → ~/Desktop/proxyman.pem
-cd ~/Desktop && ADB=$(command -v adb || find /Applications/MuMu*.app -type f -name adb 2>/dev/null | head -1) \
- && D=127.0.0.1:<adb-port> && "$ADB" connect $D \
- && h=$(openssl x509 -inform PEM -subject_hash_old -in proxyman.pem | head -1) && cp proxyman.pem $h.0 \
- && "$ADB" -s $D push $h.0 /sdcard/ \
- && "$ADB" -s $D shell "su -c 'mount -o rw,remount / ; mount -o rw,remount /system ; cp /sdcard/$h.0 /system/etc/security/cacerts/ && chmod 644 /system/etc/security/cacerts/$h.0'"
-```
-
-Proxyman's "Android Emulator" auto-setup guide does **not** detect MuMu — use the manual steps.
+The game API is encrypted with a per-request nonce (`docs/api-findings.md`), so capture was dropped after one look
+(2026-10-26). The Proxyman setup (Cmajor proxy, root, writable disk, system CA) is in git history before this change
+(`git show b903e74:docs/setup.md`).
