@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # Babysit the game's own auto stage climb (occasional, not part of the dailies): auto stops after X-40 (3-wave boss)
 # -> close the reward, Next chapter, open the stage, Start; Defeat screen up 3 s -> Challenge again.
-# usage: scripts/climb_stage.py <account>... [--minutes N]   |   scripts/climb_stage.py <account> --swap | --record | --apply
+# usage: scripts/climb_stage.py <account>... [--minutes N] [--stop-next-chapter]   |   scripts/climb_stage.py <account> --swap | --record | --apply
 # --apply: put the yaml stage_lineups back on all 3 tabs (after a SWAP LINEUPS FAILED), then Start.
 # --record [--no-start]: from any screen -> fresh battle setup, read each tab's deployed cells (green checks), write
 # stage_lineups, then Start (unless --no-start). Grid rows are found by measuring each slow-drag scroll.
 # Accounts = accounts/<account>.yaml names; the game is moved to the stage if it's elsewhere.
+# --stop-next-chapter (Nick, 2026-11-06 "stop at next stage 1"): after X-40, Next chapter but no Start -> the account
+# waits on (X+1)-1, line `STOPPED at …`, no longer watched; all stopped -> exit 0 "all stopped". Don't pass it again next call.
 # Runs N minutes (default 9, fits one Bash call) then exits 0 "still climbing" — just run it again.
 # Lost the same stage 3x in a row -> swap the losing wave's team with the next tab (stage_lineups cells in the account
 # yaml, which is rewritten), max 3 swaps per stage, then exit 2 (look by hand).
@@ -222,10 +224,11 @@ if '--apply' in args:   # put the yaml stage_lineups back on all 3 tabs (after a
     sys.exit(0)
 if '--swap' in args: swap(accts[0]); sys.exit(0)   # one swap now (account on a Challenge-again setup) [--no-start]
 for a in devs: start(a)
-seen, losses, swaps = {}, {}, {}
+seen, losses, swaps, stopped = {}, {}, {}, set()
 end = time.time() + minutes * 60
 while time.time() < end:
     for a, d in devs.items():
+        if a in stopped: continue
         T.D = flow.D = d
         b = flow.ocr(T.grab()); t = flow.joined(b)
         st = re.search(r'Stage:? ?(\d+)-(\d+)', t)
@@ -251,15 +254,20 @@ while time.time() < end:
             if 'Next Stage' in flow.joined(flow.ocr(T.grab())): continue  # countdown just slow to render
             c = int(st.group(1))
             log(a, f'{c}-40 cleared, auto stopped -> chapter {c + 1}')
-            if 'x2' in step(a, '540,1880', r'Next chapter|x2'): log(a, 'game already started the next chapter'); continue
+            if 'x2' in step(a, '540,1880', r'Next chapter|x2'):
+                log(a, 'game already started the next chapter' + (' -> STOPPED watching (auto runs on: stop it by hand)' if '--stop-next-chapter' in args else ''))
+                if '--stop-next-chapter' in args: stopped.add(a)
+                continue
             b = flow.ocr(T.grab()); t = flow.joined(b)
         mc = re.search(r'Stage (\d+)-40\b', t)  # main screen, reward already closed (by Nick or us)
         if mc and flow.find(b, r'Next chapter'):
             c = int(mc.group(1))
             step(a, '992,970', rf'Stage {c + 1}-1\b', 30)
+            if '--stop-next-chapter' in args: log(a, f'STOPPED at {c + 1}-1 (main screen, not started)'); stopped.add(a); continue
             time.sleep(1)
             step(a, '994,964', r'^Start$|\| Start \|')
             step(a, '540,1806', FIGHT, 30)
             log(a, f'started {c + 1}-1 on auto')
+    if stopped == set(devs): print('all stopped:', sorted(stopped)); sys.exit(0)
     time.sleep(1.5)
-print('still climbing:', {a: s[0] for a, s in seen.items()})
+print('stopped:', sorted(stopped), 'still climbing:', {a: s[0] for a, s in seen.items() if a not in stopped})

@@ -16,7 +16,9 @@ ones named, else `scripts/accounts.py climb_stage`. Details: `scripts/doc.sh "Cl
    alone) → `scripts/climb_stage.py <account> --record --no-start` (opens a fresh setup, reads the green checks of
    tabs 1–3, rows 1–5, writes the yaml; exit 1 "not 5 cells" = a hero further down / empty tab → tell Nick, don't run).
 3. **Recheck the lineups before Start** (Nick, 2026-11-02): on the setup, per tab
-   `scripts/tap.py <380|540|700>,1088 -o tab<N>.png -w 540` and read the heroes (never judge by power). Wrong or
+   `scripts/tap.py <380|540|700>,1088 -o tab<N>.png -w 540` and read the heroes (never judge by power). After a
+   `--record` the grid is left scrolled down (no checks/locks visible, lower-level cards) → swipe it back up first
+   (`adb shell input swipe 540 1250 540 1700 300` ×4; 2026-11-06). Wrong or
    unsure → show Nick, stop. First time on an account → show him the 3 tabs and wait for his OK.
 4. Start `scripts/tap.py 540,1806 --until-text 'x2|Victory|Defeat' --timeout 30`, then
    `scripts/climb_stage.py <account>` in the **foreground** (Bash timeout 600000; ~9 min per call, several accounts
@@ -25,6 +27,8 @@ ones named, else `scripts/accounts.py climb_stage`. Details: `scripts/doc.sh "Cl
 5. Exit codes — act at once:
    - **0** "still climbing: {…}" → run it again (keep chaining calls; no pause to ask). Stop when Nick's limit
      (stage, chapter, time) is reached or he says stop.
+   - "Stop at next stage 1" → `--stop-next-chapter`: after X-40 it taps Next chapter, no Start, logs `STOPPED at …`;
+     next call drop the stopped accounts (and the flag if none is left to stop).
    - **2** (swap failed / still lost after 3 swaps) → stop and report the log lines. Never `--apply` + Start, never
      run without swaps.
    - **1** (a screen didn't show, stuck 4 min) → read `/tmp/climb_stage_<account>.png`; off the stage screen → the

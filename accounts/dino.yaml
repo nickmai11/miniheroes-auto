@@ -64,8 +64,7 @@ missions:
     strategy: stamina_order
     order: random
     sprites: 2
-  stage_lineups:   # Stage battle setup tabs 1-3: cells = hero grid r<row>c<col> (5 per row, grid at top, sorted by level)
-                   # Nick's original lineup (2026-10-31, restored 2026-11-01). good_for: Nick fills in.
-    2: {cells: [r1c1, r1c3, r2c3, r3c4, r3c5], good_for: ""}
-    1: {cells: [r1c2, r1c5, r2c4, r3c1, r3c2], good_for: ""}
-    3: {cells: [r1c4, r2c1, r2c2, r2c5, r3c3], good_for: ""}
+  stage_lineups:   # see bino.yaml; recorded by climb_stage.py --record 2026-11-06
+    1: {cells: [r1c2, r1c5, r2c3, r3c1, r3c2], good_for: ""}
+    2: {cells: [r1c1, r1c3, r2c4, r3c3, r3c4], good_for: ""}
+    3: {cells: [r1c4, r2c1, r2c2, r2c5, r3c5], good_for: ""}
