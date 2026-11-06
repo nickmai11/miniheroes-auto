@@ -16,16 +16,19 @@ def is_main(im): return near(im.getpixel((92, 1788)), (0, 158, 230))
 
 def close_x(im):
     """Centre of the popup's X button: the 64px block (right side, upper half) with the most white cross pixels that also
-    touches the grey-blue frame. Frame-only blocks have <=34/256 white, the X ~80 (Dino anniversary popup, 2026-10-28)."""
-    best, pos = 0, None
+    touches the grey-blue frame. Frame-only blocks have <=34/256 white, the X ~80 (Dino anniversary popup, 2026-10-28).
+    Topmost candidate row wins: the Snow Carnival art (snow + frame edge, 2026-11-06, 7 accounts popup-stuck) had more
+    white than the X; the X is always at the popup's top-right."""
+    best, pos, top = 0, None, None
     for y0 in range(80, 1000, 16):
+        if top is not None and y0 > top + 32: break           # only the rows straddling the first X-like block compete
         for x0 in range(700, 1016, 16):
             ring = white = 0
             for y in range(y0, y0 + 64, 4):
                 for x in range(x0, x0 + 64, 4):
                     p = im.getpixel((x, y))
                     ring += near(p, (115, 125, 156), 22); white += near(p, (255, 253, 255), 12)
-            if ring >= 10 and white >= 50 and white > best: best, pos = white, (x0 + 32, y0 + 32)
+            if ring >= 10 and white >= 50 and white > best: best, pos, top = white, (x0 + 32, y0 + 32), top if top is not None else y0
     return pos
 
 

@@ -18,3 +18,11 @@ Source: runner logs `/tmp/miniheroes-catchup/*.log` (scripts/catchup_all.sh), on
 784 digs, 0 refused / UNKNOWN / no effect; no buys this run (all 9 top-ups were done earlier the same game day, 11-05 18:10–18:19); shovels 0 everywhere.
 
 Everything else: 9 × 13 OK, no helper, no paid action, 0 popups stuck at boot (the Golden Woods "Tap anywhere" fix from 11-05 held: 0 popup-stuck).
+
+## Stabilize + survey 11:00 (boot.sh 9 accounts, mail survey)
+
+| #   | Task              | What went wrong                                                                                                                                                                                                                 | Status                                                                                                                      |
+| --- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 5   | Boot (7 accounts) | New "Snow Carnival" (11.5–12.7) popup → `popup-stuck` on all but Dino/Tiger: `close_x` takes the 64px block with the most white pixels, and the snow artwork + the frame's right edge (988,896) out-scored the real X (988,352) | 🧪 `close_x` only lets the rows straddling the topmost X-like block compete (`docs/untested.md`); closed by hand (tick + X) |
+
+Survey: the mail's link is one Google Form (`forms.gle/k7Nkvtkbv7MRHoSL9`, no sign-in); submitted from the Mac with curl once per `game_id`, neutral answers, `n/a` texts — 9 × "Thank you for your sharing!". No game taps needed beyond Kong (link read via `dumpsys activity`).
