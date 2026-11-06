@@ -549,8 +549,9 @@ def gate(cfg):
         while time.time() - t0 < 180 and not find(ocr(), r'Victory|Kill Count'): time.sleep(2)
         if not find(ocr(), r'Victory|Kill Count'):     # still fighting: Pause -> Quit Battle (counts as Victory)
             tap_wait(866, 1227); b = ocr()
-            if not find(b, r'Quit Battle'): tap_wait(866, 1227); b = ocr()
-            tap_text(r'Quit Battle', boxes=b); wait(r'Victory|Kill Count|^Confirm$', 10)
+            if not find(b, r'Quit Battle|Victory|Kill Count'): tap_wait(866, 1227); b = ocr()
+            if not find(b, r'Victory|Kill Count'):     # fight can end right at the cap (Tiger 2026-11-06)
+                tap_text(r'Quit Battle', boxes=b); wait(r'Victory|Kill Count|^Confirm$', 10)
         tap_text(r'^Confirm$', (200, 1300, 880, 1500)); boxes = wait(r'Chances left today', 10)
         n2 = left(boxes)
         if n2 != n - 1: raise Stop(f'gate chances {n} -> {n2} after a run')
@@ -1106,11 +1107,16 @@ def realm_packs(cfg):
     for _ in range(2):                                   # the banner tap can be ignored; xFaktor ignored every tap until
                                                          # a game restart (boot.sh), Aminor too (2026-11-03)
         tap_wait(*p); time.sleep(1); b = ocr()
-        if find(b, r'^Enter$'): break
+        # Claim day opens under a "Match Result" ranking popup (Chien Than 2026-11-06)
+        for _ in range(3):                               # then "Finals Concluded"; tap the title, not its own line
+            if find(b, r'Tap anywhere'): tap_wait(540, 120); b = ocr()
+        if find(b, r'^Enter$|^Pack$'): break
     else: raise Stop('Floating Realm screen did not open (banner stuck? restart the game: boot.sh <idx>)')
     pk = find(b, r'^Pack$')
     if not pk: return 'SKIP no Pack button (truce)'
-    tap_wait(*pk); wait(r'Daily Special', 8)
+    tap_wait(*pk)
+    if find(wait(r'Daily Special|Not in Purchase Period', 8), r'Not in Purchase Period'):
+        return 'SKIP Not in Purchase Period (claim day)'
     for _ in range(2): swipe(540, 900, 540, 1500, 400)   # it reopens where it was left (Motivation hid under the banner)
     settle()
     out, todo = [], list(want)
