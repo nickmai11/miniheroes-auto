@@ -35,7 +35,9 @@ def cur_rank(im):
     reading only the title gave King +0 every time, so the cap never fired). No number = +0."""
     boxes = ocr(im)
     tier = ' '.join(t for x, y, w, h, t in boxes if 400 < x + w // 2 < 700 and 560 < y + h // 2 < 720)
-    lvl = next((t.strip() for x, y, w, h, t in boxes if 430 < x + w // 2 < 650 and 1250 < y + h // 2 < 1370 and t.strip().isdigit()), '')
+    # badge digits from a 2x crop: full-screen OCR never reads a lone "1" (Aminor/Cmajor King +1, 2026-11-06)
+    c = im.crop((430, 1250, 650, 1370)); c = c.resize((c.width * 2, c.height * 2))
+    lvl = next((t.strip() for x, y, w, h, t in ocr(c) if t.strip().isdigit()), '')
     return rank(f'{tier} +{lvl}' if lvl else tier)
 
 
