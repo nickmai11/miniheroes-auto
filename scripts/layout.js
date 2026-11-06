@@ -32,9 +32,11 @@ const place = (r, y, wh) => {
   console.log(`${r.name}: ${w.position()} ${w.size()}`)
   return w.size()[0]
 }
-// Layout 2 (LAYOUT=2): all instances in 1 row, each 1/n of the usable width (Nick, 2026-11-06), by layout.yaml order
+// Layout 2 (LAYOUT=2): all instances in 1 row, each 1/n of the usable width (Nick, 2026-11-06)
 if (($.NSProcessInfo.processInfo.environment.objectForKey('LAYOUT').js || '') === '2') {
-  const all = [...grid[0], ...grid[1], ...right.map(n => insts.find(r => r.name === n)).filter(Boolean)]
+  // order = layout.yaml `row`; unlisted running instances after it, by MuMu index
+  const all = list('row').map(n => insts.find(r => r.name === n)).filter(Boolean)
+  insts.forEach(r => { if (!all.includes(r)) all.push(r) })
   // MuMu snaps the window to its own w/h ratio (title bar included, ~547x1010 for a 569 target) -> size the first
   // window, read its real ratio back, then height = (width / n) / ratio so the row fills the screen width
   const cw = v.size.width / all.length
