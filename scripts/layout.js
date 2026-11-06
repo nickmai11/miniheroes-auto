@@ -35,7 +35,11 @@ const place = (r, y, wh) => {
 // Layout 2 (LAYOUT=2): all instances in 1 row, each 1/n of the usable width (Nick, 2026-11-06), by layout.yaml order
 if (($.NSProcessInfo.processInfo.environment.objectForKey('LAYOUT').js || '') === '2') {
   const all = [...grid[0], ...grid[1], ...right.map(n => insts.find(r => r.name === n)).filter(Boolean)]
-  const wh = Math.min(v.size.height, Math.floor(v.size.width / all.length * 16 / 9))
+  // MuMu snaps the window to its own w/h ratio (title bar included, ~547x1010 for a 569 target) -> size the first
+  // window, read its real ratio back, then height = (width / n) / ratio so the row fills the screen width
+  const cw = v.size.width / all.length
+  let wh = Math.min(v.size.height, Math.floor(cw * 16 / 9))
+  if (all.length) { const w0 = place(all[0], top, wh); wh = Math.min(v.size.height, Math.floor(cw * wh / w0)) }
   all.forEach(r => { x += place(r, top, wh) })
   grid.length = 0; right.length = 0
 }
