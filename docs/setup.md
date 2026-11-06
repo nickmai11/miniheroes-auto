@@ -8,23 +8,26 @@
   (settings). The game window for a running instance belongs to app **MuMu Android Device**
   and is titled with the instance name (e.g. `Cmajor`), ~704×1289 px.
 - Game: **Mini Heroes: Magic Throne**, icon on the Android home screen (top row, middle).
-- Instance settings (⋮ → Settings, or menu *MuMu Android Device → Settings for "<name>"*):
-  - *Developer* tab: Root Access, System Disk Mode (Readonly/Writable), ADB default port.
-  - Menu *Developer → Open ADB (<port>)* shows the instance's ADB port.
+- Instance settings (⋮ → Settings, or menu _MuMu Android Device → Settings for "<name>"_):
+  - _Developer_ tab: Root Access, System Disk Mode (Readonly/Writable), ADB default port.
+  - Menu _Developer → Open ADB (<port>)_ shows the instance's ADB port.
+- Display: most instances are 1080×1920 (9:16). **Chien Than and xFaktor** are 600×1080 with an `adb shell wm size
+1080x1920` override, so scripts still get 1080×1920 coords, but their windows keep the 600:1080 ratio, about 7 px
+  narrower at full height (layout 2, 2026-11-06). Right after boot a screenshot can still come back at 600×1080 (`tap.py`).
 
-| Instance | ADB port | Root | System disk | Wi-Fi proxy | Proxyman CA |
-|---|---|---|---|---|---|
-| Cmajor | 26625 (was 26624; check `mumu-cli info all`) | on | Writable | 192.168.1.2:9090 (manual) | installed as system cert `d69f971d.0` |
+| Instance | ADB port                                     | Root | System disk | Wi-Fi proxy               | Proxyman CA                           |
+| -------- | -------------------------------------------- | ---- | ----------- | ------------------------- | ------------------------------------- |
+| Cmajor   | 26625 (was 26624; check `mumu-cli info all`) | on   | Writable    | 192.168.1.2:9090 (manual) | installed as system cert `d69f971d.0` |
 
 > Cmajor's Wi-Fi proxy points at Proxyman on Nick's Mac. If Proxyman isn't running, the game
-> on Cmajor loses connectivity — set the proxy back to *None* (Settings → Network & internet →
+> on Cmajor loses connectivity — set the proxy back to _None_ (Settings → Network & internet →
 > Internet → ⚙ on the Wi-Fi → ✎ → Advanced options → Proxy) when not capturing.
 > A MuMuPlayer update resets the Writable system disk (and the installed cert).
 
 ## Traffic capture (optional — only needed for API investigation)
 
 1. Proxyman listens on `192.168.1.2:9090` (Nick's Mac LAN IP; check Proxyman's title bar).
-2. In the instance: Wi-Fi → Advanced → Proxy *Manual*, host `192.168.1.2`, port `9090`.
+2. In the instance: Wi-Fi → Advanced → Proxy _Manual_, host `192.168.1.2`, port `9090`.
 3. SSL proxying enabled in Proxyman for: `us-su-bldld.maxngame.com`, `us-cdn-bldld.maxngame.com`,
    `heart.maxngame.com`, `api.mgamestore.com`, `passport.mgamestore.com`.
 4. Install the Proxyman CA as a system cert (needs Root + Writable system disk, then restart):
