@@ -86,7 +86,7 @@ def scroll(d):
 def grid_pass(d, rows_needed, fn):
     """Call fn({row: y}) for the rows visible at each scroll position (each row once), scrolling down as needed."""
     to_top(d); off, done, retries = 0, set(), 0
-    for _ in range(10):
+    for _ in range(20):   # 10 ran out after fling resets (each costs ~4 scrolls to row 5): Bino swap 2026-11-06 'rows {5} never visible'
         vis = {r: ROW1 + (r - 1) * PITCH - off for r in rows_needed if r not in done and 1180 < ROW1 + (r - 1) * PITCH - off < 1520}
         if vis: fn(vis); done |= set(vis)
         if done >= set(rows_needed): return
