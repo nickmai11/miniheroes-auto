@@ -1101,23 +1101,25 @@ def realm_buy(btn, price, cur, cap):
     return f'bought ({paid}{"" if sold else ", not Sold Out after?"})'
 
 
-def crystal_throne(cfg):
-    """Crystal Throne banner (main screen) -> Pack (980,1610) -> Exclusive Offer: the free Value Pack (20 gems,
-    Limited 1, yellow Claim) once a day. Never the $ packs (Enjoyment $0.99, Luxury $1.99, ...). Uncollected on every
-    account until Nick spotted it (2026-11-07). Done = the Value Pack row reads Sold Out."""
-    p = find(ocr(), r'^Crystal Throne', (600, 400, 1080, 900))
-    if not p: time.sleep(3); p = find(ocr(), r'^Crystal Throne', (600, 400, 1080, 900))
-    if not p: return 'SKIP no Crystal Throne banner'
-    tap_wait(*p); wait(r'Participat|^Enter$', 10)
-    tap_wait(980, 1610); wait(r'Exclusive Offer', 6)
-    n = claim_yellow(r'Exclusive Offer')
+def tribe_pack(cfg):
+    """Tribe event = the 3rd right-column banner on the main screen: Floating Realm / Tribe Clash / Crystal Throne, one at a
+    time, never overlapping (Nick 2026-11-07). Tribe Clash + Crystal Throne: Pack (980,1610) -> the free 20-gem pack
+    (Limited 1, yellow Claim/Free) once a day; never the $ packs, Treasures or Enter. Floating Realm -> realm_packs.
+    Uncollected on every account until Nick spotted it on Crystal Throne (2026-11-07). Done = that row reads Sold Out."""
+    pat = r'^(Crystal Throne|Tribe Clash)'
+    p = find(ocr(), pat, (600, 400, 1080, 900))
+    if not p: time.sleep(3); p = find(ocr(), pat, (600, 400, 1080, 900))
+    if not p: return 'SKIP no Tribe Clash / Crystal Throne banner'
+    tap_wait(*p); wait(r'Participat|^Enter$|Treasure', 10)
+    tap_wait(980, 1610); wait(r'Limited', 6)
+    n = claim_yellow(r'Limited')
     for _ in range(6):                                   # the button redraws late after the reward closes (Kong 2026-11-07)
-        sold = find(ocr(), r'^Sold Out$', (700, 700, 1000, 900))
+        sold = find(ocr(), r'^Sold Out$', (700, 700, 1000, 1000))   # Crystal Throne y~812, Tribe Clash Free y~934
         if sold: break
         time.sleep(0.5)
     tap_wait(972, 228)
-    if not sold: raise Stop(f'Value Pack not Sold Out after {n} claim(s)')
-    return f'value pack x{n}'
+    if not sold: raise Stop(f'free pack not Sold Out after {n} claim(s)')
+    return f'free pack x{n}'
 
 
 def realm_packs(cfg):
@@ -1255,7 +1257,7 @@ ORDER = [('pet_arena', pet_arena), ('fishing', fishing), ('arena', arena), ('pat
          ('tribe', seq((tribe, None), (canyon, 'canyon_clash'))), ('divine', divine),
          ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune),
          ('grocery', seq((grocery, 'grocery_free_chests'), (grocery_buy, 'grocery_buy'))),
-         ('events', events), ('crystal_throne', crystal_throne), ('realm_packs', realm_packs), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
+         ('events', events), ('tribe_pack', tribe_pack), ('realm_packs', realm_packs), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
          ('play_pass2', play_pass2)]   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
 # pet_check: catch-up only (removed from the dailies, Nick 2026-11-04: Auto Deploy isn't done by then)
 # config key that must be present / truthy for a step to run
@@ -1265,7 +1267,7 @@ KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'are
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
        'tribe_chat': 'tribe', 'common_recruit': 'recruit',
-       'events': None, 'crystal_throne': 'shop_freebies', 'realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
+       'events': None, 'tribe_pack': 'shop_freebies', 'realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
 
 
 def enabled(cfg, key):
