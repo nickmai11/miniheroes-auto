@@ -674,7 +674,7 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
 - **Golden Woods** (2026-11-03; runner `golden_woods()`): sub-tabs King's Treasury `(165,300)`, Exploration Quest
   `(412,300)`, Sign-In Rewards `(660,300)`, Woods Expedition `(908,300)`; each sub-tab's red dot ≈ 63 px right of
   it, y≈190. Collect: **Exploration Quest** (one yellow Claim claims every quest row → Treasury Keys), **Sign-In**
-  (today's yellow Claim; "Continue to claim" = $8.99 Deluxe → never), **Expedition gift** (icon top-left `(88,550)`,
+  (today's yellow Claim; "Continue to claim" = $8.99 Deluxe → never; its dot sticks after the free Claim → not a leftover, 2026-11-07), **Expedition gift** (icon top-left `(88,550)`,
   dot ≈ `(134,509)`, 20 gems). Never **King's Treasury** (Shuffle Cards spends keys; its "select the prize" dot
   sticks), Expedition **Draw** / Daily Pack ($). The hub tab's own dot sticks while keys are left.
 - **Reward popups** ("Congratulations … Tap anywhere to close"): tap the **"Tap anywhere to close" line** — the popup

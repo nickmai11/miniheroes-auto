@@ -536,6 +536,10 @@ def gate(cfg):
     adventure(r'Gate of Darkness'); boxes = wait(r'Chances left today', 10)
     def left(b):                                        # Vision reads a lone 0 as 'O' at full size (Cmajor 2026-11-02)
         m = re.search(r'Chances left today\W*([\dOolI]+)', joined(b))
+        c = next(((x, y, w, h) for x, y, w, h, t in b if 'Chances left' in t), None)
+        if not m and c:                                 # lone "1" missed at full size (Cmajor 2026-11-07, twice) -> 3x crop
+            x, y, w, h = c; im = grab().crop((x + w - 80, y - 20, x + w + 180, y + h + 20))
+            m = re.search(r'([\dOolI]+)\s*$', joined(ocr(im.resize((im.width * 3, im.height * 3)))))
         if not m: raise Stop(f'no chances count: {joined(b)[:150]}')
         return int(m.group(1).translate(str.maketrans('OolI', '0011')))
     n, out = left(boxes), []
@@ -975,11 +979,14 @@ def golden_woods(left):
             try: wait(title, 4); return True
             except Stop: pass
         left.append(f'golden_woods {title}'); return False
+    deluxe = False
     for name, x, title in (('quests', 412, r'Exploration Quest'), ('sign-in', 660, r'Sign-In Rewards')):
         if sub(x, title) and claim_yellow(title, dismiss=(540, 960)): got.append(name)
+    b = ocr()       # still on Sign-In: its dot sticks on "Continue to claim" ($ Deluxe) once the free Claim is done (2026-11-07)
+    if find(b, r'Sign-In Rewards') and find(b, r'^Continue') and not find(b, r'^Claim$'): deluxe = True
     if sub(908, r'Woods Expedition') and red_dot(115, 490, 155, 530):
         tap_wait(88, 550); close_reward(); got.append('expedition gift')
-    if dot(412) or dot(660) or red_dot(115, 490, 155, 530): left.append('golden_woods')
+    if dot(412) or (dot(660) and not deluxe) or red_dot(115, 490, 155, 530): left.append('golden_woods')
     return [f'golden woods {g}' for g in got]
 
 

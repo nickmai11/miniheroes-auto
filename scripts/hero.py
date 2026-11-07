@@ -142,17 +142,19 @@ def run(account):
     if lv is not None and lv > 135: print(f'{hero}: Lv.{lv} > 135 -> reset', flush=True); rebirth_90(hero); n_lv = 0
     elif lv is not None and lv < 90: quick_90(hero); n_lv = 0   # gear slots are padlocked at low levels (Kong Lv.7)
     for _ in range(n_lv):
-        for _ in range(7):        # poll: a single read mid-animation failed Aminor after 4 levels (2026-11-03)
+        prev = None               # 2 equal reads in a row: the label redraws digit by digit (Tiger 11 -> 112, 2026-11-07)
+        for _ in range(8):        # poll: a single read mid-animation failed Aminor after 4 levels (2026-11-03)
             boxes = ocr(); lv = level(boxes, (300, 340, 800, 460))
             p = find(boxes, r'^Level Up$', (200, 1050, 880, 1300))
-            if lv is not None and p: break
-            time.sleep(0.7)
+            if lv is not None and p and lv == prev: break
+            prev = lv; time.sleep(0.7)
         else: raise Stop('hero level / Level Up not readable')
         tap_wait(*p); time.sleep(1)
-        for _ in range(4):                                   # label redraws after the tap: re-read before deciding
+        prev = None
+        for _ in range(6):                                   # label redraws after the tap: 2 equal reads (Cmajor 120 -> 12)
             lv2 = level(ocr(), (300, 340, 800, 460))
-            if lv2 is not None and lv2 != lv: break
-            time.sleep(1)
+            if lv2 is not None and lv2 != lv and lv2 == prev: break
+            prev = lv2; time.sleep(1)
         if lv2 is None:   # unreadable != failed: a FAIL got retried and levelled again (Cmajor 63->64->65, 2026-11-01)
             print(f'{hero} level unreadable after Level Up from {lv}; counted as levelled, not retried', flush=True); continue
         if lv2 == lv:
