@@ -64,7 +64,7 @@ missions:
     strategy: stamina_order
     order: random
     sprites: 2
-  stage_lineups:   # see bino.yaml; recorded by climb_stage.py --record 2026-11-06
-    1: {cells: [r1c4, r1c5, r2c1, r2c3, r2c5], good_for: ""}
+  stage_lineups:   # see bino.yaml; recorded by climb_stage.py --record 2026-11-07
+    1: {cells: [r1c5, r2c1, r2c3, r2c5, r3c3], good_for: ""}
     2: {cells: [r1c2, r2c2, r2c4, r3c4, r3c5], good_for: ""}
-    3: {cells: [r1c1, r1c3, r3c1, r3c2, r3c3], good_for: ""}
+    3: {cells: [r1c1, r1c3, r1c4, r3c1, r3c2], good_for: ""}

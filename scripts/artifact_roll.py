@@ -35,10 +35,17 @@ def mythic(boxes): return find(boxes, r'(?i)mythic')
 
 
 def run(max_cycles=1000):
+    boxes = ocr()
+    if find(boxes, r'Auto Wish'):                                  # started mid-auto (Dino/Bino 2026-11-07) -> cancel first
+        if mythic(boxes) or find(boxes, r'^Confirm$'): raise Stop('found')
+        tap_wait(*OUTSIDE); boxes = wait(r'(?i)tap anywhere to close|mythic|^Wish$', 8)
+        if mythic(boxes): raise Stop('found')
+    if find(boxes, r'(?i)tap anywhere'): tap_wait(*CLOSE)
     boxes = wait(r'^Wish$', 10, (300, 1580, 780, 1700))
     g0 = gems(boxes)
     for n in range(1, int(max_cycles) + 1):
-        if find(boxes, r'^280$', (300, 1580, 780, 1700)): raise Stop('Wish shows 280 (gem price), not paying')
+        if find(boxes, r'^280$', (300, 1580, 780, 1700)):  # 280 = gem price; any star price goes (1000 Brilliance, 1500 Holy Light — Nick 2026-11-07: stop only on a new Mythic)
+            raise Stop(f'Wish shows 280 (gem price), not paying: {joined(boxes)[:200]}')
         if not find(boxes, r'^Auto$', (840, 1620, 1040, 1700)): raise Stop('Auto toggle not found')
         tap_wait(540, 1638)                                        # Wish (Auto ticked -> Auto Wish box)
         wait(r'Auto Wish', 6)
@@ -59,7 +66,12 @@ def run(max_cycles=1000):
             if gems(boxes) < g0: tap(*OUTSIDE); raise Stop(f'gems dropped {g0} -> {gems(boxes)}')
             time.sleep(1.5)
         if cancel: tap_wait(*OUTSIDE)                              # cancel
-        boxes = wait(r'(?i)tap anywhere to close|mythic|^Wish$', 8)
+        try: boxes = wait(r'(?i)tap anywhere to close|mythic|^Wish$', 8)
+        except Stop:                                               # cancel tap ignored (Bino 2026-11-07, twice) -> 1 retry
+            if not cancel: raise
+            if find(ocr(), r'Value Pack'):                         # stars out -> $ offer (Dino/Bino 2026-11-07); tap above it, never the $
+                tap_wait(*CLOSE); raise Stop('out of stars (Value Pack offer closed, not buying)')
+            tap_wait(*OUTSIDE); boxes = wait(r'(?i)tap anywhere to close|mythic|^Wish$', 8)
         if mythic(boxes): raise Stop('found')
         if find(boxes, r'(?i)tap anywhere'): tap_wait(*CLOSE)
         boxes = wait(r'^Wish$', 8, (300, 1580, 780, 1700))

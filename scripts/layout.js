@@ -1,6 +1,6 @@
-// Tile running MuMu instance windows on the main screen. Layout 1 (default): each 1/2 of the usable height,
+// Tile running MuMu instance windows on the main screen. Layout 1 (LAYOUT=1): each 1/2 of the usable height,
 // packed in 2 rows from the left edge (accounts/layout.yaml `top`/`bottom`), then `right` instances at full height; skipping names in accounts/layout.yaml `exclude`.
-// usage: [LAYOUT=2] osascript -l JavaScript scripts/layout.js   (LAYOUT=2 = layout 2: one row, all evenly wide)
+// usage: [LAYOUT=1] osascript -l JavaScript scripts/layout.js   (default = layout 2: one row, all evenly wide — Nick, 2026-11-07; LAYOUT=1 = 2 rows + right column)
 // Needs Accessibility permission for the terminal app (System Settings > Privacy & Security > Accessibility).
 ObjC.import('AppKit')
 const app = Application.currentApplication(); app.includeStandardAdditions = true
@@ -32,8 +32,8 @@ const place = (r, y, wh) => {
   console.log(`${r.name}: ${w.position()} ${w.size()}`)
   return w.size()[0]
 }
-// Layout 2 (LAYOUT=2): all instances in 1 row, each 1/n of the usable width (Nick, 2026-11-06)
-if (($.NSProcessInfo.processInfo.environment.objectForKey('LAYOUT').js || '') === '2') {
+// Layout 2 (default since 2026-11-07, Nick: every task): all instances in 1 row, each 1/n of the usable width; LAYOUT=1 = the old 2-row layout
+if (($.NSProcessInfo.processInfo.environment.objectForKey('LAYOUT').js || '') !== '1') {
   // order = layout.yaml `row`; unlisted running instances after it, by MuMu index
   const all = list('row').map(n => insts.find(r => r.name === n)).filter(Boolean)
   insts.forEach(r => { if (!all.includes(r)) all.push(r) })
