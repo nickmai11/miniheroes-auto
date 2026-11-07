@@ -10,8 +10,9 @@ const exclude = list('exclude'), rows = [list('top'), list('bottom')], right = l
 const info = JSON.parse(app.doShellScript('"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" info all'))
 // ONLY="0 2 4" (set by boot.sh) = tile just these MuMu indices — booting 8 accounts once moved Aminor's window too
 const only = ($.NSProcessInfo.processInfo.environment.objectForKey('ONLY').js || '').split(' ').filter(Boolean).map(Number)
-const insts = info.return.results.filter(r => r.state === 'running' && r.pid && !exclude.includes(r.name) && (!only.length || only.includes(Number(r.index))))
-  .sort((a, b) => a.index - b.index)
+const mine = r => !only.length || only.includes(Number(r.index))
+const running = info.return.results.filter(r => r.state === 'running' && r.pid && !exclude.includes(r.name)).sort((a, b) => a.index - b.index)
+const insts = running.filter(mine)
 
 // main screen usable area, converted to top-left origin (AX coordinates)
 const scr = $.NSScreen.screens.js[0], f = scr.frame, v = scr.visibleFrame
@@ -34,15 +35,19 @@ const place = (r, y, wh) => {
 }
 // Layout 2 (default since 2026-11-07, Nick: every task): all instances in 1 row, each 1/n of the usable width; LAYOUT=1 = the old 2-row layout
 if (($.NSProcessInfo.processInfo.environment.objectForKey('LAYOUT').js || '') !== '1') {
-  // order = layout.yaml `row`; unlisted running instances after it, by MuMu index
-  const all = list('row').map(n => insts.find(r => r.name === n)).filter(Boolean)
-  insts.forEach(r => { if (!all.includes(r)) all.push(r) })
+  // order = layout.yaml `row`; unlisted running instances after it, by MuMu index. Slots come from ALL running
+  // instances; ONLY just limits which windows move (boot.sh of 6 with 3 running gave the 6 1/6 width each, on top
+  // of the other 3 - 2026-11-07)
+  const all = list('row').map(n => running.find(r => r.name === n)).filter(Boolean)
+  running.forEach(r => { if (!all.includes(r)) all.push(r) })
   // MuMu snaps the window to its own w/h ratio (title bar included, ~547x1010 for a 569 target) -> size the first
-  // window, read its real ratio back, then height = (width / n) / ratio so the row fills the screen width
+  // window we move, read its real ratio back, then height = (width / n) / ratio so the row fills the screen width
   const cw = v.size.width / all.length
   let wh = Math.min(v.size.height, Math.floor(cw * 16 / 9))
-  if (all.length) { const w0 = place(all[0], top, wh); wh = Math.min(v.size.height, Math.floor(cw * wh / w0)) }
-  all.forEach(r => { x += place(r, top, wh) })
+  const i0 = all.findIndex(mine)
+  if (i0 >= 0) { x += i0 * cw; const w0 = place(all[i0], top, wh); wh = Math.min(v.size.height, Math.floor(cw * wh / w0)); x = v.origin.x }
+  let ww = cw                                            // a skipped slot = the width of the windows we placed
+  all.forEach(r => { if (mine(r)) ww = place(r, top, wh); x += ww })
   grid.length = 0; right.length = 0
 }
 for (let c = 0; grid.length && c < Math.max(grid[0].length, grid[1].length); c++) {
