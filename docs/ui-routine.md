@@ -710,6 +710,10 @@ them yourself. **`D=<serial> scripts/realm_guess.py <1st> <2nd> <3rd>`** per acc
 
 ## Tribe Clash Guess
 
+Schedule (Nick, 2026-11-07): same cycle as Floating Realm — every 2 weeks, Preparation Mon → Battle Tue/Wed/Thu →
+Claim Fri. Alternate weeks to Floating Realm (logs: tc week of 10-26, fr week of 11-02 → tc 11-09, 11-23; fr 11-16, 11-30).
+Crystal Throne (monthly, Saturdays) shows in the same main-screen banner slot.
+
 Nick names 3 tribes each time (1st, 2nd, 3rd) — never pick them yourself. **`D=<serial> scripts/clash_guess.py <1st> <2nd> <3rd>`**
 from the main screen or the Tribe Clash screen (names case/space-insensitive, e.g. `"dragon slayers" potato "purple gang"`).
 Free, no gems. Only open while "Remaining guessing time" runs (on Battle days).
