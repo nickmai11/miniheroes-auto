@@ -5,5 +5,5 @@ top: [Aminor, Dminor, Dino, Bino]
 bottom: [Kong, Chien Than, xFaktor, Tiger]
 # Full screen height, one column each, right of the 2 rows (Nick, 2026-10-31).
 right: [Cmajor]
-# Layout 2: one row, left to right (Nick, 2026-11-06). Unlisted running instances go after it, by MuMu index.
+# Layout 2: one row, left to right (Nick, 2026-11-06). Width = screen / number of names here, running or not (Nick, 2026-11-07); unlisted running instances get extra slots after it, by MuMu index.
 row: [Tiger, xFaktor, Chien Than, Bino, Dino, Dminor, Aminor, Kong, Cmajor]

@@ -35,19 +35,19 @@ const place = (r, y, wh) => {
 }
 // Layout 2 (default since 2026-11-07, Nick: every task): all instances in 1 row, each 1/n of the usable width; LAYOUT=1 = the old 2-row layout
 if (($.NSProcessInfo.processInfo.environment.objectForKey('LAYOUT').js || '') !== '1') {
-  // order = layout.yaml `row`; unlisted running instances after it, by MuMu index. Slots come from ALL running
-  // instances; ONLY just limits which windows move (boot.sh of 6 with 3 running gave the 6 1/6 width each, on top
-  // of the other 3 - 2026-11-07)
-  const all = list('row').map(n => running.find(r => r.name === n)).filter(Boolean)
+  // One slot per layout.yaml `row` name, running or not (Nick 2026-11-07: an account keeps its place and width whatever
+  // is open); unlisted running instances get extra slots after it, by MuMu index. ONLY (boot.sh) just limits which
+  // windows move (a 6-of-9 boot gave the 6 1/6 width each, on top of the other 3 - 2026-11-07).
+  const all = list('row').map(n => running.find(r => r.name === n) || null)
   running.forEach(r => { if (!all.includes(r)) all.push(r) })
   // MuMu snaps the window to its own w/h ratio (title bar included, ~547x1010 for a 569 target) -> size the first
   // window we move, read its real ratio back, then height = (width / n) / ratio so the row fills the screen width
   const cw = v.size.width / all.length
   let wh = Math.min(v.size.height, Math.floor(cw * 16 / 9))
-  const i0 = all.findIndex(mine)
+  const i0 = all.findIndex(r => r && mine(r))
   if (i0 >= 0) { x += i0 * cw; const w0 = place(all[i0], top, wh); wh = Math.min(v.size.height, Math.floor(cw * wh / w0)); x = v.origin.x }
   let ww = cw                                            // a skipped slot = the width of the windows we placed
-  all.forEach(r => { if (mine(r)) ww = place(r, top, wh); x += ww })
+  all.forEach(r => { if (r && mine(r)) ww = place(r, top, wh); x += ww })
   grid.length = 0; right.length = 0
 }
 for (let c = 0; grid.length && c < Math.max(grid[0].length, grid[1].length); c++) {
