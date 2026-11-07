@@ -30,7 +30,7 @@ Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
 10. **Recruit** free summons.
 11. **Hero** upgrade (after the potion-giving steps above).
 12. **Tribe** — sign-in, Trial, chat Request + Assist, then **Canyon Clash** (empty spot + Points Reward; closed Mondays
-    until 17:00). Poseidon's Ruins has its own skill; Crystal Throne: rules in `docs/crystal-throne.md`, not automated.
+    until 17:00). Poseidon's Ruins has its own skill; Crystal Throne: rules in `docs/crystal-throne.md`, matches not automated; its free **Value Pack** (banner → Pack `(980,1610)` → yellow Claim, 20 gems, Limited 1 → Sold Out; never the $ packs) = runner step `crystal_throne` after events (Nick, 2026-11-07).
 13. **Divine Weapon** — Excelsior Veins, Forge, then Benefit (its milestones count the forging just done — Nick, 2026-11-04).
 14. **Stage** run ×3 (skull bubble).
 15. **Patrol** — Claim All only.
@@ -63,7 +63,7 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 **Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
 main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
 Steps: pet_arena (Mon–Wed) fishing arena patrol arena2 storm shop play_pass trials tower sanctuary gate beast arena3 recruit hero tribe divine
-stage patrol_claim rune grocery events fishing_rewards daily_mission play_pass2 (`pet_check` = catch-up only).
+stage patrol_claim rune grocery events crystal_throne fishing_rewards daily_mission play_pass2 (`pet_check` = catch-up only).
 **Run overview: `scripts/summary.sh <run dir>`** — per account OK/SKIP counts, FAIL/MANUAL/paid lines, LEFT FOR HELPER (one call instead of grepping logs).
 
 Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png] [-w 270|540]` for every tap (device coords):
