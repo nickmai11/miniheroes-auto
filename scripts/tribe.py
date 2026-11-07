@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # Tribe: Sign-in, Tribe Trial (only if its card has a red dot), chat Request + Assist. All free.
-# usage: D=<serial> scripts/tribe.py [--chat-only]      (main screen must be open; ends on the Tribe chat, dialog closed)
+# usage: D=<serial> scripts/tribe.py [--chat-only] [--no-request]      (main screen must be open; ends on the Tribe chat, dialog closed)
 # Never types in chat. Canyon Clash / Poseidon stay with the helper. exit 1 = unexpected screen (v_tribe.png).
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
-import sys, time
+import re, sys, time
 from flow import Stop, battle, find, grab, main, ocr, tap, tap_text, tap_wait, wait
 
 
@@ -13,11 +13,11 @@ def trial_red_dot():
                if (lambda p: p[0] > 210 and p[1] < 70 and p[2] < 70)(im.getpixel((x, y)))) >= 4
 
 
-def run(chat_only=False):
+def run(chat_only=False, request=True):
     tap_wait(448, 1780)                                       # Tribe
     wait(r'Tribe Trial', 10)
     if not chat_only: sign_in_and_trial()
-    chat()
+    chat(request)
 
 
 def sign_in_and_trial():
@@ -39,21 +39,40 @@ def sign_in_and_trial():
     else: print('tribe trial: no red dot (done today); skipped')
 
 
-def chat():
+TIMER = r'^\d{1,2}:\d{2}:\d{2}$'                             # cooldown under the greyed Request (6 h after sending)
+
+
+def cooldown(boxes=None):
+    return next((t.strip() for x, y, w, h, t in boxes or ocr()
+                 if re.fullmatch(TIMER, t.strip()) and 150 <= x + w // 2 <= 520 and 1690 <= y + h // 2 <= 1800), None)
+
+
+def chat(request=True):
     tap_wait(800, 1806)                                       # Chat (auto-claims assist rewards)
     for y in (1631, 1636):
         tap_wait(174, y)
         boxes = ocr()
         if find(boxes, r'Help Request'): break
     else: raise Stop('Help Request Info did not open')
-    r = find(boxes, r'Request$', (150, 1560, 520, 1760))
-    if r: tap_wait(*r); print('request: tapped (greyed if on cooldown)')
+    # the tap alone proved nothing: on cooldown from the morning catch-up it did nothing, logged "tapped" (2026-11-07)
+    cd = cooldown(boxes)
+    if not request: req = f'skipped ({"cooldown " + cd if cd else "--no-request"})'
+    elif cd: req = f'NOT SENT (cooldown {cd}: sent < 6 h ago)'
+    else:
+        r = find(boxes, r'Request$', (150, 1560, 520, 1760))
+        if r: tap_wait(*r)
+        for _ in range(6):
+            cd = cooldown()
+            if cd: break
+            time.sleep(0.5)
+        req = f'sent (cooldown {cd})' if cd else 'NOT SENT (no cooldown timer after the tap)'
+    print(f'request: {req}')
     a = find(ocr(), r'^Assist$', (560, 1560, 960, 1760))
     if a: tap_wait(*a); print('assist: tapped')
     else: print('assist: button not found')
     tap_wait(968, 228)                                        # close the dialog
-    print('tribe done (on Tribe chat; back out and screenshot — Back can land on Recruit)')
+    print(f'tribe done, request {req} (on Tribe chat; back out and screenshot — Back can land on Recruit)')
 
 
 if __name__ == '__main__':
-    main(run, '--chat-only' in sys.argv)
+    main(run, '--chat-only' in sys.argv, '--no-request' not in sys.argv)

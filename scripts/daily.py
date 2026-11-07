@@ -620,7 +620,9 @@ def gems(boxes):
 
 
 def hero(cfg): return script('hero.py', ACCOUNT)
-def tribe(cfg): return script('tribe.py')
+def tribe(cfg):
+    r = script('tribe.py')
+    return f'MANUAL {r}' if 'NOT SENT' in r else r      # Request didn't go out -> leftover, not OK (2026-11-07)
 
 
 def num(t):
@@ -1227,7 +1229,8 @@ def events(cfg):
 # Arena again, Tribe chat Request/Assist, Common Recruitment, Daily Mission, Fishing order rewards
 CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena), ('storm', storm),   # fishing first: Auto runs during the rest (Nick, 2026-10-29)
            ('veins_forge', divine), ('patrol_claim', patrol_claim), ('arena2', arena),
-           ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
+           # morning catch-up: no Request - its 6 h cooldown blocked the dailies' Request at ~12:30 on every account (2026-11-07)
+           ('tribe_chat', lambda c: script('tribe.py', '--chat-only', *(['--no-request'] if 6 <= NOW.hour < 12 else []))), ('common_recruit', lambda c: recruit(c, common_only=True)),
            ('canyon', canyon),
            ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),  # missions always last (Nick, 2026-10-29); FR packs: dailies only (Nick 2026-11-03)
            ('play_pass2', play_pass2),   # after the missions: the run's activity unlocks new Play Pass claims (Nick 2026-11-03)

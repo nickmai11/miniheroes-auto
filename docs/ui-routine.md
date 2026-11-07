@@ -500,7 +500,10 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). All free.
    as soon as _Challenge Complete_ shows — never wait blind longer than ~80 s.
 4. Back `(92,1810)` → Tribe screen → **Chat** `(800,1806)` (opening it auto-claims assist rewards) →
    **Request** `(174,1631)` (red dot; may need a 2nd tap at `(174,1636)`) → _Help Request Info_ dialog:
-   - **Request** `(334,1660)`: send our own help request (greyed with a cooldown timer if already sent).
+   - **Request** `(334,1660)`: send our own help request (greyed with a **6 h** cooldown timer under it once sent).
+     `tribe.py` reads that timer: `request: sent (cooldown 06:00:00)` = proof; already greyed → `NOT SENT (cooldown …)`
+     → the dailies' `tribe` step turns MANUAL. The morning catch-up (06–12 local) skips Request (`--no-request`): its
+     06:53 request blocked every account's dailies Request at ~12:30 (Nick, 2026-11-07).
    - **Assist** `(740,1660)`: helps every listed request at once; list empties.
    - Close ✕ `(968,228)`.
      Back from Chat usually goes straight to the main screen — but can land on Recruit; screenshot and back again.
