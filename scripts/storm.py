@@ -36,8 +36,11 @@ def cur_rank(im):
     boxes = ocr(im)
     tier = ' '.join(t for x, y, w, h, t in boxes if 400 < x + w // 2 < 700 and 560 < y + h // 2 < 720)
     # badge digits from a 2x crop: full-screen OCR never reads a lone "1" (Aminor/Cmajor King +1, 2026-11-06)
-    c = im.crop((430, 1250, 650, 1370)); c = c.resize((c.width * 2, c.height * 2))
-    lvl = next((t.strip() for x, y, w, h, t in ocr(c) if t.strip().isdigit()), '')
+    c = im.crop((430, 1250, 650, 1370)); t = im.crop((470, 1270, 610, 1360))
+    # that crop missed a lone "3" on every read (Kong King +3, 2026-11-07) -> tight crop at 3x / 4x as fallbacks
+    lvl = next((s.strip() for v in (c.resize((c.width * 2, c.height * 2)), t.resize((t.width * 3, t.height * 3)),
+                                    t.resize((t.width * 4, t.height * 4)))
+                for x, y, w, h, s in ocr(v) if s.strip().isdigit()), '')
     return rank(f'{tier} +{lvl}' if lvl else tier)
 
 

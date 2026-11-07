@@ -129,7 +129,7 @@ def ranking_rewards():
         im = grab()
         if sum(1 for xx in range(x + 73, x + 153, 3) for yy in range(1700, 1790, 3)
                if (lambda p: p[0] > 200 and p[1] < 90 and p[2] < 110)(im.getpixel((xx, yy)))) < 15: continue
-        tap_wait(x, 1828); wait(r'Tap anywhere to close|Congratulations', 6); tap_wait(540, 120); got.append(name)
+        tap_wait(x, 1828); wait(r'Tap anywhere to close|Congratulation', 6); tap_wait(540, 120); got.append(name)
     return f'ranking rewards {got}; ' if got else ''
 
 
