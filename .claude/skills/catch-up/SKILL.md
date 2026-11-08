@@ -25,7 +25,9 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: `scripts/a
    if the re-run still says MANUAL; check its `canyon<N>.png` per-screen shots in the run dir to see why.
    Steps (the spec the runner follows; see `docs/ui-routine.md`):
    **Red dots only (Nick, 2026-10-27):** for claims (events, Tribe Clash Pack, Daily Mission, rewards icons) open/tap
-   only what shows a red dot — no red dot = nothing to collect, don't open it to check.
+   only what shows a red dot — no red dot = nothing to collect, don't open it to check. 0. **Sundays: `weekly_review` first** (runner step; Nick 2026-11-08) — reads the Weekly Mission tab, decides whether the
+   50-Lucky-Stars row is needed for 180 and writes the day's plan; the fishing steps then use the Lucky Star bait only if
+   it is, else the account's default bait (ui-routine "Weekly Missions (Sunday pass)").
    1. Fishing **first** (Nick, 2026-10-29 — Auto then runs during everything else): only start Auto (fishing) and
       claim completed order rewards — no order refreshing, no Benefit
    2. Arena: Ranking Rewards gift boxes first (Nick, 2026-10-29), then exhaust free tickets (`scripts/arena.py <account>`), then the win-chest claims — same visit, every runner arena step

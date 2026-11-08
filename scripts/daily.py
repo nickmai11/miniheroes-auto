@@ -161,9 +161,7 @@ def buy_scrolls():
 def fishing(cfg, orders=True):
     mn = orders and re.search(r'min_order_diamonds:\s*(\d+)', cfg)
     tap_wait(624, 1780); boxes = wait(r'Order Info', 10)
-    back = ''
-    if NOW.weekday() != 6 and os.path.exists(f'/tmp/miniheroes-state/{ACCOUNT}.lucky_bait'):   # Sunday's Lucky Star bait -> the usual one (Nick: stars only on Sunday)
-        time.sleep(0.6); back = weekly_bait(False) + ', '; boxes = wait(r'Order Info', 6)
+    time.sleep(0.6); back = ensure_bait(cfg) + ', '; boxes = wait(r'Order Info', 6)   # Sunday: Lucky Star only if the weekly review needs the row, else the default bait (Nick 2026-11-08)
     packs = gems = 0
     if mn:
         tap_text(r'Order Info', boxes=boxes); wait(r'Daily Order', 8)
@@ -1357,34 +1355,56 @@ def weekly_honor(need):
     return 'honor: ' + ', '.join(done)
 
 
-def weekly_bait(to_lucky):
-    """On the fishing screen: Bait tab -> Swap to Lucky Star, remembering the bait in use BY NAME; to_lucky=False swaps
-    that one back (Monday). The grid reorders itself - the bait in use jumps to tile 1 (Kong 2026-11-08: Lucky Star went
-    1st, Shrimp 3rd) - so tiles are found by the description title, not by position. Stars only on Sunday - Nick."""
-    st = f'/tmp/miniheroes-state/{ACCOUNT}.lucky_bait'
+def set_bait(target):
+    """On the fishing screen: Bait tab -> make `target` the bait in use (Swap) and verify. The grid reorders itself - the
+    bait in use jumps to tile 1 (Kong 2026-11-08: Lucky Star 1st, Shrimp 3rd) - so tiles are found by the description
+    title, never by position."""
     title = lambda boxes=None: next((t.strip() for x, y, w, h, t in (boxes or ocr()) if 300 < x + w // 2 < 760 and 370 < y + h // 2 < 450), '')
-    b = find(ocr(), r'^Bait$', (880, 1380, 1080, 1540)); tap_wait(*(b or (986, 1459))); wait(r'^Swap$', 6); time.sleep(0.8)
-    boxes = ocr(); iu = find(boxes, r'In use')
-    if iu: tap_wait(*min(BAIT_TILES, key=lambda p: abs(p[0] - iu[0]) + abs(p[1] - iu[1]))); time.sleep(0.7); boxes = ocr()
-    now = title(boxes)
-    target = 'Lucky Star' if to_lucky else (open(st).read().strip() if os.path.exists(st) else 'Shrimp Bait')
-    if now == target:
-        tap_wait(968, 240); r = f'{target} already in use'
-    else:
-        if to_lucky and now: os.makedirs(os.path.dirname(st), exist_ok=True); open(st, 'w').write(now)
-        for p in BAIT_TILES:
-            tap_wait(*p); time.sleep(0.7)
-            if title() == target: break
-        else: raise Stop(f'bait {target!r} not in the grid')
-        tap_wait(539, 1557); time.sleep(1.2)
-        if find(ocr(), r'^Swap$'): raise Stop('bait: Swap did not close the Bait popup')
-        tap_wait(*(b or (986, 1459))); wait(r'^Swap$', 6); time.sleep(0.8); boxes = ocr(); iu = find(boxes, r'In use')   # verify
+    def in_use():
+        boxes = ocr(); iu = find(boxes, r'In use')
         if iu: tap_wait(*min(BAIT_TILES, key=lambda p: abs(p[0] - iu[0]) + abs(p[1] - iu[1]))); time.sleep(0.7); boxes = ocr()
-        got = title(boxes); tap_wait(968, 240)
-        if got != target: raise Stop(f'bait: swapped but {got!r} is in use, not {target!r}')
-        r = f'bait swapped to {target} (was {now or "?"})'
-    if not to_lucky and os.path.exists(st): os.remove(st)
-    return r
+        return title(boxes)
+    b = find(ocr(), r'^Bait$', (880, 1380, 1080, 1540)); tap_wait(*(b or (986, 1459))); wait(r'^Swap$', 6); time.sleep(0.8)
+    now = in_use()
+    if now == target: tap_wait(968, 240); return f'bait {target} (in use)'
+    for p in BAIT_TILES:
+        tap_wait(*p); time.sleep(0.7)
+        if title() == target: break
+    else: tap_wait(968, 240); raise Stop(f'bait {target!r} not in the grid')
+    tap_wait(539, 1557); time.sleep(1.2)
+    if find(ocr(), r'^Swap$'): raise Stop('bait: Swap did not close the Bait popup')
+    tap_wait(*(b or (986, 1459))); wait(r'^Swap$', 6); time.sleep(0.8); got = in_use(); tap_wait(968, 240)   # verify
+    if got != target: raise Stop(f'bait: swapped but {got!r} is in use, not {target!r}')
+    return f'bait swapped to {target} (was {now or "?"})'
+
+
+def bait_default(cfg):
+    m = re.search(r'^\s+bait:\s*([^#\n]+)', cfg, re.M)           # fishing: bait: <name>  (optional)
+    return m.group(1).strip().strip('"') if m else 'Shrimp Bait'
+
+
+def weekly_plan_file(): return f'/tmp/miniheroes-state/{ACCOUNT}-{GAME_DAY}.weekly_plan'
+
+
+def ensure_bait(cfg):
+    """Fishing screen, every start: Lucky Star when Sunday's weekly review found the 50-stars row necessary for 180, else
+    the account's default bait (`fishing.bait`, default Shrimp Bait) - Nick 2026-11-08: stars only when we really have to."""
+    plan = weekly_plan_file()
+    stars = NOW.weekday() == 6 and os.path.exists(plan) and open(plan).read().strip() == 'stars'
+    return set_bait('Lucky Star' if stars else bait_default(cfg))
+
+
+def weekly_review(cfg):
+    """Sunday catch-up, FIRST step (Nick 2026-11-08): read the Weekly tab and decide whether the Lucky Star row is needed -
+    i.e. the other open doable rows cannot close the gap to 180 by themselves. The plan steers today's fishing bait."""
+    if NOW.weekday() != 6: return 'SKIP not Sunday'
+    pts, rows = weekly_read(); tap_wait(972, 238)
+    prog = lambda key: next(((d, t) for name, (d, t) in rows.items() if re.search(key, name)), None)
+    open_rows = [mid for mid, do in weekly_list() if do and (p := prog(WEEKLY_KEY[mid])) and p[0] < p[1]]
+    others = [m for m in open_rows if m != 'lucky_stars']
+    need = 'lucky_stars' in open_rows and pts + 10 * len(others) < 180
+    os.makedirs('/tmp/miniheroes-state', exist_ok=True); open(weekly_plan_file(), 'w').write('stars' if need else 'nostars')
+    return f'{pts} pts, {len(rows)} rows read; open doable: {", ".join(open_rows) or "none"}; Lucky Stars {"NEEDED -> stars bait today" if need else "not needed -> default bait"}'
 
 
 def weekly_statue(need):
@@ -1407,13 +1427,13 @@ def weekly_statue(need):
 
 
 def weekly(cfg):
-    """Sunday pass (Nick 2026-11-08): read the Weekly tab, then down accounts/weekly.yaml: Draw x10, Honor Upgrades, Lucky
-    Star bait; claim; still under 180 -> Statue Level Up (last resort) and claim again. Rows the daily steps produce can't
-    be pushed past their daily caps on a Sunday -> listed as short."""
+    """Sunday pass (Nick 2026-11-08): read the Weekly tab, then down accounts/weekly.yaml: Draw x10, Honor Upgrades, Artifact
+    Wishes; claim; still under 180 -> the deferred rows in list order (Statue Level Up, Lucky Star bait - only when we really
+    have to) and claim again. Rows the daily steps produce can't be pushed past their daily caps -> listed as short."""
     if NOW.weekday() != 6: return 'SKIP not Sunday'
     pts, rows = weekly_read(); tap_wait(972, 238)
     prog = lambda key: next(((d, t) for name, (d, t) in rows.items() if re.search(key, name)), None)
-    out, short, statue = [f'{pts} pts, {len(rows)} rows read'], [], 0
+    out, short, deferred = [f'{pts} pts, {len(rows)} rows read'], [], []
     out.append('new rows: ' + ', '.join(f'{m} {prog(WEEKLY_KEY[m]) or "?"}' for m in ('treasure_draw', 'honor', 'artifact_wish', 'lucky_stars', 'statue_upgrade')))
     if pts < 180:
         for mid, do in weekly_list():
@@ -1423,22 +1443,23 @@ def weekly(cfg):
                 continue
             d, t = p
             if d >= t or not do: continue
-            if mid == 'statue_upgrade': statue = t - d; continue
-            if mid not in ('treasure_draw', 'honor', 'lucky_stars', 'artifact_wish'): short.append(f'{mid} {d}/{t}'); continue
+            if mid in ('statue_upgrade', 'lucky_stars'): deferred.append((mid, t - d)); continue
+            if mid not in ('treasure_draw', 'honor', 'artifact_wish'): short.append(f'{mid} {d}/{t}'); continue
             if not home(): raise Stop('lost the main screen in the weekly pass')
             if mid == 'treasure_draw': out.append(weekly_treasure(t - d))
             elif mid == 'honor': out.append(weekly_honor(t - d))
-            elif mid == 'artifact_wish':
+            else:
                 got = []; tap_wait(96, 1810); wait(r'Recruitment|Recruit 1', 10); artifact_rolls(t - d, got); out.append('artifact wishes: ' + ', '.join(got))
-            else: tap_wait(624, 1780); wait(r'Order Info', 10); time.sleep(0.6); out.append(weekly_bait(True))
     if not home(): raise Stop('lost the main screen in the weekly pass')
     claims = [str(daily_mission(cfg))]
-    if statue and pts < 180:
+    if deferred and pts < 180:
         if not home(): raise Stop('lost the main screen in the weekly pass')
         pts2, _ = weekly_read(); tap_wait(972, 238); out.append(f'{pts2} pts after claims')
         if pts2 < 180:
-            if not home(): raise Stop('lost the main screen in the weekly pass')
-            out.append(weekly_statue(statue))
+            for mid, need in deferred:                    # list order (Nick: Statue 17th, Lucky Stars 18th)
+                if not home(): raise Stop('lost the main screen in the weekly pass')
+                if mid == 'statue_upgrade': out.append(weekly_statue(need))
+                else: tap_wait(624, 1780); wait(r'Order Info', 10); time.sleep(0.6); out.append(set_bait('Lucky Star') + ' (50 casts to go)')
             if not home(): raise Stop('lost the main screen in the weekly pass')
             claims.append(str(daily_mission(cfg)))
     tag = 'MANUAL ' if any(c.startswith('MANUAL') for c in claims) else ''
@@ -1447,7 +1468,8 @@ def weekly(cfg):
 
 # catch-up (.claude/skills/catch-up): Fishing auto only, Arena, Storm, Veins + Forge (no Benefit), Patrol Claim All,
 # Arena again, Tribe chat Request/Assist, Common Recruitment, Daily Mission, Fishing order rewards
-CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena), ('storm', storm),   # fishing first: Auto runs during the rest (Nick, 2026-10-29)
+CATCHUP = [('weekly_review', weekly_review),   # Sundays: the Weekly tab first - decides today's fishing bait (Nick 2026-11-08)
+           ('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena), ('storm', storm),   # fishing first: Auto runs during the rest (Nick, 2026-10-29)
            ('veins_forge', divine), ('patrol_claim', patrol_claim), ('arena2', arena),
            # Request every run, morning too: on cooldown the tap does nothing (Nick 2026-11-08, undoes the 11-07 morning skip)
            ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
@@ -1491,7 +1513,7 @@ KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'are
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
        'tribe_chat': 'tribe', 'common_recruit': 'recruit',
-       'events': None, 'weekly': None, 'tribe_pack': 'shop_freebies', 'realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
+       'events': None, 'weekly': None, 'weekly_review': None, 'tribe_pack': 'shop_freebies', 'realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
 
 
 def enabled(cfg, key):
