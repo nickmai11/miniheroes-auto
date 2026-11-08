@@ -1398,7 +1398,7 @@ def set_bait(target):
 
 def bait_default(cfg):
     m = re.search(r'^\s+bait:\s*([^#\n]+)', cfg, re.M)           # fishing: bait: <name>  (optional)
-    return m.group(1).strip().strip('"') if m else 'Shrimp Bait'
+    return m.group(1).strip().strip('"') if m else 'Basic Bait'   # the game's default; Nick 2026-11-08: never Shrimp unless configured
 
 
 def weekly_plan_file(): return f'/tmp/miniheroes-state/{ACCOUNT}-{GAME_DAY}.weekly_plan'
@@ -1406,7 +1406,7 @@ def weekly_plan_file(): return f'/tmp/miniheroes-state/{ACCOUNT}-{GAME_DAY}.week
 
 def ensure_bait(cfg):
     """Fishing screen, every start: Lucky Star when Sunday's weekly review found the 50-stars row necessary for 180, else
-    the account's default bait (`fishing.bait`, default Shrimp Bait) - Nick 2026-11-08: stars only when we really have to."""
+    the account's default bait (`fishing.bait`, default Basic Bait) - Nick 2026-11-08: stars only when we really have to, Shrimp only if configured."""
     plan = weekly_plan_file()
     stars = NOW.weekday() == 6 and os.path.exists(plan) and open(plan).read().strip() == 'stars'
     return set_bait('Lucky Star' if stars else bait_default(cfg))
