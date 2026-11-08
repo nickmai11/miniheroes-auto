@@ -1408,14 +1408,14 @@ def ensure_bait(cfg):
     """Fishing screen, every start: Lucky Star when Sunday's weekly review found the 50-stars row necessary for 180, else
     the account's default bait (`fishing.bait`, default Basic Bait) - Nick 2026-11-08: stars only when we really have to, Shrimp only if configured."""
     plan = weekly_plan_file()
-    stars = NOW.weekday() == 6 and os.path.exists(plan) and open(plan).read().strip() == 'stars'
+    stars = GAME_DAY.weekday() == 6 and os.path.exists(plan) and open(plan).read().strip() == 'stars'
     return set_bait('Lucky Star' if stars else bait_default(cfg))
 
 
 def weekly_review(cfg):
     """Sunday catch-up, FIRST step (Nick 2026-11-08): read the Weekly tab and decide whether the Lucky Star row is needed -
     i.e. the other open doable rows cannot close the gap to 180 by themselves. The plan steers today's fishing bait."""
-    if NOW.weekday() != 6: return 'SKIP not Sunday'
+    if GAME_DAY.weekday() != 6: return 'SKIP not Sunday'
     pts, rows = weekly_read(); tap_wait(972, 238)
     prog = lambda key: next(((d, t) for name, (d, t) in rows.items() if re.search(key, name)), None)
     open_rows = [mid for mid, do in weekly_list() if do and (p := prog(WEEKLY_KEY[mid])) and p[0] < p[1]]
@@ -1448,7 +1448,7 @@ def weekly(cfg):
     """Sunday pass (Nick 2026-11-08): read the Weekly tab, then down accounts/weekly.yaml: Draw x10, Honor Upgrades, Artifact
     Wishes; claim; still under 180 -> the deferred rows in list order (Statue Level Up, Lucky Star bait - only when we really
     have to) and claim again. Rows the daily steps produce can't be pushed past their daily caps -> listed as short."""
-    if NOW.weekday() != 6: return 'SKIP not Sunday'
+    if GAME_DAY.weekday() != 6: return 'SKIP not Sunday'
     pts, rows = weekly_read(); tap_wait(972, 238)
     prog = lambda key: next(((d, t) for name, (d, t) in rows.items() if re.search(key, name)), None)
     out, short, deferred = [f'{pts} pts, {len(rows)} rows read'], [], []
