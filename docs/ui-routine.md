@@ -901,8 +901,8 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
 
 - **Never attack a player, of any kind** — tribe or not (Nick, 2026-10-30). Only empty or Sentinel-held (NPC)
   spots. Nothing empty or Sentinel-held → skip and report.
-- **Mon–Fri:** take a **purple (9/m) spot**. Prefer an **empty** one, else beat a Silver Sentinel.
-- **Sat–Sun:** take a **Glory** or **Gold** spot if one is empty or Sentinel-held, else a **purple/silver** one
+- **Mon–Thu:** take a **purple (9/m) spot**. Prefer an **empty** one, else beat a Silver Sentinel.
+- **Fri–Sun** (Friday too since Nick 2026-11-08, was Sat–Sun)**:** take a **Glory** or **Gold** spot if one is empty or Sentinel-held, else a **purple/silver** one
   (empty first, else a Silver Sentinel).
 - Never spend gems.
 - **`canyon_clash: highest_free`** in the account file (Tiger, Nick 2026-10-28) replaces the day rules above, every day:

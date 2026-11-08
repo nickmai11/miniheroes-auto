@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # Canyon Clash: move to an EMPTY platform (free, no attempt) by the day's rule. Canyon map must be open.
 # usage: D=<serial> scripts/canyon.py <account>    (ui-routine "Canyon Clash"; Nick 2026-10-28: script, not a helper)
-#   Mon-Fri: first empty purple (Silver) platform among the top silver rows.
-#   Sat-Sun: empty Gold first, else empty purple.     canyon_clash: highest_free -> topmost empty platform of any kind.
+#   Mon-Thu: first empty purple (Silver) platform among the top silver rows.
+#   Fri-Sun: empty Gold first, else empty purple (Fri since Nick 2026-11-08, was Sat).     canyon_clash: highest_free -> topmost empty platform of any kind.
 # Empty = a platform disc with no name label under it. Every pick is confirmed by the popup text "occupy the empty"
 # before Occupy; anything else ("About to challenge <name>'s ...") -> Cancel. Never attacks: no empty spot -> exit 2.
 # exit 0 = moved, 2 = no empty platform (helper may beat a Sentinel; never a player), 1 = unexpected screen.
@@ -70,7 +70,7 @@ def run(account):
     # highest_free keeps a spot that's higher than any empty one: it moved Tiger Glory -> Gold (2026-11-03)
     cur = next((t for t in ('Glory', 'Gold', 'Silver') if find(head, rf'^{t} Battlefield', (0, 0, 1080, 330))), '')
     tier = {'Glory': 3, 'Gold': 2, 'Silver': 1}.get(cur, 0)
-    weekend = datetime.datetime.now().weekday() >= 5
+    weekend = datetime.datetime.now().weekday() >= 4   # Fri-Sun (Nick 2026-11-08: top spot from Friday, not Saturday)
     for _ in range(6): swipe(540, 600, 540, 1500, 300)                # to the top of the map
     time.sleep(1)
     colours = [GOLD, PURPLE] if highest or weekend else [PURPLE]
