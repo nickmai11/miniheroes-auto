@@ -21,6 +21,48 @@ def tap(x, y): subprocess.run(['adb', '-s', D, 'shell', 'input', 'tap', str(x), 
 def swipe(x0, y0, x1, y1, ms=500): subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', *map(str, (x0, y0, x1, y1, ms))])
 
 
+def focus():
+    out = subprocess.run(['adb', '-s', D, 'shell', 'dumpsys', 'window'], capture_output=True, text=True).stdout
+    return next((l for l in out.splitlines() if 'mCurrentFocus' in l), '')
+
+
+def in_game(): return 'AppActivity' in focus()
+
+
+def watch_ad(timeout=180, log=print):
+    """After an ad-button tap (no-pass accounts, Nick 2026-11-08: watch the ads): no ad took over -> True at once.
+    Ad activity (Mintegral MBRewardVideoActivity): let it run until its reward countdown is over - "17s left to be
+    rewarded" / "Reward in 15s" at the top; Back or X before that forfeits the reward. xFaktor 2026-11-08: 31 Backs
+    during a playable (jigsaw) ad only toggled its "Confirm to close?" dialog, which also pauses the countdown ->
+    Continue while a countdown shows. Countdown gone 6 s and >= 40 s in (plain videos ~37 s, no text) -> Back
+    (closes the end card); "Confirm to close?" then = reward already granted -> Close it; the top-right X (1014,82)
+    only as the 5th try (a video's body opens the store). True once the game is in front again."""
+    t0 = time.time()
+    while time.time() - t0 < 6:
+        if not in_game(): break
+        time.sleep(1)
+    else: return True
+    log(f'    ad: {focus().strip()[-45:]}')
+    seen, tries = time.time(), 0
+    while time.time() - t0 < timeout:
+        if in_game(): log(f'    ad closed after {time.time() - t0:.0f}s ({tries} close taps)'); return True
+        boxes = ocr(); el = time.time() - t0
+        cd = find(boxes, r'\d+\s*s\b|rewarded|Reward in', (0, 0, 1080, 300))
+        if cd: seen = time.time()
+        dlg = find(boxes, r'Confirm to close')
+        if dlg:
+            done = not cd and el >= 40 and time.time() - seen >= 6
+            b = find(boxes, r'^Close it$' if done else r'^Continue$')
+            if b: tap(*b); log(f'    ad dialog -> {"Close it" if done else "Continue"} ({el:.0f}s)'); time.sleep(2); continue
+        if el >= 40 and time.time() - seen >= 6:
+            tries += 1
+            if tries == 5: tap(1014, 82)
+            else: subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4'])
+            time.sleep(3); continue
+        time.sleep(2)
+    log(f'    ad still up after {timeout}s: {joined(ocr())[:120]}'); return False
+
+
 def ocr(im=None):
     """[(x, y, w, h, text)] in device coords, top-left origin."""
     binary = os.path.join(HERE, 'ocr')

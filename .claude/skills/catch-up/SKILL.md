@@ -37,8 +37,8 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: `scripts/a
       (`scripts/canyon.py`: empty spots only, popup text checked; no empty one → helper); Points Rewards claimed **after** the spot (occupying earns the points — Nick 2026-11-04), same visit
    5. Divine Weapon: Excelsior Veins via `scripts/veins.py` (stops at 0 pickaxes), then Forge: fill every free slot (N/M) while crystals ≥ cost, even if a forge is already running (Nick, 2026-10-28), then Benefit's Claim Rewards (pass accounts; after the forging — Nick 2026-11-04); skip Forge if the account has `divine_forge: false` (Kong, 2026-10-30)
    6. Patrol: Claim All only (`scripts/patrol.py <account> --claim-only`) — no Speed Patrol. Claim All often gives Arena tickets → re-run Arena right after
-   7. Tribe chat Request + Assist (no Request in a morning run, 06–12 local: the dailies need it off cooldown) (Tribe section, step 4 only — by hand; `tribe.py` also signs in / fights the Trial)
-   8. Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available; if it's on
+   7. Tribe chat Request + Assist, every run incl. mornings (Nick, 2026-11-08: on cooldown the tap does nothing) (Tribe section, step 4 only — by hand; `tribe.py` also signs in / fights the Trial)
+   8. Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available (no Play Pass: each one is a video ad, `recruit()` watches it — Nick 2026-11-08); if it's on
       cooldown or out of chances, skip — don't wait, never pay
    9. Events red dots (Daily run order step 16): open event banners with a red dot, claim only free
       Claim/Free rewards; never a $ or gem price. **Collect only** (Nick, 2026-10-28): never Open All / draw / spin /

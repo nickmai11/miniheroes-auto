@@ -141,10 +141,18 @@ Forest `(870,1310)`, Temple `(870,1696)`.
   screen changed opens Recruit — screenshot after every back tap; on Recruit just tap back again (never Recruit 1/10).
 - **On-screen counters are the truth**, not red dots or the plan: Tower / Sanctuary had no red dot but weren't done
   (Cmajor); some modes were already done earlier that day (Bino). Always open and read the counter.
-- **Accounts without a Play Pass get video ads where others get Free** (camera icon / "Purchase Play Pass to skip
-  ad"): Storm free tickets, Common Recruitment, Grocery chests 2–4, Wish Festival Gift Free Pack. Ads are ~37 s,
-  Android Back does nothing mid-video, skip/close appears top right ≈ `(990,90)`. Not a routine — skip and report
-  (except Storm, which storm.py handles). Bino has a pass since 2026-10-27; Dino's claims were plain too.
+- **Accounts without a Play Pass get video ads where others get Free — watch them (Nick, 2026-11-08: "you have to watch
+  ads for such accounts"; xFaktor's pass ran out 2026-11-08, `play_pass2` logs `monthly card track locked`).** Looks:
+  Common Recruitment = "Purchase Play Pass to skip ad >>" + a green **▶ Recruit 1** button (no "Free" text); Grocery
+  chests 2–4 = a grey **▶ Free** button (same grey as Sold Out — the button colour checks don't see it, only the text);
+  the chest popup's own **Free** is still green; Storm free tickets = **Claim** + camera icon. `flow.watch_ad()` after the
+  tap: ad = another activity in front (Mintegral `MBRewardVideoActivity`); let its reward countdown finish ("17s left to be
+  rewarded" / "Reward in 15s", top of the screen) — playable ads ("Finish the target Jigsaw") answer Back with a
+  **"Confirm to close? You will not be rewarded"** dialog that also pauses the countdown → **Continue**; after the
+  countdown (≥ 40 s in) Back closes the end card, then "Close it" if the dialog comes back; the top-right X `(1014,82)`
+  only as a last resort (a video's body opens the store). ~45 s per ad; the game's reward popup proves the claim.
+  Scripted: Storm (`storm.py`), Common Recruitment and Grocery chests (2026-11-08); Wish Festival Gift Free Pack still
+  unmapped on a no-pass account → skip and report.
 - Unmapped, leave alone: Adventure → Ancient Ruins (red dot), main-screen "Mars's Gift".
 - A `swipe` once failed with `INJECT_EVENTS permission` and the game was back on the main screen — screenshot and re-navigate.
 
@@ -358,6 +366,8 @@ Keep the pre-selected lineup (Nick, 2026-10-26: don't bother picking the weakest
 shows a greyed one on a fresh map — it used to log a false "swept"), else climbs: next floor = node under the yellow
 marker (`floor_marker()`: flags have yellow stripes too, told apart by their red ones); a far weaker floor wins on the
 node tap itself (no popup, straight to the bonus screen); bonus/replace picked by the rules below via OCR. A loss → MANUAL.
+Timing (2026-11-08, Lava Cave on all 8): the map keeps panning after a floor and the bonus cards slide in — a frame read mid-move put the marker at (727,458) and every offered card's tier at −1 ("replace screen unreadable") → `stable_marker()` (2 reads 0.5 s apart within 12 px, one re-read before giving up) and `bonus_pick()` re-reads until every rarity label is in place. The marker's yellow must be read with G > 175 and no red-neighbour filter (the lava is red; the flags' darker stripes stay out).
+Also 2026-11-08: a bonus screen left pending (the run died on it) comes back when the map is re-entered and hides the marker → `floor_marker()` saw none and the step logged "all floors won" on Bino/Dminor/Cmajor with floors left; the climb now resolves a pending Select/Replace screen first. With all 10 flags up a flag's gold stripe used to read as the marker (Cmajor) → the marker must be a ≥ 30-sample blob. The **Defeat** screen has no Confirm — "Challenge again" + "Tap anywhere to close" → dismiss `(540,120)`, MANUAL `floor N LOST`, never Challenge again.
 
 Sweep only exists for a while after a full clear (Nick: ~7 days); when the map rotates (2026-10-27:
 Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**. Mapped on Cmajor, ADB device coords.
@@ -428,6 +438,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: **2 Common, 1 Ancest
    more chances show; some accounts/days only get 1. The Free button stays green at "Chances: 0" — read the counter
    ("Chances: 0" with no timer = done for the day). A cooldown (~5 min) shows between
    free chances; never pay.
+   - **No Play Pass** (xFaktor 2026-11-08): the button reads **▶ Recruit 1** under "Purchase Play Pass to skip ad" — a video ad per draw (`watch_ad()`, ~45 s), then the result cards → Confirm as usual; gems must not move. `RECRUIT_COMMON=<n>` env caps the common draws of a re-run (0 = none, e.g. artifact-only leftovers).
 3. **Ancestor Summon** tab `(896,1610)` → **Free** `(310,1355)` (red dot) → result → **Confirm**
    `(300,1755)`. **Never "Recruit 1"** on the result screen (spends a ticket). Button then shows
    "Free after HH:MM:SS".
@@ -502,8 +513,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). All free.
    **Request** `(174,1631)` (red dot; may need a 2nd tap at `(174,1636)`) → _Help Request Info_ dialog:
    - **Request** `(334,1660)`: send our own help request (greyed with a **6 h** cooldown timer under it once sent).
      `tribe.py` reads that timer: `request: sent (cooldown 06:00:00)` = proof; already greyed → `NOT SENT (cooldown …)`
-     → the dailies' `tribe` step turns MANUAL. The morning catch-up (06–12 local) skips Request (`--no-request`): its
-     06:53 request blocked every account's dailies Request at ~12:30 (Nick, 2026-11-07).
+     → the dailies' `tribe` step turns MANUAL. The catch-up sends it every run, mornings too (Nick, 2026-11-08: "a click
+     won't hurt" — the 11-07 morning `--no-request` skip is gone).
    - **Assist** `(740,1660)`: helps every listed request at once; list empties.
    - Close ✕ `(968,228)`.
      Back from Chat usually goes straight to the main screen — but can land on Recruit; screenshot and back again.
@@ -646,6 +657,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
    Manual: tap a chest showing **Free** → popup must say Free (never a gem price) → claim → wait ~4.5 s → dismiss
    `(540,1850)` (`(540,120)` can close Grocery). Popup Free pixel `(480,1344)`: green (123,206,49) = claimable,
    grey (173,178,189) = cooldown. Growth Chest gives +80 gems per claim; Resource Chest can roll +50.
+   - **No Play Pass** (xFaktor 2026-11-08): chests 2–4 show a grey **▶ Free** (the top-row colour scan sees Sold-Out grey; `grocery.py` reads the "Free" text instead) → the popup's green Free → video ad (`watch_ad()`, ~45 s) → _Congratulations_ popup = claimed (no popup after 2 ads → stop). 9 ads for the 3 chests.
 4. **`grocery_buy`** (per account, optional; **runner step `grocery_buy`** since 2026-10-29 — OCR price/balance, price icon colour = balance icon, popup price = tile price): for each shop tab listed, buy each listed tile **once**. Tabs at
    y=546: Sanctuary `(452,546)`, Tribe `(732,546)`, Ruins `(980,546)`; swipe the tab bar `900→200` → Realm
    `(604,546)` (Tundra further). Tiles are numbered 1–12 left→right, top→bottom; price buttons at

@@ -34,7 +34,7 @@ screen. Not done → the runner retries once → a helper does that one step →
 10. **Secret Sanctuary** — swept, or **all floors won** (floor 10 won / no next-floor marker left on the map).
 11. **Gate of Darkness** — "Chances left today: 0".
 12. **Beast Realm** — Chances dropped by 1.
-13. **Recruit** — the free draws in the config are used: Common, Ancestor ("Free after …" shows), Artifact.
+13. **Recruit** — the free draws in the config are used: Common, Ancestor ("Free after …" shows), Artifact. No Play Pass: the ad draws count (Nick 2026-11-08).
 14. **Hero** — Bone Archer leveled at least once and gear enhanced at least once (levels don't matter). Out of
     potions → Rebirth → quick Lv.90.
 15. **Tribe** — signed in; Tribe Trial has no red dot; Request + Assist done. **Canyon:** a new spot occupied
@@ -44,7 +44,7 @@ screen. Not done → the runner retries once → a helper does that one step →
 17. **Stage** — 3 fights done (Defeat → Challenge again).
 18. **Patrol claim** — Claim All → "Congratulations".
 19. **Rune** — 1 synthesis ("Congratulations … Rune"), no locked rune tapped.
-20. **Grocery** — free chests show "Sold Out"; each config tile bought (or price > balance / sold out).
+20. **Grocery** — free chests show "Sold Out" (no Play Pass: after the 9 ad claims too); each config tile bought (or price > balance / sold out).
 21. **Events** — no red dot on any event hub tab (**Pet Arena, Golden Woods, 7777 Draws, Match Event, Weekly
     Event**) and none on the weekly tribe events (**Floating Realm, Tribe Clash**) (Nick, 2026-11-03).
 22. **Fishing rewards** — no yellow Claim left on the orders.

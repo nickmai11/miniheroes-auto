@@ -514,6 +514,11 @@ def run(account, dry=False, max_digs=None):
                 if refused >= 3: raise Stop('3 refused digs')
                 g, im = stable_board(); boxes = ocr(im); continue
             g2, im = stable_board()
+            if g2 is None and find(ocr(im), r'fully excavated'):   # last tile of the area: game jumps to Relic Display (Dino 2026-11-08)
+                log(f'dig r{r + 1}c{c + 1} {k0[0]} ({why}) -> area fully excavated, re-entering Archaeology (next area)')
+                digs += 1; open_board(); g, im = stable_board(); boxes = ocr(im); n = shovels(boxes) or n
+                if g is None: raise Stop('not on the dig board after the area change')
+                continue
             if g2 is None: raise Stop('left the dig board after a tap')
             boxes = ocr(im); n2 = shovels(boxes) or n
             reward = ' '.join(f'{m.group(1)} x{m.group(2)}' for m in ITEMS.finditer(joined(b2)))

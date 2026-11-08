@@ -94,6 +94,9 @@ arrow `(80,1820)`). Screenshot before retrying anything.
   last price seen are remembered (`/tmp/miniheroes-state/<acct>-<day>.relic_buys`), so a re-run never opens the Tip
   again (Nick 2026-11-04: every pass re-opening it looked like extra buy taps). Prices escalate
   80 → 160 → 240 → 320 within the day; each buy is verified by the counter (+10).
+- **Area fully excavated** (Dino 2026-11-08, Blaze Peaks): the dig that finishes an area drops the game onto Relic
+  Display ("Area fully excavated." toast), then a Congratulations popup (area reward: relics) opens over Fragment —
+  not a combine. `relic.py` re-enters Archaeology (next area's board, new milestone count) and keeps digging.
 - **Milestone bar** ("Mine N more time(s) to claim your reward", top): at N = 0 tap its reward icon top-right
   `(1010,280)` → Congratulations popup → tap anywhere. Free (boosters / shovels); claim every time it's ready.
 

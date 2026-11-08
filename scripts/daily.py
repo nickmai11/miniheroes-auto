@@ -13,7 +13,7 @@
 import datetime, fcntl, os, re, subprocess, sys, time
 from stabilize import close_x
 from tap import diff, thumb
-from flow import Stop, adventure, battle, find, grab, joined, lone_hero, ocr, swipe, tap, tap_text, tap_wait, tickets_full, wait
+from flow import Stop, adventure, battle, find, grab, joined, lone_hero, ocr, swipe, tap, tap_text, tap_wait, tickets_full, wait, watch_ad
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
@@ -444,6 +444,11 @@ def bonus_pick():
     the best offer must beat the worst owned). Rules: docs/ui-routine.md Secret Sanctuary step 4-5."""
     try: boxes = wait(r'Select Bonus Effect|Replace Bonus Effect', 6)
     except Stop: return 'no bonus'
+    for _ in range(4):                                   # the cards slide in: read until every rarity label is in place (Dino/Bino/Dminor 2026-11-08: -1 tiers off a mid-slide frame)
+        time.sleep(0.8); boxes = ocr()
+        cs = cards(boxes, 716, 915, (192, 540, 884)) if find(boxes, r'Select Bonus Effect') else \
+             cards(boxes, 429, 620, (192, 540, 884)) + cards(boxes, 1100, 1262, (150, 460, 740, 1000))
+        if all(c[1] >= 0 for c in cs): break
     if find(boxes, r'Select Bonus Effect'):
         best = max(cards(boxes, 716, 915, (192, 540, 884)), key=score)
         tap_wait(best[0], 950); tap_text(r'Confirm Selection', boxes=ocr()); time.sleep(1)
@@ -461,38 +466,53 @@ def bonus_pick():
 
 
 def floor_marker(im):
-    """Centre of the yellow next-floor marker on the Sanctuary map, or None. It pulses (255,182..235,66..99 down to
-    ~222,190,82), so colour alone also hits the flags' yellow stripes: drop yellow 60px cells with red stripes beside or
-    above them (not below: the boss/demon node under the marker is red). Cmajor Ice Citadel 2026-10-29; Lava untested."""
-    yel = lambda p: p[0] > 200 and 140 < p[1] < 250 and 40 < p[2] < 115 and p[0] - p[2] > 110
-    red = lambda p: p[0] > 170 and p[1] < 80 and p[2] < 90
+    """Centre of the yellow next-floor marker on the Sanctuary map, or None. Yellow with G > 175 (the marker pulses
+    255,182..235,66..99 down to ~222,190,82; the flags' darker stripes drop out) sampled every 6 px; the marker is a
+    ~100-px blob = 60-100 samples over a 3x3 block of 60-px cells, a flag's gold band <= ~25 even with all 10 flags up
+    (Cmajor 2026-11-08: the all-flags map read a "marker" at (739,684) -> no popup -> FAIL), so under 30 = no marker.
+    No red-neighbour test any more: Lava Cave's lava is red and it threw the marker away on every account (2026-11-08)."""
+    yel = lambda p: p[0] > 200 and 175 < p[1] < 250 and 40 < p[2] < 115 and p[0] - p[2] > 110
     cells = {}
     for y in range(180, 1560, 6):
         for x in range(60, 1020, 6):
-            p = im.getpixel((x, y)); c = (x // 60, y // 60)
-            if yel(p): cells.setdefault(c, []).append((x, y))
-            elif red(p): cells.setdefault(c, []).append(None)
-    reds = lambda c: sum(1 for q in cells.get(c, []) if q is None)
-    ok = [(len([q for q in v if q]), c) for c, v in cells.items()
-          if len([q for q in v if q]) >= 6 and not any(reds((c[0] + i, c[1] + j)) > 3 for i in (-1, 0, 1) for j in (-1, 0))]
-    if not ok: return None
-    c = max(ok)[1]; pts = [q for i in (-1, 0, 1) for j in (-1, 0, 1) for q in cells.get((c[0] + i, c[1] + j), []) if q]
+            if yel(im.getpixel((x, y))): cells.setdefault((x // 60, y // 60), []).append((x, y))
+    if not cells: return None
+    blob = lambda c: [q for i in (-1, 0, 1) for j in (-1, 0, 1) for q in cells.get((c[0] + i, c[1] + j), [])]
+    pts = blob(max(cells, key=lambda c: len(blob(c))))
+    if len(pts) < 30: return None                       # Tiger's marker above the floor-10 boss = 34 samples
     return sum(x for x, _ in pts) // len(pts), sum(y for _, y in pts) // len(pts)
 
 
 def sanctuary_climb():
     """Map: the next floor is the node just below the yellow marker (Cmajor, Ice Citadel 2026-10-29). Crash = instant
     win; Battle -> lineup (Quick Deploy if < 5) -> Start -> Victory Confirm -> bonus pick. A loss: stop (no potions)."""
+    def stable_marker():
+        # the map keeps panning after a floor: a mid-pan frame put the marker at (727,458) on 4 accounts (2026-11-08,
+        # settled map: (788,936)) -> 2 reads 0.5 s apart within 12 px
+        m = floor_marker(grab())
+        for _ in range(8):
+            time.sleep(0.5); m2 = floor_marker(grab())
+            if m == m2 or (m and m2 and abs(m[0] - m2[0]) + abs(m[1] - m2[1]) < 12): return m2
+            m = m2
+        return m
+    def open_floor(m):
+        for dy in (90, 120):                             # node sits ~86 px below the marker centre, the floor-10 boss ~110
+            tap_wait(m[0], m[1] + dy)
+            try: return wait(r'Floor \d+/10|Select Bonus Effect|Replace Bonus Effect', 4)
+            except Stop: pass
     out = []
     for _ in range(10):
-        m = floor_marker(grab())
+        # a bonus screen left pending by an earlier run comes back on entry and hides the marker: "all floors won" with a
+        # Replace screen up on Bino/Dminor/Cmajor (2026-11-08) -> resolve it first
+        if find(ocr(), r'Select Bonus Effect|Replace Bonus Effect'): out.append(f'pending {bonus_pick()}'); continue
+        m = stable_marker()
         if not m: break                                  # no marker: all floors flagged
-        mx, my = m
-        for dy in (90, 120):                             # node sits ~86 px below the marker centre, the floor-10 boss ~110
-            tap_wait(mx, my + dy)
-            try: boxes = wait(r'Floor \d+/10|Select Bonus Effect|Replace Bonus Effect', 4); break
-            except Stop: pass
-        else: raise Stop(f'no floor popup under the marker ({mx},{my}); done so far: {out}')
+        boxes = open_floor(m)
+        if boxes is None:                                # one re-read before giving up
+            time.sleep(1.5); m = stable_marker()
+            if not m: break
+            boxes = open_floor(m)
+            if boxes is None: raise Stop(f'no floor popup under the marker ({m[0]},{m[1]}); done so far: {out}')
         fl = re.search(r'Floor (\d+)/10', joined(boxes))
         if find(boxes, r'Select Bonus Effect|Replace Bonus Effect'):   # far out-powered: the node tap wins outright, no popup (Cmajor floor 5)
             out.append(f'instant win {bonus_pick()}'); continue
@@ -508,8 +528,11 @@ def sanctuary_climb():
             if ticks < 5: tap_wait(984, 1800); time.sleep(1)
             tap_text(r'^Start$', (0, 1700, 1080, 1920), boxes)
             r = joined(wait(r'Victory|Defeat', 150))
-            if 'Victory' not in r:
-                tap_text(r'^Confirm$'); out.append(f'floor {fl[1]} LOST'); return 'MANUAL ' + ', '.join(out)
+            if 'Victory' not in r:                       # Defeat screen = "Challenge again" + "Tap anywhere to close", no Confirm
+                for _ in range(3):                       # (Bino/Dminor/Tiger 2026-11-08: Stop -> the runner's retry re-fought); never Challenge again
+                    tap_wait(540, 120); time.sleep(0.8)
+                    if not find(ocr(), r'Tap anywhere to close|Challenge again'): break
+                out.append(f'floor {fl[1]} LOST'); return 'MANUAL ' + ', '.join(out)
             tap_text(r'^Confirm$', (200, 1300, 880, 1500)); res = 'won'
         out.append(f'floor {fl[1]} {res} {bonus_pick()}')
         if fl[1] == '10': break
@@ -577,11 +600,22 @@ def recruit(cfg, common_only=False):
     tap_wait(96, 1810); wait(r'Recruitment|Recruit 1', 10)
     got = []
     tap_wait(188, 1610); time.sleep(1)
-    for _ in range(8 if common_only else want('common')):   # catch-up: every Free chance
+    def gems_or_none(b):
+        try: return gems(b)
+        except Stop: return None
+    n_common = int(os.environ.get('RECRUIT_COMMON', 8 if common_only else want('common')))   # env: leftover re-runs (2026-11-08)
+    for _ in range(n_common):                            # catch-up: every Free chance
         boxes = ocr(); m = re.search(r'Chances\W*(\d+)', joined(boxes))
-        if not m or int(m.group(1)) == 0 or not find(boxes, r'^Free$', (380, 1290, 700, 1420)): break  # ad/cooldown/done
-        tap_text(r'^Free$', (380, 1290, 700, 1420), boxes)   # draw animation can outlast 2.5 s (Chien Than/xFaktor 2026-10-29)
-        tap_text(r'^Confirm$', boxes=wait(r'^Confirm$', 15)); time.sleep(1); got.append('common')
+        if not m or int(m.group(1)) == 0: break           # done for the day
+        b = find(boxes, r'^Free$', (380, 1290, 700, 1420))
+        # no Play Pass: "Purchase Play Pass to skip ad" + a green "▶ Recruit 1" button = a video ad per draw (xFaktor 2026-11-08, Nick: watch it)
+        ad = not b and find(boxes, r'skip ad') and find(boxes, r'^Recruit 1$', (380, 1290, 700, 1420))
+        if not (b or ad): break                           # cooldown
+        g0 = gems_or_none(boxes); tap_wait(*(b or ad))    # draw animation can outlast 2.5 s (Chien Than/xFaktor 2026-10-29)
+        if ad and not watch_ad(log=lambda t: print(t, flush=True)): raise Stop('common recruit: ad did not close')
+        tap_text(r'^Confirm$', boxes=wait(r'^Confirm$', 15)); time.sleep(1); got.append('common (ad)' if ad else 'common')
+        g1 = gems_or_none(ocr())
+        if g0 is not None and g1 is not None and g1 < g0: raise Stop(f'common recruit: gems dropped {g0} -> {g1}')
     if want('ancestor') and not common_only:
         tap_wait(896, 1610); time.sleep(1); boxes = ocr()
         if find(boxes, r'^Free$', (150, 1290, 470, 1420)):
@@ -614,9 +648,10 @@ def recruit(cfg, common_only=False):
 
 def gems(boxes):
     """Top-left gem counter (Recruit / Artifact screens)."""
-    g = [t for x, y, w, h, t in boxes if 60 <= x + w // 2 <= 260 and 40 <= y + h // 2 <= 100 and re.fullmatch(r'\d+', t)]
+    # '100k' on rich accounts (Tiger 2026-11-08): k/M parsed - a drop under 1k then goes unseen; the 280-price / Free checks still guard
+    g = [t for x, y, w, h, t in boxes if 60 <= x + w // 2 <= 260 and 40 <= y + h // 2 <= 100 and re.fullmatch(r'\d+(\.\d+)?[kKmM]?', t)]
     if not g: raise Stop(f'gem counter unreadable: {joined(boxes)[:200]}')
-    return int(g[0])
+    return int(num(g[0]))
 
 
 def hero(cfg): return script('hero.py', ACCOUNT)
@@ -728,7 +763,9 @@ def still():
     a = grab().crop((60, 320, 1020, 1580))
     for _ in range(12):
         time.sleep(0.3); b = grab()
-        if list(b.crop((60, 320, 1020, 1580)).getdata())[::53] == list(a.getdata())[::53]: return b
+        # < 2 % of samples changed = still: sparkling runes animate forever (Kong/Chien Than 2026-11-08, exact match never came)
+        pa, pb = list(a.getdata())[::53], list(b.crop((60, 320, 1020, 1580)).getdata())[::53]
+        if sum(x != y for x, y in zip(pa, pb)) < len(pa) // 50: return b
         a = b.crop((60, 320, 1020, 1580))
     raise Stop('rune list never stopped moving')
 
@@ -1229,8 +1266,8 @@ def events(cfg):
 # Arena again, Tribe chat Request/Assist, Common Recruitment, Daily Mission, Fishing order rewards
 CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena), ('storm', storm),   # fishing first: Auto runs during the rest (Nick, 2026-10-29)
            ('veins_forge', divine), ('patrol_claim', patrol_claim), ('arena2', arena),
-           # morning catch-up: no Request - its 6 h cooldown blocked the dailies' Request at ~12:30 on every account (2026-11-07)
-           ('tribe_chat', lambda c: script('tribe.py', '--chat-only', *(['--no-request'] if 6 <= NOW.hour < 12 else []))), ('common_recruit', lambda c: recruit(c, common_only=True)),
+           # Request every run, morning too: on cooldown the tap does nothing (Nick 2026-11-08, undoes the 11-07 morning skip)
+           ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
            ('canyon', canyon),
            ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),  # missions always last (Nick, 2026-10-29); FR packs: dailies only (Nick 2026-11-03)
            ('play_pass2', play_pass2),   # after the missions: the run's activity unlocks new Play Pass claims (Nick 2026-11-03)
