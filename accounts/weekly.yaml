@@ -1,0 +1,29 @@
+# Weekly Missions (Mission popup → Weekly tab): 22 rows, 10 points each, chests at 45 / 90 / 135 / 180.
+# Read on xFaktor 2026-11-08. Priority = this list, top down (Nick, 2026-11-08): on Sunday after the dailies the
+# weekly pass works down it on every account still under 180 and skips the `do: false` rows (paid / not worth it).
+#   n:   the row's position in the game's list (open rows first, then completed)
+#   via: the screen / runner step that produces the row (blank = nothing scripted yet)
+# Screens, coords and costs of the four new rows: docs/ui-routine.md "Weekly Missions (Sunday pass)" (mapped on Kong 2026-11-08).
+missions:
+  - { n: 18, id: sanctuary,       row: "Cleared Secret Sanctuary 3 time(s)",            do: true,  via: sanctuary }
+  - { n: 22, id: poseidon,        row: "Battled at Poseidon's Ruins 5 time(s)",         do: true,  via: poseidon }
+  - { n: 21, id: treasure_draw,   row: "Draw Treasure 10 time(s)",                      do: true,  via: recruit }
+  - { n: 19, id: gate,            row: "Challenged in Gate of Darkness 8 time(s)",      do: true,  via: gate }
+  - { n: 17, id: canyon,          row: "Occupied the Canyon Clash 10 time(s)",          do: true,  via: canyon }
+  - { n: 16, id: tribe_trial,     row: "Challenged in Tribe Trial 3 time(s)",           do: true,  via: tribe }
+  - { n: 12, id: trials,          row: "Challenged Land of Trials 20 time(s)",          do: true,  via: trials }
+  - { n: 9,  id: speed_patrol,    row: "Conducted Speed Patrol 15 time(s)",             do: true,  via: patrol }
+  - { n: 15, id: match_points,    row: "Reached 2400 in Match Points",                  do: true,  via: arena }
+  - { n: 8,  id: hero_level,      row: "Leveled-up any Hero 30 time(s)",                do: true,  via: hero }
+  - { n: 14, id: match,           row: "Participated in Match Challenges 80 time(s)",   do: true,  via: arena }
+  - { n: 7,  id: stage,           row: "Challenged Stage 20 time(s)",                   do: true,  via: stage }
+  - { n: 13, id: tower,           row: "Challenged the Tower of the Throne 20 time(s)", do: true,  via: tower }
+  - { n: 11, id: gear,            row: "Enhanced Equipment 30 time(s)",                 do: true,  via: hero }
+  - { n: 20, id: artifact_wish,   row: "Artifact Wishing 30 time(s)",                   do: true,  via: recruit }
+  - { n: 4,  id: honor,           row: "Level Up Honor 2 time(s)",                      do: true,  via: lobby }
+  - { n: 2,  id: statue_upgrade,  row: "Upgrade Statue 5 time(s)",                      do: true,  via: hero }
+  - { n: 6,  id: lucky_stars,     row: "Consumed 50 Lucky Star(s) in Fishing",          do: true,  via: fishing }
+  - { n: 10, id: adv_recruit,     row: "Use Advanced Recruitment 30 time(s)",           do: false, via: "" }
+  - { n: 5,  id: grocery_gems,    row: "Purchase with Diamonds in Grocery 5 time(s)",   do: false, via: "" }
+  - { n: 3,  id: statue_blessing, row: "Received Statue Blessings 1 time(s)",           do: false, via: "" }
+  - { n: 1,  id: ascend,          row: "Ascended Heroes 5 time(s)",                     do: false, via: "" }

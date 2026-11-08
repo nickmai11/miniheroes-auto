@@ -780,6 +780,33 @@ of Trials → `trials`; Match Challenges ×3 → `arena`; Tribe Trial → `tribe
 daytime); Won 1 wave at Secret Sanctuary → `sanctuary`; Synthesized Runes → `rune`; 10 Bread in Fishing → `fishing`;
 Gate of Darkness → `gate`; Challenged the Tower → `tower` (incl. the chest-level Claim Reward).
 
+## Weekly Missions (Sunday pass) — mapped on Kong 2026-11-08, device coords
+
+The Mission popup's **Weekly** tab (same popup as Daily Mission, tab `(778,1688)`): 22 rows × 10 points, chests 45 / 90 /
+135 / 180. `accounts/weekly.yaml` = Nick's list, priority top-down, `do: false` = never. Rows 7–22 are the daily routine
+scaled up; the four rows nothing else produces:
+
+1. **Level Up Honor 2 time(s)** — ☰ `(994,1625)` → **Lobby** (icon left of the "Lobby" label, ≈ `(800,1020)`; find the
+   label by OCR like Mission) → _Team Lobby_, **Honor Bonus** block: "Judge" Level 171/200, progress 0/100, each
+   **Upgrade** `(380,1808)` costs **15 000 gold + 1 medal** (blue icon; Kong 9132k gold, 1297 medals), **Upgrade Lv.1**
+   `(724,1808)` = the bulk version (never, it spends the lot). `?` `(100,1144)` = stat list only. Open: whether one Upgrade
+   tap = 1 "time" (likely) — read the row before/after on first use.
+2. **Upgrade Statue 5 time(s)** — bottom bar **Hero** `(274,1780)` → **Statue** tab `(635,1848)` → **Level Up** `(540,1589)`
+   while the _Power Required_ bar is full (Kong 248509/149931 = one level available; the bar refills from hero battle power
+   growth). No gold/gem icon on the screen. **Bless** `(835,604)` = Statue Blessings (`do: false`), Bonus `(989,419)`,
+   Constellation `(116,1111)` — leave alone.
+3. **Consumed 50 Lucky Star(s) in Fishing** — Lucky Star is a **bait**: Fishing `(624,1780)` → **Bait** `(986,1459)` → 2×4 grid
+   (row y 1120 / 1340, x 198 / 426 / 654 / 908): tile 3 = **Lucky Star** `(654,1120)` (Kong 1474; bonus Scavenge 51.2 % +
+   Mastery 51.2 %, Shrimp Bait = Mastery 128 %) → **Swap** `(539,1557)` → the fishing screen shows the bait count next to Auto.
+   Auto fishing then consumes one per cast (1 bread each, bread 100 cap) → 50 casts = the row. Never buy bait (Shop: 5 for
+   40 gems). Kong swapped to Lucky Star 2026-11-08 (Nick: "select stars").
+4. **Draw Treasure 10 time(s)** — Recruit `(96,1810)` → **Treasure** tab by its icon `(976,1800)` (the label `(974,1856)` does
+   nothing) → _Treasure Blind Box_: **Draw x1** `(330,1220)` = **2000 Lucky Coins**, **Draw x10** `(770,1220)` = 18 800;
+   balance top-left (Kong 93 640), points `130/150` → a random Mythic Treasure. Lucky Coins only (no gems). Open: whether
+   Draw x10 counts 10 for the row — check the row before/after on first use; the balance must cover the price on screen.
+
+Skipped by Nick (`do: false`): Advanced Recruitment ×30, Purchase with Diamonds in Grocery ×5, Statue Blessings, Ascend ×5.
+
 ## Pet Arena (join + Auto Deploy)
 
 **Only open Mon, Tue, Wed** — skip on other days. Run it first in the dailies. **Scripted: `daily.py <acct> pet_arena`**
