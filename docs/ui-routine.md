@@ -382,7 +382,9 @@ Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**.
    - Green **Battle** `(540,1380)` → lineup (HP **carries over** between floors) → if fewer than 5 ticked,
      **Quick Deploy** `(984,1800)` → **Start** `(540,1808)` → ~25 s → _Victory_ → **Confirm** `(540,1404)`.
      Wait with `tap.py 540,1808 --until 400,1404,123,206,49,25` (returns when the Victory Confirm shows).
-     A loss: stop and report (don't use Recovery Potion).
+     **A loss with the 5 main heroes → Recovery Potion `(88,130)` → the same floor again with the 5** (Nick, 2026-11-08; `sanctuary_potion()`,
+     at most 2 potions a run; its popup is unmapped — only a popup naming the potion with Use/Confirm and no price is accepted;
+     "Daily usage limit reached" toast = no potion → MANUAL `floor N LOST`). Never "Challenge again" on the Defeat screen (it refights with the drained HP).
 4. After each floor: **Select Bonus Effect** (3 cards at `(192|540|884, 950)` → **Confirm Selection** `(540,1426)`).
    Pick, in order:
    1. A **preferred** buff: ATK Drill, DMG Increase Drill, Infinite Energy, Concentrated Fire, Iron Shield,

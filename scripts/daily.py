@@ -484,9 +484,25 @@ def floor_marker(im):
     return sum(x for x, _ in pts) // len(pts), sum(y for _, y in pts) // len(pts)
 
 
+def sanctuary_potion():
+    """Sanctuary map: Recovery Potion (top-left (88,130)) -> use one. Only "Daily usage limit reached" has been seen
+    (xFaktor 2026-11-08, the day's potion used by hand), so the popup is unmapped: use it only when it names the potion,
+    offers Use/Confirm and shows no purchase wording or price; anything else is closed and counts as no potion."""
+    tap_wait(88, 130); time.sleep(1); boxes = ocr(); t = joined(boxes)
+    if re.search(r'limit reached', t): print('    potion: daily usage limit reached', flush=True); return False
+    b = find(boxes, r'^(Use|Confirm)$')
+    if not b or not re.search(r'Recovery Potion|Recover', t) or re.search(r'Buy|Purchase|Diamond|Gem|\$', t):
+        c = find(boxes, r'^Cancel$'); tap_wait(*(c or (540, 120)))
+        print(f'    potion: not used, popup: {t[:140]}', flush=True); return False
+    tap_wait(*b); time.sleep(1.2)
+    if find(ocr(), r'Tap anywhere'): tap_wait(540, 120)
+    print('    potion used', flush=True); return True
+
+
 def sanctuary_climb():
     """Map: the next floor is the node just below the yellow marker (Cmajor, Ice Citadel 2026-10-29). Crash = instant
-    win; Battle -> lineup (Quick Deploy if < 5) -> Start -> Victory Confirm -> bonus pick. A loss: stop (no potions)."""
+    win; Battle -> lineup (Quick Deploy if < 5) -> Start -> Victory Confirm -> bonus pick. A loss with the 5 main heroes ->
+    Recovery Potion -> the same floor again with the 5 (Nick 2026-11-08), at most 2 potions; no potion left -> MANUAL."""
     def stable_marker():
         # the map keeps panning after a floor: a mid-pan frame put the marker at (727,458) on 4 accounts (2026-11-08,
         # settled map: (788,936)) -> 2 reads 0.5 s apart within 12 px
@@ -501,8 +517,8 @@ def sanctuary_climb():
             tap_wait(m[0], m[1] + dy)
             try: return wait(r'Floor \d+/10|Select Bonus Effect|Replace Bonus Effect', 4)
             except Stop: pass
-    out = []
-    for _ in range(10):
+    out, potions = [], 0
+    for _ in range(14):                                 # 10 floors + up to 2 potion retries + pending screens
         # a bonus screen left pending by an earlier run comes back on entry and hides the marker: "all floors won" with a
         # Replace screen up on Bino/Dminor/Cmajor (2026-11-08) -> resolve it first
         if find(ocr(), r'Select Bonus Effect|Replace Bonus Effect'): out.append(f'pending {bonus_pick()}'); continue
@@ -533,6 +549,8 @@ def sanctuary_climb():
                 for _ in range(3):                       # (Bino/Dminor/Tiger 2026-11-08: Stop -> the runner's retry re-fought); never Challenge again
                     tap_wait(540, 120); time.sleep(0.8)
                     if not find(ocr(), r'Tap anywhere to close|Challenge again'): break
+                if potions < 2 and sanctuary_potion():   # Nick 2026-11-08: lost with the 5 main heroes -> potion -> again with the 5
+                    potions += 1; out.append(f'floor {fl[1]} LOST -> potion, again'); continue
                 out.append(f'floor {fl[1]} LOST'); return 'MANUAL ' + ', '.join(out)
             tap_text(r'^Confirm$', (200, 1300, 880, 1500)); res = 'won'
         out.append(f'floor {fl[1]} {res} {bonus_pick()}')

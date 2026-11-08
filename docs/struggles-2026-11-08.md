@@ -25,6 +25,8 @@ Source: runner logs `/tmp/miniheroes-2026-11-08-09/*.log`, `/tmp/miniheroes-reli
 | 16 | Weekly pass (design) | Artifact Wishing treated as daily-capped and listed as short — its only limit is stars (Nick: higher in the order than Honor/Statue/Stars); Kong shows 15/30 because its config says `artifact: 1` since 11-03 (others 5) | ✅ pass rolls Free + star Wishes to the row's need, in list order; ❓ Kong's `artifact: 1` |
 | 17 | Weekly pass (Dminor, Tiger, xFaktor) | Dminor/Tiger instances stopped (`screencap failed`), xFaktor on the game's "quit?" dialog when the pass started → `FAIL start` (a traceback on dead devices → now a plain FAIL line) | ❓ run when the instances are back |
 
+| 18 | Sanctuary losses (Dminor 9, Tiger 10, xFaktor 10) | Script stops on a loss (old rule: no potions). Nick: a loss with the 5 main heroes → Recovery Potion → again with the 5. xFaktor's floor 10 was then beaten by hand (potion used, all flags at 14:5x); Dino's "all floors won" at 12:42 is suspect (pending Replace screen pattern), instance stopped before a check | 🧪 `sanctuary_potion()` + retry (popup unmapped, guarded); ❓ Dino |
+
 Catch-up 09:52 (`catchup all`, Aminor removed from `accounts/tasks.yaml`): 8 × 12 OK + storm SKIP (Coming Soon) + pet_check SKIP; Dino tribe_chat FAIL → retry OK; no helper, no paid action.
 
 Relics 10:08 (`relics all`): 7 exit 0 + Dino exit 1 (#2); every account 0 shovels; no gems (today's 80-gem buys were yesterday's game day); Kong drill hint "saves ~10" not fired (stock unread); no `UNKNOWN` tiles.
