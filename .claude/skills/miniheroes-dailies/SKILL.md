@@ -25,6 +25,8 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
    **Definition of Done (Nick, 2026-11-03): check the step's DoD in `docs/dod.md` before moving to the next task** — the on-screen evidence, not just an OK line; not met → its "Not done →" action, never move on silently.
 3. **Run** — see "Cost" below: boot, `daily.py` per account in parallel, then one helper per account for its leftovers.
    The runner follows the **Daily run order** in `docs/ui-routine.md` and skips missions not in the account config.
+   **Sundays:** the runner's `weekly` step (after `daily_mission`) does the weekly-missions pass — `accounts/weekly.yaml` top-down,
+   ui-routine "Weekly Missions (Sunday pass)"; report its line (180 ✓ or what's short) per account (Nick, 2026-11-08).
 4. **Report** per account: each mission done/skipped (and why) and every paid action with its price (the runner prints
    each). Don't track gem/resource balances — they change constantly.
    **Every account must reach the 160 Daily Mission chest** (Nick, 2026-11-03): 16 of the 18 rows are scripted (not

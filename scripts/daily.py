@@ -161,6 +161,9 @@ def buy_scrolls():
 def fishing(cfg, orders=True):
     mn = orders and re.search(r'min_order_diamonds:\s*(\d+)', cfg)
     tap_wait(624, 1780); boxes = wait(r'Order Info', 10)
+    back = ''
+    if NOW.weekday() != 6 and os.path.exists(f'/tmp/miniheroes-state/{ACCOUNT}.lucky_bait'):   # Sunday's Lucky Star bait -> the usual one (Nick: stars only on Sunday)
+        time.sleep(0.6); back = weekly_bait(False) + ', '; boxes = wait(r'Order Info', 6)
     packs = gems = 0
     if mn:
         tap_text(r'Order Info', boxes=boxes); wait(r'Daily Order', 8)
@@ -176,7 +179,7 @@ def fishing(cfg, orders=True):
         if c: tap_wait(*c); time.sleep(1); tap_wait(540, 120); got = 'benefit claimed, '
         tap_wait(970, 238)
     boxes = ocr()
-    if find(boxes, r'Auto Fishing'): return got + 'auto already running'
+    if find(boxes, r'Auto Fishing'): return back + got + 'auto already running'
     for _ in range(2):                                   # Start sometimes doesn't take on the first tap (Aminor 2026-10-28)
         boxes = ocr()
         if not find(boxes, r'^Start$'): tap_wait(982, 1222); boxes = wait(r'^Start$', 8)   # settings dialog
@@ -184,7 +187,7 @@ def fishing(cfg, orders=True):
         try: wait(r'Auto Fishing', 4); break
         except Stop: pass
     else: raise Stop('Auto Fishing did not start')
-    return got + (f'orders refreshed ({packs} scroll packs bought, {gems} gems), ' if mn else '') + 'auto started'
+    return back + got + (f'orders refreshed ({packs} scroll packs bought, {gems} gems), ' if mn else '') + 'auto started'
 
 
 def patrol(cfg): return script('patrol.py', ACCOUNT)
@@ -595,6 +598,33 @@ def gate(cfg):
     return f'{out or "nothing left"}'
 
 
+def artifact_rolls(count, got):
+    """Recruit screen -> Artifact tab: Free, then Wish (stars) up to `count` rolls, Auto OFF, never the 280-gem button;
+    appends 'artifact xN' (or a SKIPPED/STOPPED note) to got. Shared by the dailies (config count) and the Sunday weekly
+    pass (the 'Artifact Wishing 30' row has no daily cap - Nick 2026-11-08)."""
+    tap_wait(618, 1840); time.sleep(1)
+    def auto_on():   # Auto = checkbox, ticked = green check at ~(866,1658); old 1-pixel test at 900 missed it (Chien Than 2026-11-04)
+        im = grab().convert('RGB')
+        return sum(1 for x in range(830, 900, 3) for y in range(1630, 1690, 3)
+                   if (lambda q: q[1] > 150 and q[1] > q[0] + 40 and q[1] > q[2] + 40)(im.getpixel((x, y)))) >= 5
+    if auto_on(): tap_wait(866, 1658); time.sleep(0.5)
+    if auto_on(): got.append('ARTIFACT SKIPPED: Auto toggle stays ON')
+    else:
+        n = 0
+        for _ in range(count):
+            if auto_on(): got.append('ARTIFACT STOPPED: Auto ticked mid-run'); break
+            boxes = ocr(); b = find(boxes, r'^(Free|Wish)$', (300, 1580, 780, 1700))
+            if not b or find(boxes, r'^280$', (300, 1580, 780, 1700)): break     # 280 = gem price: never
+            g0 = gems(boxes); tap_wait(*b); time.sleep(1.5); tap_wait(540, 120)   # fragment can sit over the button
+            for _ in range(8):                       # fragment / new-artifact display (Confirm) -> back to the button
+                boxes = ocr()
+                if find(boxes, r'^(Free|Wish)$', (300, 1580, 780, 1700)): break
+                c = find(boxes, r'^Confirm$'); tap_wait(*(c or (540, 120)))
+            if gems(ocr()) < g0: raise Stop(f'artifact: gems dropped {g0} -> {gems(ocr())}')
+            n += 1
+        got.append(f'artifact x{n}')
+
+
 def recruit(cfg, common_only=False):
     want = lambda k: int((re.search(rf'recruit:(?:\n\s+.*)*?\n\s+{k}:\s*(\d+)', cfg) or [0, 0])[1])
     tap_wait(96, 1810); wait(r'Recruitment|Recruit 1', 10)
@@ -621,28 +651,7 @@ def recruit(cfg, common_only=False):
         if find(boxes, r'^Free$', (150, 1290, 470, 1420)):
             tap_text(r'^Free$', (150, 1290, 470, 1420), boxes)
             tap_text(r'^Confirm$', boxes=wait(r'^Confirm$', 15)); got.append('ancestor')
-    if want('artifact') and not common_only:            # Free + Wishes (stars) up to the config count, Auto OFF (Nick 2026-11-02)
-        tap_wait(618, 1840); time.sleep(1)
-        def auto_on():   # Auto = checkbox, ticked = green check at ~(866,1658); old 1-pixel test at 900 missed it (Chien Than 2026-11-04)
-            im = grab().convert('RGB')
-            return sum(1 for x in range(830, 900, 3) for y in range(1630, 1690, 3)
-                       if (lambda q: q[1] > 150 and q[1] > q[0] + 40 and q[1] > q[2] + 40)(im.getpixel((x, y)))) >= 5
-        if auto_on(): tap_wait(866, 1658); time.sleep(0.5)
-        if auto_on(): got.append('ARTIFACT SKIPPED: Auto toggle stays ON')
-        else:
-            n = 0
-            for _ in range(want('artifact')):
-                if auto_on(): got.append('ARTIFACT STOPPED: Auto ticked mid-run'); break
-                boxes = ocr(); b = find(boxes, r'^(Free|Wish)$', (300, 1580, 780, 1700))
-                if not b or find(boxes, r'^280$', (300, 1580, 780, 1700)): break     # 280 = gem price: never
-                g0 = gems(boxes); tap_wait(*b); time.sleep(1.5); tap_wait(540, 120)   # fragment can sit over the button
-                for _ in range(8):                       # fragment / new-artifact display (Confirm) -> back to the button
-                    boxes = ocr()
-                    if find(boxes, r'^(Free|Wish)$', (300, 1580, 780, 1700)): break
-                    c = find(boxes, r'^Confirm$'); tap_wait(*(c or (540, 120)))
-                if gems(ocr()) < g0: raise Stop(f'artifact: gems dropped {g0} -> {gems(ocr())}')
-                n += 1
-            got.append(f'artifact x{n}')
+    if want('artifact') and not common_only: artifact_rolls(want('artifact'), got)   # Free + Wishes (stars) up to the config count, Auto OFF (Nick 2026-11-02)
     return f'free draws {got or "none available"}'
 
 
@@ -1262,6 +1271,180 @@ def events(cfg):
     return f'MANUAL {r}; red dots left: {left}' if left else r
 
 
+# --- Weekly missions, Sunday pass (Nick 2026-11-08): accounts/weekly.yaml top-down; the four rows no daily step makes were
+# mapped on Kong (ui-routine "Weekly Missions"). Draw x10 counts 10, Lucky Star bait only on Sunday, Statue last resort (Nick).
+WEEKLY_KEY = {'sanctuary': 'Secret Sanctuary', 'poseidon': 'Poseidon', 'treasure_draw': 'Draw Treasure', 'gate': 'Gate of Darkness',
+              'canyon': 'Canyon', 'tribe_trial': 'Tribe Trial', 'trials': 'Land of Trials', 'speed_patrol': 'Speed Patrol',
+              'match_points': 'Match Points', 'hero_level': 'Leveled', 'match': 'Match Challenges', 'stage': r'Stage \d', 'tower': 'Tower',
+              'gear': 'Enhanced Equipment', 'artifact_wish': 'Artifact Wishing', 'honor': 'Honor', 'statue_upgrade': 'Upgrade Statue',
+              'lucky_stars': 'Lucky Star', 'adv_recruit': 'Advanced Recruitment', 'grocery_gems': 'Diamonds', 'statue_blessing': 'Blessing',
+              'ascend': 'Ascended'}
+BAIT_TILES = [(198, 1120), (426, 1120), (654, 1120), (908, 1120), (198, 1340), (426, 1340), (654, 1340), (908, 1340)]   # Bait grid, tile 3 = Lucky Star
+
+
+def weekly_list():
+    """accounts/weekly.yaml -> [(id, do)] in Nick's priority order (top-down)."""
+    s = open(os.path.join(HERE, '..', 'accounts', 'weekly.yaml')).read()
+    return [(m.group(1), m.group(2) == 'true') for m in re.finditer(r'id:\s*(\w+),.*?do:\s*(true|false)', s)]
+
+
+def weekly_rows(boxes):
+    """One Weekly-tab page -> {row name: (done, total)}: each 'n/m' progress box + the row's text 50-135 px above it
+    (a 2-line name keeps its first line; the previous row sits ~190 px up)."""
+    out = {}
+    for x, y, w, h, t in boxes:
+        m = re.fullmatch(r'(\d+)/(\d+)', t.strip()); cy = y + h // 2
+        if not m or not 560 < cy < 1580: continue
+        name = ' '.join(tt for xx, yy, ww, hh, tt in sorted(boxes, key=lambda b: (b[1], b[0]))
+                        if 50 < cy - (yy + hh // 2) < 135 and xx + ww // 2 < 760 and not re.fullmatch(r'\d+', tt.strip()))
+        if name: out[name] = (int(m.group(1)), int(m.group(2)))
+    return out
+
+
+def weekly_read():
+    """Main -> Mission popup -> Weekly tab -> (points, {name: (done, total)}) over every page; leaves the popup open."""
+    tap_wait(994, 1625); wait(r'^Mission$', 6); time.sleep(1.2); m = find(ocr(), r'^Mission$')
+    if not m: raise Stop('Mission entry not in the side menu')
+    tap_wait(m[0] - 120, m[1] - 30); wait(r'Daily Mission', 10)
+    tap_wait(778, 1688); time.sleep(1); boxes = wait(r'Weekly Mission', 6)
+    p = [t for x, y, w, h, t in boxes if 100 < x + w // 2 < 260 and 400 < y + h // 2 < 540 and t.strip().isdigit()]
+    rows, prev = {}, None
+    for _ in range(8):                                    # slow swipes; a page equal to the last = the list's end
+        r = weekly_rows(ocr()); rows.update(r)
+        if r and set(r) == prev: break
+        prev = set(r); swipe(540, 1400, 540, 850, 1500); time.sleep(1.8)
+    return (int(p[0]) if p else -1), rows
+
+
+def weekly_treasure(need):
+    """Recruit > Treasure: one Draw x10 (= 10 draws, Nick) if the Lucky Coins balance on screen covers its price."""
+    tap_wait(96, 1810); wait(r'Recruitment|Recruit 1', 10); time.sleep(0.8); tap_wait(976, 1800); boxes = wait(r'Blind Box', 8)
+    bal = [t for x, y, w, h, t in boxes if x + w // 2 < 320 and y + h // 2 < 110 and re.fullmatch(r'[\d.]+[kKmM]?', t.strip())]
+    pr = [re.search(r'\d{4,6}', t).group() for x, y, w, h, t in boxes if x + w // 2 > 600 and 1170 < y + h // 2 < 1270 and re.search(r'\d{4,6}', t)]
+    if not bal or not pr: raise Stop(f'treasure: balance/price unreadable: {joined(boxes)[:160]}')
+    bal, price = int(num(bal[0])), int(pr[0])
+    if bal < price: return f'treasure: {bal} Lucky Coins < {price}, no draw'
+    tap_wait(770, 1220); wait(r'Tap anywhere|Confirm|Congratulations|Obtain', 20)
+    for _ in range(8):                                    # result cards -> back on the Blind Box screen
+        b = ocr()
+        if find(b, r'Blind Box') and not find(b, r'Tap anywhere|Congratulations'): break
+        c = find(b, r'^Confirm$'); tap_wait(*(c or (540, 120))); time.sleep(1)
+    b2 = [t for x, y, w, h, t in ocr() if x + w // 2 < 320 and y + h // 2 < 110 and re.fullmatch(r'[\d.]+[kKmM]?', t.strip())]
+    after = int(num(b2[0])) if b2 else -1
+    if after < 0 or after > bal - price // 2: raise Stop(f'treasure: Draw x10 tapped but the balance did not drop ({bal} -> {after})')
+    return f'treasure: Draw x10 (-{price} Lucky Coins, {bal} -> {after})'
+
+
+def weekly_honor(need):
+    """Side menu > Lobby > Honor Bonus: Upgrade (15000 gold + 1 medal each) `need` times while both costs are covered."""
+    tap_wait(994, 1625); wait(r'^Mission$', 6); time.sleep(1.2); l = find(ocr(), r'^Lobby$')
+    if not l: raise Stop('Lobby entry not in the side menu')
+    tap_wait(l[0] - 120, l[1] - 30); wait(r'Honor Bonus', 10); time.sleep(0.8)
+    done = []
+    for _ in range(need):
+        boxes = ocr()
+        costs = sorted((x + w // 2, t) for x, y, w, h, t in boxes if 1600 < y + h // 2 < 1700 and '/' in t)   # gold, medal
+        if len(costs) < 2: raise Stop(f'honor: costs unreadable: {joined(boxes)[:160]}')
+        have = [int(num(c.split('/')[0].strip())) for _, c in costs[:2]]; cost = [int(num(c.split('/')[1].strip())) for _, c in costs[:2]]
+        if have[0] < cost[0] or have[1] < cost[1]: done.append(f'stop: gold {have[0]}/{cost[0]}, medals {have[1]}/{cost[1]}'); break
+        before = ' '.join(t for x, y, w, h, t in boxes if 1440 < y + h // 2 < 1580)   # level + progress bar
+        tap_wait(380, 1808); time.sleep(1.2)                                           # never (724,1808) = Upgrade Lv.1
+        c = find(ocr(), r'^Confirm$')
+        if c: tap_wait(*c); time.sleep(1)
+        after = ' '.join(t for x, y, w, h, t in ocr() if 1440 < y + h // 2 < 1580)
+        if after == before: done.append('no change after Upgrade'); break
+        done.append(f'+1 ({after.strip()[:40]})')
+    return 'honor: ' + ', '.join(done)
+
+
+def weekly_bait(to_lucky):
+    """On the fishing screen: Bait tab -> Swap to Lucky Star, remembering the bait in use BY NAME; to_lucky=False swaps
+    that one back (Monday). The grid reorders itself - the bait in use jumps to tile 1 (Kong 2026-11-08: Lucky Star went
+    1st, Shrimp 3rd) - so tiles are found by the description title, not by position. Stars only on Sunday - Nick."""
+    st = f'/tmp/miniheroes-state/{ACCOUNT}.lucky_bait'
+    title = lambda boxes=None: next((t.strip() for x, y, w, h, t in (boxes or ocr()) if 300 < x + w // 2 < 760 and 370 < y + h // 2 < 450), '')
+    b = find(ocr(), r'^Bait$', (880, 1380, 1080, 1540)); tap_wait(*(b or (986, 1459))); wait(r'^Swap$', 6); time.sleep(0.8)
+    boxes = ocr(); iu = find(boxes, r'In use')
+    if iu: tap_wait(*min(BAIT_TILES, key=lambda p: abs(p[0] - iu[0]) + abs(p[1] - iu[1]))); time.sleep(0.7); boxes = ocr()
+    now = title(boxes)
+    target = 'Lucky Star' if to_lucky else (open(st).read().strip() if os.path.exists(st) else 'Shrimp Bait')
+    if now == target:
+        tap_wait(968, 240); r = f'{target} already in use'
+    else:
+        if to_lucky and now: os.makedirs(os.path.dirname(st), exist_ok=True); open(st, 'w').write(now)
+        for p in BAIT_TILES:
+            tap_wait(*p); time.sleep(0.7)
+            if title() == target: break
+        else: raise Stop(f'bait {target!r} not in the grid')
+        tap_wait(539, 1557); time.sleep(1.2)
+        if find(ocr(), r'^Swap$'): raise Stop('bait: Swap did not close the Bait popup')
+        tap_wait(*(b or (986, 1459))); wait(r'^Swap$', 6); time.sleep(0.8); boxes = ocr(); iu = find(boxes, r'In use')   # verify
+        if iu: tap_wait(*min(BAIT_TILES, key=lambda p: abs(p[0] - iu[0]) + abs(p[1] - iu[1]))); time.sleep(0.7); boxes = ocr()
+        got = title(boxes); tap_wait(968, 240)
+        if got != target: raise Stop(f'bait: swapped but {got!r} is in use, not {target!r}')
+        r = f'bait swapped to {target} (was {now or "?"})'
+    if not to_lucky and os.path.exists(st): os.remove(st)
+    return r
+
+
+def weekly_statue(need):
+    """Hero > Statue: Level Up while the Power Required bar is full (one level per full bar), at most `need` times."""
+    tap_wait(274, 1780); wait(r'^Statue$', 8); tap_wait(635, 1848); wait(r'Power Required', 8); time.sleep(0.8)
+    done = 0
+    for _ in range(need):
+        boxes = ocr(); t = joined(boxes)
+        bar = [tt for x, y, w, h, tt in boxes if 1430 < y + h // 2 < 1510 and re.search(r'\d+/\d+', tt)]
+        lv = re.search(r'Lv\.(\d+)', t)
+        if not bar or not lv: raise Stop(f'statue: bar/level unreadable: {t[:160]}')
+        have, req = map(int, re.search(r'(\d+)/(\d+)', bar[0]).groups())
+        if have < req: return f'statue: +{done}, bar {have}/{req} not full'
+        tap_wait(540, 1589); time.sleep(1.5)
+        if find(ocr(), r'Tap anywhere|Congratulations'): tap_wait(540, 120); time.sleep(0.8)
+        lv2 = re.search(r'Lv\.(\d+)', joined(ocr()))
+        if not lv2 or int(lv2.group(1)) <= int(lv.group(1)): return f'statue: +{done}, Level Up did not raise the level ({lv.group(1)})'
+        done += 1
+    return f'statue: +{done} level(s)'
+
+
+def weekly(cfg):
+    """Sunday pass (Nick 2026-11-08): read the Weekly tab, then down accounts/weekly.yaml: Draw x10, Honor Upgrades, Lucky
+    Star bait; claim; still under 180 -> Statue Level Up (last resort) and claim again. Rows the daily steps produce can't
+    be pushed past their daily caps on a Sunday -> listed as short."""
+    if NOW.weekday() != 6: return 'SKIP not Sunday'
+    pts, rows = weekly_read(); tap_wait(972, 238)
+    prog = lambda key: next(((d, t) for name, (d, t) in rows.items() if re.search(key, name)), None)
+    out, short, statue = [f'{pts} pts, {len(rows)} rows read'], [], 0
+    out.append('new rows: ' + ', '.join(f'{m} {prog(WEEKLY_KEY[m]) or "?"}' for m in ('treasure_draw', 'honor', 'artifact_wish', 'lucky_stars', 'statue_upgrade')))
+    if pts < 180:
+        for mid, do in weekly_list():
+            p = prog(WEEKLY_KEY[mid])
+            if not p:
+                if do: out.append(f'{mid}: row not read')
+                continue
+            d, t = p
+            if d >= t or not do: continue
+            if mid == 'statue_upgrade': statue = t - d; continue
+            if mid not in ('treasure_draw', 'honor', 'lucky_stars', 'artifact_wish'): short.append(f'{mid} {d}/{t}'); continue
+            if not home(): raise Stop('lost the main screen in the weekly pass')
+            if mid == 'treasure_draw': out.append(weekly_treasure(t - d))
+            elif mid == 'honor': out.append(weekly_honor(t - d))
+            elif mid == 'artifact_wish':
+                got = []; tap_wait(96, 1810); wait(r'Recruitment|Recruit 1', 10); artifact_rolls(t - d, got); out.append('artifact wishes: ' + ', '.join(got))
+            else: tap_wait(624, 1780); wait(r'Order Info', 10); time.sleep(0.6); out.append(weekly_bait(True))
+    if not home(): raise Stop('lost the main screen in the weekly pass')
+    claims = [str(daily_mission(cfg))]
+    if statue and pts < 180:
+        if not home(): raise Stop('lost the main screen in the weekly pass')
+        pts2, _ = weekly_read(); tap_wait(972, 238); out.append(f'{pts2} pts after claims')
+        if pts2 < 180:
+            if not home(): raise Stop('lost the main screen in the weekly pass')
+            out.append(weekly_statue(statue))
+            if not home(): raise Stop('lost the main screen in the weekly pass')
+            claims.append(str(daily_mission(cfg)))
+    tag = 'MANUAL ' if any(c.startswith('MANUAL') for c in claims) else ''
+    return tag + '; '.join(out) + (f'; short (daily caps): {", ".join(short)}' if short else '') + f'; claims: {" / ".join(claims)}'
+
+
 # catch-up (.claude/skills/catch-up): Fishing auto only, Arena, Storm, Veins + Forge (no Benefit), Patrol Claim All,
 # Arena again, Tribe chat Request/Assist, Common Recruitment, Daily Mission, Fishing order rewards
 CATCHUP = [('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena), ('storm', storm),   # fishing first: Auto runs during the rest (Nick, 2026-10-29)
@@ -1298,6 +1481,7 @@ ORDER = [('pet_arena', pet_arena), ('fishing', fishing), ('arena', arena), ('pat
          ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune),
          ('grocery', seq((grocery, 'grocery_free_chests'), (grocery_buy, 'grocery_buy'))),
          ('events', events), ('tribe_pack', tribe_pack), ('realm_packs', realm_packs), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
+         ('weekly', weekly),   # Sundays only: the weekly-missions pass (Nick 2026-11-08)
          ('play_pass2', play_pass2)]   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
 # pet_check: catch-up only (removed from the dailies, Nick 2026-11-04: Auto Deploy isn't done by then)
 # config key that must be present / truthy for a step to run
@@ -1307,7 +1491,7 @@ KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'are
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
        'tribe_chat': 'tribe', 'common_recruit': 'recruit',
-       'events': None, 'tribe_pack': 'shop_freebies', 'realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
+       'events': None, 'weekly': None, 'tribe_pack': 'shop_freebies', 'realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
 
 
 def enabled(cfg, key):
@@ -1350,7 +1534,9 @@ def main(argv):
     os.makedirs(os.path.dirname(log), exist_ok=True)
     sys.stdout = Tee(sys.stdout, open(log, 'a'))
     print(f'=== {datetime.datetime.now():%F %H:%M:%S} daily.py {" ".join(sys.argv[1:])} (serial {D})')
-    if not home(): print('FAIL start: not on the main screen'); return 1
+    try:
+        if not home(): print('FAIL start: not on the main screen'); return 1
+    except RuntimeError as e: print(f'FAIL start: device unreachable ({e}) - instance stopped?'); return 1
 
     def step(name, fn):
         """Run one step; True = OK/SKIP/MANUAL, False = FAIL, None = lost the main screen."""

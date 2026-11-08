@@ -805,6 +805,8 @@ scaled up; the four rows nothing else produces:
    balance top-left (Kong 93 640), points `130/150` → a random Mythic Treasure. Lucky Coins only (no gems). Open: whether
    Draw x10 counts 10 for the row — check the row before/after on first use; the balance must cover the price on screen.
 
+**Runner step `weekly`** (Sundays only, after `daily_mission`; alone: `daily.py <acct> weekly`): reads the Weekly tab (points + every row), then walks `accounts/weekly.yaml` top-down while under 180: **Draw x10** (Lucky Coins on screen ≥ price), **Honor Upgrade** ×need (gold + medal on screen ≥ cost), **Artifact Wishes** (Free + star Wishes, never the 280-gem button — the row has no daily cap, Nick 2026-11-08), **Lucky Star bait** swap; then the Daily Mission claims; still under 180 → **Statue Level Up** (last resort) and claim again. Rows the daily steps produce (Sanctuary, Canyon, Gate, …) are daily-capped → listed as `short`. The **Bait grid reorders itself — the bait in use jumps to tile 1** (Kong 2026-11-08: Lucky Star 1st, Shrimp 3rd), so tiles are found by the description title, never by position; the previous bait's name goes to `/tmp/miniheroes-state/<acct>.lucky_bait` and the next weekday `fishing` step swaps it back (stars only on Sunday). The Lucky Star row then needs 50 casts of Auto fishing (bread-limited) — the pass only sets it up. First live run 2026-11-08: Kong 170 → 180 (Treasure x10, Honor ×2), Cmajor 170 (only Lucky Stars 0/50 left).
+
 Skipped by Nick (`do: false`): Advanced Recruitment ×30, Purchase with Diamonds in Grocery ×5, Statue Blessings, Ascend ×5.
 
 ## Pet Arena (join + Auto Deploy)
