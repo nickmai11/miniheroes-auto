@@ -20,3 +20,17 @@ waiting for a live test (`docs/untested.md`) · ❌ open · ❓ needs Nick. Last
 | 8   | Gate (Chien Than, Dino, Dminor, Bino)              | "Network issue detected, please reload" mid-fight (~3 min); Dino then landed in an in-game web page (Snow Carnival login) → rebooted; Bino/Dminor rebooted + re-run                                                                            | ❌ not handled in code (game side); `no button ^Confirm$` race fixed 🧪          |
 | 9   | Trials (Chien Than, Dminor)                        | Congratulations popup still up when the counter was re-read → `counter … -> None`                                                                                                                                                              | 🧪 close it and re-read                                                          |
 | 10  | Coordinator (Kong)                                 | My debug `python3 -c "import grocery"` ran the whole script blind on Kong (Nick was using Kong at the time); it only taps chest/Free/close spots                                                                                               | ✅ never import a mission script — they run at import                            |
+
+## Artifact roll (Kong, evening)
+
+| #   | Task                 | What went wrong                                                                                                                                                                                                                                  | Status |
+| --- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ |
+| 11  | Artifact roll (Kong) | Cycle 64: the new Legendary "Devil Fruit" popup showed before the Auto Wish box → `wait('Auto Wish', 6)` timed out, exit 1; Confirmed + cleared by hand, re-run. Fix: that wait also accepts Confirm/Mythic                                      | 🧪     |
+| 12  | Relics (Cmajor)      | After the top-up (no Benefit dot, 240 not in [80, 160] → ✕) the game was on the main screen → `not on the dig board after the top-up`, exit 1 before `boosters()`; shovels were 0 anyway — boosters-only re-run (`--max-digs 0`): hint only (~4) | ❌     |
+
+## Catch-up all (evening, 8 accounts, 21:59–22:09)
+
+| #   | Task            | What went wrong                                                                                                                                                                           | Status                              |
+| --- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| 13  | Canyon (Cmajor) | Occupy OK, but the old spot's "Congratulations" gains popup came after `try_occupy`'s 5 s watch → ate the Rewards tap → `waited 10s for 'Points Reward'`; retry OK (`spot taken earlier`) | 🧪 `canyon_rewards` closes it first |
+| 14  | Canyon (Tiger)  | `keeping the current Glory spot` (highest_free) then `points ?` — Points Reward number not read                                                                                           | ❌                                  |

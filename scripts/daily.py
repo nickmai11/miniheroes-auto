@@ -992,6 +992,7 @@ def canyon_rewards():
     """Called by canyon() on the fresh Canyon map: always open Rewards (88,745) — no red-dot gate, the dot was never
     seen on 11-05 — and Claim Reward while its button isn't grey (95,96,95 = nothing reached). Returns the points read
     on the panel as evidence."""
+    if find(ocr(), r'Congratulations|Tap anywhere'): tap_wait(540, 120); time.sleep(1)  # late gains popup ate the Rewards tap (Cmajor 11-09)
     tap_wait(88, 745); boxes = wait(r'Points Reward', 10); n = 0
     pts = next((t for x, y, w, h, t in boxes if 240 <= x + w // 2 <= 420 and re.fullmatch(r'\d{3,6}', t.strip())), '?')
     for _ in range(6):
