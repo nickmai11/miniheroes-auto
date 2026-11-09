@@ -521,7 +521,11 @@ def sanctuary_climb():
     for _ in range(14):                                 # 10 floors + up to 2 potion retries + pending screens
         # a bonus screen left pending by an earlier run comes back on entry and hides the marker: "all floors won" with a
         # Replace screen up on Bino/Dminor/Cmajor (2026-11-08) -> resolve it first
-        if find(ocr(), r'Select Bonus Effect|Replace Bonus Effect'): out.append(f'pending {bonus_pick()}'); continue
+        boxes = ocr()
+        if find(boxes, r'Select Bonus Effect|Replace Bonus Effect'): out.append(f'pending {bonus_pick()}'); continue
+        # weekly "Hidden Altar" modifier card (Monday, 3 rows + Confirm, no choice) covers the map (Kong/Tiger/Chien Than 11-09)
+        if find(boxes, r'Hidden Altar') and (c := find(boxes, r'^Confirm$')): tap_wait(*c); time.sleep(1); continue
+        if find(boxes, r'Tap anywhere to close'): tap_wait(540, 120); time.sleep(1); continue   # floor reward still up (xFaktor 11-09)
         m = stable_marker()
         if not m: break                                  # no marker: all floors flagged
         boxes = open_floor(m)
@@ -589,7 +593,7 @@ def gate(cfg):
         tap_text(r'^Start Challenge$', (200, 880, 880, 1040), boxes)
         boxes = wait(r'^Start Challenge$', 8, (0, 1700, 1080, 1920))
         tap_text(r'^Start Challenge$', (0, 1700, 1080, 1920), boxes)
-        boxes = wait(r'Start challenge from Wave|^Confirm$', 8)
+        boxes = wait(r'^Confirm$', 8)   # the Tip text OCRs before its buttons finish animating (Chien Than/Dminor 11-09)
         tap_text(r'^Confirm$', (560, 1080, 960, 1250), boxes)
         t0 = time.time()
         while time.time() - t0 < 180 and not find(ocr(), r'Victory|Kill Count'): time.sleep(2)

@@ -36,7 +36,7 @@ def watch_ad(timeout=180, log=print):
     during a playable (jigsaw) ad only toggled its "Confirm to close?" dialog, which also pauses the countdown ->
     Continue while a countdown shows. Countdown gone 6 s and >= 40 s in (plain videos ~37 s, no text) -> Back
     (closes the end card); "Confirm to close?" then = reward already granted -> Close it; the top-right X (1014,82)
-    only as the 5th try (a video's body opens the store). True once the game is in front again."""
+    every 2nd try - playables (water sort) ignore Back and need '>' then X; a store page that opens is Backed out. True once the game is in front again."""
     t0 = time.time()
     while time.time() - t0 < 6:
         if not in_game(): break
@@ -56,7 +56,7 @@ def watch_ad(timeout=180, log=print):
             if b: tap(*b); log(f'    ad dialog -> {"Close it" if done else "Continue"} ({el:.0f}s)'); time.sleep(2); continue
         if el >= 40 and time.time() - seen >= 6:
             tries += 1
-            if tries == 5: tap(1014, 82)
+            if tries % 2 == 0: tap(1014, 82)   # playables ignore Back: '>' then the end card's X (xFaktor 11-09)
             else: subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4'])
             time.sleep(3); continue
         time.sleep(2)

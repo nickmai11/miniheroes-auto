@@ -13,32 +13,41 @@ def tap(x,y): subprocess.run(['adb','-s',D,'shell','input','tap',str(x),str(y)])
 def popup_green_y(p):   # scan popup column for the green Free button
     for y in range(500,820,4):
         if green(p.getpixel((200,y))): return y+12
-idle=0; ad_fail=0
-while idle<8:   # ~12 s of no Free button (cooldowns are 5–8 s) = done
-    im=shot(); got=False; boxes=None
-    for x in (82,207,332,457):
-        ad=False
-        if not green(im.getpixel((x,436))):
-            boxes = boxes or ocr(im)                   # 540-wide coords; "Free" text on a non-green button = ad chance
-            if not find(boxes, r'Free$', (x-55,405,x+55,470)): continue   # OCR gives '} Free' (the ▶ icon) on chest 3 (xFaktor 2026-11-08)
-            ad=True
-        subprocess.run([T,f'{x*2},893','-o','p.png'],env=os.environ); p=Image.open('p.png').convert('RGB'); y=popup_green_y(p)
-        if not y: print('popup has no green Free; closing',x,flush=True); subprocess.run([T,'540,1850','-o','g.png'],env=os.environ); break
-        if not ad:
-            subprocess.run([T,f'540,{y*2}','540,1850','-o','g.png'],env=os.environ); print('claimed',x,flush=True); got=True; break
-        tap(540,y*2)
-        if not watch_ad(): print('ad did not close; stop',flush=True); sys.exit(1)
-        for _ in range(4):                              # reward popup can lag the ad's close by a second or two
-            time.sleep(1.5); b=ocr()
-            if find(b, r'Tap anywhere to close|Congratulations'): break
-        if find(b, r'Tap anywhere to close|Congratulations'):
-            tap(540,1850); print('claimed (ad)',x,flush=True); got=True; ad_fail=0
-        else:
-            ad_fail+=1; print('ad closed but no reward popup',x,flush=True); tap(540,1850)   # chest popup still up -> close
-            if ad_fail>=2: print('2 ads without reward; stop',flush=True); sys.exit(1)
-        break
-    if got: idle=0
-    elif find(ocr(im), r'Tap anywhere to close'):   # reward popup that came up after the dismiss tap dims every Free
-        tap(540,1850); time.sleep(1)                 # button -> looked idle, quit with 8 chests left (Dino 2026-11-01)
-    else: idle+=1; time.sleep(1.5)
-print('done')
+def chests():   # (Sold Out, still Free) on the top row = the step's proof (Kong 2026-11-09: 3 chests left, OK "done")
+    b=ocr(shot()); n=lambda pat: sum(bool(find(b, pat, (x-55,405,x+55,470))) for x in (82,207,332,457))
+    return n(r'Sold Out'), n(r'Free$')
+ad_fail=0
+for rnd in range(3):   # a pass can end with a chest still Free (popup read mid-animation) -> another pass
+    idle=0
+    while idle<8:   # ~12 s of no Free button (cooldowns are 5–8 s) = done
+        im=shot(); got=False; boxes=None
+        for x in (82,207,332,457):
+            ad=False
+            if not green(im.getpixel((x,436))):
+                boxes = boxes or ocr(im)                   # 540-wide coords; "Free" text on a non-green button = ad chance
+                if not find(boxes, r'Free$', (x-55,405,x+55,470)): continue   # OCR gives '} Free' (the ▶ icon) on chest 3 (xFaktor 2026-11-08)
+                ad=True
+            subprocess.run([T,f'{x*2},893','-o','p.png'],env=os.environ); p=Image.open('p.png').convert('RGB'); y=popup_green_y(p)
+            if not y: print('popup has no green Free; closing',x,flush=True); subprocess.run([T,'540,1850','-o','g.png'],env=os.environ); break
+            if not ad:
+                subprocess.run([T,f'540,{y*2}','540,1850','-o','g.png'],env=os.environ); print('claimed',x,flush=True); got=True; break
+            tap(540,y*2)
+            if not watch_ad(): print('ad did not close; stop',flush=True); sys.exit(1)
+            for _ in range(4):                              # reward popup can lag the ad's close by a second or two
+                time.sleep(1.5); b=ocr()
+                if find(b, r'Tap anywhere to close|Congratulations'): break
+            if find(b, r'Tap anywhere to close|Congratulations'):
+                tap(540,1850); print('claimed (ad)',x,flush=True); got=True; ad_fail=0
+            else:
+                ad_fail+=1; print('ad closed but no reward popup',x,flush=True); tap(540,1850)   # chest popup still up -> close
+                if ad_fail>=2: print('2 ads without reward; stop',flush=True); sys.exit(1)
+            break
+        if got: idle=0
+        elif find(ocr(im), r'Tap anywhere to close'):   # reward popup that came up after the dismiss tap dims every Free
+            tap(540,1850); time.sleep(1)                 # button -> looked idle, quit with 8 chests left (Dino 2026-11-01)
+        else: idle+=1; time.sleep(1.5)
+    sold,free=chests()
+    if sold==4: break                                 # proof = 4 Sold Out labels, not "no Free seen" (Tiger 11-09 read 0/0)
+    print(f'pass {rnd+1}: {sold}/4 Sold Out, {free} still Free',flush=True)
+print(f'done; chests {sold}/4 Sold Out' + (f', {free} still Free' if free else ''))
+if sold<4: sys.exit(1)

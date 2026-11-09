@@ -12,7 +12,7 @@
 import os, re, subprocess, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait
-from flow import find, near, ocr
+from flow import find, near, ocr, watch_ad
 TIERS = ['Bronze', 'Silver', 'Gold', 'Glory', 'King']
 
 
@@ -65,28 +65,12 @@ def tap(x, y): subprocess.run(['adb', '-s', D, 'shell', 'input', 'tap', str(x), 
 def close_popup(): tap(100, 1150); time.sleep(1)
 
 
-def focus():
-    out = subprocess.run(['adb', '-s', D, 'shell', 'dumpsys', 'window'], capture_output=True, text=True).stdout
-    return next((l for l in out.splitlines() if 'mCurrentFocus' in l), '')
-
-
-def wait_ad():
-    """After tapping Claim: if an ad (other activity) took over, let it play, then Back out of it.
-    Back before the video ends aborts it with no reward (chance not used), so wait 35 s first."""
-    t0 = time.time(); time.sleep(2)
-    while time.time() - t0 < 120:
-        if 'AppActivity' in focus(): return True        # back in the game (or there was no ad)
-        if time.time() - t0 > 35: subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4'])
-        time.sleep(3)
-    return False
-
-
 def claim_free():
     """Popup is open: tap the left button while it's green (max 8 tries), then close. Returns taps."""
     got = 0
     while got < 8 and free_btn(grab()) == 'green':
         tap(350, 1274); got += 1
-        if not wait_ad(): print('ad did not close in 120 s; stop'); sys.exit(1)
+        if not watch_ad(): print('ad did not close; stop'); sys.exit(1)   # flow's: blind Backs paused the countdown (xFaktor 11-09)
         time.sleep(1); tap(540, 200); time.sleep(1)    # dismiss the Congratulations popup each claim
     if free_btn(grab()): close_popup()
     return got

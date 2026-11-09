@@ -40,6 +40,8 @@ def counter():
         if m: return 'buy', int(m.group(1))
         m = re.search(r'Challenge A\w*\W*(\d+)', t)
         if m: return 'free', int(m.group(1))
+        # reward popup still up (its dismiss tap landed mid-animation: Chien Than/Dminor 2026-11-09) -> close it, re-read
+        if re.search(r'Tap anywhere|Congratulation', t): tap(540, 700)
         time.sleep(1)
     return None
 
