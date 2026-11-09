@@ -12,7 +12,9 @@ wish), never gems.
    Recruit → Artifact tab: `D=<serial> scripts/tap.py 96,1810 618,1840 --until-text '^Wish$' -w 270`.
    Read the screenshot: **Auto** (bottom right) ticked green, Wish price 200/250 with the star icon. Not ticked →
    tap `(882,1658)` once and re-check.
-2. Run, no LLM: `D=<serial> scripts/artifact_roll.py [max_cycles]` (own cwd per account when parallel).
+2. Run, no LLM: `D=<serial> scripts/artifact_roll.py [max_cycles [max_spend]]` (own cwd per account when parallel).
+   "limit 550k" = **spend at most 550k stars** per account (Nick 2026-11-09), not a floor: `artifact_roll.py 1000 550k`;
+   an account with fewer stars just rolls until they're out. A restart counts from its own start → pass the cap minus what's spent.
    Each cycle: Wish → Auto Wish box → after 20 s tap outside the box `(540,1092)` → "Congratulations" summary →
    close → Wish again; reaching the Brilliance tier restarts at once. It wishes only at 200/250 stars or 1500 at Holy Light (stops at 280 = gems), retries an ignored cancel tap once, and stops if the gem count drops.
 3. A new artifact pops "Congratulations / <name> / Confirm". **Red name = Mythic** → stop. Any other colour (orange =
