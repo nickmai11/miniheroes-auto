@@ -60,6 +60,9 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: `scripts/a
        during the helpers; Nick, 2026-10-28): `daily.py <acct> --catch-up common_recruit fishing_rewards` — drop
        `fishing_rewards` if that account's earlier line said `AUTO STOPPED, bread N` (no bread = no new orders; Nick
        2026-10-29: the order claim ran 3-4x per account). Never re-run a step just to read something off the screen.
+   14. Relics, last (Nick, 2026-11-10): after the runner and helpers (incl. the extra pass above),
+       `scripts/relic_all.sh <catch-up accounts that are also in scripts/accounts.py relic>` in the background, Monitor for
+       `exit 1`; handle per the miniheroes-relic skill (its report lines go in the catch-up report).
 4. Workers don't edit the repo; afterwards add new findings to the docs and commit.
 5. Report: lead with **Concerns / issues / errors** (see CLAUDE.md "Reporting"), then per account: each step
    done/skipped (and why), every paid action with its price, and which Daily Mission chests are still

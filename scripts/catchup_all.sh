@@ -25,4 +25,6 @@ while IFS='|' read -r i a name; do
    echo "$a exit $? ($(grep -m1 'LEFT FOR HELPER' "$W/$a.log" || tail -1 "$W/$a.log"))") &
 done <<<"$pairs"
 wait
+# relics last (Nick, 2026-11-10): catch-up accounts that are also in accounts/tasks.yaml relic
+"$HERE/relic_all.sh" $(comm -12 <("$HERE/accounts.py" catchup | sort) <("$HERE/accounts.py" relic | sort))
 echo "=== done $(date)"
