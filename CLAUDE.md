@@ -30,6 +30,8 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 - **Power doesn't matter** (Nick, 2026-11-06, every task): never store, check, compare or report team power, and never
   predict a fight from it; lineups are judged only by which heroes are on them. Mission rules that pick a target by
   the CP shown on screen (Arena Challenge, Poseidon lowest-CP ship) are unchanged.
+- **Allies** (Nick, 2026-11-10): in **Tribe Clash** never attack a tribe from a server in `accounts/allies.txt`
+  (150 190 194 156 320 300 175 288 54). Other events (Crystal Throne, Floating Realm) aren't affected.
 - **Never spend gems beyond what the account config allows.** Each mission entry gives a
   total sweep count _including_ free attempts. Free attempts are used first; paid sweeps
   (button shows a gem icon + price) only up to the configured total.

@@ -67,13 +67,18 @@ def run():
             im = im or grab(); boxes = ocr(im)
             a = find(boxes, r'Attack Attempts', (0, 100, 400, 220))
             if a:
+                m = next((m for *_, t in boxes if (m := re.fullmatch(r'Attack Attempts\W*(\d+)', t.strip()))), None)
+                if m: return int(m[1])                          # label + digit in one box (2026-11-10, all 7 accounts)
                 for x, y, w, h, t in boxes:
                     if re.fullmatch(r'\d+', t.strip()) and abs(y + h / 2 - a[1]) < 30 and 40 < x + w / 2 - a[0] < 220:
                         return int(t)
                 c = im.crop((0, a[1] - 45, 330, a[1] + 45))     # label + pill, 3x: reads "Attack Attempts 0" (a lone pill crop reads "ts O")
-                for *_, t in ocr(c.resize((c.width * 3, c.height * 3))):
+                cb = ocr(c.resize((c.width * 3, c.height * 3)))
+                for *_, t in cb:
                     m = re.search(r'Attempts\W*([0-9O]+)\s*$', t)
                     if m: return int(m.group(1).replace('O', '0'))
+                lone = [t.strip() for *_, t in cb if re.fullmatch(r'[0-9O]', t.strip())]   # '0' as its own box (Chloe 2026-11-10)
+                if len(lone) == 1 and find(cb, r'Attack Attempts'): return int(lone[0].replace('O', '0'))
             im = None; time.sleep(0.7)
         raise Stop('Attack Attempts counter unreadable')
 

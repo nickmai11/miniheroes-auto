@@ -14,7 +14,7 @@ Use when Nick asks for "floating realm", "realm" or "use up the stamina" on a Mi
    floor decision, plus `done: N explores, F<floor>, points A -> B`. It logs to `logs/<account>/<game day>.log` itself.
    Outside a battle round it prints `no battle round now` and does nothing.
    All accounts (`accounts/tasks.yaml` `realm`): `scripts/fr_all.sh` (boot + realm.py on each, parallel); launchd runs it Wed/Thu/Fri 04:30 local
-   (`com.nickm.miniheroes-fr`, log `logs/launchd-fr.log`).
+   (`com.nickm.miniheroes-fr`, log `logs/launchd-fr.log`). In Tribe Clash weeks (alternate weeks) the same job runs `tc.py` instead.
 3. Exit 1 → read `v_realm.png` and the `STOP:` line, then finish by hand with the doc's rules. Typical stops:
    - an unknown event (map it in the doc first);
    - Defeat;

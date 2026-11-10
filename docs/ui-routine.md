@@ -724,6 +724,37 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   Tribe Clash / Crystal Throne free pack; Floating Realm packs = `realm_packs`.
 - **Tribe Clash** banner `(880,624)` → Pack `(976–994,1630)` → Free `(866,934)` (20 gems, 1/day). **Never its
   Treasures or "Enter"** (Nick, 2026-10-27). Its red dot can persist with nothing claimable.
+- **Tribe Clash rules** (in-game ?, read on Cmajor 2026-11-10; nothing automated beyond Pack + Guess):
+  - Cross-region; top 64 tribes by total power (sum of members' best-ever power) qualify, plus ≥ 2500 tribe medals in
+    7 days. Every 2 weeks: Preparation Mon → Battle Tue/Wed/Thu 10:00–22:00 UTC (rounds 1–3) → Claim Fri. Roster and
+    donations lock at 09:50 UTC on each battle day.
+  - Rounds: Beginner → Intermediate → Advanced battlefield; each group's top-damage tribe advances. Tribe damage =
+    member damage × (1 + remaining castle HP % × 1.5); after the castle falls, member damage stops counting. Points per
+    group place (1st/2nd/3rd/4/5–6/7–9/10–16): Beginner 1200/1000/800/600/400/200/100, Intermediate ×1.4,
+    Advanced 3550…1700. Tribe rank = points over 3 rounds.
+  - Attacks use the **Arena defense lineup** automatically; damage = its attack power. 1 Stamina per attack (reset to 5
+    each round, regenerates); then Siege Tokens (after 25 tokens in a round, each attack costs one more). One attack
+    defeats ≤ 3 players. Each attack gives Treasure Keys → Chieftain's Treasure (9 layers × 9 cards, major prize moves
+    you a layer down; keys are taken back for gold at the end). "Ashes of Ao" summons a Phoenix (damage capped at the
+    target's remaining HP).
+  - **Build** `(976,1480)` = Castle Construction (Lv 55, HP +216% on Peakaboo): Basic Donate costs 30 000 gold, EXP +2,
+    5 a day, has a reward roll; Advanced Donate costs 1 item, unlimited. Tabs: Defense Members / Member Damage.
+  - Personal reward = total damage over 3 rounds (> 0 needed); tribe and personal rewards come by mail 30 min after the end
+    (don't leave the tribe). Guess opens before round 3. Packs are sold in Preparation and Battle only.
+  - Allies (`accounts/allies.txt`) are never attacked. Map the target choice on the Enter screen before scripting attacks.
+  - **Enter** `(540,1476)` (mapped on Cmajor 2026-11-10) → battle map: the group's castles, each `S<server> <tribe>` + rank
+    badge + level + HP %; top left = our castle (HP, rank), "The top 8 tribes will advance this round"; Ranking / Battle
+    Report / Guide / Summon Phoenix at the bottom. Tap a castle (≈150 px above its label) → attack screen: our lineup vs
+    the target tribe's current defender, **Attack** `(540,1430)`, `Free Attempts: n/15` (+1/hour) under it → result
+    "Congratulations, You dealt <our attack power> damage", Tap anywhere `(540,1700)` → back on the attack screen.
+    At 0 free attempts the counter shows the Siege Token icon `held/cost` (Cmajor 8/1): not used without Nick's OK.
+    Back `(92,1810)` ×2 → main.
+  - **`D=<serial> scripts/tc.py`** (Nick 2026-11-10 "tc"; accounts = `scripts/accounts.py tc`): main → Enter → the first
+    castle on screen that is not ours, not an ally and not Destroyed (Nick: no ranking, "just pick one"; the map is
+    swiped around if none shows) → Attack until Free Attempts 0 → main. Never Siege Tokens. Live on 7 accounts 11-10.
+    **Scheduled:** `scripts/fr_all.sh` (launchd Wed/Thu/Fri 04:30 local = Tue/Wed/Thu 21:30 UTC) runs `tc.py` on every
+    `tc` account in tc weeks and `realm.py` in fr weeks (alternating weekly, Nick 2026-11-10).
+  - Possible daily step, not agreed: Basic Donate (gold).
 
 ## Floating Realm Guess
 
