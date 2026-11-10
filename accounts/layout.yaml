@@ -1,9 +1,10 @@
 # Window layout for scripts/layout.js (Nick, 2026-10-27): layout 1 = top/bottom rows + right; layout 2 (LAYOUT=2) = `row` below. MuMu instance names left where they are.
 exclude: []
 # Rows, left to right. Unlisted running instances fill the shorter row, by MuMu index.
-top: [Aminor, Dminor, Dino, Bino]
+top: [Chloe, Dminor, Dino, Bino]
 bottom: [Kong, Chien Than, xFaktor, Tiger]
 # Full screen height, one column each, right of the 2 rows (Nick, 2026-10-31).
 right: [Cmajor]
 # Layout 2: one row, left to right (Nick, 2026-11-06). Width = screen / number of names here, running or not (Nick, 2026-11-07); unlisted running instances get extra slots after it, by MuMu index.
-row: [Tiger, xFaktor, Chien Than, Bino, Dino, Dminor, Aminor, Kong, Cmajor]
+row: [Tiger, xFaktor, Chien Than, Bino, Dino, Dminor, Chloe, Kong, Cmajor]
+ct: [xfaktor, cris, pupu, chien_than, chloe, kong, cmajor]

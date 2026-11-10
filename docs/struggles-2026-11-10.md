@@ -1,0 +1,12 @@
+# Struggles — dailies 13:05 (game day 2026-11-10, Tuesday; 8 accounts)
+
+Source: runner logs `/tmp/miniheroes-2026-11-10/*.log`. Status: ✅ fixed · 🧪 fixed, waiting for a live test
+(`docs/untested.md`) · ❌ open · ❓ needs Nick. Last updated: 2026-11-10.
+
+| #   | Task                           | What went wrong                                                                                                                                                                                       | Status                                                                                |
+| --- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| 1   | Gate (xFaktor ×2, Bino)        | "Network issue detected, please reload" Tip over the gate battle at the 180 s cap (kills ~1500–1600) → `no button 'Quit Battle'`, then `home()` couldn't leave → xFaktor exit 1; Confirm by hand both | 🧪 `home()` taps Confirm on it and waits for the reload; retries passed (run + sweep) |
+| 2   | Grocery (Tiger, Cmajor, Chien) | "popup has no green Free; closing" tap shut the Grocery screen → 0/4 Sold Out read on main → FAIL; retry OK on 2, Chien Than failed twice                                                             | 🧪 `grocery.py ensure()` reopens Grocery; Chien Than re-run with it: 4/4 Sold Out     |
+| 3   | Sanctuary (Kong)               | Logged `nothing to climb (all floors won)` on a fresh Ice Citadel map (marker on F1) with a yellow Sweep → "won 1 wave" row open, 150 points; re-run swept → 160                                      | ❌ first read missed the Sweep (map still loading?) — not reproduced                  |
+| 4   | Canyon (xFaktor)               | No empty platform → MANUAL (attack choice) → Canyon row open, Daily Mission 150                                                                                                                       | ❓ attack a platform, or let the 160 chest go today?                                  |
+| 5   | Pet Arena (Tiger)              | `no "Auto Deploying" after Start` (Auto Deploy dialog still up); retry: no free attempts left                                                                                                         | ❌ transient, watch                                                                   |

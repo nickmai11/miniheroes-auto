@@ -16,8 +16,17 @@ def popup_green_y(p):   # scan popup column for the green Free button
 def chests():   # (Sold Out, still Free) on the top row = the step's proof (Kong 2026-11-09: 3 chests left, OK "done")
     b=ocr(shot()); n=lambda pat: sum(bool(find(b, pat, (x-55,405,x+55,470))) for x in (82,207,332,457))
     return n(r'Sold Out'), n(r'Free$')
+def ensure():   # the close tap after a popup-less chest tap shuts Grocery itself (Tiger/Cmajor/Chien Than 2026-11-10: 0/4 read on main)
+    if find(ocr(), r'Daily Specials'): return
+    print('grocery closed; reopening',flush=True)
+    for xy in ('994,1625','900,1230'): subprocess.run([T,xy,'-o','g.png'],env=os.environ); time.sleep(1)
+    for _ in range(10):
+        if find(ocr(), r'Daily Specials'): return
+        time.sleep(1)
+    print('could not reopen Grocery',flush=True); sys.exit(1)
 ad_fail=0
-for rnd in range(3):   # a pass can end with a chest still Free (popup read mid-animation) -> another pass
+for rnd in range(3):
+    ensure()   # a pass can end with a chest still Free (popup read mid-animation) -> another pass
     idle=0
     while idle<8:   # ~12 s of no Free button (cooldowns are 5–8 s) = done
         im=shot(); got=False; boxes=None
@@ -46,7 +55,7 @@ for rnd in range(3):   # a pass can end with a chest still Free (popup read mid-
         elif find(ocr(im), r'Tap anywhere to close'):   # reward popup that came up after the dismiss tap dims every Free
             tap(540,1850); time.sleep(1)                 # button -> looked idle, quit with 8 chests left (Dino 2026-11-01)
         else: idle+=1; time.sleep(1.5)
-    sold,free=chests()
+    ensure(); sold,free=chests()
     if sold==4: break                                 # proof = 4 Sold Out labels, not "no Free seen" (Tiger 11-09 read 0/0)
     print(f'pass {rnd+1}: {sold}/4 Sold Out, {free} still Free',flush=True)
 print(f'done; chests {sold}/4 Sold Out' + (f', {free} still Free' if free else ''))
