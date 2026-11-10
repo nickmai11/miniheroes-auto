@@ -21,13 +21,14 @@ def log(s): print(s, flush=True)
 
 
 def open_treasury():
+    """False = no Golden Woods event right now."""
     b = ocr()
-    if find(b, r"King.?s Treasury") and find(b, r'^Level \d'): return
+    if find(b, r"King.?s Treasury") and find(b, r'^Level \d'): return True
     from daily import hub_tabs
     tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920)); time.sleep(1.2)
     x = hub_tabs().get('golden_woods')
-    if not x: raise Stop('no Golden Woods tab in the event hub')
-    tap_wait(x, 1840); tap_wait(165, 300); wait(r'^Level \d', 8)
+    if not x: return False
+    tap_wait(x, 1840); tap_wait(165, 300); wait(r'^Level \d', 8); return True
 
 
 def state():
@@ -65,7 +66,8 @@ def milestones():
 
 
 def run(acct, max_keys=999):
-    open_treasury(); used = lv_flips = 0
+    if not open_treasury(): log('SKIP no Golden Woods event'); return
+    used = lv_flips = 0
     while True:
         b, lv, keys = state()
         if lv is None: raise Stop(f'level unreadable: {joined(b)[:200]}')

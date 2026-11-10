@@ -5,7 +5,8 @@ description: Mini Heroes: Magic Throne Golden Woods → King's Treasury - spend 
 
 # King's Treasury (Golden Woods event)
 
-Use when Nick says "treasure event" / "king's treasury" / "flip the treasury cards".
+Use when Nick says "treasure event" / "king's treasury" / "flip the treasury cards". The dailies run it too: `daily.py`
+step `treasury`, right after `events` (Nick 2026-11-10).
 
 1. Accounts: the ones named ("group 1/2" → `accounts/groups.yaml`), else `scripts/accounts.py treasury`.
    Boot first: `scripts/boot.sh <idx>...`.

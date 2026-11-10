@@ -41,6 +41,12 @@ def home():
             x = close_x(grab())                                    # back arrow can't close event popups (Dino 2026-10-28)
             if x: tap_wait(*x); time.sleep(1); continue
         if find(boxes, r'^Exit') and find(boxes, r'^Confirm$'): tap_text(r'^Confirm$', boxes=boxes); continue
+        if find(boxes, r'Network issue') and find(boxes, r'^Confirm$'):   # mid-battle (xFaktor gate 2026-11-10): Confirm reloads
+            tap_text(r'^Confirm$', boxes=boxes); print('    network issue popup -> Confirm (game reloads)', flush=True)
+            for _ in range(60):
+                if is_main(): break
+                time.sleep(1)
+            continue
         tap_wait(92, 1810); time.sleep(0.8)
     for _ in range(3):                                   # screens without the back arrow (hero detail, Cmajor 2026-10-31):
         if is_main(): return True                        # Android Back - never on main (it opens a dialog there)
@@ -684,6 +690,7 @@ def gems(boxes):
 
 
 def hero(cfg): return script('hero.py', ACCOUNT)
+def treasury(cfg): return script('treasury.py', ACCOUNT)   # King's Treasury keys, after events claims them (Nick 2026-11-10)
 def tribe(cfg):
     r = script('tribe.py')
     return f'MANUAL {r}' if 'NOT SENT' in r else r      # Request didn't go out -> leftover, not OK (2026-11-07)
@@ -1544,7 +1551,7 @@ ORDER = [('pet_arena', pet_arena), ('fishing', fishing), ('arena', arena), ('pat
          ('tribe', seq((tribe, None), (canyon, 'canyon_clash'))), ('divine', divine),
          ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune),
          ('grocery', seq((grocery, 'grocery_free_chests'), (grocery_buy, 'grocery_buy'))),
-         ('events', events), ('tribe_pack', tribe_pack), ('realm_packs', realm_packs), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
+         ('events', events), ('treasury', treasury), ('tribe_pack', tribe_pack), ('realm_packs', realm_packs), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
          ('weekly', weekly),   # Sundays only: the weekly-missions pass (Nick 2026-11-08)
          ('play_pass2', play_pass2)]   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
 # pet_check: catch-up only (removed from the dailies, Nick 2026-11-04: Auto Deploy isn't done by then)
@@ -1555,7 +1562,7 @@ KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'are
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
        'tribe_chat': 'tribe', 'common_recruit': 'recruit',
-       'events': None, 'weekly': None, 'weekly_review': None, 'tribe_pack': 'shop_freebies', 'realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
+       'events': None, 'treasury': None, 'weekly': None, 'weekly_review': None, 'tribe_pack': 'shop_freebies', 'realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
 
 
 def enabled(cfg, key):

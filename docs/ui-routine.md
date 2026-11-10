@@ -36,7 +36,8 @@ Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
 15. **Patrol** — Claim All only.
 16. **Rune** synthesis.
 17. **Grocery** — free chests, then the account's `grocery_buy` tiles (if any).
-18. **Events** — see "Events (red dots)".
+18. **Events** — see "Events (red dots)". Then **King's Treasury** (step `treasury`, `scripts/treasury.py`): spend the
+    Treasury Keys the events step just claimed (Nick, 2026-11-10).
 19. **Fishing** — the only place order rewards are collected (see Fishing step 7).
 20. **Daily Mission** — the last mission (Nick, 2026-10-29); any new mission step goes before it. A rerun of earlier
     steps (`daily.py <acct> <step>...`) should include `daily_mission` so their progress gets claimed.
@@ -63,7 +64,7 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 **Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
 main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
 Steps: pet_arena (Mon–Wed) fishing arena patrol arena2 storm shop play_pass trials tower sanctuary gate beast arena3 recruit hero tribe divine
-stage patrol_claim rune grocery events tribe_pack fishing_rewards daily_mission play_pass2 (`pet_check` = catch-up only).
+stage patrol_claim rune grocery events treasury tribe_pack fishing_rewards daily_mission play_pass2 (`pet_check` = catch-up only).
 **Run overview: `scripts/summary.sh <run dir>`** — per account OK/SKIP counts, FAIL/MANUAL/paid lines, LEFT FOR HELPER (one call instead of grepping logs).
 
 Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png] [-w 270|540]` for every tap (device coords):
@@ -692,8 +693,8 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   `(412,300)`, Sign-In Rewards `(660,300)`, Woods Expedition `(908,300)`; each sub-tab's red dot ≈ 63 px right of
   it, y≈190. Collect: **Exploration Quest** (one yellow Claim claims every quest row → Treasury Keys), **Sign-In**
   (today's yellow Claim; "Continue to claim" = $8.99 Deluxe → never; its dot sticks after the free Claim → not a leftover, 2026-11-07), **Expedition gift** (icon top-left `(88,550)`,
-  dot ≈ `(134,509)`, 20 gems). Never **King's Treasury** in the dailies (its "select the prize" dot
-  sticks) — keys are spent only by the `treasury` skill (`scripts/treasury.py`, Nick 2026-11-09). Mapped on Bino
+  dot ≈ `(134,509)`, 20 gems). Never **King's Treasury** in `events()` (its "select the prize" dot
+  sticks) — keys are spent by the runner step `treasury` right after `events` / the `treasury` skill (`scripts/treasury.py`, Nick 2026-11-09). Mapped on Bino
   2026-11-09: 4×4 cards, 1 key per flip (Shuffle Cards itself is free); Grand Prize card → "obtained the Level Prize"
   popup → GO `(154,1408)` → Tip "proceed to the next level?" (old level's cards lost). Prize picker = ↻ under Level
   Prize `(154,1320)`: tiles in fixed order (3 starters, Level 3/5/7/10/15/20), locked ones labelled "Level N", label

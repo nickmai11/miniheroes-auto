@@ -48,6 +48,7 @@ screen. Not done → the runner retries once → a helper does that one step →
 20. **Grocery** — free chests show "Sold Out" (no Play Pass: after the 9 ad claims too); each config tile bought (or price > balance / sold out).
 21. **Events** — no red dot on any event hub tab (**Pet Arena, Golden Woods, 7777 Draws, Match Event, Weekly
     Event**) and none on the weekly tribe events (**Floating Realm, Tribe Clash**) (Nick, 2026-11-03).
+    21b. **King's Treasury** — `DONE … keys 0` (or `SKIP no Golden Woods event`); point milestones with a red dot claimed.
 22. **Fishing rewards** — no yellow Claim left on the orders.
 23. **Daily Mission** — Daily tab: rows and chests claimed, **160 ✓** (see "Whole run"). **Weekly tab too**: no yellow
     Claim left, its chests up to the points claimed, and **no red dot on either tab** (the step reads both at the end;
