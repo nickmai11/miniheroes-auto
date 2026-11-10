@@ -1023,7 +1023,7 @@ def canyon(cfg):
 canyon.taken = False
 
 
-HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Golden': 'golden_woods', r'^Draws|^7777': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event'}
+HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Golden': 'golden_woods', r'^Draws|^7777': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event', r'^Limited': 'limited_recruitment'}
 
 
 def hub_tabs():
@@ -1057,6 +1057,24 @@ def golden_woods(left):
         tap_wait(88, 550); close_reward(); got.append('expedition gift')
     if dot(412) or (dot(660) and not deluxe) or red_dot(115, 490, 155, 530): left.append('golden_woods')
     return [f'golden woods {g}' for g in got]
+
+
+def limited_recruitment():
+    """Limited Recruitment (cycle event, mapped on Tiger 2026-11-10): Hero Trial = free unlimited boss Challenge, daily
+    chests by single highest damage (5 AM reset) - Challenge once when its button has a dot, then claim the chest dots;
+    Limited Merchant Free Recruit Pack (10 tickets). Never Recruit (spends tickets) or Training Program / $ packs."""
+    got = []
+    tap_wait(412, 280); wait(r'Single Highest', 6)
+    if red_dot(670, 1540, 730, 1600):                    # Challenge's dot = not fought since the reset
+        tap_wait(540, 1620); wait(r'^Start$', 8); tap_wait(540, 1810)
+        tap_text(r'^Confirm$', (300, 1150, 780, 1300), wait(r'^Confirm$', 180, (300, 1150, 780, 1300)))
+        wait(r'Single Highest', 8); got.append('hero trial challenge')
+    n = 0
+    for x in (280, 452, 624, 796, 968):                  # damage chests 100k..800k, dot ~36 px right-above each
+        if red_dot(x + 10, 1305, x + 65, 1355): tap_wait(x, 1356); close_reward(); n += 1
+    got.append(f'hero trial chests x{n}')
+    tap_wait(908, 280); wait(r'Limited Offer', 6); got.append(f'limited free pack x{claim_yellow(r"Limited Offer")}')
+    return got
 
 
 def unmapped_tabs(im=None):
@@ -1283,6 +1301,7 @@ def events(cfg):
                 tap_wait(90, 700); wait(r'^Achievement$', 6); out.append(f'pet achievement x{claim_yellow(r"^Achievement$")}')
                 tap_wait(972, 226)
         elif tab == 'golden_woods': out += golden_woods(left)
+        elif tab == 'limited_recruitment': out += limited_recruitment()
         elif tab == 'weekly_event':                      # 2nd sub-tab (Wish Merchant / Pet Shop / Recruit Store): Free Benefits
             tap_wait(410, 240); time.sleep(1); out.append(f'weekly free x{claim_yellow(r"Free Benefits")}')
         else: left.append(tab)

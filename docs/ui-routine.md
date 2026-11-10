@@ -711,6 +711,13 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   (255,182,16), dismiss `(300,200)` between taps.
 - **Weekly Event / Hero Recruit:** Pet Shop / Recruit Store sub-tab `(410,240)` → Free Benefits `(896,1024)`;
   weekly merchant free 200.
+- **Limited Recruitment** (cycle event, mapped on Tiger 2026-11-10; runner `limited_recruitment()`): hub tab
+  "Limited Recruitment", 4 sub-tabs at y≈280: Limited Recruitment `(165)`, Hero Trial `(412)`, Training Program `(660)`,
+  Limited Merchant `(908)`. **Hero Trial** = free, unlimited boss fight; daily chests (100k/200k/400k/600k/800k at
+  x 280/452/624/796/968, y 1356, dot ≈36 px right-above) by single highest damage, reset 5 AM; Challenge `(540,1620)`
+  (dot ≈ `(696,1572)` until fought) → lineup screen (preset filled) → Start `(540,1810)` → result → Confirm `(540,1226)`
+  (Tiger: 324M, all 5 chests in one fight). **Limited Merchant**: Free Recruit Pack (10 tickets, Limited 1) → yellow Free.
+  Never: Recruit 1/10 (spends the tickets — collect only), Training Program and the Merchant's $ packs.
 - **Tribe events** = the **3rd** right-column banner (under Match/Weekly Event and Storm Battlefield): Floating Realm,
   Tribe Clash or Crystal Throne — one at a time, never overlapping (Nick, 2026-11-07). Runner step `tribe_pack` claims the
   Tribe Clash / Crystal Throne free pack; Floating Realm packs = `realm_packs`.
