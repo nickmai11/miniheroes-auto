@@ -692,8 +692,12 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   `(412,300)`, Sign-In Rewards `(660,300)`, Woods Expedition `(908,300)`; each sub-tab's red dot ≈ 63 px right of
   it, y≈190. Collect: **Exploration Quest** (one yellow Claim claims every quest row → Treasury Keys), **Sign-In**
   (today's yellow Claim; "Continue to claim" = $8.99 Deluxe → never; its dot sticks after the free Claim → not a leftover, 2026-11-07), **Expedition gift** (icon top-left `(88,550)`,
-  dot ≈ `(134,509)`, 20 gems). Never **King's Treasury** (Shuffle Cards spends keys; its "select the prize" dot
-  sticks), Expedition **Draw** / Daily Pack ($). The hub tab's own dot sticks while keys are left.
+  dot ≈ `(134,509)`, 20 gems). Never **King's Treasury** in the dailies (its "select the prize" dot
+  sticks) — keys are spent only by the `treasury` skill (`scripts/treasury.py`, Nick 2026-11-09). Mapped on Bino
+  2026-11-09: 4×4 cards, 1 key per flip (Shuffle Cards itself is free); Grand Prize card → "obtained the Level Prize"
+  popup → GO `(154,1408)` → Tip "proceed to the next level?" (old level's cards lost). Prize picker = ↻ under Level
+  Prize `(154,1320)`: tiles in fixed order (3 starters, Level 3/5/7/10/15/20), locked ones labelled "Level N", label
+  gone once unlocked; the list scrolls, green frame = selected; the pick carries over to later levels, Expedition **Draw** / Daily Pack ($). The hub tab's own dot sticks while keys are left.
 - **Reward popups** ("Congratulations … Tap anywhere to close"): tap the **"Tap anywhere to close" line** — the popup
   centre is the reward icon and doesn't close it (`close_reward()`).
 - **Unknown hub tab with a red dot** → the runner reports `MANUAL … unmapped tab <label>` (Golden Woods went

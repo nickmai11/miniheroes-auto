@@ -49,6 +49,19 @@ rules popup scrolls ~300 px per page inside y 600–1420). Not automated: nothin
   the 4 areas merge; top 8 → Champion Showdown, 9–16 Glory, 17–24 Gold.
 - Guessing opens in the final stage: pick the top 3 of the 8 Champion tribes; rewards by mail.
 
+## Seen in-game 2026-11-08 (first qualifier, Cmajor 02:30–02:40 local)
+
+- The card says "Not Open / Preparing" until 03:00, but the hub's **Enter** already opens the battlefield from at least
+  02:30 — that is the setup window. Hub bottom bar: Rewards / Ranking / Groups / Guessing / Shop; battlefield bottom bar:
+  Lineup / Battle Report / Contribution / Guide; minimap (device ~900,260) = full draggable map, back `92,1810`.
+- Main base durability shows **150/150** (rules said 120). Peakaboo = Main Base 8, power rank 7, battlefield rank 4 at start.
+- **Deployed Lineup was empty on Cmajor** (Lineup button red dot) → check it on every account before a match.
+- Before the countdown ends the battlefield map ignores taps (own base and the highlighted adjacent hex both did
+  nothing on 11-08) — the move popup can only be mapped once the match is live.
+- Bases this week (same 15-node layout): top-left **150** PurpleGang · top **156** Second Phase · top-right **197** Natus
+  Vincere · left **201 Peakaboo (H)** · right **54** Potato · bottom-left **175** TOXIC · bottom **221** Vie Gang ·
+  bottom-right **245** ELITE.
+
 ## Operating rules for a live match (Nick, 2026-11-05)
 
 Nick commands, Claude executes on all accounts in parallel — never picks targets itself.
@@ -103,6 +116,14 @@ second, ignoring the tribe name. A tribe's original base is `150` (= Base 1, no 
 The table must therefore map `<number> [base N]` → position: after any capture or Displaced relocation Nick says so
 (or an order names a base not in the table) → one more OCR pass over the map before acting.
 
-**Still to build (planned `scripts/ct.sh` console + per-account revive watcher):** nothing exists yet; the map-specific
+**Scripts (2026-11-08):** `scripts/ct_enter.sh <serial>...` = main → Tribe → Crystal Throne → Enter on every instance in
+parallel; `scripts/ct_do.sh <g1|g2|g3|all|name,name> [tap.py args]` = the same taps on every account of a group in
+parallel (`CT_TOOL=ct_tap.py` for OCR text taps: `ct_do.sh g1 '^Lineup$' 80,1810`), serial map in `/tmp/ct_serials.txt`
+(`<group> <account> <serial>`, groups `ct_g1..3` in `accounts/groups.yaml`). Every call is logged to the account's log.
+Still unmapped (taps are dead before the countdown ends): the node popup with March / Attack / Station, the 20-diamond
+speed-up popup and its "Don't show again" tick — map them on one account in the first minute of the match. No revive
+`scripts/ct_revive.sh [minutes]` = free-revive watcher on every account (~1 s polls: taps Free Revive through its 60 s
+cooldown until it takes, reopens the popup via the big Revive button 840,1600 if it was closed — 11-08 Cris/PuPu/xFaktor
+sat defeated with it closed — stops at free `Times:0/5`; never Revive Now). Windows: `LAYOUT=ct` (layout skill).
 taps (node positions on the device, the tap-on-base popup with March / Attack / Station, the 20-diamond speed-up popup
 and its "Don't show again" tick) get mapped during the setup hour and written here.

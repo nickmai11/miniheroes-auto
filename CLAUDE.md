@@ -9,7 +9,7 @@ game accounts. Each account lives in its own **MuMuPlayer** Android instance on 
    A coordinator that delegates to helpers needs just the skill file — helpers read their own sections.
 2. Read the account file(s) in `accounts/` for the account(s) you were asked to run ("group 1/2" → `accounts/groups.yaml`).
    No accounts named, or "all" → `scripts/accounts.py <task>` (per-task lists in `accounts/tasks.yaml`: dailies, catchup,
-   arena, poseidon, realm, relic, tc_guess, fr_guess, survey, stabilize, artifact_roll, gear, climb_stage — Nick, 2026-11-06).
+   arena, poseidon, realm, relic, tc_guess, fr_guess, survey, stabilize, artifact_roll, gear, climb_stage, treasury — Nick, 2026-11-06).
 3. Skim `docs/setup.md` if something about the emulator/proxy looks off.
 
 ## Computer-use access
