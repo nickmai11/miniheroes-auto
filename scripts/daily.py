@@ -834,6 +834,11 @@ def rune(cfg):
     tap_wait(*rune_pick()); tap_text(r'Quick ?Equip', (250, 1600, 580, 1720), wait(r'Quick ?Equip', 6))
     boxes = wait(r'^Synthesize$', 4, (650, 1600, 1000, 1720))
     if not find(boxes, r'^[xX]1$', (60, 1600, 200, 1720)): raise Stop('rune: multiplier is not x1')
+    im = grab()   # grey Synthesize = Quick Equip found < 4 runes of that quality (Chloe 2026-11-10: 2) -> nothing to do
+    if sum(1 for x in range(700, 950, 6) for y in range(1640, 1700, 6)
+           if (lambda p: max(p) - min(p) > 40)(im.getpixel((x, y)))) < 20:
+        grab().save('v_rune.png'); tap_wait(972, 560); time.sleep(0.8); tap_wait(972, 238)
+        return 'SKIP Synthesize greyed: < 4 runes of that quality (v_rune.png)'
     tap_text(r'^Synthesize$', (650, 1600, 1000, 1720), boxes)
     res = wait(r'Congratulations', 8); r = next((b[4] for b in res if 'Rune' in b[4]), 'rune')
     tap_text(r'^Confirm$', boxes=res); time.sleep(0.8); tap_wait(972, 560); time.sleep(0.8); tap_wait(972, 238)
