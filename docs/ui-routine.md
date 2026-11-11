@@ -772,6 +772,18 @@ them yourself. **`D=<serial> scripts/realm_guess.py <1st> <2nd> <3rd>`** per acc
 - Existing guesses → cleared first by tapping their tiles in the list (Tribe Clash rule); the picked name must show
   in its banner band (y 280–760) before the next pick. Ends on the main screen.
 
+## Tribe Clash Treasure (Chieftain's Treasure) — mapped on Kong 2026-11-11
+
+Tribe Clash screen (main banner) → **Treasure** `(980,1300)` (red dot = keys to spend). Keys only, no gems.
+
+- 9 chests per floor (3×3: x 230/540/850, y 830/1140/1450); counter at the bottom `keys/cost` (Floor 1 = 1 key per chest,
+  Floor 2 = 2; floor header "Floor N" at y≈525). One chest holds the **Grand Prize** ("Congratulations … grand prize",
+  tap the top edge `(540,60)` to close); its slot then turns into a **portal**.
+- **Open every chest before the portal**: the portal's Tip says unclaimed rewards on the floor are lost (Confirm
+  `(540,1160)`, tick "Do not remind me today" `(320,1340)` first). Every 9 floors = a cycle.
+- Tapping an opened chest shows an item card → top edge `(540,60)` closes it — but with no popup open that tap closes
+  the whole Treasure dialog. The reveal hides the key counter ~1 s: poll, don't tap.
+
 ## Tribe Clash Guess
 
 Schedule (Nick, 2026-11-07): same cycle as Floating Realm — every 2 weeks, Preparation Mon → Battle Tue/Wed/Thu →
