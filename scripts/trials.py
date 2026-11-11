@@ -81,7 +81,10 @@ def dungeon(key, target, cap):
             if not m or int(m.group(1)) != price:
                 tap_wait(540, 120); raise Stop(f'{key}: Tip price {m and m.group(1)} != button price {price}')
             tap_wait(540, 1162); time.sleep(1.5)      # Confirm = buy 1 attempt
-            if counter() != ('free', 1): raise Stop(f'{key}: after buying, dialog does not show Challenge Attempts: 1')
+            for _ in range(6):                        # label redraws late: first read can still say Purchase (Chien Than 11-11)
+                if counter() == ('free', 1): break
+                time.sleep(0.5)
+            else: raise Stop(f'{key}: after buying, dialog does not show Challenge Attempts: 1')
             paid.append(price); expect = lambda n, left=c[1]: n == ('buy', left - 1)
         else:
             expect = (lambda n, left=c[1]: n == ('free', left - 1)) if c[1] > 1 else (lambda n: bool(n) and n[0] == 'buy')

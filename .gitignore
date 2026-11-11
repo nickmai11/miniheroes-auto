@@ -8,3 +8,4 @@ logs/
 scripts/ocr
 __pycache__/
 v.png
+checklists/

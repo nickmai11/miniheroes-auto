@@ -874,6 +874,12 @@ High to Low / 4 except Cmajor). The game's own default is 4 / High to Low, so ea
   A fight can start between Join and the Auto Deploy tap → the dialog never opens → exit, Join again.
   Don't re-tap Join while the arena loads: the spot lands on the pool's big **Deploy** button (manual deploy panel).
 - The sprites value is a lone digit: OCR misses it on some frames — read the settled dialog, retry on an enlarged crop.
+- **Manual deploy** (Nick, 2026-11-11: Auto Deploy says no free attempts but the day isn't at +40 — Bino/Chien Than/Dminor/xFaktor
+  +39, Dino +38): the pool's big **Deploy** `(540,1640)` → panel of own pets. Free attempts are **per pet**: a card with
+  **Free Attempts: N** under it deploys free (they sort first); the others show a ticket `1/0` — never those, never the
+  ticket **+** (buys). Tap the card (green frame = selected, one at a time) → **Deploy** `(540,1806)` → the card gets a ✓,
+  "Available for deployment this round: k/4" (our own pets this round) goes +1 — not the pool count, others deploy too.
+  `pet_check` → `pet_manual()` does it when Auto Deploy is out of attempts. The deployments count only rises when the round ends.
 - **Cap 64 pets per arena** (Nick, 2026-11-02): at 64/64 the fight starts and you can't deploy until it ends —
   back arrow → "Exit this match?" Confirm ends it sooner, then Join again.
 - The **"Champion" popup** ("Result of this round" / "Match Details") is the round result, not last season's: it pops

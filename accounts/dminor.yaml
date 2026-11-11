@@ -64,4 +64,4 @@ missions:
   pet_arena:          # Nick 2026-11-11: 1 random pet (all but Kong, already 1)
     strategy: stamina_order
     order: random
-    sprites: 1
+    sprites: 4

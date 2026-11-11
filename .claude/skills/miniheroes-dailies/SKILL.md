@@ -27,7 +27,14 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
    The runner follows the **Daily run order** in `docs/ui-routine.md` and skips missions not in the account config.
    **Sundays:** the runner's `weekly` step (after `daily_mission`) does the weekly-missions pass — `accounts/weekly.yaml` top-down,
    ui-routine "Weekly Missions (Sunday pass)"; report its line (180 ✓ or what's short) per account (Nick, 2026-11-08).
-4. **Report** per account: each mission done/skipped (and why) and every paid action with its price (the runner prints
+4. **Checklist (Nick, 2026-11-11):** every `daily.py` run rewrites `checklists/<game day>/<account>.md` from the account's
+   game-day log (`scripts/checklist.py`; full catch-up runs left out): grocery coins on top, then **Not done**, then Done.
+   `checklists/<game day>/_highlights.md` = every account's undone boxes + coins above sanctuary 10k / tribe 6k / ruins 3k /
+   realm 12k — start the report from it.
+   Pet Arena = +40 deployments that day (catch-up `pet_check` count), or the missing ones deployed since (by hand / Auto Deploy restart), Sanctuary = floors 10/10, Events = no red dot left
+   (Tribe Clash excepted), short counts (4/5, forge 4/7) = not done. Read them before reporting;
+   a re-run of one step updates its box. Helper-done steps aren't in the log: re-run the step's script or note them.
+   **Report** per account: each mission done/skipped (and why) and every paid action with its price (the runner prints
    each). Don't track gem/resource balances — they change constantly.
    **Every account must reach the 160 Daily Mission chest** (Nick, 2026-11-03): 16 of the 18 rows are scripted (not
    Upgrade Statue, Purchase with Diamonds). Below 160 → open that account's Daily Mission, match the open rows to

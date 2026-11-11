@@ -45,6 +45,8 @@ def home():
             tap_text(r'^Confirm$', boxes=boxes); print('    network issue popup -> Confirm (game reloads)', flush=True)
             for _ in range(60):
                 if is_main(): break
+                # reload can land on the title screen (Chien Than 11-11: Start untapped -> Back opened "Quit Game?")
+                if s := find(ocr(), r'^Start$', (300, 1400, 780, 1620)): tap_wait(*s)
                 time.sleep(1)
             continue
         tap_wait(92, 1810); time.sleep(0.8)
@@ -367,7 +369,45 @@ def pet_check(cfg):
     if n - prev >= 40: return f'all 40 free deployments used (pet deployments {n}, +{n - prev})'
     if not home(): raise Stop('lost the main screen after reading the deployments')
     r = pet_arena(cfg)
+    if r.startswith('no free attempts left'):            # Auto Deploy can't, quota not reached -> by hand (Nick 2026-11-11)
+        if not home(): raise Stop('lost the main screen after Auto Deploy')
+        r += '; ' + pet_manual(40 - (n - prev))
     return f'MANUAL only +{n - prev} of 40 deployments so far ({r}) - re-check in the catch-up'
+
+
+def pet_manual(need):
+    """Manual deploy: Pet Arena -> Join -> the pool's big Deploy -> panel of own pets. A card with "Free Attempts: N"
+    under it deploys free; the others cost a ticket ("1/0") - never those, never the ticket +. Tap the card (it gets
+    the green frame), Deploy, "Available for deployment this round: k/4" must go +1 (not the pool count:
+    others deploy too, Chien Than 57 -> 60). Free cards sort first; only the first row's labels read.
+    Mapped on Dino 2026-11-11 (+38 with "no free attempts left": 2 free cards, both deployed)."""
+    tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920)); time.sleep(1.2)
+    x = hub_tabs().get('pet_arena')
+    if not x: raise Stop('no Pet Arena tab in the event hub')
+    tap_wait(x, 1840); time.sleep(1.5)
+    for _ in range(6):
+        pet_popup(joined(ocr()))
+        tap_text(r'^Join$', (300, 1400, 780, 1650), wait(r'^Join$', 15, (300, 1400, 780, 1650)), settle=False)
+        st = pet_state()
+        if st == 'used': pet_back(); return 'manual: attempts used up'
+        if st in ('open', 'running'): break
+        pet_back(to_join=True)                           # fight on / 64 of 64
+    else: raise Stop('arena still full after 6 exit + rejoin (manual deploy)')
+    mine = lambda t: int((re.search(r'this round\W*(\d+)\s*/\s*4', t) or [0, -1])[1])   # own pets this round (the pool count moves with everyone's)
+    tap_wait(540, 1640); n = 0
+    while n < need:
+        boxes = wait(r'Available for deployment', 6); t = joined(boxes)
+        if re.search(r'this round\W*4\s*/\s*4', t): break  # this round's 4 slots used: the rest after the next round
+        free = [b for b in boxes if b[1] > 1000 and re.match(r'Free Attempts', b[4])]
+        if not free: break
+        b, before = free[0], mine(t)
+        tap_wait(b[0] + b[2] // 2, b[1] + b[3] // 2 - 122); time.sleep(0.5)
+        tap_text(r'^Deploy$', (300, 1700, 780, 1900)); time.sleep(1.5)
+        after = mine(joined(ocr()))
+        if after != before + 1: raise Stop(f'manual deploy: this round {before} -> {after} of 4')
+        n += 1; print(f'    pet: deployed by hand (free attempt) x1, this round {after}/4', flush=True)   # checklist counts these
+    pet_back()
+    return f'manual deploy x{n} (free attempts)' + (f', {need - n} short: no free pet / round full' if n < need else '')
 
 
 def shop(cfg):
@@ -529,8 +569,9 @@ def sanctuary_climb():
         # Replace screen up on Bino/Dminor/Cmajor (2026-11-08) -> resolve it first
         boxes = ocr()
         if find(boxes, r'Select Bonus Effect|Replace Bonus Effect'): out.append(f'pending {bonus_pick()}'); continue
-        # weekly "Hidden Altar" modifier card (Monday, 3 rows + Confirm, no choice) covers the map (Kong/Tiger/Chien Than 11-09)
-        if find(boxes, r'Hidden Altar') and (c := find(boxes, r'^Confirm$')): tap_wait(*c); time.sleep(1); continue
+        # weekly modifier card (3 rows + Confirm, no choice) covers the map (Kong/Tiger/Chien Than 11-09); titled with the
+        # map name ("Hidden Altar" 11-09, "Lava Cave" Tiger/Dminor 11-11) -> match its Confirm, not the title
+        if c := find(boxes, r'^Confirm$', (300, 1520, 780, 1720)): tap_wait(*c); time.sleep(1); continue
         if find(boxes, r'Tap anywhere to close'): tap_wait(540, 120); time.sleep(1); continue   # floor reward still up (xFaktor 11-09)
         m = stable_marker()
         if not m: break                                  # no marker: all floors flagged
@@ -732,7 +773,8 @@ def divine(cfg):
                 if slots and cry: break
                 time.sleep(1.5)
             if not slots or not cry: raise Stop(f'forge counters unreadable: {t[:150]}')
-            if slots[1] >= slots[2] or cry[1] < cry[2]: out.append(f'forge {slots[1]}/{slots[2]}'); break
+            if slots[1] >= slots[2] or cry[1] < cry[2]:   # full, or out of crystals (Bino 4/7 on 11-11)
+                out.append(f'forge {slots[1]}/{slots[2]}' + (f' (crystals {cry[1]}/{cry[2]}: out)' if slots[1] < slots[2] else '')); break
             if slots[1] == last: out.append(f'forge did not respond at {slots[1]}/{slots[2]}'); break
             last = slots[1]; tap_wait(540, 1484); time.sleep(1.5)   # counter animates; re-read at the loop top
     # Benefit (forging-pass accounts) AFTER the forging: its milestones ("Divine Weapon dismantled N times") count the
@@ -862,15 +904,16 @@ def grocery_buy(cfg):
     want = {k: [int(n) for n in re.findall(r'\d+', v)]
             for k, v in re.findall(r'^\s{4}(\w+):\s*\[([^\]]*)\]', (re.search(r'grocery_buy:.*\n((?:\s{4}.*\n?)*)', cfg) or [''] * 2)[1], re.M)}
     tap_wait(994, 1625); time.sleep(1); tap_wait(900, 1230); wait(r'Daily Specials', 10)
-    out = []
-    for tab in sorted(want, key=list(SHOP_TABS).index):
+    out, coins = [], []
+    balance = lambda boxes: next((b for b in boxes if b[0] < 300 and 350 < b[1] < 430 and re.fullmatch(r'[\d.]+[kKmM]?', b[4])), None)
+    for tab in SHOP_TABS:                                # every shop, configured or not: its coins go in the report (Nick 2026-11-11)
         x, swiped = SHOP_TABS[tab]
         if swiped: swipe(900, 546, 200, 546); time.sleep(1)
         tap_wait(x, 546); time.sleep(1); boxes = ocr()
         if not find(boxes, rf'(?i)^{tab}', (x - 160, 500, x + 160, 590)): raise Stop(f'{tab} shop tab not where expected')
-        for n in want[tab]:
+        for n in want.get(tab, []):
             im = grab(); boxes = ocr(im)
-            bb = next((b for b in boxes if b[0] < 300 and 350 < b[1] < 430 and re.fullmatch(r'[\d.]+[kKmM]?', b[4])), None)
+            bb = balance(boxes)
             bal = bb and num(bb[4])
             bx, by = (163, 413, 663, 913)[(n - 1) % 4], (893, 1249, 1605)[(n - 1) // 4]
             region = (bx - 125, by - 40, bx + 125, by + 40)
@@ -887,8 +930,10 @@ def grocery_buy(cfg):
             if pp != price: tap_wait(540, 1850); raise Stop(f'{tab} {n}: popup price {pp} != tile price {price}')
             tap_text(r'^Purchase$', boxes=boxes); wait(r'Tap anywhere|Congratulations', 6); tap_wait(540, 1850); time.sleep(0.8)
             out.append(f'{tab} {n} bought for {price} (balance {bal})')
+        time.sleep(0.5); bb = balance(ocr())                # after the buys
+        coins.append(f'{tab} {num(bb[4]) if bb else "?"}')
     tap_wait(966, 222)
-    return ', '.join(out) or 'nothing configured'
+    return ', '.join(out + ['coins: ' + ' / '.join(coins)])
 
 
 def daily_mission(cfg):
@@ -1036,6 +1081,19 @@ canyon.taken = False
 
 
 HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Golden': 'golden_woods', r'^Draws|^7777': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event', r'^Limited': 'limited_recruitment'}
+
+
+def banner_dots(im=None):
+    """Main screen: right-column event banners with a red dot (banner's top-right corner, x~1040), named by the nearest
+    label; Tribe Clash left out - its dot never clears (Nick 2026-11-11). Checked offline on Kong 11-11 only."""
+    im = im or grab(); boxes = [b for b in ocr(im) if b[0] > 600 and 230 < b[1] < 950]
+    found = []
+    for y in range(240, 900, 20):
+        if red_dot(1010, y, 1075, y + 24, im):
+            b = min(boxes, key=lambda b: abs(b[1] + b[3] // 2 - y), default=None)
+            name = b[4] if b else f'y{y}'
+            if not re.search(r'Tribe Clash', name) and f'banner {name}' not in found: found.append(f'banner {name}')
+    return found
 
 
 def hub_tabs():
@@ -1210,7 +1268,9 @@ def tribe_pack(cfg):
     if not p: time.sleep(3); p = find(ocr(), pat, (600, 400, 1080, 900))
     if not p: return 'SKIP no Tribe Clash / Crystal Throne banner'
     tap_wait(*p); wait(r'Participat|^Enter$|Treasure', 10)
-    tap_wait(980, 1610); wait(r'Limited', 6)
+    tap_wait(980, 1610)
+    try: wait(r'Limited', 6)
+    except Stop: tap_wait(980, 1610); wait(r'Limited', 6)   # Tribe Clash "Participation Requirements" overlay ate the 1st tap (Chloe/Tiger/Dminor 11-11)
     n = claim_yellow(r'Limited')
     for _ in range(6):                                   # the button redraws late after the reward closes (Kong 2026-11-07)
         sold = find(ocr(), r'^Sold Out$', (700, 700, 1000, 1000))   # Crystal Throne y~812, Tribe Clash Free y~934
@@ -1317,8 +1377,15 @@ def events(cfg):
         elif tab == 'weekly_event':                      # 2nd sub-tab (Wish Merchant / Pet Shop / Recruit Store): Free Benefits
             tap_wait(410, 240); time.sleep(1); out.append(f'weekly free x{claim_yellow(r"Free Benefits")}')
         else: left.append(tab)
-        if red_dot(x + 30, 1720, min(x + 95, 1080), 1795) and tab not in left and tab not in ('7777', 'wish_festival', 'golden_woods'):
-            left.append(tab)                             # sticky dots: 7777 after its daily Claim, Wish Festival's Treasure Vault (coin draws, never)
+    # DoD (Nick 2026-11-11): no red dot left on a hub tab or a main-screen banner, except Tribe Clash's. Read like at the
+    # start - the selected tab hides its own dot, so the old per-tab re-check never fired. Golden Woods = treasury's step.
+    final = read()
+    for t in list(tabs)[:2]:
+        tap_wait(tabs[t], 1840); time.sleep(1.2)
+        final = {k: v or d for (k, v), d in zip(final.items(), read().values())}
+    left += [t for t, d in final.items() if d and t != 'golden_woods' and t not in left]
+    if not home(): raise Stop('lost the main screen after the event hub')
+    left += banner_dots()
     r = ', '.join(out) or 'nothing claimed'
     return f'MANUAL {r}; red dots left: {left}' if left else r
 
@@ -1656,4 +1723,7 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    sys.exit(main(sys.argv[1:]))
+    r = main(sys.argv[1:])
+    if a := globals().get('ACCOUNT'):                    # dailies checklist from the game-day log (Nick 2026-11-11)
+        subprocess.run([sys.executable, os.path.join(HERE, 'checklist.py'), str(GAME_DAY), a])
+    sys.exit(r)
