@@ -17,7 +17,7 @@ MOVES = [(540, 1400, 540, 500), (540, 500, 540, 1400), (540, 500, 540, 1400), (9
 def target(b, own):
     for x, y, w, h, t in b:
         m = re.match(r'S(\d{1,3})\b', t)
-        if not m or y < 260 or y > 1700 or m[1] == own or m[1] in ALLIES: continue   # y<260: our own info box
+        if not m or y < 520 or y > 1700 or m[1] == own or m[1] in ALLIES: continue   # y<520: building (90 px up) under our info box (Tiger 11-11 tapped it)
         near = [u for X, Y, W, H, u in b if abs(Y - y) < 140 and abs(X - x) < 300]
         if any('Destroyed' in u or re.fullmatch(r'0%', u) for u in near): continue
         return t, (x + w // 2, y - 90)                  # building sits ~90 px above its label
@@ -47,7 +47,12 @@ def run():
             print(f'free attempts 0 (Siege Tokens not used) - {n} attacks', flush=True); break
         if c[1] == '0': print(f'free attempts 0 - {n} attacks', flush=True); break
         tap_text(r'^Attack$', boxes=b)
-        r = joined(wait(r'Tap anywhere', 30))
+        try: r = joined(wait(r'Tap anywhere', 8))
+        except Stop:                                    # 11-11 round 1: 5/9 accounts' Attack tap didn't register
+            b = ocr()
+            if not find(b, r'^Attack$') or f'Free Attempts: {c[1]}/' not in joined(b): raise
+            print(f'attack {n + 1}: no result in 8 s, counter still {c[1]} - tapping Attack again', flush=True)
+            tap_text(r'^Attack$', boxes=b); r = joined(wait(r'Tap anywhere', 30))
         d = re.search(r'You dealt (\S+) damage', r); n += 1
         print(f'attack {n} ({c[1]}/{c[2]} before): {d[1] if d else r[:120]}', flush=True)
         tap_wait(540, 1700); b = wait(r'^Attack$', 8)

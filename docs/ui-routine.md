@@ -782,10 +782,12 @@ Tribe Clash screen (main banner) → **Treasure** `(980,1300)` (red dot = keys t
 - 9 chests per floor (3×3: x 230/540/850, y 830/1140/1450); counter at the bottom `keys/cost` (Floor 1 = 1 key per chest,
   Floor 2 = 2; floor header "Floor N" at y≈525). One chest holds the **Grand Prize** ("Congratulations … grand prize",
   tap the top edge `(540,60)` to close); its slot then turns into a **portal**.
-- **Open every chest before the portal**: the portal's Tip says unclaimed rewards on the floor are lost (Confirm
-  `(540,1160)`, tick "Do not remind me today" `(320,1340)` first). Every 9 floors = a cycle.
-- Tapping an opened chest shows an item card → top edge `(540,60)` closes it — but with no popup open that tap closes
-  the whole Treasure dialog. The reveal hides the key counter ~1 s: poll, don't tap.
+- **Take the portal as soon as it shows** (Nick 2026-11-11: "when found next floor, go to next floor"), leaving the
+  floor's unopened chests — its Tip says they're lost (Confirm `(540,1160)`, tick "Do not remind me today" `(320,1340)`
+  first). Every 9 floors = a cycle.
+- Closed chest = orange lid `(x,y-60)` ≈ (255,130,90) + dark keyhole `(x,y-20)` ≈ (82,28,8); only those are tapped.
+  Tapping an opened chest shows an item card → top edge `(540,60)` closes it — but with no popup open that tap closes
+  the whole Treasure dialog. The reveal hides the key counter ~1 s and a reward toast covers the "Floor N" header: poll.
 
 ## Tribe Clash Guess
 
