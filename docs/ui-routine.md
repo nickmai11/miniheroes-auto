@@ -704,6 +704,10 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   gone once unlocked; the list scrolls, green frame = selected; the pick carries over to later levels, Expedition **Draw** / Daily Pack ($). The hub tab's own dot sticks while keys are left.
 - **Reward popups** ("Congratulations … Tap anywhere to close"): tap the **"Tap anywhere to close" line** — the popup
   centre is the reward icon and doesn't close it (`close_reward()`).
+- **Main-screen banner dots** (`banner_dots()`, the events step's last check): **Storm Battlefield**'s dot is visit-only —
+  nothing to claim (Rewards all ticked, ticket + = used video / 30 gems), it clears after opening the banner screen; the
+  **Weekly Event** banner (named by its "4d 0h" timer) can keep a dot a few seconds after its hub claim (Dminor +
+  xFaktor 2026-11-12). `events()` visits Storm and re-reads once before calling it MANUAL.
 - **Unknown hub tab with a red dot** → the runner reports `MANUAL … unmapped tab <label>` (Golden Woods went
   uncollected on every account until 2026-11-03 because unknown tabs were invisible) → map it here + in `events()`.
 - **Wish Festival:** Sign-In ≈ `(876,1500–1560)` → today's Claim `(862,1498)`; Gift `(270,1600–1660)` → Free Pack

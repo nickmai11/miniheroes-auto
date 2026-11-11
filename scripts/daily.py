@@ -1385,7 +1385,14 @@ def events(cfg):
         final = {k: v or d for (k, v), d in zip(final.items(), read().values())}
     left += [t for t, d in final.items() if d and t != 'golden_woods' and t not in left]
     if not home(): raise Stop('lost the main screen after the event hub')
-    left += banner_dots()
+    dots = banner_dots()
+    if dots:   # Storm Battlefield's dot clears on a visit, Weekly Event's lags its hub claim (Dminor/xFaktor 2026-11-12) -> re-read
+        if any('Storm Battlefield' in d for d in dots):
+            try: storm_arena()
+            except Stop: pass
+            if not home(): raise Stop('lost the main screen after the Storm Battlefield banner')
+        time.sleep(2); dots = banner_dots()
+    left += dots
     r = ', '.join(out) or 'nothing claimed'
     return f'MANUAL {r}; red dots left: {left}' if left else r
 

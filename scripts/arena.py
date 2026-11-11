@@ -89,7 +89,9 @@ def main(account):
         for _ in range(3):
             d = read_dialog()
             if d: break
-            time.sleep(1)
+            # the crashed dialog can linger past the dismiss loop's first read, then the Congratulations popup covers it
+            # (Tiger/Bino catch-up 2026-11-12, 9 instances busy) -> dismiss + reopen here too
+            tap(540, 120); time.sleep(1.2); tap(540, 1594); time.sleep(1.5)
         if not d: return stop('Challenge dialog not open / tickets unreadable')
         tix, rows = d
         if last is not None and tix >= last: return stop(f'tickets did not drop ({last} -> {tix})')
