@@ -183,6 +183,28 @@ r d d D . .
 . . . . . .
 . . P . . .""")
 assert plan(g)[:2] == (6, 2) and 'letting shard r1c1 (cost 4) go' in plan(g)[2], plan(g)
+# Chloe 2026-11-11 (Nick: "would you go for the upper cluster?"): 3 shards + a gold chest share one tunnel from lit dirt
+# r3c4 (6 digs, 0.16/shovel) while each shard alone is 3-4 digs -> before the scroll, the top rows go as one group
+g = relic.light(grid("""
+. S g d r d
+. S r g d r
+. S S D s p
+. . . . S d
+D D G . D r
+r . . . S d
+d R S D d d"""))
+assert plan(g)[:2] == (2, 3) and 'top rows as one group: 4 items, cost 6' in plan(g)[2], plan(g)
+# a gold chest (0.1) never pays for a dig alone, but of two 2-dig ways to a shard the one through it wins (was: the
+# bottom-row dirt r7c3, for the row it reveals)
+g = grid("""
+. . . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+. . . . . .
+. . . G . .
+d d D r d d""")
+assert plan(g)[:2] == (5, 3) and '0.19/shovel' in plan(g)[2], plan(g)
 # boosters (mechanics verified 2026-11-04): shovels saved = hand-dig cost capped by the item's worth (chest ~7, shard 2,
 # pickaxe 1): a stone-locked relic chest (7 by hand) + a lit shard two tiles away, in a diamond that touches the bottom
 # row (+1, the row it reveals) = 9; the drill digs the bottom row only (nothing there -> 1); a worthwhile row-1 shard is

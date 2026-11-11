@@ -13,7 +13,8 @@
 # then Dijkstra over dig costs (pickaxe 0) from the lit (diggable) cells, over the board plus the hidden row below it
 # (HIDDEN per tile: a cheaper corridor there -> the first dig is the dig-down that shows it, Nick 2026-11-04); the item
 # with the best value/cost >= RATIO is the target, its first path cell is dug; nothing worth it -> the cheapest
-# bottom-row dig (reveals a new row). A bottom-row dig scrolls row 1 off for good: an item there worth its route goes first. Boosters, One-Tap Mining, the shovel "+" are never tapped; the milestone reward is claimed.
+# bottom-row dig (reveals a new row). A bottom-row dig scrolls row 1 off for good: the top rows' items go first if
+# worth it as one group (tour(), Nick 2026-11-11). Boosters, One-Tap Mining, the shovel "+" are never tapped; the milestone reward is claimed.
 # Boosters (skill rule; mechanics verified 2026-11-04): after the digs, dynamite/drill are DRAGGED onto the board where
 # they save >= SAVES shovels (booster_plan), verified by the badge; otherwise a hint line.
 import glob, os, re, sys, time, heapq
@@ -30,13 +31,14 @@ THRESH, MARGIN = 14.0, 4.0                                # max thumb distance t
 FRAME = {(22, 1512): (173, 134, 107), (1058, 1512): (115, 81, 58), (540, 512): (74, 61, 58), (14, 1000): (107, 89, 82),
          (60, 392): (74, 69, 66)}
 # label -> (kind, lit). kinds: . empty  D dirt  S stone(2 hits)  K cracked stone  R shard  C relic chest  G gold chest
-# (Moon Essence, worth 0)  P pickaxe (shovel back)  M multi-square chest  ? unknown
+# (Moon Essence / Spiritstone, 0.1)  P pickaxe (shovel back)  M multi-square chest  ? unknown
 KINDS = {'empty': ('.', False), 'pit': ('.', False), 'dirt': ('D', None), 'stone': ('S', None), 'cracked': ('K', None),
          'shard': ('R', None), 'chest': ('C', None), 'gold': ('G', None), 'pick': ('P', None), 'multi': ('M', None),
          'frame': ('.', False)}   # gold-frame tile of a multi chest without the chest art: read() joins it to the art it touches
 COST = {'D': 1, 'K': 1, 'S': 2, 'R': 1, 'C': 1, 'G': 1, 'P': 0, 'M': 0}   # pickaxe: its shovel comes back -> net 0;
                                                                          # multi chest: always opens for free (Nick 2026-11-04; Cmajor: shovels 1->1, Mine bar unchanged)
-VALUE = {'R': 0.28, 'C': 1.6, 'M': 3.2, 'G': 0.0}  # base-relic units. Multi chest: the most important item, above the relic chest (Nick 2026-11-04) -> target() takes its routes first, whatever the ratio. Chest 1.6 = measured 2026-11-04 (29 base + 4 fused of 33,
+VALUE = {'R': 0.28, 'C': 1.6, 'M': 3.2, 'G': 0.1}  # base-relic units. Gold chest (Spiritstone x50 / Moon Essence x30) 0.1, Nick 2026-11-11:
+                                                   # under RATIO, so never worth a dig alone, but it counts on a route (was 0). Multi chest: the most important item, above the relic chest (Nick 2026-11-04) -> target() takes its routes first, whatever the ratio. Chest 1.6 = measured 2026-11-04 (29 base + 4 fused of 33,
                                                    # a fused Common = 6 base by fusion). Shard: measured 0.21, kept at Nick's 0.28 (see
                                                    # skill). Pickaxe = free tile, not a target.
 RATIO = 0.14                                               # units per shovel a target must beat (measured r ~0.13-0.15)
@@ -131,7 +133,7 @@ def on_board(im): return all(max(abs(a - b) for a, b in zip(im.getpixel(p), c)) 
 
 HIDDEN = 0.99   # assumed dig cost of a tile in the still-hidden row below the board (see routes); just under dirt, so
                 # a toss-up between a known tunnel and "dig down and look" goes to looking (Nick 2026-11-04)
-NAME = {'R': 'shard', 'C': 'relic chest', 'M': 'multi chest'}
+NAME = {'R': 'shard', 'C': 'relic chest', 'M': 'multi chest', 'G': 'gold chest'}
 
 
 def routes(g, blocked=()):
@@ -145,7 +147,7 @@ def routes(g, blocked=()):
         return INF if k in '.?' or (r, c) in blocked else HIDDEN if r >= 7 else COST[k]
     def key(r, c):   # search cost: an item tile is free to pass through, so of two routes of equal real cost the one that
         k = g[r][c][0]   # collects shards/chests wins (Chien Than 2026-11-04: a 5-dig tunnel past 2 gold chests was chosen
-        return 0 if r < 7 and VALUE.get(k, 0) > 0 else cost(r, c)   # over the 5-dig bottom row with 2 shards, Nick)
+        return 0 if r < 7 and VALUE.get(k, 0) >= RATIO else cost(r, c)   # over the 5-dig bottom row with 2 shards, Nick)
     # kd = (search cost, real cost, -bottom-row digs): equal search costs go to the cheaper real route, then to the one
     # with more bottom-row digs - each reveals a row (Dminor 2026-11-05, Nick: the dirt above a shard was dug while the
     # bottom tile beside the shaft reached it for the same 2 shovels)
@@ -200,7 +202,8 @@ def target(g, dist, prev, blocked=(), rows=range(7)):
         # route become 1 dig each once it's dug -> they count toward this route's value and cost
         p = path(prev, (r, c))
         extra = {(nr, nc) for pr, pc in p for nr, nc in ((pr + 1, pc), (pr - 1, pc), (pr, pc + 1), (pr, pc - 1))
-                 if 0 <= nr < 7 and 0 <= nc < 6 and (nr, nc) not in p and not g[nr][nc][1] and worth(nr, nc)}
+                 if 0 <= nr < 7 and 0 <= nc < 6 and (nr, nc) not in p and not g[nr][nc][1] and worth(nr, nc)
+                 and VALUE[g[nr][nc][0]] >= RATIO}   # a gold chest beside it would only drag the ratio down
         seen = set()
         def once(a, b):   # items on the way count too; a multi chest's tiles: value once per route, its other tiles cost 0
             k = g[a][b][0]
@@ -222,17 +225,49 @@ def target(g, dist, prev, blocked=(), rows=range(7)):
 def plan(g, blocked=()):
     """-> (r, c, why) for the next dig, or None: a lit pickaxe (free), else the best item by value/cost (>= RATIO) over
     the board plus its hidden next row, else the cheapest bottom-row dig. A bottom-row dig scrolls row 1 off the board
-    for good, so an item there that is worth its route goes first (Nick 2026-11-04: "collect the resources at the top
-    before going down")."""
+    for good, so the top rows' items go first if worth it as one group (tour(); Nick 2026-11-04: "collect the resources
+    at the top before going down")."""
     nxt = _next(g, blocked)
     if nxt and nxt[0] == 6:
         dist0, prev0 = routes(g, set(blocked) | {(6, c) for c in range(6)})            # routes that don't scroll
-        top = target(g, dist0, prev0, blocked, rows=(0,))
+        top = tour(g, blocked)                                   # one row-1 item = a group of one
         if top: return top[0], top[1], top[2] + ', before the scroll loses it'
         lost = [f'{NAME[g[0][c][0]]} r1c{c + 1} ({f"cost {dist0[(0, c)]:.0f}" if (0, c) in dist0 else "no route"})'
                 for c in range(6) if g[0][c][0] in NAME]
         if lost: nxt = nxt[0], nxt[1], nxt[2] + f'; letting {", ".join(lost)} go (not worth it)'
     return nxt
+
+
+def tour(g, blocked=()):
+    """Top rows as one group before a scroll (Nick 2026-11-11, Chloe: 3 shards + a gold chest for 6 net digs, each shard
+    alone 3-4 digs, so target() let them go one by one). Collect items of rows 1-3 one leg at a time (each leg the
+    cheapest route from what's dug so far; the bottom row stays shut, it would scroll), every order; the best value/cost
+    over the dug cells, among those that reach a row-1 item, wins if >= RATIO -> (r, c, why) of its first dig, or None."""
+    shut = set(blocked) | {(6, c) for c in range(6)}
+    comp, best, seen = multi_groups(g), [None], {}
+    def worth(dug):
+        return sum(VALUE.get(g0[r][c][0], 0) for r, c in dug if g0[r][c][0] != 'M') + VALUE['M'] * len(
+            {comp[p] for p in dug if g0[p[0]][p[1]][0] == 'M'})
+    def go(g, dug, cost, first, lead):
+        if dug and any(r == 0 for r, c in dug if VALUE.get(g0[r][c][0], 0) > 0):
+            v = worth(dug)
+            key = (v / cost if cost else 1e9, -cost, lead)   # a tie starts with its best leg: a gold chest isn't dug
+                                                             # first on the strength of a shard dug after it
+            if v / max(cost, 1e-9) >= RATIO - 1e-9 and (best[0] is None or key > best[0][0]):
+                best[0] = (key, first, v, cost, sum(VALUE.get(g0[r][c][0], 0) > 0 for r, c in dug))
+        dist, prev = routes(g, shut)
+        for t in [p for p in dist if p[0] < 3 and VALUE.get(g[p[0]][p[1]][0], 0) > 0]:
+            p = path(prev, t); nd = dug | frozenset(p)
+            st = (cost + dist[t], -(lead if first else worth(nd) / max(dist[t], 1e-9)))   # same cells: cheaper, then best lead
+            if seen.get(nd, (1e9,)) <= st: continue
+            seen[nd] = st
+            go(light([[('.', False) if (r, c) in p else x for c, x in enumerate(row)] for r, row in enumerate(g)]),
+               nd, st[0], first or p[-1], -st[1])
+    g0 = g
+    go(g, frozenset(), 0, None, 0)
+    if not best[0]: return None
+    (ratio, *_), (r, c), v, cost, n = best[0]
+    return r, c, f'top rows as one group: {n} item{"s" * (n != 1)}, cost {cost:.0f}, {ratio:.2f}/shovel'
 
 
 def _next(g, blocked):
@@ -285,7 +320,7 @@ def booster_plan(g, blocked=()):
         if k == 'P': return 1
         if k == 'M' and comp[(r, c)] in seen: return 0   # a multi chest (2/4/6 tiles) opens once: Aminor 2026-11-04 dynamite -> golden pit
         if k == 'M': seen.add(comp[(r, c)])
-        return min(dist.get((r, c), 1e9), VALUE[k] / RATIO) if VALUE.get(k, 0) > 0 else 0
+        return min(dist.get((r, c), 1e9), VALUE[k] / RATIO) if VALUE.get(k, 0) >= RATIO else 0   # gold chest: 0 here (skill rule)
     def kept(c):                                   # a row-1 item the planner would still collect -> lost at a scroll
         k, d = g[0][c][0], dist.get((0, c))
         if d is None: return 0

@@ -37,7 +37,7 @@ its shovel comes back; in the bottom row it reveals a new row before any route i
 Dijkstra over dig costs from the lit tiles (dirt 1, stone 2, pickaxe 0) over the board **plus the hidden row below it**
 (0.99 per tile: a corridor there that could beat a known tunnel through stone makes the first dig the dig-down that
 reveals it — `via the next row`, Nick 2026-11-04), target = best value/cost ≥ 0.14 lv1-relic units per shovel (shard
-0.28, relic chest 1.6, gold chest 0; **a multi-square chest outranks everything** — Nick 2026-11-04: value 3.2 and its
+0.28, relic chest 1.6, gold chest 0.1; **a multi-square chest outranks everything** — Nick 2026-11-04: value 3.2 and its
 route is taken first at any cost, a lit one opens free before anything), otherwise the
 cheapest bottom-row dig (reveals a new row).
 A bottom-row dig scrolls row 1 off for good, so an item there worth its route is dug first (`before the scroll loses
@@ -120,7 +120,9 @@ Facts (Lost Continent map → **Archive** `(470,1810)`; Relic Display → **Frag
 
 Script values (Nick 2026-11-04, "I trust you"): **relic chest 1.6**, **multi-square chest 3.2 and first in line** (Nick
 2026-11-04: "most important, more than relic chest" — the planner targets it before any relic chest or shard route
-whatever the ratio), gold chest 0, **shard 0.28, threshold r = 0.14** — the shard is kept above the measured 0.21
+whatever the ratio), **gold chest 0.1** (Nick 2026-11-11, was 0: Spiritstone ×50 / Moon Essence ×30 — below r, so never
+dug alone and never counted as "beside" a route, but it adds its value when a route passes through it; boosters still
+count it 0), **shard 0.28, threshold r = 0.14** — the shard is kept above the measured 0.21
 because every call Nick has made (a lone shard up to 2 digs, two shards sharing a 3–4-dig tunnel, the Kong left
 cluster) only holds at ~0.28/0.14; the measured 0.21 would need r ≈ 0.10 to match them and that would send the
 planner 16 digs after a chest. At 1.6 a chest pays for up to ~11 digs (was 7).
@@ -140,7 +142,10 @@ the known route is taken.
 
 **Top row first** (Nick 2026-11-04): every bottom-row dig scrolls row 1 off the board for good — collect an item there
 before any dig-down (free pickaxes included) if it's worth its route; one that isn't (a shard 4 digs away) is let go,
-logged `letting … go`. The point is not to lose a shard the planner would have collected anyway — not to chase every
+logged `letting … go`. **The top rows count as one group** (Nick 2026-11-11, Chloe: 3 shards + a gold chest sharing one
+tunnel for 6 net digs = 0.16/shovel, while each shard alone was 3–4 digs and was let go): before a scroll, `tour()`
+tries every order of collecting the rows 1–3 items (each leg the cheapest route from what's dug so far, bottom row
+shut) and takes the best value/cost that reaches a row-1 item if ≥ r — logged `top rows as one group: N items, cost C`. The point is not to lose a shard the planner would have collected anyway — not to chase every
 top-row item (Nick, 2026-11-04: row 1 is gone for good once it scrolls off).
 
 **Threshold:** take a target if `units / real cost ≥ r` (r = 0.14): a relic chest is worth up to ~11 digs, a lone
