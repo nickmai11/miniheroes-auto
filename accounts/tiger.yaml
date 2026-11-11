@@ -10,12 +10,12 @@ safety:
   max_gem_price_per_sweep: 160
 
 missions:
-  land_of_trials:
-    gem_mine: 3
-    moonlight_temple: 3
-    mysterious_forest: 2
-    abandoned_mine: 2
-    ancient_battlefield: 2
+  land_of_trials:   # top gem price per dungeon: 0 = the 2 free sweeps only, 80 / 160 / 240 = buy up to that price (Nick 2026-11-11, was a sweep count)
+    gem_mine: 80
+    moonlight_temple: 80
+    mysterious_forest: 0
+    abandoned_mine: 0
+    ancient_battlefield: 0
 
   arena:
     tribe: Vie Gang

@@ -63,7 +63,7 @@ def coins(text):
     return {t: got[t] for t in SHOP_TABS if t in got}
 
 
-HIGH = {'sanctuary': 10000, 'tribe': 6000, 'ruins': 3000, 'realm': 12000}   # bold above these (Nick 2026-11-11)
+HIGH = {'sanctuary': 10000, 'tribe': 10000, 'ruins': 3000, 'realm': 10000, 'tundra': 12000}   # bold above these (Nick 2026-11-11; tribe 6k -> 10k, tundra added)
 
 
 def table(head, body, right):
@@ -139,7 +139,7 @@ def highlights(day, accts):
     shops = [t for t in SHOP_TABS if any(t in o for _, o in rich)]
     out = [f'# Highlights - dailies {day} ({weekday})', '', f'## Undone ({len(undone)} of {len(accts)} accounts)', '']
     out += [l for a, ts in undone for l in [f'- **{a}**'] + [f'  - {t}' for t in ts]] or ['Nothing undone.']
-    out += ['', '## Outstanding coins', '', 'Above sanctuary 10k, tribe 6k, ruins 3k, realm 12k.', '']
+    out += ['', '## Outstanding coins', '', 'Above ' + ', '.join(f'{t} {v // 1000}k' for t, v in HIGH.items()) + '.', '']
     out += table(['Account'] + [t.capitalize() for t in shops], [[a] + [f'{o[t]:,}' if t in o else '' for t in shops] for a, o in rich],
                  [False] + [True] * len(shops)) if rich else ['None.']
     return '\n'.join(out) + '\n'

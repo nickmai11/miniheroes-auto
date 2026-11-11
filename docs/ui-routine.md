@@ -182,7 +182,8 @@ Main-screen check pixel: Recruit icon `(92,1788)` ≈ `(0,158,230)`; Start butto
 
 **Run `scripts/trials.py <account>` from the list screen** (see Speed); the steps below are for its exit-1 fallback.
 
-Sweep exactly the configured total per dungeon, then move to the next — `max_gem_price_per_sweep` is only a
+Config = the top gem price per dungeon (Nick, 2026-11-11; was a sweep count): the 2 free sweeps, then buy while the
+next price is ≤ it — 0 = free only, 80 = 3 sweeps, 160 = 4, 240 = 5. Then move to the next — `max_gem_price_per_sweep` is only a
 safeguard (Nick, 2026-10-29/11-03). **Read the next price on the Sweep button itself** (gem icon + 80/160/240) before
 tapping: it tells both the price and how many were already bought today (80 = 0, 160 = 1, 240 = 2). Needing to tap
 Sweep and see the Tip to learn the price or the limit = something is wrong (Nick, 2026-11-03). The Tip is only the

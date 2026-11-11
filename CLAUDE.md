@@ -32,9 +32,9 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
   the CP shown on screen (Arena Challenge, Poseidon lowest-CP ship) are unchanged.
 - **Allies** (Nick, 2026-11-10): in **Tribe Clash** never attack a tribe from a server in `accounts/allies.txt`
   (150 190 194 156 320 300 175 288 54). Other events (Crystal Throne, Floating Realm) aren't affected.
-- **Never spend gems beyond what the account config allows.** Each mission entry gives a
-  total sweep count _including_ free attempts. Free attempts are used first; paid sweeps
-  (button shows a gem icon + price) only up to the configured total.
+- **Never spend gems beyond what the account config allows.** Each Land of Trials entry gives the top
+  gem price to pay in that dungeon (Nick, 2026-11-11; was a sweep count): 2 free sweeps first, then paid
+  ones at 80 / 160 / 240… only while the price is ≤ the configured one (0 = free only; Kong `gem_mine: 240` = 5 sweeps).
 - If a paid sweep's gem price is higher than `max_gem_price_per_sweep` in the config, stop
   that mission and report instead of paying.
 - Verify the attempt counter on screen before **and** after each sweep — never tap blindly.

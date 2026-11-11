@@ -29,8 +29,8 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
    ui-routine "Weekly Missions (Sunday pass)"; report its line (180 ✓ or what's short) per account (Nick, 2026-11-08).
 4. **Checklist (Nick, 2026-11-11):** every `daily.py` run rewrites `checklists/<game day>/<account>.md` from the account's
    game-day log (`scripts/checklist.py`; full catch-up runs left out): grocery coins on top, then **Not done**, then Done.
-   `checklists/<game day>/_highlights.md` = every account's undone boxes + coins above sanctuary 10k / tribe 6k / ruins 3k /
-   realm 12k — start the report from it.
+   `checklists/<game day>/_highlights.md` = every account's undone boxes + coins above sanctuary 10k / tribe 10k / ruins 3k /
+   realm 10k / tundra 12k — start the report from it.
    Pet Arena = +40 deployments that day (catch-up `pet_check` count), or the missing ones deployed since (by hand / Auto Deploy restart), Sanctuary = floors 10/10, Events = no red dot left
    (Tribe Clash excepted), short counts (4/5, forge 4/7) = not done. Read them before reporting;
    a re-run of one step updates its box. Helper-done steps aren't in the log: re-run the step's script or note them.
@@ -79,7 +79,7 @@ Append each helper's final answer to the same file (`=== helper` header) — it'
 
 ## Hard rules
 
-- Configured counts are totals per day **including** free attempts. Use free first; pay with gems only up to the configured total.
+- Land of Trials config = the top gem price per dungeon (Nick 2026-11-11): the 2 free sweeps first, then buy while the price is ≤ it (0 = free only, 80 / 160 / 240).
 - Never pay more than `max_gem_price_per_sweep` (from the account config) for one sweep — stop that mission and report instead. Paid prices escalate within a dungeon each day (80, 160, 240…), so re-read the price on the confirm popup every time.
 - Read the attempt counter on screen before and after every sweep; never chain taps blindly. Taps during popup animations are ignored, so screenshot first.
 - On-screen counters are the source of truth for what was already done today.

@@ -887,7 +887,7 @@ def rune(cfg):
     return f'synthesized -> {r}'
 
 
-SHOP_TABS = {'sanctuary': (452, False), 'tribe': (732, False), 'ruins': (980, False), 'realm': (604, True)}  # x, after tab-bar swipe
+SHOP_TABS = {'sanctuary': (452, False), 'tribe': (732, False), 'ruins': (980, False), 'realm': (604, True), 'tundra': (885, True)}  # x, after tab-bar swipe (Tundra: Tiger 11-11)
 
 
 def coin(im, x0, x1, cy):

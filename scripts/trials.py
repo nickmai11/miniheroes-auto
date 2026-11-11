@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Land of Trials: sweep each dungeon up to the account's configured total (free first, then paid within the cap).
+# Land of Trials: sweep each dungeon free first, then buy up to the account's configured top price (0 / 80 / 160 / 240).
 # usage: D=<serial> scripts/trials.py <account>     (Land of Trials list screen must be open)
 # Counters and prices are read with OCR (scripts/ocr) before and after every sweep:
 #   dialog "Challenge Attempts: N" = free/bought left, "Remaining Purchase Attempts: N" = purchases left (max 5),
@@ -8,7 +8,7 @@
 #   something is wrong"); the Tip popup "Spend P diamonds" is only the Confirm, its price must equal the button's.
 # Done today = 2 - free left, or 2 + purchases made (price ladder 80/160/240 -> 0/1/2 made; the purchase
 # max differs per account: Tiger had 4, Cmajor 5).
-# Sweep the configured count and move on; safety.max_gem_price_per_sweep is only a safeguard (Nick, 2026-10-29/11-03).
+# Sweep up to the configured price and move on; safety.max_gem_price_per_sweep is only a safeguard (Nick, 2026-10-29/11-03).
 # "Match tickets full" popup: flow.tickets_full spends them (Confirm -> arena.py), then exit 1 with MATCH_FULL so the
 # runner redoes trials. exit 0 = all dungeons handled, 1 = unexpected screen (v_trials.png).
 import os, re, subprocess, sys, time
@@ -100,13 +100,17 @@ def dungeon(key, target, cap):
 def main(account):
     cfg = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
     cap = int(re.search(r'max_gem_price_per_sweep:\s*(\d+)', cfg).group(1))
-    block = re.search(r'land_of_trials:\s*\n((?:\s+\w+:\s*\d+.*\n)+)', cfg).group(1)
-    targets = {k: int(v) for k, v in re.findall(r'(\w+):\s*(\d+)', block)}
+    block = re.search(r'land_of_trials:[^\n]*\n((?:\s+\w+:\s*\d+.*\n)+)', cfg).group(1)
+    # config = the top gem price to pay in that dungeon (Nick 2026-11-11): 0 = the 2 free sweeps only, 80 / 160 / 240 = buy up to that
+    # price -> total sweeps = 2 + price / 80 (Kong gem_mine 240 = 5)
+    prices = {k: int(v) for k, v in re.findall(r'(\w+):\s*(\d+)', block)}
+    if bad := [k for k, v in prices.items() if v % 80]: print(f'land_of_trials {bad}: not 0 / 80 / 160 / 240...; stop'); return 1
+    targets = {k: FREE_MAX + v // 80 for k, v in prices.items()}
     if 'GO' not in text(): print('not on the Land of Trials list; stop'); return 1
     half = None
     try:
         for key, h, (x, y) in DUNGEONS:
-            if not targets.get(key): continue
+            if key not in targets: continue
             if h != half:
                 y0, y1 = ('500', '1500') if h == 'top' else ('1600', '400')
                 subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', '540', y0, '540', y1, '500']); time.sleep(1); half = h
