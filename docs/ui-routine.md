@@ -860,7 +860,7 @@ Skipped by Nick (`do: false`): Advanced Recruitment ×30, Purchase with Diamonds
 
 **Only open Mon, Tue, Wed** — skip on other days. Run it first in the dailies. **Scripted: `daily.py <acct> pet_arena`**
 (2026-11-02; checks/sets sprites + order + check boxes, `per_pet` → MANUAL); steps below = its fallback.
-Added by Nick 2026-10-26. Strategy per account (`missions.pet_arena`): **all accounts Random Selection, 2 sprites** (Nick, 2026-11-03 — was
+Added by Nick 2026-10-26. Strategy per account (`missions.pet_arena`): **all accounts Random Selection, 1 sprite** (Nick, 2026-11-11; 2 sprites from 11-03 — before that
 High to Low / 4 except Cmajor). The game's own default is 4 / High to Low, so each account's first run changes both dropdowns once.
 
 - **Be fast, touch only what's wrong** (Nick, 2026-11-03): the arena is busy right after the reset. 4 sprites / High to

@@ -61,8 +61,8 @@ missions:
     realm: [1]
   floating_realm_packs: [free, support, motivation, value, joy]   # FR Pack, its event week: free 20 gems + Support 80 gems; $ packs (Stargems): value $0.99, joy $4.99 (Nick, 2026-11-03)
   relic_shovel_buys: [80, 160]   # relic shovel + buys, each once at exactly this gem price (Nick 2026-11-04: default 80; Kong 80/160/240; Cmajor 80/160)
-  pet_arena:          # Nick 2026-11-02: 2 random pets
+  pet_arena:          # Nick 2026-11-11: 1 random pet (all but Kong, already 1)
     strategy: stamina_order
     order: random
-    sprites: 2
+    sprites: 1
   realm_lineup: keep       # Floating Realm: keep the lineup as is; every other account gets clear + Quick Deploy (5 strongest) before exploring (Nick, 2026-11-04)
