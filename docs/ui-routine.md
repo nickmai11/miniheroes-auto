@@ -517,8 +517,10 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). All free.
    **Request** `(174,1631)` (red dot; may need a 2nd tap at `(174,1636)`) → _Help Request Info_ dialog:
    - **Request** `(334,1660)`: send our own help request (greyed with a **6 h** cooldown timer under it once sent).
      `tribe.py` reads that timer: `request: sent (cooldown 06:00:00)` = proof; already greyed → `NOT SENT (cooldown …)`
-     → the dailies' `tribe` step turns MANUAL. The catch-up sends it every run, mornings too (Nick, 2026-11-08: "a click
-     won't hurt" — the 11-07 morning `--no-request` skip is gone).
+     → the dailies' `tribe` step turns MANUAL. Greyed with **no** timer = 6 h over but our last request isn't filled
+     yet (its row shows e.g. `3/4`); a new one can be sent only once it fills (Tiger, 2026-11-11 20:08). The catch-up
+     sends it every run, mornings too (Nick, 2026-11-08: "a click won't hurt" — the 11-07 morning `--no-request` skip is
+     gone).
    - **Assist** `(740,1660)`: helps every listed request at once; list empties.
    - Close ✕ `(968,228)`.
      Back from Chat usually goes straight to the main screen — but can land on Recruit; screenshot and back again.

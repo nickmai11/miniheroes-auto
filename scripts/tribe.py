@@ -65,7 +65,10 @@ def chat(request=True):
             cd = cooldown()
             if cd: break
             time.sleep(0.5)
-        req = f'sent (cooldown {cd})' if cd else 'NOT SENT (no cooldown timer after the tap)'
+        # 6 h over but our last request not filled yet (Tiger 2026-11-11: 3/4) → Request stays grey, no timer
+        rows = [t.strip() for *_, t in ocr() if re.fullmatch(r'\d/\d', t.strip())] if not cd else []
+        req = (f'sent (cooldown {cd})' if cd else 'NOT SENT (no cooldown timer after the tap'
+               + (f'; request rows {", ".join(rows)}: last request still open)' if rows else ')'))
     print(f'request: {req}')
     a = find(ocr(), r'^Assist$', (560, 1560, 960, 1760))
     if a: tap_wait(*a); print('assist: tapped')

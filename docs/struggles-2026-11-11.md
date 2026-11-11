@@ -34,3 +34,11 @@ re-run). No helpers.
 | 2   | Events (old code)                              | The leftover-dot re-check read each tab while selected (a selected tab hides its dot) → never fired; re-run with the new check: no dots on any account        | ✅                                             |
 | 3   | Checklist                                      | `tribe` stayed open after the request/canyon re-runs; a later "NOT SENT (cooldown)" hid the earlier send; "forge 4/7" didn't say why (Bino: crystals 327/500) | ✅ folded rows, request = any send that day    |
 | 4   | Tribe request (Chloe)                          | Sent ~10:15, before the reset → cooldown until ~16:15; nothing to do before then                                                                              | ❌ catch-up                                    |
+
+# Struggles — catch-up 20:00 (game day 2026-11-11, Wednesday evening; 9 accounts)
+
+Source: runner logs `/tmp/miniheroes-catchup/*.log` (`scripts/catchup_all.sh`). No FAIL, no helper.
+
+| #   | Task                  | What went wrong                                                                                                                                         | Status                                                     |
+| --- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| 1   | Tribe request (Tiger) | `NOT SENT (no cooldown timer after the tap)` twice: the 13:52 request was still open at 3/4, so Request stayed grey with no timer after the 6 h ran out | ✅ not a fault; `tribe.py` now prints the open request row |
