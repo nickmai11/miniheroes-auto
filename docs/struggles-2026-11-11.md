@@ -1,0 +1,10 @@
+# Struggles — catch-up 06:37 (game day 2026-11-10, Wednesday morning; 9 accounts)
+
+Source: runner logs `/tmp/miniheroes-2026-11-11-06/*.log`. Status: ✅ fixed · 🧪 fixed, waiting for a live test
+(`docs/untested.md`) · ❌ open · ❓ needs Nick. Last updated: 2026-11-11.
+
+| #   | Task                        | What went wrong                                                                                                                                                                                                                             | Status                                                                    |
+| --- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| 1   | ADB (Chloe)                 | From canyon on, every navigation tap missed (Daily Mission tap opened the profile menu), then `screencap failed 3x` → Traceback; port 26816 went `offline`, MuMu then reported 26817. Reboot on 26817 + rerun of the 6 failed steps: all OK | ❌ adb port dropped mid-run; runner has no reconnect — watch for a repeat |
+| 2   | Canyon (Chien, Dino, Tiger) | `MANUAL no empty platform`; the skill's single re-run found an empty platform on all three minutes later                                                                                                                                    | ✅ re-run rule works                                                      |
+| 3   | Pet check (Kong)            | +36 of 40 deployments, Auto Deploying already on; still +36 after relics (~25 min later)                                                                                                                                                    | ❓ Auto Deploy stuck / out of sprites?                                    |
