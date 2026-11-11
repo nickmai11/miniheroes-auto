@@ -2,8 +2,10 @@
 # Tribe Clash battle: D=<serial> scripts/tc.py   (main screen or Tribe Clash screen; battle days 10:00-22:00 UTC)
 # Enter -> battle map -> any castle on screen that is not ours (top-left box), not an ally (accounts/allies.txt, Nick
 # 2026-11-10) and not Destroyed (Nick: "just pick one") -> Attack until Free Attempts 0. Never Siege Tokens (the counter
-# turns into a token icon "held/cost" at 0 free attempts). Mapped on Cmajor 2026-11-10. Ends on the main screen.
+# turns into a token icon "held/cost" at 0 free attempts). Mapped on Cmajor 2026-11-10.
+# Last: the Treasure keys (clash_treasure.py, Nick 2026-11-11). Ends on the main screen.
 import os, re, time
+import clash_treasure
 from flow import Stop, find, grab, joined, main, near, ocr, swipe, tap_text, tap_wait, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -51,6 +53,12 @@ def run():
         tap_wait(540, 1700); b = wait(r'^Attack$', 8)
         if 'Free Attempts' in joined(b) and re.search(r'Free Attempts: (\d+)', joined(b))[1] == c[1]:
             raise Stop(f'counter did not drop after attack {n}: {joined(b)[:200]}')
+    home()
+    clash_treasure.run()                                 # last tc step: spend the Treasure keys (Nick 2026-11-11)
+    home()
+
+
+def home():
     for _ in range(4):                                   # attack screen -> map -> TC screen -> main
         tap_wait(92, 1810); time.sleep(0.5)
         if near(grab().getpixel((92, 1788)), (0, 158, 230)): return

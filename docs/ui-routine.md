@@ -752,7 +752,7 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
     Back `(92,1810)` ×2 → main.
   - **`D=<serial> scripts/tc.py`** (Nick 2026-11-10 "tc"; accounts = `scripts/accounts.py tc`): main → Enter → the first
     castle on screen that is not ours, not an ally and not Destroyed (Nick: no ranking, "just pick one"; the map is
-    swiped around if none shows) → Attack until Free Attempts 0 → main. Never Siege Tokens. Live on 7 accounts 11-10.
+    swiped around if none shows) → Attack until Free Attempts 0 → main → **Treasure** (`clash_treasure.py`, last step, Nick 2026-11-11) → main. Never Siege Tokens. Live on 7 accounts 11-10.
     **Scheduled:** `scripts/fr_all.sh` (launchd Wed/Thu/Fri 04:30 local = Tue/Wed/Thu 21:30 UTC) runs `tc.py` on every
     `tc` account in tc weeks and `realm.py` in fr weeks (alternating weekly, Nick 2026-11-10).
   - Possible daily step, not agreed: Basic Donate (gold).
@@ -774,6 +774,7 @@ them yourself. **`D=<serial> scripts/realm_guess.py <1st> <2nd> <3rd>`** per acc
 
 ## Tribe Clash Treasure (Chieftain's Treasure) — mapped on Kong 2026-11-11
 
+**Script: `D=<serial> scripts/clash_treasure.py`** (main or Tribe Clash screen) — also the last step of `tc.py` (Nick 2026-11-11).
 Tribe Clash screen (main banner) → **Treasure** `(980,1300)` (red dot = keys to spend). Keys only, no gems.
 
 - 9 chests per floor (3×3: x 230/540/850, y 830/1140/1450); counter at the bottom `keys/cost` (Floor 1 = 1 key per chest,
