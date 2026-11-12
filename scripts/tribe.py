@@ -61,7 +61,7 @@ def chat(request=True):
     else:
         r = find(boxes, r'Request$', (150, 1560, 520, 1760))
         if r: tap_wait(*r)
-        for _ in range(6):
+        for _ in range(12):   # 6 s: Dminor 2026-11-12 read no timer in 3 s, yet the request was sent (05:41 left 19 min later)
             cd = cooldown()
             if cd: break
             time.sleep(0.5)

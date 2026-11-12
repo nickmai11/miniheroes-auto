@@ -401,3 +401,13 @@ _rows = ['d d S . . D', 'd d D D . D', 'd d D . . D', 'd d D S . D', 'p d D . . 
 _g = [[(t.upper(), t.isupper()) if t != '.' else ('.', False) for t in r.split()] for r in _rows]
 _p = relic.plan(_g); assert _p[:2] == (6, 4) and 'shard r7c4' in _p[2] and 'cost 2' in _p[2], _p
 print('bottom-row tie ok')
+
+# one off-board grab (booster blast / banner over a frame pixel) is not "left the board" (Chien Than 2026-11-12);
+# 3 in a row is. grab/ocr/find come from tap/flow at run time (relic.py __main__) -> stubbed here
+_seq = iter(['off', 'on', 'on'])
+relic.grab, relic.on_board, relic.ocr, relic.find, relic.read, relic.time.sleep = \
+    lambda: next(_seq), lambda im: im == 'on', lambda im=None: [], lambda *a: None, lambda im: 'g', lambda s: None
+assert relic.stable_board() == ('g', 'on')
+_seq = iter(['off'] * 3)
+assert relic.stable_board() == (None, 'off')
+print('transient off-board ok')

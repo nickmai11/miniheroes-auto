@@ -385,12 +385,17 @@ def shovels(boxes):
 def stable_board(tries=12):
     """Grab until two consecutive reads agree (banners, dust, scroll); reward popups are closed on the way.
     -> (grid, image), or (None, image) when some other screen is up; Stop if never stable."""
-    prev = None
+    prev, off = None, 0
     for _ in range(tries):
         im = grab()
         if not on_board(im):
-            if dismiss(ocr(im)): prev = None; continue
-            return None, im
+            b = ocr(im)
+            if dismiss(b): prev = None; continue
+            # a booster blast / banner covers a frame pixel for one grab (Chien Than 2026-11-12: stopped on the board)
+            off += 1
+            if off >= 3 or find(b, r'fully excavated'): return None, im
+            time.sleep(0.35); continue
+        off = 0
         g = read(im)
         if g == prev: return g, im
         prev = g; time.sleep(0.35)
