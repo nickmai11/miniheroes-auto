@@ -493,6 +493,23 @@ Kong's Lv.170 stuck with `1557k/1351k` is NOT a shortage, don't Rebirth), and th
 3. ↑ Lv.90 → _Quick Level Up_ "Lv.2 → Lv.90", potion cost (`19M/1328k`) → **Confirm** `(740,1160)` → Lv.90, gear
    slots unlocked at LV.0 (the gear step then enhances from 0).
 
+## Hero rebirth (reset heroes after the first N, level back to L — Nick, Kratos 2026-11-12)
+
+**Run `scripts/rebirth_level.py <account> --keep N --target L`** (skill `rebirth-level`). Learned on Kratos:
+
+- **Rebirth** (icon above its label ≈`(131,1171)`) → _Rebirth Preview_: free, "100% of the materials used during hero
+  and equipment level up will be returned" (18M gold, 33M potions, stones for a Lv.176) → Confirm → Lv.1, **gear LV.0**.
+- **Lv.1 → 90**: one Level Up, then the "↑ Lv.90" quick button (`hero.quick_90`). Above 90 the quick button reads
+  **"↑ Lv.185"** (the top hero level) — _Quick Level Up_ "Lv.127 → Lv.185", fixed target, no slider: never for a lower target.
+- **Level Up held** (adb swipe on the button, same point): ~1 level/s at first, faster the longer it's held (8 s: +8..13,
+  52 s: +68 → overshot 160). Rapid taps don't stack (10 taps in 0.1 s = +1; 0.4 s apart = +3 in 4 s). The script sizes
+  each hold at 2 levels/s short of target−4, then single taps with read-back.
+- **Bottom hero row** (list order, ~191 px per card, y≈1600): the selected card is drawn bigger and is the only one
+  reaching y=1445 (row background there = flat grey 192); the list icon also reaches it at x ≥ 960. Card 1 sits under the
+  Quick Ascend badge — tap its lower half `(96,1650)`. Card labels OCR badly ("Lv.1" often missed, "Lv.95" → "695"):
+  never decide from them. The list order doesn't change after a rebirth while the hero screen stays open.
+- Scroll the row with slow 2-card drags only; a fast fling or a 480 px swipe skipped heroes (Nick: "scroll slowly").
+
 ## Gear catch-up (all gears of the first N heroes to ≥ L — Nick, 2026-11-06, PuPu)
 
 **Run `cd <scratch>; D=<serial> scripts/gear.py --heroes 15 --target 150`** from the Hero screen (skill `gear`). Gold only.
