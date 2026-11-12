@@ -35,8 +35,6 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 - **Never spend gems beyond what the account config allows.** Each Land of Trials entry gives the top
   gem price to pay in that dungeon (Nick, 2026-11-11; was a sweep count): 2 free sweeps first, then paid
   ones at 80 / 160 / 240… only while the price is ≤ the configured one (0 = free only; Kong `gem_mine: 240` = 5 sweeps).
-- If a paid sweep's gem price is higher than `max_gem_price_per_sweep` in the config, stop
-  that mission and report instead of paying.
 - Verify the attempt counter on screen before **and** after each sweep — never tap blindly.
 - Don't touch anything outside the missions listed in the config (shop, purchases, settings).
   Exception: the free red-dot claims in `docs/ui-routine.md` ("Shop freebies", "Play Pass claims"); never a $ button —

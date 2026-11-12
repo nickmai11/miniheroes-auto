@@ -6,9 +6,6 @@ account:
   enabled: true
   storm_max_rank: King +10   # Storm: stop at this rank even with tickets left (Nick, 2026-10-31)
 
-safety:
-  max_gem_price_per_sweep: 160
-
 missions:
   land_of_trials:   # top gem price per dungeon: 0 = the 2 free sweeps only, 80 / 160 / 240 = buy up to that price (Nick 2026-11-11, was a sweep count)
     gem_mine: 240

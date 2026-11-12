@@ -80,7 +80,7 @@ Append each helper's final answer to the same file (`=== helper` header) — it'
 ## Hard rules
 
 - Land of Trials config = the top gem price per dungeon (Nick 2026-11-11): the 2 free sweeps first, then buy while the price is ≤ it (0 = free only, 80 / 160 / 240).
-- Never pay more than `max_gem_price_per_sweep` (from the account config) for one sweep — stop that mission and report instead. Paid prices escalate within a dungeon each day (80, 160, 240…), so re-read the price on the confirm popup every time.
+- No separate per-sweep cap (Nick 2026-11-12: the dungeon's configured price is the limit). Paid prices escalate within a dungeon each day (80, 160, 240…), so re-read the price on the confirm popup every time.
 - Read the attempt counter on screen before and after every sweep; never chain taps blindly. Taps during popup animations are ignored, so screenshot first.
 - On-screen counters are the source of truth for what was already done today.
 - Touch nothing outside the configured missions (no shop, purchases, settings, events).

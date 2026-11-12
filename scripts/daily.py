@@ -32,7 +32,7 @@ def home():
     """Back to the main screen: back arrow / popup handling, max 8 tries. Back can land on Recruit -> back again."""
     for _ in range(8):
         if is_main(): return True
-        boxes = ocr()
+        boxes = ocr(net=True)
         try:
             if tickets_full(boxes): continue
         except Stop as e: print(f'    {e}', flush=True); return False
@@ -46,7 +46,7 @@ def home():
             for _ in range(60):
                 if is_main(): break
                 # reload can land on the title screen (Chien Than 11-11: Start untapped -> Back opened "Quit Game?")
-                if s := find(ocr(), r'^Start$', (300, 1400, 780, 1620)): tap_wait(*s)
+                if s := find(ocr(net=True), r'^Start$', (300, 1400, 780, 1620)): tap_wait(*s)
                 time.sleep(1)
             continue
         tap_wait(92, 1810); time.sleep(0.8)
@@ -548,7 +548,7 @@ def sanctuary_potion():
 
 def sanctuary_climb():
     """Map: the next floor is the node just below the yellow marker (Cmajor, Ice Citadel 2026-10-29). Crash = instant
-    win; Battle -> lineup (Quick Deploy if < 5, or after a potion) -> Start -> Victory Confirm -> bonus pick. A loss with the 5 main heroes ->
+    win; Battle -> lineup (Quick Deploy if < 5; recall all + Quick Deploy on the first Battle and after a potion) -> Start -> Victory Confirm -> bonus pick. A loss with the 5 main heroes ->
     Recovery Potion -> the same floor again with the 5 (Nick 2026-11-08), at most 2 potions; no potion left -> MANUAL."""
     def stable_marker():
         # the map keeps panning after a floor: a mid-pan frame put the marker at (727,458) on 4 accounts (2026-11-08,
@@ -564,7 +564,7 @@ def sanctuary_climb():
             tap_wait(m[0], m[1] + dy)
             try: return wait(r'Floor \d+/10|Select Bonus Effect|Replace Bonus Effect', 4)
             except Stop: pass
-    out, potions, healed = [], 0, False
+    out, potions, healed = [], 0, True                  # healed = next Battle gets the strongest lineup (first one too)
     for _ in range(14):                                 # 10 floors + up to 2 potion retries + pending screens
         # a bonus screen left pending by an earlier run comes back on entry and hides the marker: "all floors won" with a
         # Replace screen up on Bino/Dminor/Cmajor (2026-11-08) -> resolve it first
@@ -594,8 +594,9 @@ def sanctuary_climb():
             ticks = sum(1 for cx in (160, 350, 540, 730, 920)
                         if sum(1 for y in range(1180, 1300, 4) for x in range(cx - 50, cx + 50, 4)
                                if (lambda p: p[1] > 190 and p[0] < 170 and p[2] < 110)(im.getpixel((x, y)))) > 15)
-            # after a potion everyone is back to full HP -> Quick Deploy = the strongest lineup, not the 5 that just lost
-            # (a substitute from an earlier floor stays ticked; Nick 2026-11-12)
+            # strongest lineup = recall all ↺ (1006,1082) then Quick Deploy (Nick 2026-11-12): on the climb's first Battle and
+            # after a potion. Quick Deploy alone only fills empty slots -> Boudior's refight kept a ticked substitute and lost
+            if healed: tap_wait(1006, 1082); time.sleep(0.8)
             if ticks < 5 or healed: tap_wait(984, 1800); time.sleep(1); healed = False
             tap_text(r'^Start$', (0, 1700, 1080, 1920), boxes)
             r = joined(wait(r'Victory|Defeat', 150))
@@ -635,9 +636,13 @@ def sanctuary(cfg):
         if not find(boxes, r'Generating Effect'): break
         time.sleep(0.5)
     s = find(boxes, r'^Sweep$', (300, 1700, 800, 1860))
+    # sweep-decision evidence (Nick 2026-11-12: Kratos swept 11-11, climbed 11-12 with no Sweep read): screenshot + read
+    im = grab(); im.resize((540, 960)).save('v_sanctuary_entry.png')
+    print(f'    entry: Sweep {s and (s, im.getpixel((s[0] - 100, s[1])))}; yesterday {sanctuary_yesterday()} '
+          f'(v_sanctuary_entry.png); {joined(boxes)[:120]}', flush=True)
     # the intro shows a greyed Sweep even on a fresh map; only a yellow one is real (Cmajor 2026-10-29 logged "swept"
     # on a new Ice Citadel map, nothing swept)
-    if s and near(grab().getpixel((s[0] - 100, s[1])), (255, 182, 16), 40):
+    if s and near(im.getpixel((s[0] - 100, s[1])), (255, 182, 16), 40):
         # Nick 2026-11-12: yesterday short of 10/10 -> no sweep (it only covers the floors won), climb again; a map with
         # no floor left to climb (yesterday's MANUAL was a script stop) still gets the sweep
         if (y := sanctuary_yesterday()) in ('MANUAL', 'FAIL'):
@@ -1382,8 +1387,9 @@ def events(cfg):
         elif tab == '7777':
             c = find(ocr(), r'^Claim$', (300, 1540, 780, 1680))   # never "Again"
             if c:
-                tap_wait(*c)                             # 30-card result; its Confirm can take >1.5 s (Kong instance 2026-10-29)
-                tap_text(r'^Confirm$', (300, 1650, 780, 1850), wait(r'^Confirm$', 15, (300, 1650, 780, 1850))); out.append('7777 daily')
+                tap_wait(*c)                             # 30-card result: cards flip one by one, Confirm only after the last
+                # (>15 s: 26/30 flipped at 15 s on xFaktor/Chien Than 2026-11-12); never its Open All (Nick 2026-10-28)
+                tap_text(r'^Confirm$', (300, 1650, 780, 1850), wait(r'^Confirm$', 40, (300, 1650, 780, 1850))); out.append('7777 daily')
         elif tab == 'wish_festival': out += wish_festival()
         elif tab == 'pet_arena':
             time.sleep(1); pet_popup(joined(ocr()))       # round-result popup over the lobby

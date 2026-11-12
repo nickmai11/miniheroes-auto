@@ -8,7 +8,7 @@
 #   something is wrong"); the Tip popup "Spend P diamonds" is only the Confirm, its price must equal the button's.
 # Done today = 2 - free left, or 2 + purchases made (price ladder 80/160/240 -> 0/1/2 made; the purchase
 # max differs per account: Tiger had 4, Cmajor 5).
-# Sweep up to the configured price and move on; safety.max_gem_price_per_sweep is only a safeguard (Nick, 2026-10-29/11-03).
+# Sweep up to the configured price and move on (no separate per-sweep cap since 2026-11-12, Nick: the dungeon price is the limit).
 # "Match tickets full" popup: flow.tickets_full spends them (Confirm -> arena.py), then exit 1 with MATCH_FULL so the
 # runner redoes trials. exit 0 = all dungeons handled, 1 = unexpected screen (v_trials.png).
 import os, re, subprocess, sys, time
@@ -60,7 +60,7 @@ def sweep_and_dismiss():
     tap(540, 1372); time.sleep(7.5); tap(540, 700); time.sleep(1.5)  # reward popup auto-closes ~3 s; dismiss once
 
 
-def dungeon(key, target, cap):
+def dungeon(key, target):
     c = counter()
     if not c: raise Stop(f'{key}: sweep dialog not readable')
     done = FREE_MAX - c[1] if c[0] == 'free' else FREE_MAX  # buy mode: paid count comes from the Sweep button price below
@@ -75,7 +75,6 @@ def dungeon(key, target, cap):
             if price % 80: raise Stop(f'{key}: price {price} is not on the 80/160/240 ladder')
             done, known = FREE_MAX + price // 80 - 1, True   # purchases already made today
             if done >= target: break
-            if price > cap: print(f'{key}: next sweep costs {price} > cap {cap} (safeguard); stopped'); break
             tap_wait(540, 1372)                       # Sweep -> Tip = the Confirm for this purchase
             m = re.search(r'Spend (\d+)', text())
             if not m or int(m.group(1)) != price:
@@ -99,7 +98,6 @@ def dungeon(key, target, cap):
 
 def main(account):
     cfg = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
-    cap = int(re.search(r'max_gem_price_per_sweep:\s*(\d+)', cfg).group(1))
     block = re.search(r'land_of_trials:[^\n]*\n((?:\s+\w+:\s*\d+.*\n)+)', cfg).group(1)
     # config = the top gem price to pay in that dungeon (Nick 2026-11-11): 0 = the 2 free sweeps only, 80 / 160 / 240 = buy up to that
     # price -> total sweeps = 2 + price / 80 (Kong gem_mine 240 = 5)
@@ -117,7 +115,7 @@ def main(account):
             for attempt in (1, 2):                    # the tickets-full popup can swallow the GO tap (Kong 2026-10-28)
                 tap_wait(x, y); time.sleep(1.5)       # dialog must settle or the Sweep tap is lost
                 if counter() or attempt == 2: break
-            dungeon(key, targets[key], cap)
+            dungeon(key, targets[key])
     except Stop as e:
         grab().resize((540, 960)).save('v_trials.png'); print(f'{e}; stop (screenshot v_trials.png)'); return 1
     return 0

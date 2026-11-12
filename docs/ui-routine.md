@@ -183,8 +183,8 @@ Main-screen check pixel: Recruit icon `(92,1788)` ≈ `(0,158,230)`; Start butto
 **Run `scripts/trials.py <account>` from the list screen** (see Speed); the steps below are for its exit-1 fallback.
 
 Config = the top gem price per dungeon (Nick, 2026-11-11; was a sweep count): the 2 free sweeps, then buy while the
-next price is ≤ it — 0 = free only, 80 = 3 sweeps, 160 = 4, 240 = 5. Then move to the next — `max_gem_price_per_sweep` is only a
-safeguard (Nick, 2026-10-29/11-03). **Read the next price on the Sweep button itself** (gem icon + 80/160/240) before
+next price is ≤ it — 0 = free only, 80 = 3 sweeps, 160 = 4, 240 = 5. Then move to the next — no separate per-sweep cap (Nick 2026-11-12: removed, it
+blocked Kong's 240). **Read the next price on the Sweep button itself** (gem icon + 80/160/240) before
 tapping: it tells both the price and how many were already bought today (80 = 0, 160 = 1, 240 = 2). Needing to tap
 Sweep and see the Tip to learn the price or the limit = something is wrong (Nick, 2026-11-03). The Tip is only the
 Confirm of a purchase you already decided; its price must equal the button's.
@@ -240,7 +240,6 @@ while done < target:
     if "Challenge Attempts: N" (N>0): free sweep
     elif "Remaining Purchase Attempts":
         read gem price on the Sweep button → done today = 2 + price/80 − 1; done ≥ target → next dungeon (no tap)
-        if price > max_gem_price_per_sweep → stop that dungeon (safeguard), report
         tap Sweep → Tip popup (price = the button's) → Confirm → now "Challenge Attempts: 1"
     else: stop, report unexpected state
     tap Sweep (352,932); screenshot → expect Congratulations; dismiss
@@ -388,10 +387,11 @@ Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**.
    9 `(414,506)`, 10 boss `(590,340)` (other maps: read the node off the screenshot).
    - Floor popup: yellow **Crash** `(540,1380)` = instant win (we out-power it) → _Congratulations_ → dismiss `(540,120)`.
    - Green **Battle** `(540,1380)` → lineup (HP **carries over** between floors) → if fewer than 5 ticked,
-     **Quick Deploy** `(984,1800)` → **Start** `(540,1808)` → ~25 s → _Victory_ → **Confirm** `(540,1404)`.
+     **Quick Deploy** `(984,1800)`; on the climb's **first Battle and after a potion: strongest lineup = recall all ↺ `(1006,1082)`
+     then Quick Deploy** (Quick Deploy alone only fills empty slots — Boudior's refight kept a substitute; Nick 2026-11-12) → **Start** `(540,1808)` → ~25 s → _Victory_ → **Confirm** `(540,1404)`.
      Wait with `tap.py 540,1808 --until 400,1404,123,206,49,25` (returns when the Victory Confirm shows).
      **A loss with the 5 main heroes → Recovery Potion `(88,130)` → the same floor again with the 5** (Nick, 2026-11-08; `sanctuary_potion()`,
-     at most 2 potions a run; popup (Boudior 2026-11-12): "Fully restore all heroes to their initial state (only once per day)" + yellow **Free** `(540,1162)`, ✕ `(940,636)` — only a popup naming the potion with Free/Use/Confirm and no price is accepted; after it the refight always taps **Quick Deploy** (everyone's at full HP → strongest lineup, Nick 2026-11-12);
+     at most 2 potions a run; popup (Boudior 2026-11-12): "Fully restore all heroes to their initial state (only once per day)" + yellow **Free** `(540,1162)`, ✕ `(940,636)` — only a popup naming the potion with Free/Use/Confirm and no price is accepted; after it the refight gets the strongest lineup (↺ + Quick Deploy, everyone's at full HP; Nick 2026-11-12);
      "Daily usage limit reached" toast = no potion → MANUAL `floor N LOST`). Never "Challenge again" on the Defeat screen (it refights with the drained HP).
 4. After each floor: **Select Bonus Effect** (3 cards at `(192|540|884, 950)` → **Confirm Selection** `(540,1426)`).
    Pick, in order:
@@ -718,7 +718,7 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   uncollected on every account until 2026-11-03 because unknown tabs were invisible) → map it here + in `events()`.
 - **Wish Festival:** Sign-In ≈ `(876,1500–1560)` → today's Claim `(862,1498)`; Gift `(270,1600–1660)` → Free Pack
   `(866,912)` ×2 (Limited: 2), close ✕ `(966,190)`. Treasure Vault = event-coin draws → skip.
-- **7777 Draws:** daily Claim `(540,1606)` (collects 30 draws; shows a 30-hero-card result → **Confirm** `(540,1748)`) — then stop: **never Open All** / draw (Nick, 2026-10-28:
+- **7777 Draws:** daily Claim `(540,1606)` (collects 30 draws; shows a 30-hero-card result, cards flipping one by one for ~20 s, then **Confirm** `(540,1748)`; the runner polls ≤ 40 s) — then stop: **never Open All** / draw (Nick, 2026-10-28:
   collect only). Never "Again" / "claim one more time" — its red dot stays when all daily claims are ticked.
 - **Match Event:** Heroic Trial sub-tab `(400,190)` and **Canyon Warrior** tab — free point milestones, Claim
   ≈ `(896,1024)`. The top Claim rolls to the next row after each claim: repeat while pixel `(820,1024)` is yellow

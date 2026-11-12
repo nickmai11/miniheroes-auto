@@ -63,8 +63,10 @@ def watch_ad(timeout=180, log=print):
     log(f'    ad still up after {timeout}s: {joined(ocr())[:120]}'); return False
 
 
-def ocr(im=None):
-    """[(x, y, w, h, text)] in device coords, top-left origin."""
+def ocr(im=None, net=False):
+    """[(x, y, w, h, text)] in device coords, top-left origin. A live read showing "Network issue detected" raises Stop
+    unless net=True, so the step fails at once and the runner's home() reloads (Nick 2026-11-12: back to work asap —
+    Boudior's gate fight loop polled 3 min past the popup)."""
     binary = os.path.join(HERE, 'ocr')
     if not os.path.exists(binary):
         subprocess.run(['swiftc', '-O', binary + '.swift', '-o', binary], check=True)
@@ -75,6 +77,7 @@ def ocr(im=None):
     for line in out.splitlines():
         xywh, _, t = line.partition('\t')
         boxes.append((*map(int, xywh.split()), t))
+    if im is None and not net and any('Network issue' in b[4] for b in boxes): raise Stop('network issue popup (reload)')
     return boxes
 
 
