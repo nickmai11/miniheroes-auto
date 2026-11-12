@@ -7,8 +7,9 @@
 # 30 min before the round ends; output -> logs/launchd-fr.log, per-account lines -> logs/<account>/<game day>.log.
 # The plist runs it under `caffeinate -i -s` (idle sleep is 1 min: after a scheduled wake the Mac slept mid-boot risk).
 # Needs AC power + lid open (or an external display): a closed lid sleeps regardless.
-# Idle sleep (1 min) is held off while a MuMu instance runs the game: its audio stream keeps a coreaudiod sleep assertion
-# (pmset log 2026-11-03 21:42 -> 11-04 04:33, job fired on time). Leave one instance + the game open overnight; display off / locked is fine.
+# The Mac wakes itself at 04:29 Wed/Thu/Fri (pmset repeat wakepoweron, /Library/Preferences/SystemConfiguration/com.apple.AutoWake.plist
+# weekdays 28), so no instance has to stay open overnight; display off / locked is fine.
+# When done it closes every instance it booted (Nick 2026-11-12: computer usage).
 #   reload after plist edits: launchctl bootout gui/$(id -u)/com.nickm.miniheroes-fr; launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.nickm.miniheroes-fr.plist
 # A STOP / boot failure is left for Nick (nobody to finish it at 4:30): "<account> exit 1" line + v_realm.png in /tmp/miniheroes-fr/<account>.
 HERE="$(cd "$(dirname "$0")" && pwd)"; R="$(dirname "$HERE")"; W=/tmp/miniheroes-fr
@@ -47,4 +48,5 @@ while IFS='|' read -r i a name; do
    echo "$a exit $? ($(tail -1 out.txt))") &
 done <<<"$pairs"
 wait
+"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" close "$(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)" >/dev/null && echo "closed instances $(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)"
 echo "=== done $(date)"

@@ -614,6 +614,15 @@ def sanctuary_climb():
     return 'climbed: ' + ', '.join(out) if out else 'nothing to climb (all floors won)'
 
 
+def sanctuary_yesterday():
+    """Last sanctuary result tag in yesterday's game-day log: 'OK' = 10/10 (swept / floor 10 won / all won), 'MANUAL' /
+    'FAIL' = stopped short (a LOST floor, climb not finished), None = no line (account didn't run it)."""
+    try: text = open(os.path.join(HERE, '..', 'logs', ACCOUNT, f'{GAME_DAY - datetime.timedelta(days=1)}.log')).read()
+    except OSError: return None
+    tags = re.findall(r'\b(OK|MANUAL|FAIL) sanctuary \(', text)
+    return tags[-1] if tags else None
+
+
 def sanctuary(cfg):
     adventure(r'Secret Sanctuary'); time.sleep(2)
     # map-effects intro: "Bonus Effects", or titled by the map ("Lava Cave" 2026-10-30, no "Bonus Effects") -> Confirm.
@@ -629,6 +638,11 @@ def sanctuary(cfg):
     # the intro shows a greyed Sweep even on a fresh map; only a yellow one is real (Cmajor 2026-10-29 logged "swept"
     # on a new Ice Citadel map, nothing swept)
     if s and near(grab().getpixel((s[0] - 100, s[1])), (255, 182, 16), 40):
+        # Nick 2026-11-12: yesterday short of 10/10 -> no sweep (it only covers the floors won), climb again; a map with
+        # no floor left to climb (yesterday's MANUAL was a script stop) still gets the sweep
+        if (y := sanctuary_yesterday()) in ('MANUAL', 'FAIL'):
+            r = sanctuary_climb()
+            if not r.startswith('nothing to climb'): return f'{r} (Sweep offered, not used: yesterday {y}, short of 10/10)'
         tap_wait(*s); boxes = wait(r'^Confirm$', 6); tap_text(r'^Confirm$', boxes=boxes); time.sleep(2); tap_wait(540, 120)
         return 'swept'
     return sanctuary_climb()

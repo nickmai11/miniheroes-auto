@@ -377,6 +377,9 @@ Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**.
 1. Main screen → **Adventure** `(100,1460)` → Secret Sanctuary **GO** `(787,962)` → map.
    First time: "Bonus Effects" intro → Confirm `(540,1616)`.
 2. If a plain **Sweep** `(540,1778)` shows: Sweep → _Tip_ **Confirm** `(533,1197)` → dismiss `(540,120)`. Done.
+   **Not if yesterday stopped short of 10/10** (Nick, 2026-11-12): the account's last `sanctuary` line in yesterday's
+   game-day log is MANUAL / FAIL (a LOST floor, climb not finished) → don't sweep, climb again (`sanctuary_yesterday()`);
+   a map with no floor left to climb still gets the sweep.
    The weekly map-effects card rolls in first ("Generating Effect…", no Confirm yet) and dims the Sweep under it
    (`(49,36,0)`, not yellow) — wait for its Confirm, then read Sweep; "Remaining Days: N" sits above a live Sweep
    (Kratos/Boudior 2026-11-12: Boudior read it mid-roll, climbed, lost floor 9).

@@ -15,6 +15,9 @@
   applies on restart). Chien Than, Cris, PuPu and xFaktor were 600×1080 with an `adb shell wm size 1080x1920` override
   (windows ~7 px narrower) until 2026-11-06 (Nick: all instances same config). A restart can move the ADB port by 1
   (26752 → 26753): always read it from `mumu-cli info`.
+- Frame rate: every instance capped at 30 fps (`mumu-cli config all --setting '{"maxFpsLimit":30}'`, applies on
+  restart; Nick 2026-11-12). Measured on Dminor: idle CPU 28% → 21%, boot and an Arena step no slower. 2 vCPUs kept:
+  1 vCPU nearly doubled the boot (28 → 53 s) for 3 points less idle CPU.
 
 - Same config on every instance (Nick, 2026-11-06): root off, system disk read-only, no Wi-Fi proxy.
 
