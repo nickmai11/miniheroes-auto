@@ -30,7 +30,7 @@ Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
 10. **Recruit** free summons.
 11. **Hero** upgrade (after the potion-giving steps above).
 12. **Tribe** — sign-in, Trial, chat Request + Assist, then **Canyon Clash** (empty spot + Points Reward; closed Mondays
-    until 17:00). Poseidon's Ruins has its own skill; Crystal Throne: rules in `docs/crystal-throne.md`, matches not automated; its free **Value Pack** (banner → Pack `(980,1610)` → yellow Claim, 20 gems, Limited 1 → Sold Out; never the $ packs) = runner step `tribe_pack` after events (Nick, 2026-11-07).
+    until 17:00). Poseidon's Ruins has its own skill; Crystal Throne: rules in `docs/crystal-throne.md`, matches not automated; its free **Value Pack** (banner → Pack `(980,1610)` → yellow Claim, 20 gems, Limited 1 → Sold Out; never the $ packs) = runner step `tribe_clash_packs` after events (Nick, 2026-11-07).
 13. **Divine Weapon** — Excelsior Veins, Forge, then Benefit (its milestones count the forging just done — Nick, 2026-11-04).
 14. **Stage** run ×3 (skull bubble).
 15. **Patrol** — Claim All only.
@@ -64,7 +64,7 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 **Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
 main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
 Steps: pet_arena (Mon–Wed) fishing arena patrol arena2 storm shop play_pass trials tower sanctuary gate beast arena3 recruit hero tribe divine
-stage patrol_claim rune grocery events treasury tribe_pack fishing_rewards daily_mission play_pass2 (`pet_check` = catch-up only).
+stage patrol_claim rune grocery events treasury tribe_clash_packs fishing_rewards daily_mission play_pass2 (`pet_check` = catch-up only).
 **Run overview: `scripts/summary.sh <run dir>`** — per account OK/SKIP counts, FAIL/MANUAL/paid lines, LEFT FOR HELPER (one call instead of grepping logs).
 
 Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png] [-w 270|540]` for every tap (device coords):
@@ -733,8 +733,8 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   (Tiger: 324M, all 5 chests in one fight). **Limited Merchant**: Free Recruit Pack (10 tickets, Limited 1) → yellow Free.
   Never: Recruit 1/10 (spends the tickets — collect only), Training Program and the Merchant's $ packs.
 - **Tribe events** = the **3rd** right-column banner (under Match/Weekly Event and Storm Battlefield): Floating Realm,
-  Tribe Clash or Crystal Throne — one at a time, never overlapping (Nick, 2026-11-07). Runner step `tribe_pack` claims the
-  Tribe Clash / Crystal Throne free pack; Floating Realm packs = `realm_packs`.
+  Tribe Clash or Crystal Throne — one at a time, never overlapping (Nick, 2026-11-07). Runner step `tribe_clash_packs` claims the
+  Tribe Clash / Crystal Throne free pack; Floating Realm packs = `floating_realm_packs`.
 - **Tribe Clash** banner `(880,624)` → Pack `(976–994,1630)` → Free `(866,934)` (20 gems, 1/day). **Never its
   Treasures or "Enter"** (Nick, 2026-10-27). Its red dot can persist with nothing claimable.
 - **Tribe Clash rules** (in-game ?, read on Cmajor 2026-11-10; nothing automated beyond Pack + Guess):
@@ -1144,7 +1144,7 @@ stamina left over before a reset is lost.
    "Limited to 1 purchases per day", button ~166 px below the row title, "Sold Out" once bought:
    Free Pack (20 gems) · **Support Pack** (4 stamina + 1000 coins, **80 gems**) · **Motivation Pack** (potion + 2 bags, **400 gems** on Dminor; all accounts but Chien Than/xFaktor, Nick) ·
    **Value Pack $0.99** · **Joy Pack $4.99** · Deluxe $9.99 / Supreme $19.99 / King $49.99 (never). The $ buttons
-   are paid in **Stargems** (the white currency next to the gems, top left). Runner step `realm_packs` (dailies only, not the catch-up — Nick) buys the
+   are paid in **Stargems** (the white currency next to the gems, top left). Runner step `floating_realm_packs` (dailies only, not the catch-up — Nick) buys the
    account's `floating_realm_packs` (Nick, 2026-11-03), reading the balances from crops of the counters (whole-screen
    OCR read Stargems "620" as "6201ng Realm"). Close ✕ `(972,228)`.
    Free Pack's button reads **Claim**; Support (80 gems) and Motivation (400 gems) buy straight away → reward popup →

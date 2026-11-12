@@ -1287,10 +1287,10 @@ def realm_buy(btn, price, cur, cap):
     return f'bought ({paid}{"" if sold else ", not Sold Out after?"})'
 
 
-def tribe_pack(cfg):
+def tribe_clash_packs(cfg):
     """Tribe event = the 3rd right-column banner on the main screen: Floating Realm / Tribe Clash / Crystal Throne, one at a
     time, never overlapping (Nick 2026-11-07). Tribe Clash + Crystal Throne: Pack (980,1610) -> the free 20-gem pack
-    (Limited 1, yellow Claim/Free) once a day; never the $ packs, Treasures or Enter. Floating Realm -> realm_packs.
+    (Limited 1, yellow Claim/Free) once a day; never the $ packs, Treasures or Enter. Floating Realm -> floating_realm_packs.
     Uncollected on every account until Nick spotted it on Crystal Throne (2026-11-07). Done = that row reads Sold Out."""
     pat = r'^(Crystal Throne|Tribe Clash)'
     p = find(ocr(), pat, (600, 400, 1080, 900))
@@ -1310,7 +1310,7 @@ def tribe_pack(cfg):
     return f'free pack x{n}'
 
 
-def realm_packs(cfg):
+def floating_realm_packs(cfg):
     """Floating Realm banner -> Pack -> the account's floating_realm_packs, each 1/day (REALM_PACKS: price read off
     the button, balance off the counter, a Tip's amount checked before Confirm)."""
     m = re.search(r'^\s+floating_realm_packs:\s*\[(.*?)\]', cfg, re.M)
@@ -1660,7 +1660,7 @@ ORDER = [('pet_arena', pet_arena), ('fishing', fishing), ('arena', arena), ('pat
          ('tribe', seq((tribe, None), (canyon, 'canyon_clash'))), ('divine', divine),
          ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune),
          ('grocery', grocery),
-         ('events', events), ('treasury', treasury), ('tribe_pack', tribe_pack), ('realm_packs', realm_packs), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
+         ('events', events), ('treasury', treasury), ('tribe_clash_packs', tribe_clash_packs), ('floating_realm_packs', floating_realm_packs), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
          ('weekly', weekly),   # Sundays only: the weekly-missions pass (Nick 2026-11-08)
          ('play_pass2', play_pass2)]   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
 # pet_check: catch-up only (removed from the dailies, Nick 2026-11-04: Auto Deploy isn't done by then)
@@ -1671,7 +1671,7 @@ KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'are
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
        'tribe_chat': 'tribe', 'common_recruit': 'recruit',
-       'events': None, 'treasury': None, 'weekly': None, 'weekly_review': None, 'tribe_pack': 'shop_freebies', 'realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
+       'events': None, 'treasury': None, 'weekly': None, 'weekly_review': None, 'tribe_clash_packs': 'shop_freebies', 'floating_realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
 
 
 def enabled(cfg, key):
