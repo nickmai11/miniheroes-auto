@@ -531,12 +531,13 @@ def floor_marker(im):
 
 
 def sanctuary_potion():
-    """Sanctuary map: Recovery Potion (top-left (88,130)) -> use one. Only "Daily usage limit reached" has been seen
-    (xFaktor 2026-11-08, the day's potion used by hand), so the popup is unmapped: use it only when it names the potion,
-    offers Use/Confirm and shows no purchase wording or price; anything else is closed and counts as no potion."""
+    """Sanctuary map: Recovery Potion (top-left (88,130)) -> use one. Popup (Boudior 2026-11-12): "Recovery Potion / Fully
+    restore all heroes to their initial state (only once per day)" + a yellow Free (540,1162), X (940,636); used up = "Daily
+    usage limit reached" toast (xFaktor 2026-11-08). Used only when it names the potion, offers Free/Use/Confirm and shows
+    no purchase wording or price; anything else is closed and counts as no potion."""
     tap_wait(88, 130); time.sleep(1); boxes = ocr(); t = joined(boxes)
     if re.search(r'limit reached', t): print('    potion: daily usage limit reached', flush=True); return False
-    b = find(boxes, r'^(Use|Confirm)$')
+    b = find(boxes, r'^(Free|Use|Confirm)$')
     if not b or not re.search(r'Recovery Potion|Recover', t) or re.search(r'Buy|Purchase|Diamond|Gem|\$', t):
         c = find(boxes, r'^Cancel$'); tap_wait(*(c or (540, 120)))
         print(f'    potion: not used, popup: {t[:140]}', flush=True); return False
@@ -547,7 +548,7 @@ def sanctuary_potion():
 
 def sanctuary_climb():
     """Map: the next floor is the node just below the yellow marker (Cmajor, Ice Citadel 2026-10-29). Crash = instant
-    win; Battle -> lineup (Quick Deploy if < 5) -> Start -> Victory Confirm -> bonus pick. A loss with the 5 main heroes ->
+    win; Battle -> lineup (Quick Deploy if < 5, or after a potion) -> Start -> Victory Confirm -> bonus pick. A loss with the 5 main heroes ->
     Recovery Potion -> the same floor again with the 5 (Nick 2026-11-08), at most 2 potions; no potion left -> MANUAL."""
     def stable_marker():
         # the map keeps panning after a floor: a mid-pan frame put the marker at (727,458) on 4 accounts (2026-11-08,
@@ -563,7 +564,7 @@ def sanctuary_climb():
             tap_wait(m[0], m[1] + dy)
             try: return wait(r'Floor \d+/10|Select Bonus Effect|Replace Bonus Effect', 4)
             except Stop: pass
-    out, potions = [], 0
+    out, potions, healed = [], 0, False
     for _ in range(14):                                 # 10 floors + up to 2 potion retries + pending screens
         # a bonus screen left pending by an earlier run comes back on entry and hides the marker: "all floors won" with a
         # Replace screen up on Bino/Dminor/Cmajor (2026-11-08) -> resolve it first
@@ -593,7 +594,9 @@ def sanctuary_climb():
             ticks = sum(1 for cx in (160, 350, 540, 730, 920)
                         if sum(1 for y in range(1180, 1300, 4) for x in range(cx - 50, cx + 50, 4)
                                if (lambda p: p[1] > 190 and p[0] < 170 and p[2] < 110)(im.getpixel((x, y)))) > 15)
-            if ticks < 5: tap_wait(984, 1800); time.sleep(1)
+            # after a potion everyone is back to full HP -> Quick Deploy = the strongest lineup, not the 5 that just lost
+            # (a substitute from an earlier floor stays ticked; Nick 2026-11-12)
+            if ticks < 5 or healed: tap_wait(984, 1800); time.sleep(1); healed = False
             tap_text(r'^Start$', (0, 1700, 1080, 1920), boxes)
             r = joined(wait(r'Victory|Defeat', 150))
             if 'Victory' not in r:                       # Defeat screen = "Challenge again" + "Tap anywhere to close", no Confirm
@@ -601,7 +604,7 @@ def sanctuary_climb():
                     tap_wait(540, 120); time.sleep(0.8)
                     if not find(ocr(), r'Tap anywhere to close|Challenge again'): break
                 if potions < 2 and sanctuary_potion():   # Nick 2026-11-08: lost with the 5 main heroes -> potion -> again with the 5
-                    potions += 1; out.append(f'floor {fl[1]} LOST -> potion, again'); continue
+                    potions += 1; healed = True; out.append(f'floor {fl[1]} LOST -> potion, again'); continue
                 out.append(f'floor {fl[1]} LOST'); return 'MANUAL ' + ', '.join(out)
             tap_text(r'^Confirm$', (200, 1300, 880, 1500)); res = 'won'
         out.append(f'floor {fl[1]} {res} {bonus_pick()}')

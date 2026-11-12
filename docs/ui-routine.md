@@ -388,7 +388,7 @@ Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**.
      **Quick Deploy** `(984,1800)` → **Start** `(540,1808)` → ~25 s → _Victory_ → **Confirm** `(540,1404)`.
      Wait with `tap.py 540,1808 --until 400,1404,123,206,49,25` (returns when the Victory Confirm shows).
      **A loss with the 5 main heroes → Recovery Potion `(88,130)` → the same floor again with the 5** (Nick, 2026-11-08; `sanctuary_potion()`,
-     at most 2 potions a run; its popup is unmapped — only a popup naming the potion with Use/Confirm and no price is accepted;
+     at most 2 potions a run; popup (Boudior 2026-11-12): "Fully restore all heroes to their initial state (only once per day)" + yellow **Free** `(540,1162)`, ✕ `(940,636)` — only a popup naming the potion with Free/Use/Confirm and no price is accepted; after it the refight always taps **Quick Deploy** (everyone's at full HP → strongest lineup, Nick 2026-11-12);
      "Daily usage limit reached" toast = no potion → MANUAL `floor N LOST`). Never "Challenge again" on the Defeat screen (it refights with the drained HP).
 4. After each floor: **Select Bonus Effect** (3 cards at `(192|540|884, 950)` → **Confirm Selection** `(540,1426)`).
    Pick, in order:
