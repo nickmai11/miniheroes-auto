@@ -1,5 +1,5 @@
 // Tile running MuMu instance windows on the main screen. Layout 1 (LAYOUT=1): each 1/2 of the usable height,
-// packed in 2 rows from the left edge (accounts/layout.yaml `top`/`bottom`), then `right` instances at full height; skipping names in accounts/layout.yaml `exclude`.
+// packed in 2 rows from the left edge (accounts/layout.yaml `top`/`bottom`), `right` instances at full height against the screen's right edge; skipping names in accounts/layout.yaml `exclude`.
 // usage: [LAYOUT=1|ct] osascript -l JavaScript scripts/layout.js   (default = layout 2: one row, all evenly wide — Nick, 2026-11-07; LAYOUT=1 = 2 rows + right column; LAYOUT=ct = 1 row, every running instance 1/10 of the screen width)
 // Needs Accessibility permission for the terminal app (System Settings > Privacy & Security > Accessibility).
 ObjC.import('AppKit')
@@ -25,12 +25,13 @@ insts.filter(r => !grid.flat().includes(r) && !right.includes(r.name)).forEach(r
 
 const se = Application('System Events')
 let x = v.origin.x
-const place = (r, y, wh) => {
+const place = (r, y, wh, edge) => {
   const p = se.processes.whose({ unixId: r.pid })
   if (!p.length || !p[0].windows.length) { console.log(`${r.name}: no window`); return 0 }
   const w = p[0].windows[0]
   w.position = [x, y]   // move first: a bottom-row window grown in place ran off-screen and macOS clamped its size (LAYOUT=2 first try)
   w.size = [Math.round(wh * 9 / 16), wh]   // MuMu may snap width to its aspect; we read it back below
+  if (edge) w.position = [edge - w.size()[0], y]   // flush against `edge` once the snapped width is known
   console.log(`${r.name}: ${w.position()} ${w.size()}`)
   return w.size()[0]
 }
@@ -57,6 +58,7 @@ for (let c = 0; grid.length && c < Math.max(grid[0].length, grid[1].length); c++
   grid.forEach((row, i) => { if (row[c]) colW = Math.max(colW, place(row[c], top + i * h, h)) })
   x += colW
 }
-// layout.yaml `right`: full usable height, after the grid
-right.map(n => insts.find(r => r.name === n)).filter(Boolean).forEach(r => { x += place(r, top, v.size.height) })
+// layout.yaml `right`: full usable height, against the screen's right edge, in list order (Nick 2026-11-12: was right after the grid)
+let edge = v.origin.x + v.size.width
+right.map(n => insts.find(r => r.name === n)).filter(Boolean).reverse().forEach(r => { x = edge - Math.round(v.size.height * 9 / 16); edge -= place(r, top, v.size.height, edge) })
 undefined   // osascript prints the last value otherwise

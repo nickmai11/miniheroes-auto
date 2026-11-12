@@ -1,19 +1,19 @@
 # Which accounts each task runs on when Nick doesn't name any (or says "all") — Nick, 2026-11-06.
 # Items: an account (accounts/<name>.yaml), a group (accounts/groups.yaml), `all`, or `-name` / `-group` to drop it,
 # applied left to right, e.g. [all, -kong] or [group1, tiger]. A task not listed here = all.
-# Aminor dropped from every task (Nick, 2026-11-08), back in realm + tc (fr_all.sh and its launchd job; Nick, 2026-11-12). `internal` (accounts/groups.yaml) = every account with a config as of 2026-11-06; a new account joins a task only when added. Check: scripts/accounts.py <task>. Accounts named in the request always win over this file.
+# Aminor dropped from every task (Nick, 2026-11-08), back in realm + tc (fr_all.sh and its launchd job; Nick, 2026-11-12); kratos + boudior (copies of aminor) joined `internal` = every task (Nick 2026-11-12). `internal` (accounts/groups.yaml) = every account with a config as of 2026-11-06; a new account joins a task only when added. Check: scripts/accounts.py <task>. Accounts named in the request always win over this file.
 dailies: [internal, -aminor]
 catchup: [internal, -aminor]
 arena: [internal, -aminor]
 poseidon: [internal, -aminor]
 realm: [internal]
 relic: [internal, -aminor]
-tc_guess: [internal, -aminor]
-fr_guess: [internal, -aminor]
-survey: [internal, -aminor]
+tc_guess: [internal]
+fr_guess: [internal]
+survey: [internal]
 stabilize: [internal, -aminor]
-artifact_roll: [internal, -aminor]
-gear: [internal, -aminor]
-climb_stage: [internal, -aminor]
+artifact_roll: [internal]
+gear: [internal]
+climb_stage: [internal]
 treasury: [internal, -aminor]
 tc: [internal]

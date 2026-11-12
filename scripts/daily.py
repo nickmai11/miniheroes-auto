@@ -612,10 +612,16 @@ def sanctuary_climb():
 
 
 def sanctuary(cfg):
-    adventure(r'Secret Sanctuary'); time.sleep(2); boxes = ocr()
-    # map-effects intro: "Bonus Effects", or titled by the map ("Lava Cave" 2026-10-30, no "Bonus Effects") -> Confirm
-    if find(boxes, r'^Confirm$', (300, 1550, 800, 1700)):
-        tap_text(r'^Confirm$', (300, 1550, 800, 1700), boxes); time.sleep(1.5); boxes = ocr()
+    adventure(r'Secret Sanctuary'); time.sleep(2)
+    # map-effects intro: "Bonus Effects", or titled by the map ("Lava Cave" 2026-10-30, no "Bonus Effects") -> Confirm.
+    # Its effects roll in first ("Generating Effect...", no Confirm yet) and dim the Sweep under it: read too early, a
+    # Sweep with "Remaining Days" left went to the climb (Boudior 2026-11-12) -> wait for the card to finish
+    t0 = time.time()
+    while time.time() - t0 < 12:
+        boxes = ocr()
+        if c := find(boxes, r'^Confirm$', (300, 1520, 800, 1720)): tap_wait(*c); time.sleep(1.5); continue
+        if not find(boxes, r'Generating Effect'): break
+        time.sleep(0.5)
     s = find(boxes, r'^Sweep$', (300, 1700, 800, 1860))
     # the intro shows a greyed Sweep even on a fresh map; only a yellow one is real (Cmajor 2026-10-29 logged "swept"
     # on a new Ice Citadel map, nothing swept)

@@ -377,6 +377,9 @@ Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**.
 1. Main screen → **Adventure** `(100,1460)` → Secret Sanctuary **GO** `(787,962)` → map.
    First time: "Bonus Effects" intro → Confirm `(540,1616)`.
 2. If a plain **Sweep** `(540,1778)` shows: Sweep → _Tip_ **Confirm** `(533,1197)` → dismiss `(540,120)`. Done.
+   The weekly map-effects card rolls in first ("Generating Effect…", no Confirm yet) and dims the Sweep under it
+   (`(49,36,0)`, not yellow) — wait for its Confirm, then read Sweep; "Remaining Days: N" sits above a live Sweep
+   (Kratos/Boudior 2026-11-12: Boudior read it mid-roll, climbed, lost floor 9).
 3. Else climb. Floor nodes (yellow marker = next), Lava Cave: 1 `(664,1440)`, 2 `(526,1210)`,
    3 `(786,1040)`, 4 `(552,956)`, 5 `(264,860)`, 6 `(502,786)`, 7 `(746,724)`, 8 `(630,574)`,
    9 `(414,506)`, 10 boss `(590,340)` (other maps: read the node off the screenshot).

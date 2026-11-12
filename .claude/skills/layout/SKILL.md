@@ -1,6 +1,6 @@
 ---
 name: layout
-description: Resize and move Nick's running MuMuPlayer instance windows - layout 2 (default, every task — Nick 2026-11-07) = all instances in 1 row, evenly dividing the screen width; layout 1 = each half the screen height, packed in 2 rows at the left of the main screen, then accounts/layout.yaml `right` instances (now Cmajor) at full height to their right; layout ct (Crystal Throne) = 1 row, every running instance 1/10 of the screen width.
+description: Resize and move Nick's running MuMuPlayer instance windows - layout 2 (default, every task — Nick 2026-11-07) = all instances in 1 row, evenly dividing the screen width; layout 1 = each half the screen height, packed in 2 rows at the left of the main screen, then accounts/layout.yaml `right` instances (now Kong, Cmajor) at full height against the screen's right edge; layout ct (Crystal Throne) = 1 row, every running instance 1/10 of the screen width.
 ---
 
 # MuMu window layout
