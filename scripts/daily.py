@@ -839,10 +839,12 @@ def stage(cfg):
 
 
 def grocery(cfg):
+    """Free chests (grocery.py), then the shop tabs (grocery_buy) in the same visit — no close + reopen (Nick 2026-11-12)."""
     tap_wait(994, 1625); time.sleep(1); tap_wait(900, 1230); wait(r'Daily Specials|Grocery', 10)
-    out = script('grocery.py')
+    out = [script('grocery.py')] if enabled(cfg, 'grocery_free_chests') else []
+    if enabled(cfg, 'grocery_buy'): out.append(grocery_buy(cfg))
     tap_wait(966, 222)
-    return out
+    return '; '.join(out)
 
 
 def rune_tiles(im):
@@ -928,10 +930,10 @@ def coin(im, x0, x1, cy):
 
 def grocery_buy(cfg):
     """Grocery shop tabs: buy each configured tile once, in the shop's own coin only (price icon colour == balance
-    icon), never over the balance; popup price must match the tile. Mapped on the Kong instance 2026-10-29."""
+    icon), never over the balance; popup price must match the tile. Mapped on the Kong instance 2026-10-29. Runs inside
+    grocery() with Grocery already open."""
     want = {k: [int(n) for n in re.findall(r'\d+', v)]
             for k, v in re.findall(r'^\s{4}(\w+):\s*\[([^\]]*)\]', (re.search(r'grocery_buy:.*\n((?:\s{4}.*\n?)*)', cfg) or [''] * 2)[1], re.M)}
-    tap_wait(994, 1625); time.sleep(1); tap_wait(900, 1230); wait(r'Daily Specials', 10)
     out, coins = [], []
     balance = lambda boxes: next((b for b in boxes if b[0] < 300 and 350 < b[1] < 430 and re.fullmatch(r'[\d.]+[kKmM]?', b[4])), None)
     for tab in SHOP_TABS:                                # every shop, configured or not: its coins go in the report (Nick 2026-11-11)
@@ -960,7 +962,6 @@ def grocery_buy(cfg):
             out.append(f'{tab} {n} bought for {price} (balance {bal})')
         time.sleep(0.5); bb = balance(ocr())                # after the buys
         coins.append(f'{tab} {num(bb[4]) if bb else "?"}')
-    tap_wait(966, 222)
     return ', '.join(out + ['coins: ' + ' / '.join(coins)])
 
 
@@ -1658,7 +1659,7 @@ ORDER = [('pet_arena', pet_arena), ('fishing', fishing), ('arena', arena), ('pat
          ('arena3', arena), ('recruit', recruit), ('hero', hero),
          ('tribe', seq((tribe, None), (canyon, 'canyon_clash'))), ('divine', divine),
          ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune),
-         ('grocery', seq((grocery, 'grocery_free_chests'), (grocery_buy, 'grocery_buy'))),
+         ('grocery', grocery),
          ('events', events), ('treasury', treasury), ('tribe_pack', tribe_pack), ('realm_packs', realm_packs), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
          ('weekly', weekly),   # Sundays only: the weekly-missions pass (Nick 2026-11-08)
          ('play_pass2', play_pass2)]   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)

@@ -35,7 +35,7 @@ Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
 14. **Stage** run ×3 (skull bubble).
 15. **Patrol** — Claim All only.
 16. **Rune** synthesis.
-17. **Grocery** — free chests, then the account's `grocery_buy` tiles (if any).
+17. **Grocery** — free chests, then the account's `grocery_buy` tiles (if any), in one visit: straight to the shop tabs, no close + reopen (Nick, 2026-11-12).
 18. **Events** — see "Events (red dots)". Then **King's Treasury** (step `treasury`, `scripts/treasury.py`): spend the
     Treasury Keys the events step just claimed (Nick, 2026-11-10).
 19. **Fishing** — the only place order rewards are collected (see Fishing step 7).
@@ -670,7 +670,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
    `(540,1850)` (`(540,120)` can close Grocery). Popup Free pixel `(480,1344)`: green (123,206,49) = claimable,
    grey (173,178,189) = cooldown. Growth Chest gives +80 gems per claim; Resource Chest can roll +50.
    - **No Play Pass** (xFaktor 2026-11-08): chests 2–4 show a grey **▶ Free** (the top-row colour scan sees Sold-Out grey; `grocery.py` reads the "Free" text instead) → the popup's green Free → video ad (`watch_ad()`, ~45 s) → _Congratulations_ popup = claimed (no popup after 2 ads → stop). 9 ads for the 3 chests.
-4. **`grocery_buy`** (per account, optional; **runner step `grocery_buy`** since 2026-10-29 — OCR price/balance, price icon colour = balance icon, popup price = tile price): for each shop tab listed, buy each listed tile **once**. Tabs at
+4. **`grocery_buy`** (per account, optional; part of the runner's `grocery` step, same visit as the chests since 2026-11-12 — OCR price/balance, price icon colour = balance icon, popup price = tile price): for each shop tab listed, buy each listed tile **once**. Tabs at
    y=546: Sanctuary `(452,546)`, Tribe `(732,546)`, Ruins `(980,546)`; swipe the tab bar `900→200` → Realm
    `(604,546)` (Tundra further). Tiles are numbered 1–12 left→right, top→bottom; price buttons at
    x = `163 / 413 / 663 / 913`, y = `893 / 1249 / 1605`. Purchase popup `(540,1203)`, dismiss `(540,1850)`.
