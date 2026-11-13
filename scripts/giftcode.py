@@ -27,7 +27,7 @@ def run(code):
     boxes = ocr()
     if not find(boxes, r'^Redeem$'): raise Stop(f'no Redeem button after typing; screen: {joined(boxes)[:200]}')
     tap_text(r'^Redeem$', boxes=boxes, settle=False)
-    boxes = wait(r'Tap anywhere to close|Invalid|redeemed|expired', 6)   # reward popup, or a toast over the dialog
+    boxes = wait(r'Tap anywhere to close|Invalid|redeemed|expired|been used', 6)   # reward popup, or a toast over the dialog
     print(f'{code}: {joined(boxes)[:300]}', flush=True)
     if find(boxes, r'Tap anywhere to close'):    # success: Redemption dialog is gone, rewards over Settings
         tap_wait(540, 272)                        # Settings title (inert) dismisses the rewards

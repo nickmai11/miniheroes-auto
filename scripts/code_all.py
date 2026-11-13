@@ -13,11 +13,20 @@ was_up = {a for a in accts if info()[inst[a]].get('state') != 'stopped'}
 def log(a, msg):
     print(f'{a}: {msg}', flush=True)
     open(f'{R}/logs/{a}/{day}.log', 'a').write(f'{time.strftime("%F %T")} [claude] giftcode {code} -> {msg}\n')
+OK = r'Congratulations|already|has been used|been redeemed'   # reward popup, or the toast "This code has been used" (Cmajor 11-13)   # reward popup or "already redeemed" = done for this account
 def redeem(a, serial):
-    subprocess.run(['adb', 'connect', serial], capture_output=True)
-    p = subprocess.run(['python3', '-W', 'ignore', f'{R}/scripts/giftcode.py', code], cwd=out, env={**os.environ, 'D': serial}, capture_output=True, text=True)
-    lines = (p.stdout + p.stderr).strip().splitlines()
-    log(a, f'exit {p.returncode}: {lines[-1] if lines else ""}')
+    """Until it's redeemed (Nick 2026-11-13: try until it does): up to 4 tries, a boot.sh restart of the game between tries."""
+    for t in range(4):
+        subprocess.run(['adb', 'connect', serial], capture_output=True)
+        p = subprocess.run(['python3', '-W', 'ignore', f'{R}/scripts/giftcode.py', code], cwd=out, env={**os.environ, 'D': serial}, capture_output=True, text=True)
+        txt = re.sub(r"waited \S+ for '[^']*'", '', (p.stdout + p.stderr).strip())   # not the regex echoed in a Stop message
+        m = re.search(OK + r'|[Ii]nvalid|expired', txt)
+        if m and re.match(OK, m[0]): return log(a, f'redeemed ({m[0]})')
+        if m: return log(a, f'NOT redeemed: game says {m[0]!r}')
+        log(a, f'try {t + 1} failed: {txt.splitlines()[-1][:120] if txt else p.returncode} -> restarting the game')
+        bl = subprocess.run([f'{R}/scripts/boot.sh', str(info()[inst[a]]['index'])], capture_output=True, text=True).stdout
+        serial = (re.search(r' (127\.0\.0\.1:\d+) ready', bl) or [None, serial])[1]
+    log(a, 'NOT redeemed after 4 tries')
 for k in range(0, len(accts), 6):
     batch = accts[k:k + 6]; ready = {}
     boot = [a for a in batch if a not in was_up]
