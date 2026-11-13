@@ -262,7 +262,7 @@ while time.time() < end:
         mc = re.search(r'Stage (\d+)-40\b', t)  # main screen, reward already closed (by Nick or us)
         if mc and flow.find(b, r'Next chapter'):
             c = int(mc.group(1))
-            step(a, '992,970', rf'Stage {c + 1}-1\b', 30)
+            step(a, '992,970', rf'Stage ({c + 1}|1)-1\b', 30)   # after 10-40 the next difficulty starts at 1-1 (Kratos Destruction -> Chaos 2026-11-13)
             if '--stop-next-chapter' in args: log(a, f'STOPPED at {c + 1}-1 (main screen, not started)'); stopped.add(a); continue
             time.sleep(1)
             step(a, '994,964', r'^Start$|\| Start \|')
