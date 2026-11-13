@@ -46,7 +46,9 @@ def watch_ad(timeout=180, log=print):
     seen, tries = time.time(), 0
     while time.time() - t0 < timeout:
         if in_game(): log(f'    ad closed after {time.time() - t0:.0f}s ({tries} close taps)'); return True
-        boxes = ocr(); el = time.time() - t0
+        try: boxes = ocr()
+        except RuntimeError: boxes = []   # screencap hung 3x under a playable (Chloe/Dminor 2026-11-13): no read, the close taps below still run
+        el = time.time() - t0
         cd = find(boxes, r'\d+\s*s\b|rewarded|Reward in', (0, 0, 1080, 300))
         if cd: seen = time.time()
         dlg = find(boxes, r'Confirm to close')

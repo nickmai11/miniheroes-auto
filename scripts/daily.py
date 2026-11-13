@@ -1299,7 +1299,12 @@ def tribe_clash_packs(cfg):
     tap_wait(*p); wait(r'Participat|^Enter$|Treasure', 10)
     tap_wait(980, 1610)
     try: wait(r'Limited', 6)
-    except Stop: tap_wait(980, 1610); wait(r'Limited', 6)   # Tribe Clash "Participation Requirements" overlay ate the 1st tap (Chloe/Tiger/Dminor 11-11)
+    except Stop:
+        tap_wait(980, 1610)   # Tribe Clash "Participation Requirements" overlay ate the 1st tap (Chloe/Tiger/Dminor 11-11)
+        try: wait(r'Limited', 6)
+        except Stop:   # Claim day (grey "Claiming Rewards", banner "On Truce"): Pack doesn't open — 4 script + 3 hand taps on fGotten 2026-11-13
+            if find(ocr(), r'^Claiming Rewards$'): return 'SKIP Tribe Clash Claim day: Pack does not open'
+            raise
     n = claim_yellow(r'Limited')
     for _ in range(6):                                   # the button redraws late after the reward closes (Kong 2026-11-07)
         sold = find(ocr(), r'^Sold Out$', (700, 700, 1000, 1000))   # Crystal Throne y~812, Tribe Clash Free y~934

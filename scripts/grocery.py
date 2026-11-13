@@ -18,6 +18,9 @@ def chests():   # (Sold Out, still Free) on the top row = the step's proof (Kong
     return n(r'Sold Out'), n(r'Free$')
 def ensure():   # the close tap after a popup-less chest tap shuts Grocery itself (Tiger/Cmajor/Chien Than 2026-11-10: 0/4 read on main)
     if find(ocr(), r'Daily Specials'): return
+    p=shot().getpixel((46,894))   # bare main screen = the blue Recruit icon (device 92,1788); anything else: no blind taps —
+    if not (p[0]<45 and abs(p[1]-158)<45 and abs(p[2]-230)<45):   # they opened a 2000-gem tile's Purchase dialog with Grocery still open (Dminor 2026-11-13)
+        print(f'no "Daily Specials" read and not the main screen (pixel {p}); stop',flush=True); sys.exit(1)
     print('grocery closed; reopening',flush=True)
     for xy in ('994,1625','900,1230'): subprocess.run([T,xy,'-o','g.png'],env=os.environ); time.sleep(1)
     for _ in range(10):
