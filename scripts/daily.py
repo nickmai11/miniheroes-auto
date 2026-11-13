@@ -1292,6 +1292,8 @@ def tribe_clash_packs(cfg):
     time, never overlapping (Nick 2026-11-07). Tribe Clash + Crystal Throne: Pack (980,1610) -> the free 20-gem pack
     (Limited 1, yellow Claim/Free) once a day; never the $ packs, Treasures or Enter. Floating Realm -> floating_realm_packs.
     Uncollected on every account until Nick spotted it on Crystal Throne (2026-11-07). Done = that row reads Sold Out."""
+    if (GAME_DAY - datetime.date(2026, 11, 13)).days % 14 == 0:   # Tribe Clash Claim day (Fri of a tc week): no free pack, Pack doesn't open —
+        return 'SKIP Tribe Clash Claim day: no free pack'            # Nick 2026-11-13: not available, no need to check
     pat = r'^(Crystal Throne|Tribe Clash)'
     p = find(ocr(), pat, (600, 400, 1080, 900))
     if not p: time.sleep(3); p = find(ocr(), pat, (600, 400, 1080, 900))

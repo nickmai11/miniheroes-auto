@@ -783,7 +783,7 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
 - **Tribe events** = the **3rd** right-column banner (under Match/Weekly Event and Storm Battlefield): Floating Realm,
   Tribe Clash or Crystal Throne — one at a time, never overlapping (Nick, 2026-11-07). Runner step `tribe_clash_packs` claims the
   Tribe Clash / Crystal Throne free pack; Floating Realm packs = `floating_realm_packs`.
-- **Tribe Clash** banner `(880,624)` → Pack `(976–994,1630)` → Free `(866,934)` (20 gems, 1/day). **Never its
+- **Tribe Clash** banner `(880,624)` → Pack `(976–994,1630)` → Free `(866,934)` (20 gems, 1/day). Not on the **Claim day** (Fri of a Tribe Clash week): Pack doesn't open, the step skips by date without opening the event (Nick, 2026-11-13); Floating Realm packs only in its own week (no banner → skip). **Never its
   Treasures or "Enter"** (Nick, 2026-10-27). Its red dot can persist with nothing claimable.
 - **Tribe Clash rules** (in-game ?, read on Cmajor 2026-11-10; nothing automated beyond Pack + Guess):
   - Cross-region; top 64 tribes by total power (sum of members' best-ever power) qualify, plus ≥ 2500 tribe medals in
