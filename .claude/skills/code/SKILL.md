@@ -9,7 +9,9 @@ description: Mini Heroes: Magic Throne gift code - redeem a code ("giftcode XXXX
    Nick is using right now (he said he took it over) and say so.
 2. `scripts/code_all.py <CODE> [acct...]` (Bash, foreground or background + wait for the notification): batches of
    6 — boots the stopped instances (`boot.sh`, which also fixes a wrong account), redeems on each
-   (`scripts/giftcode.py`: main screen → ☰ → Settings → Redemption → type → Redeem → close), then closes only the
+   (`scripts/giftcode.py`: main screen → ☰ → Settings → Redemption → type → Redeem → close), then closes the
    instances it booted. Already-running ones are redeemed as they are, not rebooted. Logs one line per account.
 3. Report per account the game's reply (rewards / "already redeemed" / "invalid" / "expired") and any `NOT RUN` /
    exit 1 (`v_giftcode.png` in `/tmp/miniheroes-gift-<CODE>`). Free — never a purchase.
+4. **When done, close every instance that wasn't open before the task started** (Nick, 2026-11-13) — including ones a
+   failed or killed attempt left running; keep only those open before Nick asked.

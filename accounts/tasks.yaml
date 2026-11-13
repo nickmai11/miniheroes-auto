@@ -17,4 +17,4 @@ gear: [internal]
 climb_stage: [internal]
 treasury: [internal, -aminor]
 tc: [internal]
-code: [internal, -aminor]   # gift codes (skill `code`, scripts/code_all.py) — Nick 2026-11-13
+code: [internal]
