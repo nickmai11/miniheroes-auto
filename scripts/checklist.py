@@ -199,6 +199,8 @@ def test():
     q = parse(log[:1] + ['13:52:00     pet deployments 118 (yesterday 80, +38 today)', '13:54:00     pet: deployed by hand (free attempt) x1, this round 1/4',
                          '20:05:00     pet deployments 119 (yesterday 80, +39 today)', '20:05:30 OK pet_arena (9s): Auto Deploying: 1 sprites'])
     assert '- [ ] pet_arena: deployments 119/120 (+39 today)' in render('dino', '2026-11-11', q)
+    q = parse(log[:1] + ['12:30:00 OK tribe (137s): tribe done, request sent (cooldown 05:59:59); keeping the current Glory spot: higher than any empty one (highest_free); rewards: points 37452, claimed x0'])
+    assert 'tribe: request sent, canyon NOT done' in highlights('2026-11-11', [('kratos', q)]), highlights('2026-11-11', [('kratos', q)])   # Kratos 2026-11-13
     print('ok')
 
 
