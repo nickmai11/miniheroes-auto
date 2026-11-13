@@ -27,3 +27,10 @@
 The game API is encrypted with a per-request nonce (`docs/api-findings.md`), so capture was dropped after one look
 (2026-10-26). The Proxyman setup (Cmajor proxy, root, writable disk, system CA) is in git history before this change
 (`git show b903e74:docs/setup.md`).
+
+## Launcher list order
+
+The MuMuPlayer launcher's instance order = `mumu:` in `accounts/layout.yaml` (Nick, 2026-11-13). MuMu stores it in
+`setting/common.json` → `managerListIndexs` (`<instance index>-<position>`), read at launcher start; no `mumu-cli`
+command. Restore it with `scripts/mumu_order.py` (skill `mumu-order`), then restart the launcher (it closes running
+instances — not while one is in use).
