@@ -1,12 +1,12 @@
-// Tile running MuMu instance windows on the main screen. Layout 1 (LAYOUT=1): each 1/2 of the usable height,
-// packed in 2 rows from the left edge (accounts/layout.yaml `top`/`bottom`), `right` instances at full height against the screen's right edge; skipping names in accounts/layout.yaml `exclude`.
-// usage: [LAYOUT=1|ct] osascript -l JavaScript scripts/layout.js   (default = layout 2: one row, all evenly wide — Nick, 2026-11-07; LAYOUT=1 = 2 rows + right column; LAYOUT=ct = 1 row, every running instance 1/10 of the screen width)
+// Tile running MuMu instance windows on the main screen. Layout 1 (default): each 1/2 of the usable height,
+// `right` instances at full height against the screen's right edge, then 2 rows (accounts/layout.yaml `top`/`bottom`) packed right-aligned to their left; skipping names in accounts/layout.yaml `exclude`.
+// usage: [LAYOUT=2|ct] osascript -l JavaScript scripts/layout.js   (default = layout 1: 2 rows + right column — Nick, 2026-11-13; LAYOUT=2 = one row, all evenly wide; LAYOUT=ct = 1 row, every running instance 1/10 of the screen width)
 // Needs Accessibility permission for the terminal app (System Settings > Privacy & Security > Accessibility).
 ObjC.import('AppKit')
 const app = Application.currentApplication(); app.includeStandardAdditions = true
 const dir = app.doShellScript('dirname "$(dirname ' + JSON.stringify($.NSProcessInfo.processInfo.arguments.js.map(a => a.js).pop()) + ')"')
 const list = k => ((app.doShellScript(`grep '^${k}:' "${dir}/accounts/layout.yaml" || true`).match(/\[(.*)\]/) || [, ''])[1]).split(',').map(s => s.trim()).filter(Boolean)
-const L = $.NSProcessInfo.processInfo.environment.objectForKey('LAYOUT').js || ''
+const L = $.NSProcessInfo.processInfo.environment.objectForKey('LAYOUT').js || '1'   // default layout 1 (Nick 2026-11-13: every task; was layout 2 since 11-07)
 const exclude = list('exclude'), rows = [list('top'), list('bottom')], right = list('right')
 const info = JSON.parse(app.doShellScript('"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" info all'))
 // ONLY="0 2 4" (set by boot.sh) = tile just these MuMu indices — booting 8 accounts once moved Aminor's window too
@@ -35,7 +35,7 @@ const place = (r, y, wh, edge) => {
   console.log(`${r.name}: ${w.position()} ${w.size()}`)
   return w.size()[0]
 }
-// Layout 2 (default since 2026-11-07, Nick: every task): all instances in 1 row, each 1/n of the usable width; LAYOUT=1 = the old 2-row layout
+// Layout 2 (LAYOUT=2; the default 2026-11-07..11-13): all instances in 1 row, each 1/n of the usable width
 if (L !== '1') {
   // One slot per layout.yaml `row` name, running or not (Nick 2026-11-07: an account keeps its place and width whatever
   // is open); unlisted running instances get extra slots after it, by MuMu index. ONLY (boot.sh) just limits which
@@ -53,12 +53,15 @@ if (L !== '1') {
   all.forEach(r => { if (r && mine(r)) ww = place(r, top, wh); x += ww })
   grid.length = 0; right.length = 0
 }
-for (let c = 0; grid.length && c < Math.max(grid[0].length, grid[1].length); c++) {
-  let colW = 0
-  grid.forEach((row, i) => { if (row[c]) colW = Math.max(colW, place(row[c], top + i * h, h)) })
-  x += colW
-}
 // layout.yaml `right`: full usable height, against the screen's right edge, in list order (Nick 2026-11-12: was right after the grid)
 let edge = v.origin.x + v.size.width
 right.map(n => insts.find(r => r.name === n)).filter(Boolean).reverse().forEach(r => { x = edge - Math.round(v.size.height * 9 / 16); edge -= place(r, top, v.size.height, edge) })
+// grid: right-aligned, flush against the `right` column (Nick 2026-11-13: was packed from the left edge); last column first
+// columns counted from each row's end, so a shorter row's gap is on the left (Nick 2026-11-13)
+for (let c = 0; grid.length && c < Math.max(grid[0].length, grid[1].length); c++) {
+  let colW = 0
+  x = edge - Math.round(h * 9 / 16)
+  grid.forEach((row, i) => { const r = row[row.length - 1 - c]; if (r) colW = Math.max(colW, place(r, top + i * h, h, edge)) })
+  edge -= colW
+}
 undefined   // osascript prints the last value otherwise
