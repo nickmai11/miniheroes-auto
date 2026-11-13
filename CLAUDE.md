@@ -57,6 +57,9 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
   main screen and clears the event popups (`scripts/stabilize.py`: tick "Do not remind me today" + X), all in parallel
   (~25 s cold, ~15 s warm). Prints "<name> <serial> ready (stable …)" or "popup-stuck" (close that one by hand). Always boot first. Use it instead of
   manual start-up steps in any skill; runner and helpers then begin at a clean main screen.
+- **FPS (Nick, 2026-11-13, every task):** tasks run at 30 fps on every instance, Kong and Cmajor included — `boot.sh`
+  sets 30 before it opens an instance. **When the task is done:** `mumu-cli config all --setting '{"maxFpsLimit":60}'`
+  (applies at each instance's next start; `fr_all.sh` does it itself).
 - **Scripts first (Nick, 2026-10-28 — cost):** `scripts/daily.py <account> [step ...]` runs a whole account with no
   LLM; mission scripts (`arena.py`, `trials.py`, `patrol.py`, …) do single missions. A helper is only for what a
   script leaves (`LEFT FOR HELPER:` / exit 1). One run of helpers-for-everything cost ~12% of Nick's weekly tokens.

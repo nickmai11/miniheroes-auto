@@ -505,10 +505,41 @@ Kong's Lv.170 stuck with `1557k/1351k` is NOT a shortage, don't Rebirth), and th
   52 s: +68 → overshot 160). Rapid taps don't stack (10 taps in 0.1 s = +1; 0.4 s apart = +3 in 4 s). The script sizes
   each hold at 2 levels/s short of target−4, then single taps with read-back.
 - **Bottom hero row** (list order, ~191 px per card, y≈1600): the selected card is drawn bigger and is the only one
-  reaching y=1445 (row background there = flat grey 192); the list icon also reaches it at x ≥ 960. Card 1 sits under the
-  Quick Ascend badge — tap its lower half `(96,1650)`. Card labels OCR badly ("Lv.1" often missed, "Lv.95" → "695"):
+  reaching y=1445 (row background there = flat grey 192); the list icon also reaches it at x ≥ 960, and so does the
+  Quick Ascend badge over card 1 (x ≲ 200) — take the **rightmost** non-grey run. Card 1 sits under that badge — tap its
+  lower half `(96,1650)`. Card labels OCR badly ("Lv.1" often missed, "Lv.95" → "695"):
   never decide from them. The list order doesn't change after a rebirth while the hero screen stays open.
 - Scroll the row with slow 2-card drags only; a fast fling or a 480 px swipe skipped heroes (Nick: "scroll slowly").
+
+## Divinities (upgrade every hero after the first N to the config levels — Nick, Kratos 2026-11-12)
+
+**Run `cd <scratch>; D=<serial> scripts/divinity.py --keep N`** (skill `divinity`) from the main or Hero screen (after a stop:
+**`--here`** = resume at the selected hero, don't walk from card 1 again — Nick). Per hero: all 6 badges to their
+targets, then the next card — **stay on the Artifact tab** (it stays open across hero cards; no Attribute round trips —
+Nick). Targets in
+`accounts/divinities.yaml` (sections red / purple / gold, value in units of 50 levels). **Only listed names with a value
+are upgraded** (Nick: "shouldn't upgrade what not listed" — Basic / Intermediate HP/ATK aren't listed). Crystals + gold only.
+
+- Hero → Artifact tab `(920,1300)`: 6 badges around the artifact, colour by position — purple `(184,380)` `(896,380)`,
+  gold `(120,580)` `(960,580)`, red `(184,784)` `(896,784)`. Each colour spends its own crystal kind.
+- Badge → popup "<kind> Divinity" (kind ≠ catalog kind: DMG Reduction shows as "RES Divinity"); stat name `(344,860)`,
+  level row y≈820: current x≈620, next x≈860. **Level 0 doesn't OCR** → current = next − 1. Close `(540,120)`.
+- Purple/gold names: `<Class> ATK/DEF/HP`, All ATK/DEF/HP, Basic/Intermediate/Advanced HP/ATK. Red names show "All "
+  ("All HP"); the config uses the catalog names without it (`nextjs-fullstack/scripts/upsert-divinities.sql`). OCR junk:
+  "AIl"/"AlI" for All, a trailing " |", value glued on ("Marksman ATK 1140"), long names cut ("All Melee DMG Reduct") —
+  `key()` maps them (missed on Kratos before the fix: gold All ATK ×2, red Melee DMG Reduction ×4).
+- Locked badges (padlock, "Lv.100" — Bone Archer's gold/red) open no popup. **Bone Archer is excluded** (Nick).
+- Out of a colour's crystals: Enhance does nothing, the cost row (y≈1020) reads e.g. `132/249` → skip that colour for the
+  rest of the run (Kratos: red ran out at Dark Shaman, gold at Nightmare Source). Gold `have/need` on the right half.
+- **Upgrading moves the hero left in the row** (sorted by power?): the walk then meets already-done heroes again
+  (read-only second pass; nothing skipped — 62 heroes after the first 6 on Kratos).
+- **Enhance** `(540,1166)` = +1 (a held press only gave +3 in 3 s). After one Enhance the **"↑ Lv.N"** quick button
+  `(540,1020)` shows over the cost row (N = next multiple of 50: Lv.1 → 50, Lv.51 → 100) → _Quick Level Up_ "Lv.a → Lv.b"
+  with the gold/crystal cost → Confirm `(740,1160)` / Cancel `(336,1160)`. Where it goes = the highest number on the
+  button + the dialog's line (y 780–900): the dimmed hero cards behind OCR as "Lv.18x", the dialog reads "LV.50" (capital
+  V) and its green "Lv.150" sometimes doesn't OCR. Chain in one popup: Enhance → quick 50 → Enhance → quick 100 → …
+- The popup redraws ~1 s after a tap (a quick to 50 read back as 1): poll until the level moves, 2 equal reads.
+- **Reset** `(886,1166)` → "Reset and return", free, 100% of the materials back → Confirm → _Congratulations_.
 
 ## Gear catch-up (all gears of the first N heroes to ≥ L — Nick, 2026-11-06, PuPu)
 
@@ -782,6 +813,9 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   - **`D=<serial> scripts/tc.py`** (Nick 2026-11-10 "tc"; accounts = `scripts/accounts.py tc`): main → Enter → the first
     castle on screen that is not ours, not an ally and not Destroyed (Nick: no ranking, "just pick one"; the map is
     swiped around if none shows) → Attack until Free Attempts 0 → main → **Treasure** (`clash_treasure.py`, last step, Nick 2026-11-11) → main. Never Siege Tokens. Live on 7 accounts 11-10.
+    **`scripts/tc.py <tribe>`** (Nick 2026-11-12 "tc olympus"): a castle whose label line has that name (allies still
+    never); **not on the map → any castle that is not an ally** (Nick). Tiger / Boudior / Kratos are S221 Vie Gang (another
+    group, no Olympus), the rest S201. Live 11-12: 9 accounts × 6 on S251 TheOlympus, Tiger + Boudior fell back to S126.
     **Scheduled:** `scripts/fr_all.sh` (launchd Wed/Thu/Fri 04:30 local = Tue/Wed/Thu 21:30 UTC) runs `tc.py` on every
     `tc` account in tc weeks and `realm.py` in fr weeks (alternating weekly, Nick 2026-11-10).
   - Possible daily step, not agreed: Basic Donate (gold).

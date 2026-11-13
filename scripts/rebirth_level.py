@@ -78,14 +78,15 @@ def drag(dx):
 
 def selected():
     """(left, right) x of the selected card: the only card reaching up into y=1445, where the row background is a flat
-    192 grey. First run of non-grey pixels (its badge gap merged); x >= 960 = the list icon."""
+    192 grey. LAST run of non-grey pixels (its badge gap merged): the Quick Ascend badge over card 1 also reaches
+    y=1445 and was taken for the selection past card 2 (Tiger 2026-11-12); x >= 960 = the list icon."""
     im = grab(); runs = []
     for x in range(0, 960, 4):
         if abs(sum(im.getpixel((x, 1445))[:3]) / 3 - 192) > 8:
             if runs and x - runs[-1][1] <= 24: runs[-1][1] = x
             else: runs.append([x, x])
     if not runs: raise Stop('no selected card in the row')
-    return tuple(runs[0])
+    return tuple(runs[-1])
 
 
 def pick(x):

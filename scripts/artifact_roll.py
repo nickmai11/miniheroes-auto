@@ -20,15 +20,16 @@ BRILLIANCE = (742, 1243)           # top edge of the Brilliance tier frame: tan 
 
 
 def gems(boxes):
-    x0, y0, x1, y1 = GEMS
-    g = [t for x, y, w, h, t in boxes if x0 <= x + w // 2 <= x1 and y0 <= y + h // 2 <= y1 and re.fullmatch(r'\d+', t)]
-    if not g: raise Stop(f'gem counter unreadable: {joined(boxes)[:200]}')
-    return int(g[0])
+    # Boudior shows '140k' (2026-11-13). ponytail: at k resolution a 280-gem drop only shows when it crosses a
+    # thousand; the 280-price refusal is the real guard
+    g = stars(boxes, GEMS)
+    if g is None: raise Stop(f'gem counter unreadable: {joined(boxes)[:200]}')
+    return g
 
 
-def stars(boxes):
-    """Star counter -> int ('655k', '1.2M', '9876'); None if unreadable."""
-    x0, y0, x1, y1 = STARS
+def stars(boxes, box=STARS):
+    """Star (or gem) counter -> int ('655k', '1.2M', '9876'); None if unreadable."""
+    x0, y0, x1, y1 = box
     for x, y, w, h, t in boxes:
         m = re.fullmatch(r'([\d.]+)([kKmM]?)[kKmM]*', t.strip())   # Dminor OCRs '780kk'
         if m and x0 <= x + w // 2 <= x1 and y0 <= y + h // 2 <= y1:

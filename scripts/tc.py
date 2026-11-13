@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-# Tribe Clash battle: D=<serial> scripts/tc.py   (main screen or Tribe Clash screen; battle days 10:00-22:00 UTC)
+# Tribe Clash battle: D=<serial> scripts/tc.py [tribe]   (main screen or Tribe Clash screen; battle days 10:00-22:00 UTC)
+# tribe (Nick 2026-11-12 "tc olympus"): a castle whose label has that name (case/space-insensitive); not on the map (another
+# group) -> any castle like without a name. Allies never.
 # Enter -> battle map -> any castle on screen that is not ours (top-left box), not an ally (accounts/allies.txt, Nick
 # 2026-11-10) and not Destroyed (Nick: "just pick one") -> Attack until Free Attempts 0. Never Siege Tokens (the counter
 # turns into a token icon "held/cost" at 0 free attempts). Mapped on Cmajor 2026-11-10.
 # Last: the Treasure keys (clash_treasure.py, Nick 2026-11-11). Ends on the main screen.
-import os, re, time
+import os, re, sys, time
 import clash_treasure
 from flow import Stop, find, grab, joined, main, near, ocr, swipe, tap_text, tap_wait, wait
 
@@ -14,16 +16,21 @@ MOVES = [(540, 1400, 540, 500), (540, 500, 540, 1400), (540, 500, 540, 1400), (9
          (200, 900, 900, 900)]   # map is bigger than the screen: look around until a target shows
 
 
-def target(b, own):
+norm = lambda s: re.sub(r'[^a-z0-9]', '', s.lower())
+
+
+def target(b, own, want=''):
     for x, y, w, h, t in b:
         m = re.match(r'S(\d{1,3})\b', t)
         if not m or y < 520 or y > 1700 or m[1] == own or m[1] in ALLIES: continue   # y<520: building (90 px up) under our info box (Tiger 11-11 tapped it)
         near = [u for X, Y, W, H, u in b if abs(Y - y) < 140 and abs(X - x) < 300]
         if any('Destroyed' in u or re.fullmatch(r'0%', u) for u in near): continue
+        line = [u for X, Y, W, H, u in b if abs(Y - y) < 25 and x <= X <= x + w + 250]   # "S115 TheKitchen": same line
+        if want and not any(norm(want) in norm(u) for u in line): continue
         return t, (x + w // 2, y - 90)                  # building sits ~90 px above its label
 
 
-def run():
+def run(want=''):
     b = ocr()
     if not find(b, r'will advance'):
         if not find(b, r'^Enter$'):
@@ -33,11 +40,15 @@ def run():
     own = re.search(r'S(\d{1,3})', ' '.join(t for x, y, w, h, t in b if y < 160 and x < 500))
     if not own: raise Stop(f'own castle box unreadable: {joined(b)[:200]}')
     own = own[1]
-    for mv in [None] + MOVES:
-        if mv: swipe(*mv, 600); time.sleep(1); b = ocr()
-        tg = target(b, own)
-        if tg: break
-    else: raise Stop(f'no attackable castle found (own S{own}): {joined(b)[:200]}')
+    for w in [want, ''] if want else ['']:             # tribe not on the map -> any castle, not an ally (Nick 2026-11-12)
+        for mv in [None] + MOVES:
+            if mv: swipe(*mv, 600); time.sleep(1); b = ocr()
+            tg = target(b, own, w)
+            if tg: break
+        else:
+            if w: print(f'{want} not on the map (own S{own}) -> any castle that is not an ally', flush=True); continue
+            raise Stop(f'no attackable castle found (own S{own}): {joined(b)[:200]}')
+        break
     print(f'own S{own}, target {tg[0]}', flush=True)
     tap_wait(*tg[1]); b = wait(r'^Attack$|Free Attempts|^\d+/\d+$', 6)
     n = 0
@@ -70,4 +81,4 @@ def home():
     raise Stop('not back on the main screen')
 
 
-main(run)
+main(run, ' '.join(sys.argv[1:]))

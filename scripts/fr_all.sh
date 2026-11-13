@@ -49,4 +49,5 @@ while IFS='|' read -r i a name; do
 done <<<"$pairs"
 wait
 "/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" close "$(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)" >/dev/null && echo "closed instances $(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)"
+"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" config all --setting '{"maxFpsLimit":60}' >/dev/null && echo "fps back to 60"   # boot.sh set 30 (Nick 2026-11-13)
 echo "=== done $(date)"

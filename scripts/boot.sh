@@ -11,6 +11,9 @@ PKG=com.and.brawlen.web
 
 boot() {
   local i=$1 port name s
+  # tasks run at 30 fps, every instance incl. Kong/Cmajor; back to 60 when the task is done (Nick 2026-11-13).
+  # The cap applies at instance start: an instance already running keeps its cap.
+  "$M" config "$i" --setting '{"maxFpsLimit":30}' >/dev/null 2>&1
   "$M" open "$i" >/dev/null 2>&1
   until port=$("$M" info "$i" 2>/dev/null | python3 -c "import json,sys; print(json.load(sys.stdin)['return'].get('adb_port') or '')" 2>/dev/null) && [ -n "$port" ]; do sleep 1; done
   name=$("$M" info "$i" | python3 -c "import json,sys; print(json.load(sys.stdin)['return']['name'])")

@@ -1,0 +1,83 @@
+# Divinity upgrade targets: <divinity>: <units> (blank = leave it alone). 1 unit = 50 levels (4 -> Lv 200; Nick 2026-11-12).
+# Divinities = the 6 badges around the artifact on Hero -> Artifact (2 purple, 2 gold, 2 red).
+# Tap a badge -> popup "<kind> Divinity", stat line = the name below ("All " dropped: "All ATK" -> ATK),
+# Enhance = +1 level for crystals (one crystal type per badge colour) + gold.
+# Names: nextjs-fullstack scripts/upsert-divinities.sql (the red ones), grouped by its kind.
+
+# red (hero-specific)
+red:
+  # ATK
+  ATK: 1
+  Mage ATK: 
+  Support ATK:
+  Warrior ATK:
+  # DEF
+  DEF:
+  Marksman DEF:
+  # HP
+  HP:
+  # DMG Increase
+  DMG Increase: 3
+  Physical DMG Boost: 2
+  Magic DMG Boost: 2
+  Melee DMG Boost: 2
+  Ranged DMG Boost: 2
+  # DMG Reduction (popup kind "RES Divinity")
+  DMG Reduction: 3
+  Physical RES: 2
+  Magic RES: 2
+  Melee DMG Reduction: 2
+  Ranged DMG Reduction: 2
+  CRIT DMG Reduction:
+  Anti-CRIT Rate:
+  # CRIT
+  CRIT Rate:
+  CRIT Damage:
+  # Control
+  Anti-Control Rate:
+  Control RES:
+  # Knockback
+  Knockback Effect: 1
+  Knockback Resist: 1
+  SPD Reduction RES: 1
+  # Healing
+  Heavy Injury: 2
+  Healing Effect: 2
+  Receive Healing: 2
+  # SPD Boost
+  ATK SPD: 1
+
+# purple / gold (generic, not in the catalog; Nick 2026-11-12): <class> ATK/DEF/HP + All ATK/DEF/HP
+purple: # 3 for all
+  Warrior ATK: 3
+  Warrior DEF: 3
+  Warrior HP: 3
+  Marksman ATK: 3
+  Marksman DEF: 3
+  Marksman HP: 3
+  Mage ATK: 3
+  Mage DEF: 3
+  Mage HP: 3
+  Support ATK: 3
+  Support DEF: 3
+  Support HP: 3
+  All ATK: 3
+  All DEF: 3
+  All HP: 3
+
+gold:
+  Warrior ATK: 2
+  Warrior DEF:
+  Warrior HP: 2
+  Marksman ATK: 2
+  Marksman DEF: 2
+  Marksman HP: 2
+  Mage ATK: 2
+  Mage DEF: 2
+  Mage HP: 2
+  Support ATK: 2
+  Support DEF: 2
+  Support HP: 2
+  All ATK: 3
+  All DEF: 3
+  All HP: 3
