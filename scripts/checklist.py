@@ -103,7 +103,8 @@ def rows(p):
             else: done = False; text = f'deployments not read yet (catch-up pet_check); {text}'
         if n == 'tribe' and tag:                             # request + canyon, each from its latest attempt (catch-up re-runs too)
             req, sent = res.get('tribe_chat', ('', text))[1], p['sent']   # a later "NOT SENT (cooldown)" = the earlier send's timer
-            canyon = 'no empty platform' not in text or res.get('canyon', ('',))[0] == 'OK'
+            # done = a spot was occupied (the Daily Mission row); "keeping the current Glory spot" isn't (Kratos 2026-11-13: 150, unflagged)
+            canyon = 'occupied' in text or 'occupied' in res.get('canyon', ('', ''))[1]
             done = sent and canyon
             text = f'request {"sent" if sent else "NOT sent"}, canyon {"done" if canyon else "NOT done"}; {req if "tribe_chat" in res else text}'
         if n == 'sanctuary':
