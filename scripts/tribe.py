@@ -59,16 +59,19 @@ def chat(request=True):
     if not request: req = f'skipped ({"cooldown " + cd if cd else "--no-request"})'
     elif cd: req = f'NOT SENT (cooldown {cd}: sent < 6 h ago)'
     else:
-        r = find(boxes, r'Request$', (150, 1560, 520, 1760))
-        if r: tap_wait(*r)
-        for _ in range(12):   # 6 s: Dminor 2026-11-12 read no timer in 3 s, yet the request was sent (05:41 left 19 min later)
+        # Boudior 2026-11-13: no timer, yet Request was still green with its red "!" (a tap on it sent it) -> fixed
+        # point if OCR misses the label, and a 2nd tap after 6 s; a grey Request (cooldown / own request open) ignores taps
+        r = find(boxes, r'Request', (150, 1560, 520, 1760)) or (340, 1660)
+        for i in range(24):   # 6 s per tap: Dminor 2026-11-12 read no timer in 3 s, yet the request was sent (05:41 left 19 min later)
+            if i % 12 == 0: tap_wait(*r)
             cd = cooldown()
             if cd: break
             time.sleep(0.5)
-        # 6 h over but our last request not filled yet (Tiger 2026-11-11: 3/4) → Request stays grey, no timer
+        # 6 h over but our last request not filled yet (Tiger 2026-11-11: 3/4) → Request stays grey, no timer.
+        # The n/m rows can be other members' requests (Boudior 2026-11-13: 0/4, 2/4 while ours reads n/8) - listed, not judged
         rows = [t.strip() for *_, t in ocr() if re.fullmatch(r'\d/\d', t.strip())] if not cd else []
-        req = (f'sent (cooldown {cd})' if cd else 'NOT SENT (no cooldown timer after the tap'
-               + (f'; request rows {", ".join(rows)}: last request still open)' if rows else ')'))
+        req = (f'sent (cooldown {cd})' if cd else 'NOT SENT (no cooldown timer after 2 taps'
+               + (f'; request rows on screen {", ".join(rows)})' if rows else ')'))
     print(f'request: {req}')
     a = find(ocr(), r'^Assist$', (560, 1560, 960, 1760))
     if a: tap_wait(*a); print('assist: tapped')
