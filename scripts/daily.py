@@ -153,17 +153,39 @@ def scrolls():
 
 
 def buy_scrolls():
-    """Out of refresh scrolls (the Refresh tap opened the purchase popup): buy one pack - 5 Order Refresh Scrolls, 50
-    gems (Nick 2026-11-03: "unlimited, buy as lacking, don't care about price"). The price is only logged; the scroll
-    count must go up, else stop (a misread must never loop into spending)."""
+    """Out of refresh scrolls: buy ONE pack - 5 Order Refresh Scrolls, 50 gems (Nick 2026-11-03: "unlimited, buy as
+    lacking, don't care about price"). Seen on Boudior 2026-11-14: at 0 a Refresh tap does nothing -> the '+' (272,425)
+    by the count opens the pack popup -> Purchase (price above it) -> the popup STAYS open -> a tap above it (540,240)
+    closes it ((540,1600) didn't: the popup stayed, 6 packs bought in 70 s). Popup gone + count up by exactly 5, else
+    stop. A lone '0' doesn't OCR (Vision skips it) -> unread count = 0; 5, 10 … 30 read fine."""
+    before = scrolls() or 0
+    if not find(ocr(), r'Order Refresh Scroll'): tap_wait(272, 425)
     b = wait(r'Order Refresh Scroll', 5)
-    p = next((t.strip() for x, y, w, h, t in b if 1040 < y + h // 2 < 1130 and t.strip().isdigit()), '?')
-    before = scrolls()
-    tap_text(r'^Purchase$', boxes=b); time.sleep(1.2); tap_wait(540, 1600); time.sleep(0.8)   # the popup stays open
+    p = next((t.strip() for x, y, w, h, t in b if 1040 < y + h // 2 < 1130 and t.strip().isdigit()), None)
+    if not p: raise Stop('pack price not readable; nothing bought')   # price read on screen before the paid tap
+    tap_text(r'^Purchase$', boxes=b); time.sleep(1.2)
+    tap_wait(540, 240); time.sleep(0.8)                   # close: above the popup, on the dimmed Daily Order title
+    if find(ocr(), r'Order Refresh Scroll'): raise Stop(f'pack popup still open after buying 1 pack ({p} gems)')
     after = scrolls()
-    if after is None or (before or 0) >= after: raise Stop(f'scrolls {before} -> {after} after buying a pack')
+    if after != before + 5: raise Stop(f'scrolls {before} -> {after} after buying 1 pack ({p} gems)')
     print(f'    bought 5 refresh scrolls for {p} gems ({before} -> {after})', flush=True)
-    return int(p) if p.isdigit() else 0
+    return int(p)
+
+
+def refresh_row(row, mn):
+    """Refresh order ROW until it has >= mn diamonds. Out of scrolls (fish_orders: NOSCROLL <refreshes done>) -> ONE
+    pack, use it, only then the next one: a pack that gave no refresh = stop (Nick 2026-11-14, "how many more are you
+    gonna buy": 6 packs in 70 s while the popup stayed open). Returns (packs, gems)."""
+    packs = gems = 0; unused = False                     # unused = a pack bought and no refresh done with it yet
+    for _ in range(10):                                  # ponytail: <=10 packs per row, only a runaway guard
+        last = script('fish_orders.py', str(row), '6', mn).split() or ['?']   # confirms the Order Refresh popups
+        done = last[-1] if last[:1] == ['NOSCROLL'] else last[0]      # refreshes done in this run
+        if done.isdigit() and int(done) > 0: unused = False
+        if last[:1] == ['NOSCROLL']:
+            if unused: raise Stop(f'row {row}: no refresh after buying a pack ({packs} packs, {gems} gems)')
+            gems += buy_scrolls(); packs += 1; unused = True; continue
+        if len(last) != 2 or not last[1].isdigit() or int(last[1]) >= int(mn): break   # done / WARN / unreadable
+    return packs, gems
 
 
 def fishing(cfg, orders=True):
@@ -174,10 +196,11 @@ def fishing(cfg, orders=True):
     if mn:
         tap_text(r'Order Info', boxes=boxes); wait(r'Daily Order', 8)
         for row in (1, 2, 3):
-            for _ in range(10):                        # ponytail: <=60 refreshes per row, only a runaway guard
-                last = script('fish_orders.py', str(row), '6', mn.group(1)).split()   # confirms Order Refresh popups
-                if find(ocr(), r'Order Refresh Scroll'): gems += buy_scrolls(); packs += 1; continue   # out of scrolls
-                if len(last) != 2 or not last[1].isdigit() or int(last[1]) >= int(mn.group(1)): break   # done / WARN
+            p, g = refresh_row(row, mn.group(1)); packs += p; gems += g
+        # DoD: every order >= min diamonds, read on screen (13:45 OK line said "refreshed" with 2-diamond orders left)
+        tiers = [script('fish_orders.py', str(r), '0', mn.group(1)).split()[-1] for r in (1, 2, 3)]
+        if any(not t.isdigit() or int(t) < int(mn.group(1)) for t in tiers):
+            raise Stop(f'orders {tiers} diamonds, min {mn.group(1)} ({packs} scroll packs bought, {gems} gems)')
         tap_wait(973, 270)
     got = ''
     if orders and red_dot(350, 1730, 420, 1800):          # Benefit dot (fishing-pass accounts); no pass = a $ page, no dot
@@ -193,7 +216,7 @@ def fishing(cfg, orders=True):
         try: wait(r'Auto Fishing', 4); break
         except Stop: pass
     else: raise Stop('Auto Fishing did not start')
-    return back + got + (f'orders refreshed ({packs} scroll packs bought, {gems} gems), ' if mn else '') + 'auto started'
+    return back + got + (f'orders {tiers} diamonds ({packs} scroll packs bought, {gems} gems), ' if mn else '') + 'auto started'
 
 
 def patrol(cfg): return script('patrol.py', ACCOUNT)

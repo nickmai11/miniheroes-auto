@@ -2,7 +2,8 @@
 # Refresh a Fishing daily order until it has >=MIN diamonds. Daily Order dialog must be open.
 # Confirms the "Confirm to refresh orders? Cost x1" popup, never ticks "Do not remind me today" (Nick, 2026-10-29).
 # "The order is of high quality" popup = we're refreshing a good order by mistake: Cancel + WARN, stop.
-# Stops on any other unexpected pixel (out of tickets). Run from a scratch dir: writes s.png.
+# Out of scrolls = no Confirm popup after a Refresh tap -> prints NOSCROLL <refreshes done> (the caller buys via '+').
+# Stops on any other unexpected pixel. Run from a scratch dir: writes s.png.
 # usage: D=<serial> fish_orders.py ROW MAXTRIES [MIN=4]  -> refresh order ROW (1-3) until >=MIN diamonds (config min_order_diamonds)
 import os, re, subprocess, sys, time
 from PIL import Image
@@ -35,4 +36,10 @@ for i in range(maxn+1):
     if n=='hq': break
     print(i,n,flush=True)
     if n is None or n>=mn or i==maxn: break
-    subprocess.run(f'adb -s {D} shell input tap 849 {BY}',shell=True); time.sleep(1.5)
+    subprocess.run(f'adb -s {D} shell input tap 849 {BY}',shell=True)
+    # "Do not remind" is never ticked, so a scroll left = the Confirm popup shows. None in ~4 s = 0 scrolls: the tap did
+    # nothing (Boudior 2026-11-14, no purchase popup either) -> NOSCROLL <refreshes done>, the caller buys via '+'
+    for _ in range(8):
+        if re.search(r'Confirm to refresh|high quality|Order Refresh Scroll', ' '.join(b[4] for b in ocr())): break
+        time.sleep(0.5)
+    else: print(f'NOSCROLL {i}',flush=True); break

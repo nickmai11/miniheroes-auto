@@ -617,11 +617,18 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started
    Automate with `D=<serial> scripts/fish_orders.py ROW MAX MIN` (MIN = `min_order_diamonds`, default 4; pixel check
    on the diamonds; row y = 567/921/1275, diamond x = 633/706/778/851/921; filled = R>200, empty = (58,85,115)).
    It handles both popups itself (WARN line on high quality) and returns `None` on any other popup (e.g. out of tickets).
-4. Out of tickets: **buy as many packs as needed** until every order reaches `min_order_diamonds` (Nick, 2026-11-03:
-   "unlimited, buy as lacking, don't care about price" — always 50 gems). A Refresh tap with 0 scrolls opens the
-   _Order Refresh Scroll_ popup (also `+` `(272,425)` next to the count): **5 scrolls**, price above the button →
-   **Purchase** `(540,1203)`; the popup stays open, close by tapping `(540,1600)`. The scroll count (left of `+`) must
-   go up after each buy — else stop (runner `buy_scrolls()`; price only logged).
+4. Out of scrolls: buy packs as needed until every order reaches `min_order_diamonds` (Nick, 2026-11-03:
+   "unlimited, buy as lacking, don't care about price" — always 50 gems), **one pack at a time** (Nick, 2026-11-14).
+   Flow, seen on Boudior 2026-11-14:
+   - Empty = a Refresh tap shows **no** "Confirm to refresh" popup and nothing else happens (no purchase popup).
+     The count's `0` doesn't OCR (Vision skips a lone digit); 5, 10 … 30 read fine.
+   - **`+`** `(272,425)` next to the count → _Order Refresh Scroll_ popup: **5 scrolls**, price (50) above the button →
+     **Purchase** `(540,1203)` = 1 pack.
+   - The popup **stays open** after Purchase (another tap = another pack). Close it with a tap **above** it,
+     `(540,240)` (dimmed Daily Order title); `(540,1600)` does NOT close it.
+   - Check: popup gone, count = before + 5. Then refresh with those 5; buy the next pack only when they're used up.
+     A pack that gives no refresh → stop. Runner: `refresh_row()` + `buy_scrolls()`, check `scripts/test_fish_buy.py`.
+   - 2026-11-14 Boudior: the old close tap left the popup open → 6 packs (300 gems) in 70 s before Nick stopped it.
 5. Close ✕ `(973,270)`. **Benefit** (runner: `fishing` step, 2026-10-29) `(330,1800)` **only if it has a red dot** — no red dot = don't open it → **Claim Reward** `(540,1662)`
    (60 bread, 5 refresh tickets, baits) → dismiss `(540,120)` → close ✕ `(970,238)`.
 6. **Auto** `(982,1222)` → _Auto Fish_ settings (keep as-is: Auto-submit Orders ✓) → **Start** `(540,1485)`.
