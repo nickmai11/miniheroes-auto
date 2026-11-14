@@ -9,7 +9,7 @@ Use when Nick says "climb stage" / "do stage" / "stage <account>". Not the daili
 alone — `daily.py <account> stage`, only when he says "daily stage"); not Tower/Sanctuary/Realm floors. Accounts: the
 ones named, else `scripts/accounts.py climb_stage`. Details: `scripts/doc.sh "Climb stage"`.
 
-1. Boot: `scripts/boot.sh <idx>` (index from `mumu-cli info all`). Check `adb -s $D shell wm size` is **1080x1920**
+1. Boot: `NOLAYOUT=1 scripts/boot.sh <idx>` (no window tiling for stage climb — Nick 2026-11-14) (index from `mumu-cli info all`). Check `adb -s $D shell wm size` is **1080x1920**
    (PuPu was 600x1080 → see the gear skill step 1 to fix).
 2. **Swap-ready or don't run** (Nick, 2026-11-02): `stage_lineups` in `accounts/<account>.yaml` must match the
    screen. Missing, Nick changed a lineup, or a daily Stage ran since the last record (it sets tab 1 = Bone Archer

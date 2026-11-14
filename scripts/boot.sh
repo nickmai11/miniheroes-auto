@@ -2,7 +2,7 @@
 # Start MuMu instances, (re)launch the game, tap Start, wait for the main screen — all in parallel.
 # usage: scripts/boot.sh <mumu index>...      e.g. scripts/boot.sh 1 2 4
 # prints one line per instance: "<name> 127.0.0.1:<port> ready" (or "... start-timeout" / "... main-timeout").
-# With >1 instance it then runs scripts/layout.js (window tiling).
+# With >1 instance it then runs scripts/layout.js (window tiling), unless NOLAYOUT=1 (stage climb: Nick 2026-11-14).
 # Then scripts/stabilize.py closes the event popups; "ready (stable …)" = bare main screen, "popup-stuck" = close it by hand.
 # Timings measured on Aminor 2026-10-27: Start button shows <1 s after launch, main screen ~5 s after Start.
 M="/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli"
@@ -47,4 +47,4 @@ boot() {
 for i in "$@"; do boot "$i" & done
 wait
 # multi-account runs: tile the windows (Nick, 2026-10-27)
-if [ $# -gt 1 ]; then ONLY="$*" osascript -l JavaScript "$(dirname "$0")/layout.js"; fi
+if [ $# -gt 1 ] && [ -z "$NOLAYOUT" ]; then ONLY="$*" osascript -l JavaScript "$(dirname "$0")/layout.js"; fi
