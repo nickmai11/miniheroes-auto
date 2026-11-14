@@ -32,7 +32,7 @@ The source of truth is the repo on Nick's Mac: `~/projects/chidojiro/miniheroes-
    `checklists/<game day>/_highlights.md` = every account's undone boxes + coins above sanctuary 10k / tribe 10k / ruins 3k /
    realm 10k / tundra 12k — start the report from it.
    Pet Arena = +40 deployments that day (catch-up `pet_check` count), or the missing ones deployed since (by hand / Auto Deploy restart), Sanctuary = floors 10/10, Events = no red dot left
-   (Tribe Clash excepted), short counts (4/5, forge 4/7) = not done. Read them before reporting;
+   (Tribe Clash / Crystal Throne excepted), short counts (4/5, forge 4/7) = not done. Read them before reporting;
    a re-run of one step updates its box. Helper-done steps aren't in the log: re-run the step's script or note them.
    **Report** per account: each mission done/skipped (and why) and every paid action with its price (the runner prints
    each). Don't track gem/resource balances — they change constantly.

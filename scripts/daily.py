@@ -1112,17 +1112,22 @@ canyon.taken = False
 HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Golden': 'golden_woods', r'^Draws|^7777': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event', r'^Limited': 'limited_recruitment'}
 
 
-def banner_dots(im=None):
+def banner_dots(secs=8):
     """Main screen: right-column event banners with a red dot (banner's top-right corner, x~1040), named by the nearest
-    label; Tribe Clash left out - its dot never clears (Nick 2026-11-11). Checked offline on Kong 11-11 only."""
-    im = im or grab(); boxes = [b for b in ocr(im) if b[0] > 600 and 230 < b[1] < 950]
-    found = []
-    for y in range(240, 900, 20):
-        if red_dot(1010, y, 1075, y + 24, im):
+    label; Tribe Clash left out - its dot never clears (Nick 2026-11-11). Crystal Throne (same banner slot, other weeks)
+    too: its dot = the free Value Pack, claimed by the later tribe_clash_packs step (all 11 accounts 2026-11-14).
+    Cards rotate faces (Storm / Dragon Temple, ...) and a dot belongs to one face -> frames for `secs` s, not one
+    (Dino 11-14: Dragon Temple's dot in 6 of 10 frames; a 1-frame read said 'no red dot left')."""
+    found, t0 = [], time.time()
+    while True:
+        im = grab(); hits = [y for y in range(240, 900, 20) if red_dot(1010, y, 1075, y + 24, im)]
+        boxes = [b for b in ocr(im) if b[0] > 600 and 230 < b[1] < 950] if hits else []
+        for y in hits:
             b = min(boxes, key=lambda b: abs(b[1] + b[3] // 2 - y), default=None)
             name = b[4] if b else f'y{y}'
-            if not re.search(r'Tribe Clash', name) and f'banner {name}' not in found: found.append(f'banner {name}')
-    return found
+            if not re.search(r'Tribe Clash|Crystal Throne', name) and f'banner {name}' not in found: found.append(f'banner {name}')
+        if time.time() - t0 >= secs: return found
+        time.sleep(1)
 
 
 def hub_tabs():
@@ -1424,14 +1429,15 @@ def events(cfg):
     if not home(): raise Stop('lost the main screen after the event hub')
     dots = banner_dots()
     if dots:   # Storm Battlefield's dot clears on a visit, Weekly Event's lags its hub claim (Dminor/xFaktor 2026-11-12) -> re-read
-        if any('Storm Battlefield' in d for d in dots):
-            try: storm_arena()
-            except Stop: pass
-            if not home(): raise Stop('lost the main screen after the Storm Battlefield banner')
-        time.sleep(2); dots = banner_dots()
+        # any dot, not just one named Storm: the 2nd card rotates Storm / Dragon Temple, so the name is whichever face
+        # showed (Tiger 2026-11-14: Storm's dot read as 'banner 1d 15h', the Dragon Temple timer). Dot clears a few s late.
+        try: storm_arena()
+        except Stop: pass
+        if not home(): raise Stop('lost the main screen after the Storm Battlefield banner')
+        time.sleep(4); dots = banner_dots()
     left += dots
-    r = ', '.join(out) or 'nothing claimed'
-    return f'MANUAL {r}; red dots left: {left}' if left else r
+    print(f'    claimed: {", ".join(out) or "nothing"}', flush=True)   # log only: the step line reports problems only (Nick 2026-11-14)
+    return f'MANUAL red dots left: {left}' if left else 'no red dot left'
 
 
 # --- Weekly missions, Sunday pass (Nick 2026-11-08): accounts/weekly.yaml top-down; the four rows no daily step makes were
