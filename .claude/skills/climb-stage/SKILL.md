@@ -13,8 +13,10 @@ ones named, else `scripts/accounts.py climb_stage`. Details: `scripts/doc.sh "Cl
    (PuPu was 600x1080 → see the gear skill step 1 to fix).
 2. **Swap-ready or don't run** (Nick, 2026-11-02): `stage_lineups` in `accounts/<account>.yaml` must match the
    screen. Missing, Nick changed a lineup, or a daily Stage ran since the last record (it sets tab 1 = Bone Archer
-   alone) → `scripts/climb_stage.py <account> --record --no-start` (opens a fresh setup, reads the green checks of
-   tabs 1–3, rows 1–5, writes the yaml; exit 1 "not 5 cells" = a hero further down / empty tab → tell Nick, don't run).
+   alone) → `scripts/climb_stage.py <account> --record --no-start` (opens a fresh setup, reads each tab's green checks
+   and names the heroes by face — `scripts/hero_faces.py`, an unknown face → learns the hero list once — and writes the
+   hero ids to the yaml; exit 1 "not 5 recognised heroes" = a tab with fewer than 5 (the dailies' lone Bone Archer) or a
+   face still unknown → tell Nick, don't run).
 3. **Recheck the lineups before Start** (Nick, 2026-11-02): on the setup, per tab
    `scripts/tap.py <380|540|700>,1088 -o tab<N>.png -w 540` and read the heroes (never judge by power). After a
    `--record` the grid is left scrolled down (no checks/locks visible, lower-level cards) → swipe it back up first

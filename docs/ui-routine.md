@@ -493,6 +493,26 @@ Kong's Lv.170 stuck with `1557k/1351k` is NOT a shortage, don't Rebirth), and th
 3. ↑ Lv.90 → _Quick Level Up_ "Lv.2 → Lv.90", potion cost (`19M/1328k`) → **Confirm** `(740,1160)` → Lv.90, gear
    slots unlocked at LV.0 (the gear step then enhances from 0).
 
+## Hero faces (recognize a hero by its avatar — Nick, 2026-11-14)
+
+Skill: `hero-faces` (new heroes / skins come from time to time — what to do on an unknown face). `D=<serial>
+scripts/hero_faces.py learn` (from the main screen; stops unless the Hero screen opens): Hero → expanded list (All) →
+each card it isn't sure of (score < 0.75; known faces read ≥ 0.83 in the list): tap, read the name top-left, save the
+crop to `scripts/heroes/<name>.png` when it isn't that hero's known face.
+View-only. `learn --all` taps every card and counts MISREADs (the check after any matching change); `who` (list open)
+prints name + score per card. Skins change the avatar: an unmatched face of a known name is saved as `<name>_2.png`,
+`_3`… Learnt 11-14 on all 11 accounts: 114 faces, 69 heroes, 0 misreads.
+
+- Crop: the card art between the Lv label and the stars, left of the battle setup's gear icons (x−80…x+42,
+  top+40…top+176; cards 168×217). Battle setup cards are darkened and carry a green check / padlock over the face
+  centre → `ident()` compares only outside that box, normalised correlation (brightness-proof): a match needs ≥ 0.55 and
+  ≥ 0.15 ahead of the next hero, else unknown. Tiger's setup 11-14: 10/10, right hero 0.89–1.00; closest two different
+  heroes in the library 0.56 (Jungle Archer / an Ironblade skin).
+- List row tops: 217-px card runs measured on each card's left part — red dots / class badges stick out ~12 px above
+  the top right (they shifted fGotten's faces 12 px). The list glides 30–400 px after a slow swipe: `learn` waits for it
+  to stop and scrolls back if no face of the last page is left.
+- Used by `climb_stage.py`: lineups are read and placed by face (see "Climb stage").
+
 ## Hero rebirth (reset heroes after the first N, level back to L — Nick, Kratos 2026-11-12)
 
 **Run `scripts/rebirth_level.py <account> --keep N --target L`** (skill `rebirth-level`). Learned on Kratos:
@@ -657,9 +677,12 @@ shows "Stage Reward" with no "Next Stage (Ns)" countdown) → main screen "Next 
 **Before starting a stage, recheck the lineups** (Nick, 2026-11-02): screenshot tabs 1/2/3 and confirm the heroes. Power never counts (Nick, 2026-11-06) — a mis-tapped swap + `--apply` matched powers with wrong heroes on Chien Than.
 **No swap, no climb** (Nick, 2026-11-02): run the climb only if the account can swap (fresh `--record`, swap not failing). Can't swap → tell Nick, don't run; a failed swap (exit 2) = stop and report, never `--apply` + Start.
 
-**3 losses in a row on one stage → swap lineups** (Nick, 2026-10-31; climb_stage.py does it from `stage_lineups` cells — losing wave's team ↔ next tab, max 3 swaps per stage, then exit 2). Lineups +
+**3 losses in a row on one stage → swap lineups** (Nick, 2026-10-31; climb_stage.py does it from `stage_lineups` heroes, found by face — losing wave's team ↔ next tab, max 3 swaps per stage, then exit 2). Lineups +
 what each is good for: `stage_lineups` in the account yaml — new account: `scripts/climb_stage.py <account> --record`
-(reads the green deploy checks, rows 1-4). Manual steps:
+(reads each tab's green deploy checks and names the heroes by face — "Hero faces"; an unknown face → learns the hero list
+once, a new skin, then reads again). `stage_lineups` = hero ids (`sea_captain`, Nick 2026-11-14: faces, not grid
+positions); accounts still on the old `cells:` format (Bino, Dino, fGotten, xFaktor, PuPu on 11-14: tab 1 held the
+dailies' lone Bone Archer) need a `--record` once their climb lineups are set — `--apply` refuses `cells:`. Manual steps:
 
 1. A setup opened via Challenge again keeps already-won waves locked and **doesn't save edits** — back `(80,1810)` to
    the main screen, skull `(994,964)` for a fresh setup.

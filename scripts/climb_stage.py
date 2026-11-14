@@ -3,13 +3,15 @@
 # -> close the reward, Next chapter, open the stage, Start; Defeat screen up 3 s -> Challenge again.
 # usage: scripts/climb_stage.py <account>... [--minutes N] [--stop-next-chapter]   |   scripts/climb_stage.py <account> --swap | --record | --apply
 # --apply: put the yaml stage_lineups back on all 3 tabs (after a SWAP LINEUPS FAILED), then Start.
-# --record [--no-start]: from any screen -> fresh battle setup, read each tab's deployed cells (green checks), write
+# --record [--no-start]: from any screen -> fresh battle setup, read each tab's deployed heroes by face (green checks), write
 # stage_lineups, then Start (unless --no-start). Grid rows are found by measuring each slow-drag scroll.
 # Accounts = accounts/<account>.yaml names; the game is moved to the stage if it's elsewhere.
 # --stop-next-chapter (Nick, 2026-11-06 "stop at next stage 1"): after X-40, Next chapter but no Start -> the account
 # waits on (X+1)-1, line `STOPPED at …`, no longer watched; all stopped -> exit 0 "all stopped". Don't pass it again next call.
 # Runs N minutes (default 9, fits one Bash call) then exits 0 "still climbing" — just run it again.
-# Lost the same stage 3x in a row -> swap the losing wave's team with the next tab (stage_lineups cells in the account
+# Heroes are found by their face (scripts/hero_faces.py, Nick 2026-11-14), never by grid position; an unknown face -> the
+# hero list is learnt (new skin) and the read/deploy redone once. stage_lineups = hero ids (sea_captain).
+# Lost the same stage 3x in a row -> swap the losing wave's team with the next tab (stage_lineups heroes in the account
 # yaml, which is rewritten), max 3 swaps per stage, then exit 2 (look by hand).
 # exit 1 = a step's screen didn't show or a stage didn't change for 4 min (climb_stage_<name>.png in /tmp).
 # Seen 2026-10-31 (Bino/Dino): after a Challenge again the game sometimes goes to the next chapter itself.
@@ -29,7 +31,7 @@ for a in accts:
     subprocess.run(['adb', 'connect', devs[a]], capture_output=True)   # drops after the Mac sleeps (2026-11-01)
 os.environ['D'] = next(iter(devs.values()))
 sys.path.insert(0, HERE)
-import flow, tap as T
+import flow, hero_faces, tap as T
 
 gd = subprocess.run('TZ=UTC date -v-5H +%F', shell=True, capture_output=True, text=True).stdout.strip()
 
@@ -75,32 +77,77 @@ def to_top(d):
 def scroll(d):
     """Slow-drag the grid up ~170-200 px and return how far it really moved. Rows repeat every PITCH, so a shift
     near/over a row is ambiguous (fixed y and 230-px drags put wrong heroes in, Chien Than/Dino 2026-11-01): the
-    short drag keeps the true shift the only match in 20-300; a poor best match raises instead of guessing."""
+    short drag keeps the true shift the only match in 20-300; a poor best match raises instead of guessing. Limit 16
+    (was 12; Bino/xFaktor 11-14 stopped at 12-13): every card is now checked by its face, so a near-miss can't misplace a hero."""
     b = gray(); adb(d, 'swipe', 540, 1450, 540, 1330, 2000); time.sleep(1.2); a = gray()
+    if abs(a[1150:1570] - b[1150:1570]).mean() < 2: return 0   # grid end
     err = {s: abs(a[1150:1230] - b[1150 + s:1230 + s]).mean() for s in range(20, 301, 2)}
     s = min(err, key=err.get)
-    if err[s] > 12: raise RuntimeError(f'grid scroll not measurable (best {s}px, err {err[s]:.0f})')
+    if err[s] > 16: raise RuntimeError(f'grid scroll not measurable (best {s}px, err {err[s]:.0f})')
     return s
 
 
-def grid_pass(d, rows_needed, fn):
-    """Call fn({row: y}) for the rows visible at each scroll position (each row once), scrolling down as needed."""
+def grid_pass(d, fn):
+    """Call fn({row: y}) for each grid row once, top down, until fn returns True (-> True) or the grid ends (-> False)."""
     to_top(d); off, done, retries = 0, set(), 0
-    for _ in range(20):   # 10 ran out after fling resets (each costs ~4 scrolls to row 5): Bino swap 2026-11-06 'rows {5} never visible'
-        vis = {r: ROW1 + (r - 1) * PITCH - off for r in rows_needed if r not in done and 1180 < ROW1 + (r - 1) * PITCH - off < 1520}
-        if vis: fn(vis); done |= set(vis)
-        if done >= set(rows_needed): return
-        try: off += scroll(d)
+    for _ in range(80):   # ~70 heroes = 14 rows, ~1.3 rows per scroll, + fling resets
+        vis = {r: ROW1 + (r - 1) * PITCH - off for r in range(1, 40) if r not in done and 1180 < ROW1 + (r - 1) * PITCH - off < 1520}
+        if vis and fn(vis): return True
+        done |= set(vis)
+        try: s = scroll(d)
         except RuntimeError:   # a slow drag sometimes flings far past 300 px (Chien Than 7-20, 2026-11-02): from the top again
             retries += 1
-            if retries > 2: raise
-            to_top(d); off = 0
-    raise RuntimeError(f'rows {set(rows_needed) - done} never visible')
+            if retries > 5: raise
+            to_top(d); off = 0; continue
+        if not s: return False
+        off += s
+    raise RuntimeError('hero grid never ended')
+
+
+def faces(vis):
+    """{name: (x, y)} of the recognised cards in the visible rows (hero_faces.ident: by face, never by position)."""
+    im = T.grab(); out = {}
+    for y in vis.values():
+        for x in COLX:
+            n = hero_faces.ident(hero_faces.face(im, x, y - 105))[0]
+            if n: out[n] = (x, y)
+    return out
+
+
+def deploy(a, want):
+    """Battle setup, the want tabs already recalled: tap each wanted hero on its tab, found by face (Nick 2026-11-14:
+    faces, not grid positions). One not found -> learn the hero list (new skin?), recall, all again. -> {tab: not found}."""
+    d = devs[a]
+    for attempt in (0, 1):
+        left = {t: set(v) for t, v in want.items()}
+        def place(vis):
+            found = faces(vis)
+            for t, names in left.items():
+                hits = [n for n in names if n in found]
+                if hits: step(a, f'{TAB[t]},1088', 'Start')
+                for n in hits: adb(d, 'tap', *found[n]); time.sleep(0.6)
+                names -= set(hits)
+            return not any(left.values())
+        if grid_pass(d, place): return {}
+        if attempt: break
+        log(a, f'heroes not found by face {dict((t, sorted(v)) for t, v in left.items() if v)} -> learn the hero list (new skin?)')
+        relearn(a)   # ends on a fresh setup = the saved lineups again
+        for t in want: step(a, f'{TAB[t]},1088', 'Start'); step(a, '1000,1080', 'Start')
+    return {t: sorted(v) for t, v in left.items() if v}
+
+
+def relearn(a):
+    """Hero list -> save unknown faces (hero_faces.py learn), back to a fresh battle setup."""
+    to_main(a)
+    r = subprocess.run(['python3', f'{HERE}/hero_faces.py', 'learn'], env={**os.environ, 'D': devs[a]}, capture_output=True, text=True)
+    log(a, 'learn: ' + ' | '.join(l for l in r.stdout.splitlines() if 'saved' in l or 'faces in' in l))
+    hero_faces._T = None
+    to_main(a); step(a, '994,964', r'^Start$|\| Start \|')
 
 
 def swap(a, k=1):
     """Losing wave = the open tab of the Challenge-again setup. Fresh setup from the main screen (Challenge-again
-    edits aren't saved), recall both tabs, deploy each other's cells (rows 1-3), re-read the cells, rewrite the yaml, Start.
+    edits aren't saved), recall both tabs, deploy each other's heroes (found by face), re-read, rewrite the yaml, Start.
     Power is never a check (Nick 2026-11-06: power doesn't matter) - only which heroes sit on which tab."""
     T.D = flow.D = devs[a]; d = devs[a]
     im = T.grab()
@@ -114,15 +161,11 @@ def swap(a, k=1):
     # the yaml goes stale when Nick edits lineups: it put a team-1 hero into the swap and the "Move hero?" Tip
     # blocked every tap after it (Chien Than 2026-11-02) -> read the real lineups first, swap nothing if unsure
     teams = read_lineups(a)
-    if any(len(teams[t]) != 5 for t in (w, o)): log(a, f'SWAP LINEUPS: lineups unreadable {teams}, nothing changed'); sys.exit(2)
+    if any(len(teams[t]) != 5 or '?' in ''.join(teams[t]) for t in (w, o)): log(a, f'SWAP LINEUPS: lineups unreadable {teams}, nothing changed'); sys.exit(2)
     for t in (w, o): step(a, f'{TAB[t]},1088', 'Start'); step(a, '1000,1080', 'Start')
-    def place(vis):
-        for t, cells in ((w, teams[o]), (o, teams[w])):
-            step(a, f'{TAB[t]},1088', 'Start')
-            for c in cells:
-                if int(c[1]) in vis: adb(d, 'tap', COLX[int(c[3]) - 1], vis[int(c[1])]); time.sleep(0.6)
-    grid_pass(d, sorted({int(c[1]) for c in teams[o] + teams[w]}), place)
     want = {**teams, w: teams[o], o: teams[w]}
+    miss = deploy(a, {w: teams[o], o: teams[w]})
+    if miss: log(a, f'SWAP LINEUPS FAILED: not found by face {miss} - left on setup'); sys.exit(2)
     got = read_lineups(a)
     if any(sorted(got[t]) != sorted(want[t]) for t in (1, 2, 3)):
         log(a, f'SWAP LINEUPS FAILED: tabs read {got}, want {want} - left on setup'); sys.exit(2)
@@ -143,16 +186,13 @@ def to_main(a):
 def apply(a):
     T.D = flow.D = devs[a]; d = devs[a]
     y = open(f'{R}/accounts/{a}.yaml').read()
-    teams = {int(k): v.split(', ') for k, v in re.findall(r'^\s+(\d): \{cells: \[([^\]]*)\]', y, re.M)}
+    teams = {int(k): v.split(', ') for k, v in re.findall(r'^\s+(\d): \{heroes: \[([^\]]*)\]', y, re.M)}
+    if len(teams) != 3: log(a, 'APPLY: no stage_lineups heroes in the yaml (old cells format?) - run --record'); sys.exit(2)
     to_main(a)
     step(a, '994,964', r'^Start$|\| Start \|')
     for t in (1, 2, 3): step(a, f'{TAB[t]},1088', 'Start'); step(a, '1000,1080', 'Start')
-    def place(vis):
-        for t in (1, 2, 3):
-            step(a, f'{TAB[t]},1088', 'Start')
-            for c in teams[t]:
-                if int(c[1]) in vis: adb(d, 'tap', COLX[int(c[3]) - 1], vis[int(c[1])]); time.sleep(0.6)
-    grid_pass(d, sorted({int(c[1]) for v in teams.values() for c in v}), place)
+    miss = deploy(a, teams)
+    if miss: log(a, f'APPLY FAILED: not found by face {miss} - left on setup'); sys.exit(2)
     got = read_lineups(a)
     if any(sorted(got[t]) != sorted(teams[t]) for t in (1, 2, 3)):
         log(a, f'APPLY FAILED: tabs read {got}, yaml {teams} - left on setup'); sys.exit(2)
@@ -166,17 +206,27 @@ def checked(im, x, y0, y1):
                if (lambda p: p[1] > 170 and p[0] < 160 and p[2] < 120)(im.getpixel((x + dx, y)))) >= 8
 
 
-def read_lineups(a):
-    """On a fresh battle setup: each tab's deployed cells (green checks, rows 1-5)."""
+def read_lineups(a, learned=False):
+    """On a fresh battle setup: each tab's deployed heroes (green checks) by face. Scans until each tab has 5 (or the
+    grid ends). An unrecognised face -> learn the hero list once (new skin?) and read again; still unknown -> '?rNcM'."""
     d = devs[a]
     teams = {1: [], 2: [], 3: []}
+    def clean():
+        multi = {c for t in teams for c in teams[t] if sum(c in v for v in teams.values()) > 1}   # green card art (xFaktor r4c2)
+        return {t: [c for c in v if c not in multi] for t, v in teams.items()}
     def read(vis):
         for t in (1, 2, 3):
             step(a, f'{TAB[t]},1088', 'Start'); time.sleep(0.6); im = T.grab()
-            teams[t] += [f'r{r}c{c + 1}' for r, yc in vis.items() for c, x in enumerate(COLX) if checked(im, x, yc - 75, yc + 75)]
-    grid_pass(d, [1, 2, 3, 4, 5], read)
-    multi = {c for t in teams for c in teams[t] if sum(c in v for v in teams.values()) > 1}   # green card art (xFaktor r4c2)
-    return {t: [c for c in v if c not in multi] for t, v in teams.items()}
+            teams[t] += [hero_faces.ident(hero_faces.face(im, x, yc - 105))[0] or f'?r{r}c{c + 1}'
+                         for r, yc in vis.items() for c, x in enumerate(COLX) if checked(im, x, yc - 75, yc + 75)]
+        return all(len(v) >= 5 for v in clean().values())
+    grid_pass(d, read)
+    got = clean()
+    unk = [n for v in got.values() for n in v if n.startswith('?')]
+    if unk and not learned:
+        log(a, f'unrecognised faces {unk} -> learn the hero list (new skin?)')
+        relearn(a); return read_lineups(a, True)
+    return got
 
 
 def record(a):
@@ -185,7 +235,8 @@ def record(a):
     step(a, '994,964', r'^Start$|\| Start \|')
     teams = read_lineups(a)
     bad = [t for t in teams if len(teams[t]) != 5]
-    if bad: log(a, f'record: tabs {bad} not 5 cells in rows 1-5: {teams} (heroes further down?) - not written'); sys.exit(1)
+    bad += [t for t in teams if t not in bad and '?' in ''.join(teams[t])]
+    if bad: log(a, f'record: tabs {bad} not 5 recognised heroes: {teams} - not written'); sys.exit(1)
     write_lineups(a, teams)
     log(a, f'recorded stage_lineups {teams}')
     if '--no-start' in args: return
@@ -197,7 +248,7 @@ def write_lineups(a, teams):
     path = f'{R}/accounts/{a}.yaml'; y = open(path).read()
     y = re.sub(r'\n  stage_lineups:.*?(?=\n  \S|\Z)', '', y, flags=re.S)
     y = y.rstrip('\n') + '\n  stage_lineups:   # see bino.yaml; recorded by climb_stage.py --record ' + time.strftime('%F') + '\n' + ''.join(
-        f'    {t}: {{cells: [{", ".join(teams[t])}], good_for: ""}}\n' for t in (1, 2, 3))
+        f'    {t}: {{heroes: [{", ".join(teams[t])}], good_for: ""}}\n' for t in (1, 2, 3))
     open(path, 'w').write(y)
 
 

@@ -18,3 +18,4 @@ climb_stage: [internal]
 treasury: [internal, -aminor]
 tc: [internal]
 code: [internal]
+hero_faces: [internal, -aminor]   # skill hero-faces: same 11 as stabilize (learnt 2026-11-14)
