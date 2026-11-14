@@ -55,15 +55,15 @@ def parse(lines):
 
 def coins(text):
     """Grocery shop coins {shop: n}: the 'coins:' tail (since 11-11), else derived from the buy lines (balance read
-    before a buy)."""
+    before a buy). Tribe left out (Nick 2026-11-14: no need to report it)."""
     if m := re.search(r'coins: (.*)$', text):
-        return {t: int(v) if v.isdigit() else v for t, v in re.findall(r'(\w+) (\S+)', m.group(1))}
+        return {t: int(v) if v.isdigit() else v for t, v in re.findall(r'(\w+) (\S+)', m.group(1)) if t != 'tribe'}
     got = {t: int(b) - int(pr) for t, pr, b in re.findall(r'(\w+) \d+ bought for (\d+) \(balance (\d+)\)', text)}
     got.update({t: int(b) for t, b in re.findall(r'(\w+) \d+ skipped: \d+ > balance (\d+)', text)})
-    return {t: got[t] for t in SHOP_TABS if t in got}
+    return {t: got[t] for t in SHOP_TABS if t in got and t != 'tribe'}
 
 
-HIGH = {'sanctuary': 10000, 'tribe': 10000, 'ruins': 3000, 'realm': 10000, 'tundra': 12000}   # bold above these (Nick 2026-11-11; tribe 6k -> 10k, tundra added)
+HIGH = {'sanctuary': 10000, 'ruins': 3000, 'realm': 10000, 'tundra': 12000}   # bold above these (Nick 2026-11-11, tundra added; tribe not reported 2026-11-14)
 
 
 def table(head, body, right):
@@ -180,7 +180,7 @@ def test():
     top, bottom = md.split('## Done')
     assert '| Sanctuary | Ruins |' in top and '|     3,251 |   806 |' in top, md
     assert coin_table({'sanctuary': 10001, 'tribe': 6000, 'realm': 12500})[2] == '| **10,001** | 6,000 | **12,500** |'
-    assert coins('done, coins: sanctuary 3251 / tribe ? / ruins 806') == {'sanctuary': 3251, 'tribe': '?', 'ruins': 806}
+    assert coins('done, coins: sanctuary 3251 / tribe ? / ruins 806') == {'sanctuary': 3251, 'ruins': 806}
     for open_ in ('pet_arena: deployments 116/120 (+36 today)', 'trials: short: gem_mine 4/5', 'divine:',
                   'tribe: MANUAL request NOT sent, canyon done',
                   'events: MANUAL', 'arena: not run'):
@@ -188,7 +188,7 @@ def test():
     for ok in ('**Daily Mission 160 chest**', 'sanctuary: floors 10/10; swept', 'fishing: auto started'):
         assert f'- [x] {ok}' in bottom, (ok, md)
     assert 'home' not in md
-    h = highlights('2026-11-11', [('kong', p), ('tiger', parse(log[:1] + ['12:26:00 OK grocery (9s): done, coins: sanctuary 900 / tribe 22830']))])
+    h = highlights('2026-11-11', [('kong', p), ('tiger', parse(log[:1] + ['12:26:00 OK grocery (9s): done, coins: sanctuary 900 / tribe 50000 / realm 22830']))])
     assert '- **kong**\n  - pet_arena: deployments 116/120 (+36 today)\n' in h, h
     assert '| tiger   | 22,830 |' in h and '| kong ' not in h, h
     q = parse(log[:1] + ['13:52:00     pet deployments 118 (yesterday 80, +38 today)',
