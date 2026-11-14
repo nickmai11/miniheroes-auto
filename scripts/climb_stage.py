@@ -224,7 +224,10 @@ if '--apply' in args:   # put the yaml stage_lineups back on all 3 tabs (after a
     sys.exit(0)
 if '--swap' in args: swap(accts[0]); sys.exit(0)   # one swap now (account on a Challenge-again setup) [--no-start]
 for a in devs: start(a)
-seen, losses, swaps, stopped = {}, {}, {}, set()
+seen, losses, stopped = {}, {}, set()
+# swaps per (account, stage) survive across calls (Boudior 2026-11-14: 4 swaps on 4-15 over 3 calls, cap never hit)
+SW = '/tmp/climb_stage_swaps.json'
+swaps = json.load(open(SW)) if os.path.exists(SW) else {}
 end = time.time() + minutes * 60
 while time.time() < end:
     for a, d in devs.items():
@@ -241,9 +244,9 @@ while time.time() < end:
                 log(a, f'Defeat {n} on {stage} -> Challenge again')
                 if n >= 3:  # Nick 2026-10-31: 3 losses in a row -> swap lineups (stage_lineups in the account yaml)
                     step(a, f'{ca[0]},{ca[1]}', r'^Start$|\| Start \|', 30)
-                    swaps[stage] = swaps.get(stage, 0) + 1
-                    if swaps[stage] > 3: log(a, f'SWAP LINEUPS: {stage} still lost after 3 swaps, left on the battle setup'); sys.exit(2)
-                    swap(a, swaps[stage]); losses.pop(a); seen.pop(a, None); continue
+                    k = f'{a} {stage}'; swaps[k] = swaps.get(k, 0) + 1; json.dump(swaps, open(SW, 'w'))
+                    if swaps[k] > 3: log(a, f'SWAP LINEUPS: {stage} still lost after 3 swaps, left on the battle setup'); sys.exit(2)
+                    swap(a, swaps[k]); losses.pop(a); seen.pop(a, None); continue
                 step(a, f'{ca[0]},{ca[1]}', 'Start|' + FIGHT, 30)
                 if flow.find(flow.ocr(T.grab()), r'^Start$'): step(a, '540,1806', FIGHT, 30)
                 seen.pop(a, None); continue
