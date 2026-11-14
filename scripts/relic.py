@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # Relics (Archaeology dig board): spend every shovel by the relic skill's value model, no LLM (Nick, 2026-11-03).
 # usage: D=<serial> scripts/relic.py <account> [--dry] [--max-digs N]   (main screen, the Lost Continent map or the
-#        board; --max-digs 0 = boosters only, on the current board;
 #        board; ends on the main screen; --dry = read + plan only, no tap; exit 1 = stopped early, see v_relic.png)
 #        scripts/relic.py --boards PNG...            offline: print each screenshot's board + plan (no device)
 #        scripts/relic.py --learn PNG rN cM LABEL    add that cell as a tile exemplar (relic_tiles/LABEL.<n>.png) —
@@ -14,9 +13,8 @@
 # (HIDDEN per tile: a cheaper corridor there -> the first dig is the dig-down that shows it, Nick 2026-11-04); the item
 # with the best value/cost >= RATIO is the target, its first path cell is dug; nothing worth it -> the cheapest
 # bottom-row dig (reveals a new row). A bottom-row dig scrolls row 1 off for good: the top rows' items go first if
-# worth it as one group (tour(), Nick 2026-11-11). Boosters, One-Tap Mining, the shovel "+" are never tapped; the milestone reward is claimed.
-# Boosters (skill rule; mechanics verified 2026-11-04): after the digs, dynamite/drill are DRAGGED onto the board where
-# they save >= SAVES shovels (booster_plan), verified by the badge; otherwise a hint line.
+# worth it as one group (tour(), Nick 2026-11-11). Boosters (never used: Nick 2026-11-14), One-Tap Mining, the shovel "+" are
+# never tapped; the milestone reward is claimed.
 import glob, os, re, sys, time, heapq
 import numpy as np
 from PIL import Image
@@ -289,85 +287,6 @@ def _next(g, blocked):
     fr, fc = path(prev, (6, c))[-1]
     return fr, fc, f'dig down via r7c{c + 1}, cost {d:.0f}' if (fr, fc) != (6, c) else f'dig down r7c{c + 1}, cost {d:.0f}'
 
-BOOST = {'dynamite': 766, 'drill': 310}   # bottom-bar buttons (x; y 1820): DRAG one onto a dug tile — a tap does nothing
-
-
-def stock(im):
-    """Booster badges (small digits under the buttons) -> {'drill': n, 'dynamite': n}; a kind is missing when unreadable.
-    Each badge is cropped and scaled x3 onto a blank screen and OCRed there: the full-screen OCR read the drill's '130'
-    as '732' or not at all (2026-11-04)."""
-    canvas, out = Image.new('RGB', (1080, 1920)), {}
-    for i, (k, x) in enumerate(BOOST.items()):
-        canvas.paste(im.crop((x - 90, 1830, x + 90, 1900)).resize((540, 210), Image.BILINEAR), (0, 300 * i))
-    for b in ocr(canvas):
-        m = re.fullmatch(r'\D*(\d+)\D*', b[4])
-        if m and b[1] < 600: out[list(BOOST)[int(b[1]) // 300]] = int(m.group(1))
-    return out
-
-
-SAVES = 6                                                           # fire a booster when it saves this many shovels (Nick 2026-11-04: one number)
-
-
-def booster_plan(g, blocked=()):
-    """Candidates (shovels saved, kind, r, c), best first. Mechanics verified on the Kong instance 2026-11-04: dynamite
-    digs the diamond of radius 2 around the drop tile; the drill digs the whole bottom row (its column is only the
-    preview); stone goes in one hit; a booster that digs any bottom-row tile scrolls the board one row. Saved = per item
-    collected the cheaper of its hand-dig cost and its worth in shovels (VALUE/RATIO, pickaxe 1), +1 for the row a scroll
-    reveals, minus the row-1 items the planner would still have collected (the scroll loses them)."""
-    dist, _ = routes(g, blocked); comp = multi_groups(g); seen = set()
-    def saved(r, c):
-        k = g[r][c][0]
-        if k == 'P': return 1
-        if k == 'M' and comp[(r, c)] in seen: return 0   # a multi chest (2/4/6 tiles) opens once: Aminor 2026-11-04 dynamite -> golden pit
-        if k == 'M': seen.add(comp[(r, c)])
-        return min(dist.get((r, c), 1e9), VALUE[k] / RATIO) if VALUE.get(k, 0) >= RATIO else 0   # gold chest: 0 here (skill rule)
-    def kept(c):                                   # a row-1 item the planner would still collect -> lost at a scroll
-        k, d = g[0][c][0], dist.get((0, c))
-        if d is None: return 0
-        if k == 'P': return 1 if g[0][c][1] else 0
-        return d if VALUE.get(k, 0) / d >= RATIO - 1e-9 else 0
-    scroll = 1 - sum(kept(c) for c in range(6))
-    empties = [(r, c) for r in range(7) for c in range(6) if g[r][c][0] == '.']
-    def total(cells):
-        seen.clear(); return sum(saved(a, b) for a, b in cells)
-    cands = [(total([(a, b) for a in range(7) for b in range(6) if abs(a - r) + abs(b - c) <= 2]) + (scroll if r >= 4 else 0),
-              'dynamite', r, c) for r, c in empties]
-    if empties: cands.append((total([(6, c) for c in range(6)]) + scroll, 'drill', *empties[0]))
-    return sorted(cands, reverse=True)
-
-
-def booster_hint(g, im=None):
-    c = booster_plan(g)
-    if not c: return 'booster hint: no dug tile to drop on'
-    s, kind, r, c0 = c[0]
-    return f'booster hint (not used): best {kind} r{r + 1}c{c0 + 1} saves ~{s:.0f} shovels' + (f', stock {stock(im)}' if im else '')
-
-
-def boosters(g, blocked, im, got):
-    """Fire late (Nick 2026-10-30): after the digs, the best booster while it saves >= SAVES shovels; each firing is
-    verified by the badge going down by 1. -> (grid, image) afterwards."""
-    for _ in range(3):
-        st, cands = stock(im), booster_plan(g, blocked)
-        pick = next(((s, k, r, c) for s, k, r, c in cands if st.get(k) and s >= SAVES - 1e-9), None)
-        if not pick:
-            if cands: s, k, r, c = cands[0]; log(f'booster hint (not used): best {k} r{r + 1}c{c + 1} saves ~{s:.0f} shovels, stock {st}')
-            return g, im
-        s, k, r, c = pick
-        swipe(BOOST[k], 1820, X[c], Y[r], 700); time.sleep(1.2)
-        b2 = ocr()
-        if dismiss(b2): b2 = ocr()
-        reward = ' '.join(f'{m.group(1)} x{m.group(2)}' for m in ITEMS.finditer(joined(b2)))
-        g2, im = stable_board()
-        if g2 is None: raise Stop('left the dig board after a booster')
-        st2 = stock(im)
-        if st2.get(k) is None: time.sleep(1); im = grab(); st2 = stock(im)   # badge OCR misses (Tiger 2026-11-06: drill fired, read None)
-        fired = st2.get(k) == st[k] - 1 or (st2.get(k) is None and g2 != g)  # unreadable badge: the board changing is the proof
-        log(f'{k} r{r + 1}c{c + 1} (saves ~{s:.0f}, stock {st[k]}->{st2.get(k)}{"" if st2.get(k) is not None else ", board changed" if g2 != g else ""}) -> {reward or "no banner"}')
-        if reward: got.append(reward)
-        if not fired: log('booster not consumed -> no more boosters'); return g2, im
-        g, blocked = g2, set()                                   # a scroll moved everything: stale blocked cells
-    return g, im
-
 # ---------- device ----------
 
 def log(msg):
@@ -529,7 +448,7 @@ def run(account, dry=False, max_digs=None):
         + (f', UNKNOWN cells {unknown(g)}' if unknown(g) else ''))
     log('board:\n' + show(g))
     if dry:
-        p = plan(g); log(f'plan: {p and f"r{p[0] + 1}c{p[1] + 1} ({p[2]})"}'); log(booster_hint(g, im)); return 0
+        p = plan(g); log(f'plan: {p and f"r{p[0] + 1}c{p[1] + 1} ({p[2]})"}'); return 0
     digs, blocked, refused, got = 0, set(), 0, []
     cap = n[0] + 60 if max_digs is None else max_digs            # pickaxe refunds + regen add digs; 60 is a hard stop
     topped = False
@@ -583,7 +502,6 @@ def run(account, dry=False, max_digs=None):
         boxes = ocr(im); n = shovels(boxes) or n
         if n[0] == 0: break
         cap = digs + n[0] + 60
-    g, im = boosters(g, blocked, im, got)                         # fire late, by the rule
     log(f'done: {digs} digs, shovels {n[0]}/{n[1]} left, items: {", ".join(got) or "none"}'
         + (f', UNKNOWN cells {unknown(g)}' if unknown(g) else '') + '\n' + show(g))
     if not leave(): raise Stop('not back on the main screen')

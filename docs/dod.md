@@ -76,11 +76,10 @@ Same as the dailies step with the same name, except:
   configured price — `bought 10 shovels for 80 gems (a -> b)` with the counter up by 10, or `shovel buy skipped: N gems
 on screen not in […]` for any other price (never a Confirm on it). Not done: a Tip popup left open, or a buy at a price
   that isn't in the account's `relic_shovel_buys`.
-- **Done** = the account's line says `exit 0 (done: N digs, shovels 0/<cap> left, …)`, a booster line precedes it
-  (`dynamite/drill rXcY (saves ~N, stock a->b) -> …` or `booster hint (not used)`), and the game is back on the main
-  screen. `exit 1` → `out.txt` + `v_relic.png` in `/tmp/miniheroes-relic/<account>/`: on some other screen → it taps back
+- **Done** = the account's line says `exit 0 (done: N digs, shovels 0/<cap> left, …)`, no `dynamite`/`drill` line
+  (boosters are never used — Nick 2026-11-14), and the game is back on the main screen. `exit 1` → `out.txt` + `v_relic.png` in `/tmp/miniheroes-relic/<account>/`: on some other screen → it taps back
   itself, else go home and re-run that account at once; otherwise a helper finishes that account by hand;
-  `UNKNOWN cells` → teach the sprite (`relic.py --learn`), re-run. Not done: `refused` / `no effect` / `booster not consumed` lines.
+  `UNKNOWN cells` → teach the sprite (`relic.py --learn`), re-run. Not done: `refused` / `no effect` lines.
 
 ## Where the scripts say OK without proving it (fix list)
 

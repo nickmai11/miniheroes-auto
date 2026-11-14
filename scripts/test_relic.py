@@ -205,22 +205,6 @@ g = grid("""
 . . . G . .
 d d D r d d""")
 assert plan(g)[:2] == (5, 3) and '0.19/shovel' in plan(g)[2], plan(g)
-# boosters (mechanics verified 2026-11-04): shovels saved = hand-dig cost capped by the item's worth (chest ~7, shard 2,
-# pickaxe 1): a stone-locked relic chest (7 by hand) + a lit shard two tiles away, in a diamond that touches the bottom
-# row (+1, the row it reveals) = 9; the drill digs the bottom row only (nothing there -> 1); a worthwhile row-1 shard is
-# lost by the scroll -> -1
-g = grid("""
-. . . . . .
-. . . . . .
-. . S . . .
-. . s . . .
-. . s . . .
-R ? c ? . .
-s s s s s s""")
-c = relic.booster_plan(g)
-assert c[0][1] == 'dynamite' and abs(c[0][0] - 9) < 0.01 and [x for x in c if x[1] == 'drill'][0][0] == 1, c[:3]
-g[0][0] = ('R', True)
-assert abs(relic.booster_plan(g)[0][0] - 8) < 0.01, relic.booster_plan(g)[:2]
 # Kong 2026-11-04 (Nick): the gold chest r7c3 beside the dug r6c3 was read dark, so the 2 shards behind it looked 4+ digs
 # away and a stone dig-down won; a tile beside a dug cell is diggable whatever its shade -> 3 digs for both shards
 raw = grid("""

@@ -27,8 +27,7 @@ Use when Nick asks for "relics" or "dig" (not "mining" — that's Excelsior Vein
    teach it — `scripts/relic.py --learn <png> <row> <col> <label>` (labels: `empty pit dirt_lit dirt_dark stone_lit
 stone_dark cracked_lit shard_lit shard_dark chest_lit chest_dark gold_lit gold_dark pick_lit pick_dark multi_lit
 multi_dark frame`; never learn from r6c1, the % label sits there) — `python3 scripts/test_relic.py` must still pass, then run again.
-3. Report per account: the `done:` line (digs, items, shovels left), any `UNKNOWN` / `refused` / `no effect` lines, and
-   every `dynamite` / `drill` line (fired by the rule below) or else the `booster hint (not used)` line.
+3. Report per account: the `done:` line (digs, items, shovels left) and any `UNKNOWN` / `refused` / `no effect` lines.
 
 What the script does (details in the `scripts/relic.py` header): matches each of the 42 tiles against the sprite crops in
 `scripts/relic_tiles/` (two identical reads needed — banners, dust, scrolling; a tile beside a dug cell counts as diggable
@@ -43,7 +42,7 @@ cheapest bottom-row dig (reveals a new row).
 A bottom-row dig scrolls row 1 off for good, so an item there worth its route is dug first (`before the scroll loses
 it`; `letting … go` = not worth its route). Every dig is
 verified (tile changed / board scrolled / counter), reward popups closed, the milestone reward claimed at "Mine 0 more";
-it never taps the shovel **+** or One-Tap Mining; boosters only by the rule below. Proven live 2026-11-03 on all 9 accounts (≈770 digs, 0 refused taps); classifier checked on 65 saved boards (`scripts/test_relic.py`).
+it never taps the shovel **+** or One-Tap Mining and never uses a booster. Proven live 2026-11-03 on all 9 accounts (≈770 digs, 0 refused taps); classifier checked on 65 saved boards (`scripts/test_relic.py`).
 
 ## Board (finishing by hand, or changing the script)
 
@@ -121,8 +120,7 @@ Facts (Lost Continent map → **Archive** `(470,1810)`; Relic Display → **Frag
 Script values (Nick 2026-11-04, "I trust you"): **relic chest 1.6**, **multi-square chest 3.2 and first in line** (Nick
 2026-11-04: "most important, more than relic chest" — the planner targets it before any relic chest or shard route
 whatever the ratio), **gold chest 0.1** (Nick 2026-11-11, was 0: Spiritstone ×50 / Moon Essence ×30 — below r, so never
-dug alone and never counted as "beside" a route, but it adds its value when a route passes through it; boosters still
-count it 0), **shard 0.28, threshold r = 0.14** — the shard is kept above the measured 0.21
+dug alone and never counted as "beside" a route, but it adds its value when a route passes through it), **shard 0.28, threshold r = 0.14** — the shard is kept above the measured 0.21
 because every call Nick has made (a lone shard up to 2 digs, two shards sharing a 3–4-dig tunnel, the Kong left
 cluster) only holds at ~0.28/0.14; the measured 0.21 would need r ≈ 0.10 to match them and that would send the
 planner 16 digs after a chest. At 1.6 a chest pays for up to ~11 digs (was 7).
@@ -166,30 +164,14 @@ whole board: ~25 of 37 shovels on no-target tiles).
 the bottom row, branch off only for targets above the threshold. **The board keeps its state** — no dig is wasted.
 Spend every shovel; dig before the count caps.
 
-## Boosters (drill, dynamite) — rule Nick 2026-10-30; mechanics verified on the Kong instance 2026-11-04 (4 firings)
+## Boosters (drill, dynamite) — never used (Nick 2026-11-14)
 
-Supply: milestone bar only (≈2 per 500 digs); never buy. Stock = the badge on each button (the script OCRs it, re-reads once when a badge is missed — the OCR is flaky there; a kind with no reading is never fired).
-
-- **How they work:** **drag** the button onto a dug tile (`adb input swipe <bx> 1820 <X> <Y> 700`; drill button x=310,
-  dynamite x=766 — a tap does nothing). While dragging, the area shows in **green** under the finger; release = fire,
-  no confirm. **Dynamite** digs the diamond of radius 2 around the drop tile (13 tiles). **Drill** highlights its
-  column + the whole bottom row but digs **only the bottom row** (6 tiles; the column is just the preview, drop it
-  anywhere dug). Stone goes in one hit, every dug tile counts +1 on the milestone bar, pickaxe tiles still refund a
-  shovel, items show the usual banner (gold chest = `Legend SpiritstoneX50` / `+30` Moon Essence).
-- **A booster that digs any bottom-row tile scrolls the board one row** (once, whether 3 or 6 tiles) — row 1 is lost
-  for good; dynamite dropped in rows 1–4 doesn't touch the bottom row and doesn't scroll.
-- **Value** = shovels saved: per item collected the cheaper of its hand-dig cost and its worth in shovels (relic chest
-  ≈11, shard 2, pickaxe 1, gold chest 0), +1 for the row a scroll reveals, minus the row-1 items the planner would still
-  have collected (the scroll loses them). Lit items in the bottom row are worth only 1 each to a drill.
-- **Use it if it saves ≥ 6 shovels** — one number, no stock-based adjustments (Nick 2026-11-04). Dynamite for a tight
-  cluster; the drill only for a loaded bottom row.
-- **Fire late:** `relic.py` does it after the digs (`boosters()`): best candidate first, fired while it saves ≥ 6, each verified by the badge going down by 1 (`dynamite r4c3 (saves ~8, stock 12->11) -> Limestone x1`);
-  otherwise `booster hint (not used): best … saves ~N shovels, stock …`.
-  `D=<serial> scripts/relic.py <account> --max-digs 0` = boosters only, on the current board.
+Claimed free (milestone, Benefit) but never dragged onto the board, by the script or by hand. (Was: fire when saving
+≥ 6 shovels, 2026-10-30 → 11-14; mechanics notes in git history.)
 
 ## Hard rules
 
-- Boosters only by the rule above. The green **+** on the shovel button buys shovels: only the account's
+- Never use a booster (Nick 2026-11-14). The green **+** on the shovel button buys shovels: only the account's
   `relic_shovel_buys` prices (default 80 gems once; Kong 80/160/240; Cmajor 80/160 — Nick 2026-11-04), each confirmed
   only when that exact price is on the Tip popup; any other price → ✕. Never **One-Tap Mining**, no other gems.
 - When the shovels run out (once a day): the board's **Benefit** icon with a red dot → Claim (free), never its purchase button.
