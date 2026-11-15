@@ -1610,10 +1610,16 @@ def weekly_review(cfg):
     log = os.path.join(HERE, '..', 'logs', ACCOUNT, f'{GAME_DAY}.log')
     ran = os.path.exists(log) and re.search(r'OK weekly \(', open(log).read())
     others = [] if ran else [m for m in open_rows if m != 'lucky_stars']
-    need = 'lucky_stars' in open_rows and pts + 10 * len(others) < 180
+    # Nick 2026-11-16: missions still needed for 180 vs the ones still doable -> stars only if they close the gap
+    # (Kratos/xFaktor 150 = 3 needed, stars the only one: 160 opens no chest (45/90/135/180) -> no stars)
+    n_need = max(0, (180 - pts + 9) // 10)
+    need = 'lucky_stars' in open_rows and len(others) < n_need <= len(others) + 1
     os.makedirs('/tmp/miniheroes-state', exist_ok=True); open(weekly_plan_file(), 'w').write('stars' if need else 'nostars')
     ls = prog(WEEKLY_KEY['lucky_stars'])
-    return f'{pts} pts, {len(rows)} rows read; open doable: {", ".join(open_rows) or "none"}{"; dailies weekly pass ran" if ran else ""}; Lucky Stars {"%d/%d " % ls if ls else ""}{"NEEDED -> stars bait today" if need else "not needed -> default bait"}'
+    why = 'NEEDED -> stars bait today' if need else 'not needed -> default bait' if n_need <= len(others) or 'lucky_stars' not in open_rows \
+        else "can't close the gap -> default bait"
+    return (f'{pts} pts: {n_need} missions to 180; doable: {", ".join(others) or "none"}{" (dailies weekly pass ran: its leftovers not counted)" if ran else ""}; '
+            f'Lucky Stars {"%d/%d " % ls if ls else ""}{why}')
 
 
 def weekly_statue(need):
