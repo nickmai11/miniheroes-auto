@@ -177,4 +177,4 @@ Claimed free (milestone, Benefit) but never dragged onto the board, by the scrip
 - When the shovels run out (once a day): the board's **Benefit** icon with a red dot → Claim (free), never its purchase button.
 - By hand: never chain taps — a tap you thought was cancelled may still land. Screenshot, then tap. Tap looks
   ignored (counters unchanged)? Re-screenshot before retrying, or you'll dig twice.
-- Unexpected screen/popup → stop and report.
+- Unexpected popup with a price or a choice → stop and report; any other wrong screen → home (CLAUDE.md) and re-run.

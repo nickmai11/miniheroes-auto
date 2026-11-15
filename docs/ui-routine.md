@@ -232,23 +232,21 @@ Gotchas:
 ### Algorithm per dungeon
 
 ```
-target = config total sweeps (free + paid)
+cap = config price for this dungeon (0 = free only)
 open dungeon dialog; screenshot
-done = 0
-while done < target:
+loop:
     screenshot dialog
     if "Challenge Attempts: N" (N>0): free sweep
     elif "Remaining Purchase Attempts":
-        read gem price on the Sweep button → done today = 2 + price/80 − 1; done ≥ target → next dungeon (no tap)
+        read gem price on the Sweep button; price > cap → next dungeon (no tap)
         tap Sweep → Tip popup (price = the button's) → Confirm → now "Challenge Attempts: 1"
     else: stop, report unexpected state
     tap Sweep (352,932); screenshot → expect Congratulations; dismiss
-    screenshot → verify counter decreased (or switched to purchase mode); done += 1
+    screenshot → verify counter decreased (or switched to purchase mode)
 close dialog (632,408)
 ```
 
-If the config count is lower than the free attempts available, do only the configured number.
-Keep track of sweeps already done today (e.g. from a previous run) — the on-screen counters are
+Sweeps already done today (e.g. from a previous run) — the on-screen counters are
 the source of truth: free used = 2 − remaining free; paid used = 5 − remaining purchases
 (Cmajor, 2026-10-26: 2 free, 5 purchasable per dungeon).
 

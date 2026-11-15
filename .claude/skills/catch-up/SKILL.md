@@ -97,6 +97,4 @@ Append each helper's final answer to the same file (`=== helper` header) — it'
 ## Hard rules
 
 - **Definition of Done (Nick, 2026-11-03): check the step's DoD in `docs/dod.md` before moving to the next task** — the on-screen evidence, not just an OK line; not met → its "Not done →" action, never move on silently.
-
-- Same as the dailies: free attempts first, paid only within the account config caps.
-- Look at decision points only (CLAUDE.md hard rules); unexpected screen → stop and report.
+- Everything else: CLAUDE.md "Hard rules" (paid only within the config, wrong screen → `home()`, look only at decision points).

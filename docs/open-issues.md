@@ -27,6 +27,7 @@ Every open problem in one place (rules: CLAUDE.md "Docs"). New problem → new r
 | weekly statue | Level Up read unreliable (`did not raise the level` with the bar read full) | Dino, Boudior, Kratos 11-15 | statue = unscripted daily row |
 | stabilize: Top-up popup | "Top-up Bonus" white X opened the Snow Carnival web page | Chien Than, xFaktor 11-05 | map the popup's close path |
 | climb_stage: swap order | 3 swaps flip-flop tabs 1↔2, tab 3 never tried | Kratos 7-6, 11-14 | skip orders already tried on the stage |
+| OK without proof | `hero` OK line = `hero upgrade done` (levels only in the body lines); `patrol` `Claim All tapped` not read back; `shop` / `play_pass` don't re-check the red dot after a claim (rest of the 11-03 dod.md list fixed: Daily Mission chests, Trials, Grocery, forge, Stage, Beast lines carry proof now) | dod.md 11-03; Tiger 11-15 | print the proof in the OK line / re-read the dot |
 | climb_stage: swap timeout | `TIMEOUT waiting for 'Start'` after a tab tap; yaml not rewritten, tabs unknown | Kratos 6-26, 11-14 | — |
 | climb_stage: summary | `still climbing: {}` while accounts are fighting (cosmetic) | 11-14 | — |
 | boot.sh | No `ready` line for 2 of 11 instances that were fine | Kong, Kratos 11-14 | — |
@@ -39,6 +40,8 @@ Every open problem in one place (rules: CLAUDE.md "Docs"). New problem → new r
 
 | Topic | Question | Seen |
 | --- | --- | --- |
+| Old dailies skill | A claude.ai account skill `miniheroes-dailies` (Oct 26, "read all of ui-routine", `enabled: true` accounts) syncs into `~/.claude/skills/synced/…` and lists next to the repo skill; a local delete is re-synced. Remove it in claude.ai Settings → Skills? | 11-16 |
+| Monday 150 | Canyon / Storm closed until 17:00 → a Monday daytime dailies run tops out at 150; the evening catch-up adds Canyon → 160. Call 150 "done" on Monday daytime? | dod.md 11-03 |
 | Dragon Temple | New PvP ladder (Storm screen tab 2, 6 tickets); its dot → MANUAL on most accounts daily. Should the dailies do it? | 11-14, 11-15 |
 | Canyon row | `highest_free` keeps a Glory spot (no Occupy), or no empty platform → Canyon row open, chest 150. Give up the spot / attack, or is 150 fine? | Tiger 11-07, xFaktor 11-10, Kratos 11-13 |
 | arena4 | `patrol_claim` (after `arena3`) refills 3 tickets → add an `arena4` after it? | 11-14 |
