@@ -45,6 +45,16 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
   Back), don't stop (Nick, 2026-10-31, every task). Stop and report only if that fails or the screen shows a choice/price.
 - If a step can't be done with confidence (unreadable screen, tap not working after 2 tries), skip it and report
   it as skipped + why — never loop or guess.
+- **Paid buys: one pack at a time** (Nick, 2026-11-14 — 300 gems lost to a loop): buy 1, close its popup, check the
+  count went up, use it, then the next; any buy loop stops when a buy didn't change the state. Walk a new or changed
+  buy path by hand once (open → price → buy → close → count) before scripting it, and watch its first live run.
+- **Right account** (every task): the top-right game id must match the account file's `game_id` before acting
+  (Kong reopens on S288 Kong II after a game restart) → `stabilize.py` switches back. Run `kong_ii` only when named.
+- **Tick "Do not remind me today"** wherever it shows, before closing the popup (Nick, 2026-10-29, every task).
+- **Scroll slowly** (every task): held drags ≥ 1.5 s, one at a time, read only once the screen is still — never fling,
+  not even to reach an end.
+- **Rules beat scripts:** a script that contradicts a rule here or in a skill is a bug — say so and fix it. Describe
+  what happened from the screen/log, never from code comments.
 - Waiting for the game (load, fight, animation): **poll, don't sleep long** (Nick, 2026-10-27: speed matters).
   Check every 1–2 s and continue the moment the screen is ready — `tap.py --until x,y,r,g,b` (a pixel of the next
   screen's button) or a short `until …; do sleep 1; done` loop. A fixed `sleep` only when there's nothing to poll,
@@ -67,6 +77,12 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
   leftover steps. Screenshots `tap.py -w 270` (×4 = device coords), `-w 540` only for small text (×2); poll waits.
 - **Coordinator:** wait for runner/helper completion notifications; check a helper's screen only if it says
   it's "pausing/waiting" (red flag) or a notification is overdue.
+- **Fast feedback:** long commands (boot, batches) run in the background; read their output after ~30 s and act on a
+  straggler instead of waiting for its timeout; start ready accounts without waiting. One Monitor per batch
+  (`daily.py` run dir, `relic_all.sh`, `fr_all.sh`, `catchup_all.sh`) for `FAIL` / `Traceback` / `exit 1` — act the
+  moment one shows (home + re-run that account).
+- **Right tool:** fixed taps / counters / pixel checks → a script; judgment (targets, unknown popups) → helper or
+  skill. If Nick asks for the wrong one, say which fits and why in one line, then do it.
 
 ## Action log (Nick, 2026-10-30 — every task, for retrospectives)
 
@@ -80,6 +96,29 @@ as it happens — not reconstructed at the end:
   game day = `$(TZ=UTC date -v-5H +%F)`); anything else → `logs/claude/<date>.log` (create the dir if missing).
 - `logs/` is gitignored, so helpers may write it despite "don't edit the repo".
 
+## Working with Nick
+
+- **A question gets an answer, not a fix** (Nick, 2026-11-14): cause, numbers, evidence, my view — no edits, no runs
+  started or stopped until he asks or agrees; at most offer the fix in one line. When he critiques a decision, check
+  the log/screen and agree or push back with the facts — no reflexive "you're right".
+- **Quiet during runs:** no progress chatter ("X done, waiting"); speak only for a real problem or a choice, then the
+  final report.
+- **Shorthand:** fr = Floating Realm, tc = Tribe Clash, ct = Crystal Throne — chat only; steps and config keys use the
+  full name (`tribe_clash_packs`, `floating_realm_packs`).
+- **Crystal Throne:** Nick gives the orders, Claude executes on every account and never picks targets — read
+  `docs/crystal-throne.md` and open `docs/crystal-throne-names.png` first.
+- **One home per rule:** a rule for every task goes here; a task's rule goes in its skill or `docs/ui-routine.md`
+  section. Never in Claude's memory, never in two places.
+
+## Docs
+
+- After writing or editing any `.md`: `npx --yes prettier --write <file> && npx --yes prettier --check <file>`, output
+  visible. No `--prose-wrap` on the command line (`.prettierrc.yaml` decides).
+- `docs/open-issues.md` = every open problem (❌ bug, ❓ needs Nick). Update it in the same turn as the finding, fix or
+  decision: new problem → new row; seen again → add the date to its row; fixed → delete the row (fixed but not yet
+  live-tested → a `docs/untested.md` row). The old per-day struggles files are in `docs/archive/`.
+- `docs/untested.md` = changes waiting for a live test (dailies Pre-flight); a row goes once it passed.
+
 ## Reporting
 
 At the end, report per account: each mission done/skipped (and why), and every paid action
@@ -87,3 +126,8 @@ At the end, report per account: each mission done/skipped (and why), and every p
 (wrong lineup, out-of-scope taps, mis-taps, crashes, helper claims that conflict with what Nick saw, things
 left in a bad state like Auto fishing stopped) — Nick, 2026-10-27. Tell helpers to report these too. Don't track gem/resource balances — they change constantly (Nick, 2026-10-26; exception: the grocery shop coins, top of each dailies checklist, Nick 2026-11-11);
 just verify the price on screen before each paid tap.
+
+- **OK lines aren't proof:** before saying "done", check the screen of one account against the log — a leftover red
+  dot is a bug. "You didn't check X" from Nick = assume the step is wrong on every account: find the cause, fix,
+  re-run everywhere, then report.
+- End every task's report with the line from `scripts/tokens.sh --since "<the user's prompt text>"`.

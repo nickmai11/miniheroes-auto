@@ -460,7 +460,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: **2 Common, 1 Ancest
 
 ## Hero upgrade (Bone Archer +5 levels, 1st gear +5 — Nick, 2026-11-02)
 
-**Run `scripts/hero.py <account>`**; steps below = exit-1 fallback.
+**Run `scripts/hero.py <account>`**; steps below = exit-1 fallback. Extra or missing hero/gear levels (+9 instead of
++5) are never a concern — Bone Archer is only for the dailies (Nick, 2026-11-03).
 
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Costs potions/gold/stones only, never gems.
 

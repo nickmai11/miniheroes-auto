@@ -2,6 +2,6 @@
 # Only the table docs: proseWrap never also unwraps hard-wrapped prose (CLAUDE.md, ui-routine, skills).
 # Don't pass --prose-wrap on the command line: it overrides this.
 overrides:
-  - files: ["docs/struggles-*.md", "docs/untested.md"]
+  - files: ["docs/open-issues.md", "docs/untested.md", "docs/archive/struggles-*.md"]
     options:
       proseWrap: never
