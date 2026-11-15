@@ -62,6 +62,6 @@ missions:
     order: random
     sprites: 4
   stage_lineups:   # see bino.yaml; recorded by climb_stage.py --record 2026-11-14
-    1: {heroes: [dark_knight, sea_captain, witch_dictator, arcane_saint, captain_pilot], good_for: ""}
-    2: {heroes: [radiant_paladin, jungle_envoy, necromancer, templar, baphomet], good_for: ""}
-    3: {heroes: [shadow_fiend, skeleton_king, fire_sorceress, hela, warlock], good_for: ""}
+    1: {heroes: [radiant_paladin, jungle_envoy, necromancer, templar, baphomet], good_for: ""}
+    2: {heroes: [shadow_fiend, skeleton_king, fire_sorceress, hela, warlock], good_for: ""}
+    3: {heroes: [dark_knight, sea_captain, witch_dictator, arcane_saint, captain_pilot], good_for: ""}

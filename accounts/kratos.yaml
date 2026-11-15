@@ -63,6 +63,6 @@ missions:
     order: random
     sprites: 4
   stage_lineups:   # see bino.yaml; recorded by climb_stage.py --record 2026-11-14
-    1: {heroes: [shadow_fiend, abyssal_queen, skeleton_king, little_deer, lady_pan], good_for: ""}
-    2: {heroes: [nezha, jungle_envoy, li_bai, holy_healer, snowoman], good_for: ""}
-    3: {heroes: [radiant_envoy, arcane_saint, whirlpool_ninja, wine_immortal, silence], good_for: ""}
+    1: {heroes: [radiant_envoy, arcane_saint, whirlpool_ninja, wine_immortal, silence], good_for: ""}
+    2: {heroes: [shadow_fiend, abyssal_queen, skeleton_king, little_deer, lady_pan], good_for: ""}
+    3: {heroes: [nezha, jungle_envoy, li_bai, holy_healer, snowoman], good_for: ""}

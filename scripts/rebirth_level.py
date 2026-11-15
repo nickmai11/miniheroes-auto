@@ -125,7 +125,8 @@ def walk(keep, act):
 
 
 def run(account, keep=6, target=160, phase='both'):
-    cfg = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts', account + '.yaml')).read()
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts', account + '.yaml')
+    cfg = open(p).read() if os.path.exists(p) else ''   # no account file (e.g. Slanesh) -> no dailies hero to skip
     skip = {m.strip() for m in re.findall(r'hero_upgrade:\s*\n\s+hero:\s*(.+)', cfg)}
     if not find(ocr(), r'^Level Up$', BTN): tap_wait(274, 1810); wait(r'^Level Up$', 10, BTN)   # main -> Hero
     if phase in ('both', 'rebirth'):

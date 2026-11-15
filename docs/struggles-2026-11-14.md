@@ -48,6 +48,15 @@ Source: `logs/{tiger,kratos,boudior}/2026-11-14.log`, `/tmp/miniheroes-2026-11-1
 | 20  | events (Tiger, Dminor)     | `banner 2d 15h` (1st card, rotates 7777 Draws / other events): hub tabs had no dot, and 14 frames read afterwards had no dot on card 1 → likely the red 7777 art caught mid-rotation                                                        | ❌ check `red_dot` against the card's rotation (1-frame noise) |
 | 13  | Dragon Temple (Dminor)     | Still MANUAL in this catch-up (tab "!", unmapped)                                                                                                                                                                                           | ❓ (see above)                                                 |
 
+## Slanesh rebirth + divinities 21:00 (game day 2026-11-14)
+
+Source: `logs/slanesh/2026-11-14.log`.
+
+| #   | Task                  | What went wrong                                                                                                                                                                | Status                                                   |
+| --- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
+| 21  | rebirth_level         | Crashed on start: no `accounts/slanesh.yaml` (Slanesh = MuMu 20, no account file)                                                                                              | ✅ missing file = no dailies hero to skip                |
+| 22  | divinity (Whaley Imp) | `level not readable` stop on purple badge 2 (Warrior HP, Lv.0): stop screenshot showed the popup already closed, badge still 0. `--here` re-run did 0 → 150 there with no stop | ❓ one-off; keep the stop screenshot if it happens again |
+
 ## Catch-up 07:40 (game day 2026-11-14, Saturday; local Sun 11-15)
 
 Source: `/tmp/miniheroes-2026-11-15-07/*.log`, `logs/claude/2026-11-15.log`. 11 runners, no helper, no paid action; Storm SKIP (Coming Soon) everywhere.
