@@ -15,5 +15,7 @@ Source: `/tmp/miniheroes-2026-11-15/*.log`, `logs/*/2026-11-15.log`. Status: ✅
 | 9 | weekly honor (xFaktor) | OCR read the medal cost `177 \|210` (pipe for slash) → `costs unreadable` FAIL ×2 | ✅ `[/\|]`; re-run: `honor: stop: … medals 177/210`, 140 pts |
 | 10 | weekly statue (Bino, Dminor) | Vision garbles the Power Required bar (`1143737/\|82384`) → FAIL ×2, the Lucky Star swap + claims after it never ran | ✅ unreadable bar = short, the pass goes on; re-run 170 pts both |
 | 11 | weekly statue (Dino, Boudior, Kratos) | `Level Up did not raise the level` with the bar read as full — the read is unreliable (see 10) | ❌ statue = one of the 2 unscripted daily rows |
-| 12 | tribe request (all 11) | `request NOT SENT (cooldown ~1:15: sent < 6 h ago)` — last night's catch-up sent them ~07:45; re-sent with `tribe_chat` once the timers ran out (13:57) | ❓ catch-up timing |
+| 12 | tribe request (all 11) | `request NOT SENT (cooldown ~1:15: sent < 6 h ago)` — last night's catch-up sent them ~07:45; `tribe_chat` at 13:58: sent on Cmajor, Chloe, Kong (`request sent (cooldown 05:59:59)`); the other 8 instances had been stopped by then (#15) | ❓ catch-up timing |
 | 13 | arena (Cmajor) | attacked **Gambl3r** = Chloe (renamed from 🔥Zues🔥, roster still had the old name): today 12:28, and 5× on 11-14 | ✅ `tribe_peakaboo.txt` + `own_accounts.txt` (Chloe was missing there) say Gambl3r (Nick) |
+| 14 | gate (Kong II) | after the run, `no button 'Sweep' on screen`; the runner's retry swept (`['sweep']`) | ❓ one-off, retry covered it |
+| 15 | tribe_chat (8 accounts) | Bino, fGotten, Dino, Dminor, Tiger, xFaktor, Kratos, Boudior instances were stopped before 13:58 (`device unreachable`) → their requests not sent; not re-booted for it | ❓ Nick closed them? |
