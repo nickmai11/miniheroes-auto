@@ -1,13 +1,13 @@
 account:
   name: Slanesh
-  mumu_instance: Slanesh   # MuMu 20
+  mumu_instance: Slanesh
   game_id: 15499121
   server: null    # Settings > Server, "Current" row: fill in
   enabled: true
   storm_max_rank: King +1   # Storm: stop at this rank even with tickets left (Nick, 2026-10-31)
 
-# Catch-up keys only (2026-11-15, first "catchup slanesh"; tribe read from the Tribe screen): no dailies gem caps (trials, patrol speed, FR packs,
-# relic shovels) until Nick sets them. Not in accounts/tasks.yaml lists - runs only when named.
+# Catch-up + relic keys only (2026-11-15, first "catchup slanesh"; tribe read from the Tribe screen): no dailies gem caps (trials, patrol speed, FR packs)
+# until Nick sets them. Not in accounts/tasks.yaml lists - runs only when named.
 missions:
   arena:
     tribe: Peakaboo
@@ -26,3 +26,4 @@ missions:
   patrol:
     max_gem_price: 0   # no paid Speed Patrol (patrol.py needs the key even with --claim-only)
     claim_all: true
+  relic_shovel_buys: [80]   # skill default; Nick ran "relic slanesh" after being told it buys 80 (2026-11-15)
