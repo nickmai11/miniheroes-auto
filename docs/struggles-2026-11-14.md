@@ -47,3 +47,13 @@ Source: `logs/{tiger,kratos,boudior}/2026-11-14.log`, `/tmp/miniheroes-2026-11-1
 | 19  | events (Tiger)             | Storm Battlefield banner "!" stays when tickets are kept at the rank cap (King 1 = `storm_max_rank`, 5/5 tickets): not visit-only like the doc says → MANUAL. Still there after my visit                                                    | ❌ ignore the Storm dot when `storm` stopped at the cap        |
 | 20  | events (Tiger, Dminor)     | `banner 2d 15h` (1st card, rotates 7777 Draws / other events): hub tabs had no dot, and 14 frames read afterwards had no dot on card 1 → likely the red 7777 art caught mid-rotation                                                        | ❌ check `red_dot` against the card's rotation (1-frame noise) |
 | 13  | Dragon Temple (Dminor)     | Still MANUAL in this catch-up (tab "!", unmapped)                                                                                                                                                                                           | ❓ (see above)                                                 |
+
+## Catch-up 07:40 (game day 2026-11-14, Saturday; local Sun 11-15)
+
+Source: `/tmp/miniheroes-2026-11-15-07/*.log`, `logs/claude/2026-11-15.log`. 11 runners, no helper, no paid action; Storm SKIP (Coming Soon) everywhere.
+
+| #   | Task                    | What went wrong                                                                                                                                                                         | Status                                        |
+| --- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| 23  | arena2 (Dino)           | Same as #6 (3rd time: Bino 11-05, Bino 11-14): challenge lineup Start + 2 re-taps lost, lineup still up after 180 s → FAIL; retry fought fine, tickets 0                                | ❌ recurring                                  |
+| 24  | common_recruit (xF, Bd) | Ad draw: `ad closed after 62s (3 close taps)` but Chances still 1 / no Confirm → FAIL (15 s wait); retry watched a new ad and drew. Likely the 2nd-try top-right X closed it unrewarded | ❌ check the countdown before the X close tap |
+| 25  | relic (Bino, Chloe)     | one dig tap ignored each (`r1c2` / `r1c5 D: no effect` → blocked), as on 11-07 / 11-12; both still ran to 0 shovels, exit 0                                                             | ❌ recurring one-off                          |
