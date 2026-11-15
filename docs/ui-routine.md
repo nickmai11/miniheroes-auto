@@ -1125,6 +1125,10 @@ Added by Nick 2026-10-26; mapped on xFaktor via ADB (device coords). Skill: `min
    shows the current hearts, so re-check there.
 6. Back `(92,1810)` → Tribe screen. Red dot on the card gone = attempts used.
 
+**Registration phase** (Tiger/Kratos/Boudior 2026-11-15, Sunday 20:50): the card opens a "Registrating hh:mm:ss"
+countdown with "Match Found" + **Deploy** (defence lineup, locked when registration ends) instead of the map — no
+battle, no Attack Attempts. `poseidon.py` backs out to main and exits 0; never tap Deploy (not in scope).
+
 **Being attacked**: **crossed swords** over the ship in the list; tapping it shows a toast "This player is being
 challenged" (vi: "Người chơi này đang bị khiêu chiến") instead of Plunder.
 If the target sinks while you're on the lineup, **Start does nothing** — back `(84,1810)`, no attempt is lost,

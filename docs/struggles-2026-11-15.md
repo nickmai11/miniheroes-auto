@@ -29,3 +29,11 @@ Source: `/tmp/miniheroes-2026-11-15-18/*.log` (Chloe's first part: `chloe.part1.
 | 16 | arena, veins_forge (Chloe) | After `fishing_auto` every tap was ignored (Match, Divine Weapon; ×2 each), screen = plain main screen, banners still rotating. My own Match tap via `tap.py` also did nothing. `boot.sh 6` (game restart) → taps work; resumed from `arena`, all OK | ❓ one-off, not understood (input dead, render alive) |
 | 17 | tribe_chat (fGotten) | `request NOT SENT (cooldown 06:00:00: sent < 6 h ago)`: a 6:00:00 timer at the first read = sent a second earlier (its last send was the 07:45 catch-up, > 6 h); `checklist.py` already counted it as sent | 🧪 `tribe.py`: ≥ 05:59:00 at the first read → `sent` |
 | 8 | events (Boudior, Dino) | Dragon Temple dot again (`banner Dragon Temple`, `1d16h`, `16h 56m`, `11h 57m`, `Unlocks in 16h 57m` = its dot read on rotating cards) → MANUAL, no helper sent | ❓ (see above) |
+
+## Poseidon 20:47 (game day 2026-11-15, Sunday)
+
+Source: `/tmp/miniheroes-poseidon-out/*`, poseidon.py output in the session.
+
+| # | Task | What went wrong | Status |
+| --- | --- | --- | --- |
+| 18 | poseidon (Tiger, Kratos, Boudior) | Their tribe's Ruins was in the **registration phase** ("Registrating 15:10:32", Match Found, Deploy): no map, no attempts → `waited 15s for 'Attack Attempts'` stop ×3, left on that screen | ✅ `poseidon.py`: "Registrat" → back to main, exit 0; live-tested on all 3 |

@@ -59,6 +59,12 @@ def run():
     from flow import Stop, find, grab, joined, ocr, swipe, tap, tap_text, tap_wait, wait
     is_main = lambda: all(abs(a - b) <= 40 for a, b in zip(grab().getpixel((92, 1788)), (0, 158, 230)))
 
+    def back_main():
+        for _ in range(4):  # map -> Tribe -> main (a late back can open Recruit: back again)
+            if is_main(): return
+            tap_wait(92, 1810); time.sleep(0.8)
+        raise Stop('could not get back to the main screen')
+
     def attempts(im=None):
         """The pill right of "Attack Attempts" (same row as the "Battling: hh:mm:ss" timer, which a trailing-digits
         match read as 34/24/4822 when OCR missed the lone "0": Cmajor/Chien Than/Bino 2026-11-04). Pure digits only,
@@ -94,7 +100,10 @@ def run():
                 except Stop: pass
             else: raise Stop('Tribe screen did not open')
         tap_text(r'Poseidon')
-        wait(r'Attack Attempts', 15)
+        # Registration phase (Tiger/Kratos/Boudior 2026-11-15: "Registrating" countdown, Match Found, Deploy): no battle,
+        # no attempts -> back to main; Deploy (defence lineup) is out of scope
+        if find(wait(r'Attack Attempts|Registrat', 15), r'Registrat'):
+            back_main(); print('registration phase (no battle yet): nothing to attack; back on main', flush=True); return
     tap_text(r'^Enemies$', (540, 1700, 1080, 1920))
 
     n, busy, wins, losses = attempts(), set(), 0, 0
@@ -158,10 +167,7 @@ def run():
         if left != n - 1: raise Stop(f'attempts did not drop by 1 ({n} -> {left})')
         n = left
 
-    for _ in range(4):  # map -> Tribe -> main (a late back can open Recruit: back again)
-        if is_main(): break
-        tap_wait(92, 1810); time.sleep(0.8)
-    else: raise Stop('could not get back to the main screen')
+    back_main()
     print(f'attempts 0: {wins} wins, {losses} losses; back on main', flush=True)
 
 
