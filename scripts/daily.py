@@ -1605,10 +1605,15 @@ def weekly_review(cfg):
     pts, rows = weekly_read(); tap_wait(972, 238)
     prog = lambda key: next(((d, t) for name, (d, t) in rows.items() if re.search(key, name)), None)
     open_rows = [mid for mid, do in weekly_list() if do and (p := prog(WEEKLY_KEY[mid])) and p[0] < p[1]]
-    others = [m for m in open_rows if m != 'lucky_stars']
+    # once the dailies' weekly pass ran, the rows it left open stay open (no catch-up step does them): don't count them
+    # (Boudior 2026-11-15: 170 + statue = "180" -> Lucky Star bait swapped back to Basic twice, week ended short)
+    log = os.path.join(HERE, '..', 'logs', ACCOUNT, f'{GAME_DAY}.log')
+    ran = os.path.exists(log) and re.search(r'OK weekly \(', open(log).read())
+    others = [] if ran else [m for m in open_rows if m != 'lucky_stars']
     need = 'lucky_stars' in open_rows and pts + 10 * len(others) < 180
     os.makedirs('/tmp/miniheroes-state', exist_ok=True); open(weekly_plan_file(), 'w').write('stars' if need else 'nostars')
-    return f'{pts} pts, {len(rows)} rows read; open doable: {", ".join(open_rows) or "none"}; Lucky Stars {"NEEDED -> stars bait today" if need else "not needed -> default bait"}'
+    ls = prog(WEEKLY_KEY['lucky_stars'])
+    return f'{pts} pts, {len(rows)} rows read; open doable: {", ".join(open_rows) or "none"}{"; dailies weekly pass ran" if ran else ""}; Lucky Stars {"%d/%d " % ls if ls else ""}{"NEEDED -> stars bait today" if need else "not needed -> default bait"}'
 
 
 def weekly_statue(need):

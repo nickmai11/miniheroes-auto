@@ -11,7 +11,8 @@ Every open problem in one place (rules: CLAUDE.md "Docs"). New problem → new r
 | runner: wrong account | No step compares the on-screen game id with `game_id` (only `stabilize.py`); Kong reopens on S288 after a restart | Kong 11-07, 11-13 | check the id before the first step / after a restart |
 | tap lost: lineup Start | Challenge-lineup Start ignored 3× → 180 s FAIL; retry fights fine | Bino 11-05, 11-11, 11-14; Dino 11-14 | cause unseen — screenshot on the 2nd lost tap |
 | tap lost: arena Crash | Crash tap doesn't drop the tickets (2 → 2); retry covers | Chien Than, Bino 11-11; xFaktor 11-12; Bino 11-15 | fix only if a retry fails too |
-| tap lost: fishing bait | Bait tap opens no popup (`no Swap in 6 s`) / bait title OCR miss; retry covers | Kong 11-09, Cmajor 11-12, Slanesh 11-14 | same |
+| tap lost: fishing bait | Bait tap opens no popup (`no Swap in 6 s`) / bait title OCR miss; retry covers | Kong 11-09, Cmajor 11-12, Slanesh 11-14, Cmajor + xFaktor (`waited for '^Start$'`) 11-16 | same |
+| tap lost: first tap after boot | catch-up `weekly_review`: the ☰ tap right after `boot.sh` opens nothing (`waited 6s for '^Mission$'`); retry covers | Bino, Dino, Dminor, fGotten 11-16 | same |
 | tap lost: Veins | `not on the Veins grid` / `unexpected screen`; retry covers | Cmajor 11-13, Chloe 11-14 | same |
 | pet_arena | Fights over the Auto Deploy dialog on a busy arena → FAIL; retries cover | Tiger 11-10; Dminor, Cmajor, Chloe, Dino 11-11 | same |
 | relic: dig ignored | One dig tap has no effect → cell marked blocked; run still finishes | Aminor 11-05, Chien Than 11-07, Boudior 11-12, Bino + Chloe 11-14 | re-tap once before marking a cell blocked |
@@ -42,6 +43,7 @@ Every open problem in one place (rules: CLAUDE.md "Docs"). New problem → new r
 | --- | --- | --- |
 | Old dailies skill | A claude.ai account skill `miniheroes-dailies` (Oct 26, "read all of ui-routine", `enabled: true` accounts) syncs into `~/.claude/skills/synced/…` and lists next to the repo skill; a local delete is re-synced. Remove it in claude.ai Settings → Skills? | 11-16 |
 | Monday 150 | Canyon / Storm closed until 17:00 → a Monday daytime dailies run tops out at 150; the evening catch-up adds Canyon → 160. Call 150 "done" on Monday daytime? | dod.md 11-03 |
+| Weekly Lucky Stars | Lucky Star row 0/50 on every account Monday 05:50 (game day 11-15) despite ~6 h on Lucky Star bait Sunday (bait swapped back by a `weekly_review` bug, fixed 11-16; fishing bread-limited, xFaktor 2/100). 5 accounts end the week short: Boudior, Dino, fGotten 170; Kratos, xFaktor 150. Is the row reachable with bread, or drop it from the plan? | 11-15 |
 | Dragon Temple | New PvP ladder (Storm screen tab 2, 6 tickets); its dot → MANUAL on most accounts daily. Should the dailies do it? | 11-14, 11-15 |
 | Canyon row | `highest_free` keeps a Glory spot (no Occupy), or no empty platform → Canyon row open, chest 150. Give up the spot / attack, or is 150 fine? | Tiger 11-07, xFaktor 11-10, Kratos 11-13 |
 | arena4 | `patrol_claim` (after `arena3`) refills 3 tickets → add an `arena4` after it? | 11-14 |
