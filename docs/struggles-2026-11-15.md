@@ -19,3 +19,13 @@ Source: `/tmp/miniheroes-2026-11-15/*.log`, `logs/*/2026-11-15.log`. Status: ✅
 | 13 | arena (Cmajor) | attacked **Gambl3r** = Chloe (renamed from 🔥Zues🔥, roster still had the old name): today 12:28, and 5× on 11-14 | ✅ `tribe_peakaboo.txt` + `own_accounts.txt` (Chloe was missing there) say Gambl3r (Nick) |
 | 14 | gate (Kong II) | after the run, `no button 'Sweep' on screen`; the runner's retry swept (`['sweep']`) | ❓ one-off, retry covered it |
 | 15 | tribe_chat (8 accounts) | Bino, fGotten, Dino, Dminor, Tiger, xFaktor, Kratos, Boudior instances were stopped before 13:58 (`device unreachable`) → their requests not sent; not re-booted for it | ❓ Nick closed them? |
+
+## Catch-up 18:52 (game day 2026-11-15, Sunday)
+
+Source: `/tmp/miniheroes-2026-11-15-18/*.log` (Chloe's first part: `chloe.part1.txt`), `/tmp/miniheroes-relic/*`. 11 accounts, all `exit 0`, no helper, no paid action; relics 11× `exit 0`, shovels 0. Storm `Coming Soon` → skipped on all.
+
+| # | Task | What went wrong | Status |
+| --- | --- | --- | --- |
+| 16 | arena, veins_forge (Chloe) | After `fishing_auto` every tap was ignored (Match, Divine Weapon; ×2 each), screen = plain main screen, banners still rotating. My own Match tap via `tap.py` also did nothing. `boot.sh 6` (game restart) → taps work; resumed from `arena`, all OK | ❓ one-off, not understood (input dead, render alive) |
+| 17 | tribe_chat (fGotten) | `request NOT SENT (cooldown 06:00:00: sent < 6 h ago)`: a 6:00:00 timer at the first read = sent a second earlier (its last send was the 07:45 catch-up, > 6 h); `checklist.py` already counted it as sent | 🧪 `tribe.py`: ≥ 05:59:00 at the first read → `sent` |
+| 8 | events (Boudior, Dino) | Dragon Temple dot again (`banner Dragon Temple`, `1d16h`, `16h 56m`, `11h 57m`, `Unlocks in 16h 57m` = its dot read on rotating cards) → MANUAL, no helper sent | ❓ (see above) |

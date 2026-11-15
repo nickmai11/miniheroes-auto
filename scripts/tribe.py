@@ -57,6 +57,8 @@ def chat(request=True):
     # the tap alone proved nothing: on cooldown from the morning catch-up it did nothing, logged "tapped" (2026-11-07)
     cd = cooldown(boxes)
     if not request: req = f'skipped ({"cooldown " + cd if cd else "--no-request"})'
+    # 06:00:00 at the first read = sent a second ago (fGotten 2026-11-15 catch-up: logged NOT SENT, its last send was > 6 h old)
+    elif cd and cd.zfill(8) >= '05:59:00': req = f'sent (cooldown {cd} at the first read)'
     elif cd: req = f'NOT SENT (cooldown {cd}: sent < 6 h ago)'
     else:
         # Boudior 2026-11-13: no timer, yet Request was still green with its red "!" (a tap on it sent it) -> fixed
