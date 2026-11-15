@@ -1,0 +1,7 @@
+# Wide tables come out compact (no padding to the longest cell) so they read with word wrap on (Nick, 2026-11-15).
+# Only the table docs: proseWrap never also unwraps hard-wrapped prose (CLAUDE.md, ui-routine, skills).
+# Don't pass --prose-wrap on the command line: it overrides this.
+overrides:
+  - files: ["docs/struggles-*.md", "docs/untested.md"]
+    options:
+      proseWrap: never

@@ -1,19 +1,18 @@
 # Struggles — catch-up 2026-11-06 06:20 (game day 2026-11-05, 9 accounts)
 
-Source: runner logs `/tmp/miniheroes-catchup/*.log` (scripts/catchup_all.sh), one coordinator screenshot. Ordered by impact. Status: ✅ fixed ·
-🧪 fixed, waiting for a live test (`docs/untested.md`) · ❌ open · ❓ needs Nick. Last updated: 2026-11-06.
+Source: runner logs `/tmp/miniheroes-catchup/*.log` (scripts/catchup_all.sh), one coordinator screenshot. Ordered by impact. Status: ✅ fixed · 🧪 fixed, waiting for a live test (`docs/untested.md`) · ❌ open · ❓ needs Nick. Last updated: 2026-11-06.
 
-| #   | Task                 | What went wrong                                                                                                                                                                                                                | Status                                                                            |
-| --- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
-| 1   | Arena2 (Bino)        | Rows 2–5 shielded (crashed in `arena`), the 6th-row Crash bot cut off; `read_dialog` dropped shield rows, so "last row" = row 1 (✨DINO✨, own account, Challenge 4820k > our 4457k) → FAIL twice, 3 tickets left for a helper | 🧪 shield rows kept, fallback always scrolls first; re-run 8 min later used all 3 |
-| 2   | Boot (Kong)          | Instance was on another server's account (stabilize: `account switched`, 4 popups) — someone had switched it since the last run                                                                                                | ✅ stabilize switched it back; nothing to do                                      |
-| 3   | Fishing (6 accounts) | `AUTO STOPPED, bread 0–1/100` on Bino, Chien Than, Cmajor, Dino, Tiger, xFaktor — out of bread, so the Auto can't be restarted                                                                                                 | ❓ expected at this point of the day? bread refills only with the daily reset     |
+| # | Task | What went wrong | Status |
+| --- | --- | --- | --- |
+| 1 | Arena2 (Bino) | Rows 2–5 shielded (crashed in `arena`), the 6th-row Crash bot cut off; `read_dialog` dropped shield rows, so "last row" = row 1 (✨DINO✨, own account, Challenge 4820k > our 4457k) → FAIL twice, 3 tickets left for a helper | 🧪 shield rows kept, fallback always scrolls first; re-run 8 min later used all 3 |
+| 2 | Boot (Kong) | Instance was on another server's account (stabilize: `account switched`, 4 popups) — someone had switched it since the last run | ✅ stabilize switched it back; nothing to do |
+| 3 | Fishing (6 accounts) | `AUTO STOPPED, bread 0–1/100` on Bino, Chien Than, Cmajor, Dino, Tiger, xFaktor — out of bread, so the Auto can't be restarted | ❓ expected at this point of the day? bread refills only with the daily reset |
 
 ## Relics 06:43 (relic_all.sh, 9 accounts, all exit 0)
 
-| #   | Task           | What went wrong                                                                                                                                                                                                      | Status                                                                   |
-| --- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| 4   | Relics (Tiger) | `drill r1c2 (saves ~6, stock 2->None) -> no banner` then `booster not consumed`: the drill did fire (bottom row dug, new row revealed, badge 2→1 on the coordinator's screenshot); the post-fire badge OCR read None | 🧪 badge re-read once; None + changed board = fired (`docs/untested.md`) |
+| # | Task | What went wrong | Status |
+| --- | --- | --- | --- |
+| 4 | Relics (Tiger) | `drill r1c2 (saves ~6, stock 2->None) -> no banner` then `booster not consumed`: the drill did fire (bottom row dug, new row revealed, badge 2→1 on the coordinator's screenshot); the post-fire badge OCR read None | 🧪 badge re-read once; None + changed board = fired (`docs/untested.md`) |
 
 784 digs, 0 refused / UNKNOWN / no effect; no buys this run (all 9 top-ups were done earlier the same game day, 11-05 18:10–18:19); shovels 0 everywhere.
 
@@ -21,27 +20,27 @@ Everything else: 9 × 13 OK, no helper, no paid action, 0 popups stuck at boot (
 
 ## Stabilize + survey 11:00 (boot.sh 9 accounts, mail survey)
 
-| #   | Task              | What went wrong                                                                                                                                                                                                                 | Status                                                                                                                      |
-| --- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| 5   | Boot (7 accounts) | New "Snow Carnival" (11.5–12.7) popup → `popup-stuck` on all but Dino/Tiger: `close_x` takes the 64px block with the most white pixels, and the snow artwork + the frame's right edge (988,896) out-scored the real X (988,352) | 🧪 `close_x` only lets the rows straddling the topmost X-like block compete (`docs/untested.md`); closed by hand (tick + X) |
+| # | Task | What went wrong | Status |
+| --- | --- | --- | --- |
+| 5 | Boot (7 accounts) | New "Snow Carnival" (11.5–12.7) popup → `popup-stuck` on all but Dino/Tiger: `close_x` takes the 64px block with the most white pixels, and the snow artwork + the frame's right edge (988,896) out-scored the real X (988,352) | 🧪 `close_x` only lets the rows straddling the topmost X-like block compete (`docs/untested.md`); closed by hand (tick + X) |
 
 Survey: the mail's link is one Google Form (`forms.gle/k7Nkvtkbv7MRHoSL9`, no sign-in); submitted from the Mac with curl once per `game_id`, neutral answers, `n/a` texts — 9 × "Thank you for your sharing!". No game taps needed beyond Kong (link read via `dumpsys activity`).
 
 ## Dailies 12:20 (daily.py, 9 accounts, all exit 0, no helper)
 
-| #   | Task                          | What went wrong                                                                                                                                                                                                                      | Status                                                                                                                    |
-| --- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
-| 6   | Realm packs (all 9)           | FR Claim day (11/6): the banner opens under a "Match Result" popup, then "Finals Concluded", then a Participation Requirements tooltip; Pack says "Not in Purchase Period" → `Floating Realm screen did not open` FAIL ×2 everywhere | ✅ popups closed via the title (540,120), Pack accepted as opened, "Not in Purchase Period" = SKIP (tested live on Tiger) |
-| 7   | Gate (Tiger)                  | The run's fight ended in Victory right at the 3-min cap; the Pause taps found no Quit Battle → FAIL; retry swept                                                                                                                     | 🧪 Quit Battle only when no Victory shows (`docs/untested.md`)                                                            |
-| 8   | Golden Woods (Aminor, Dminor) | Sign-In's dot stays on "Continue to claim" (Deluxe) after the free Day 4 claim; the chest banner reads "Activated" → `MANUAL … red dots left: ['golden_woods']`                                                                      | ❓ is Deluxe owned on these two (then the claim is free)? Doc says never tap it                                           |
-| 9   | Sanctuary (Bino)              | Unmapped "Hidden Altar" popup (3 buffs: Energy +200, DEF +20%, CRIT −20%, Confirm) over the Sanctuary → FAIL; retry swept                                                                                                            | ❌ unmapped; retry got past it                                                                                            |
-| 10  | Arena2 (Bino)                 | Crash tap on HOmPe didn't register (4 → 4); retry crashed 4                                                                                                                                                                          | ✅ runner retry                                                                                                           |
-| 11  | Daily Mission (Dino)          | First attempt opened the Backpack instead of Mission; retry did weekly only — screen showed 160 / 4 chests ticked                                                                                                                    | ✅ checked on screen                                                                                                      |
-| 12  | Kong instance                 | MuMu instance was `stopped` after its runner finished (exit 0) — `adb offline` on a rerun                                                                                                                                            | ❓ closed by hand?                                                                                                        |
+| # | Task | What went wrong | Status |
+| --- | --- | --- | --- |
+| 6 | Realm packs (all 9) | FR Claim day (11/6): the banner opens under a "Match Result" popup, then "Finals Concluded", then a Participation Requirements tooltip; Pack says "Not in Purchase Period" → `Floating Realm screen did not open` FAIL ×2 everywhere | ✅ popups closed via the title (540,120), Pack accepted as opened, "Not in Purchase Period" = SKIP (tested live on Tiger) |
+| 7 | Gate (Tiger) | The run's fight ended in Victory right at the 3-min cap; the Pause taps found no Quit Battle → FAIL; retry swept | 🧪 Quit Battle only when no Victory shows (`docs/untested.md`) |
+| 8 | Golden Woods (Aminor, Dminor) | Sign-In's dot stays on "Continue to claim" (Deluxe) after the free Day 4 claim; the chest banner reads "Activated" → `MANUAL … red dots left: ['golden_woods']` | ❓ is Deluxe owned on these two (then the claim is free)? Doc says never tap it |
+| 9 | Sanctuary (Bino) | Unmapped "Hidden Altar" popup (3 buffs: Energy +200, DEF +20%, CRIT −20%, Confirm) over the Sanctuary → FAIL; retry swept | ❌ unmapped; retry got past it |
+| 10 | Arena2 (Bino) | Crash tap on HOmPe didn't register (4 → 4); retry crashed 4 | ✅ runner retry |
+| 11 | Daily Mission (Dino) | First attempt opened the Backpack instead of Mission; retry did weekly only — screen showed 160 / 4 chests ticked | ✅ checked on screen |
+| 12 | Kong instance | MuMu instance was `stopped` after its runner finished (exit 0) — `adb offline` on a rerun | ❓ closed by hand? |
 
 ## Catch-up 20:14 (daily.py --catch-up, 9 internal accounts, all exit 0, no helper)
 
-| #   | Task                   | What went wrong                                                                                                                                                                | Status                                                                                                                                                     |
-| --- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 13  | Storm (Aminor, Cmajor) | Badge showed King +1, but full-screen OCR never reads a lone "1" on the badge → `rank unreadable with a max rank set; stop` FAIL (Aminor after its 1st match, Cmajor at start) | 🧪 `cur_rank` OCRs a 2× crop of the badge; the retries ran it live: Aminor read (4,1) = cap → no matches, Cmajor (4,1)→(4,2). Two-digit levels unexercised |
-| 14  | Fishing (7 accounts)   | `AUTO STOPPED, bread 0–1/100` at the end on all but Kong/Tiger                                                                                                                 | ❓ same as #3                                                                                                                                              |
+| # | Task | What went wrong | Status |
+| --- | --- | --- | --- |
+| 13 | Storm (Aminor, Cmajor) | Badge showed King +1, but full-screen OCR never reads a lone "1" on the badge → `rank unreadable with a max rank set; stop` FAIL (Aminor after its 1st match, Cmajor at start) | 🧪 `cur_rank` OCRs a 2× crop of the badge; the retries ran it live: Aminor read (4,1) = cap → no matches, Cmajor (4,1)→(4,2). Two-digit levels unexercised |
+| 14 | Fishing (7 accounts) | `AUTO STOPPED, bread 0–1/100` at the end on all but Kong/Tiger | ❓ same as #3 |
