@@ -164,8 +164,10 @@ def buy_scrolls():
     p = next((t.strip() for x, y, w, h, t in b if 1040 < y + h // 2 < 1130 and t.strip().isdigit()), None)
     if not p: raise Stop('pack price not readable; nothing bought')   # price read on screen before the paid tap
     tap_text(r'^Purchase$', boxes=b); time.sleep(1.2)
-    tap_wait(540, 240); time.sleep(0.8)                   # close: above the popup, on the dimmed Daily Order title
-    if find(ocr(), r'Order Refresh Scroll'): raise Stop(f'pack popup still open after buying 1 pack ({p} gems)')
+    for _ in range(2):                                    # close: above the popup, on the dimmed Daily Order title
+        tap_wait(540, 240); time.sleep(0.8)               # 1st tap can land in the purchase animation (Kratos 2026-11-15)
+        if not find(ocr(), r'Order Refresh Scroll'): break
+    else: raise Stop(f'pack popup still open after buying 1 pack ({p} gems)')
     after = scrolls()
     if after != before + 5: raise Stop(f'scrolls {before} -> {after} after buying 1 pack ({p} gems)')
     print(f'    bought 5 refresh scrolls for {p} gems ({before} -> {after})', flush=True)
@@ -700,7 +702,13 @@ def gate(cfg):
             if not find(b, r'Quit Battle|Victory|Kill Count'): tap_wait(866, 1227); b = ocr()
             if not find(b, r'Victory|Kill Count'):     # fight can end right at the cap (Tiger 2026-11-06)
                 tap_text(r'Quit Battle', boxes=b); wait(r'Victory|Kill Count|^Confirm$', 10)
-        tap_text(r'^Confirm$', (200, 1300, 880, 1500)); boxes = wait(r'Chances left today', 10)
+        for _ in range(3):                              # a Confirm tap while the result popup slides in is ignored (Tiger 2026-11-15)
+            c = find(ocr(), r'^Confirm$', (200, 1300, 880, 1500))
+            if c: tap_wait(*c)
+            try: boxes = wait(r'Chances left today', 5); break
+            except Stop as e:
+                if 'MATCH_FULL' in str(e): raise
+        else: raise Stop('gate result popup did not close (3 Confirm tries)')
         n2 = left(boxes)
         if n2 != n - 1: raise Stop(f'gate chances {n} -> {n2} after a run')
         n = n2; out.append('run')
@@ -1402,7 +1410,8 @@ def events(cfg):
     dots = read()
     for t in list(tabs)[:2]:
         tap_wait(tabs[t], 1840); time.sleep(1.2)
-        dots = {k: v or d for (k, v), d in zip(dots.items(), read().values())}
+        tabs = {**hub_tabs(), **tabs}                   # a tab the first read missed (Limited Recruitment: Cmajor + fGotten 2026-11-15)
+        dots = {k: dots.get(k, False) or d for k, d in read().items()}
     print(f'    hub tabs (red dot): {dots}', flush=True)   # 'nothing claimed' couldn't tell no tab / no dot / missed (2026-11-01)
     # a tab nobody mapped is invisible to hub_tabs(): Golden Woods' quests went uncollected on every account (2026-11-03)
     new_tabs = unmapped_tabs()
@@ -1535,9 +1544,10 @@ def weekly_honor(need):
     done = []
     for _ in range(need):
         boxes = ocr()
-        costs = sorted((x + w // 2, t) for x, y, w, h, t in boxes if 1600 < y + h // 2 < 1700 and '/' in t)   # gold, medal
+        # gold, medal; Vision reads the medal '/' as '|' at times ("177 |210", xFaktor 2026-11-15)
+        costs = sorted((x + w // 2, re.split(r'[/|]', t)) for x, y, w, h, t in boxes if 1600 < y + h // 2 < 1700 and re.search(r'[/|]', t))
         if len(costs) < 2: raise Stop(f'honor: costs unreadable: {joined(boxes)[:160]}')
-        have = [int(num(c.split('/')[0].strip())) for _, c in costs[:2]]; cost = [int(num(c.split('/')[1].strip())) for _, c in costs[:2]]
+        have = [int(num(c[0].strip())) for _, c in costs[:2]]; cost = [int(num(c[1].strip())) for _, c in costs[:2]]
         if have[0] < cost[0] or have[1] < cost[1]: done.append(f'stop: gold {have[0]}/{cost[0]}, medals {have[1]}/{cost[1]}'); break
         before = ' '.join(t for x, y, w, h, t in boxes if 1440 < y + h // 2 < 1580)   # level + progress bar
         tap_wait(380, 1808); time.sleep(1.2)                                           # never (724,1808) = Upgrade Lv.1
@@ -1609,7 +1619,9 @@ def weekly_statue(need):
         boxes = ocr(); t = joined(boxes)
         bar = [tt for x, y, w, h, tt in boxes if 1430 < y + h // 2 < 1510 and re.search(r'\d+/\d+', tt)]
         lv = re.search(r'Lv\.(\d+)', t)
-        if not bar or not lv: raise Stop(f'statue: bar/level unreadable: {t[:160]}')
+        # Vision drops/garbles digits of the bar ("1143737/|82384", Bino + Dminor 2026-11-15): a deferred row -> report it
+        # short and let the weekly pass go on (Lucky Star, claims) instead of failing the whole step
+        if not bar or not lv: return f'statue: +{done}, bar/level unreadable ({t[t.find("Power Required"):][:40]})'
         have, req = map(int, re.search(r'(\d+)/(\d+)', bar[0]).groups())
         if have < req: return f'statue: +{done}, bar {have}/{req} not full'
         tap_wait(540, 1589); time.sleep(1.5)

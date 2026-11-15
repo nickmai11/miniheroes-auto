@@ -34,7 +34,7 @@ def watch_ad(timeout=180, log=print):
     Ad activity (Mintegral MBRewardVideoActivity): let it run until its reward countdown is over - "17s left to be
     rewarded" / "Reward in 15s" at the top; Back or X before that forfeits the reward. xFaktor 2026-11-08: 31 Backs
     during a playable (jigsaw) ad only toggled its "Confirm to close?" dialog, which also pauses the countdown ->
-    Continue while a countdown shows. Countdown gone 6 s and >= 40 s in (plain videos ~37 s, no text) -> Back
+    Continue while a countdown shows. Countdown gone 6 s and >= 60 s in (plain videos ~37 s, no text; 40 forfeited 2 on 11-15) -> Back
     (closes the end card); "Confirm to close?" then = reward already granted -> Close it; the top-right X (1014,82)
     every 2nd try - playables (water sort) ignore Back and need '>' then X; a store page that opens is Backed out. True once the game is in front again."""
     t0 = time.time()
@@ -53,10 +53,10 @@ def watch_ad(timeout=180, log=print):
         if cd: seen = time.time()
         dlg = find(boxes, r'Confirm to close')
         if dlg:
-            done = not cd and el >= 40 and time.time() - seen >= 6
+            done = not cd and el >= 60 and time.time() - seen >= 6
             b = find(boxes, r'^Close it$' if done else r'^Continue$')
             if b: tap(*b); log(f'    ad dialog -> {"Close it" if done else "Continue"} ({el:.0f}s)'); time.sleep(2); continue
-        if el >= 40 and time.time() - seen >= 6:
+        if el >= 60 and time.time() - seen >= 6:   # 40 forfeited 2 rewards at 47-48 s (Boudior, Tiger 2026-11-15; paid ones ran 71-78 s)
             tries += 1
             if tries % 2 == 0: tap(1014, 82)   # playables ignore Back: '>' then the end card's X (xFaktor 11-09)
             else: subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4'])

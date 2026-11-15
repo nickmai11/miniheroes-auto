@@ -811,6 +811,11 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   (255,182,16), dismiss `(300,200)` between taps.
 - **Weekly Event / Hero Recruit:** Pet Shop / Recruit Store sub-tab `(410,240)` → Free Benefits `(896,1024)`;
   weekly merchant free 200.
+  **Artifact Wish** week (1st sub-tab; mapped on fGotten 2026-11-15): point milestones "Earn N Points in total", bar
+  `X/N`, 5 reward rounds ("Current reward round: 1/5"). A reached row has no ✓ on its 3 reward icons (claimed rows
+  do; locked rows look the same as reached ones — judge by `X ≥ N`) → tap its first icon (`(622,1612)` for the
+  bottom row) → Congratulations → the round goes up and the bars restart. Free, collect-only. **Not scripted**: the
+  runner only does the Wish Merchant Free Benefits, so a reached milestone shows as `MANUAL … weekly_event`.
 - **Limited Recruitment** (cycle event, mapped on Tiger 2026-11-10; runner `limited_recruitment()`): hub tab
   "Limited Recruitment", 4 sub-tabs at y≈280: Limited Recruitment `(165)`, Hero Trial `(412)`, Training Program `(660)`,
   Limited Merchant `(908)`. **Hero Trial** = free, unlimited boss fight; daily chests (100k/200k/400k/600k/800k at
