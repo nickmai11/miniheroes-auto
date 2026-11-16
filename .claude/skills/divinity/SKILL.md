@@ -20,6 +20,7 @@ Use when Nick says "upgrade divinities for <account> (from the Nth hero)". First
    - A colour out of crystals (cost row `have/need` short) → that colour is skipped for the rest of the run
      (`out of red crystals -> no more red upgrades`); gold out → stop. Locked badges (padlock / "Lv.100") are skipped.
    - **Bone Archer is excluded** (dailies hero, Nick).
+   - "max L" (Nick, Sacha 2026-11-16: "max 100lv instead of 150") → `--max L` caps every listed target at Lv.L.
 4. Done = `row end: K heroes done`. Upgrading moves a hero left in the row, so some heroes show twice (read-only
    second pass, nothing skipped).
 5. Report per account: badges upgraded (hero, colour, name, from → to), anything short of its target (crystals out:

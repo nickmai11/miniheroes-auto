@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # Gear catch-up: Enhance every gear of the first N heroes (expanded hero list order) up to a target level. Gold only, never gems.
-# usage: D=<serial> scripts/gear.py [--heroes 15] [--target 150 | --reset-below 135]     (hero screen must be open; ends on it)
+# usage: D=<serial> scripts/gear.py [--heroes 15] [--from 1] [--target 150 | --reset-below 135]     (hero screen must be open; ends on it)
+#        --from K: heroes before the Kth are only read (names kept as done), never touched (Slanesh 2026-11-16: reset from the 10th)
 #        --reset-below L: instead of enhancing, Reset (100% materials back) every gear with 0 < LV < L (Dino 2026-11-09);
-#        --all: then the heroes past the 15th too (hero list kept open and scrolled; reset mode only); --swipe px (480 = 3 rows)
+#        --all: then the heroes past the 15th too (hero list kept open and scrolled; reset mode only); --swipe px (240 ~ 1.5 rows)
 # Mapped on PuPu 2026-11-06 (1080x1920): grid 5 x 3 rows visible above the class filter bar, slots at x=120, y=400/550/700/850,
 # popup "LV.N >> N+1" + gold "have/need" + Enhance. Stops (exit 1) on a missing Enhance button (purchase dialog) or have < need.
 import re, sys, time
@@ -96,30 +97,30 @@ def reset(slot, below, after=r'^Level Up$'):
     return lv2
 
 
-def run_scrolled(below, seen, dy=480):
+def run_scrolled(below, seen, dy=240):
     """Heroes past the 15th (Dino 2026-11-09): the hero list stays open across card taps and gear popups, so it is expanded
-    once and scrolled with slow swipes (a fast one glides); re-expanding resets it to the top. Cards are found by their
-    'Lv.N' labels (OCR), each tapped once, the hero name checked against `seen`. Stops after 2 swipes with nothing new."""
+    once and scrolled with slow swipes (a fast one glides); re-expanding resets it to the top. Every card is tapped at fixed
+    points 120 px apart over the visible rows (a card is ~210 px tall, so each one is hit whatever the scroll offset; a gap
+    tap keeps the last hero), the name checked against `seen`. Cards found by OCR'd 'Lv.N' labels missed heroes (Slanesh
+    2026-11-16: Holy Healer on both passes, Dark Shaman / Jungle Envoy on one each). Stops after 2 swipes with nothing new."""
     tap_wait(1008, 1400); time.sleep(0.5)
     idle = 0
     while idle < 2:
-        swipe(540, 1170 + dy, 540, 1170, 1500); time.sleep(1.2)   # 480 px slow = 3 rows on Dino; smaller = overlapping passes
-        labels = sorted(((y + h // 2, x + w // 2) for x, y, w, h, t in ocr()
-                         if re.search(r'\d{2,3}$', t.strip()) and len(t.strip()) <= 7 and 1120 < y + h // 2 < 1700 and x + w // 2 < 1000),
-                        key=lambda p: (p[0] // 120, p[1]))
+        swipe(540, 1170 + dy, 540, 1170, 1500); time.sleep(1.2)   # 240 px slow ~ 1.5 rows: overlapping views
         new = 0
-        for ly, lx in labels:
-            tap_wait(lx + 40, ly + 60); time.sleep(0.5); b = ocr(); hero = name(b)
-            if not hero or hero in seen: continue
-            seen.append(hero); new += 1; levels = slot_levels(b)
-            print(f'{len(seen)}. {hero}: gear {[levels.get(s) for s in range(4)]}', flush=True)
-            for s in range(4):
-                if s in levels and 0 < levels[s] < below: reset(s, below, after=None)
+        for y in (1250, 1370, 1490, 1610):
+            for x in COLS:
+                tap_wait(x, y); time.sleep(0.5); b = ocr(); hero = name(b)
+                if not hero or hero in seen: continue
+                seen.append(hero); new += 1; levels = slot_levels(b)
+                print(f'{len(seen)}. {hero}: gear {[levels.get(s) for s in range(4)]}', flush=True)
+                for s in range(4):   # unread label next to read ones = OCR miss (Slanesh Little Goblin 2026-11-16) -> the popup decides
+                    if 0 < levels.get(s, 0) < below or (s not in levels and levels): reset(s, below, after=None)
         idle = idle + 1 if new == 0 else 0
     tap_wait(1008, 1100); wait(r'^Level Up$', 5, (200, 1050, 880, 1300))
 
 
-def run(n_heroes=15, target=150, reset_below=None, scrolled=False, dy=480):
+def run(n_heroes=15, target=150, reset_below=None, scrolled=False, dy=480, start=1):
     seen = []
     for i in range(n_heroes):
         tap_wait(1008, 1400)                                  # expand the hero list
@@ -132,10 +133,12 @@ def run(n_heroes=15, target=150, reset_below=None, scrolled=False, dy=480):
         seen.append(hero)
         levels = slot_levels(boxes)
         print(f'{i + 1}. {hero}: gear {[levels.get(s) for s in range(4)]}', flush=True)
+        if i + 1 < start: print('  kept (before --from)', flush=True); continue
         for s in range(4):
+            if reset_below is not None:   # LV.0 gear has no label; an unread one next to read ones -> the popup decides
+                if 0 < levels.get(s, 0) < reset_below or (s not in levels and levels): reset(s, reset_below)
+                continue
             if s not in levels: print(f'  slot {s + 1}: no level label (locked/empty) -> skipped', flush=True); continue
-            if reset_below is not None:
-                if 0 < levels[s] < reset_below: reset(s, reset_below)
             elif levels[s] < target: enhance(s, target)
     if scrolled and reset_below is not None: run_scrolled(reset_below, seen, dy)
     print('gear done')
@@ -144,4 +147,4 @@ def run(n_heroes=15, target=150, reset_below=None, scrolled=False, dy=480):
 if __name__ == '__main__':
     a = sys.argv[1:]
     g = lambda k, d: int(a[a.index(k) + 1]) if k in a else d
-    main(lambda _: run(g('--heroes', 15), g('--target', 150), g('--reset-below', None), '--all' in a, g('--swipe', 480)), 'gear')
+    main(lambda _: run(g('--heroes', 15), g('--target', 150), g('--reset-below', None), '--all' in a, g('--swipe', 240), g('--from', 1)), 'gear')

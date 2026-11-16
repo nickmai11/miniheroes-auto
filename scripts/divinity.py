@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # Upgrade the divinities (6 badges around the artifact, Hero -> Artifact) of every hero after the first N to the
 # levels in accounts/divinities.yaml (Nick, Kratos 2026-11-12). usage: D=<serial> scripts/divinity.py [--keep 6]
-# [--here] (main or hero screen; --here = resume at the selected hero after a stop). Only listed names with a value
-# are touched (Nick: "shouldn't upgrade what not listed" - Basic/Intermediate HP/ATK aren't). Crystals (one kind per
-# badge colour) + gold only, never gems.
+# [--here] [--max L] (main or hero screen; --here = resume at the selected hero after a stop; --max = no target above
+# Lv.L). Only listed names with a value are touched (Nick: "shouldn't upgrade what not listed" - Basic/Intermediate
+# HP/ATK aren't). Crystals (one kind per badge colour) + gold only, never gems.
 # Per badge: Enhance once -> "↑ Lv.N" quick button (next multiple of 50) -> Quick Level Up dialog Lv.a -> Lv.b,
 # Confirm only if b <= target; single Enhance taps for the rest. Every step is read back from the popup.
 import os, re, sys
@@ -18,14 +18,15 @@ LVROW, NAME, QUICK = (560, 790, 940, 850), (330, 850, 600, 905), (380, 980, 720,
 ENHANCE, CONFIRM, CLOSE, ARTI = (540, 1166), (740, 1160), (540, 120), (920, 1300)
 
 
-def load(text):
-    """{colour: {name: level}} from 'colour:' sections and '  name: units' lines (blank = not listed); 1 unit = 50."""
+def load(text, cap=None):
+    """{colour: {name: level}} from 'colour:' sections and '  name: units' lines (blank = not listed); 1 unit = 50;
+    no level above cap (--max, Nick Sacha 2026-11-16: "max 100lv instead of 150")."""
     cfg, sec = {}, None
     for line in text.splitlines():
         m = re.match(r'^(\w+):', line)
         if m: sec = cfg.setdefault(m[1], {}); continue
         m = re.match(r'^\s+([^#:]+?):\s*(\d+)', line)
-        if m and sec is not None: sec[m[1]] = int(m[2]) * 50
+        if m and sec is not None: sec[m[1]] = min(int(m[2]) * 50, cap or 10**6)
     return cfg
 
 
@@ -139,9 +140,9 @@ def first_after(keep):
     return names[-1]
 
 
-def run(keep=6, here=False):
+def run(keep=6, here=False, cap=None):
     """here: resume at the selected hero (after a stop) instead of walking the row from card 1 again (Nick 2026-11-12)."""
-    cfg = load(open(CFG).read())
+    cfg = load(open(CFG).read(), cap)
     b = ocr()
     if find(b, r'Quick Level Up'): tap_wait(336, 1160); b = wait(r'Divinity$', 5)   # left open by a stop: Cancel
     if find(b, r'Divinity$'): tap_wait(*CLOSE); b = wait(r'Ascension', 5)
@@ -166,6 +167,9 @@ if __name__ == '__main__':
         assert key('red', 'All Melee DMG Reduct', cfg['red']) == 'Melee DMG Reduction'
         assert key('red', 'All Heavy Injury 1.50%', cfg['red']) == 'Heavy Injury'
         assert load(open(CFG).read())['purple']['Warrior HP'] == 150
+        capped = load(open(CFG).read(), 100)
+        assert capped['purple']['Warrior HP'] == 100 and capped['red']['ATK'] == 50, capped
         print('ok'); sys.exit()
     a = sys.argv[1:]
-    main(run, int(a[a.index('--keep') + 1]) if '--keep' in a else 6, '--here' in a)
+    main(run, int(a[a.index('--keep') + 1]) if '--keep' in a else 6, '--here' in a,
+         int(a[a.index('--max') + 1]) if '--max' in a else None)
