@@ -26,7 +26,7 @@ Every open problem in one place (rules: CLAUDE.md "Docs"). New problem → new r
 | events: card-1 dot | `banner 2d 15h`: red 7777 art read as a dot mid-rotation | Tiger, Dminor 11-14 | check `red_dot` against the rotation |
 | events: Artifact Wish | Weekly Event "Earn 6000 Points" claim not scripted (runner only does Wish Merchant) | fGotten 11-15 | add the claim |
 | weekly statue | Level Up read unreliable (`did not raise the level` with the bar read full) | Dino, Boudior, Kratos 11-15 | statue = unscripted daily row |
-| stabilize: Top-up popup | "Top-up Bonus" white X opened the Snow Carnival web page | Chien Than, xFaktor 11-05 | map the popup's close path |
+| stabilize: Top-up popup | "Top-up Bonus" white X opened the Snow Carnival web page | Chien Than, xFaktor 11-05; Kong II (S288, `boot.sh 5`) 11-16: `popup-stuck` on the web page, Back → Snow Carnival popup, `stabilize.py` cleared it | map the popup's close path |
 | climb_stage: swap order | 3 swaps flip-flop tabs 1↔2, tab 3 never tried | Kratos 7-6, 11-14 | skip orders already tried on the stage |
 | OK without proof | `hero` OK line = `hero upgrade done` (levels only in the body lines); `patrol` `Claim All tapped` not read back; `shop` / `play_pass` don't re-check the red dot after a claim (rest of the 11-03 dod.md list fixed: Daily Mission chests, Trials, Grocery, forge, Stage, Beast lines carry proof now) | dod.md 11-03; Tiger 11-15 | print the proof in the OK line / re-read the dot |
 | climb_stage: swap timeout | `TIMEOUT waiting for 'Start'` after a tab tap; yaml not rewritten, tabs unknown | Kratos 6-26, 11-14 | — |
