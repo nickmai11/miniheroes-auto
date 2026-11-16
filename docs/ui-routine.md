@@ -1078,10 +1078,10 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
 - Never spend gems.
 - **`canyon_clash: highest_free`** in the account file (Tiger, Nick 2026-10-28) replaces the day rules above, every day:
   take the **highest** spot on the map (topmost: Glory > Gold > Silver, any of the silver rows) that is **empty or
-  Sentinel-held** — occupy it, or beat the Sentinel. If the current spot is
-  already higher than every free one, keep it (counts as done). Nothing free → a non-tribe player's spot (first rule above).
-  `canyon.py` reads the header ("Glory/Gold/Silver Battlefield") and never moves a highest_free account down a tier
-  (it took Tiger Glory → empty Gold on 2026-11-03 before that check).
+  Sentinel-held** — occupy it, or beat the Sentinel. **Still a new spot every run, even when the held one is the best**
+  (occupation ends after 8 h — Nick 2026-11-16): the highest free one, even if it's lower. Nothing free → a non-tribe player's spot (first rule above).
+  `canyon.py` reads the header ("Glory/Gold/Silver Battlefield") and only occupies an empty spot at or above the held
+  tier; none → MANUAL → the helper takes the highest free spot (Sentinel or lower).
 
 **Occupation lasts 8h** ("Collect Time 08:00:00"), then ends on its own: on the next visit a _Resource_ popup
 shows the gains → **Confirm** `(540,1460)` → dismiss `(540,1210)`; header shows "Unoccupied" → take a spot again.

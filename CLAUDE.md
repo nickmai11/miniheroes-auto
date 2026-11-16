@@ -124,7 +124,7 @@ as it happens — not reconstructed at the end:
 At the end, report per account: each mission done/skipped (and why), and every paid action
 (what, price). Lead with a **Concerns / issues / errors** section: anything that went wrong or off-spec
 (wrong lineup, out-of-scope taps, mis-taps, crashes, helper claims that conflict with what Nick saw, things
-left in a bad state like Auto fishing stopped) — Nick, 2026-10-27. Tell helpers to report these too. Don't track gem/resource balances — they change constantly (Nick, 2026-10-26; exception: the grocery shop coins, top of each dailies checklist, Nick 2026-11-11);
+left in a bad state like Auto fishing stopped — but not out of bait: normal, never report it, Nick 2026-11-16) — Nick, 2026-10-27. Tell helpers to report these too. Don't track gem/resource balances — they change constantly (Nick, 2026-10-26; exception: the grocery shop coins, top of each dailies checklist, Nick 2026-11-11);
 just verify the price on screen before each paid tap.
 
 - **OK lines aren't proof:** before saying "done", check the screen of one account against the log — a leftover red

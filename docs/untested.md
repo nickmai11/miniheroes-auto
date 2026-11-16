@@ -4,6 +4,7 @@ Pre-flight (dailies skill): rows whose Test isn't `passive:` → test on ONE acc
 
 | Added | Change | Test (where) | Pass = |
 | --- | --- | --- | --- |
+| 11-16 | `canyon.py` highest_free: no empty spot at or above the held tier → `no empty platform found` + MANUAL (was `keeping the current … spot`, exit 0) | passive: next canyon on Tiger / Kratos / Boudior / Kong II holding Glory | `MANUAL canyon … no empty platform found (none at or above the held Glory tier)`, helper takes a new spot; never `keeping the current` |
 | 11-16 | Canyon rule: nothing empty → helper attacks (a Sentinel, else a non-tribe player; never a tribemate) | next Canyon helper with no empty and no Sentinel spot: watch it live | popup names a non-tribe player → Challenge, Attempts −1, header shows the new spot; a blue (tribe) name → Cancel |
 | 11-15 | `daily.py gate`: result Confirm retried up to 3× until `Chances left today` | passive: next gate fight that runs to the 3-min cap | `OK gate … ['run', 'sweep']`; no `waited 10s for 'Chances left today'` |
 | 11-14 | Fishing scroll buying: `+` (272,425) → Purchase → close (540,240, up to 2 taps) → count +5 → use them → next pack; a pack with no refresh = stop | passive: next `fishing` with 0 scrolls and an order below its min | one `bought 5 refresh scrolls for 50 gems (N -> N+5)` per pack, then refreshes; never 2 `bought` lines in a row |
