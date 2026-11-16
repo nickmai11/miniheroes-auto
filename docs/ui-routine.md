@@ -1072,7 +1072,7 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
 - **Prefer an empty spot; attack when none is available** (Nick, 2026-11-16 — replaces the 2026-10-30 "never attack a
   player"): empty platform first, else beat a Sentinel, else a player who isn't in our tribe. Never a tribemate (blue
   name) or one of Nick's own accounts — Cancel on the popup. Nothing attackable → skip and report.
-- **Mon–Thu:** take a **purple (9/m) spot**. Prefer an **empty** one, else beat a Silver Sentinel.
+- **Mon–Thu** (not on a `highest_free` account — see below; Kratos/Boudior helpers moved Gold → Silver 2026-11-16)**:** take a **purple (9/m) spot**. Prefer an **empty** one, else beat a Silver Sentinel.
 - **Fri–Sun** (Friday too since Nick 2026-11-08, was Sat–Sun)**:** take a **Glory** or **Gold** spot if one is empty or Sentinel-held, else a **purple/silver** one
   (empty first, else a Silver Sentinel).
 - Never spend gems.
