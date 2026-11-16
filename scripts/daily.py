@@ -1274,9 +1274,9 @@ def balance(box):
     """A currency counter top left of the Pack popup - gems (60,40,260,100), Stargems (300,40,500,100) - OCR'd alone:
     the whole-screen OCR glued '620' to the title behind it ('6201ng Realm', Aminor 2026-11-03)."""
     c = grab().crop(box); c = c.resize((c.width * 2, c.height * 2))
-    d = [t for *_, t in ocr(c) if t.isdigit()]
+    d = [m for *_, t in ocr(c) if (m := re.fullmatch(r'(\d+(?:\.\d+)?)([kKmM]?)', t))]   # '105k' from 100k gems up (Dino, Bino 2026-11-16)
     if not d: raise Stop(f'balance unreadable at {box}')
-    return int(d[0])
+    return int(float(d[0][1]) * {'': 1, 'k': 1e3, 'm': 1e6}[d[0][2].lower()])
 
 
 def drag(y0, y1, x=540):
@@ -1303,7 +1303,10 @@ def realm_buy(btn, price, cur, cap):
     hit = next((c for c in btn if re.search(price, c[2])), None)
     if not hit: return f'NOT bought: button {[c[2] for c in btn]}'
     if cur:
-        have = balance((60, 40, 260, 100) if cur == 'gems' else (300, 40, 500, 100))
+        try: have = balance((60, 40, 260, 100) if cur == 'gems' else (300, 40, 500, 100))
+        except Stop:
+            if cur != 'stargems': raise
+            have = 0                                     # no Stargems counter on the Pack popup = none (Kratos 2026-11-16)
         if have < cap: return f'NOT bought: {cur} {have} < {cap}'
     tap_wait(hit[0], hit[1]); time.sleep(1)
     b = ocr(); r = joined(b); paid = hit[2]
@@ -1389,6 +1392,7 @@ def floating_realm_packs(cfg):
             if not t or t[1] + 250 > 1560: continue      # its button sits ~166 px below the title
             btn = [(x + w // 2, y + h // 2, s) for x, y, w, h, s in b if x > 700 and t[1] + 80 < y + h // 2 < t[1] + 250]
             todo.remove(k); out.append(f'{k} {realm_buy(btn, price, cur, cap)}')
+            print(f'    fr pack {out[-1]}', flush=True)  # a later Stop lost the buys already made (Kratos 2026-11-16)
             b = ocr()
         if not todo: break
     tap_wait(972, 228)
