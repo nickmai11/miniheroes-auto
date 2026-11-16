@@ -4,6 +4,9 @@ Pre-flight (dailies skill): rows whose Test isn't `passive:` → test on ONE acc
 
 | Added | Change | Test (where) | Pass = |
 | --- | --- | --- | --- |
+| 11-17 | `daily.py events` Match Event: each sub-event polls its list (`Claim\|Finished`, 6 s) instead of a 1 s sleep; empty sub-event skipped | passive: next `events` with a Match Event dot (Fishing Race week) | `match_event xN` and no `match_event` in a MANUAL line |
+| 11-17 | `daily.py events`: 7777 Draws banner dot ignored (sticky after its daily Claims) | passive: next `events` on an account with all 7777 days ticked | no `banner 7777 Draws` in a MANUAL line |
+| 11-17 | `catchup_all.sh`: relics on every catch-up account (was only those also in the relic list) | passive: next scheduled catch-up | relic_all lines for all 11 catch-up accounts |
 | 11-16 | `canyon.py` highest_free: no empty spot at or above the held tier → `no empty platform found` + MANUAL (was `keeping the current … spot`, exit 0) | passive: next canyon on Tiger / Kratos / Boudior / Kong II holding Glory | `MANUAL canyon … no empty platform found (none at or above the held Glory tier)`, helper takes a new spot; never `keeping the current` |
 | 11-16 | Canyon rule: nothing empty → helper attacks (a Sentinel, else a non-tribe player; never a tribemate) | next Canyon helper with no empty and no Sentinel spot: watch it live | popup names a non-tribe player → Challenge, Attempts −1, header shows the new spot; a blue (tribe) name → Cancel |
 | 11-15 | `daily.py gate`: result Confirm retried up to 3× until `Chances left today` | passive: next gate fight that runs to the 3-min cap | `OK gate … ['run', 'sweep']`; no `waited 10s for 'Chances left today'` |

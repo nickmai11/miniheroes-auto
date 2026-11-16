@@ -1427,7 +1427,10 @@ def events(cfg):
         if tab == 'match_event':
             n = 0
             for sub in ((160, 320), (400, 310)):         # the week's 2 sub-events (Canyon Warrior / Heroic Trial, Arena King / Lord's Challenge)
-                tap_wait(*sub); time.sleep(1)
+                tap_wait(*sub)
+                # poll the milestone list: Fishing Race's loads ~2 s late, a fixed 1 s missed its Claim (Kratos 2026-11-17)
+                try: wait(r'Claim|Finished', 6, (0, 900, 1080, 1760))
+                except Stop: continue                    # empty sub-event (Demon Defense 2026-11-17)
                 for _ in range(25):                      # top row's Claim rolls to the next milestone; 8 left 2 on Dino (2026-11-01)
                     c = find(ocr(), r'^Claim$', (740, 960, 1060, 1090))
                     if not c: break
@@ -1471,7 +1474,9 @@ def events(cfg):
         except Stop: pass
         if not home(): raise Stop('lost the main screen after the Storm Battlefield banner')
         time.sleep(4); dots = banner_dots()
-    left += dots
+    # 7777's banner dot is sticky once its daily Claims are ticked (only "Again" left), and the hub step above always
+    # looks at 7777 -> not a leftover (Bino 2026-11-17: helper found all 15 days ticked)
+    left += [d for d in dots if not re.search(r'7777|Draws', d)]
     print(f'    claimed: {", ".join(out) or "nothing"}', flush=True)   # log only: the step line reports problems only (Nick 2026-11-14)
     return f'MANUAL red dots left: {left}' if left else 'no red dot left'
 
