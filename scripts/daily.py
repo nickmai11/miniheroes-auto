@@ -1123,7 +1123,7 @@ def canyon_rewards():
 
 def canyon(cfg):
     """Take a new EMPTY spot by the day's rule (scripts/canyon.py), then the Points Rewards — occupying earns the points
-    (Nick 2026-11-04). No empty one -> MANUAL (helper may beat a Sentinel, never a player)."""
+    (Nick 2026-11-04). No empty one -> MANUAL (helper attacks: a Sentinel, else a non-tribe player - Nick 2026-11-16)."""
     if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'
     open_canyon()
     if canyon.taken: out = 'spot taken earlier this run'  # the runner's retry re-occupied after a rewards FAIL (Dino 11-05)
@@ -1767,6 +1767,8 @@ def main(argv):
     elif catch_up: left = list(CATCHUP_MANUAL)
     else: left = []
     force = '--force' in argv; only = [a for a in only if a != '--force']
+    if bad := [a for a in only if a not in dict(CATCHUP if catch_up else ORDER)]:   # 'canyon' in the dailies list was dropped without a line (2026-11-16)
+        print(f'FAIL start: unknown step {" ".join(bad)} (not in the {"catch-up" if catch_up else "dailies"} list)'); return 1
     state = f'/tmp/miniheroes-state/{ACCOUNT}-{GAME_DAY}.done'
     os.makedirs(os.path.dirname(state), exist_ok=True)
     lock = open(f'/tmp/miniheroes-state/{ACCOUNT}.lock', 'w')   # two runners on one account fought (Cmajor 2026-10-29)

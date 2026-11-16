@@ -1045,7 +1045,7 @@ first; otherwise a Sentinel-held spot (no player) counts as free — beat it to 
 name background = tribe member, **purple** = not in our tribe; your own spot shows a **green** name.
 
 **Scan the whole map first** (scroll top → bottom, screenshot each screen) and choose by priority — empty
-platform > Sentinel-held — before tapping anything. Never a player-held spot (Nick, 2026-10-30).
+platform > Sentinel-held > a non-tribe player's — before tapping anything (an attack only when nothing is empty; Nick, 2026-11-16).
 Silver (purple-platform) spots: consider **only the first 10** from the top (Nick, 2026-10-26) — ignore
 silver spots further down. Spots change while you scroll and fill within seconds when several workers run —
 re-screenshot before tapping and re-check the popup's name before confirming.
@@ -1065,12 +1065,13 @@ Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 c
 After Occupy/Victory the header can keep showing the old spot — back out to Tribe and re-enter to confirm
 (your name in green on the new platform).
 
-**`scripts/canyon.py <account>`** (runner step `canyon`, 2026-10-28) does this for EMPTY platforms: disc with no name label, popup text "occupy the empty" checked before Occupy, waits for map inertia. No empty spot → exit 2 → helper (Sentinel choice; never a player).
+**`scripts/canyon.py <account>`** (runner step `canyon`, 2026-10-28) does this for EMPTY platforms: disc with no name label, popup text "occupy the empty" checked before Occupy, waits for map inertia. No empty spot → exit 2 → helper (attack choice: a Sentinel, else a non-tribe player).
 **Take a new spot every run, even if you already hold one** (Nick, 2026-10-27) — a held spot doesn't count as
 done. Pick by the rules below; done once the header shows the newly taken spot. Never spend gems on attempts.
 
-- **Never attack a player, of any kind** — tribe or not (Nick, 2026-10-30). Only empty or Sentinel-held (NPC)
-  spots. Nothing empty or Sentinel-held → skip and report.
+- **Prefer an empty spot; attack when none is available** (Nick, 2026-11-16 — replaces the 2026-10-30 "never attack a
+  player"): empty platform first, else beat a Sentinel, else a player who isn't in our tribe. Never a tribemate (blue
+  name) or one of Nick's own accounts — Cancel on the popup. Nothing attackable → skip and report.
 - **Mon–Thu:** take a **purple (9/m) spot**. Prefer an **empty** one, else beat a Silver Sentinel.
 - **Fri–Sun** (Friday too since Nick 2026-11-08, was Sat–Sun)**:** take a **Glory** or **Gold** spot if one is empty or Sentinel-held, else a **purple/silver** one
   (empty first, else a Silver Sentinel).
@@ -1078,7 +1079,7 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
 - **`canyon_clash: highest_free`** in the account file (Tiger, Nick 2026-10-28) replaces the day rules above, every day:
   take the **highest** spot on the map (topmost: Glory > Gold > Silver, any of the silver rows) that is **empty or
   Sentinel-held** — occupy it, or beat the Sentinel. If the current spot is
-  already higher than every free one, keep it (counts as done). Nothing free → skip and report.
+  already higher than every free one, keep it (counts as done). Nothing free → a non-tribe player's spot (first rule above).
   `canyon.py` reads the header ("Glory/Gold/Silver Battlefield") and never moves a highest_free account down a tier
   (it took Tiger Glory → empty Gold on 2026-11-03 before that check).
 

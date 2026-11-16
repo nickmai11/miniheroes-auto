@@ -4,6 +4,7 @@ Pre-flight (dailies skill): rows whose Test isn't `passive:` → test on ONE acc
 
 | Added | Change | Test (where) | Pass = |
 | --- | --- | --- | --- |
+| 11-16 | Canyon rule: nothing empty → helper attacks (a Sentinel, else a non-tribe player; never a tribemate) | next Canyon helper with no empty and no Sentinel spot: watch it live | popup names a non-tribe player → Challenge, Attempts −1, header shows the new spot; a blue (tribe) name → Cancel |
 | 11-15 | `daily.py gate`: result Confirm retried up to 3× until `Chances left today` | passive: next gate fight that runs to the 3-min cap | `OK gate … ['run', 'sweep']`; no `waited 10s for 'Chances left today'` |
 | 11-14 | Fishing scroll buying: `+` (272,425) → Purchase → close (540,240, up to 2 taps) → count +5 → use them → next pack; a pack with no refresh = stop | passive: next `fishing` with 0 scrolls and an order below its min | one `bought 5 refresh scrolls for 50 gems (N -> N+5)` per pack, then refreshes; never 2 `bought` lines in a row |
 | 11-14 | `hero_faces.py` + `climb_stage.py` by face: swap / `--apply` placing heroes by face, learn-and-retry on an unknown face mid-climb, deep grid rows, `learn` on a real new hero/skin | passive: next climb with a swap or `--apply`; next new hero | `swapped lineups … yaml updated` with hero ids, tabs read back equal; unknown face → `unrecognised faces … -> learn` then read |

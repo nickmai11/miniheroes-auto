@@ -11,7 +11,7 @@ lines to each game-day log; a Done line here that it doesn't check = a `checklis
 - **Dailies done** = every account shows the **160 Daily Mission chest ✓**. Only 2 of the 18 rows can't be scripted
   (Upgrade Statue, Purchase with Diamonds), so less than 160 means a step was missed → find it and do it.
 - **Allowed to stop early:** event closed (Pet Arena Thu–Sun, Storm / Canyon Mon daytime), a price over the safeguard
-  cap (Trials, Patrol), Grocery price > balance or sold out, no empty Canyon spot.
+  cap (Trials, Patrol), Grocery price > balance or sold out, no empty or attackable Canyon spot.
 
 ## Dailies (run order)
 
