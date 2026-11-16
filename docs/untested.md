@@ -34,3 +34,4 @@ Pre-flight (dailies skill): rows whose Test isn't `passive:` → test on ONE acc
 | 11-04 | `relic.py buy_shovels()`: per-day state file → re-run skips the + tap | next same-day relics re-run | `shovel buy: nothing left today`; a fresh day buys again |
 | 11-09 | `treasury.py`: hub → Golden Woods → King's Treasury navigation, Level 7 pick, Level 8+, out-of-keys stop, `milestones()` | next "treasure event" run | `level 7: prize = Level 7 tile`, `milestone … claimed`, `DONE level N, keys 0` |
 | 11-11 | `pet_manual()`: short of +40 → deploys Free Attempts cards by hand, checked by "this round k/4" | next catch-up `pet_check` on a short account | `manual deploy xN (free attempts)`, next count +N; never a ticket |
+| 11-16 | `kong_ii.yaml` `arena.tribe: KingKong` (was Peakaboo: tribe mates XHIBO, Ocelot, DatarHonzik attacked) | passive: next Kong II `arena` | `roster tribe_kingkong.txt`; no target that is on that list |

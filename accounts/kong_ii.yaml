@@ -15,7 +15,8 @@ missions:
     ancient_battlefield: 0
 
   arena:
-    tribe: Peakaboo
+    tribe: KingKong
+    # ^ S288 tribe (tribe_kingkong.txt lists MRKONG II); was Peakaboo from the Kong copy -> tribe mates attacked (2026-11-16)
     crash_all_tickets: true
 
   shop_freebies: true
