@@ -1475,8 +1475,9 @@ def events(cfg):
         if not home(): raise Stop('lost the main screen after the Storm Battlefield banner')
         time.sleep(4); dots = banner_dots()
     # 7777's banner dot is sticky once its daily Claims are ticked (only "Again" left), and the hub step above always
-    # looks at 7777 -> not a leftover (Bino 2026-11-17: helper found all 15 days ticked)
-    left += [d for d in dots if not re.search(r'7777|Draws', d)]
+    # looks at 7777 -> not a leftover (Bino 2026-11-17: helper found all 15 days ticked); its nearest label can be the
+    # 'Forever' timer (fGotten 2026-11-18)
+    left += [d for d in dots if not re.search(r'7777|Draws|Forever', d)]
     print(f'    claimed: {", ".join(out) or "nothing"}', flush=True)   # log only: the step line reports problems only (Nick 2026-11-14)
     return f'MANUAL red dots left: {left}' if left else 'no red dot left'
 
