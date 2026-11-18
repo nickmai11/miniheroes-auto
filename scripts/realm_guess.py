@@ -16,7 +16,7 @@ FR_BANNER = (600, 400, 1080, 900)
 def slot(boxes, rank):
     x0, x1 = SLOTS[rank]
     return ' '.join(t for x, y, w, h, t in boxes if x0 <= x + w // 2 <= x1 and BAND[0] <= y + h // 2 <= BAND[1]
-                    and not t[:1].isdigit() and t != 'Guessing')
+                    and not t[:1].isdigit() and t != 'Guessing' and 'select a tribe' not in t)
 
 
 def run(picks):
