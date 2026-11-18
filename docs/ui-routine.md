@@ -43,7 +43,8 @@ Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
     steps (`daily.py <acct> <step>...`) should include `daily_mission` so their progress gets claimed.
 21. **Play Pass again** (`play_pass2`) — after the missions, only if the Play Pass icon has a red dot (≈`(156,443)`): the run's activity unlocks
     new claims (Nick, 2026-11-03). Same in the catch-up.
-22. **Pet Arena check** (`pet_check`, Mon–Wed) — **catch-up only** since 2026-11-04 (Nick: removed from the dailies' last step,
+22. **Pet Arena count** (`pet_count`, Mon–Wed, dailies; Nick, 2026-11-18): read-only Achievement count → `pet deployments N (yesterday Y, +K today)`, the checklist's progress (`deployments N/Y+40`). Auto Deploy is still running: short is normal here, no restart, no MANUAL.
+23. **Pet Arena check** (`pet_check`, Mon–Wed) — **catch-up only** since 2026-11-04 (Nick: removed from the dailies' last step,
     Auto Deploy is still running then) — Pet Arena → Achievement
     "Cumulative pet deployments completed: N" must be **+40 since yesterday** (= all 40 free attempts used; Mon: 40,
     Tue: 80, Wed: 120 when no day was missed). Short → Auto Deploy (re)started + MANUAL, the catch-up re-checks. While the
@@ -64,7 +65,7 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 **Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
 main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
 Steps: pet_arena (Mon–Wed) fishing arena patrol arena2 storm shop play_pass trials tower sanctuary gate beast arena3 recruit hero tribe divine
-stage patrol_claim rune grocery events treasury tribe_clash_packs fishing_rewards daily_mission play_pass2 (`pet_check` = catch-up only).
+stage patrol_claim rune grocery events treasury tribe_clash_packs fishing_rewards daily_mission play_pass2 pet_count (Mon–Wed) (`pet_check` = catch-up only).
 **Run overview: `scripts/summary.sh <run dir>`** — per account OK/SKIP counts, FAIL/MANUAL/paid lines, LEFT FOR HELPER (one call instead of grepping logs).
 
 Use `D=<adb serial> scripts/tap.py x,y [x,y ...] [-o out.png] [-w 270|540]` for every tap (device coords):
@@ -989,7 +990,7 @@ Skipped by Nick (`do: false`): Advanced Recruitment ×30, Purchase with Diamonds
 
 **Only open Mon, Tue, Wed** — skip on other days. Run it first in the dailies. **Scripted: `daily.py <acct> pet_arena`**
 (2026-11-02; checks/sets sprites + order + check boxes, `per_pet` → MANUAL); steps below = its fallback.
-Added by Nick 2026-10-26. Strategy per account (`missions.pet_arena`): **all accounts Random Selection, 4 sprites; Kong 1 sprite** (Nick, 2026-11-18; 1 sprite from 11-11, 2 sprites from 11-03 — before that
+Added by Nick 2026-10-26. Strategy per account (`missions.pet_arena`): **all accounts Random Selection, 2 sprites; Kong 1 sprite** (Nick, 2026-11-18; 1 sprite from 11-11, 2 sprites from 11-03 — before that
 High to Low / 4 except Cmajor). The game's own default is 4 / High to Low, so each account's first run changes both dropdowns once.
 
 - **Be fast, touch only what's wrong** (Nick, 2026-11-03): the arena is busy right after the reset. 4 sprites / High to

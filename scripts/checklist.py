@@ -89,8 +89,8 @@ def outstanding(c):
 def rows(p):
     """[(done, line)] - the Daily Mission chest, then one per step."""
     res = p['res']
-    folded = {'pet_check', 'tribe_chat', 'canyon'}           # shown in the pet_arena / tribe rows
-    names = [n for n, _ in ORDER] + [n for n, _ in CATCHUP if n in res and n not in dict(ORDER) and n not in folded]
+    folded = {'pet_check', 'pet_count', 'tribe_chat', 'canyon'}   # shown in the pet_arena / tribe rows
+    names = [n for n, _ in ORDER if n not in folded] + [n for n, _ in CATCHUP if n in res and n not in dict(ORDER) and n not in folded]
     rows = [(160 in p['chests'], f'**Daily Mission 160 chest** (claimed: {", ".join(map(str, sorted(p["chests"]))) or "none"})')]
     for n in names:
         tag, text = res.get(n, ('', 'not run'))
@@ -101,7 +101,7 @@ def rows(p):
                 c, y, k = p['pet']; r = p['refill']; done = k + r >= 40 or p['auto']
                 more = (f', +{r} by hand since' if r else '') + (', Auto Deploy restarted since' if p['auto'] else '')
                 text = f'deployments {c}/{y + 40} (+{k} today{more}); {text}'
-            else: done = False; text = f'deployments not read yet (catch-up pet_check); {text}'
+            else: done = False; text = f'deployments not read yet (dailies pet_count / catch-up pet_check); {text}'
         if n == 'tribe' and tag:                             # request + canyon, each from its latest attempt (catch-up re-runs too)
             req, sent = res.get('tribe_chat', ('', text))[1], p['sent']   # a later "NOT SENT (cooldown)" = the earlier send's timer
             # done = a spot was occupied (the Daily Mission row); "keeping the current Glory spot" isn't (Kratos 2026-11-13: 150, unflagged)
@@ -200,6 +200,11 @@ def test():
     q = parse(log[:1] + ['13:52:00     pet deployments 118 (yesterday 80, +38 today)', '13:54:00     pet: deployed by hand (free attempt) x1, this round 1/4',
                          '20:05:00     pet deployments 119 (yesterday 80, +39 today)', '20:05:30 OK pet_arena (9s): Auto Deploying: 1 sprites'])
     assert '- [ ] pet_arena: deployments 119/120 (+39 today)' in render('dino', '2026-11-11', q)
+    # dailies pet_count (Nick 2026-11-18): progress shown in the pet_arena row, no row of its own
+    q = parse(log[:1] + ['12:00:30 OK pet_arena (9s): Auto Deploying: 4 sprites', '12:45:00     pet deployments 97 (yesterday 80, +17 today)',
+                         '12:45:05 OK pet_count (15s): pet deployments 97/120 (+17 today, Auto Deploy running)'])
+    r = render('dino', '2026-11-11', q)
+    assert '- [ ] pet_arena: deployments 97/120 (+17 today)' in r and 'pet_count' not in r, r
     q = parse(log[:1] + ['12:30:00 OK tribe (137s): tribe done, request sent (cooldown 05:59:59); keeping the current Glory spot: higher than any empty one (highest_free); rewards: points 37452, claimed x0'])
     assert 'tribe: request sent, canyon NOT done' in highlights('2026-11-11', [('kratos', q)]), highlights('2026-11-11', [('kratos', q)])   # Kratos 2026-11-13
     print('ok')

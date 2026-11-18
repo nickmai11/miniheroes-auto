@@ -388,19 +388,33 @@ def pet_deployments():
     return int(m.group(1))
 
 
+def pet_progress():
+    """-> (cumulative deployments now, yesterday's last logged value), logged as 'pet deployments N (yesterday Y, +K today)'
+    (the checklist's Pet Arena progress). Monday = 0; no logged value -> 40 per earlier event day."""
+    n, prev = pet_deployments(), 0
+    if GAME_DAY.weekday():
+        try: logged = re.findall(r'pet deployments (\d+)', open(os.path.join(HERE, '..', 'logs', ACCOUNT, f'{GAME_DAY - datetime.timedelta(days=1)}.log')).read())
+        except OSError: logged = []
+        prev = int(logged[-1]) if logged else 40 * GAME_DAY.weekday()
+    print(f'    pet deployments {n} (yesterday {prev}, +{n - prev} today)', flush=True)
+    return n, prev
+
+
+def pet_count(cfg):
+    """LAST dailies step, Mon-Wed (Nick 2026-11-18: the checklist must show the Pet Arena progress): read-only count -
+    Auto Deploy is still running, so short is expected here; no restart, no MANUAL (the catch-up's pet_check judges)."""
+    if GAME_DAY.weekday() > 2: return 'SKIP closed (Mon-Wed only)'
+    n, prev = pet_progress()
+    return f'pet deployments {n}/{prev + 40} (+{n - prev} today, Auto Deploy running)'
+
+
 def pet_check(cfg):
     """LAST dailies step, Mon-Wed (Nick 2026-11-03): all 40 free Pet Arena attempts used today = the Achievement's
     cumulative deployments grew by 40 since yesterday (Bino / Tiger read 80 on Tue). Yesterday's value comes from its
     log; Monday = 0; no logged value -> 40 per earlier event day. Short -> Auto Deploy (re)started via pet_arena(),
     MANUAL so the catch-up re-checks."""
     if GAME_DAY.weekday() > 2: return 'SKIP closed (Mon-Wed only)'
-    n = pet_deployments()
-    prev = 0
-    if GAME_DAY.weekday():
-        try: logged = re.findall(r'pet deployments (\d+)', open(os.path.join(HERE, '..', 'logs', ACCOUNT, f'{GAME_DAY - datetime.timedelta(days=1)}.log')).read())
-        except OSError: logged = []
-        prev = int(logged[-1]) if logged else 40 * GAME_DAY.weekday()
-    print(f'    pet deployments {n} (yesterday {prev}, +{n - prev} today)', flush=True)
+    n, prev = pet_progress()
     if n - prev >= 40: return f'all 40 free deployments used (pet deployments {n}, +{n - prev})'
     if not home(): raise Stop('lost the main screen after reading the deployments')
     r = pet_arena(cfg)
@@ -1784,11 +1798,12 @@ ORDER = [('pet_arena', pet_arena), ('fishing', fishing), ('arena', arena), ('pat
          ('grocery', grocery),
          ('events', events), ('treasury', treasury), ('tribe_clash_packs', tribe_clash_packs), ('floating_realm_packs', floating_realm_packs), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),
          ('weekly', weekly),   # Sundays only: the weekly-missions pass (Nick 2026-11-08)
-         ('play_pass2', play_pass2)]   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
+         ('play_pass2', play_pass2),   # after the missions: re-check Play Pass red dots (Nick 2026-11-03)
+         ('pet_count', pet_count)]     # Mon-Wed: read-only deployments count for the checklist (Nick 2026-11-18)
 # pet_check: catch-up only (removed from the dailies, Nick 2026-11-04: Auto Deploy isn't done by then)
 # config key that must be present / truthy for a step to run
 KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'arena', 'fishing': 'fishing', 'patrol': 'patrol', 'patrol_claim': 'patrol',
-       'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'play_pass2': 'play_pass_claims', 'pet_check': 'pet_arena', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',
+       'shop': 'shop_freebies', 'play_pass': 'play_pass_claims', 'play_pass2': 'play_pass_claims', 'pet_check': 'pet_arena', 'pet_count': 'pet_arena', 'tower': 'tower_of_the_throne', 'sanctuary': 'secret_sanctuary',
        'gate': 'gate_of_darkness', 'beast': 'beast_realm', 'trials': 'land_of_trials', 'recruit': 'recruit', 'hero': 'hero_upgrade',
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
