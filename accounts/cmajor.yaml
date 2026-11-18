@@ -2,12 +2,12 @@ account:
   name: Cmajor
   mumu_instance: Cmajor
   game_id: 15298308
-  server: 201               # Settings > Server, "Current" row (read 2026-10-31)
+  server: 201 # Settings > Server, "Current" row (read 2026-10-31)
   enabled: true
-  storm_max_rank: King +10   # Storm: stop at this rank even with tickets left (Nick, 2026-10-31)
+  storm_max_rank: King +10 # Storm: stop at this rank even with tickets left (Nick, 2026-10-31)
 
 missions:
-  land_of_trials:   # top gem price per dungeon: 0 = the 2 free sweeps only, 80 / 160 / 240 = buy up to that price (Nick 2026-11-11, was a sweep count)
+  land_of_trials: # top gem price per dungeon: 0 = the 2 free sweeps only, 80 / 160 / 240 = buy up to that price (Nick 2026-11-11, was a sweep count)
     gem_mine: 160
     moonlight_temple: 80
     mysterious_forest: 160
@@ -46,20 +46,20 @@ missions:
   divine_forge: false
   adventure_stage: 3
   patrol:
-    speed_patrol: until_100   # keep buying until the price shows 100 gems, then stop
+    speed_patrol: until_100 # keep buying until the price shows 100 gems, then stop
     max_gem_price: 50
     claim_all: true
   rune_synthesis: 1
   grocery_free_chests: true
-  grocery_buy:   # Grocery shop tab -> tile numbers (1-12: left->right, top->bottom), once a day each
-    sanctuary: [12]   # rune stone pack
+  grocery_buy: # Grocery shop tab -> tile numbers (1-12: left->right, top->bottom), once a day each
+    sanctuary: [12] # rune stone pack
     tribe: [1]
     ruins: [1]
     realm: [1]
-  floating_realm_packs: [free, support, motivation, value, joy]   # FR Pack, its event week: free 20 gems + Support 80 gems; $ packs (Stargems): value $0.99, joy $4.99 (Nick, 2026-11-03)
-  relic_shovel_buys: [80, 160]   # relic shovel + buys, each once at exactly this gem price (Nick 2026-11-04: default 80; Kong 80/160/240; Cmajor 80/160)
-  pet_arena:          # Nick 2026-11-11: 1 random pet (all but Kong, already 1)
+  floating_realm_packs: [free, support, motivation, value, joy] # FR Pack, its event week: free 20 gems + Support 80 gems; $ packs (Stargems): value $0.99, joy $4.99 (Nick, 2026-11-03)
+  relic_shovel_buys: [80, 160] # relic shovel + buys, each once at exactly this gem price (Nick 2026-11-04: default 80; Kong 80/160/240; Cmajor 80/160)
+  pet_arena: # Nick 2026-11-18: 4 random sprites on every account (Kong keeps 1)
     strategy: stamina_order
     order: random
-    sprites: 1
-  realm_lineup: keep       # Floating Realm: keep the lineup as is; every other account gets clear + Quick Deploy (5 strongest) before exploring (Nick, 2026-11-04)
+    sprites: 4
+  realm_lineup: keep # Floating Realm: keep the lineup as is; every other account gets clear + Quick Deploy (5 strongest) before exploring (Nick, 2026-11-04)

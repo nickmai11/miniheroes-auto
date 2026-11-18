@@ -11,11 +11,11 @@ relic: [internal, -aminor]
 tc_guess: [internal]
 fr_guess: [internal]
 survey: [internal]
-stabilize: [internal, -aminor]
+boot: [internal, -aminor]
 artifact_roll: [internal]
 gear: [internal]
 climb_stage: [internal]
 treasury: [internal, -aminor]
 tc: [internal]
 code: [internal]
-hero_faces: [internal, -aminor]   # skill hero-faces: same 11 as stabilize (learnt 2026-11-14)
+hero_faces: [internal, -aminor]   # skill hero-faces: same 11 as boot (learnt 2026-11-14)

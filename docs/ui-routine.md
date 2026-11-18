@@ -378,7 +378,7 @@ Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**.
    game-day log is MANUAL / FAIL (a LOST floor, climb not finished) → don't sweep, climb again (`sanctuary_yesterday()`);
    a map with no floor left to climb still gets the sweep.
    The weekly map-effects card rolls in first ("Generating Effect…", no Confirm yet) and dims the Sweep under it
-   (`(49,36,0)`, not yellow) — wait for its Confirm, then read Sweep; "Remaining Days: N" sits above a live Sweep
+   (`(49,36,0)`, not yellow) — wait for its Confirm (it can slide in with neither Confirm nor "Generating" readable yet: Kong 11-18 climbed past a dimmed Sweep), then read Sweep; the map doesn't matter (Nick 11-18); "Remaining Days: N" sits above a live Sweep
    (Kratos/Boudior 2026-11-12: Boudior read it mid-roll, climbed, lost floor 9).
 3. Else climb. Floor nodes (yellow marker = next), Lava Cave: 1 `(664,1440)`, 2 `(526,1210)`,
    3 `(786,1040)`, 4 `(552,956)`, 5 `(264,860)`, 6 `(502,786)`, 7 `(746,724)`, 8 `(630,574)`,
@@ -398,7 +398,9 @@ Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**.
    2. Else the rarest card (Mythic > Legend > Elite > Rare).
 5. Once 5/5 owned: **Replace Bonus Effect** — top row = offered `(192|540|884, 660)`, bottom row = owned
    (`(150|460|740|1000, 1300)`, 4th is half off-screen). Replace only if it's an upgrade: a preferred
-   buff over a non-preferred one, or a higher rarity over a non-preferred one → **Replace Bonus** `(780,1676)`.
+   buff over a non-preferred one, a higher rarity over a non-preferred one, or a preferred one of a higher rarity
+   (Mythic red > Legend yellow > Elite purple > Rare) over a preferred one (Nick, 2026-11-18) → **Replace Bonus** `(780,1676)`.
+   Never a non-preferred over a preferred. Owned names show cut ("ATK DI", "Concentr Fire") → matched by word prefix.
    Otherwise **Skip** `(302,1676)`.
 6. After floor 10 all nodes show flags. Back `(92,1810)` → main screen.
 
@@ -657,6 +659,12 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
    (pickaxes found in the mine are added back: 1–6 taps). At 0 it opens "120 diamonds for 5 pickaxes" → close ✕ `(938,636)`.
    Don't use the dynamite / drill items or the `+` on the pickaxe (buys more).
    The Veins back arrow returns to Arsenal, not the main screen.
+   4b. **Vein Technology** (Nick, 2026-11-18): after mining (0 pickaxes), if its icon top-left of the grid `(104,230)` has a red dot
+   → open it. Current row = the topmost row with an unlocked node (a `k/n` counter or "Researchable"; locked = padlock).
+   2 nodes in the row → max the left first, then the right; 1 node → that one. Tap the node (~60 px above its label) →
+   dialog: ore `owned/cost` above **Research** → Research only when owned ≥ cost (ore, not gems; one research at a time,
+   hours long). Never **Speedup** (gems) or **Reduce time** (ad). Close: Android Back (dialog) → ✕ `(972,240)`.
+   `daily.py divine` does it (`vein_tech()`). Mapped on Bino: Efficient Supply XI 3/6 → Research, 3549 ore, 4h 23m.
 5. **Forge** (Arsenal, anvil "Forge N/M" `(540,1484)`, crystal cost below e.g. `6755/500` = owned/cost):
    N = filled slots, M = slots per account (7, 8, 13…); 0/M = idle. A timer above = a forge running — NOT a reason to skip: keep filling slots while N < M (Tiger 1/7 + timer, Nick 2026-10-28).
    Else each anvil tap fills one slot (500 crystals, ~4 h) — fill every slot, stop when full or crystals < cost.
@@ -981,7 +989,7 @@ Skipped by Nick (`do: false`): Advanced Recruitment ×30, Purchase with Diamonds
 
 **Only open Mon, Tue, Wed** — skip on other days. Run it first in the dailies. **Scripted: `daily.py <acct> pet_arena`**
 (2026-11-02; checks/sets sprites + order + check boxes, `per_pet` → MANUAL); steps below = its fallback.
-Added by Nick 2026-10-26. Strategy per account (`missions.pet_arena`): **all accounts Random Selection, 1 sprite** (Nick, 2026-11-11; 2 sprites from 11-03 — before that
+Added by Nick 2026-10-26. Strategy per account (`missions.pet_arena`): **all accounts Random Selection, 4 sprites; Kong 1 sprite** (Nick, 2026-11-18; 1 sprite from 11-11, 2 sprites from 11-03 — before that
 High to Low / 4 except Cmajor). The game's own default is 4 / High to Low, so each account's first run changes both dropdowns once.
 
 - **Be fast, touch only what's wrong** (Nick, 2026-11-03): the arena is busy right after the reset. 4 sprites / High to

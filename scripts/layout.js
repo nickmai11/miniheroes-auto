@@ -26,7 +26,10 @@ insts.filter(r => !grid.flat().includes(r) && !right.includes(r.name)).forEach(r
 const se = Application('System Events')
 let x = v.origin.x
 const place = (r, y, wh, edge) => {
-  const p = se.processes.whose({ unixId: r.pid })
+  // right after boot.sh, the first ask returns 0 windows for every instance; a few s later all are there
+  // (Poseidon + stabilize 2026-11-17) -> poll up to 15 s instead of giving up
+  let p
+  for (let t = 0; t < 30; t++) { p = se.processes.whose({ unixId: r.pid }); if (p.length && p[0].windows.length) break; delay(0.5) }
   if (!p.length || !p[0].windows.length) { console.log(`${r.name}: no window`); return 0 }
   const w = p[0].windows[0]
   w.position = [x, y]   // move first: a bottom-row window grown in place ran off-screen and macOS clamped its size (LAYOUT=2 first try)

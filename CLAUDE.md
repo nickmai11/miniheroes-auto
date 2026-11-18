@@ -9,7 +9,7 @@ game accounts. Each account lives in its own **MuMuPlayer** Android instance on 
    A coordinator that delegates to helpers needs just the skill file — helpers read their own sections.
 2. Read the account file(s) in `accounts/` for the account(s) you were asked to run ("group 1/2" → `accounts/groups.yaml`).
    No accounts named, or "all" → `scripts/accounts.py <task>` (per-task lists in `accounts/tasks.yaml`: dailies, catchup,
-   arena, poseidon, realm, relic, tc_guess, fr_guess, survey, stabilize, artifact_roll, gear, climb_stage, treasury, code, hero_faces — Nick, 2026-11-06).
+   arena, poseidon, realm, relic, tc_guess, fr_guess, survey, boot, artifact_roll, gear, climb_stage, treasury, code, hero_faces — Nick, 2026-11-06).
 3. Skim `docs/setup.md` if something about the emulator/proxy looks off.
 
 ## Computer-use access
@@ -49,7 +49,11 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
   count went up, use it, then the next; any buy loop stops when a buy didn't change the state. Walk a new or changed
   buy path by hand once (open → price → buy → close → count) before scripting it, and watch its first live run.
 - **Right account** (every task): the top-right game id must match the account file's `game_id` before acting
-  (Kong reopens on S288 Kong II after a game restart) → `stabilize.py` switches back. Run `kong_ii` only when named.
+  (Kong reopens on S288 Kong II after a game restart) → `stabilize.py` switches back.
+- **Kong II** (`kong_ii`, S288, on Kong's instance — Nick, 2026-11-17): catch-ups, dailies and the scheduled Floating
+  Realm / Tribe Clash rounds (`fr_all.sh`) do it too, right after Kong is done there (catch-up: relics included); any
+  other task only when named. Switch: `D=<serial> ACCOUNT=kong_ii scripts/stabilize.py` (exit 0 = its id read on
+  screen), back with `ACCOUNT=kong` when Kong II is done.
 - **Tick "Do not remind me today"** wherever it shows, before closing the popup (Nick, 2026-10-29, every task).
 - **Scroll slowly** (every task): held drags ≥ 1.5 s, one at a time, read only once the screen is still — never fling,
   not even to reach an end.
@@ -64,12 +68,14 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 ## Speed & cost (Nick, 2026-10-27 — applies to every skill)
 
 - **Start-up:** `scripts/boot.sh <mumu index>...` boots the instances, restarts the game, taps Start, waits for the
-  main screen and clears the event popups (`scripts/stabilize.py`: tick "Do not remind me today" + X), all in parallel
-  (~25 s cold, ~15 s warm). Prints "<name> <serial> ready (stable …)" or "popup-stuck" (close that one by hand). Always boot first. Use it instead of
+  main screen and clears the event popups (`scripts/stabilize.py`: tick "Do not remind me today" + X), in parallel
+  (~25 s cold, ~15 s warm); at most 4 instances boot at once, the next 4 once the CPU is calm (Nick, 2026-11-17,
+  every task that boots several accounts — never one `boot.sh` per account in parallel). Prints "<name> <serial> ready (stable …)" or "popup-stuck" (close that one by hand). Always boot first. Use it instead of
   manual start-up steps in any skill; runner and helpers then begin at a clean main screen.
 - **FPS (Nick, 2026-11-13, every task):** tasks run at 30 fps on every instance, Kong and Cmajor included — `boot.sh`
   sets 30 before it opens an instance. **When the task is done:** `mumu-cli config all --setting '{"maxFpsLimit":60}'`
-  (applies at each instance's next start; `fr_all.sh` does it itself).
+  (applies live; `fr_all.sh` does it itself). Caps below 30 are ignored. **1 core** per instance (Nick, 2026-11-17):
+  `boot.sh` sets it too, applies at instance start.
 - **Scripts first (Nick, 2026-10-28 — cost):** `scripts/daily.py <account> [step ...]` runs a whole account with no
   LLM; mission scripts (`arena.py`, `trials.py`, `patrol.py`, …) do single missions. A helper is only for what a
   script leaves (`LEFT FOR HELPER:` / exit 1). One run of helpers-for-everything cost ~12% of Nick's weekly tokens.

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # Clear the start-up event popups until the bare main screen shows (Nick, 2026-10-28: "stable" = no popup).
-# usage: D=<serial> [NAME=<mumu instance>] scripts/stabilize.py   (boot.sh passes NAME; game past the Start button)
+# usage: D=<serial> [NAME=<mumu instance> | ACCOUNT=<account>] scripts/stabilize.py   (boot.sh passes NAME; game past the Start button)
+# ACCOUNT (Nick 2026-11-17): the account the instance must be on - Kong II shares Kong's instance, so ACCOUNT=kong_ii
+# switches it to S288 and ACCOUNT=kong back to S220; exit 0 then = that account's ID was read on screen.
 # Account check (Nick, 2026-10-31): the ID top-right must be the account file's game_id; else switch with
 # ☰ -> Settings -> Server -> the "S<server>" row -> Confirm (Kong reopened on S288 MRKONG II instead of S220).
 # Each popup: tick "Do not remind me today" if it has one, then tap its X (top-right grey-blue square, white cross).
@@ -33,10 +35,11 @@ def close_x(im):
 
 
 def account():
-    """(game_id, server) from the accounts/*.yaml whose mumu_instance is $NAME, else (None, None)."""
-    for f in glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts', '*.yaml')):
+    """(game_id, server) from accounts/$ACCOUNT.yaml, else the accounts/*.yaml whose mumu_instance is $NAME, else (None, None)."""
+    A, acct = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts'), os.environ.get('ACCOUNT')
+    for f in [f'{A}/{acct}.yaml'] if acct else glob.glob(f'{A}/*.yaml'):
         t = open(f).read()
-        if re.search(r'mumu_instance:\s*' + re.escape(os.environ.get('NAME', '\0')) + r'\s*$', t, re.M):
+        if acct or re.search(r'mumu_instance:\s*' + re.escape(os.environ.get('NAME', '\0')) + r'\s*$', t, re.M):
             g, s = re.search(r'game_id:\s*(\d+)', t), re.search(r'server:\s*(\d+)', t)
             return g and g.group(1), s and s.group(1)
     return None, None
@@ -55,7 +58,7 @@ def check_account():
         if m: seen.append(m.group())
         if len(seen) >= 2 and seen[-1] == seen[-2]: break
         time.sleep(1)
-    else: print(f'account ID unreadable ({top[:30]}); not switching'); return 'ok'
+    else: print(f'account ID unreadable ({top[:30]}); not switching'); return 'fail' if os.environ.get('ACCOUNT') else 'ok'
     if not server: print(f'wrong account ({top[:30]}), no server in the account file; stop'); return 'fail'
     print(f'wrong account ({top[:30]}), switching to S{server}', flush=True)
     tap_wait(994, 1625); b = wait(r'^Settings$'); tap_wait(820, find(b, r'^Settings$')[1])

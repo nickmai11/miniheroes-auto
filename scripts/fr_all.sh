@@ -11,6 +11,7 @@
 # weekdays 28), so no instance has to stay open overnight; display off / locked is fine.
 # When done it closes every instance it booted (Nick 2026-11-12: computer usage).
 #   reload after plist edits: launchctl bootout gui/$(id -u)/com.nickm.miniheroes-fr; launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.nickm.miniheroes-fr.plist
+# Kong II (S288, on Kong's instance) runs right after Kong, then the instance goes back to Kong (Nick 2026-11-17).
 # A STOP / boot failure is left for Nick (nobody to finish it at 4:30): "<account> exit 1" line + v_realm.png in /tmp/miniheroes-fr/<account>.
 HERE="$(cd "$(dirname "$0")" && pwd)"; R="$(dirname "$HERE")"; W=/tmp/miniheroes-fr
 echo "=== $(date)"
@@ -31,9 +32,14 @@ for f in sorted(glob.glob(sys.argv[1] + '/accounts/*.yaml')):
     if m and m[1].strip() in idx and f.rsplit('/', 1)[1][:-5] in want: print(f"{idx[m[1].strip()]}|{f.rsplit('/', 1)[1][:-5]}|{m[1].strip()}")
 EOF
 )
-# one boot.sh per index: a multi-index boot.sh ends with layout.js (osascript window tiling), pointless unattended
-boot=$(for i in $(cut -d'|' -f1 <<<"$pairs"); do "$HERE/boot.sh" "$i" & done; wait)
+# NOLAYOUT: window tiling is pointless unattended
+boot=$(NOLAYOUT=1 "$HERE/boot.sh" $(cut -d'|' -f1 <<<"$pairs"))   # boot.sh does the halves (CPU)
 echo "$boot"
+run() {   # <account>: this round's script on $D, output in $W/<account>, one result line
+  local cmd; mkdir -p "$W/$1"
+  if [ "$ev" = realm ]; then cmd=("$HERE/realm.py" "$1"); else cmd=("$HERE/tc.py"); fi
+  (cd "$W/$1" && python3 "${cmd[@]}" > out.txt 2>&1; echo "$1 exit $? ($(tail -1 out.txt))")
+}
 while IFS='|' read -r i a name; do
   line=$(grep "^$name 127\.0\.0\.1:" <<<"$boot")
   case $line in
@@ -42,10 +48,14 @@ while IFS='|' read -r i a name; do
        echo "$(date '+%F %T') [fr_all] $ev skipped: boot ${line:-no boot line}" >> "$R/logs/$a/$(TZ=UTC date -v-5H +%F).log"
        continue;;
   esac
-  mkdir -p "$W/$a"
-  if [ "$ev" = realm ]; then cmd=("$HERE/realm.py" "$a"); else cmd=("$HERE/tc.py"); fi
-  (cd "$W/$a" && D=$(grep -o '127\.0\.0\.1:[0-9]*' <<<"$line") python3 "${cmd[@]}" > out.txt 2>&1
-   echo "$a exit $? ($(tail -1 out.txt))") &
+  (export D=$(grep -o '127\.0\.0\.1:[0-9]*' <<<"$line"); run "$a"
+   # Kong II once Kong is done, then back to Kong (CLAUDE.md "Kong II"); stabilize.py exit 0 = that account's ID on screen
+   if [ "$a" = kong ]; then
+     cd "$W/kong"
+     if ACCOUNT=kong_ii python3 "$HERE/stabilize.py" > switch.txt 2>&1; then run kong_ii
+     else echo "kong_ii SKIPPED (switch: $(tail -1 switch.txt))"; fi
+     ACCOUNT=kong python3 "$HERE/stabilize.py" >> switch.txt 2>&1 || echo "kong: switch back from Kong II failed ($(tail -1 switch.txt))"
+   fi) &
 done <<<"$pairs"
 wait
 "/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" close "$(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)" >/dev/null && echo "closed instances $(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)"

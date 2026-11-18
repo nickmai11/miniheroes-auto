@@ -1,6 +1,6 @@
 account:
   name: Kong II
-  instance: Kong            # same MuMu instance as kong.yaml (not mumu_instance: batch scripts + stabilize stay on S220); switch to S288 by hand (Nick 2026-11-11: dailies, copy of Kong as-is)
+  instance: Kong            # same MuMu instance as kong.yaml (not mumu_instance: batch scripts + stabilize stay on S220); switch: ACCOUNT=kong_ii stabilize.py; when it runs: CLAUDE.md "Kong II" (copy of Kong as-is, Nick 2026-11-11)
   game_id: 18715818
   server: 288               # "S288 MRKONG II"
   enabled: true
@@ -59,7 +59,7 @@ missions:
     realm: [4]
   floating_realm_packs: [free, support, motivation]   # FR Pack, its event week: free 20 gems + Support 80 gems; $ packs (Stargems): value $0.99, joy $4.99 (Nick, 2026-11-03)
   relic_shovel_buys: [80, 160, 240]   # relic shovel + buys, each once at exactly this gem price (Nick 2026-11-04: default 80; Kong 80/160/240; Cmajor 80/160)
-  pet_arena:          # Nick 2026-11-04: 1 random pet
+  pet_arena:          # Nick 2026-11-18: 4 random sprites on every account (Kong keeps 1)
     strategy: stamina_order
     order: random
     sprites: 4

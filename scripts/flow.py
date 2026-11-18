@@ -45,7 +45,13 @@ def watch_ad(timeout=180, log=print):
     log(f'    ad: {focus().strip()[-45:]}')
     seen, tries = time.time(), 0
     while time.time() - t0 < timeout:
-        if in_game(): log(f'    ad closed after {time.time() - t0:.0f}s ({tries} close taps)'); return True
+        f = focus()
+        if 'AppActivity' in f: log(f'    ad closed after {time.time() - t0:.0f}s ({tries} close taps)'); return True
+        if f and 'com.and.brawlen.web' not in f:   # a close tap opened Play Store / settings / feedback (Chloe 11-18)
+            # back to the game like its icon tap (launcher intent = the running task to the front, no restart; Nick)
+            subprocess.run(['adb', '-s', D, 'shell', 'monkey', '-p', 'com.and.brawlen.web', '-c',
+                            'android.intent.category.LAUNCHER', '1'], capture_output=True)
+            log(f'    ad opened {f.strip()[-50:]} -> back to the game'); time.sleep(2); continue
         try: boxes = ocr()
         except RuntimeError: boxes = []   # screencap hung 3x under a playable (Chloe/Dminor 2026-11-13): no read, the close taps below still run
         el = time.time() - t0

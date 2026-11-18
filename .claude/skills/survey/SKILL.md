@@ -7,7 +7,7 @@ description: Mini Heroes: Magic Throne in-game survey mails (Google Form asking 
 
 Use when Nick says "do the survey" / "fill out the survey" for an E-mail like "2nd Anniversary Survey".
 
-1. Stabilize the accounts (`scripts/boot.sh <idx>...`), then on ONE account: ☰ `994,1625` → E-mail `820,820` →
+1. Boot the accounts (`scripts/boot.sh <idx>...`), then on ONE account: ☰ `994,1625` → E-mail `820,820` →
    the survey row → "Click here to fill out the survey" link. It opens the Android browser.
 2. `scripts/survey.py <that serial> --dry-run` reads the URL from the browser intent and prints the planned answers
    (text → `n/a`, scale → middle, choices → the "fine / no change" option, else the first, ID → `game_id`). Show Nick

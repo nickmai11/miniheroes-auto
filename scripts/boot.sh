@@ -1,6 +1,6 @@
 #!/bin/bash
 # Start MuMu instances, (re)launch the game, tap Start, wait for the main screen — all in parallel.
-# usage: scripts/boot.sh <mumu index>...      e.g. scripts/boot.sh 1 2 4
+# usage: [NOLAYOUT=1] scripts/boot.sh <mumu index>...      e.g. scripts/boot.sh 1 2 4  (>4: in batches of 4, see below)
 # prints one line per instance: "<name> 127.0.0.1:<port> ready" (or "... start-timeout" / "... main-timeout").
 # With >1 instance it then runs scripts/layout.js (window tiling), unless NOLAYOUT=1 (stage climb: Nick 2026-11-14).
 # Then scripts/stabilize.py closes the event popups; "ready (stable …)" = bare main screen, "popup-stuck" = close it by hand.
@@ -12,11 +12,12 @@ PKG=com.and.brawlen.web
 boot() {
   local i=$1 port name s
   # tasks run at 30 fps, every instance incl. Kong/Cmajor; back to 60 when the task is done (Nick 2026-11-13).
-  # The cap applies at instance start: an instance already running keeps its cap.
-  "$M" config "$i" --setting '{"maxFpsLimit":30}' >/dev/null 2>&1
+  # The fps cap applies live (< 30 is ignored); 1 core = default, applies at instance start (Nick 2026-11-17).
+  "$M" config "$i" --setting '{"maxFpsLimit":30,"vmCpuCount":1}' >/dev/null 2>&1
   "$M" open "$i" >/dev/null 2>&1
   until port=$("$M" info "$i" 2>/dev/null | python3 -c "import json,sys; print(json.load(sys.stdin)['return'].get('adb_port') or '')" 2>/dev/null) && [ -n "$port" ]; do sleep 1; done
-  name=$("$M" info "$i" | python3 -c "import json,sys; print(json.load(sys.stdin)['return']['name'])")
+  # info can fail for a moment ("Error: invalidPort", fGotten 2026-11-17 printed with no name) -> retry
+  until name=$("$M" info "$i" 2>/dev/null | python3 -c "import json,sys; print(json.load(sys.stdin)['return']['name'])" 2>/dev/null) && [ -n "$name" ]; do sleep 1; done
   s=127.0.0.1:$port
   # re-connect every pass: the connection can drop while booting (xFaktor 2026-10-28 hung 5 min here)
   local t=0
@@ -44,7 +45,13 @@ boot() {
   case $st in stable*) echo "$name $s ready ($st)";; *) echo "$name $s popup-stuck ($st, /tmp/v_stabilize.png)";; esac
 }
 
-for i in "$@"; do boot "$i" & done
-wait
+idle() { top -l 2 -s 1 | awk '/CPU usage/{v=$7} END{print int(v)}'; }
+# at most 4 boots at once, the next 4 once the CPU has calmed down - 11 boots at once pegged the CPU (Nick 2026-11-17,
+# every task). Calm = idle >= 70%, or back near the idle before the 1st batch when other instances already load it; max ~2 min.
+want=$(idle); want=$(( want - 10 < 70 ? want - 10 : 70 ))
+for ((k=0; k<$#; k+=4)); do
+  [ $k -gt 0 ] && for t in $(seq 60); do [ "$(idle)" -ge "$want" ] && break; done
+  for i in "${@:k+1:4}"; do boot "$i" & done; wait
+done
 # multi-account runs: tile the windows (Nick, 2026-10-27)
 if [ $# -gt 1 ] && [ -z "$NOLAYOUT" ]; then ONLY="$*" osascript -l JavaScript "$(dirname "$0")/layout.js"; fi

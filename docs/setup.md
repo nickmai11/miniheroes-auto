@@ -16,9 +16,12 @@
   (windows ~7 px narrower) until 2026-11-06 (Nick: all instances same config). A restart can move the ADB port by 1
   (26752 → 26753): always read it from `mumu-cli info`.
 - Frame rate: **60 fps outside tasks, 30 during any task** on every instance incl. Kong and Cmajor (Nick 2026-11-13):
-  `scripts/boot.sh` sets 30 before opening an instance, the task sets all back to 60 when done (CLAUDE.md "FPS"). Set with `mumu-cli config all --setting '{"maxFpsLimit":60}'`, applies on
-  restart (skill `fps`). 30 measured on Dminor: idle CPU 28% → 21%, boot and an Arena step no slower. 2 vCPUs kept:
-  1 vCPU nearly doubled the boot (28 → 53 s) for 3 points less idle CPU.
+  `scripts/boot.sh` sets 30 before opening an instance, the task sets all back to 60 when done (CLAUDE.md "FPS"). Set with `mumu-cli config all --setting '{"maxFpsLimit":60}'`, applies live
+  (skill `fps`); any cap below 30 is ignored (10–25 tried on Bino 2026-11-17, game stays at 30). 30 measured on Dminor:
+  idle CPU 28% → 21%, boot and an Arena step no slower; 11 idle on main: 30 fps ~145% vs 60 fps ~230% total.
+- CPU: **1 vCPU per instance** (Nick 2026-11-17, `vmCpuCount`, applies at instance start; `boot.sh` sets it). Catch-up
+  on 11 at once (2026-11-17): MuMu ~10% less CPU at work (612% → 552%), boot 414% → 279% in the same ~2.4 min, all 11
+  booted. Earlier single-instance tries: Dminor 11-12 boot 28 → 53 s, Bino 11-17 19:55 boot-timeout.
 
 - Same config on every instance (Nick, 2026-11-06): root off, system disk read-only, no Wi-Fi proxy.
 

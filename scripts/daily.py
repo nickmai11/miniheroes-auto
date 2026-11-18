@@ -159,6 +159,8 @@ def buy_scrolls():
     closes it ((540,1600) didn't: the popup stayed, 6 packs bought in 70 s). Popup gone + count up by exactly 5, else
     stop. A lone '0' doesn't OCR (Vision skips it) -> unread count = 0; 5, 10 … 30 read fine."""
     before = scrolls() or 0
+    # scrolls left = the Refresh did nothing for another reason (Cmajor 11-18: order already Claimed, bought at 33)
+    if before: raise Stop(f'refresh did nothing with {before} scrolls left; nothing bought')
     if not find(ocr(), r'Order Refresh Scroll'): tap_wait(272, 425)
     b = wait(r'Order Refresh Scroll', 5)
     p = next((t.strip() for x, y, w, h, t in b if 1040 < y + h // 2 < 1130 and t.strip().isdigit()), None)
@@ -196,12 +198,14 @@ def fishing(cfg, orders=True):
     time.sleep(0.6); back = ensure_bait(cfg) + ', '; boxes = wait(r'Order Info', 6)   # Sunday: Lucky Star only if the weekly review needs the row, else the default bait (Nick 2026-11-08)
     packs = gems = 0
     if mn:
-        tap_text(r'Order Info', boxes=boxes); wait(r'Daily Order', 8)
-        for row in (1, 2, 3):
+        tap_text(r'Order Info', boxes=boxes); b = wait(r'Daily Order', 8); time.sleep(0.5); b = ocr()
+        # a Claimed order can't be refreshed and is done (Cmajor 11-18: Auto fishing had claimed all 3 by 12:48)
+        rows = [r for r, y in ((1, 704), (2, 1058), (3, 1412)) if not find(b, r'^Claimed$', (700, y - 80, 1000, y + 80))]
+        for row in rows:
             p, g = refresh_row(row, mn.group(1)); packs += p; gems += g
         # DoD: every order >= min diamonds, read on screen (13:45 OK line said "refreshed" with 2-diamond orders left)
-        tiers = [script('fish_orders.py', str(r), '0', mn.group(1)).split()[-1] for r in (1, 2, 3)]
-        if any(not t.isdigit() or int(t) < int(mn.group(1)) for t in tiers):
+        tiers = [script('fish_orders.py', str(r), '0', mn.group(1)).split()[-1] for r in rows] + ['claimed'] * (3 - len(rows))
+        if any(t != 'claimed' and (not t.isdigit() or int(t) < int(mn.group(1))) for t in tiers):
             raise Stop(f'orders {tiers} diamonds, min {mn.group(1)} ({packs} scroll packs bought, {gems} gems)')
         tap_wait(973, 270)
     got = ''
@@ -357,7 +361,13 @@ def pet_arena(cfg):
         if 'Auto Deploying' in t: break
         if re.search(r'Not enough free|attempts used up', t): tap(938, 282); time.sleep(0.5); pet_back(); return done
         if pet_popup(t): continue
-        if time.time() - t0 > 8: raise Stop('no "Auto Deploying" after Start')
+        if time.time() - t0 > 8:
+            # a fight starting right after Start hides the label (Bino/Dino/Kratos/Boudior 11-18: deploying all the same)
+            # -> back to Join and read the state there
+            pet_back(to_join=True); tap_text(r'^Join$', (300, 1400, 780, 1650)); st = pet_state()
+            if st == 'running': pet_back(); return f'Auto Deploying: {sprites} sprites, {order} (seen after rejoin)'
+            if st == 'used': pet_back(); return done
+            raise Stop(f'no "Auto Deploying" after Start (rejoin: {st})')
         time.sleep(0.3)
     pet_back()
     return f'Auto Deploying: {sprites} sprites, {order}' + (f' (changed: {", ".join(changed)})' if changed else '')
@@ -495,7 +505,17 @@ def trials(cfg):
 
 
 RARITY = ['Rare', 'Elite', 'Legend', 'Mythic']
-PREFERRED = r'^(ATK Drill|DMG Increase Drill|Infinite Energy|Concentrated Fire|Iron Shield|Mental Fear|Battle Cry)$'
+PREFERRED = ['ATK Drill', 'DMG Increase Drill', 'Infinite Energy', 'Concentrated Fire', 'Iron Shield', 'Mental Fear', 'Battle Cry']
+
+
+def preferred(name):
+    """The owned row of the Replace screen shows cut names ('ATK DI', 'Concentr Fire', 'Iron Shi', 'DMG Incr', 'Battle'):
+    word-by-word prefix of a preferred name, the last letter may be misread ('Dr' -> 'DI'). Ambiguous ('Battle') = protected.
+    An exact-only match let Weakening Strike / Judgment Moment replace ATK Drill / Concentrated Fire (Tiger 2026-11-18)."""
+    ws = name.replace('.', '').replace('…', '').lower().split()
+    fits = lambda fs: 0 < len(ws) <= len(fs) and all(f.startswith(w) or (len(w) > 1 and f.startswith(w[:-1]))
+                                                     for w, f in zip(ws, fs))
+    return any(fits(p.lower().split()) for p in PREFERRED)
 
 
 def cards(boxes, y_rarity, y_name, xs):
@@ -508,7 +528,7 @@ def cards(boxes, y_rarity, y_name, xs):
     return [(xs[i], rar.get(i, -1), nam.get(i, '?')) for i in range(len(xs))]
 
 
-def score(card): return (bool(re.search(PREFERRED, card[2])), card[1])   # preferred first, then rarity
+def score(card): return (preferred(card[2]), card[1])   # preferred first, then rarity
 
 
 def bonus_pick():
@@ -530,7 +550,7 @@ def bonus_pick():
         offers = cards(boxes, 429, 620, (192, 540, 884)); owns = cards(boxes, 1100, 1262, (150, 460, 740, 1000))
         if any(c[1] < 0 for c in offers + owns): raise Stop(f'replace screen unreadable: {offers} / {owns}')
         offer, owned = max(offers, key=score), min(owns, key=score)
-        if score(offer) > score(owned) and not re.search(PREFERRED, owned[2]):
+        if score(offer) > score(owned):   # preferred first, then rarity: a rarer preferred replaces a preferred too (Nick 2026-11-18)
             tap_wait(offer[0], 660); tap_wait(owned[0], 1300); tap_text(r'Replace Bonus', (500, 1600, 1060, 1750)); time.sleep(1)
             return f'{offer[2]} replaces {owned[2]}'
         tap_text(r'^Skip$', (100, 1600, 500, 1750)); time.sleep(1); return 'skip'
@@ -654,15 +674,19 @@ def sanctuary(cfg):
     # map-effects intro: "Bonus Effects", or titled by the map ("Lava Cave" 2026-10-30, no "Bonus Effects") -> Confirm.
     # Its effects roll in first ("Generating Effect...", no Confirm yet) and dim the Sweep under it: read too early, a
     # Sweep with "Remaining Days" left went to the climb (Boudior 2026-11-12) -> wait for the card to finish
-    t0 = time.time()
-    while time.time() - t0 < 12:
-        boxes = ocr()
-        if c := find(boxes, r'^Confirm$', (300, 1520, 800, 1720)): tap_wait(*c); time.sleep(1.5); continue
-        if not find(boxes, r'Generating Effect'): break
+    # Kong 2026-11-18: the card was still sliding in (no Confirm, no "Generating" read yet) -> loop broke, dimmed Sweep
+    # read as grey, climbed. Nick: Sweep there -> sweep, whatever the map -> keep waiting for the card until its Confirm
+    # was tapped, a yellow Sweep shows, or 5 s with no card at all.
+    t0, closed = time.time(), False
+    while time.time() - t0 < 15:
+        im = grab(); boxes = ocr(im)
+        if c := find(boxes, r'^Confirm$', (300, 1520, 800, 1720)): tap_wait(*c); time.sleep(1.5); closed = True; continue
+        s = find(boxes, r'^Sweep$', (300, 1700, 800, 1860))
+        if s and near(im.getpixel((s[0] - 100, s[1])), (255, 182, 16), 40): break
+        if closed or (not find(boxes, r'Generating Effect') and time.time() - t0 > 5): break
         time.sleep(0.5)
-    s = find(boxes, r'^Sweep$', (300, 1700, 800, 1860))
     # sweep-decision evidence (Nick 2026-11-12: Kratos swept 11-11, climbed 11-12 with no Sweep read): screenshot + read
-    im = grab(); im.resize((540, 960)).save('v_sanctuary_entry.png')
+    im.resize((540, 960)).save('v_sanctuary_entry.png')
     print(f'    entry: Sweep {s and (s, im.getpixel((s[0] - 100, s[1])))}; yesterday {sanctuary_yesterday()} '
           f'(v_sanctuary_entry.png); {joined(boxes)[:120]}', flush=True)
     # the intro shows a greyed Sweep even on a fresh map; only a yellow one is real (Cmajor 2026-10-29 logged "swept"
@@ -812,11 +836,40 @@ def slash_less(t):
     return c.pop() if len(c) == 1 else None
 
 
+def vein_tech():
+    """Veins grid, Vein Technology red dot (Nick 2026-11-18): open it, current row = the topmost row with an unlocked
+    node (a k/n counter or 'Researchable'); 2 nodes -> left until maxed, then right; 1 node -> that one. Research only
+    with the ore on screen covering it (never Speedup = gems, never the ad)."""
+    tap_wait(104, 230); boxes = wait(r'Vein Technology', 6)
+    P = (60, 300, 1020, 1750)                                       # tree panel (the 2/80 pickaxe counter is below it)
+    nodes = [(x + w // 2, y, t.strip()) for x, y, w, h, t in boxes
+             if P[0] < x < P[2] and P[1] < y < P[3] and re.fullmatch(r'\d+/\d+|Researchable', t.strip())]
+    if not nodes: tap_wait(972, 240); return f'vein tech: no node read ({joined(boxes)[:100]})'
+    top = min(y for _, y, _ in nodes)
+    row = sorted(n for n in nodes if n[1] - top < 80)
+    maxed = lambda t: (m := re.fullmatch(r'(\d+)/(\d+)', t)) and m[1] == m[2]
+    pick = next((n for n in row if not maxed(n[2])), None)
+    if not pick: tap_wait(972, 240); return f'vein tech: row maxed {[n[2] for n in row]}'
+    tap_wait(pick[0], pick[1] - 60); boxes = wait(r'Research|Researching', 6)
+    name = next((t for *_, t in boxes if re.search(r'[A-Za-z]+ [IVX]+$', t)), '?')
+    res = find(boxes, r'^Research$')                               # ore owned/cost sits just above it (the node's k/n is higher)
+    cost = res and next((m for x, y, w, h, t in boxes if res[1] - 160 < y < res[1]
+                         for m in [re.search(r'([\d.]+[kKmM]?)/([\d.]+[kKmM]?)\s*$', t)] if m), None)
+    if find(boxes, r'Researching'): r = f'{name} already researching'
+    elif not (res and cost): r = f'{name}: no Research / cost read'
+    elif num(cost[1]) < num(cost[2]): r = f'{name}: ore {cost[1]}/{cost[2]}, short'
+    else:
+        tap_wait(*res); wait(r'Researching', 6); r = f'{name} {pick[2]} -> Research ({cost[2]} ore of {cost[1]})'
+    subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4']); time.sleep(1); tap_wait(972, 240)
+    return f'vein tech: {r}'
+
+
 def divine(cfg):
     tap_wait(798, 1780); wait(r'Arsenal', 10)
     out = []
     tap_wait(980, 1810); time.sleep(2)
     out.append(script('veins.py'))
+    if red_dot(110, 140, 200, 220): out.append(vein_tech())   # veins.py exits 0 only at 0 pickaxes
     tap_wait(92, 1810); wait(r'Arsenal', 8)
     if re.search(r'^\s*divine_forge:\s*false', cfg, re.M): out.append('forge off (config)')
     else:
