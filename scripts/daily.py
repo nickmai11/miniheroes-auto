@@ -884,7 +884,11 @@ def divine(cfg):
     tap_wait(980, 1810); time.sleep(2)
     out.append(script('veins.py'))
     if red_dot(110, 140, 200, 220): out.append(vein_tech())   # veins.py exits 0 only at 0 pickaxes
-    tap_wait(92, 1810); wait(r'Arsenal', 8)
+    tap_wait(92, 1810)
+    try: wait(r'Arsenal', 8)
+    except Stop:                                            # back tap lost after the 0-pickaxe mining (Kratos/Dino/Tiger 11-19)
+        if not find(ocr(), r'Excelsior Veins'): raise
+        tap_wait(92, 1810); wait(r'Arsenal', 8)
     if re.search(r'^\s*divine_forge:\s*false', cfg, re.M): out.append('forge off (config)')
     else:
         last = None
