@@ -1214,7 +1214,7 @@ def canyon(cfg):
 canyon.taken = False
 
 
-HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Golden': 'golden_woods', r'^Draws|^7777': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event', r'^Limited': 'limited_recruitment'}
+HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Golden': 'golden_woods', r'^Draws|^7{3,}': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event', r'^Limited': 'limited_recruitment'}
 
 
 def banner_dots(secs=8):
