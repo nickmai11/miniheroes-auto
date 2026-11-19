@@ -29,44 +29,37 @@ def focus():
 def in_game(): return 'AppActivity' in focus()
 
 
-def launch():
-    """Game to the front (launcher intent: a running game just comes forward, a dead one starts), Start tapped
-    (re-tapped only while Start still shows, like boot.sh) -> True once the main screen's Recruit icon (or a popup over
-    it) shows. No popup closing here: callers run stabilize.py."""
-    subprocess.run(['adb', '-s', D, 'shell', 'monkey', '-p', 'com.and.brawlen.web', '-c',
-                    'android.intent.category.LAUNCHER', '1'], capture_output=True)
-    start = lambda: near(grab().getpixel((440, 1508)), (255, 182, 16), 40)
-    blue = lambda: near(grab().getpixel((92, 1788)), (0, 158, 230), 40)
-    for _ in range(60):                                   # ~90 s: launch + loading
-        if blue(): return True
-        if start(): break
-        time.sleep(1.5)
-    else: return False
-    for _ in range(3):
-        tap(540, 1508)
-        for _ in range(13):
-            time.sleep(1.5)
-            if blue(): return True
-        if not start(): return True                       # Start gone: a popup over the main screen (stabilize.py closes it)
-    return False
-
-
-RELAUNCHES, MAX_RELAUNCHES = 0, 10   # Nick 2026-11-20 (was 3)
+BOOT = os.path.join(HERE, 'boot.sh')
+MAX_RELAUNCHES = int(re.search(r'^MAX_RELAUNCHES=(\d+)', open(BOOT).read(), re.M)[1])   # the one limit lives in boot.sh
+RELAUNCHES = 0
 
 
 def relaunch(acct=None):
     """Game crashed / killed to the Android home (Aminor, Tiger, Dminor fr 2026-11-20 sat on the launcher after boot) ->
-    launch() + stabilize.py (popups, right account when acct is given). Max MAX_RELAUNCHES per run (Nick 2026-10-27; every task
-    2026-11-20). True = clean main screen."""
+    scripts/boot.sh on this instance (the one relaunch: force-stop, launch, Start, popups, the instance's own account),
+    then ACCOUNT=acct stabilize.py when acct isn't the instance's own (Kong II on Kong's). Max MAX_RELAUNCHES per run
+    (Nick 2026-10-27; every task 2026-11-20). True = clean main screen."""
     global RELAUNCHES
     if RELAUNCHES >= MAX_RELAUNCHES: print(f'    game not in front, {MAX_RELAUNCHES} relaunches used; stop', flush=True); return False
     RELAUNCHES += 1
-    print(f'    game not in front ({focus().strip()[-45:]}) -> relaunch {RELAUNCHES}/{MAX_RELAUNCHES}', flush=True)
-    if not launch(): print('    relaunch: no main screen after Start', flush=True); return False
-    env = dict(os.environ, **({'ACCOUNT': acct} if acct else {}))
-    r = subprocess.run([sys.executable, os.path.join(HERE, 'stabilize.py')], env=env, capture_output=True, text=True,
-                       cwd=tempfile.gettempdir())
-    print(f'    relaunch: {(r.stdout.strip().splitlines() or ["?"])[-1]}', flush=True)
+    import json
+    info = json.loads(subprocess.check_output(['/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli', 'info', 'all']))
+    f = os.path.join(HERE, '..', 'accounts', f'{acct}.yaml')
+    m = acct and os.path.exists(f) and re.search(r'^\s*(mumu_)?instance:\s*([^#\n]*?)\s*(#|$)', open(f).read(), re.M)
+    # by the account's instance name (a stopped instance has no adb port; boot.sh starts it), else by this serial's port
+    hit = (lambda r: r.get('name') == m[2]) if m else (lambda r: str(r.get('adb_port')) == D.rsplit(':', 1)[-1])
+    idx = next((r['index'] for r in info['return']['results'] if hit(r)), None)
+    if idx is None:
+        RELAUNCHES = MAX_RELAUNCHES                       # nothing to boot: no point retrying
+        print(f'    game not in front, no MuMu instance for {acct or D}; stop', flush=True); return False
+    print(f'    game not in front ({focus().strip()[-45:]}) -> boot.sh {idx} ({RELAUNCHES}/{MAX_RELAUNCHES})', flush=True)
+    out = subprocess.run([BOOT, str(idx)], capture_output=True, text=True).stdout
+    line = next((l for l in out.splitlines() if D in l), '?'); print(f'    relaunch: {line}', flush=True)
+    if ' ready ' not in line: return False
+    if not m or m[1]: return True                         # no account given, or it is the instance's own (mumu_instance)
+    r = subprocess.run([sys.executable, os.path.join(HERE, 'stabilize.py')], env=dict(os.environ, ACCOUNT=acct),
+                       capture_output=True, text=True, cwd=tempfile.gettempdir())
+    print(f'    relaunch: {acct}: {(r.stdout.strip().splitlines() or ["?"])[-1]}', flush=True)
     return r.returncode == 0
 
 
@@ -226,7 +219,8 @@ def main(fn, *args):
             sys.exit(fn(*args) or 0)
         except Stop as e:
             if not in_game() and RELAUNCHES < MAX_RELAUNCHES: print(f'    {e}', flush=True); continue
-            grab().resize((540, 960)).save(f'v_{name}.png')
+            try: grab().resize((540, 960)).save(f'v_{name}.png')
+            except RuntimeError: pass                     # device gone (instance stopped)
             print(f'{e}; stop (screenshot v_{name}.png)'); sys.exit(1)
 
 

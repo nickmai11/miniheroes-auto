@@ -177,7 +177,7 @@ Main-screen check pixel: Recruit icon `(92,1788)` ≈ `(0,158,230)`; Start butto
   game → all device coords here apply. Undo with `wm size reset` / `wm density reset`.
 - The first tap on the main screen right after loading is often ignored — retry once, then screenshot (a late
   second tap can open a ranking profile; close by tapping outside, e.g. `(900,1500)`).
-- Crash → relaunch: `monkey -p com.and.brawlen.web …`, Start `(540,1508)`.
+- Crash / Android home → `scripts/boot.sh <mumu index>` (the only relaunch; CLAUDE.md).
 
 ## Land of Trials
 

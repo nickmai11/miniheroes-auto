@@ -30,7 +30,7 @@ def is_main(im=None): return near((im or grab()).getpixel((92, 1788)), (0, 158, 
 
 def home():
     """Back to the main screen: back arrow / popup handling, max 8 tries. Back can land on Recruit -> back again.
-    Game not in front (crashed to the Android home) -> flow.relaunch(), max flow.MAX_RELAUNCHES (10) per run."""
+    Game not in front (crashed to the Android home) -> flow.relaunch() = boot.sh on this instance."""
     if not in_game(): return relaunch(os.environ.get('ACCOUNT'))
     for _ in range(8):
         if is_main(): return True

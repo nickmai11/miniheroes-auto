@@ -72,7 +72,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: `scripts/a
 ## Helper prompt (use as-is; fill in <…>; add any rule Nick gives mid-run to this file too)
 
 ```
-Mini Heroes catch-up leftovers on ONE account: <Name>, ADB serial <serial>, scratch dir <dir> (save screenshots there as
+Mini Heroes catch-up leftovers on ONE account: <Name>, ADB serial <serial>, MuMu index <index>, scratch dir <dir> (save screenshots there as
 s1.png, s2.png…). Repo ~/projects/chidojiro/miniheroes-auto: do ONLY these steps from .claude/skills/catch-up/SKILL.md
 step 3: <leftover steps + the runner's FAIL lines>, the output of
 `scripts/doc.sh Arena Storm Canyon Fishing Divine Patrol Tribe Recruit Events "Daily Mission"` (don't read the
@@ -83,7 +83,7 @@ Tools: D=<serial> python3 scripts/tap.py [x,y…] -w 270 -o <dir>/sN.png [--unti
 navigation (×4 = device coords), -w 540 only for small text (×2). Storm: scripts/storm.py (handles lineup). Veins: scripts/veins.py. Arena: scripts/arena.py <account>.
 Rules: look only at decision points — chain a step's fixed taps in one tap.py call with --until on the next
 screen's pixel; read a screenshot before prices, target picks, counters, a step's first tap, and after a failed check; no gems/money beyond the config; poll waits inside the command (1–2 s), never
-background timers or "pausing"; game crash → relaunch (monkey -p com.and.brawlen.web …, Start 540,1508), max 10;
+background timers or "pausing"; game crash / Android home → `scripts/boot.sh <index>` (CLAUDE.md);
 own loops must re-check the stop condition (counter/popup) every pass — never a fixed-count blind loop;
 can't do a step after 2 tries → skip + note why. Before the next step, check this step's DoD (docs/dod.md). Nick may tap the screen himself.
 Last command before your final answer: `touch <dir>/DONE` (the coordinator's idle watch skips finished helpers).
