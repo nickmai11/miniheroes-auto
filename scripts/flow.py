@@ -51,17 +51,17 @@ def launch():
     return False
 
 
-RELAUNCHES = 0
+RELAUNCHES, MAX_RELAUNCHES = 0, 10   # Nick 2026-11-20 (was 3)
 
 
 def relaunch(acct=None):
     """Game crashed / killed to the Android home (Aminor, Tiger, Dminor fr 2026-11-20 sat on the launcher after boot) ->
-    launch() + stabilize.py (popups, right account when acct is given). Max 3 per run (Nick 2026-10-27; every task
+    launch() + stabilize.py (popups, right account when acct is given). Max MAX_RELAUNCHES per run (Nick 2026-10-27; every task
     2026-11-20). True = clean main screen."""
     global RELAUNCHES
-    if RELAUNCHES >= 3: print('    game not in front, 3 relaunches used; stop', flush=True); return False
+    if RELAUNCHES >= MAX_RELAUNCHES: print(f'    game not in front, {MAX_RELAUNCHES} relaunches used; stop', flush=True); return False
     RELAUNCHES += 1
-    print(f'    game not in front ({focus().strip()[-45:]}) -> relaunch {RELAUNCHES}/3', flush=True)
+    print(f'    game not in front ({focus().strip()[-45:]}) -> relaunch {RELAUNCHES}/{MAX_RELAUNCHES}', flush=True)
     if not launch(): print('    relaunch: no main screen after Start', flush=True); return False
     env = dict(os.environ, **({'ACCOUNT': acct} if acct else {}))
     r = subprocess.run([sys.executable, os.path.join(HERE, 'stabilize.py')], env=env, capture_output=True, text=True,
@@ -216,7 +216,7 @@ def adventure(card):
 
 def main(fn, *args):
     """Run fn; Stop -> screenshot v_<script>.png, exit 1. Game not in front at the start or at a Stop -> relaunch() and
-    run fn again (max 3 relaunches)."""
+    run fn again (max MAX_RELAUNCHES)."""
     name = os.path.splitext(os.path.basename(sys.argv[0]))[0]
     acct = os.environ.get('ACCOUNT') or next((a for a in sys.argv[1:2]
                                               if os.path.exists(os.path.join(HERE, '..', 'accounts', a + '.yaml'))), None)
@@ -225,7 +225,7 @@ def main(fn, *args):
             if not in_game() and not relaunch(acct): raise Stop('game not running, relaunch failed')
             sys.exit(fn(*args) or 0)
         except Stop as e:
-            if not in_game() and RELAUNCHES < 3: print(f'    {e}', flush=True); continue
+            if not in_game() and RELAUNCHES < MAX_RELAUNCHES: print(f'    {e}', flush=True); continue
             grab().resize((540, 960)).save(f'v_{name}.png')
             print(f'{e}; stop (screenshot v_{name}.png)'); sys.exit(1)
 
