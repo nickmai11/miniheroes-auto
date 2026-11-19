@@ -51,8 +51,8 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 - **Right account** (every task): the top-right game id must match the account file's `game_id` before acting
   (Kong reopens on S288 Kong II after a game restart) → `stabilize.py` switches back.
 - **Kong II** (`kong_ii`, S288, on Kong's instance — Nick, 2026-11-17): catch-ups, dailies and the scheduled Floating
-  Realm / Tribe Clash rounds (`fr_all.sh`) do it too, right after Kong is done there (catch-up: relics included); any
-  other task only when named. Switch: `D=<serial> ACCOUNT=kong_ii scripts/stabilize.py` (exit 0 = its id read on
+  Realm / Tribe Clash rounds (`fr_all.sh`), and the tc / fr guesses (Nick, 2026-11-19) do it too, right after Kong is
+  done there (catch-up: relics included); any other task only when named. Switch: `D=<serial> ACCOUNT=kong_ii scripts/stabilize.py` (exit 0 = its id read on
   screen), back with `ACCOUNT=kong` when Kong II is done.
 - **Tick "Do not remind me today"** wherever it shows, before closing the popup (Nick, 2026-10-29, every task).
 - **Scroll slowly** (every task): held drags ≥ 1.5 s, one at a time, read only once the screen is still — never fling,
