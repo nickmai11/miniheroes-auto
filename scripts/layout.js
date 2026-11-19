@@ -1,6 +1,6 @@
 // Tile running MuMu instance windows on the main screen. Layout 1 (default): each 1/2 of the usable height,
 // `right` instances at full height against the screen's right edge, then 2 rows (accounts/layout.yaml `top`/`bottom`) to their left - fixed slots per listed name, running or not (Nick 2026-11-19); skipping names in accounts/layout.yaml `exclude`.
-// usage: [LAYOUT=2|ct] osascript -l JavaScript scripts/layout.js   (default = layout 1: 2 rows + right column — Nick, 2026-11-13; LAYOUT=2 = one row, all evenly wide; LAYOUT=ct = 1 row, every running instance 1/10 of the screen width)
+// usage: [LAYOUT=dynamic|2|ct] osascript -l JavaScript scripts/layout.js   (default = layout 1: 2 rows + right column, pinned slots — Nick, 2026-11-13/19; LAYOUT=dynamic = layout 1 packed from the running instances only (Nick 2026-11-19); LAYOUT=2 = one row, all evenly wide; LAYOUT=ct = 1 row, every running instance 1/10 of the screen width)
 // Needs Accessibility permission for the terminal app (System Settings > Privacy & Security > Accessibility).
 ObjC.import('AppKit')
 const app = Application.currentApplication(); app.includeStandardAdditions = true
@@ -35,7 +35,7 @@ const place = (r, y, wh, edge) => {
   return w.size()[0]
 }
 // Layout 2 (LAYOUT=2; the default 2026-11-07..11-13): all instances in 1 row, each 1/n of the usable width
-if (L !== '1') {
+if (L !== '1' && L !== 'dynamic') {
   // One slot per layout.yaml `row` name, running or not (Nick 2026-11-07: an account keeps its place and width whatever
   // is open); unlisted running instances get extra slots after it, by MuMu index. ONLY (boot.sh) just limits which
   // windows move (a 6-of-9 boot gave the 6 1/6 width each, on top of the other 3 - 2026-11-07).
@@ -56,7 +56,9 @@ if (L !== '1') {
 // stopped instance leaves a gap instead of shifting the others. Unlisted running instances go left of the shorter row.
 // MuMu keeps the height we set and snaps the width to 9:16 of the area under its title bar -> width(h) = (h - bar) * 9/16,
 // bar measured once on the first window we move.
+// LAYOUT=dynamic (Nick 2026-11-19, "layout dynamic"): same shape, but only running instances get a slot, packed right-aligned.
 else if (insts.length) {
+  if (L === 'dynamic') { const on = n => running.some(r => r.name === n); rows.forEach((r, i) => { rows[i] = r.filter(on) }); right.splice(0, right.length, ...right.filter(on)) }
   const H = v.size.height
   x = v.origin.x
   const bar = H - place(insts[0], top, H) * 16 / 9

@@ -4,6 +4,7 @@ Pre-flight (dailies skill): rows whose Test isn't `passive:` → test on ONE acc
 
 | Added | Change | Test (where) | Pass = |
 | --- | --- | --- | --- |
+| 11-19 | `LAYOUT=dynamic` ("layout dynamic"): layout 1 shape, running instances only, packed | passive: next "layout dynamic" with a listed instance stopped | no gap where the stopped one would be; all running ones right-aligned against `right` |
 | 11-19 | Layout 1 fixed slots (`layout.js`): every `top`/`bottom`/`right` name keeps its slot, running or not; slot width from the measured title bar | passive: next boot with an instance stopped | others stay put, gap where the stopped one goes; no overlap |
 | 11-19 | Layout on every boot: `catchup_all.sh` / `fr_all.sh` no `NOLAYOUT=1`; `boot.sh` tiles a single re-boot too (only climb-stage skips) | passive: next catch-up / fr round / single re-boot | windows tiled in layout 1 after boot; a re-booted instance back in its slot |
 | 11-19 | `daily.py` HUB_TABS 7777 tab matched by `^7{3,}` (OCR read the label as '777' → `unmapped tab 777` MANUAL on all 12 accounts 11-19) | passive: next dailies `events` | no `unmapped tab 777` in a MANUAL line |
