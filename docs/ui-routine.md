@@ -1239,13 +1239,13 @@ stamina left over before a reset is lost.
    **kill 2 Cloud Bandits** _or_ **use a Floating Realm Treasure Map** (green Go `(844,1034)`). A "conditions
    met, proceed?" tip pops up as soon as you hold a map.
    Counts are read off the screen at each decision (map's top-left scroll counter = maps held, the dialog's
-   "Kill X (k/2)"); nothing has to be remembered across a stop. The dialog's "(m/1)" shows all maps held (Dino: 3), not capped at 1. The floor card label
+   "Kill X (k/2)"); nothing has to be remembered across a stop. The dialog's "(m/n)" shows all maps held (Dino: 3), not capped, and n = maps the pass takes (1; Cmajor's Thu F3 dialog read "(5/2)" 2026-11-19 — realm.py uses a map only with ≥ n held). The floor card label
    (top right) updates a beat after the explore screen shows: wait for it, don't read it once.
    **Map strategy (Nick, 2026-11-03), any day.** One map item works on every floor:
    - **F1→F2:** 0/2 Cloud Bandits → use a map. 1/2 → hunt the 2nd bandit. Every round (day) restarts on F1, and
      knockbacks drop you to F2, never F1, so this costs at most 1 map per day (3 per event).
    - **F2→F3:** keep **5 maps for the last battle day (Thu)**. Tue/Wed climb by killing 2 Veteran Pilots. A map may be spent before Thu only if 5 would still be left, and only at 0 kills. At 1 kill, hunt
-     the rest even then. Thu: use the maps to reach and get back to F3.
+     the rest even then. **Thu:** maps for the pass held → use them, whatever the kill count (Nick, 2026-11-19: 2 climbs a day, 1 + 2×2 maps; no point saving stamina on the last day — Cmajor sat on F2 at 1/2 with 3–5 maps). The F1 rule stays as above.
 
 4. **Pack** (event screen, right column `(980,1684)`; Mon–Thu, none in the truce) → _Daily Special_ list, each row
    "Limited to 1 purchases per day", button ~166 px below the row title, "Sold Out" once bought:

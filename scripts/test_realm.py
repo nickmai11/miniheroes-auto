@@ -14,7 +14,10 @@ assert climb(2, 0, 2, 5, TUE) == 'stay'     # F2 before Thu: 5 maps are the rese
 assert climb(2, 0, 2, 6, TUE) == 'map'      # a spare 6th map
 assert climb(2, 1, 2, 6, TUE) == 'stay'     # 1 pilot down -> hunt, even with spares
 assert climb(2, 0, 2, 1, THU) == 'map'      # Thursday: use the reserve
-assert climb(2, 1, 2, 3, THU) == 'stay'
+assert climb(2, 1, 2, 3, THU, 2) == 'map'   # Thursday, 1 pilot down, maps for the pass -> go up (Nick 11-19, Cmajor)
+assert climb(2, 0, 2, 1, THU, 2) == 'stay'  # pass takes 2, only 1 held
+assert climb(1, 1, 2, 5, THU) == 'stay'     # F1 rule unchanged on Thursday
+assert climb(2, 0, 2, 6, TUE, 2) == 'stay'  # spare check counts the cost: 6 - 2 < 5
 assert climb(2, 2, 2, 9, TUE) == 'kills'
 
 row = lambda y, t: (200, y, 300, 40, t)

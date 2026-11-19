@@ -95,11 +95,14 @@ def defense_lineup():
     raise Stop('defense lineup: not back on the explore screen')
 
 
-def climb(fl, kills, need, maps, weekday):
+def climb(fl, kills, need, maps, weekday, cost=1):
     """Next floor by 'kills', 'map' or 'stay' (Nick 2026-11-03): F1 0 kills -> map; F2 maps kept for Thursday
-    (RESERVE), earlier only a spare one; 1+ kills -> hunt the rest, never a map."""
+    (RESERVE), earlier only a spare one at 0 kills; 1 kill -> hunt the rest. Thursday F2: enough maps -> map at any kill
+    count (Nick 2026-11-19: no point saving stamina then). `cost` = maps the pass takes (dialog "(held/cost)": 2 on Thu)."""
     if kills >= need: return 'kills'
-    return 'map' if maps and kills == 0 and (fl == 1 or weekday == 3 or maps - 1 >= RESERVE) else 'stay'
+    if maps < cost: return 'stay'
+    if fl == 2 and weekday == 3: return 'map'
+    return 'map' if kills == 0 and (fl == 1 or maps - cost >= RESERVE) else 'stay'
 
 
 def best_core(b):
@@ -129,12 +132,13 @@ def go_up(fl):
     p = find(b, r'^Go$|^G$') or find(b, name)
     tap_wait(*p)
     b = wait(r'Entry Requirements', 8); t = joined(b)
-    k, m = re.search(r'Kill (.+?)\s*\((\d+)/(\d+)\)', t), re.search(r'Treasure Map\s*\((\d+)/', t)
+    k, m = re.search(r'Kill (.+?)\s*\((\d+)/(\d+)\)', t), re.search(r'Treasure Map\s*\((\d+)/(\d+)', t)
     if not k: raise Stop(f'entry dialog unreadable: {t[:250]}')
     gate, kills, need, maps = k[1], int(k[2]), int(k[3]), held[0] if held else int(m[1]) if m else 0
     gos = sorted((x for x in b if re.fullmatch(r'G[oO]', x[4])), key=lambda x: x[1])
-    how = climb(fl, kills, need, maps, NOW.weekday())
-    say(f'  F{fl}->F{fl + 1}: {gate} {kills}/{need}, maps {maps} (counter {held}, dialog {m and m[1]}) -> {how}')
+    cost = int(m[2]) if m else 1
+    how = climb(fl, kills, need, maps, NOW.weekday(), cost)
+    say(f'  F{fl}->F{fl + 1}: {gate} {kills}/{need}, maps {maps} (counter {held}, dialog {m and f"{m[1]}/{m[2]}"}) -> {how}')
     if how != 'stay':
         i = 0 if how == 'kills' else 1
         if len(gos) <= i: raise Stop(f'entry dialog: {len(gos)} Go buttons')
