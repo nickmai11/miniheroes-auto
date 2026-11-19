@@ -19,5 +19,5 @@ the file has `server:` it switches via ☰ → Settings → Server → `S<server
 3. Per line: `ready (stable …)` = done. `popup-stuck` / `*-timeout` → screenshot that serial
    (`D=<serial> python3 scripts/tap.py -w 270 -o /tmp/st.png`), close the popup by hand (tick "Do not remind me today"
    first, then X — some popups have a white X outside the frame, e.g. Tiger's "Stargems Running Out!"), report it.
-4. Layout only runs for >1 instance and skips `accounts/layout.yaml` `exclude`; with one instance run
-   `osascript -l JavaScript scripts/layout.js` if Nick asked for layout.
+4. Layout runs on every boot, a single instance too (Nick, 2026-11-19), and skips `accounts/layout.yaml` `exclude`;
+   only `NOLAYOUT=1` (climb stage) skips it.
