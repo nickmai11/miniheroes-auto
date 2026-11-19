@@ -29,6 +29,47 @@ def focus():
 def in_game(): return 'AppActivity' in focus()
 
 
+def launch():
+    """Game to the front (launcher intent: a running game just comes forward, a dead one starts), Start tapped
+    (re-tapped only while Start still shows, like boot.sh) -> True once the main screen's Recruit icon (or a popup over
+    it) shows. No popup closing here: callers run stabilize.py."""
+    subprocess.run(['adb', '-s', D, 'shell', 'monkey', '-p', 'com.and.brawlen.web', '-c',
+                    'android.intent.category.LAUNCHER', '1'], capture_output=True)
+    start = lambda: near(grab().getpixel((440, 1508)), (255, 182, 16), 40)
+    blue = lambda: near(grab().getpixel((92, 1788)), (0, 158, 230), 40)
+    for _ in range(60):                                   # ~90 s: launch + loading
+        if blue(): return True
+        if start(): break
+        time.sleep(1.5)
+    else: return False
+    for _ in range(3):
+        tap(540, 1508)
+        for _ in range(13):
+            time.sleep(1.5)
+            if blue(): return True
+        if not start(): return True                       # Start gone: a popup over the main screen (stabilize.py closes it)
+    return False
+
+
+RELAUNCHES = 0
+
+
+def relaunch(acct=None):
+    """Game crashed / killed to the Android home (Aminor, Tiger, Dminor fr 2026-11-20 sat on the launcher after boot) ->
+    launch() + stabilize.py (popups, right account when acct is given). Max 3 per run (Nick 2026-10-27; every task
+    2026-11-20). True = clean main screen."""
+    global RELAUNCHES
+    if RELAUNCHES >= 3: print('    game not in front, 3 relaunches used; stop', flush=True); return False
+    RELAUNCHES += 1
+    print(f'    game not in front ({focus().strip()[-45:]}) -> relaunch {RELAUNCHES}/3', flush=True)
+    if not launch(): print('    relaunch: no main screen after Start', flush=True); return False
+    env = dict(os.environ, **({'ACCOUNT': acct} if acct else {}))
+    r = subprocess.run([sys.executable, os.path.join(HERE, 'stabilize.py')], env=env, capture_output=True, text=True,
+                       cwd=tempfile.gettempdir())
+    print(f'    relaunch: {(r.stdout.strip().splitlines() or ["?"])[-1]}', flush=True)
+    return r.returncode == 0
+
+
 def watch_ad(timeout=180, log=print):
     """After an ad-button tap (no-pass accounts, Nick 2026-11-08: watch the ads): no ad took over -> True at once.
     Ad activity (Mintegral MBRewardVideoActivity): let it run until its reward countdown is over - "17s left to be
@@ -174,14 +215,19 @@ def adventure(card):
 
 
 def main(fn, *args):
-    """Run fn; Stop -> screenshot v_<script>.png, exit 1."""
-    try:
-        r = fn(*args)
-        sys.exit(r or 0)
-    except Stop as e:
-        name = os.path.splitext(os.path.basename(sys.argv[0]))[0]
-        grab().resize((540, 960)).save(f'v_{name}.png')
-        print(f'{e}; stop (screenshot v_{name}.png)'); sys.exit(1)
+    """Run fn; Stop -> screenshot v_<script>.png, exit 1. Game not in front at the start or at a Stop -> relaunch() and
+    run fn again (max 3 relaunches)."""
+    name = os.path.splitext(os.path.basename(sys.argv[0]))[0]
+    acct = os.environ.get('ACCOUNT') or next((a for a in sys.argv[1:2]
+                                              if os.path.exists(os.path.join(HERE, '..', 'accounts', a + '.yaml'))), None)
+    while True:
+        try:
+            if not in_game() and not relaunch(acct): raise Stop('game not running, relaunch failed')
+            sys.exit(fn(*args) or 0)
+        except Stop as e:
+            if not in_game() and RELAUNCHES < 3: print(f'    {e}', flush=True); continue
+            grab().resize((540, 960)).save(f'v_{name}.png')
+            print(f'{e}; stop (screenshot v_{name}.png)'); sys.exit(1)
 
 
 def find_img(path, region=(0, 1150, 1080, 1590), im=None):

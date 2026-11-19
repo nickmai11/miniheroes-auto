@@ -13,7 +13,7 @@
 import datetime, fcntl, os, re, subprocess, sys, time
 from stabilize import close_x
 from tap import diff, thumb
-from flow import Stop, adventure, battle, find, grab, joined, lone_hero, ocr, swipe, tap, tap_text, tap_wait, tickets_full, wait, watch_ad
+from flow import Stop, adventure, battle, find, grab, in_game, joined, lone_hero, ocr, relaunch, swipe, tap, tap_text, tap_wait, tickets_full, wait, watch_ad
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
@@ -29,7 +29,9 @@ def is_main(im=None): return near((im or grab()).getpixel((92, 1788)), (0, 158, 
 
 
 def home():
-    """Back to the main screen: back arrow / popup handling, max 8 tries. Back can land on Recruit -> back again."""
+    """Back to the main screen: back arrow / popup handling, max 8 tries. Back can land on Recruit -> back again.
+    Game not in front (crashed to the Android home) -> flow.relaunch(), max 3 per run."""
+    if not in_game(): return relaunch(os.environ.get('ACCOUNT'))
     for _ in range(8):
         if is_main(): return True
         boxes = ocr(net=True)

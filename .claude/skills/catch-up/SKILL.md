@@ -9,7 +9,6 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: `scripts/a
 
 1. In `~/projects/chidojiro/miniheroes-auto`, read the account files (not `docs/ui-routine.md` — helpers read their sections).
 2. `scripts/boot.sh <mumu index>...` — boots, **restarts** the game, clears event popups (must print "ready (stable …)").
-   If the game crashes mid-run, workers relaunch it and retry the step (max 3 relaunches) — Nick, 2026-10-27.
 3. **Runner first (Nick, 2026-10-28 — cost):** all accounts in ONE background Bash command, wait for its notification:
    `for a in <acct>:<serial> ...; do (D=${a#*:} OUT=/tmp/miniheroes-$(date +%F-%H)/${a%%:*} scripts/daily.py ${a%%:*} --catch-up > /tmp/miniheroes-$(date +%F-%H)/${a%%:*}.log 2>&1) & done; wait`
    It does ALL steps below (claims, Canyon empty spot and event milestones too since 2026-10-28) and ends with

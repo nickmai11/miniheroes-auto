@@ -43,6 +43,8 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 - **Look only at decision points** (Nick, 2026-10-28, token cost): chain a step's fixed taps in ONE `tap.py` call with `--until x,y,r,g,b` on the expected next screen — exit 1 / timeout = unexpected → screenshot and decide. Read a screenshot before: any paid/priced tap, picking a target/opponent/row, reading a counter, the first tap of a step, and after any failed check. Never chain past a price or a choice.
 - Account on a different screen than the task needs → move it there (`home()` in daily.py: back arrow, popups, Android
   Back), don't stop (Nick, 2026-10-31, every task). Stop and report only if that fails or the screen shows a choice/price.
+- **Game crashed / on the Android home → relaunch it and retry the step, max 3** (Nick, 2026-10-27; every task
+  2026-11-20): built into `flow.main()` (every mission script), `daily.py` `home()` and `stabilize.py`; helpers by hand.
 - If a step can't be done with confidence (unreadable screen, tap not working after 2 tries), skip it and report
   it as skipped + why — never loop or guess.
 - **Paid buys: one pack at a time** (Nick, 2026-11-14 — 300 gems lost to a loop): buy 1, close its popup, check the

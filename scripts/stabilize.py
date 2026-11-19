@@ -9,7 +9,7 @@
 # exit 0 = main screen clear, 1 = popup it can't close (screenshot v_stabilize.png) -> close it by hand.
 # Popup open = main screen's blue Recruit icon dimmed (0,158,230 -> ~0,33,50 under Dino's anniversary popup).
 import glob, os, re, time
-from flow import find, grab, ocr, tap_text, wait
+from flow import find, grab, in_game, launch, ocr, tap_text, wait
 from tap import tap as tap_wait
 
 near = lambda p, c, tol=40: all(abs(a - b) <= tol for a, b in zip(p, c))
@@ -72,8 +72,11 @@ def check_account():
 
 
 def main():
-    switched = False
+    switched, launches = False, 0
     for n in range(14):  # ponytail: ~3 stacked popups seen at most (x2 after a server switch); 14 is a hard stop
+        if not in_game():   # game died to the Android home (Boudior, Kratos boot 11-19): launch it again, max 2
+            if launches == 2 or not launch(): break
+            launches += 1; print(f'game not in front -> launched again ({launches}/2)', flush=True); continue
         im = grab()
         if is_main(im):
             time.sleep(1.5)                                   # popups slide in late: confirm once more

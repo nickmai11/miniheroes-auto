@@ -4,6 +4,7 @@ Pre-flight (dailies skill): rows whose Test isn't `passive:` → test on ONE acc
 
 | Added | Change | Test (where) | Pass = |
 | --- | --- | --- | --- |
+| 11-20 | Game crashed / on the Android home → relaunch (monkey + Start + `stabilize.py`), max 3: `flow.main()` (start + at a Stop, then reruns the script), `daily.py` `home()`, `stabilize.py` (launcher → launch, max 2). Live-tested by force-stop on Cmajor (all 3 paths ~15 s) | passive: next run where a game dies (fr round / catch-up boot) | `game not in front … -> relaunch n/3` then the script/step goes on; no `waited 15s for 'Floating Realm'` with the launcher on screen, no boot `popup-stuck` on the launcher |
 | 11-19 | scheduled `catchup` 23:00 one-time job: `catchup_all.sh` then `mumu-cli close all` | passive: 2026-11-19 23:00 run | `logs/launchd-catchup.log` ends `=== done` + `closed all instances`; all instances stopped; job gone from `schedule.py list` |
 | 11-19 | `realm.py` Thursday F2→F3: maps ≥ the dialog's `/n` → map at any kill count; never a pass with fewer maps than `/n` | passive: next Thursday fr round (2026-12-03) | a `1/2 … -> map` line on Thu; `dialog h/n` in the log; no map tap with held < n |
 | 11-19 | `LAYOUT=dynamic` ("layout dynamic"): layout 1 shape, running instances only, packed | passive: next "layout dynamic" with a listed instance stopped | no gap where the stopped one would be; all running ones right-aligned against `right` |
