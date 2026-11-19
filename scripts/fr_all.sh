@@ -32,8 +32,7 @@ for f in sorted(glob.glob(sys.argv[1] + '/accounts/*.yaml')):
     if m and m[1].strip() in idx and f.rsplit('/', 1)[1][:-5] in want: print(f"{idx[m[1].strip()]}|{f.rsplit('/', 1)[1][:-5]}|{m[1].strip()}")
 EOF
 )
-# NOLAYOUT: window tiling is pointless unattended
-boot=$(NOLAYOUT=1 "$HERE/boot.sh" $(cut -d'|' -f1 <<<"$pairs"))   # boot.sh does the halves (CPU)
+boot=$("$HERE/boot.sh" $(cut -d'|' -f1 <<<"$pairs"))   # boot.sh does the halves (CPU)
 echo "$boot"
 run() {   # <account>: this round's script on $D, output in $W/<account>, one result line
   local cmd; mkdir -p "$W/$1"
