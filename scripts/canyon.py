@@ -2,7 +2,7 @@
 # Canyon Clash: move to an EMPTY platform (free, no attempt) by the day's rule. Canyon map must be open.
 # usage: D=<serial> scripts/canyon.py <account>    (ui-routine "Canyon Clash"; Nick 2026-10-28: script, not a helper)
 #   Mon-Thu: first empty purple (Silver) platform among the top silver rows.
-#   Fri-Sun: empty Gold first, else empty purple (Fri since Nick 2026-11-08, was Sat).     canyon_clash: highest_free -> topmost empty platform of any kind.
+#   Fri-Sun: empty Gold first, else empty purple (Fri since Nick 2026-11-08, was Sat).     canyon_clash: highest -> exit 2 at once (helper picks).
 # Empty = a platform disc with no name label under it. Every pick is confirmed by the popup text "occupy the empty"
 # before Occupy; anything else ("About to challenge <name>'s ...") -> Cancel. Never attacks: no empty spot -> exit 2.
 # exit 0 = moved, 2 = no empty platform (helper attacks: a Sentinel, else a non-tribe player), 1 = unexpected screen.
@@ -65,18 +65,15 @@ def try_occupy(x, y):
 
 def run(account):
     cfg = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts', account + '.yaml')).read()
-    head = wait(r'Attempts', 10)
-    highest = bool(re.search(r'canyon_clash:\s*highest_free', cfg))
-    # highest_free: only an empty spot at or above the held tier (it moved Tiger Glory -> empty Gold, 2026-11-03); none ->
-    # helper takes the highest free spot (Sentinel, or lower) - never keep the old one: occupation ends after 8 h (Nick 2026-11-16)
-    cur = next((t for t in ('Glory', 'Gold', 'Silver') if find(head, rf'^{t} Battlefield', (0, 0, 1080, 330))), '')
-    tier = {'Glory': 3, 'Gold': 2, 'Silver': 1}.get(cur, 0)
+    wait(r'Attempts', 10)
+    highest = bool(re.search(r'canyon_clash:\s*highest\b', cfg))
+    # highest: the topmost spot that isn't a tribemate's - empty, Sentinel or player (Nick 2026-11-19). Telling a tribemate
+    # (blue name) from an enemy above an empty spot is a judgment -> always the helper; this script only does empty spots.
+    if highest: print('highest: topmost non-tribemate spot is a helper pick'); return 2
     weekend = datetime.datetime.now().weekday() >= 4   # Fri-Sun (Nick 2026-11-08: top spot from Friday, not Saturday)
     for _ in range(6): swipe(540, 600, 540, 1500, 300)                # to the top of the map
     time.sleep(1)
-    colours = [GOLD, PURPLE] if highest or weekend else [PURPLE]
-    if highest: colours = [c for c in colours if {GOLD: 2, PURPLE: 1}[c] >= tier]
-    if not colours: print(f'no empty platform found (none at or above the held {cur} tier)'); return 2
+    colours = [GOLD, PURPLE] if weekend else [PURPLE]
     purple_screens = 0
     for screen in range(12):
         im = settled(); boxes = ocr(im); im.resize((270, 480)).save(f'canyon{screen}.png')   # per-screen record (2026-10-29)
@@ -87,7 +84,7 @@ def run(account):
                 if try_occupy(x, y):
                     print(f'occupied empty {"purple" if colour == PURPLE else "gold"} platform (screen {screen})'); return 0
         if empties(im, [], PURPLE) or any('Silver' in b[4] for b in boxes if b[1] > 330): purple_screens += 1  # not the header
-        if purple_screens >= 2 and not highest: break                 # only the top silver rows (~10 spots)
+        if purple_screens >= 2: break                 # only the top silver rows (~10 spots)
         swipe(540, 1500, 540, 700, 600); time.sleep(1.5)
     print('no empty platform found'); return 2
 

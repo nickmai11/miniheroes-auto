@@ -1202,7 +1202,10 @@ def canyon(cfg):
         try: out = script('canyon.py', ACCOUNT)
         except Stop as e:
             if 'exit 2' not in str(e): raise
-            out = 'MANUAL no empty platform (attack choice)'
+            out = ('MANUAL canyon_clash highest: take the TOPMOST spot on the map that is not a tribemate\'s (empty, Sentinel '
+                   'or player - attack it; blue name / own account -> Cancel, next one down)'
+                   if re.search(r'canyon_clash:\s*highest\b', cfg)
+                   else 'MANUAL no empty platform (attack choice)')
         canyon.taken = out.startswith('occupied')
     time.sleep(1)                                        # the points land after the Occupy popup closes
     return f'{out}; rewards: {canyon_rewards()}'         # Rewards is fixed HUD: same spot wherever canyon.py left the map

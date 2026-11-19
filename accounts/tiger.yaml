@@ -38,7 +38,7 @@ missions:
     trial: 1
     request: true
     assist: true
-    canyon_clash: highest_free   # any day: the highest spot that's empty or Sentinel-held (Nick, 2026-10-28); nothing free -> ui-routine "Canyon Clash" (attack allowed since 2026-11-16)
+    canyon_clash: highest   # any day: the topmost spot that isn't a tribemate's (Nick 2026-11-19) -> ui-routine "Canyon Clash"
   fishing:
     min_order_diamonds: 3
     ticket_pack_gem_price: 50
