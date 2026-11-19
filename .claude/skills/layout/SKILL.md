@@ -5,7 +5,7 @@ description: Resize and move Nick's running MuMuPlayer instance windows - layout
 
 # MuMu window layout
 
-1. In `~/projects/chidojiro/miniheroes-auto`, run `osascript -l JavaScript scripts/layout.js` (**layout 1**, the default for every task — Nick 2026-11-13: 2 rows + `right` column) or `LAYOUT=2 osascript -l JavaScript scripts/layout.js` (**layout 2**: 1 row, each
+1. In `~/projects/chidojiro/miniheroes-auto`, run `osascript -l JavaScript scripts/layout.js` (**layout 1**, the default for every task — Nick 2026-11-13: 2 rows + `right` column; fixed slots — every `top`/`bottom`/`right` name keeps its place whether its instance runs or not, a stopped one leaves a gap, Nick 2026-11-19) or `LAYOUT=2 osascript -l JavaScript scripts/layout.js` (**layout 2**: 1 row, each
    window 1/n of the screen width, n = the accounts in `row` of `accounts/layout.yaml` (running or not; each keeps its slot), order = `row`) or `LAYOUT=ct osascript -l JavaScript scripts/layout.js` (**layout ct**, Crystal Throne — Nick 2026-11-08:
    1 row, every running instance exactly 1/10 of the screen width, no empty slots, order = `row` then MuMu index). It prints `<name>: <x,y> <w,h>` per moved window.
 2. Edit `accounts/layout.yaml` (MuMu instance names): `top`/`bottom` rows, `right` = full-height column at the right edge, rows packed to its left (layout 1), `row` = layout 2's order, `exclude` = left alone.

@@ -1,5 +1,5 @@
 // Tile running MuMu instance windows on the main screen. Layout 1 (default): each 1/2 of the usable height,
-// `right` instances at full height against the screen's right edge, then 2 rows (accounts/layout.yaml `top`/`bottom`) packed right-aligned to their left; skipping names in accounts/layout.yaml `exclude`.
+// `right` instances at full height against the screen's right edge, then 2 rows (accounts/layout.yaml `top`/`bottom`) to their left - fixed slots per listed name, running or not (Nick 2026-11-19); skipping names in accounts/layout.yaml `exclude`.
 // usage: [LAYOUT=2|ct] osascript -l JavaScript scripts/layout.js   (default = layout 1: 2 rows + right column — Nick, 2026-11-13; LAYOUT=2 = one row, all evenly wide; LAYOUT=ct = 1 row, every running instance 1/10 of the screen width)
 // Needs Accessibility permission for the terminal app (System Settings > Privacy & Security > Accessibility).
 ObjC.import('AppKit')
@@ -18,10 +18,6 @@ const insts = running.filter(mine)
 // main screen usable area, converted to top-left origin (AX coordinates)
 const scr = $.NSScreen.screens.js[0], f = scr.frame, v = scr.visibleFrame
 const top = f.size.height - v.origin.y - v.size.height, h = Math.floor(v.size.height / 2)
-
-// grid[row][col]: names from layout.yaml top/bottom rows; unlisted instances fill the shorter row, by index
-const grid = rows.map(n => n.map(name => insts.find(r => r.name === name)).filter(Boolean))
-insts.filter(r => !grid.flat().includes(r) && !right.includes(r.name)).forEach(r => grid[grid[0].length > grid[1].length ? 1 : 0].push(r))
 
 const se = Application('System Events')
 let x = v.origin.x
@@ -54,17 +50,24 @@ if (L !== '1') {
   if (i0 >= 0) { x += i0 * cw; const w0 = place(all[i0], top, wh); wh = Math.min(v.size.height, Math.floor(cw * wh / w0)); x = v.origin.x }
   let ww = cw                                            // a skipped slot = the width of the windows we placed
   all.forEach(r => { if (r && mine(r)) ww = place(r, top, wh); x += ww })
-  grid.length = 0; right.length = 0
 }
-// layout.yaml `right`: full usable height, against the screen's right edge, in list order (Nick 2026-11-12: was right after the grid)
-let edge = v.origin.x + v.size.width
-right.map(n => insts.find(r => r.name === n)).filter(Boolean).reverse().forEach(r => { x = edge - Math.round(v.size.height * 9 / 16); edge -= place(r, top, v.size.height, edge) })
-// grid: right-aligned, flush against the `right` column (Nick 2026-11-13: was packed from the left edge); last column first
-// columns counted from each row's end, so a shorter row's gap is on the left (Nick 2026-11-13)
-for (let c = 0; grid.length && c < Math.max(grid[0].length, grid[1].length); c++) {
-  let colW = 0
-  x = edge - Math.round(h * 9 / 16)
-  grid.forEach((row, i) => { const r = row[row.length - 1 - c]; if (r) colW = Math.max(colW, place(r, top + i * h, h, edge)) })
-  edge -= colW
+// Layout 1 = fixed slots (Nick 2026-11-19: "remember or calculate the position based on the accounts predefined", was
+// packed from whatever ran): every layout.yaml `right` / `top` / `bottom` name owns its slot, running or not, so a
+// stopped instance leaves a gap instead of shifting the others. Unlisted running instances go left of the shorter row.
+// MuMu keeps the height we set and snaps the width to 9:16 of the area under its title bar -> width(h) = (h - bar) * 9/16,
+// bar measured once on the first window we move.
+else if (insts.length) {
+  const H = v.size.height
+  x = v.origin.x
+  const bar = H - place(insts[0], top, H) * 16 / 9
+  const W = hh => Math.ceil((hh - bar) * 9 / 16), Wr = W(H), Wh = W(h)   // ceil: round() gave 374 for a 375 window -> 1 px overlaps
+  let edge = v.origin.x + v.size.width
+  right.slice().reverse().forEach(n => { const r = insts.find(q => q.name === n); if (r) { x = edge - Wr; place(r, top, H, edge) } edge -= Wr })
+  const listed = [...rows.flat(), ...right]
+  running.filter(r => !listed.includes(r.name)).forEach(r => rows[rows[0].length > rows[1].length ? 1 : 0].unshift(r.name))
+  rows.forEach((row, i) => row.forEach((n, j) => {
+    const r = insts.find(q => q.name === n), slotEdge = edge - (row.length - 1 - j) * Wh   // columns counted from the row's end
+    if (r) { x = slotEdge - Wh; place(r, top + i * h, h, slotEdge) }
+  }))
 }
 undefined   // osascript prints the last value otherwise
