@@ -135,7 +135,7 @@ def highlights(day, accts):
     """_highlights.md: each account's open boxes (up to the first ';'), then the coins above HIGH. accts = [(acct, p)]."""
     weekday = datetime.date.fromisoformat(day).strftime('%a')
     undone = [(a, [t.split(';')[0] for d, t in rows(p) if not d]) for a, p in accts]
-    undone = [(a, ts) for a, ts in undone if ts]
+    undone = sorted([(a, ts) for a, ts in undone if ts], key=lambda u: -len(u[1]))   # most issues first (Nick 2026-11-19)
     rich = [(a, outstanding(coins(p['res'].get('grocery', ('', ''))[1]))) for a, p in accts]
     rich = [(a, o) for a, o in rich if o]
     shops = [t for t in SHOP_TABS if any(t in o for _, o in rich)]
@@ -192,6 +192,8 @@ def test():
     h = highlights('2026-11-11', [('kong', p), ('tiger', parse(log[:1] + ['12:26:00 OK grocery (9s): done, coins: sanctuary 900 / tribe 50000 / realm 50000 / tundra 22830']))])
     assert '- **kong**\n  - pet_arena: deployments 116/120 (+36 today)\n' in h, h
     assert '| tiger   | 22,830 |' in h and '| kong ' not in h, h
+    h = highlights('2026-11-11', [('kong', p), ('z', parse(log[:1]))])
+    assert h.index('**z**') < h.index('**kong**'), h   # most issues first
     q = parse(log[:1] + ['13:52:00     pet deployments 118 (yesterday 80, +38 today)',
                          '13:54:00     pet: deployed by hand (free attempt) x1, this round 1/4',
                          '13:58:00     pet deployments 118 (yesterday 80, +38 today)',

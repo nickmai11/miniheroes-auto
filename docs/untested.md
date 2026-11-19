@@ -4,6 +4,7 @@ Pre-flight (dailies skill): rows whose Test isn't `passive:` → test on ONE acc
 
 | Added | Change | Test (where) | Pass = |
 | --- | --- | --- | --- |
+| 11-19 | scheduled one-time `dailies` job: launchd → `claude -p "run dailies for all accounts"` at 12:00 local | passive: today 12:00 | `logs/launchd-dailies.log` has the dailies report; job gone from `schedule.py list` |
 | 11-19 | `daily.py divine`: back tap from the Veins grid lost after 0-pickaxe mining (no Arsenal in 8 s, still on Excelsior Veins) → one more back tap (Kratos, Dino, Tiger 11-19 FAILed, retries OK) | passive: next catch-up / dailies `veins_forge` | no `FAIL veins_forge … waited 8s for 'Arsenal'` |
 | 11-18 | `flow.watch_ad()`: an app other than the game/ad in front (Play Store, gms feedback, settings) → launcher intent brings the game's task back, no restart | passive: next no-pass account ad (Chloe / xFaktor grocery, recruit, storm) | `ad opened … -> back to the game` then `ad closed after …`; no `ad did not close` FAIL |
 | 11-18 | `bonus_pick()`: owned Replace-row names (cut: 'ATK DI', 'Concentr Fire') count as preferred by word prefix → never replaced by a non-preferred; a rarer preferred replaces the lowest-rarity preferred | passive: next sanctuary climb that reaches Replace Bonus Effect | no `<non-preferred> replaces <cut preferred name>` in the sanctuary line |
