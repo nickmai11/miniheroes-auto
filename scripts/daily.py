@@ -1282,8 +1282,11 @@ def six_floor(left):
             c = find(b, r'^Challenge$', (300, 1520, 780, 1700))
             if not c: break                              # "Stage Cleared": today's last stage done
             tap_wait(*c); b = wait(r'^Start$', 8)
-            if find(b, r'^0$', (40, 40, 400, 140)): tap_wait(986, 1800)   # empty lineup (first fight) -> Quick Deploy
-            tap_wait(540, 1810); b = wait(r'Victory|Defeat', 180)
+            tap_wait(986, 1800); time.sleep(1)           # Quick Deploy always: an empty lineup's '0' power isn't OCR'd (all accounts 2026-11-20)
+            for _ in range(2):                           # a Start right after Quick Deploy's animation is ignored (Bino 2026-11-20)
+                tap_wait(540, 1810); time.sleep(2)
+                if not find(ocr(), r'^Start$', (300, 1700, 780, 1900)): break
+            b = wait(r'Victory|Defeat', 180)
             lost = find(b, r'Defeat'); close_reward(); time.sleep(1)
             if lost: left.append(f'six_floor ruin {st} Defeat'); break
             n += 1
