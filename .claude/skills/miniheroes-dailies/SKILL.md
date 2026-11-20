@@ -30,7 +30,7 @@ this skill only adds the dailies-specific ones. Mission details, coords and acco
    ui-routine "Weekly Missions (Sunday pass)"; report its line (180 ✓ or what's short) per account (Nick, 2026-11-08).
 4. **Checklist (Nick, 2026-11-11):** every `daily.py` run rewrites `checklists/<game day>/<account>.md` from the account's
    game-day log (`scripts/checklist.py`; full catch-up runs left out): grocery coins on top, then **Not done**, then Done.
-   `checklists/<game day>/_highlights.md` = every account's undone boxes + coins above sanctuary 10k / ruins 3k /
+   `checklists/<game day>/_highlights.md` = run status beside each name (🏃 running / ⛔ cancelled / ✅ finished; rewritten at each run's start and end) + every account's undone boxes + coins above sanctuary 10k / ruins 3k /
    tundra 12k — start the report from it. Anything short of its DoD that is missing there = a `checklist.py` bug: fix
    its rule (+ a `--test` assert), regenerate, then report (Nick, 2026-11-13).
    Pet Arena = +40 deployments that day (catch-up `pet_check` count), or the missing ones deployed since (by hand / Auto Deploy restart), Sanctuary = floors 10/10, Events = no red dot left

@@ -1508,7 +1508,8 @@ def events(cfg):
     if new_tabs: left += [f'unmapped tab {t}' for t in new_tabs]
     for tab, x in tabs.items():
         # 7777: always look - its dot read False on Aminor/Bino/Cmajor with the daily Claim still up (Nick 2026-11-02)
-        if not dots[tab] and tab != '7777': continue
+        # 6-floor: a visit clears its dot with Ruin stages unfought (Pawn II 2026-11-20) -> always look too
+        if not dots[tab] and tab not in ('7777', 'six_floor'): continue
         tap_wait(x, 1840); time.sleep(1.2)
         if tab == 'match_event':
             n = 0
@@ -1873,6 +1874,8 @@ def main(argv):
     os.makedirs(os.path.dirname(log), exist_ok=True)
     sys.stdout = Tee(sys.stdout, open(log, 'a'))
     print(f'=== {datetime.datetime.now():%F %H:%M:%S} daily.py {" ".join(sys.argv[1:])} (serial {D})')
+    sys.stdout.flush()   # highlights show this account as running while the lock is held (Nick 2026-11-20)
+    subprocess.Popen([sys.executable, os.path.join(HERE, 'checklist.py'), str(GAME_DAY), ACCOUNT], stdout=subprocess.DEVNULL)
     try:
         if not home(): print('FAIL start: not on the main screen'); return 1
     except RuntimeError as e: print(f'FAIL start: device unreachable ({e}) - instance stopped?'); return 1

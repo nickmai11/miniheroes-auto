@@ -10,7 +10,7 @@
 # daily.py calls this after every run.
 # usage: scripts/checklist.py [<game day> [<account>...]]   (default: today's game day, every account with a log)
 #        scripts/checklist.py --test
-import datetime, os, re, sys
+import datetime, fcntl, os, re, sys
 os.environ.setdefault('D', '')
 from daily import CATCHUP, GAME_DAY, ORDER, SHOP_TABS
 
@@ -26,10 +26,13 @@ NOOP = re.compile(r'nothing|\(0 this run\)|after 0 crashes|no red dot|already on
 
 def parse(lines):
     """-> dict: res {step: (tag, text)}, chests, runs, pet (n, yesterday, +today) or None, dungeons {key: (done, total)}."""
-    p = {'res': {}, 'chests': set(), 'runs': [], 'pet': None, 'dungeons': {}, 'sent': False, 'refill': 0, 'auto': False}
+    p = {'res': {}, 'chests': set(), 'runs': [], 'pet': None, 'dungeons': {}, 'sent': False, 'refill': 0, 'auto': False,
+         'ended': True}
     use = False
     for l in lines:
+        if re.match(r'^\d\d:\d\d:\d\d LEFT FOR HELPER:', l): p['ended'] = True   # the runner's last line
         if h := HEAD.match(l):
+            p['ended'] = False
             args = h.group(2).split(); steps = [a for a in args if not a.startswith('--')]
             use = '--catch-up' not in args or bool(steps)
             if use: p['runs'].append(f'{h.group(1)} {" ".join(steps) or "full"}' + (' (catch-up)' if '--catch-up' in args else ''))
@@ -131,16 +134,39 @@ def render(acct, day, p):
                      + ['', f'## Done ({len(done)})', ''] + [f'- [x] {t}' for t in done]) + '\n'
 
 
-def highlights(day, accts):
-    """_highlights.md: each account's open boxes (up to the first ';'), then the coins above HIGH. accts = [(acct, p)]."""
+EMOJI = {'running': '🏃', 'cancelled': '⛔', 'finished': '✅'}   # run status (Nick 2026-11-20)
+
+
+def running(acct):
+    """daily.py holds /tmp/miniheroes-state/<acct>.lock while it runs."""
+    try:
+        with open(f'/tmp/miniheroes-state/{acct}.lock', 'a') as f: fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError: return True
+    except OSError: pass
+    return False
+
+
+def status(acct, p):
+    """running / finished (its last run printed LEFT FOR HELPER) / cancelled (stopped before its end: killed, crashed)."""
+    return 'running' if running(acct) else 'finished' if p['ended'] else 'cancelled'
+
+
+def highlights(day, accts, state=status):
+    """_highlights.md: run status per account (Nick 2026-11-20), each account's open boxes (up to the first ';'), then
+    the coins above HIGH. accts = [(acct, p)]."""
     weekday = datetime.date.fromisoformat(day).strftime('%a')
     undone = [(a, [t.split(';')[0] for d, t in rows(p) if not d]) for a, p in accts]
     undone = sorted([(a, ts) for a, ts in undone if ts], key=lambda u: -len(u[1]))   # most issues first (Nick 2026-11-19)
     rich = [(a, outstanding(coins(p['res'].get('grocery', ('', ''))[1]))) for a, p in accts]
     rich = [(a, o) for a, o in rich if o]
     shops = [t for t in SHOP_TABS if any(t in o for _, o in rich)]
-    out = [f'# Highlights - dailies {day} ({weekday})', '', f'## Undone ({len(undone)} of {len(accts)} accounts)', '']
-    out += [l for a, ts in undone for l in [f'- **{a}**'] + [f'  - {t}' for t in ts]] or ['Nothing undone.']
+    st = {a: state(a, p) for a, p in accts}     # emoji beside each name (Nick 2026-11-20)
+    who = lambda a: f'{EMOJI[st[a]]} **{a}**'
+    out = [f'# Highlights - dailies {day} ({weekday})', '', ' · '.join(f'{e} {k}' for k, e in EMOJI.items()), '',
+           f'## Undone ({len(undone)} of {len(accts)} accounts)', '']
+    out += [l for a, ts in undone for l in [f'- {who(a)}'] + [f'  - {t}' for t in ts]] or ['Nothing undone.']
+    clean = [who(a) for a, _ in accts if a not in dict(undone)]
+    if clean: out += ['', f'Nothing undone: {", ".join(clean)}']
     out += ['', '## Outstanding coins', '', 'Above ' + ', '.join(f'{t} {v // 1000}k' for t, v in HIGH.items()) + '.', '']
     out += table(['Account'] + [t.capitalize() for t in shops], [[a] + [f'{o[t]:,}' if t in o else '' for t in shops] for a, o in rich],
                  [False] + [True] * len(shops)) if rich else ['None.']
@@ -190,7 +216,11 @@ def test():
         assert f'- [x] {ok}' in bottom, (ok, md)
     assert 'home' not in md
     h = highlights('2026-11-11', [('kong', p), ('tiger', parse(log[:1] + ['12:26:00 OK grocery (9s): done, coins: sanctuary 900 / tribe 50000 / realm 50000 / tundra 22830']))])
-    assert '- **kong**\n  - pet_arena: deployments 116/120 (+36 today)\n' in h, h
+    assert '- ⛔ **kong**\n  - pet_arena: deployments 116/120 (+36 today)\n' in h, h
+    assert p['ended'] is False and parse(log[:2] + ['12:40:01 LEFT FOR HELPER: events'])['ended'] is True
+    h2 = highlights('2026-11-11', [('kong', p), ('tiger', parse(log[:2] + ['12:40:01 LEFT FOR HELPER: ']))], state=lambda a, q: status(a, q) if a == 'tiger' else 'running')
+    assert '- 🏃 **kong**\n' in h2 and '- ✅ **tiger**\n' in h2, h2
+    assert '- ⛔ **kong**\n' in highlights('2026-11-11', [('kong', p)]), highlights('2026-11-11', [('kong', p)])
     assert '| tiger   | 22,830 |' in h and '| kong ' not in h, h
     h = highlights('2026-11-11', [('kong', p), ('z', parse(log[:1]))])
     assert h.index('**z**') < h.index('**kong**'), h   # most issues first
