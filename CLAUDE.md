@@ -87,7 +87,7 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 - **Coordinator:** wait for runner/helper completion notifications; check a helper's screen only if it says
   it's "pausing/waiting" (red flag) or a notification is overdue.
 - **Fast feedback:** long commands (boot, batches) run in the background; read their output after ~30 s and act on a
-  straggler instead of waiting for its timeout. **Wait for `boot.sh` to finish before starting any account's task**
+  straggler instead of waiting for its timeout. **Start no account's task until every account is booted** (the whole `boot.sh` run, all batches, done)
   (Nick, 2026-11-21: runners started on ready accounts kept the CPU busy, so the last boot batch waited its full ~2 min
   for calm). One Monitor per batch
   (`daily.py` run dir, `relic_all.sh`, `fr_all.sh`, `catchup_all.sh`) for `FAIL` / `Traceback` / `exit 1` — act the
