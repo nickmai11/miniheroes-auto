@@ -3,7 +3,7 @@
 # usage: scripts/ct_do.sh <g1|g2|g3|all|name[,name...]> [tap.py args...]     e.g. scripts/ct_do.sh g1 900,260 --until-text 'Main Base'
 # CT_TOOL=ct_tap.py runs scripts/ct_tap.py (OCR text taps) instead of tap.py. Serials: $CT_SERIALS (default /tmp/ct_serials.txt), lines "<group> <account> <serial>". Logs every call to logs/<account>/<game day>.log.
 HERE="$(cd "$(dirname "$0")" && pwd)"; TAP="$HERE/tap.py"; F=${CT_SERIALS:-/tmp/ct_serials.txt}
-who=$1; shift; GD=$(TZ=UTC date -v-5H +%F)
+who=$1; shift; GD=$("$HERE/accounts.py" game-day)
 case "$who" in all) sel=$(cat "$F");; g[0-9]) sel=$(awk -v g="$who" '$1==g' "$F");; *) sel=$(awk -v l=",$who," 'index(l,","$2",")' "$F");; esac
 [ -n "$sel" ] || { echo "no accounts for '$who'"; exit 1; }
 echo "$sel" | while read g n s; do

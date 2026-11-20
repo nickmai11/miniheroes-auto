@@ -173,7 +173,7 @@ def run(account, max_floor=3):
     if not battle_on(): print('Floating Realm: no battle round now'); return
     KEEP = bool(re.search(r'^\s*realm_lineup:\s*keep', open(f'{R}/accounts/{account}.yaml').read(), re.M))
     os.makedirs(f'{R}/logs/{account}', exist_ok=True)
-    LOG = f'{R}/logs/{account}/{(NOW - datetime.timedelta(hours=5)).date()}.log'
+    import accounts; LOG = f'{R}/logs/{account}/{accounts.game_day()}.log'
     b = ocr()
     if not find(b, r'Stamina Cost'):                       # already exploring (re-run after a stop) -> carry on
         if not find(b, r'^Enter$'):                        # not on the event screen yet -> main screen banner

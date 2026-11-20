@@ -3,12 +3,13 @@
 # usage: scripts/code_all.py CODE [acct...]   (no accounts = scripts/accounts.py code)  batches of 6: boot (boot.sh) the stopped ones, redeem on each, close only those it booted.
 # Instances already running (Kratos: game's own auto stage) are not rebooted - redeemed as they are.
 import json, re, subprocess, sys, time, os, concurrent.futures as cf
-R = '/Users/nickm/projects/chidojiro/miniheroes-auto'; M = '/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli'
+R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, f'{R}/scripts'); import accounts
+M = accounts.MUMU
 code, accts = sys.argv[1], sys.argv[2:] or subprocess.check_output([f'{R}/scripts/accounts.py', 'code'], text=True).split()
-day = subprocess.check_output(['bash', '-c', 'TZ=UTC date -v-5H +%F'], text=True).strip()
+day = str(accounts.game_day())
 out = f'/tmp/miniheroes-gift-{code}'; os.makedirs(out, exist_ok=True)
 def info(): return {r['name'].lower(): r for r in json.loads(subprocess.check_output([M, 'info', 'all']))['return']['results']}
-sys.path.insert(0, f'{R}/scripts'); import accounts
 inst = {a: accounts.instance(a).lower() for a in accts}
 was_up = {a for a in accts if info()[inst[a]].get('state') != 'stopped'}
 def log(a, msg):

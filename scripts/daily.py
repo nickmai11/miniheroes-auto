@@ -21,7 +21,8 @@ NOW = datetime.datetime.now()
 # game day resets 05:00 UTC (Land of Trials refresh timer, 2026-10-28). ONCE steps can't read a 'done today' counter on
 # screen, so they're recorded per game day and skipped on re-runs; every other step re-checks the screen counters.
 ONCE = {'hero', 'tower', 'beast', 'stage', 'sanctuary', 'pet_arena'}
-GAME_DAY = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=5)).date()
+import accounts
+GAME_DAY = accounts.game_day()
 
 
 

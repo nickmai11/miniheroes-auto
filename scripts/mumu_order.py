@@ -7,7 +7,7 @@
 import json, os, re, shutil, subprocess, sys, time
 HERE = os.path.dirname(os.path.abspath(__file__))
 F = os.path.expanduser('~/Library/Application Support/com.netease.mumu.nemux-global/setting/common.json')
-CLI = '/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli'
+from accounts import MUMU as CLI
 
 def build(order, idx):
     """order: names; idx: {name: index} -> 'i-pos,...' (positions follow `order`, then the rest by index)."""

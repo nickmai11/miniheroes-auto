@@ -14,6 +14,7 @@
 # Kong II (S288, on Kong's instance) runs right after Kong, then the instance goes back to Kong (Nick 2026-11-17).
 # A STOP / boot failure is left for Nick (nobody to finish it at 4:30): "<account> exit 1" line + v_realm.png in /tmp/miniheroes-fr/<account>.
 HERE="$(cd "$(dirname "$0")" && pwd)"; R="$(dirname "$HERE")"; W=/tmp/miniheroes-fr
+M=$("$HERE/accounts.py" mumu)   # mumu-cli path: one copy, accounts.py
 echo "=== $(date)"
 # which event's round is on: realm (fr) or tc
 ev=$(cd "$HERE" && D= python3 -c 'import datetime, realm; d = (realm.NOW.date() - datetime.date(2026, 11, 3)).days % 14
@@ -33,7 +34,7 @@ while IFS='|' read -r i a name _; do
   case $line in
     *" ready "*) ;;
     *) echo "$a SKIPPED (${line:-no boot line})"
-       echo "$(date '+%F %T') [fr_all] $ev skipped: boot ${line:-no boot line}" >> "$R/logs/$a/$(TZ=UTC date -v-5H +%F).log"
+       echo "$(date '+%F %T') [fr_all] $ev skipped: boot ${line:-no boot line}" >> "$R/logs/$a/$("$HERE/accounts.py" game-day).log"
        continue;;
   esac
   (export D=$(grep -o '127\.0\.0\.1:[0-9]*' <<<"$line"); run "$a"
@@ -44,6 +45,6 @@ while IFS='|' read -r i a name _; do
    fi) &
 done <<<"$pairs"
 wait
-"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" close "$(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)" >/dev/null && echo "closed instances $(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)"
-"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" config all --setting '{"maxFpsLimit":60}' >/dev/null && echo "fps back to 60"   # boot.sh set 30 (Nick 2026-11-13)
+"$M" close "$(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)" >/dev/null && echo "closed instances $(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)"
+"$M" config all --setting '{"maxFpsLimit":60}' >/dev/null && echo "fps back to 60"   # boot.sh set 30 (Nick 2026-11-13)
 echo "=== done $(date)"

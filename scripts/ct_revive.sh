@@ -3,7 +3,7 @@
 # "Tap anywhere to close" defeat result -> close it; "Severely injured" popup -> tap Free Revive (760,1263; Revive Now =
 # scroll, left button, never tapped) every ~1 s through its 60 s cooldown until it takes, stop at free Times 0/5;
 # Defeated with the popup closed -> big Revive button (840,1600) reopens it. Exits when no account is on the battlefield any more (match over) or after $1 min.
-HERE="$(cd "$(dirname "$0")" && pwd)"; TAP="$HERE/tap.py"; F=${CT_SERIALS:-/tmp/ct_serials.txt}; GD=$(TZ=UTC date -v-5H +%F)
+HERE="$(cd "$(dirname "$0")" && pwd)"; TAP="$HERE/tap.py"; F=${CT_SERIALS:-/tmp/ct_serials.txt}; GD=$("$HERE/accounts.py" game-day)
 end=$(( $(date +%s) + ${1:-45} * 60 ))
 watch() { local n=$1 s=$2 t last=0
   while [ $(date +%s) -lt $end ]; do

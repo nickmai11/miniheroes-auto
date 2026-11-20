@@ -74,7 +74,7 @@ def main(account):
     tribe = re.search(r'arena:\s*\n\s+tribe:\s*(.+)', cfg).group(1).strip()
     bot_only = bool(re.search(r'skip_same_server:\s*true', cfg))
     # Dino/Bino/Dminor (attack_tribemates): tribemates fair game Mon-Wed game days only (Nick, 2026-11-06), never Nick's own accounts (Nick, 2026-11-04)
-    game_day = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=5)).date()
+    import accounts; game_day = accounts.game_day()
     rfile = 'own_accounts.txt' if re.search(r'attack_tribemates:\s*true', cfg) and game_day.weekday() <= 2 else f'tribe_{tribe.lower().replace(" ", "_")}.txt'
     print(f'roster {rfile}', flush=True)
     roster = [norm(l) for l in open(os.path.join(HERE, '..', 'accounts', rfile)) if l.strip() and not l.startswith('#')]

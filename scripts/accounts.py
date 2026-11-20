@@ -4,9 +4,15 @@
 # usage: scripts/accounts.py <task>   -> one account name per line (exit 1 on an unknown name = typo in the yaml)
 #        scripts/accounts.py rows <task> [account ...]   -> "<mumu index>|<account>|<instance>|<adb port or empty>" per
 #        account (the given ones, else the task's) whose instance exists - the one account -> instance lookup (Nick 2026-11-20)
-import glob, json, os, re, subprocess, sys
+#        scripts/accounts.py mumu | game-day   -> the mumu-cli path / today's game day (for the shell scripts and layout.js)
+import datetime, glob, json, os, re, subprocess, sys
 A = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts')
-MUMU = '/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli'
+MUMU = '/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli'   # the one copy
+
+
+def game_day():
+    """Game day as a date: resets 05:00 UTC - names logs/<account>/<day>.log. The one copy."""
+    return (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=5)).date()
 
 
 def field(acct, key):
@@ -58,5 +64,7 @@ def for_task(task):
 
 
 if __name__ == '__main__':
-    if sys.argv[1] == 'rows': print('\n'.join('|'.join(map(str, r)) for r in rows(sys.argv[3:] or for_task(sys.argv[2]))))
+    if sys.argv[1] == 'mumu': print(MUMU)
+    elif sys.argv[1] == 'game-day': print(game_day())
+    elif sys.argv[1] == 'rows': print('\n'.join('|'.join(map(str, r)) for r in rows(sys.argv[3:] or for_task(sys.argv[2]))))
     else: print('\n'.join(for_task(sys.argv[1])))

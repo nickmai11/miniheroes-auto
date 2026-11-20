@@ -6,7 +6,7 @@
 # usage: scripts/rename_account.py <old key> <new key> [--name <display = instance name>] [--dry]
 import glob, json, os, re, subprocess, sys
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CLI = '/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli'
+from accounts import MUMU as CLI
 SKIP = ('docs/archive/', 'accounts/own_accounts.txt', 'accounts/tribe_')
 
 

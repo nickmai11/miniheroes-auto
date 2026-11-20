@@ -18,7 +18,6 @@
 import json, os, re, subprocess, sys, time
 HERE = os.path.dirname(os.path.abspath(__file__))
 R = os.path.dirname(HERE)
-M = '/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli'
 args = sys.argv[1:]
 minutes = float(args[args.index('--minutes') + 1]) if '--minutes' in args else 9
 accts = [a for i, a in enumerate(args) if not a.startswith('--') and (i == 0 or args[i - 1] != '--minutes')]
@@ -33,7 +32,7 @@ os.environ['D'] = next(iter(devs.values()))
 sys.path.insert(0, HERE)
 import flow, hero_faces, tap as T
 
-gd = subprocess.run('TZ=UTC date -v-5H +%F', shell=True, capture_output=True, text=True).stdout.strip()
+gd = str(accounts.game_day())
 
 
 def log(a, msg):

@@ -5,8 +5,8 @@
 # Then it runs scripts/layout.js (window tiling, layout 1 - every task, Nick 2026-11-19), unless NOLAYOUT=1 (stage climb only: Nick 2026-11-14).
 # Then scripts/stabilize.py closes the event popups; "ready (stable …)" = bare main screen, "popup-stuck" = close it by hand.
 # Timings measured on Aminor 2026-10-27: Start button shows <1 s after launch, main screen ~5 s after Start.
-M="/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli"
 HERE="$(cd "$(dirname "$0")" && pwd)"; TAP="$HERE/tap.py"
+M=$("$HERE/accounts.py" mumu)   # mumu-cli path: one copy, accounts.py
 PKG=com.and.brawlen.web
 
 # the ONE relaunch limit (Nick 2026-11-20, every task): game dead after a launch -> launch again, up to this many

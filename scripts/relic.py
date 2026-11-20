@@ -16,6 +16,7 @@
 # worth it as one group (tour(), Nick 2026-11-11). Boosters (never used: Nick 2026-11-14), One-Tap Mining, the shovel "+" are
 # never tapped; the milestone reward is claimed.
 import glob, os, re, sys, time, heapq
+import accounts
 import numpy as np
 from PIL import Image
 
@@ -382,7 +383,7 @@ def buy_shovels(prices, account):
     the shovel counter (+10)."""
     # per game day: prices bought + the next price seen -> a re-run doesn't open the Tip again (Nick 2026-11-04: "you
     # seem to have clicked too many times on the buy shovels" - every pass re-opened and closed it to read the price)
-    day = time.strftime('%F', time.gmtime(time.time() - 5 * 3600))
+    day = str(accounts.game_day())
     st = f'/tmp/miniheroes-state/{account}-{day}.relic_buys'; os.makedirs('/tmp/miniheroes-state', exist_ok=True)
     done = [int(x) for x in open(st).read().split()] if os.path.exists(st) else []
     bought, nxt = [x for x in done if x > 0], [-x for x in done if x < 0]       # negative = the next price seen (not bought)
@@ -418,7 +419,7 @@ def buy_shovels(prices, account):
 def topup(account):
     """Out of free shovels -> Benefit red dot (Claim) + the configured shovel buys, ONCE per game day (Nick 2026-11-04:
     "benefit check and buy only when out of shovel, only once per day"); marker /tmp/miniheroes-state/<acct>-<day>.relic_topup."""
-    day = time.strftime('%F', time.gmtime(time.time() - 5 * 3600))
+    day = str(accounts.game_day())
     st = f'/tmp/miniheroes-state/{account}-{day}.relic_topup'; os.makedirs('/tmp/miniheroes-state', exist_ok=True)
     if os.path.exists(st): return f'top-up: done today ({open(st).read().strip()[:120]})'
     y = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
@@ -526,7 +527,7 @@ if __name__ == '__main__':
     from flow import Stop, find, home, is_main, joined, ocr, main, swipe
     ACCOUNT = a[0]; dry = '--dry' in a
     mx = int(a[a.index('--max-digs') + 1]) if '--max-digs' in a else None
-    day = time.strftime('%F', time.gmtime(time.time() - 5 * 3600))
+    day = str(accounts.game_day())
     LOG = None if os.environ.get('ACCOUNT') else os.path.join(HERE, '..', 'logs', ACCOUNT, day + '.log')  # daily.py tees itself
     if LOG: os.makedirs(os.path.dirname(LOG), exist_ok=True)
     main(run, ACCOUNT, dry, mx)

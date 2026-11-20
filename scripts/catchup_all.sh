@@ -3,6 +3,7 @@
 # each "ready" one in parallel, one result line per account. Leftovers (LEFT FOR HELPER / FAIL) are for Nick or a
 # helper later: scripts/summary.sh /tmp/miniheroes-catchup. Output -> logs/launchd-catchup.log when run by launchd.
 HERE="$(cd "$(dirname "$0")" && pwd)"; R="$(dirname "$HERE")"; W=/tmp/miniheroes-catchup
+M=$("$HERE/accounts.py" mumu)   # mumu-cli path: one copy, accounts.py
 echo "=== $(date)"
 pairs=$("$HERE/accounts.py" rows catchup)   # "<index>|<account>|<instance>|<port>"
 boot=$("$HERE/boot.sh" $(cut -d'|' -f1 <<<"$pairs"))   # boot.sh does the halves (CPU)
@@ -29,5 +30,5 @@ if grep -q '|kong|' <<<"$pairs" && [ -n "$D" ]; then
   }
   . "$HERE/kong_ii.sh"; with_kong_ii kong_ii
 fi
-"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" config all --setting '{"maxFpsLimit":60}' >/dev/null && echo "fps back to 60"   # boot.sh set 30 (Nick 2026-11-13)
+"$M" config all --setting '{"maxFpsLimit":60}' >/dev/null && echo "fps back to 60"   # boot.sh set 30 (Nick 2026-11-13)
 echo "=== done $(date)"
