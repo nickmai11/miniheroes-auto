@@ -20,7 +20,8 @@ LINE = re.compile(r'^\d\d:\d\d:\d\d (OK|SKIP|FAIL|MANUAL) (\w+)(?: \(\d+s\))?: (
 DUNGEON = re.compile(r'^\d\d:\d\d:\d\d\s+(\w+): (\d+)/(\d+) done today')
 PET = re.compile(r'pet deployments (\d+) \(yesterday (\d+), \+(\d+) today\)')
 HAND = re.compile(r'pet: deployed by hand \(free attempt\) x(\d+)')
-SENT = re.compile(r'request:? sent\b|cooldown 0?(5:5\d|6:00):\d\d')   # a fresh 6 h timer = sent just now
+# request made: sent, or NOT SENT on the cooldown (Nick 2026-11-20: neither is reported); a fresh 6 h timer = sent just now
+SENT = re.compile(r'request:? (sent\b|NOT SENT \(cooldown)|cooldown 0?(5:5\d|6:00):\d\d')
 NOOP = re.compile(r'nothing|\(0 this run\)|after 0 crashes|no red dot|already on')
 
 
@@ -106,13 +107,13 @@ def rows(p):
                 text = f'deployments {c}/{y + 40} (+{k} today{more}); {text}'
             else: done = False; text = f'deployments not read yet (dailies pet_count / catch-up pet_check); {text}'
         if n == 'tribe' and tag:                             # request + canyon, each from its latest attempt (catch-up re-runs too)
-            req, sent = res.get('tribe_chat', ('', text))[1], p['sent']   # a later "NOT SENT (cooldown)" = the earlier send's timer
             # done = a spot was occupied (the Daily Mission row); "keeping the current Glory spot" isn't (Kratos 2026-11-13: 150, unflagged)
             canyon = 'occupied' in text or 'occupied' in res.get('canyon', ('', ''))[1]
-            done = sent and canyon
-            # only what's missing, no MANUAL tag: "MANUAL request sent" read as a request problem (Nick 2026-11-20)
-            miss = [m for m, ok in (('request NOT sent', sent), ('canyon NOT done', canyon)) if not ok]
-            text = f'{", ".join(miss) or "request sent, canyon done"}; {req if "tribe_chat" in res else text}'
+            # only what's missing, no MANUAL tag; the request counts as made when sent or NOT SENT on the cooldown (Nick 2026-11-20)
+            sent = p['sent']; done = sent and canyon
+            miss = [m for m, ok in (('request not made', sent), ('canyon NOT done', canyon)) if not ok]
+            detail = res['canyon'][1] if 'canyon' in res else re.sub(r' \(on Tribe chat;[^)]*\)', '', text).split('; ', 1)[-1]   # the canyon half of the tribe line
+            text = f'{", ".join(miss) or "canyon done"}; {re.sub(r"MANUAL ", "", detail)}'
             tag = 'OK'
         if n == 'sanctuary':
             lost = re.search(r'floor (\d+) LOST', text)
@@ -212,10 +213,9 @@ def test():
     assert coin_table({'sanctuary': 10001, 'ruins': 600, 'tundra': 12500})[2] == '| **10,001** |   600 | **12,500** |'
     assert coins('done, coins: sanctuary 3251 / tribe ? / ruins 806') == {'sanctuary': 3251, 'ruins': 806}
     for open_ in ('pet_arena: deployments 116/120 (+36 today)', 'trials: short: gem_mine 4/5', 'divine:',
-                  'tribe: request NOT sent;',
                   'events: MANUAL', 'arena: not run'):
         assert f'- [ ] {open_}' in top, (open_, md)
-    for ok in ('**Daily Mission 160 chest**', 'sanctuary: floors 10/10; swept', 'fishing: auto started'):
+    for ok in ('**Daily Mission 160 chest**', 'sanctuary: floors 10/10; swept', 'fishing: auto started', 'tribe: canyon done;'):
         assert f'- [x] {ok}' in bottom, (ok, md)
     assert 'home' not in md
     h = highlights('2026-11-11', [('kong', p), ('tiger', parse(log[:1] + ['12:26:00 OK grocery (9s): done, coins: sanctuary 900 / tribe 50000 / realm 50000 / tundra 22830']))])
@@ -242,6 +242,8 @@ def test():
     assert '- [ ] pet_arena: deployments 97/120 (+17 today)' in r and 'pet_count' not in r, r
     q = parse(log[:1] + ['12:30:00 OK tribe (137s): tribe done, request sent (cooldown 05:59:59); keeping the current Glory spot: higher than any empty one (highest_free); rewards: points 37452, claimed x0'])
     assert '  - tribe: canyon NOT done\n' in highlights('2026-11-11', [('kratos', q)]), highlights('2026-11-11', [('kratos', q)])   # Kratos 2026-11-13
+    q = parse(log[:1] + ['12:30:00 MANUAL tribe (90s): MANUAL tribe done, request NOT SENT (no cooldown timer after 2 taps); occupied x'])
+    assert '  - tribe: request not made\n' in highlights('2026-11-11', [('q', q)]), highlights('2026-11-11', [('q', q)])
     print('ok')
 
 

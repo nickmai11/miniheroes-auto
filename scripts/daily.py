@@ -803,7 +803,8 @@ def hero(cfg): return script('hero.py', ACCOUNT)
 def treasury(cfg): return script('treasury.py', ACCOUNT)   # King's Treasury keys, after events claims them (Nick 2026-11-10)
 def tribe(cfg):
     r = script('tribe.py')
-    return f'MANUAL {r}' if 'NOT SENT' in r else r      # Request didn't go out -> leftover, not OK (2026-11-07)
+    # report the request only when it wasn't made: sent, or NOT SENT because of the cooldown = fine, silent (Nick 2026-11-20)
+    return r if re.search(r'request (sent\b|NOT SENT \(cooldown)', r) else f'MANUAL {r}'
 
 
 def num(t):
@@ -1186,7 +1187,7 @@ def canyon(cfg):
 canyon.taken = False
 
 
-HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Golden': 'golden_woods', r'^Draws|^7{3,}': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event', r'^Limited': 'limited_recruitment', r'^J\w{2,3}ful|^Hol\w*day$': 'six_floor'}
+HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Golden': 'golden_woods', r'^Draws|^7{3,}': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event', r'^Limited': 'limited_recruitment', r'^J\w{2,3}ful|^Hol\w*day$': 'six_floor', r'^Rune Salv': 'rune_salvage'}
 
 
 def banner_dots(secs=8):
