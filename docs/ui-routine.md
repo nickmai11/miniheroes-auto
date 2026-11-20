@@ -10,45 +10,49 @@ Each mission's gotchas live in its own section — add new findings there, never
 
 ## Daily run order (Nick, 2026-10-26)
 
-Run the missions in this order on each account:
+**Order = `ORDER` in `scripts/daily.py`** (reviewed with Nick 2026-10-31) — the list below follows it, each item named by
+its runner step; change the order there, then here and in `docs/dod.md` (its Done lines).
 
-Reviewed with Nick 2026-10-31 (`scripts/daily.py` ORDER is the source):
+- `pet_arena` — **Pet Arena**, **Mon/Tue/Wed only** (game days): join + Auto Deploy (see "Pet Arena"); first thing (Nick, 2026-11-02).
+- `fishing` — orders to threshold, Benefit (only if red dot), start Auto — first, so Auto runs during the rest.
+  Don't collect order rewards here.
+- `arena` — Ranking Rewards gift boxes, then use all tickets.
+- `patrol` — **Claim All first**, then Speed Patrol until the price is 100 gems (don't buy that one).
+- `arena2` — Arena again: patrol loot refills the tickets.
+- `storm` — **Storm Battlefield** (see "Storm Battlefield", incl. its closed hours), then its rank rewards.
+- `shop` — Shop freebies.
+- `play_pass` — Play Pass claims.
+- `trials` → `tower` → `sanctuary` → `gate` → `beast` — **Adventure**, top to bottom: Land of Trials → Tower of the Throne →
+  Secret Sanctuary → Gate of Darkness → Beast Realm. Ancient Ruins is not part of the dailies (Nick).
+- `arena3` — Arena again, then the weekly win chests.
+- `recruit` — free summons.
+- `hero` — Hero upgrade (after the potion-giving steps above).
+- `tribe` — sign-in, Trial, chat Request + Assist, then **Canyon Clash** (empty spot + Points Reward; closed hours: see
+  "Canyon Clash"). Poseidon's Ruins has its own skill; Crystal Throne: rules in `docs/crystal-throne.md`, matches not automated.
+- `divine` — Divine Weapon: Excelsior Veins, Forge, then Benefit (its milestones count the forging just done — Nick, 2026-11-04).
+- `stage` — Stage run ×3 (skull bubble).
+- `patrol_claim` — Patrol: Claim All only.
+- `rune` — Rune synthesis.
+- `grocery` — free chests, then the account's `grocery_buy` tiles (if any), in one visit: straight to the shop tabs, no close + reopen (Nick, 2026-11-12).
+- `events` — see "Events (red dots)".
+- `treasury` — **King's Treasury** (`scripts/treasury.py`): spend the Treasury Keys the events step just claimed (Nick, 2026-11-10).
+- `tribe_clash_packs` — Tribe Clash free **Value Pack** (banner → Pack `(980,1610)` → yellow Claim, 20 gems, Limited 1 → Sold Out;
+  never the $ packs; Nick, 2026-11-07).
+- `floating_realm_packs` — the account's `floating_realm_packs` (CLAUDE.md "Hard rules").
+- `fishing_rewards` — the only place order rewards are collected (see Fishing step 7).
+- `daily_mission` — **Daily Mission**, the last mission (Nick, 2026-10-29); any new mission step goes before it. A rerun of
+  earlier steps (`daily.py <acct> <step>...`) should include `daily_mission` so their progress gets claimed.
+- `weekly` — **Sundays only**: the weekly-missions pass (Nick 2026-11-08; see "Weekly Missions (Sunday pass)").
+- `play_pass2` — Play Pass again, after the missions, only if the Play Pass icon has a red dot (≈`(156,443)`): the run's activity
+  unlocks new claims (Nick, 2026-11-03). Same in the catch-up.
+- `pet_count` — Mon–Wed (Nick, 2026-11-18): read-only Achievement count → `pet deployments N (yesterday Y, +K today)`, the
+  checklist's progress (`deployments N/Y+40`). Auto Deploy is still running: short is normal here, no restart, no MANUAL.
 
-0. **Pet Arena** — **Mon/Tue/Wed only** (game days): join + Auto Deploy (see "Pet Arena"); first thing (Nick, 2026-11-02).
-   `daily.py` step `pet_arena` since 2026-11-02.
-1. **Fishing** — orders to threshold, Benefit (only if red dot), start Auto — first, so Auto runs during the rest.
-   Don't collect order rewards here.
-2. **Arena** — Ranking Rewards gift boxes, then use all tickets.
-3. **Patrol** — **Claim All first**, then Speed Patrol until the price is 100 gems (don't buy that one).
-4. **Arena** again — patrol loot refills the tickets.
-5. **Storm Battlefield** (see "Storm Battlefield"), then its rank rewards. Skip on Mondays until 17:00 (`/catch-up` after).
-6. **Shop** freebies.
-7. **Play Pass** claims.
-8. **Adventure**, top to bottom: Land of Trials → Tower of the Throne → Secret Sanctuary → Gate of Darkness → Beast Realm.
-   Ancient Ruins is not part of the dailies (Nick).
-9. **Arena** again, then the weekly win chests.
-10. **Recruit** free summons.
-11. **Hero** upgrade (after the potion-giving steps above).
-12. **Tribe** — sign-in, Trial, chat Request + Assist, then **Canyon Clash** (empty spot + Points Reward; closed Mondays
-    until 17:00). Poseidon's Ruins has its own skill; Crystal Throne: rules in `docs/crystal-throne.md`, matches not automated; its free **Value Pack** (banner → Pack `(980,1610)` → yellow Claim, 20 gems, Limited 1 → Sold Out; never the $ packs) = runner step `tribe_clash_packs` after events (Nick, 2026-11-07).
-13. **Divine Weapon** — Excelsior Veins, Forge, then Benefit (its milestones count the forging just done — Nick, 2026-11-04).
-14. **Stage** run ×3 (skull bubble).
-15. **Patrol** — Claim All only.
-16. **Rune** synthesis.
-17. **Grocery** — free chests, then the account's `grocery_buy` tiles (if any), in one visit: straight to the shop tabs, no close + reopen (Nick, 2026-11-12).
-18. **Events** — see "Events (red dots)". Then **King's Treasury** (step `treasury`, `scripts/treasury.py`): spend the
-    Treasury Keys the events step just claimed (Nick, 2026-11-10).
-19. **Fishing** — the only place order rewards are collected (see Fishing step 7).
-20. **Daily Mission** — the last mission (Nick, 2026-10-29); any new mission step goes before it. A rerun of earlier
-    steps (`daily.py <acct> <step>...`) should include `daily_mission` so their progress gets claimed.
-21. **Play Pass again** (`play_pass2`) — after the missions, only if the Play Pass icon has a red dot (≈`(156,443)`): the run's activity unlocks
-    new claims (Nick, 2026-11-03). Same in the catch-up.
-22. **Pet Arena count** (`pet_count`, Mon–Wed, dailies; Nick, 2026-11-18): read-only Achievement count → `pet deployments N (yesterday Y, +K today)`, the checklist's progress (`deployments N/Y+40`). Auto Deploy is still running: short is normal here, no restart, no MANUAL.
-23. **Pet Arena check** (`pet_check`, Mon–Wed) — **catch-up only** since 2026-11-04 (Nick: removed from the dailies' last step,
-    Auto Deploy is still running then) — Pet Arena → Achievement
-    "Cumulative pet deployments completed: N" must be **+40 since yesterday** (= all 40 free attempts used; Mon: 40,
-    Tue: 80, Wed: 120 when no day was missed). Short → Auto Deploy (re)started + MANUAL, the catch-up re-checks. While the
-    Achievement is open it also claims every yellow Claim (milestones reached after the `events` step; Nick, 2026-11-03).
+Not in the dailies: `pet_check` (Mon–Wed) — **catch-up only** since 2026-11-04 (Nick: Auto Deploy is still running at the
+dailies' end) — Pet Arena → Achievement "Cumulative pet deployments completed: N" must be **+40 since yesterday** (= all 40
+free attempts used; Mon: 40, Tue: 80, Wed: 120 when no day was missed). Short → Auto Deploy (re)started + MANUAL, the
+catch-up re-checks. While the Achievement is open it also claims every yellow Claim (milestones reached after the
+`events` step; Nick, 2026-11-03).
 
 A "Match attempts full" popup can interrupt any step: **Confirm** (opens the Arena), spend every ticket (`arena.py`),
 back to main, then redo the interrupted step — `flow.tickets_full()` + the runner do this (Nick, 2026-10-31).

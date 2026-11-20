@@ -13,41 +13,46 @@ lines to each game-day log; a Done line here that it doesn't check = a `checklis
 - **Allowed to stop early:** event closed (Pet Arena Thu–Sun, Storm Sun 06:00–Mon 17:00, Canyon Mon daytime), a price over the safeguard
   cap (Trials, Patrol), Grocery price > balance or sold out, no empty or attackable Canyon spot.
 
-## Dailies (run order)
+## Dailies (order = `ORDER` in `scripts/daily.py`, same as ui-routine "Daily run order")
 
-1. **Pet Arena** (Mon–Wed) — "Auto Deploying" on screen, or "Not enough free deployment attempts". Proven at the
-   end by step 25.
-2. **Fishing** — every order worth ≥ min diamonds (refresh scrolls bought as needed) and the button shows "Auto Fishing".
-3. **Arena** (runs 3× in the day) — tickets **0**; Ranking Rewards gift box has no red dot; reached win chests ✓.
-4. **Patrol** — Speed Patrol bought until the next price hits the config limit (e.g. 100); Claim All done.
-5. **Storm** — tickets 0 (free ticket claimed first) or max rank reached; lineup back to 1 hero; Rewards no red dot.
-6. **Shop** — Free Benefits shows "Sold Out"; Select Hero has no red dot.
-7. **Play Pass** — no red dot on any tab (never a $ button).
-8. **Land of Trials** — every dungeon swept until the Sweep button's next price is above its config price (e.g. Gem Mine 4/4 at 160).
-9. **Tower** — 3 challenges fought; if "Claim Reward" (chest level) shows, it's claimed and the fights go on.
-10. **Secret Sanctuary** — swept, or **all floors won** (floor 10 won / no next-floor marker left on the map).
-11. **Gate of Darkness** — "Chances left today: 0".
-12. **Beast Realm** — Chances dropped by 1.
-13. **Recruit** — the free draws in the config are used: Common, Ancestor ("Free after …" shows), Artifact. No Play Pass: the ad draws count (Nick 2026-11-08).
-14. **Hero** — Bone Archer leveled at least once and gear enhanced at least once (levels don't matter). Out of
-    potions → Rebirth → quick Lv.90.
-15. **Tribe** — signed in; Tribe Trial has no red dot; Request + Assist done. **Canyon:** a new spot occupied
-    (our name on it) and Points Rewards has no red dot.
-16. **Divine Weapon** — pickaxes 0; every free Forge slot filled (or not enough crystals / forge off in config). Benefit
-    (pass accounts) claimed after the forging — no red dot left on it.
-17. **Stage** — 3 fights done (Defeat → Challenge again).
-18. **Patrol claim** — Claim All → "Congratulations".
-19. **Rune** — 1 synthesis ("Congratulations … Rune"), no locked rune tapped.
-20. **Grocery** — free chests show "Sold Out" (no Play Pass: after the 9 ad claims too); each config tile bought (or price > balance / sold out).
-21. **Events** — no red dot on any event hub tab (**Pet Arena, Golden Woods, 7777 Draws, Match Event, Weekly
-    Event**) and none on **Floating Realm** (Nick, 2026-11-03); Tribe Clash / Crystal Throne dots are excepted
-    (`checklist.py`, 2026-11-14); the 7777 dot stays once the daily claims are ticked (ui-routine "Events").
-    21b. **King's Treasury** — `DONE … keys 0` (or `SKIP no Golden Woods event`); point milestones with a red dot claimed.
-22. **Fishing rewards** — no yellow Claim left on the orders.
-23. **Daily Mission** — Daily tab: rows and chests claimed, **160 ✓** (see "Whole run"). **Weekly tab too**: no yellow
-    Claim left, its chests up to the points claimed, and **no red dot on either tab** (the step reads both at the end;
-    2026-11-04: the Weekly tab was skipped on every account and Nick found 4 unclaimed rows on Aminor).
-24. **Play Pass again** — no red dot on the Play Pass icon (opened only when the icon has one; Nick, 2026-11-03).
+- `pet_arena` — **Pet Arena** (Mon–Wed) — "Auto Deploying" on screen, or "Not enough free deployment attempts". Proven by the catch-up `pet_check`.
+- `fishing` — **Fishing** — every order worth ≥ min diamonds (refresh scrolls bought as needed) and the button shows "Auto Fishing".
+- `arena` — **Arena** (runs 3× in the day) — tickets **0**; Ranking Rewards gift box has no red dot; reached win chests ✓.
+- `patrol` — **Patrol** — Speed Patrol bought until the next price hits the config limit (e.g. 100); Claim All done.
+- `arena2` — Arena again — same as `arena`.
+- `storm` — **Storm** — tickets 0 (free ticket claimed first) or max rank reached; lineup back to 1 hero; Rewards no red dot.
+- `shop` — **Shop** — Free Benefits shows "Sold Out"; Select Hero has no red dot.
+- `play_pass` — **Play Pass** — no red dot on any tab (never a $ button).
+- `trials` — **Land of Trials** — every dungeon swept until the Sweep button's next price is above its config price (e.g. Gem Mine 4/4 at 160).
+- `tower` — **Tower** — 3 challenges fought; if "Claim Reward" (chest level) shows, it's claimed and the fights go on.
+- `sanctuary` — **Secret Sanctuary** — swept, or **all floors won** (floor 10 won / no next-floor marker left on the map).
+- `gate` — **Gate of Darkness** — "Chances left today: 0".
+- `beast` — **Beast Realm** — Chances dropped by 1.
+- `arena3` — Arena again — same as `arena`.
+- `recruit` — **Recruit** — the free draws in the config are used: Common, Ancestor ("Free after …" shows), Artifact. No Play Pass: the ad draws count (Nick 2026-11-08).
+- `hero` — **Hero** — Bone Archer leveled at least once and gear enhanced at least once (levels don't matter). Out of
+  potions → Rebirth → quick Lv.90.
+- `tribe` — **Tribe** — signed in; Tribe Trial has no red dot; Request + Assist done. **Canyon:** a new spot occupied
+  (our name on it) and Points Rewards has no red dot.
+- `divine` — **Divine Weapon** — pickaxes 0; every free Forge slot filled (or not enough crystals / forge off in config). Benefit
+  (pass accounts) claimed after the forging — no red dot left on it.
+- `stage` — **Stage** — 3 fights done (Defeat → Challenge again).
+- `patrol_claim` — **Patrol claim** — Claim All → "Congratulations".
+- `rune` — **Rune** — 1 synthesis ("Congratulations … Rune"), no locked rune tapped.
+- `grocery` — **Grocery** — free chests show "Sold Out" (no Play Pass: after the 9 ad claims too); each config tile bought (or price > balance / sold out).
+- `events` — **Events** — no red dot on any event hub tab (**Pet Arena, Golden Woods, 7777 Draws, Match Event, Weekly
+  Event**) and none on **Floating Realm** (Nick, 2026-11-03); Tribe Clash / Crystal Throne dots are excepted
+  (`checklist.py`, 2026-11-14); the 7777 dot stays once the daily claims are ticked (ui-routine "Events").
+- `treasury` — **King's Treasury** — `DONE … keys 0` (or `SKIP no Golden Woods event`); point milestones with a red dot claimed.
+- `tribe_clash_packs` — Tribe Clash free Value Pack shows "Sold Out" (its event week).
+- `floating_realm_packs` — each configured pack bought once at exactly its price, or skipped with the reason.
+- `fishing_rewards` — **Fishing rewards** — no yellow Claim left on the orders.
+- `daily_mission` — **Daily Mission** — Daily tab: rows and chests claimed, **160 ✓** (see "Whole run"). **Weekly tab too**: no yellow
+  Claim left, its chests up to the points claimed, and **no red dot on either tab** (the step reads both at the end;
+  2026-11-04: the Weekly tab was skipped on every account and Nick found 4 unclaimed rows on Aminor).
+- `weekly` — Sundays: see "Whole run".
+- `play_pass2` — **Play Pass again** — no red dot on the Play Pass icon (opened only when the icon has one; Nick, 2026-11-03).
+- `pet_count` — Mon–Wed: a `pet deployments N …` line (read-only; short is normal here).
 
 ## Catch-up
 
@@ -58,7 +63,7 @@ Same as the dailies step with the same name, except:
 - **Tribe** — Request + Assist only.
 - **Recruit** — free Common draws only (cooldown → one more try at the end).
 - **Daily Mission** — claim, then report the points and the chests still locked (160 only if the dailies ran today).
-- **Play Pass again** — same as dailies step 24.
+- **Play Pass again** — same as dailies `play_pass2`.
 - **Pet Arena check** (Mon–Wed, catch-up only since 2026-11-04 — Nick removed it from the dailies) — Achievement
   "Cumulative pet deployments completed" is **+40 since yesterday** (all 40 free attempts used), and no yellow Claim
   left there (claimed while reading). Short → Auto Deploy restarted, re-checked in the next catch-up.
