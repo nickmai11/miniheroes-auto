@@ -22,44 +22,53 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: `scripts/a
    **Canyon MANUAL → re-run `daily.py <acct> --catch-up canyon` once first** (2026-10-29: canyon.py found nothing on 7
    accounts, minutes later 7 helpers each found an empty spot — ~40 tool calls apiece for a free Occupy). Helper only
    if the re-run still says MANUAL; check its `canyon<N>.png` per-screen shots in the run dir to see why.
-   Steps (the spec the runner follows; see `docs/ui-routine.md`):
+   Steps (the spec the runner follows; see `docs/ui-routine.md`). **Order = `CATCHUP` in `scripts/daily.py`** — the list
+   below is in that order, each with its runner step name; change the order there, then here.
    **Red dots only (Nick, 2026-10-27):** for claims (events, Tribe Clash Pack, Daily Mission, rewards icons) open/tap
-   only what shows a red dot — no red dot = nothing to collect, don't open it to check. 0. **Sundays: `weekly_review` first** (runner step; Nick 2026-11-08) — reads the Weekly Mission tab, decides whether the
+   only what shows a red dot — no red dot = nothing to collect, don't open it to check. 0. `weekly_review` — **Sundays first** (Nick 2026-11-08): reads the Weekly Mission tab, decides whether the
    50-Lucky-Stars row is needed for 180 and writes the day's plan; the fishing steps then use the Lucky Star bait only if
    it is, else the account's default bait (ui-routine "Weekly Missions (Sunday pass)").
-   1. Fishing **first** (Nick, 2026-10-29 — Auto then runs during everything else): only start Auto (fishing) and
-      claim completed order rewards — no order refreshing, no Benefit
-   2. Arena: Ranking Rewards gift boxes first (Nick, 2026-10-29), then exhaust free tickets (`scripts/arena.py <account>`), then the win-chest claims — same visit, every runner arena step
-   3. Storm Battlefield (skip if its season is closed — times: ui-routine Storm): run `scripts/storm.py` from the arena
-      screen — it sets the full lineup first and resets to 1 hero after (ui-routine Storm steps 2–4, 6); report its output.
-      Never two accounts of one server block (s201–210, s211–220) in Storm at once — the runner's step locks per block.
-      Then **Rewards** (left side) if it has a red dot — same visit, inside runner step `storm`
-   4. Canyon Clash (skip if its season is closed — times: ui-routine Canyon): **take a new spot even if one is already held**
-      (`scripts/canyon.py`: empty spots only, popup text checked; no empty one → helper); Points Rewards claimed **after** the spot (occupying earns the points — Nick 2026-11-04), same visit
-   5. Divine Weapon: Excelsior Veins via `scripts/veins.py` (stops at 0 pickaxes), then Forge: fill every free slot (N/M) while crystals ≥ cost, even if a forge is already running (Nick, 2026-10-28), then Benefit's Claim Rewards (pass accounts; after the forging — Nick 2026-11-04); skip Forge if the account has `divine_forge: false` (Kong, 2026-10-30)
-   6. Patrol: Claim All only (`scripts/patrol.py <account> --claim-only`) — no Speed Patrol. Claim All often gives Arena tickets → re-run Arena right after
-   7. Tribe chat Request + Assist, every run incl. mornings (Nick, 2026-11-08: on cooldown the tap does nothing) (Tribe section, step 4 only — by hand; `tribe.py` also signs in / fights the Trial)
-   8. Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available (no Play Pass: each one is a video ad, `recruit()` watches it — Nick 2026-11-08); if it's on
-      cooldown or out of chances, skip — don't wait, never pay
-   9. Events red dots (Daily run order step 16): open event banners with a red dot, claim only free
-      Claim/Free rewards; never a $ or gem price. **Collect only** (Nick, 2026-10-28): never Open All / draw / spin /
-      use any event token, ticket or coin, even free ones (7777 Draws: daily Claim only, no Open All). Never Tribe
-      Clash's Treasures or "Enter" (Nick, 2026-10-27); its free Pack claim is fine
-   10. Daily Mission (last), only if its menu icon has a red dot: on the **Daily and Weekly** tabs (each with a red dot)
-       tap ONE yellow **Claim** row (claims all rows) and ONE reachable chest (claims all reachable chests) — never scroll,
-       top row not claimable = done (Nick, 2026-10-27/28); report chests still locked + activity points
-   11. Fishing orders again (very end): claim any order reward that completed during the run (Auto fishing
-       keeps filling them) — claim only, no refresh, don't touch Auto (Nick, 2026-10-27). Also retry Common Recruitment once if its
-       free draw was on cooldown earlier (~5 min) — draw if Free, else skip.
-   12. Play Pass again (runner step `play_pass2`, after the missions — Nick, 2026-11-03): claim any Play Pass red dot the
-       run's activity unlocked; never a $ button.
-   13. Pet Arena check (runner step `pet_check`, Mon–Wed): Achievement cumulative deployments +40 since yesterday = all
-       40 free attempts used; short → Auto Deploy restarted, reported.
+   1. `fishing_auto` — Fishing **first** (Nick, 2026-10-29 — Auto then runs during everything else): only start Auto
+      (fishing) and claim completed order rewards — no order refreshing, no Benefit
+   2. `arena` — Ranking Rewards gift boxes first (Nick, 2026-10-29), then exhaust free tickets (`scripts/arena.py <account>`),
+      then the win-chest claims — same visit, every runner arena step
+   3. `storm` — Storm Battlefield (skip if its season is closed — times: ui-routine Storm): run `scripts/storm.py` from the
+      arena screen — it sets the full lineup first and resets to 1 hero after (ui-routine Storm steps 2–4, 6); report its
+      output. Never two accounts of one server block (s201–210, s211–220) in Storm at once — the runner's step locks per
+      block. Then **Rewards** (left side) if it has a red dot — same visit
+   4. `veins_forge` — Divine Weapon: Excelsior Veins via `scripts/veins.py` (stops at 0 pickaxes), then Forge: fill every
+      free slot (N/M) while crystals ≥ cost, even if a forge is already running (Nick, 2026-10-28), then Benefit's Claim
+      Rewards (pass accounts; after the forging — Nick 2026-11-04); skip Forge if the account has `divine_forge: false`
+      (Kong, 2026-10-30)
+   5. `patrol_claim` — Patrol: Claim All only (`scripts/patrol.py <account> --claim-only`) — no Speed Patrol
+   6. `arena2` — Arena again: Claim All often gives Arena tickets → spend them (same as step 2)
+   7. `tribe_chat` — Tribe chat Request + Assist, every run incl. mornings (Nick, 2026-11-08: on cooldown the tap does
+      nothing) (Tribe section, step 4 only; `tribe.py --chat-only`)
+   8. `common_recruit` — Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available (no Play
+      Pass: each one is a video ad, `recruit()` watches it — Nick 2026-11-08); if it's on cooldown or out of chances,
+      skip — don't wait, never pay
+   9. `canyon` — Canyon Clash (skip if its season is closed — times: ui-routine Canyon): **take a new spot even if one is
+      already held** (`scripts/canyon.py`: empty spots only, popup text checked; no empty one → helper); Points Rewards
+      claimed **after** the spot (occupying earns the points — Nick 2026-11-04), same visit
+   10. `events` — event banners with a red dot (ui-routine Events): claim only free Claim/Free rewards; never a $ or gem
+       price. **Collect only** (Nick, 2026-10-28): never Open All / draw / spin / use any event token, ticket or coin,
+       even free ones (7777 Draws: daily Claim only, no Open All). Never Tribe Clash's Treasures or "Enter" (Nick,
+       2026-10-27); its free Pack claim is fine
+   11. `fishing_rewards` — Fishing orders again: claim any order reward that completed during the run (Auto fishing keeps
+       filling them) — claim only, no refresh, don't touch Auto (Nick, 2026-10-27)
+   12. `daily_mission` — Daily Mission (missions always last, Nick 2026-10-29), only if its menu icon has a red dot: on the
+       **Daily and Weekly** tabs (each with a red dot) tap ONE yellow **Claim** row (claims all rows) and ONE reachable
+       chest (claims all reachable chests) — never scroll, top row not claimable = done (Nick, 2026-10-27/28); report
+       chests still locked + activity points
+   13. `play_pass2` — Play Pass again (after the missions — Nick, 2026-11-03): claim any Play Pass red dot the run's
+       activity unlocked; never a $ button.
+   14. `pet_check` — Pet Arena check (Mon–Wed): Achievement cumulative deployments +40 since yesterday = all 40 free
+       attempts used; short → Auto Deploy restarted, reported.
        **After all helpers finish**, one more runner pass on **only the accounts that had a helper** (orders keep completing
        during the helpers; Nick, 2026-10-28): `daily.py <acct> --catch-up common_recruit fishing_rewards` — drop
        `fishing_rewards` if that account's earlier line said `AUTO STOPPED, bread N` (no bread = no new orders; Nick
        2026-10-29: the order claim ran 3-4x per account). Never re-run a step just to read something off the screen.
-   14. **Relics, last — part of every catch-up, on every account it ran** (Nick 2026-11-10 / 2026-11-16: "relic is part of
+   15. **Relics, last — part of every catch-up, on every account it ran** (Nick 2026-11-10 / 2026-11-16: "relic is part of
        catchup"; never filter by the relic list): after the runner and helpers (incl. the extra pass above),
        `scripts/relic_all.sh <the catch-up's accounts>` in the background, Monitor for `exit 1`; handle per the
        miniheroes-relic skill (its report lines go in the catch-up report). **Kong II** = `relic.py kong_ii` on the Kong
