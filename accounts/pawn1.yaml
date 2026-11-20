@@ -1,6 +1,6 @@
 account:
   name: pawn1
-  mumu_instance: pawn1
+  mumu_instance: Pawn I    # MuMu instance name; account key pawn1 (Nick 2026-11-20)
   game_id: 15380506
   server: 204               # Settings > Server, "Current" row (read 2026-10-31)
   enabled: true
