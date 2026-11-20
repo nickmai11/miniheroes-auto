@@ -1510,42 +1510,48 @@ def events(cfg):
         # 7777: always look - its dot read False on Aminor/Bino/Cmajor with the daily Claim still up (Nick 2026-11-02)
         # 6-floor: a visit clears its dot with Ruin stages unfought (Pawn II 2026-11-20) -> always look too
         if not dots[tab] and tab not in ('7777', 'six_floor'): continue
-        tap_wait(x, 1840); time.sleep(1.2)
-        if tab == 'match_event':
-            n = 0
-            for sub in ((160, 320), (400, 310)):         # the week's 2 sub-events (Canyon Warrior / Heroic Trial, Arena King / Lord's Challenge)
-                tap_wait(*sub)
-                # poll the milestone list: Fishing Race's loads ~2 s late, a fixed 1 s missed its Claim (Kratos 2026-11-17)
-                try: wait(r'Claim|Finished', 6, (0, 900, 1080, 1760))
-                except Stop: continue                    # empty sub-event (Demon Defense 2026-11-17)
-                for _ in range(25):                      # top row's Claim rolls to the next milestone; 8 left 2 on Dino (2026-11-01)
-                    c = find(ocr(), r'^Claim$', (740, 960, 1060, 1090))
-                    if not c: break
-                    tap_wait(*c); time.sleep(1.2); tap_wait(300, 200); n += 1
-            out.append(f'match_event x{n}')
-        elif tab == '7777':
-            c = find(ocr(), r'^Claim$', (300, 1540, 780, 1680))   # never "Again"
-            if c:
-                tap_wait(*c)                             # 30-card result: cards flip one by one, Confirm only after the last
-                # (>15 s: 26/30 flipped at 15 s on pawn1/Chien Than 2026-11-12); never its Open All (Nick 2026-10-28)
-                tap_text(r'^Confirm$', (300, 1650, 780, 1850), wait(r'^Confirm$', 40, (300, 1650, 780, 1850))); out.append('7777 daily')
-        elif tab == 'wish_festival': out += wish_festival()
-        elif tab == 'pet_arena':
-            time.sleep(1); pet_popup(joined(ocr()))       # round-result popup over the lobby
-            if red_dot(105, 290, 160, 345):              # Pack: Free Pack (20 gems, Limited 1) - never the $ packs (2026-11-03)
-                tap_wait(90, 365); wait(r'^Pack$', 6); out.append(f'pet free pack x{claim_yellow(r"^Pack$", dismiss=(540, 960))}')
-                for _ in range(3):                       # X, until the Pack popup is really gone
-                    tap_wait(972, 236); time.sleep(0.6)
-                    if not find(ocr(), r'Value Offer'): break
-            if red_dot(100, 620, 160, 680):              # Achievement: free deployment-milestone Claims (2026-11-02)
-                tap_wait(90, 700); wait(r'^Achievement$', 6); out.append(f'pet achievement x{claim_yellow(r"^Achievement$")}')
-                tap_wait(972, 226)
-        elif tab == 'golden_woods': out += golden_woods(left)
-        elif tab == 'limited_recruitment': out += limited_recruitment()
-        elif tab == 'six_floor': out += six_floor(left)   # its tab dot stays (Wish Summon not rolled): judged by its cards
-        elif tab == 'weekly_event':                      # 2nd sub-tab (Wish Merchant / Pet Shop / Recruit Store): Free Benefits
-            tap_wait(410, 240); time.sleep(1); out.append(f'weekly free x{claim_yellow(r"Free Benefits")}')
-        else: left.append(tab)
+        try:
+            tap_wait(x, 1840); time.sleep(1.2)
+            if tab == 'match_event':
+                n = 0
+                for sub in ((160, 320), (400, 310)):         # the week's 2 sub-events (Canyon Warrior / Heroic Trial, Arena King / Lord's Challenge)
+                    tap_wait(*sub)
+                    # poll the milestone list: Fishing Race's loads ~2 s late, a fixed 1 s missed its Claim (Kratos 2026-11-17)
+                    try: wait(r'Claim|Finished', 6, (0, 900, 1080, 1760))
+                    except Stop: continue                    # empty sub-event (Demon Defense 2026-11-17)
+                    for _ in range(25):                      # top row's Claim rolls to the next milestone; 8 left 2 on Dino (2026-11-01)
+                        c = find(ocr(), r'^Claim$', (740, 960, 1060, 1090))
+                        if not c: break
+                        tap_wait(*c); time.sleep(1.2); tap_wait(300, 200); n += 1
+                out.append(f'match_event x{n}')
+            elif tab == '7777':
+                c = find(ocr(), r'^Claim$', (300, 1540, 780, 1680))   # never "Again"
+                if c:
+                    tap_wait(*c)                             # 30-card result: cards flip one by one, Confirm only after the last
+                    # (>15 s: 26/30 flipped at 15 s on pawn1/Chien Than 2026-11-12); never its Open All (Nick 2026-10-28)
+                    tap_text(r'^Confirm$', (300, 1650, 780, 1850), wait(r'^Confirm$', 40, (300, 1650, 780, 1850))); out.append('7777 daily')
+            elif tab == 'wish_festival': out += wish_festival()
+            elif tab == 'pet_arena':
+                time.sleep(1); pet_popup(joined(ocr()))       # round-result popup over the lobby
+                if red_dot(105, 290, 160, 345):              # Pack: Free Pack (20 gems, Limited 1) - never the $ packs (2026-11-03)
+                    tap_wait(90, 365); wait(r'^Pack$', 6); out.append(f'pet free pack x{claim_yellow(r"^Pack$", dismiss=(540, 960))}')
+                    for _ in range(3):                       # X, until the Pack popup is really gone
+                        tap_wait(972, 236); time.sleep(0.6)
+                        if not find(ocr(), r'Value Offer'): break
+                if red_dot(100, 620, 160, 680):              # Achievement: free deployment-milestone Claims (2026-11-02)
+                    tap_wait(90, 700); wait(r'^Achievement$', 6); out.append(f'pet achievement x{claim_yellow(r"^Achievement$")}')
+                    tap_wait(972, 226)
+            elif tab == 'golden_woods': out += golden_woods(left)
+            elif tab == 'limited_recruitment': out += limited_recruitment()
+            elif tab == 'six_floor': out += six_floor(left)   # its tab dot stays (Wish Summon not rolled): judged by its cards
+            elif tab == 'weekly_event':                      # 2nd sub-tab (Wish Merchant / Pet Shop / Recruit Store): Free Benefits
+                tap_wait(410, 240); time.sleep(1); out.append(f'weekly free x{claim_yellow(r"Free Benefits")}')
+            else: left.append(tab)
+        except Stop as e:                                # one tab failing left every later tab uncollected, unreported (Kong 2026-11-20)
+            left.append(f'{tab} not collected ({str(e)[:70]})'); print(f'    {tab}: {e}', flush=True)
+            if not home(): raise
+            tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920)); time.sleep(1.5)
+
     # DoD (Nick 2026-11-11): no red dot left on a hub tab or a main-screen banner, except Tribe Clash's. Read like at the
     # start - the selected tab hides its own dot, so the old per-tab re-check never fired. Golden Woods = treasury's step.
     final = read()
