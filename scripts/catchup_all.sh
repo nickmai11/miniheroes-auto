@@ -16,8 +16,6 @@ while IFS='|' read -r i a name _; do
    echo "$a exit $? ($(grep -m1 'LEFT FOR HELPER' "$W/$a.log" || tail -1 "$W/$a.log"))") &
 done <<<"$pairs"
 wait
-# relics last, on every catch-up account - never filtered by the relic list (Nick 2026-11-10 / 2026-11-16)
-"$HERE/relic_all.sh" $("$HERE/accounts.py" catchup)
 # Kong II (S288, on Kong's instance) once Kong is done, relics included, then back to Kong (Nick 2026-11-17; CLAUDE.md
 # "Kong II"); stabilize.py exit 0 = that account's ID on screen
 export D=$(grep '^Kong 127\.0\.0\.1:.* ready ' <<<"$boot" | grep -o '127\.0\.0\.1:[0-9]*')
@@ -26,7 +24,6 @@ if grep -q '|kong|' <<<"$pairs" && [ -n "$D" ]; then
   kong_ii() {
     OUT="$W/kong_ii" python3 "$HERE/daily.py" kong_ii --catch-up > "$W/kong_ii.log" 2>&1
     echo "kong_ii exit $? ($(grep -m1 'LEFT FOR HELPER' "$W/kong_ii.log" || tail -1 "$W/kong_ii.log"))"
-    python3 "$HERE/relic.py" kong_ii > out.txt 2>&1; echo "kong_ii relic exit $? ($(grep -m1 '^done:' out.txt || tail -1 out.txt))"
   }
   . "$HERE/kong_ii.sh"; with_kong_ii kong_ii
 fi

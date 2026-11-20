@@ -497,8 +497,9 @@ def run(account, dry=False, max_digs=None):
         boxes = ocr(im); n = shovels(boxes) or n
         if n[0] == 0: break
         cap = digs + n[0] + 60
+    log(show(g))   # board first: the done line is the last one (daily.py's relic step reports the last line)
     log(f'done: {digs} digs, shovels {n[0]}/{n[1]} left, items: {", ".join(got) or "none"}'
-        + (f', UNKNOWN cells {unknown(g)}' if unknown(g) else '') + '\n' + show(g))
+        + (f', UNKNOWN cells {unknown(g)}' if unknown(g) else ''))
     if not home(): raise Stop('not back on the main screen')
     return 0 if n[0] == 0 or (max_digs is not None and digs >= max_digs) else 1
 

@@ -1789,7 +1789,7 @@ def weekly(cfg):
 
 
 # catch-up (.claude/skills/catch-up): Fishing auto only, Arena, Storm, Veins + Forge (no Benefit), Patrol Claim All,
-# Arena again, Tribe chat Request/Assist, Common Recruitment, Daily Mission, Fishing order rewards
+# Arena again, Tribe chat Request/Assist, Common Recruitment, Daily Mission, Fishing order rewards, Relics (last)
 CATCHUP = [('weekly_review', weekly_review),   # Sundays: the Weekly tab first - decides today's fishing bait (Nick 2026-11-08)
            ('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena), ('storm', storm),   # fishing first: Auto runs during the rest (Nick, 2026-10-29)
            ('veins_forge', divine), ('patrol_claim', patrol_claim), ('arena2', arena),
@@ -1798,7 +1798,8 @@ CATCHUP = [('weekly_review', weekly_review),   # Sundays: the Weekly tab first -
            ('canyon', canyon),
            ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),  # missions always last (Nick, 2026-10-29); FR packs: dailies only (Nick 2026-11-03)
            ('play_pass2', play_pass2),   # after the missions: the run's activity unlocks new Play Pass claims (Nick 2026-11-03)
-           ('pet_check', pet_check)]    # Mon-Wed: re-check all 40 free Pet Arena attempts used (Nick 2026-11-03)
+           ('pet_check', pet_check),    # Mon-Wed: re-check all 40 free Pet Arena attempts used (Nick 2026-11-03)
+           ('relic', lambda c: script('relic.py', ACCOUNT))]   # last, every catch-up account (Nick 2026-11-10/16; a step since 2026-11-20, was relic_all.sh after the run)
 CATCHUP_MANUAL = []
 def seq(*parts):
     """One runner step made of sub-steps (fn, config key or None), back to main between them. MANUAL/SKIP tags of a
@@ -1836,7 +1837,7 @@ KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'are
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
        'tribe_chat': 'tribe', 'common_recruit': 'recruit',
-       'events': None, 'treasury': None, 'weekly': None, 'weekly_review': None, 'tribe_clash_packs': 'shop_freebies', 'floating_realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy'}
+       'events': None, 'treasury': None, 'weekly': None, 'weekly_review': None, 'tribe_clash_packs': 'shop_freebies', 'floating_realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy', 'relic': None}
 
 
 def enabled(cfg, key):
@@ -1920,7 +1921,8 @@ def main(argv):
         # one retry, right away: most FAILs are transient (2026-10-29: 18 of 19 passed on a re-run; steps re-read their
         # counters, so a retry never double-spends). In place, not at the end: Chien Than's Speed Patrol ran after Daily
         # Mission and Arena (2026-11-01), so its mission points and patrol Arena tickets came too late.
-        if r is False: print(f'--- retrying {name}', flush=True); r = step(name, fn)
+        # relic: no retry - exit 1 = stopped mid-board, finished by hand (relic skill: never re-run it blindly)
+        if r is False and name != 'relic': print(f'--- retrying {name}', flush=True); r = step(name, fn)
         if r is None: print('LEFT FOR HELPER:', ', '.join(left + failed + [name])); return 1
         if not r: failed.append(name)
     left += failed
