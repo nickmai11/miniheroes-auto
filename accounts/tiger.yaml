@@ -16,7 +16,7 @@ missions:
 
   arena:
     tribe: Vie Gang
-    crash_all_tickets: true
+    attack: non_tribemate   # or: all = tribemates too; own accounts never, and never 200+ points below ours (Nick 2026-11-20)
 
   shop_freebies: true
   play_pass_claims: true

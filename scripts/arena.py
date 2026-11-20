@@ -2,8 +2,9 @@
 # Arena: attack the topmost attackable opponent until tickets = 0 (ui-routine "Arena", steps 2-5).
 # usage: D=<serial> scripts/arena.py <account>     e.g. scripts/arena.py cmajor   (Arena screen must be open)
 # Reads the Challenge dialog with macOS Vision OCR (scripts/ocr): tickets "N/M", row names, blue Crash buttons.
-# Attackable = any row (blue Crash or yellow Challenge, Nick 2026-11-04) whose name is not on accounts/tribe_<tribe>.txt (accounts/own_accounts.txt instead if arena.attack_tribemates: true, Mon-Wed game days only); else the last row (always a bot).
-# skip_same_server accounts: last row (bot) only — the server tag isn't read. Never taps "+" or Refresh.
+# Attackable (Nick 2026-11-20) = topmost row (blue Crash, or yellow Challenge below our CP) whose name is not on accounts/own_accounts.txt
+# (never), nor on accounts/tribe_<tribe>.txt unless arena.attack: all, and whose arena points (crown) are not 200+ below ours; both
+# files hold known OCR misreads too; else the last row (always a bot, the points rule doesn't apply). Never taps "+" or Refresh.
 # A yellow Challenge is a real fight, taken only when the row's CP is below ours (Nick 2026-11-04; ours = the pinned own row at the
 # bottom of the Arena ranking list): Start -> Victory/Defeat -> dismiss (UNTESTED, 2026-11-04). exit 0 = tickets 0 + dialog closed, 1 = unexpected screen (screenshot -> v_arena.png).
 # Win chests / Ranking Rewards claims (step 6) stay with the helper.
@@ -47,8 +48,12 @@ cp_in = lambda boxes, region: [int(m[1]) for x, y, w, h, t in boxes if region[0]
 ZERO = str.maketrans('OoОо', '0000')  # Vision reads the ticket 0 as Latin/Cyrillic O (Bino 0/7, 2026-10-28); the max can read as Z (Aminor 0/7 -> О/Z, 2026-10-29)
 
 
+pts_in = lambda boxes, region: [int(m[1]) for x, y, w, h, t in boxes if region[0] <= x <= region[2] and region[1] <= y <= region[3] for m in [re.fullmatch(r'\D?\s*(\d{3,5})', t.strip())] if m]   # arena points (crown number)
+
+
 def read_dialog():
-    """(tickets, [(y, kind, name, cp)]) or None if the Challenge dialog isn't open. cp (k) sits left of the button, same height."""
+    """(tickets, [(y, kind, name, cp, pts)]) or None if the Challenge dialog isn't open. cp (k) sits left of the button, points (crown)
+    left of cp, same height (Cmajor 2026-11-20: Aminor 2438 at (331,554), 5022k at (502,555), Challenge button ~559)."""
     im = grab()
     if not near(im.getpixel((972, 188)), (255, 255, 255), 25): return None
     boxes = ocr(im)
@@ -60,8 +65,9 @@ def read_dialog():
     for by, kind in buttons(im):
         names = [(y, t) for x, y, w, h, t in boxes if 250 <= x <= 700 and by - 140 <= y <= by - 25]
         cp = cp_in(boxes, (440, by - 50, 640, by + 30))
-        rows.append((by, kind, min(names)[1] if names else '', cp[0] if cp else None))
-    rows += [(y + h // 2, 'shield', '', None) for x, y, w, h, t in boxes if x > 700 and re.fullmatch(r'\d\d:\d\d:\d\d', t.strip())]  # crashed rows keep their place: the bot is the LAST row, not the last button (Bino 2026-11-06)
+        pts = pts_in(boxes, (250, by - 50, 430, by + 30))
+        rows.append((by, kind, min(names)[1] if names else '', cp[0] if cp else None, pts[0] if pts else None))
+    rows += [(y + h // 2, 'shield', '', None, None) for x, y, w, h, t in boxes if x > 700 and re.fullmatch(r'\d\d:\d\d:\d\d', t.strip())]  # crashed rows keep their place: the bot is the LAST row, not the last button (Bino 2026-11-06)
     return tix, sorted(rows, key=lambda r: r[0])
 
 
@@ -72,16 +78,18 @@ def stop(msg):
 def main(account):
     cfg = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
     tribe = re.search(r'arena:\s*\n\s+tribe:\s*(.+)', cfg).group(1).strip()
-    bot_only = bool(re.search(r'skip_same_server:\s*true', cfg))
-    # Dino/Bino/Dminor (attack_tribemates): tribemates fair game Mon-Wed game days only (Nick, 2026-11-06), never Nick's own accounts (Nick, 2026-11-04)
-    import accounts; game_day = accounts.game_day()
-    rfile = 'own_accounts.txt' if re.search(r'attack_tribemates:\s*true', cfg) and game_day.weekday() <= 2 else f'tribe_{tribe.lower().replace(" ", "_")}.txt'
-    print(f'roster {rfile}', flush=True)
-    roster = [norm(l) for l in open(os.path.join(HERE, '..', 'accounts', rfile)) if l.strip() and not l.startswith('#')]
-    ours = cp_in(ocr(), (500, 1340, 800, 1480))     # own pinned row above the Challenge button (Cmajor 11-04: 6338k at (614,1414))
-    ours = ours[0] if ours else None
+    # arena.attack: all (Dino, Bino, Dminor) | non_tribemate (default) — Nick 2026-11-20; own accounts never, either way
+    mode = (re.search(r'^\s+attack:\s*(\w+)', cfg, re.M) or [None, 'non_tribemate'])[1]
+    files = ['own_accounts.txt'] + ([] if mode == 'all' else [f'tribe_{tribe.lower().replace(" ", "_")}.txt'])
+    print(f'mode {mode}: no-attack {" + ".join(files)}', flush=True)
+    roster = [norm(l) for f in files for l in open(os.path.join(HERE, '..', 'accounts', f)) if l.strip() and not l.startswith('#')]
+    b = ocr()   # own pinned row above the Challenge button (Cmajor 11-20: 2455 at (440,1414), 6552k at (616,1414))
+    ours = (cp_in(b, (500, 1340, 800, 1480)) or [None])[0]
+    our_pts = (pts_in(b, (380, 1380, 560, 1450)) or [None])[0]
     print(f'our CP {ours}k' if ours else 'our CP unreadable: Crash rows only', flush=True)
+    print(f'our points {our_pts}' if our_pts else 'our points unreadable: last row (bot) only', flush=True)
     ok = lambda k, cp: k == 'crash' or (ours is not None and cp is not None and cp < ours)   # Challenge only below our CP (Nick 2026-11-04)
+    near_pts = lambda p: our_pts is not None and p is not None and p > our_pts - 200    # not 200+ points below ours (Nick 2026-11-20)
     tap_wait(540, 1594)  # Arena -> Challenge
     last, n = None, 0
     while n < 20:
@@ -98,14 +106,14 @@ def main(account):
         if tix == 0:
             tap_wait(972, 188); print(f'tickets 0 after {n} crashes; dialog closed'); return 0
         # topmost row: Crash, or Challenge below our CP — no Crash preference (Nick, 2026-11-04)
-        pick = None if bot_only else next(((y, f'{nm} {cp}k', k) for y, k, nm, cp in rows[:-1] if ok(k, cp) and not tribemate(nm, roster)), None)
+        pick = next(((y, f'{nm} {cp}k {p}pts', k) for y, k, nm, cp, p in rows[:-1] if ok(k, cp) and near_pts(p) and not tribemate(nm, roster)), None)
         if not pick:  # the last row (bot) can be cut off (Dino: 6 rows; Bino 2026-11-06: 4 shields hid a Crash bot) -> always scroll to the bottom first
             subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', '540', '1500', '540', '900', '500']); time.sleep(1)
             d = read_dialog(); rows = d[1] if d else []
             if not rows: return stop('no last row (bot) found')
             if rows[-1][1] == 'shield': return stop('last row (bot) already crashed (shielded); nothing attackable')
             if not ok(rows[-1][1], rows[-1][3]): return stop(f'last row (bot) is a Challenge at {rows[-1][3]}k, not below our {ours}k')
-            pick = (rows[-1][0], f'{rows[-1][2]} {rows[-1][3]}k (last row)', rows[-1][1])
+            pick = (rows[-1][0], f'{rows[-1][2]} {rows[-1][3]}k {rows[-1][4]}pts (last row)', rows[-1][1])
         print(f'tickets {tix}: {pick[2]} {pick[1]!r}', flush=True)
         tap(866, pick[0]); time.sleep(2)
         if pick[2] == 'challenge':  # real fight (same screens as flow.battle): lineup Start -> result -> fall through to the dismiss loop

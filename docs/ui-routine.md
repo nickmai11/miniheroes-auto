@@ -262,8 +262,10 @@ Renamed from "Match" (Nick, 2026-10-29) — the main-screen icon is still labell
 
 Mapped 2026-10-26 on Cmajor via ADB. **Device coords (1080×1920)**; window coords not mapped yet.
 
-Goal: spend every free ticket attacking the **topmost attackable** opponent (not in our tribe) — Nick, 2026-10-27;
-Crash, or Challenge only when the opponent's CP is below ours (Nick, 2026-11-04).
+Goal: spend every free ticket attacking the **topmost attackable** opponent — Nick, 2026-10-27; Crash, or Challenge only
+when the opponent's CP is below ours (Nick, 2026-11-04). **Two modes** (`arena.attack`, Nick 2026-11-20):
+`non_tribemate` (default) = skip our tribe; `all` (Dino, Bino, Dminor, every day) = tribemates too. Either way never
+Nick's own accounts (`accounts/own_accounts.txt`) and never an opponent **200+ arena points below ours**.
 
 1. **Tribe roster:** members are fixed (Nick, 2026-10-26). Use the saved list in `accounts/tribe_<name>.txt`;
    only read it in-game if that file doesn't exist yet (then save it). Main screen → **Tribe** `(448,1780)`
@@ -283,16 +285,14 @@ Crash, or Challenge only when the opponent's CP is below ours (Nick, 2026-11-04)
      dismiss `(540,120)` (never the bottom: "Challenge again"). Taken only when its CP is **below ours** (Nick, 2026-11-04;
      flow verified on Bino 2026-11-06: Svi 3431k → Victory). Our CP = the fist number of the own row pinned at the bottom of the Arena ranking list, above the
      Challenge button (≈ `(614,1414)`; Cmajor 6338k). Row CP in the dialog ≈ `(498, button y)`.
+   - **Arena points** = the crown number: row ≈ `(331, button y)`, left of its CP; ours = the crown number of the
+     pinned own row ≈ `(440,1414)` (Cmajor 2026-11-20: 2455; rows 2438 … 2077).
    - A crashed row turns into a shield timer (tapping it does nothing) — re-read rows every round.
    - Don't touch `+` (buys tickets) or **Refresh** (cost unknown).
-4. Pick the **topmost** attackable row (scan from row 1 down): Crash, or Challenge below our CP; name not on the roster → tap it.
-   **The last row is always a bot — always attackable** (no tribe/server check needed); use it when no
+4. Pick the **topmost** attackable row (scan from row 1 down): Crash, or Challenge below our CP; points above ours − 200;
+   name not in `own_accounts.txt`, nor in the tribe roster in `non_tribemate` mode → tap it. Points unreadable → not that row.
+   **The last row is always a bot — always attackable** (no name/points check); use it when no
    row above it qualifies, so tickets never go unused.
-   If the account has `arena.attack_tribemates: true` (Dino, Bino, Dminor — Nick, 2026-11-04), **on Mon–Wed game days only**
-   (Nick, 2026-11-06; Thu–Sun = normal tribe rule) use `accounts/own_accounts.txt` (Nick's own accounts) as the roster instead of the
-   tribe list: tribemates are attackable, Nick's accounts never.
-   If the account has `arena.skip_same_server: true` (none since 2026-11-04 — Dminor switched to `attack_tribemates`), also skip opponents on the account's own server
-   ("S###" tag, or "War Zone: AreaNNN" on the opponent profile). Server unknown → skip.
    The dialog closes and shows _Congratulations_ (+40 arena points, 11000 gold).
    Dismiss with `(540,120)`, confirm the ticket count dropped by 1 on the Challenge button.
 5. Repeat from step 2 until tickets = 0. The opponent list changes after every attack.

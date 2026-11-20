@@ -11,7 +11,7 @@ account:
 missions:
   arena:
     tribe: Peakaboo
-    crash_all_tickets: true
+    attack: non_tribemate   # or: all = tribemates too; own accounts never, and never 200+ points below ours (Nick 2026-11-20)
 
   play_pass_claims: true
   recruit:
