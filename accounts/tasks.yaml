@@ -16,6 +16,7 @@ artifact_roll: [internal]
 gear: [internal]
 climb_stage: [internal]
 treasury: [internal, -aminor]
+rune_salvage: [internal, -aminor]
 tc: [internal]
 code: [internal]
 hero_faces: [internal, -aminor]   # skill hero-faces: same 11 as boot (learnt 2026-11-14)

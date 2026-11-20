@@ -744,6 +744,21 @@ tap the tile's centre. A "Locked" reply means the scan was wrong → stop, never
    lowest tier, e.g. 4 blue → 1 purple; that's fine) → **Synthesize** `(824,1668)` with ×1.
 4. Result → **Confirm** `(540,1190)` → close ✕ `(972,560)` → close Backpack ✕ `(972,238)`.
 
+## Rune Salvage (event hub tab, Select All up to 60) — mapped on pawn1 + Bino 2026-11-20
+
+Event: Mythic runes disassembled for Rune Essence (1000 each) + milestone chests, max **60 per event**, no daily
+limit. **Disassemble with Select All** (Nick 2026-11-20) — no picking. Free. Skill `rune-salvage` →
+`D=<serial> scripts/rune_salvage.py <account>` from the main screen (the dailies' `events` step leaves the tab's dot as
+`rune_salvage` for it).
+
+1. Main → event hub `(896,340)` → bottom tab **Rune Salvage** (found by label, was the 1st tab) → "Mythic Runes Owned".
+2. **Select All** `(332,1638)` → "Selected: 20/20" (at most 20 per batch; `0/0` = cap reached or no rune left — a
+   tile tap then only toasts "A maximum of 60 Runes can be disassembled in this event").
+3. **Disassemble** `(748,1638)` → Tip "Confirm disassembly the selected 20 Mythic Runes?" → **Confirm** `(760,1160)`
+   → Congratulations (essence) → tap `(540,120)`. "Disassembled" counter (left, y≈780) goes up by the batch.
+4. Repeat 2–3 until `0/0`. Milestones 10/20/30/45/60 = chest icons `(276|444|608|780|948, 732)`, red dot top-right
+   when claimable → tap, Congratulations, `(540,120)`. Back `(92,1810)`.
+
 ## Grocery (free Daily Specials chests)
 
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
