@@ -13,11 +13,10 @@
 import datetime, fcntl, os, re, subprocess, sys, time
 from stabilize import close_x
 from tap import diff, thumb
-from flow import Stop, adventure, battle, find, grab, in_game, joined, lone_hero, ocr, relaunch, swipe, tap, tap_text, tap_wait, tickets_full, wait, watch_ad
+from flow import Stop, adventure, battle, find, grab, in_game, is_main, joined, lone_hero, near, ocr, relaunch, swipe, tap, tap_text, tap_wait, tickets_full, wait, watch_ad
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
-near = lambda p, c, tol=40: all(abs(a - b) <= tol for a, b in zip(p, c))
 NOW = datetime.datetime.now()
 # game day resets 05:00 UTC (Land of Trials refresh timer, 2026-10-28). ONCE steps can't read a 'done today' counter on
 # screen, so they're recorded per game day and skipped on re-runs; every other step re-checks the screen counters.
@@ -25,7 +24,6 @@ ONCE = {'hero', 'tower', 'beast', 'stage', 'sanctuary', 'pet_arena'}
 GAME_DAY = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=5)).date()
 
 
-def is_main(im=None): return near((im or grab()).getpixel((92, 1788)), (0, 158, 230))
 
 
 def home():

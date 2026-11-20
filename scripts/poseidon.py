@@ -56,8 +56,7 @@ def lock(name):
 
 
 def run():
-    from flow import Stop, find, grab, joined, ocr, swipe, tap, tap_text, tap_wait, wait
-    is_main = lambda: all(abs(a - b) <= 40 for a, b in zip(grab().getpixel((92, 1788)), (0, 158, 230)))
+    from flow import Stop, find, grab, is_main, joined, ocr, swipe, tap, tap_text, tap_wait, wait
 
     def back_main():
         for _ in range(4):  # map -> Tribe -> main (a late back can open Recruit: back again)

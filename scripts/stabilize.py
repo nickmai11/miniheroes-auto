@@ -9,11 +9,9 @@
 # exit 0 = main screen clear, 1 = popup it can't close (screenshot v_stabilize.png) -> close it by hand.
 # Popup open = main screen's blue Recruit icon dimmed (0,158,230 -> ~0,33,50 under Dino's anniversary popup).
 import glob, os, re, time
-from flow import find, grab, ocr, tap_text, wait
+from flow import find, grab, is_main, near, ocr, tap_text, wait
 from tap import tap as tap_wait
 
-near = lambda p, c, tol=40: all(abs(a - b) <= tol for a, b in zip(p, c))
-def is_main(im): return near(im.getpixel((92, 1788)), (0, 158, 230))
 
 
 def close_x(im):

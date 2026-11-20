@@ -15,6 +15,12 @@ class Stop(Exception): pass
 near = lambda p, c, tol=30: all(abs(a - b) <= tol for a, b in zip(p, c))
 
 
+def is_main(im=None):
+    """Main screen = the blue Recruit icon of the bottom bar (dimmed under a popup). The one copy (boot.sh polls the
+    same pixel with tap.py --until 92,1788,0,158,230)."""
+    return near((im or grab()).getpixel((92, 1788)), (0, 158, 230), 40)
+
+
 def tap(x, y): subprocess.run(['adb', '-s', D, 'shell', 'input', 'tap', str(x), str(y)])
 
 
@@ -152,7 +158,7 @@ def tickets_full(boxes):
     if r.returncode: raise Stop('MATCH_FULL: arena.py failed (screenshot v_arena.png)')
     for _ in range(3):                                   # Arena -> main (back can land on Recruit: back again)
         tap_wait(92, 1810); time.sleep(1)
-        if near(grab().getpixel((92, 1788)), (0, 158, 230)): return True
+        if is_main(): return True
     raise Stop('MATCH_FULL: arena tickets spent but not back on the main screen')
 
 

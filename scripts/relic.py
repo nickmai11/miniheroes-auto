@@ -346,7 +346,6 @@ def leave():
     return is_main(grab())
 
 
-def is_main(im): return max(abs(a - b) for a, b in zip(im.getpixel((92, 1788)), (0, 158, 230))) <= 40
 
 
 def dismiss(boxes):
@@ -529,7 +528,7 @@ if __name__ == '__main__':
         sys.exit()
     sys.path.insert(0, HERE)
     from tap import grab, tap as tap_wait
-    from flow import Stop, find, joined, ocr, main, swipe
+    from flow import Stop, find, is_main, joined, ocr, main, swipe
     ACCOUNT = a[0]; dry = '--dry' in a
     mx = int(a[a.index('--max-digs') + 1]) if '--max-digs' in a else None
     day = time.strftime('%F', time.gmtime(time.time() - 5 * 3600))
