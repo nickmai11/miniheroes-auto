@@ -170,7 +170,7 @@ Main-screen check pixel: Recruit icon `(92,1788)` ≈ `(0,158,230)`; Start butto
 
 1. In **MuMuPlayer**, press ▶ on the instance row (if not running). Wait for the Android home
    screen.
-2. Tap the **Mini Heroes** icon `(352, 190)`. Loading screen → tap **Start** `(352, 1022)` (device `(540,1510)`).
+2. Tap the **Mini Heroes** icon `(352, 190)`. Loading screen → tap **Start** `(352, 1022)` (device `(540,1508)`, as `boot.sh`).
 3. Event popups may appear on the main screen — close with their ✕, then screenshot to confirm the main screen
    (Adventure button bottom-left). Seen: Pet Arena ✕ window `(524,520)`; event banner ✕ `(806,742)`;
    "Stargems Running Out!" / promo → **Cancel** `(337,1281)`; 2nd Anniversary promo ✕ ≈ `(988–1006, 322–348)`.
