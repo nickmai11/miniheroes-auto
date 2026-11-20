@@ -155,8 +155,8 @@ Forest `(870,1310)`, Temple `(870,1696)`.
   tap: ad = another activity in front (Mintegral `MBRewardVideoActivity`); let its reward countdown finish ("17s left to be
   rewarded" / "Reward in 15s", top of the screen) — playable ads ("Finish the target Jigsaw") answer Back with a
   **"Confirm to close? You will not be rewarded"** dialog that also pauses the countdown → **Continue**; after the
-  countdown (≥ 40 s in) Back closes the end card, then "Close it" if the dialog comes back; the top-right X `(1014,82)`
-  only as a last resort (a video's body opens the store). ~45 s per ad; the game's reward popup proves the claim.
+  countdown (≥ 60 s in — 40 s forfeited rewards, 2026-11-15) Back closes the end card, then "Close it" if the dialog comes back; the top-right X `(1014,82)`
+  only as a last resort (a video's body opens the store). ~60–80 s per ad; the game's reward popup proves the claim.
   Scripted: Storm (`storm.py`), Common Recruitment and Grocery chests (2026-11-08); Wish Festival Gift Free Pack still
   unmapped on a no-pass account → skip and report.
 - Unmapped, leave alone: Adventure → Ancient Ruins (red dot), main-screen "Mars's Gift".
