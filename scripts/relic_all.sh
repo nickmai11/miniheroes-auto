@@ -6,19 +6,8 @@
 # and finish that account by hand (helper) — never re-run the script blindly on it.
 HERE="$(cd "$(dirname "$0")" && pwd)"; R="$(dirname "$HERE")"; W=/tmp/miniheroes-relic
 echo "=== $(date)"
-pairs=$(python3 - "$R" "$@" <<'EOF'
-import glob, json, re, subprocess, sys
-info = json.loads(subprocess.check_output(['/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli', 'info', 'all']))
-port = {r['name']: r.get('adb_port') for r in info['return']['results']}
-sys.path.insert(0, sys.argv[1] + '/scripts'); from accounts import for_task
-only = set(sys.argv[2:]) or set(for_task('relic'))   # default: accounts/tasks.yaml relic
-for f in sorted(glob.glob(sys.argv[1] + '/accounts/*.yaml')):
-    a = f.rsplit('/', 1)[1][:-5]
-    m = re.search(r'mumu_instance:\s*(.+)', open(f).read())
-    if m and m[1].strip() in port and (not only or a in only): print(f"{a}|{port[m[1].strip()] or ''}")
-EOF
-)
-while IFS='|' read -r a p; do
+pairs=$("$HERE/accounts.py" rows relic "$@")   # "<index>|<account>|<instance>|<port>"; default: accounts/tasks.yaml relic
+while IFS='|' read -r _ a _ p; do
   [ -n "$p" ] || { echo "$a SKIPPED (instance not running)"; continue; }
   mkdir -p "$W/$a"
   (cd "$W/$a" && D=127.0.0.1:$p python3 "$HERE/relic.py" "$a" > out.txt 2>&1

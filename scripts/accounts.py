@@ -2,8 +2,38 @@
 # Accounts a task runs on (Nick, 2026-11-06): accounts/tasks.yaml `<task>: [...]`, items = account, group
 # (accounts/groups.yaml), `all`, or `-<account|group>` to drop, left to right. Task not listed -> all accounts.
 # usage: scripts/accounts.py <task>   -> one account name per line (exit 1 on an unknown name = typo in the yaml)
-import glob, os, re, sys
+#        scripts/accounts.py rows <task> [account ...]   -> "<mumu index>|<account>|<instance>|<adb port or empty>" per
+#        account (the given ones, else the task's) whose instance exists - the one account -> instance lookup (Nick 2026-11-20)
+import glob, json, os, re, subprocess, sys
 A = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts')
+MUMU = '/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli'
+
+
+def field(acct, key):
+    """`key:` value in accounts/<acct>.yaml (inline comment stripped), else None."""
+    f = f'{A}/{acct}.yaml'
+    m = os.path.exists(f) and re.search(rf'^\s*{key}:\s*([^#\n]*?)\s*(#|$)', open(f).read(), re.M)
+    return m[1] if m and m[1] not in ('', 'null') else None
+
+
+def instance(acct):
+    """MuMu instance name: mumu_instance, or `instance` for an account sharing one (Kong II on Kong's)."""
+    return field(acct, 'mumu_instance') or field(acct, 'instance')
+
+
+def of_instance(name):
+    """The account whose own instance (mumu_instance) is `name`, else None."""
+    return next((a for a in every() if field(a, 'mumu_instance') == name), None)
+
+
+def mumu():
+    """{instance name: mumu-cli info row (index, adb_port when running, ...)}"""
+    return {r['name']: r for r in json.loads(subprocess.check_output([MUMU, 'info', 'all']))['return']['results']}
+
+
+def rows(accts):
+    info = mumu()
+    return [(info[i]['index'], a, i, info[i].get('adb_port') or '') for a in accts if (i := instance(a)) in info]
 
 
 def lists(f):
@@ -28,4 +58,5 @@ def for_task(task):
 
 
 if __name__ == '__main__':
-    print('\n'.join(for_task(sys.argv[1])))
+    if sys.argv[1] == 'rows': print('\n'.join('|'.join(map(str, r)) for r in rows(sys.argv[3:] or for_task(sys.argv[2]))))
+    else: print('\n'.join(for_task(sys.argv[1])))

@@ -7,7 +7,7 @@ usage: scripts/survey.py <form url | adb serial> [account ...]     (default: acc
 Answers: short/paragraph text -> 'n/a'; linear scale -> the middle; radio/checkbox -> an option saying fine/no change
 if there is one, else the first; the question whose title mentions "ID" -> the account's game_id. --dry-run prints.
 """
-import glob, json, os, re, subprocess, sys, urllib.parse
+import json, os, re, subprocess, sys, urllib.parse
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 
@@ -19,12 +19,9 @@ def curl(url, data=None):  # curl, not urllib: python has no system certs here (
 
 def accounts(names):
     from accounts import for_task
-    names, out = names or for_task('survey'), {}
-    for f in sorted(glob.glob(os.path.join(ROOT, 'accounts', '*.yaml'))):
-        n = os.path.basename(f)[:-5]
-        g = re.search(r'^\s*game_id:\s*(\d+)', open(f).read(), re.M)
-        if g and n in names: out[n] = g.group(1)
-    return out
+    names = names or for_task('survey')
+    from accounts import field
+    return {n: g for n in sorted(names) if (g := field(n, 'game_id'))}
 
 
 def url_from_device(serial):

@@ -8,7 +8,7 @@
 # Each popup: tick "Do not remind me today" if it has one, then tap its X (top-right grey-blue square, white cross).
 # exit 0 = main screen clear, 1 = popup it can't close (screenshot v_stabilize.png) -> close it by hand.
 # Popup open = main screen's blue Recruit icon dimmed (0,158,230 -> ~0,33,50 under Dino's anniversary popup).
-import glob, os, re, time
+import os, re, time
 from flow import find, grab, is_main, near, ocr, tap_text, wait
 from tap import tap as tap_wait
 
@@ -33,14 +33,10 @@ def close_x(im):
 
 
 def account():
-    """(game_id, server) from accounts/$ACCOUNT.yaml, else the accounts/*.yaml whose mumu_instance is $NAME, else (None, None)."""
-    A, acct = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts'), os.environ.get('ACCOUNT')
-    for f in [f'{A}/{acct}.yaml'] if acct else glob.glob(f'{A}/*.yaml'):
-        t = open(f).read()
-        if acct or re.search(r'mumu_instance:\s*' + re.escape(os.environ.get('NAME', '\0')) + r'\s*$', t, re.M):
-            g, s = re.search(r'game_id:\s*(\d+)', t), re.search(r'server:\s*(\d+)', t)
-            return g and g.group(1), s and s.group(1)
-    return None, None
+    """(game_id, server) from accounts/$ACCOUNT.yaml, else the account whose mumu_instance is $NAME, else (None, None)."""
+    import accounts
+    a = os.environ.get('ACCOUNT') or accounts.of_instance(os.environ.get('NAME'))
+    return (accounts.field(a, 'game_id'), accounts.field(a, 'server')) if a else (None, None)
 
 
 def check_account():

@@ -8,7 +8,8 @@ code, accts = sys.argv[1], sys.argv[2:] or subprocess.check_output([f'{R}/script
 day = subprocess.check_output(['bash', '-c', 'TZ=UTC date -v-5H +%F'], text=True).strip()
 out = f'/tmp/miniheroes-gift-{code}'; os.makedirs(out, exist_ok=True)
 def info(): return {r['name'].lower(): r for r in json.loads(subprocess.check_output([M, 'info', 'all']))['return']['results']}
-inst = {a: re.search(r'mumu_instance:\s*(\S+)', open(f'{R}/accounts/{a}.yaml').read())[1].lower() for a in accts}
+sys.path.insert(0, f'{R}/scripts'); import accounts
+inst = {a: accounts.instance(a).lower() for a in accts}
 was_up = {a for a in accts if info()[inst[a]].get('state') != 'stopped'}
 def log(a, msg):
     print(f'{a}: {msg}', flush=True)

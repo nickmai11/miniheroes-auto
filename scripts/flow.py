@@ -48,13 +48,11 @@ def relaunch(acct=None):
     global RELAUNCHES
     if RELAUNCHES >= MAX_RELAUNCHES: print(f'    game not in front, {MAX_RELAUNCHES} relaunches used; stop', flush=True); return False
     RELAUNCHES += 1
-    import json
-    info = json.loads(subprocess.check_output(['/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli', 'info', 'all']))
-    f = os.path.join(HERE, '..', 'accounts', f'{acct}.yaml')
-    m = acct and os.path.exists(f) and re.search(r'^\s*(mumu_)?instance:\s*([^#\n]*?)\s*(#|$)', open(f).read(), re.M)
+    import accounts
+    info, inst = accounts.mumu(), acct and accounts.instance(acct)
     # by the account's instance name (a stopped instance has no adb port; boot.sh starts it), else by this serial's port
-    hit = (lambda r: r.get('name') == m[2]) if m else (lambda r: str(r.get('adb_port')) == D.rsplit(':', 1)[-1])
-    idx = next((r['index'] for r in info['return']['results'] if hit(r)), None)
+    idx = info[inst]['index'] if inst in info else next(
+        (r['index'] for r in info.values() if str(r.get('adb_port')) == D.rsplit(':', 1)[-1]), None)
     if idx is None:
         RELAUNCHES = MAX_RELAUNCHES                       # nothing to boot: no point retrying
         print(f'    game not in front, no MuMu instance for {acct or D}; stop', flush=True); return False
@@ -62,7 +60,7 @@ def relaunch(acct=None):
     out = subprocess.run([BOOT, str(idx)], capture_output=True, text=True).stdout
     line = next((l for l in out.splitlines() if D in l), '?'); print(f'    relaunch: {line}', flush=True)
     if ' ready ' not in line: return False
-    if not m or m[1]: return True                         # no account given, or it is the instance's own (mumu_instance)
+    if not acct or accounts.field(acct, 'mumu_instance'): return True   # no account given, or the instance's own
     r = subprocess.run([sys.executable, os.path.join(HERE, 'stabilize.py')], env=dict(os.environ, ACCOUNT=acct),
                        capture_output=True, text=True, cwd=tempfile.gettempdir())
     print(f'    relaunch: {acct}: {(r.stdout.strip().splitlines() or ["?"])[-1]}', flush=True)

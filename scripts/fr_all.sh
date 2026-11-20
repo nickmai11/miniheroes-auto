@@ -20,18 +20,7 @@ ev=$(cd "$HERE" && D= python3 -c 'import datetime, realm; d = (realm.NOW.date() 
 print("realm" if realm.battle_on() else "tc" if 7 <= d < 10 and 10 <= realm.NOW.hour < 22 else "")')
 [ -n "$ev" ] || { echo 'no battle round now'; exit 0; }
 echo "event: $ev"
-# "<index>|<account>|<instance name>" per accounts/*.yaml mumu_instance (the template's "Example" has no instance)
-pairs=$(python3 - "$R" "$ev" <<'EOF'
-import glob, json, re, subprocess, sys
-sys.path.insert(0, sys.argv[1] + '/scripts'); from accounts import for_task
-want = for_task(sys.argv[2])   # accounts/tasks.yaml
-info = json.loads(subprocess.check_output(['/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli', 'info', 'all']))
-idx = {r['name']: r['index'] for r in info['return']['results']}
-for f in sorted(glob.glob(sys.argv[1] + '/accounts/*.yaml')):
-    m = re.search(r'mumu_instance:\s*(.+)', open(f).read())
-    if m and m[1].strip() in idx and f.rsplit('/', 1)[1][:-5] in want: print(f"{idx[m[1].strip()]}|{f.rsplit('/', 1)[1][:-5]}|{m[1].strip()}")
-EOF
-)
+pairs=$("$HERE/accounts.py" rows "$ev")   # "<index>|<account>|<instance>|<port>"
 boot=$("$HERE/boot.sh" $(cut -d'|' -f1 <<<"$pairs"))   # boot.sh does the halves (CPU)
 echo "$boot"
 run() {   # <account>: this round's script on $D, output in $W/<account>, one result line
@@ -39,7 +28,7 @@ run() {   # <account>: this round's script on $D, output in $W/<account>, one re
   if [ "$ev" = realm ]; then cmd=("$HERE/realm.py" "$1"); else cmd=("$HERE/tc.py"); fi
   (cd "$W/$1" && python3 "${cmd[@]}" > out.txt 2>&1; echo "$1 exit $? ($(tail -1 out.txt))")
 }
-while IFS='|' read -r i a name; do
+while IFS='|' read -r i a name _; do
   line=$(grep "^$name 127\.0\.0\.1:" <<<"$boot")
   case $line in
     *" ready "*) ;;
@@ -51,9 +40,7 @@ while IFS='|' read -r i a name; do
    # Kong II once Kong is done, then back to Kong (CLAUDE.md "Kong II"); stabilize.py exit 0 = that account's ID on screen
    if [ "$a" = kong ]; then
      cd "$W/kong"
-     if ACCOUNT=kong_ii python3 "$HERE/stabilize.py" > switch.txt 2>&1; then run kong_ii
-     else echo "kong_ii SKIPPED (switch: $(tail -1 switch.txt))"; fi
-     ACCOUNT=kong python3 "$HERE/stabilize.py" >> switch.txt 2>&1 || echo "kong: switch back from Kong II failed ($(tail -1 switch.txt))"
+     . "$HERE/kong_ii.sh"; with_kong_ii run kong_ii
    fi) &
 done <<<"$pairs"
 wait

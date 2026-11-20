@@ -22,12 +22,12 @@ M = '/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli'
 args = sys.argv[1:]
 minutes = float(args[args.index('--minutes') + 1]) if '--minutes' in args else 9
 accts = [a for i, a in enumerate(args) if not a.startswith('--') and (i == 0 or args[i - 1] != '--minutes')]
-ports = {x['name']: x.get('adb_port') for x in json.loads(subprocess.run([M, 'info', 'all'], capture_output=True, text=True).stdout)['return']['results']}
+sys.path.insert(0, HERE)
+import accounts
 devs = {}
-for a in accts:
-    inst = re.search(r'mumu_instance:\s*(.+)', open(f'{R}/accounts/{a}.yaml').read()).group(1).strip()
-    if not ports.get(inst): sys.exit(f'{a}: instance {inst} not running')
-    devs[a] = f'127.0.0.1:{ports[inst]}'
+for _, a, inst, port in accounts.rows(accts):
+    if not port: sys.exit(f'{a}: instance {inst} not running')
+    devs[a] = f'127.0.0.1:{port}'
     subprocess.run(['adb', 'connect', devs[a]], capture_output=True)   # drops after the Mac sleeps (2026-11-01)
 os.environ['D'] = next(iter(devs.values()))
 sys.path.insert(0, HERE)
