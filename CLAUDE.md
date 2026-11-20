@@ -110,6 +110,11 @@ as it happens — not reconstructed at the end:
 - **A question gets an answer, not a fix** (Nick, 2026-11-14): cause, numbers, evidence, my view — no edits, no runs
   started or stopped until he asks or agrees; at most offer the fix in one line. When he critiques a decision, check
   the log/screen and agree or push back with the facts — no reflexive "you're right".
+- **Done indicator** (Nick, 2026-11-20, every task): an account that finished the task Nick named with nothing left
+  (no FAIL / MANUAL / problem skip, helpers + extra passes + relics included) → `scripts/done.sh <serial>` = its
+  instance goes to the Android home screen + one Glass sound. Leftovers → the game stays up. Kong's instance only after
+  Kong II. Whoever finishes the account runs it (coordinator; `catchup_all.sh` / `relic_all.sh` themselves); never a
+  mission script, never an instance that was busy with something else before the task.
 - **Quiet during runs:** no progress chatter ("X done, waiting"); speak only for a real problem or a choice, then the
   final report.
 - **Shorthand:** fr = Floating Realm, tc = Tribe Clash, ct = Crystal Throne — chat only; steps and config keys use the

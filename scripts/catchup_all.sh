@@ -12,8 +12,10 @@ while IFS='|' read -r i a name _; do
   line=$(grep "^$name 127\.0\.0\.1:" <<<"$boot")
   case $line in *" ready "*) ;; *) echo "$a SKIPPED (${line:-no boot line})"; continue;; esac
   mkdir -p "$W/$a"
-  (D=$(grep -o '127\.0\.0\.1:[0-9]*' <<<"$line") OUT="$W/$a" python3 "$HERE/daily.py" "$a" --catch-up > "$W/$a.log" 2>&1
-   echo "$a exit $? ($(grep -m1 'LEFT FOR HELPER' "$W/$a.log" || tail -1 "$W/$a.log"))") &
+  (export D=$(grep -o '127\.0\.0\.1:[0-9]*' <<<"$line"); OUT="$W/$a" python3 "$HERE/daily.py" "$a" --catch-up > "$W/$a.log" 2>&1
+   e=$?; echo "$a exit $e ($(grep -m1 'LEFT FOR HELPER' "$W/$a.log" || tail -1 "$W/$a.log"))"
+   # done indicator: clean accounts only; Kong's instance after Kong II (below)
+   [ $e = 0 ] && [ "$a" != kong ] && grep -qx 'LEFT FOR HELPER: ' "$W/$a.log" && "$HERE/done.sh" "$D") &
 done <<<"$pairs"
 wait
 # Kong II (S288, on Kong's instance) once Kong is done, relics included, then back to Kong (Nick 2026-11-17; CLAUDE.md
@@ -26,6 +28,7 @@ if grep -q '|kong|' <<<"$pairs" && [ -n "$D" ]; then
     echo "kong_ii exit $? ($(grep -m1 'LEFT FOR HELPER' "$W/kong_ii.log" || tail -1 "$W/kong_ii.log"))"
   }
   . "$HERE/kong_ii.sh"; with_kong_ii kong_ii
+  grep -qx 'LEFT FOR HELPER: ' "$W/kong.log" && grep -qx 'LEFT FOR HELPER: ' "$W/kong_ii.log" && "$HERE/done.sh" "$D"
 fi
 "$M" config all --setting '{"maxFpsLimit":60}' >/dev/null && echo "fps back to 60"   # boot.sh set 30 (Nick 2026-11-13)
 echo "=== done $(date)"

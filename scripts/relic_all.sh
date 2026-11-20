@@ -11,7 +11,8 @@ while IFS='|' read -r _ a _ p; do
   [ -n "$p" ] || { echo "$a SKIPPED (instance not running)"; continue; }
   mkdir -p "$W/$a"
   (cd "$W/$a" && D=127.0.0.1:$p python3 "$HERE/relic.py" "$a" > out.txt 2>&1
-   echo "$a exit $? ($(grep -m1 '^done:' out.txt || tail -1 out.txt))") &
+   e=$?; echo "$a exit $e ($(grep -m1 '^done:' out.txt || tail -1 out.txt))"
+   [ $e = 0 ] && "$HERE/done.sh" 127.0.0.1:$p) &   # done indicator (CLAUDE.md)
 done <<<"$pairs"
 wait
 echo "=== done $(date)"
