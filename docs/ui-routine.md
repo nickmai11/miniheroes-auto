@@ -835,6 +835,28 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   (dot ≈ `(696,1572)` until fought) → lineup screen (preset filled) → Start `(540,1810)` → result → Confirm `(540,1226)`
   (Tiger: 324M, all 5 chests in one fight). **Limited Merchant**: Free Recruit Pack (10 tickets, Limited 1) → yellow Free.
   Never: Recruit 1/10 (spends the tickets — collect only), Training Program and the Merchant's $ packs.
+- **6-floor event** (Nick's name, 2026-11-20; non-weekly; this time hub tab **"Joyful Holiday"**, 12 days, mapped on
+  Cmajor 2026-11-20; runner `six_floor()`, tab OCR reads Joyful/Jovful/Jöyful → `^J\w{2,3}ful`). A list of 5 cards, opened
+  by their title (+60 px): Wish Summon, Ruin Challenge, Holiday Exchange, then Sign In | Gift Box side by side. Each
+  card's red dot sits on its top-right corner, ~62 px above the title. Every popup closes with ✕ `(978,192)`.
+  - **Sign In** → "Sign-in Reward": 7+ day rows (Wish tokens, Paper Planes, 100 gems) → today's yellow **Claim**;
+    **Holiday Gift** chest top-left (dot ≈ `(370,330)`) → tap `(280,400)` → one-time **Free** pack (1000 gems, 8888
+    ore, 10 Paper Planes, 1 potion), then the chest shows "Claimed".
+  - **Gift Box** → "Holiday Pack": **Free Benefit Gift Box** yellow Claim (Limited 1, daily reset) → Sold Out. Never
+    the $4.99 / $19.99 rows.
+  - **Ruin Challenge** → "Challenge" popup, Stage N + reward (Wish token, Paper Plane, stars, gold). **Challenge**
+    `(540,1616)` → lineup (empty on the first fight → Quick Deploy `(986,1800)`; kept after) → Start `(540,1810)` →
+    Victory → next stage opens. Free, no tickets. 2026-11-20: stages 1–5 won (Cmajor), then "Stage Cleared" (no
+    Challenge button) = done for now.
+  - **Wish Summon** = Wish Lobby: pick a **Dream Hero** (Select Hero → grid of Mythic heroes → Save), then roll with
+    Wish tokens (count top right; Cmajor 11 on day 1). Each wish = a reward; 60 wishes guarantee the Wish Hero (2.5%
+    each); 0.1% Abyssal Queen – Moonlit Phantom skin. Its dot (on Select Hero) stays until a hero is picked.
+    **Not done** — Nick 2026-11-20: don't pick or roll yet.
+  - **Holiday Exchange** = the 6 floors: Paper Planes (expire at the event end; Cmajor 18) buy one item; redeeming
+    any item of a floor unlocks the next. Prices: F1 5/5/5 (2500 ore, 3000 stars, 250K gold), F2 15/12/15, F3
+    28/30/25, F4 60/60/60, F5 70/80/75, F6 500/120/200. **Not done** — Nick 2026-11-20: leave for now (he decides).
+  - The hub tab's dot stays while Wish Summon isn't picked → `events()` judges this tab by the 3 collect cards' dots
+    (`six_floor <card> dot` in MANUAL), not the tab dot.
 - **Tribe events** = the **3rd** right-column banner (under Match/Weekly Event and Storm Battlefield): Floating Realm,
   Tribe Clash or Crystal Throne — one at a time, never overlapping (Nick, 2026-11-07). Runner step `tribe_clash_packs` claims the
   Tribe Clash / Crystal Throne free pack; Floating Realm packs = `floating_realm_packs`.

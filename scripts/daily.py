@@ -1186,7 +1186,7 @@ def canyon(cfg):
 canyon.taken = False
 
 
-HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Golden': 'golden_woods', r'^Draws|^7{3,}': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event', r'^Limited': 'limited_recruitment'}
+HUB_TABS = {r'^Wish': 'wish_festival', r'^Pet|^Arena$': 'pet_arena', r'^Golden': 'golden_woods', r'^Draws|^7{3,}': '7777', r'^Match': 'match_event', r'^Weekly': 'weekly_event', r'^Limited': 'limited_recruitment', r'^J\w{2,3}ful|^Hol\w*day$': 'six_floor'}
 
 
 def banner_dots(secs=8):
@@ -1256,6 +1256,43 @@ def limited_recruitment():
     got.append(f'hero trial chests x{n}')
     tap_wait(908, 280); wait(r'Limited Offer', 6); got.append(f'limited free pack x{claim_yellow(r"Limited Offer")}')
     return got
+
+
+def six_floor(left):
+    """"6-floor event" (Nick's name; hub tab "Joyful Holiday" 2026-11-20, 12 days; mapped on Cmajor): free collects only.
+    Sign In = today's yellow Claim + the one-time Holiday Gift chest (Free); Gift Box = Free Benefit Gift Box (daily);
+    Ruin Challenge = free stage fights, Challenge until Stage Cleared or a Defeat. Never Wish Summon (Dream Hero roll:
+    Nick 2026-11-20 "don't roll yet" - its dot stays) or Holiday Exchange (6 floors, Paper Planes: Nick decides)."""
+    got = []
+    def card(pat, title):
+        p = find(ocr(), pat)
+        if not p: left.append(f'six_floor {pat}'); return False
+        tap_wait(p[0], p[1] + 60); wait(title, 6); return True
+    if card(r'Sign In\b', r'Sign-in Reward'):
+        n = claim_yellow(r'Sign-in Reward')
+        if red_dot(340, 300, 400, 360):                  # Holiday Gift chest (top left): one-time Free pack
+            tap_wait(280, 400); n += claim_yellow(r'Holiday Gift')
+        got.append(f'sign-in x{n}'); tap_wait(978, 192)
+    if card(r'Gift Box', r'Holiday Pack'):
+        got.append(f'free gift box x{claim_yellow(r"Holiday Pack")}'); tap_wait(978, 192)   # never the $ rows
+    if card(r'Ruin Challenge', r'^Challenge$|Stage Cleared'):
+        n = 0
+        for _ in range(10):
+            b = ocr(); st = next((t for *_, t in b if re.match(r'Stage \d+$', t)), 'stage ?')
+            c = find(b, r'^Challenge$', (300, 1520, 780, 1700))
+            if not c: break                              # "Stage Cleared": today's last stage done
+            tap_wait(*c); b = wait(r'^Start$', 8)
+            if find(b, r'^0$', (40, 40, 400, 140)): tap_wait(986, 1800)   # empty lineup (first fight) -> Quick Deploy
+            tap_wait(540, 1810); b = wait(r'Victory|Defeat', 180)
+            lost = find(b, r'Defeat'); close_reward(); time.sleep(1)
+            if lost: left.append(f'six_floor ruin {st} Defeat'); break
+            n += 1
+        got.append(f'ruin stages x{n}'); tap_wait(978, 192)
+    time.sleep(1); b = ocr()                              # DoD: no dot left on these 3 cards (top-right corner, ~62 px above the title)
+    for pat, dx in ((r'Sign In\b', 512), (r'Gift Box', 1034), (r'Ruin Challenge', 1036)):  # OCR: 'LRuin Challenge'
+        p = find(b, pat)
+        if p and red_dot(dx - 30, p[1] - 95, dx + 30, p[1] - 35): left.append(f'six_floor {pat} dot')
+    return [f'6-floor {g}' for g in got]
 
 
 def unmapped_tabs(im=None):
@@ -1501,6 +1538,7 @@ def events(cfg):
                 tap_wait(972, 226)
         elif tab == 'golden_woods': out += golden_woods(left)
         elif tab == 'limited_recruitment': out += limited_recruitment()
+        elif tab == 'six_floor': out += six_floor(left)   # its tab dot stays (Wish Summon not rolled): judged by its cards
         elif tab == 'weekly_event':                      # 2nd sub-tab (Wish Merchant / Pet Shop / Recruit Store): Free Benefits
             tap_wait(410, 240); time.sleep(1); out.append(f'weekly free x{claim_yellow(r"Free Benefits")}')
         else: left.append(tab)
@@ -1510,7 +1548,7 @@ def events(cfg):
     for t in list(tabs)[:2]:
         tap_wait(tabs[t], 1840); time.sleep(1.2)
         final = {k: v or d for (k, v), d in zip(final.items(), read().values())}
-    left += [t for t, d in final.items() if d and t != 'golden_woods' and t not in left]
+    left += [t for t, d in final.items() if d and t not in ('golden_woods', 'six_floor') and t not in left]
     if not home(): raise Stop('lost the main screen after the event hub')
     dots = banner_dots()
     if dots:   # Storm Battlefield's dot clears on a visit, Weekly Event's lags its hub claim (Dminor/pawn1 2026-11-12) -> re-read
