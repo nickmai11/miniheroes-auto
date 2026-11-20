@@ -38,7 +38,7 @@ face … -> learn` → it runs `learn` on that account and reads again. Still un
    an empty name = still unknown.
 5. Log every run (CLAUDE.md "Action log"); report new ids, misreads, skips. The faces are repo files: say which are new,
    commit only when Nick asks.
-6. Done: `mumu-cli config all --setting '{"maxFpsLimit":60}'`.
+6. Done: fps back to 60 (CLAUDE.md "FPS").
 
 ## In code
 
