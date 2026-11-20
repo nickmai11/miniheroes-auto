@@ -110,6 +110,8 @@ as it happens — not reconstructed at the end:
 - **A question gets an answer, not a fix** (Nick, 2026-11-14): cause, numbers, evidence, my view — no edits, no runs
   started or stopped until he asks or agrees; at most offer the fix in one line. When he critiques a decision, check
   the log/screen and agree or push back with the facts — no reflexive "you're right".
+- **Done sound** (Nick, 2026-11-20, every task): an account's script plays Glass when it ends (`flow.py`, top-level
+  script only); a helper finishing an account by hand ends with `afplay /System/Library/Sounds/Glass.aiff`.
 - **Quiet during runs:** no progress chatter ("X done, waiting"); speak only for a real problem or a choice, then the
   final report.
 - **Shorthand:** fr = Floating Realm, tc = Tribe Clash, ct = Crystal Throne — chat only; steps and config keys use the

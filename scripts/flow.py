@@ -8,6 +8,15 @@ from tap import grab, tap as tap_wait
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
 
+# Sound when an account's script ends (Nick 2026-11-20, every task): the top-level per-account script only - its
+# children (daily.py -> arena.py, checklist.py) inherit MH_SOUND and stay quiet; python -c / tests never ring.
+_script = os.path.basename(sys.argv[0])
+if _script.endswith('.py') and not _script.startswith(('test_', 'checklist')) and 'MH_SOUND' not in os.environ:
+    import atexit
+    os.environ['MH_SOUND'] = '1'
+    atexit.register(lambda: subprocess.Popen(['afplay', '/System/Library/Sounds/Glass.aiff'],
+                                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL))
+
 
 class Stop(Exception): pass
 
