@@ -110,7 +110,10 @@ def rows(p):
             # done = a spot was occupied (the Daily Mission row); "keeping the current Glory spot" isn't (Kratos 2026-11-13: 150, unflagged)
             canyon = 'occupied' in text or 'occupied' in res.get('canyon', ('', ''))[1]
             done = sent and canyon
-            text = f'request {"sent" if sent else "NOT sent"}, canyon {"done" if canyon else "NOT done"}; {req if "tribe_chat" in res else text}'
+            # only what's missing, no MANUAL tag: "MANUAL request sent" read as a request problem (Nick 2026-11-20)
+            miss = [m for m, ok in (('request NOT sent', sent), ('canyon NOT done', canyon)) if not ok]
+            text = f'{", ".join(miss) or "request sent, canyon done"}; {req if "tribe_chat" in res else text}'
+            tag = 'OK'
         if n == 'sanctuary':
             lost = re.search(r'floor (\d+) LOST', text)
             text = f'floors {10 if tag == "OK" else int(lost[1]) - 1 if lost else "?"}/10; {text}'
@@ -209,7 +212,7 @@ def test():
     assert coin_table({'sanctuary': 10001, 'ruins': 600, 'tundra': 12500})[2] == '| **10,001** |   600 | **12,500** |'
     assert coins('done, coins: sanctuary 3251 / tribe ? / ruins 806') == {'sanctuary': 3251, 'ruins': 806}
     for open_ in ('pet_arena: deployments 116/120 (+36 today)', 'trials: short: gem_mine 4/5', 'divine:',
-                  'tribe: MANUAL request NOT sent, canyon done',
+                  'tribe: request NOT sent;',
                   'events: MANUAL', 'arena: not run'):
         assert f'- [ ] {open_}' in top, (open_, md)
     for ok in ('**Daily Mission 160 chest**', 'sanctuary: floors 10/10; swept', 'fishing: auto started'):
@@ -238,7 +241,7 @@ def test():
     r = render('dino', '2026-11-11', q)
     assert '- [ ] pet_arena: deployments 97/120 (+17 today)' in r and 'pet_count' not in r, r
     q = parse(log[:1] + ['12:30:00 OK tribe (137s): tribe done, request sent (cooldown 05:59:59); keeping the current Glory spot: higher than any empty one (highest_free); rewards: points 37452, claimed x0'])
-    assert 'tribe: request sent, canyon NOT done' in highlights('2026-11-11', [('kratos', q)]), highlights('2026-11-11', [('kratos', q)])   # Kratos 2026-11-13
+    assert '  - tribe: canyon NOT done\n' in highlights('2026-11-11', [('kratos', q)]), highlights('2026-11-11', [('kratos', q)])   # Kratos 2026-11-13
     print('ok')
 
 
