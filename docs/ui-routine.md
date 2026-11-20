@@ -1037,7 +1037,7 @@ High to Low / 4 except Cmajor). The game's own default is 4 / High to Low, so ea
 
 Added by Nick 2026-10-26; mapped on Cmajor via ADB (device coords).
 
-**Season: opens Monday 17:00, closes the next Monday 06:00.** So Tue–Sun it's part of the normal dailies; on
+**Season: opens Monday 17:00, closes the next Monday 06:00** (in-game rules: Monday 10:00 → Sunday 23:00 UTC). So Tue–Sun it's part of the normal dailies; on
 **Monday** it's closed until 17:00 — do it in a separate run after 17:00 instead
 (e.g. `/catch-up`, which does Storm + Canyon). If it's locked on screen ("Tribe Clash: Unlocks in …"), skip.
 The main-screen "Tribe Clash" banner countdown is not Canyon's — check inside the Tribe screen.
@@ -1152,8 +1152,8 @@ s211–220 (Bino, Dino, Chien Than, Kong) can be matched against each other — 
 
 Added by Nick 2026-10-26; mapped on Cmajor via ADB (device coords). Free tickets only.
 
-**Season: opens Monday 17:00, closes the next Monday 05:00** (like Canyon Clash). Tue–Sun: part of the normal
-dailies. Monday: closed until 17:00 — run `/catch-up` after that.
+**Season: opens Monday 17:00, closes Sunday 06:00** (in-game rules: Monday 10:00 → Saturday 23:00 UTC; read
+2026-11-20). Mon 17:00 → Sat: part of the normal dailies. Sun 06:00 → Mon 17:00: closed — skip it.
 
 1. Main screen → **2nd event card** (top right, y≈480). It rotates every few seconds (Storm Battlefield /
    Dragon Temple…); swiping it doesn't work. Pixel `(760,450)` gold ≈ `(230,150,66)` = Storm showing (use y=450

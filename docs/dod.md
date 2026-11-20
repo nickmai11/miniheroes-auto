@@ -10,7 +10,7 @@ lines to each game-day log; a Done line here that it doesn't check = a `checklis
 - **Sundays:** the `weekly` step's line per account — **180 weekly chest ✓**, or what is short and why (daily cap / cost / stars); a Lucky Star swap counts as done only once the row reads 50/50 later (Nick, 2026-11-08).
 - **Dailies done** = every account shows the **160 Daily Mission chest ✓**. Only 2 of the 18 rows can't be scripted
   (Upgrade Statue, Purchase with Diamonds), so less than 160 means a step was missed → find it and do it.
-- **Allowed to stop early:** event closed (Pet Arena Thu–Sun, Storm / Canyon Mon daytime), a price over the safeguard
+- **Allowed to stop early:** event closed (Pet Arena Thu–Sun, Storm Sun 06:00–Mon 17:00, Canyon Mon daytime), a price over the safeguard
   cap (Trials, Patrol), Grocery price > balance or sold out, no empty or attackable Canyon spot.
 
 ## Dailies (run order)

@@ -85,7 +85,8 @@ def storm_block(cfg):
 
 
 def storm(cfg):
-    if NOW.weekday() == 0 and NOW.hour < 17: return 'SKIP closed until Mon 17:00'
+    # season Mon 10:00 -> Sat 23:00 UTC (in-game rules, read 2026-11-20) = closed Sun 06:00 -> Mon 17:00 local
+    if NOW.weekday() == 6 and NOW.hour >= 6 or NOW.weekday() == 0 and NOW.hour < 17: return 'SKIP closed Sun 06:00 - Mon 17:00'
     # one Storm at a time per server block - parallel runners wait here (Nick 2026-11-02: they'd attack each other)
     with open(f'/tmp/miniheroes-state/storm-{storm_block(cfg)}.lock', 'w') as lock:
         t0 = time.time(); fcntl.flock(lock, fcntl.LOCK_EX)
@@ -1165,7 +1166,7 @@ def canyon_rewards():
 def canyon(cfg):
     """Take a new EMPTY spot by the day's rule (scripts/canyon.py), then the Points Rewards — occupying earns the points
     (Nick 2026-11-04). No empty one -> MANUAL (helper attacks: a Sentinel, else a non-tribe player - Nick 2026-11-16)."""
-    if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'
+    if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'   # season Mon 10:00 -> Sun 23:00 UTC (in-game rules)
     open_canyon()
     if canyon.taken: out = 'spot taken earlier this run'  # the runner's retry re-occupied after a rewards FAIL (Dino 11-05)
     else:
