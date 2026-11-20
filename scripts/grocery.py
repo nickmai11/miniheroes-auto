@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # usage: D=<serial> scripts/grocery.py  (Grocery Daily Specials tab must be open).
 # Grocery: claim every top-row chest whose button says Free. Green Free (pass accounts) = instant; the grey "▶ Free"
-# ad button (no Play Pass, xFaktor 2026-11-08 — Nick: watch the ads) -> popup's green Free -> video ad
+# ad button (no Play Pass, pawn1 2026-11-08 — Nick: watch the ads) -> popup's green Free -> video ad
 # (flow.watch_ad) -> Congratulations popup. Gem-priced buttons are never tapped (not green, no "Free" text).
 import subprocess, time, os, sys
 from PIL import Image
@@ -36,7 +36,7 @@ for rnd in range(3):
             ad=False
             if not green(im.getpixel((x,436))):
                 boxes = boxes or ocr(im)                   # 540-wide coords; "Free" text on a non-green button = ad chance
-                if not find(boxes, r'Free$', (x-55,405,x+55,470)): continue   # OCR gives '} Free' (the ▶ icon) on chest 3 (xFaktor 2026-11-08)
+                if not find(boxes, r'Free$', (x-55,405,x+55,470)): continue   # OCR gives '} Free' (the ▶ icon) on chest 3 (pawn1 2026-11-08)
                 ad=True
             subprocess.run([T,f'{x*2},893','-o','p.png'],env=os.environ); p=Image.open('p.png').convert('RGB'); y=popup_green_y(p)
             if not y: print('popup has no green Free; closing',x,flush=True); subprocess.run([T,'540,1850','-o','g.png'],env=os.environ); break

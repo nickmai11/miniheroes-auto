@@ -22,7 +22,7 @@ face … -> learn` → it runs `learn` on that account and reads again. Still un
 
 1. Accounts: the one where the face showed up; "all" → `scripts/accounts.py hero_faces`. Boot them:
    `scripts/boot.sh <idx>...` (main screen, 30 fps).
-2. Per account, in parallel, only from the main screen: `D=<serial> python3 -c "import daily; print(daily.home())"`
+2. Per account, in parallel, only from the main screen: `D=<serial> python3 -c "import flow; print(flow.home())"`
    must print `True`, else skip that account and report it (Cmajor 11-14: learn started off the main screen and its
    taps fused a relic). Then `D=<serial> scripts/hero_faces.py learn` — `learn --all` after a game update or any change
    to the matching code. View-only (hero cards + the All filter, never a button); ~4–5 min per account (mostly waiting for the list to stop

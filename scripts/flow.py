@@ -69,10 +69,42 @@ def relaunch(acct=None):
     return r.returncode == 0
 
 
+def home():
+    """Back to the main screen - the one copy (every script; Nick 2026-11-20): back arrow / popup handling, max 8 tries.
+    Back can land on Recruit -> back again.
+    Game not in front (crashed to the Android home) -> flow.relaunch() = boot.sh on this instance."""
+    if not in_game(): return relaunch(os.environ.get('ACCOUNT'))
+    for _ in range(8):
+        if is_main(): return True
+        boxes = ocr(net=True)
+        try:
+            if tickets_full(boxes): continue
+        except Stop as e: print(f'    {e}', flush=True); return False
+        if find(boxes, r'Do not remind me today'):
+            tap_text(r'Do not remind me today', boxes=boxes)
+            from stabilize import close_x                   # stabilize imports flow
+            x = close_x(grab())                                    # back arrow can't close event popups (Dino 2026-10-28)
+            if x: tap_wait(*x); time.sleep(1); continue
+        if find(boxes, r'^Exit') and find(boxes, r'^Confirm$'): tap_text(r'^Confirm$', boxes=boxes); continue
+        if find(boxes, r'Network issue') and find(boxes, r'^Confirm$'):   # mid-battle (pawn1 gate 2026-11-10): Confirm reloads
+            tap_text(r'^Confirm$', boxes=boxes); print('    network issue popup -> Confirm (game reloads)', flush=True)
+            for _ in range(60):
+                if is_main(): break
+                # reload can land on the title screen (Chien Than 11-11: Start untapped -> Back opened "Quit Game?")
+                if s := find(ocr(net=True), r'^Start$', (300, 1400, 780, 1620)): tap_wait(*s)
+                time.sleep(1)
+            continue
+        tap_wait(92, 1810); time.sleep(0.8)
+    for _ in range(3):                                   # screens without the back arrow (hero detail, Cmajor 2026-10-31):
+        if is_main(): return True                        # Android Back - never on main (it opens a dialog there)
+        subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4']); time.sleep(1.2)
+    return is_main()
+
+
 def watch_ad(timeout=180, log=print):
     """After an ad-button tap (no-pass accounts, Nick 2026-11-08: watch the ads): no ad took over -> True at once.
     Ad activity (Mintegral MBRewardVideoActivity): let it run until its reward countdown is over - "17s left to be
-    rewarded" / "Reward in 15s" at the top; Back or X before that forfeits the reward. xFaktor 2026-11-08: 31 Backs
+    rewarded" / "Reward in 15s" at the top; Back or X before that forfeits the reward. pawn1 2026-11-08: 31 Backs
     during a playable (jigsaw) ad only toggled its "Confirm to close?" dialog, which also pauses the countdown ->
     Continue while a countdown shows. Countdown gone 6 s and >= 60 s in (plain videos ~37 s, no text; 40 forfeited 2 on 11-15) -> Back
     (closes the end card); "Confirm to close?" then = reward already granted -> Close it; the top-right X (1014,82)
@@ -104,7 +136,7 @@ def watch_ad(timeout=180, log=print):
             if b: tap(*b); log(f'    ad dialog -> {"Close it" if done else "Continue"} ({el:.0f}s)'); time.sleep(2); continue
         if el >= 60 and time.time() - seen >= 6:   # 40 forfeited 2 rewards at 47-48 s (Boudior, Tiger 2026-11-15; paid ones ran 71-78 s)
             tries += 1
-            if tries % 2 == 0: tap(1014, 82)   # playables ignore Back: '>' then the end card's X (xFaktor 11-09)
+            if tries % 2 == 0: tap(1014, 82)   # playables ignore Back: '>' then the end card's X (pawn1 11-09)
             else: subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4'])
             time.sleep(3); continue
         time.sleep(2)
@@ -156,9 +188,7 @@ def tickets_full(boxes):
                        capture_output=True, text=True)
     print('    tickets-full popup: Confirm -> arena.py:', (r.stdout.strip().splitlines() or ['?'])[-1], flush=True)
     if r.returncode: raise Stop('MATCH_FULL: arena.py failed (screenshot v_arena.png)')
-    for _ in range(3):                                   # Arena -> main (back can land on Recruit: back again)
-        tap_wait(92, 1810); time.sleep(1)
-        if is_main(): return True
+    if home(): return True
     raise Stop('MATCH_FULL: arena tickets spent but not back on the main screen')
 
 
@@ -244,7 +274,7 @@ def find_img(path, region=(0, 1150, 1080, 1590), im=None):
 
 def one_hero():
     """Battle setup: exactly 1 hero deployed? Idle animation over ~1 s: motion in our back slot (x<140), none in slots
-    2-5 (x 180-500). Measured xFaktor 3-35 (archer alone): 0-140 ~13k moving px, 180-500 0; enemy 5 heroes span ~500 px.
+    2-5 (x 180-500). Measured pawn1 3-35 (archer alone): 0-140 ~13k moving px, 180-500 0; enemy 5 heroes span ~500 px.
     ponytail: a moving background in slots 2-5 reads as "more heroes" -> lone_hero() just redoes the lineup (safe)."""
     import numpy as np
     fr = []

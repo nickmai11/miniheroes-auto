@@ -23,7 +23,7 @@ SAME = 22                                            # gray diff: same face <16,
 def rows(im, bg=BG):
     """Top y of every card row fully on screen: a run of card lines 213-221 px long (cards are 217) between grey gaps,
     measured on each card's left part: red dots / class badges stick out ~12 px above the top right and put every
-    face of such a row 12 px off (fGotten 11-14), a card cut by the list's edges makes a shorter run."""
+    face of such a row 12 px off (pawn2 11-14), a card cut by the list's edges makes a shorter run."""
     a = np.asarray(im.convert('RGB'), dtype=int)
     cols = np.concatenate([np.arange(x - 80, x + 30) for x in COLS])
     card = [(np.abs(a[y, cols] - bg).sum(1) >= 30).mean() >= 0.1 for y in range(TOP, BOTTOM)] + [False]

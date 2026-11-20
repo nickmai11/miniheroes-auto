@@ -1,5 +1,5 @@
 # Weekly Missions (Mission popup → Weekly tab): 22 rows, 10 points each, chests at 45 / 90 / 135 / 180.
-# Read on xFaktor 2026-11-08. Priority = this list, top down (Nick, 2026-11-08): on Sunday after the dailies the
+# Read on pawn1 2026-11-08. Priority = this list, top down (Nick, 2026-11-08): on Sunday after the dailies the
 # weekly pass works down it on every account still under 180 and skips the `do: false` rows (paid / not worth it).
 #   n:   the row's position in the game's list (open rows first, then completed)
 #   via: the screen / runner step that produces the row (blank = nothing scripted yet)

@@ -123,7 +123,7 @@ parallel (`CT_TOOL=ct_tap.py` for OCR text taps: `ct_do.sh g1 '^Lineup$' 80,1810
 Still unmapped (taps are dead before the countdown ends): the node popup with March / Attack / Station, the 20-diamond
 speed-up popup and its "Don't show again" tick — map them on one account in the first minute of the match. No revive
 `scripts/ct_revive.sh [minutes]` = free-revive watcher on every account (~1 s polls: taps Free Revive through its 60 s
-cooldown until it takes, reopens the popup via the big Revive button 840,1600 if it was closed — 11-08 Cris/PuPu/xFaktor
+cooldown until it takes, reopens the popup via the big Revive button 840,1600 if it was closed — 11-08 Cris/PuPu/pawn1
 sat defeated with it closed — stops at free `Times:0/5`; never Revive Now). Windows: `LAYOUT=ct` (layout skill).
 taps (node positions on the device, the tap-on-base popup with March / Attack / Station, the 20-diamond speed-up popup
 and its "Don't show again" tick) get mapped during the setup hour and written here.

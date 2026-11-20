@@ -78,7 +78,7 @@ def scroll(d):
     """Slow-drag the grid up ~170-200 px and return how far it really moved. Rows repeat every PITCH, so a shift
     near/over a row is ambiguous (fixed y and 230-px drags put wrong heroes in, Chien Than/Dino 2026-11-01): the
     short drag keeps the true shift the only match in 20-300; a poor best match raises instead of guessing. Limit 16
-    (was 12; Bino/xFaktor 11-14 stopped at 12-13): every card is now checked by its face, so a near-miss can't misplace a hero."""
+    (was 12; Bino/pawn1 11-14 stopped at 12-13): every card is now checked by its face, so a near-miss can't misplace a hero."""
     b = gray(); adb(d, 'swipe', 540, 1450, 540, 1330, 2000); time.sleep(1.2); a = gray()
     if abs(a[1150:1570] - b[1150:1570]).mean() < 2: return 0   # grid end
     err = {s: abs(a[1150:1230] - b[1150 + s:1230 + s]).mean() for s in range(20, 301, 2)}
@@ -179,7 +179,7 @@ def to_main(a):
     d = devs[a]
     if 'x2' in flow.joined(flow.ocr(T.grab())):
         step(a, '', r'Victory|Defeat', 300); time.sleep(1); adb(d, 'tap', 540, 1880); time.sleep(1.5)
-    r = subprocess.run(['python3', '-c', 'import daily; print(daily.home())'], cwd=HERE, env={**os.environ, 'D': d}, capture_output=True, text=True)
+    r = subprocess.run(['python3', '-c', 'import flow; print(flow.home())'], cwd=HERE, env={**os.environ, 'D': d}, capture_output=True, text=True)
     if 'True' not in r.stdout: log(a, 'could not reach the main screen'); sys.exit(1)
 
 
@@ -212,7 +212,7 @@ def read_lineups(a, learned=False):
     d = devs[a]
     teams = {1: [], 2: [], 3: []}
     def clean():
-        multi = {c for t in teams for c in teams[t] if sum(c in v for v in teams.values()) > 1}   # green card art (xFaktor r4c2)
+        multi = {c for t in teams for c in teams[t] if sum(c in v for v in teams.values()) > 1}   # green card art (pawn1 r4c2)
         return {t: [c for c in v if c not in multi] for t, v in teams.items()}
     def read(vis):
         for t in (1, 2, 3):
@@ -253,13 +253,13 @@ def write_lineups(a, teams):
 
 
 def start(a):
-    """Not on a stage battle/result/setup (Nick used the account) -> main screen (daily.home) -> skull -> Start."""
+    """Not on a stage battle/result/setup (Nick used the account) -> main screen (flow.home) -> skull -> Start."""
     T.D = flow.D = devs[a]
-    for _ in range(5):   # between fights the screen can be blank/loading (xFaktor 2026-11-01): look a few times
+    for _ in range(5):   # between fights the screen can be blank/loading (pawn1 2026-11-01): look a few times
         t = flow.joined(flow.ocr(T.grab()))
         if re.search(r'Stage: ?\d+-\d+|x2|Victory|Defeat|Challenge|Next Stage|Tap anywhere', t): return
         time.sleep(1.5)
-    r = subprocess.run(['python3', '-c', 'import daily; print(daily.home())'], cwd=HERE, env={**os.environ, 'D': devs[a]},
+    r = subprocess.run(['python3', '-c', 'import flow; print(flow.home())'], cwd=HERE, env={**os.environ, 'D': devs[a]},
                        capture_output=True, text=True)
     if 'True' not in r.stdout: log(a, f'FAIL: could not reach the main screen ({r.stdout.strip()} {r.stderr.strip()[-200:]})'); sys.exit(1)
     step(a, '994,964', r'^Start$|\| Start \|')

@@ -12,7 +12,7 @@
   - _Developer_ tab: Root Access, System Disk Mode (Readonly/Writable), ADB default port.
   - Menu _Developer → Open ADB (<port>)_ shows the instance's ADB port.
 - Display: every instance is 1080×1920, 360 dpi (`mumu-cli config <i> --setting '{"resolutionWidthHeight":"1080x1920","resolutionDPI":360}'`,
-  applies on restart). Chien Than, Cris, PuPu and xFaktor were 600×1080 with an `adb shell wm size 1080x1920` override
+  applies on restart). Chien Than, Cris, PuPu and pawn1 were 600×1080 with an `adb shell wm size 1080x1920` override
   (windows ~7 px narrower) until 2026-11-06 (Nick: all instances same config). A restart can move the ADB port by 1
   (26752 → 26753): always read it from `mumu-cli info`.
 - Frame rate: **60 fps outside tasks, 30 during any task** on every instance incl. Kong and Cmajor (Nick 2026-11-13):

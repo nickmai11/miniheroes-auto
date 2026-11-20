@@ -89,7 +89,7 @@ def run(acct, max_keys=999):
         if not cards: raise Stop(f'level {lv}: no unflipped card but no Next floor either')
         c = random.choice(cards); tap_wait(*c); time.sleep(0.6)
         b = ocr()
-        # keys OCR misses a lone "0" -> the flip answers with a toast over the still-flippable board (xFaktor/Chien Than
+        # keys OCR misses a lone "0" -> the flip answers with a toast over the still-flippable board (pawn1/Chien Than
         # 2026-11-09 kept tapping it): the toast, or the card still face down, = out of keys
         if find(b, r'Insufficient') or near(grab().getpixel((c[0] - 60, c[1] - 60)), TAN, 20):
             milestones(); log(f'DONE level {lv}, keys 0 (flip refused), flips {used}'); return

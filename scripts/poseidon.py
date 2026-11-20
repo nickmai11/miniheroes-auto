@@ -56,13 +56,10 @@ def lock(name):
 
 
 def run():
-    from flow import Stop, find, grab, is_main, joined, ocr, swipe, tap, tap_text, tap_wait, wait
+    from flow import Stop, find, grab, home, is_main, joined, ocr, swipe, tap, tap_text, tap_wait, wait
 
     def back_main():
-        for _ in range(4):  # map -> Tribe -> main (a late back can open Recruit: back again)
-            if is_main(): return
-            tap_wait(92, 1810); time.sleep(0.8)
-        raise Stop('could not get back to the main screen')
+        if not home(): raise Stop('could not get back to the main screen')
 
     def attempts(im=None):
         """The pill right of "Attack Attempts" (same row as the "Battling: hh:mm:ss" timer, which a trailing-digits
@@ -91,7 +88,6 @@ def run():
     if not find(ocr(), r'Attack Attempts'):
         if not find(ocr(), r"Poseidon"):
             if not is_main():                           # other screen -> go to main, don't stop (Nick, 2026-10-31)
-                from daily import home
                 if not home(): raise Stop('could not reach the main screen')
             for _ in range(2):  # first Tribe tap right after the main screen appears can be ignored
                 tap_wait(448, 1780)

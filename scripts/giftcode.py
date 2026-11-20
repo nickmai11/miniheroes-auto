@@ -13,7 +13,7 @@ def run(code):
     boxes = ocr()
     if not find(boxes, r'Redemption Code'):
         if not find(boxes, r'^Play Pass$'):           # other screen -> go to main, don't stop (Nick, 2026-10-31)
-            from daily import home
+            from flow import home
             if not home(): raise Stop(f'could not reach the main screen; screen: {joined(ocr())[:200]}')
         tap_wait(994, 1625)                       # menu ☰
         tap_wait(820, find(wait(r'^Settings$'), r'^Settings$')[1])   # the icon; side-menu labels don't react

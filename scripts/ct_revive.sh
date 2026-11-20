@@ -22,7 +22,7 @@ watch() { local n=$1 s=$2 t last=0
     elif echo "$t" | grep -q 'Tap anywhere to close'; then D=$s python3 "$TAP" 540,1500 -o /tmp/ctw_$n.png -w 270 >/dev/null 2>&1; continue
     elif echo "$t" | grep -qE 'Battle ends|Rewards \| Ranking|Settlement'; then echo "$(date +%T) $n off battlefield, stop"; return
     elif echo "$t" | grep -q 'Defeated' && echo "$t" | grep -qE '(^|\| )Revive( \||$)'; then
-      # popup closed (X / stray tap) but still defeated: the big Revive button (840,1600) reopens it — 11-08 Cris/PuPu/xFaktor sat here
+      # popup closed (X / stray tap) but still defeated: the big Revive button (840,1600) reopens it — 11-08 Cris/PuPu/pawn1 sat here
       D=$s python3 "$TAP" 840,1600 -o /tmp/ctw_$n.png -w 270 >/dev/null 2>&1; continue; fi
     sleep 1
   done; }

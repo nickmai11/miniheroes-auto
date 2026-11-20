@@ -70,7 +70,7 @@ def claim_free():
     got = 0
     while got < 8 and free_btn(grab()) == 'green':
         tap(350, 1274); got += 1
-        if not watch_ad(): print('ad did not close; stop'); sys.exit(1)   # flow's: blind Backs paused the countdown (xFaktor 11-09)
+        if not watch_ad(): print('ad did not close; stop'); sys.exit(1)   # flow's: blind Backs paused the countdown (pawn1 11-09)
         time.sleep(1); tap(540, 200); time.sleep(1)    # dismiss the Congratulations popup each claim
     if free_btn(grab()): close_popup()
     return got

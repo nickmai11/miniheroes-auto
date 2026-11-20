@@ -13,7 +13,7 @@
 import datetime, fcntl, os, re, subprocess, sys, time
 from stabilize import close_x
 from tap import diff, thumb
-from flow import Stop, adventure, battle, find, grab, in_game, is_main, joined, lone_hero, near, ocr, relaunch, swipe, tap, tap_text, tap_wait, tickets_full, wait, watch_ad
+from flow import Stop, adventure, battle, find, grab, home, is_main, joined, lone_hero, near, ocr, swipe, tap, tap_text, tap_wait, wait, watch_ad
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
@@ -24,36 +24,6 @@ ONCE = {'hero', 'tower', 'beast', 'stage', 'sanctuary', 'pet_arena'}
 GAME_DAY = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=5)).date()
 
 
-
-
-def home():
-    """Back to the main screen: back arrow / popup handling, max 8 tries. Back can land on Recruit -> back again.
-    Game not in front (crashed to the Android home) -> flow.relaunch() = boot.sh on this instance."""
-    if not in_game(): return relaunch(os.environ.get('ACCOUNT'))
-    for _ in range(8):
-        if is_main(): return True
-        boxes = ocr(net=True)
-        try:
-            if tickets_full(boxes): continue
-        except Stop as e: print(f'    {e}', flush=True); return False
-        if find(boxes, r'Do not remind me today'):
-            tap_text(r'Do not remind me today', boxes=boxes)
-            x = close_x(grab())                                    # back arrow can't close event popups (Dino 2026-10-28)
-            if x: tap_wait(*x); time.sleep(1); continue
-        if find(boxes, r'^Exit') and find(boxes, r'^Confirm$'): tap_text(r'^Confirm$', boxes=boxes); continue
-        if find(boxes, r'Network issue') and find(boxes, r'^Confirm$'):   # mid-battle (xFaktor gate 2026-11-10): Confirm reloads
-            tap_text(r'^Confirm$', boxes=boxes); print('    network issue popup -> Confirm (game reloads)', flush=True)
-            for _ in range(60):
-                if is_main(): break
-                # reload can land on the title screen (Chien Than 11-11: Start untapped -> Back opened "Quit Game?")
-                if s := find(ocr(net=True), r'^Start$', (300, 1400, 780, 1620)): tap_wait(*s)
-                time.sleep(1)
-            continue
-        tap_wait(92, 1810); time.sleep(0.8)
-    for _ in range(3):                                   # screens without the back arrow (hero detail, Cmajor 2026-10-31):
-        if is_main(): return True                        # Android Back - never on main (it opens a dialog there)
-        subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4']); time.sleep(1.2)
-    return is_main()
 
 
 def red_dot(x0, y0, x1, y1, im=None):
@@ -592,7 +562,7 @@ def floor_marker(im):
 def sanctuary_potion():
     """Sanctuary map: Recovery Potion (top-left (88,130)) -> use one. Popup (Boudior 2026-11-12): "Recovery Potion / Fully
     restore all heroes to their initial state (only once per day)" + a yellow Free (540,1162), X (940,636); used up = "Daily
-    usage limit reached" toast (xFaktor 2026-11-08). Used only when it names the potion, offers Free/Use/Confirm and shows
+    usage limit reached" toast (pawn1 2026-11-08). Used only when it names the potion, offers Free/Use/Confirm and shows
     no purchase wording or price; anything else is closed and counts as no potion."""
     tap_wait(88, 130); time.sleep(1); boxes = ocr(); t = joined(boxes)
     if re.search(r'limit reached', t): print('    potion: daily usage limit reached', flush=True); return False
@@ -632,7 +602,7 @@ def sanctuary_climb():
         # weekly modifier card (3 rows + Confirm, no choice) covers the map (Kong/Tiger/Chien Than 11-09); titled with the
         # map name ("Hidden Altar" 11-09, "Lava Cave" Tiger/Dminor 11-11) -> match its Confirm, not the title
         if c := find(boxes, r'^Confirm$', (300, 1520, 780, 1720)): tap_wait(*c); time.sleep(1); continue
-        if find(boxes, r'Tap anywhere to close'): tap_wait(540, 120); time.sleep(1); continue   # floor reward still up (xFaktor 11-09)
+        if find(boxes, r'Tap anywhere to close'): tap_wait(540, 120); time.sleep(1); continue   # floor reward still up (pawn1 11-09)
         m = stable_marker()
         if not m: break                                  # no marker: all floors flagged
         boxes = open_floor(m)
@@ -802,10 +772,10 @@ def recruit(cfg, common_only=False):
         boxes = ocr(); m = re.search(r'Chances\W*(\d+)', joined(boxes))
         if not m or int(m.group(1)) == 0: break           # done for the day
         b = find(boxes, r'^Free$', (380, 1290, 700, 1420))
-        # no Play Pass: "Purchase Play Pass to skip ad" + a green "▶ Recruit 1" button = a video ad per draw (xFaktor 2026-11-08, Nick: watch it)
+        # no Play Pass: "Purchase Play Pass to skip ad" + a green "▶ Recruit 1" button = a video ad per draw (pawn1 2026-11-08, Nick: watch it)
         ad = not b and find(boxes, r'skip ad') and find(boxes, r'^Recruit 1$', (380, 1290, 700, 1420))
         if not (b or ad): break                           # cooldown
-        g0 = gems_or_none(boxes); tap_wait(*(b or ad))    # draw animation can outlast 2.5 s (Chien Than/xFaktor 2026-10-29)
+        g0 = gems_or_none(boxes); tap_wait(*(b or ad))    # draw animation can outlast 2.5 s (Chien Than/pawn1 2026-10-29)
         if ad and not watch_ad(log=lambda t: print(t, flush=True)): raise Stop('common recruit: ad did not close')
         tap_text(r'^Confirm$', boxes=wait(r'^Confirm$', 15)); time.sleep(1); got.append('common (ad)' if ad else 'common')
         g1 = gems_or_none(ocr())
@@ -893,7 +863,7 @@ def divine(cfg):
     else:
         last = None
         for _ in range(14):                                 # Forge: one slot per anvil tap; crystals only, never gems
-            for _ in range(4):                              # forge hammer animation hides the counters for a few s (Bino/xFaktor)
+            for _ in range(4):                              # forge hammer animation hides the counters for a few s (Bino/pawn1)
                 boxes = ocr(); t = joined(boxes)
                 fr = [(y, num(m.group(1)), num(m.group(2))) for x, y, w, h, b in boxes
                       for m in [re.fullmatch(r'([\d.]+[kKmM]?)/([\d.]+[kKmM]?)', b.strip())] if m]
@@ -1155,7 +1125,7 @@ def arena_claims():
     if not find(boxes, r'Winnings'):                     # arena.py left another screen -> reopen Arena
         home(); tap_wait(100, 1280); boxes = wait(r'Winnings', 10)
     w = next((int(b[4]) for b in boxes if b[4].strip().isdigit() and b[0] < 240 and 260 < b[1] < 340), None)
-    if w is None: return 'win count unreadable; no chest tapped'   # a lone '0' after the weekly reset isn't OCR'd (xFaktor 2026-11-02); claims only, never fail Arena for it
+    if w is None: return 'win count unreadable; no chest tapped'   # a lone '0' after the weekly reset isn't OCR'd (pawn1 2026-11-02); claims only, never fail Arena for it
     im, got = grab(), []
     for n, x in ((10, 376), (20, 536), (35, 696), (50, 864)):
         green = sum(1 for yy in range(200, 290, 3) for xx in range(x - 40, x + 40, 3)
@@ -1417,7 +1387,7 @@ def tribe_clash_packs(cfg):
     except Stop:
         tap_wait(980, 1610)   # Tribe Clash "Participation Requirements" overlay ate the 1st tap (Chloe/Tiger/Dminor 11-11)
         try: wait(r'Limited', 6)
-        except Stop:   # Claim day (grey "Claiming Rewards", banner "On Truce"): Pack doesn't open — 4 script + 3 hand taps on fGotten 2026-11-13
+        except Stop:   # Claim day (grey "Claiming Rewards", banner "On Truce"): Pack doesn't open — 4 script + 3 hand taps on pawn2 2026-11-13
             if find(ocr(), r'^Claiming Rewards$'): return 'SKIP Tribe Clash Claim day: Pack does not open'
             raise
     n = claim_yellow(r'Limited')
@@ -1440,7 +1410,7 @@ def floating_realm_packs(cfg):
     p = find(ocr(), r'Floating Realm', (600, 400, 1080, 900))
     if not p: time.sleep(3); p = find(ocr(), r'Floating Realm', (600, 400, 1080, 900))   # loads late after a boot (Tiger)
     if not p: return 'SKIP no Floating Realm banner (not its event week)'
-    for _ in range(2):                                   # the banner tap can be ignored; xFaktor ignored every tap until
+    for _ in range(2):                                   # the banner tap can be ignored; pawn1 ignored every tap until
                                                          # a game restart (boot.sh), Aminor too (2026-11-03)
         tap_wait(*p); time.sleep(1); b = ocr()
         # Claim day opens under a "Match Result" ranking popup (Chien Than 2026-11-06)
@@ -1484,11 +1454,11 @@ def events(cfg):
     # (Dino's Match Event, 2026-11-01). Read with 2 different tabs selected; every tab shows its dot in one of them.
     read = lambda: {t: red_dot(x + 30, 1720, min(x + 95, 1080), 1795) for t, x in tabs.items()}
     # Always 2 DIFFERENT tabs: picking "tabs without a dot" picked only the hidden (selected) tab itself when every other
-    # tab had a dot -> Weekly Event Free Benefits missed on xFaktor + Bino (2026-11-04).
+    # tab had a dot -> Weekly Event Free Benefits missed on pawn1 + Bino (2026-11-04).
     dots = read()
     for t in list(tabs)[:2]:
         tap_wait(tabs[t], 1840); time.sleep(1.2)
-        tabs = {**hub_tabs(), **tabs}                   # a tab the first read missed (Limited Recruitment: Cmajor + fGotten 2026-11-15)
+        tabs = {**hub_tabs(), **tabs}                   # a tab the first read missed (Limited Recruitment: Cmajor + pawn2 2026-11-15)
         dots = {k: dots.get(k, False) or d for k, d in read().items()}
     print(f'    hub tabs (red dot): {dots}', flush=True)   # 'nothing claimed' couldn't tell no tab / no dot / missed (2026-11-01)
     # a tab nobody mapped is invisible to hub_tabs(): Golden Woods' quests went uncollected on every account (2026-11-03)
@@ -1514,7 +1484,7 @@ def events(cfg):
             c = find(ocr(), r'^Claim$', (300, 1540, 780, 1680))   # never "Again"
             if c:
                 tap_wait(*c)                             # 30-card result: cards flip one by one, Confirm only after the last
-                # (>15 s: 26/30 flipped at 15 s on xFaktor/Chien Than 2026-11-12); never its Open All (Nick 2026-10-28)
+                # (>15 s: 26/30 flipped at 15 s on pawn1/Chien Than 2026-11-12); never its Open All (Nick 2026-10-28)
                 tap_text(r'^Confirm$', (300, 1650, 780, 1850), wait(r'^Confirm$', 40, (300, 1650, 780, 1850))); out.append('7777 daily')
         elif tab == 'wish_festival': out += wish_festival()
         elif tab == 'pet_arena':
@@ -1541,7 +1511,7 @@ def events(cfg):
     left += [t for t, d in final.items() if d and t != 'golden_woods' and t not in left]
     if not home(): raise Stop('lost the main screen after the event hub')
     dots = banner_dots()
-    if dots:   # Storm Battlefield's dot clears on a visit, Weekly Event's lags its hub claim (Dminor/xFaktor 2026-11-12) -> re-read
+    if dots:   # Storm Battlefield's dot clears on a visit, Weekly Event's lags its hub claim (Dminor/pawn1 2026-11-12) -> re-read
         # any dot, not just one named Storm: the 2nd card rotates Storm / Dragon Temple, so the name is whichever face
         # showed (Tiger 2026-11-14: Storm's dot read as 'banner 1d 15h', the Dragon Temple timer). Dot clears a few s late.
         try: storm_arena()
@@ -1550,7 +1520,7 @@ def events(cfg):
         time.sleep(4); dots = banner_dots()
     # 7777's banner dot is sticky once its daily Claims are ticked (only "Again" left), and the hub step above always
     # looks at 7777 -> not a leftover (Bino 2026-11-17: helper found all 15 days ticked); its nearest label can be the
-    # 'Forever' timer (fGotten 2026-11-18)
+    # 'Forever' timer (pawn2 2026-11-18)
     left += [d for d in dots if not re.search(r'7777|Draws|Forever', d)]
     print(f'    claimed: {", ".join(out) or "nothing"}', flush=True)   # log only: the step line reports problems only (Nick 2026-11-14)
     return f'MANUAL red dots left: {left}' if left else 'no red dot left'
@@ -1628,7 +1598,7 @@ def weekly_honor(need):
     done = []
     for _ in range(need):
         boxes = ocr()
-        # gold, medal; Vision reads the medal '/' as '|' at times ("177 |210", xFaktor 2026-11-15)
+        # gold, medal; Vision reads the medal '/' as '|' at times ("177 |210", pawn1 2026-11-15)
         costs = sorted((x + w // 2, re.split(r'[/|]', t)) for x, y, w, h, t in boxes if 1600 < y + h // 2 < 1700 and re.search(r'[/|]', t))
         if len(costs) < 2: raise Stop(f'honor: costs unreadable: {joined(boxes)[:160]}')
         have = [int(num(c[0].strip())) for _, c in costs[:2]]; cost = [int(num(c[1].strip())) for _, c in costs[:2]]
@@ -1695,7 +1665,7 @@ def weekly_review(cfg):
     ran = os.path.exists(log) and re.search(r'OK weekly \(', open(log).read())
     others = [] if ran else [m for m in open_rows if m != 'lucky_stars']
     # Nick 2026-11-16: missions still needed for 180 vs the ones still doable -> stars only if they close the gap
-    # (Kratos/xFaktor 150 = 3 needed, stars the only one: 160 opens no chest (45/90/135/180) -> no stars)
+    # (Kratos/pawn1 150 = 3 needed, stars the only one: 160 opens no chest (45/90/135/180) -> no stars)
     n_need = max(0, (180 - pts + 9) // 10)
     need = 'lucky_stars' in open_rows and len(others) < n_need <= len(others) + 1
     os.makedirs('/tmp/miniheroes-state', exist_ok=True); open(weekly_plan_file(), 'w').write('stars' if need else 'nostars')

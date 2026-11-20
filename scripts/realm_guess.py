@@ -3,7 +3,7 @@
 # usage: D=<serial> scripts/realm_guess.py ace purple kitchen   (main screen or the Floating Realm event screen)
 # Same dialog as the Tribe Clash Guess (clash_guess.py does the picking: 3 banners, slot 1 filled first, names under
 # the tiles, a scrolling list, Save, X); here the banner band for the picked names is wider and a "Match Result"
-# popup can cover the event screen. Mapped on xFaktor 2026-11-05, 9 accounts that day. Ends on the main screen.
+# popup can cover the event screen. Mapped on pawn1 2026-11-05, 9 accounts that day. Ends on the main screen.
 # exit 1 -> v_realm_guess.png.
 import sys, time
 from clash_guess import SLOTS, pick

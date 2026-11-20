@@ -144,7 +144,7 @@ Forest `(870,1310)`, Temple `(870,1696)`.
 - **On-screen counters are the truth**, not red dots or the plan: Tower / Sanctuary had no red dot but weren't done
   (Cmajor); some modes were already done earlier that day (Bino). Always open and read the counter.
 - **Accounts without a Play Pass get video ads where others get Free — watch them (Nick, 2026-11-08: "you have to watch
-  ads for such accounts"; xFaktor's pass ran out 2026-11-08, `play_pass2` logs `monthly card track locked`).** Looks:
+  ads for such accounts"; pawn1's pass ran out 2026-11-08, `play_pass2` logs `monthly card track locked`).** Looks:
   Common Recruitment = "Purchase Play Pass to skip ad >>" + a green **▶ Recruit 1** button (no "Free" text); Grocery
   chests 2–4 = a grey **▶ Free** button (same grey as Sold Out — the button colour checks don't see it, only the text);
   the chest popup's own **Free** is still green; Storm free tickets = **Claim** + camera icon. `flow.watch_ad()` after the
@@ -449,7 +449,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Daily: **2 Common, 1 Ancest
    more chances show; some accounts/days only get 1. The Free button stays green at "Chances: 0" — read the counter
    ("Chances: 0" with no timer = done for the day). A cooldown (~5 min) shows between
    free chances; never pay.
-   - **No Play Pass** (xFaktor 2026-11-08): the button reads **▶ Recruit 1** under "Purchase Play Pass to skip ad" — a video ad per draw (`watch_ad()`, ~45 s), then the result cards → Confirm as usual; gems must not move. `RECRUIT_COMMON=<n>` env caps the common draws of a re-run (0 = none, e.g. artifact-only leftovers).
+   - **No Play Pass** (pawn1 2026-11-08): the button reads **▶ Recruit 1** under "Purchase Play Pass to skip ad" — a video ad per draw (`watch_ad()`, ~45 s), then the result cards → Confirm as usual; gems must not move. `RECRUIT_COMMON=<n>` env caps the common draws of a re-run (0 = none, e.g. artifact-only leftovers).
 3. **Ancestor Summon** tab `(896,1610)` → **Free** `(310,1355)` (red dot) → result → **Confirm**
    `(300,1755)`. **Never "Recruit 1"** on the result screen (spends a ticket). Button then shows
    "Free after HH:MM:SS".
@@ -511,7 +511,7 @@ prints name + score per card. Skins change the avatar: an unmatched face of a kn
   ≥ 0.15 ahead of the next hero, else unknown. Tiger's setup 11-14: 10/10, right hero 0.89–1.00; closest two different
   heroes in the library 0.56 (Jungle Archer / an Ironblade skin).
 - List row tops: 217-px card runs measured on each card's left part — red dots / class badges stick out ~12 px above
-  the top right (they shifted fGotten's faces 12 px). The list glides 30–400 px after a slow swipe: `learn` waits for it
+  the top right (they shifted pawn2's faces 12 px). The list glides 30–400 px after a slow swipe: `learn` waits for it
   to stop and scrolls back if no face of the last page is left.
 - Used by `climb_stage.py`: lineups are read and placed by face (see "Climb stage").
 
@@ -696,7 +696,7 @@ shows "Stage Reward" with no "Next Stage (Ns)" countdown) → main screen "Next 
 what each is good for: `stage_lineups` in the account yaml — new account: `scripts/climb_stage.py <account> --record`
 (reads each tab's green deploy checks and names the heroes by face — "Hero faces"; an unknown face → learns the hero list
 once, a new skin, then reads again). `stage_lineups` = hero ids (`sea_captain`, Nick 2026-11-14: faces, not grid
-positions); accounts still on the old `cells:` format (Bino, Dino, fGotten, xFaktor, PuPu on 11-14: tab 1 held the
+positions); accounts still on the old `cells:` format (Bino, Dino, pawn2, pawn1, PuPu on 11-14: tab 1 held the
 dailies' lone Bone Archer) need a `--record` once their climb lineups are set — `--apply` refuses `cells:`. Manual steps:
 
 1. A setup opened via Challenge again keeps already-won waves locked and **doesn't save edits** — back `(80,1810)` to
@@ -755,7 +755,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
    Manual: tap a chest showing **Free** → popup must say Free (never a gem price) → claim → wait ~4.5 s → dismiss
    `(540,1850)` (`(540,120)` can close Grocery). Popup Free pixel `(480,1344)`: green (123,206,49) = claimable,
    grey (173,178,189) = cooldown. Growth Chest gives +80 gems per claim; Resource Chest can roll +50.
-   - **No Play Pass** (xFaktor 2026-11-08): chests 2–4 show a grey **▶ Free** (the top-row colour scan sees Sold-Out grey; `grocery.py` reads the "Free" text instead) → the popup's green Free → video ad (`watch_ad()`, ~45 s) → _Congratulations_ popup = claimed (no popup after 2 ads → stop). 9 ads for the 3 chests.
+   - **No Play Pass** (pawn1 2026-11-08): chests 2–4 show a grey **▶ Free** (the top-row colour scan sees Sold-Out grey; `grocery.py` reads the "Free" text instead) → the popup's green Free → video ad (`watch_ad()`, ~45 s) → _Congratulations_ popup = claimed (no popup after 2 ads → stop). 9 ads for the 3 chests.
 4. **`grocery_buy`** (per account, optional; part of the runner's `grocery` step, same visit as the chests since 2026-11-12 — OCR price/balance, price icon colour = balance icon, popup price = tile price): for each shop tab listed, buy each listed tile **once**. Tabs at
    y=546: Sanctuary `(452,546)`, Tribe `(732,546)`, Ruins `(980,546)`; swipe the tab bar `900→200` → Realm
    `(604,546)` (Tundra further). Tiles are numbered 1–12 left→right, top→bottom; price buttons at
@@ -799,7 +799,7 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
 - **Main-screen banner dots** (`banner_dots()`, the events step's last check): **Storm Battlefield**'s dot is visit-only —
   nothing to claim (Rewards all ticked, ticket + = used video / 30 gems), it clears after opening the banner screen; the
   **Weekly Event** banner (named by its "4d 0h" timer) can keep a dot a few seconds after its hub claim (Dminor +
-  xFaktor 2026-11-12). `events()` visits Storm on **any** banner dot (the 2nd card rotates Storm / **Dragon Temple**, so
+  pawn1 2026-11-12). `events()` visits Storm on **any** banner dot (the 2nd card rotates Storm / **Dragon Temple**, so
   a dot is named by whichever face showed — Tiger 2026-11-14) and re-reads once before calling it MANUAL. **Crystal
   Throne** (same slot as Tribe Clash) is skipped like Tribe Clash: its dot = the free Value Pack, claimed by the later
   `tribe_clash_packs` step. **Dragon Temple** (opens every few days; 2nd tab of the Storm screen) = a PvP ladder: Challenge
@@ -819,7 +819,7 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   (255,182,16), dismiss `(300,200)` between taps.
 - **Weekly Event / Hero Recruit:** Pet Shop / Recruit Store sub-tab `(410,240)` → Free Benefits `(896,1024)`;
   weekly merchant free 200.
-  **Artifact Wish** week (1st sub-tab; mapped on fGotten 2026-11-15): point milestones "Earn N Points in total", bar
+  **Artifact Wish** week (1st sub-tab; mapped on pawn2 2026-11-15): point milestones "Earn N Points in total", bar
   `X/N`, 5 reward rounds ("Current reward round: 1/5"). A reached row has no ✓ on its 3 reward icons (claimed rows
   do; locked rows look the same as reached ones — judge by `X ≥ N`) → tap its first icon (`(622,1612)` for the
   bottom row) → Congratulations → the round goes up and the bars restart. Free, collect-only. **Not scripted**: the
@@ -875,7 +875,7 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
 
 Nick names 3 tribes (1st, 2nd, 3rd; shorthand is fine: "ace purple kitchen" → ACE, PurpleGang, TheKitchen) — never pick
 them yourself. **`D=<serial> scripts/realm_guess.py <1st> <2nd> <3rd>`** per account, in parallel, each in its own cwd
-(exit 1 → `v_realm_guess.png` there). Mapped on xFaktor 2026-11-05, ran on 8 accounts the same day.
+(exit 1 → `v_realm_guess.png` there). Mapped on pawn1 2026-11-05, ran on 8 accounts the same day.
 
 - Entry: main-screen **Floating Realm** banner (polled 15 s, it loads late) → event screen; a **Match Result** ranking
   popup can sit over it (5 of 9 accounts) → "Tap anywhere to close" `(540,1486)` → **Guess** (dice, bottom right
@@ -980,7 +980,7 @@ scaled up; the four rows nothing else produces:
    balance top-left (Kong 93 640), points `130/150` → a random Mythic Treasure. Lucky Coins only (no gems). Open: whether
    Draw x10 counts 10 for the row — check the row before/after on first use; the balance must cover the price on screen.
 
-**Sunday catch-up: `weekly_review` runs FIRST** (Nick, 2026-11-08: "review the weekly missions first"; Sunday = the **game day**, which runs until 12:00 local Monday — `daily.py` checks `GAME_DAY.weekday()`, not the clock, since the 06:30 Monday catch-up of 2026-11-09): reads the Weekly tab and decides whether the Lucky Star row is needed — Nick 2026-11-16: read only **missions still needed** (`(180 − points) / 10`) and **which rows are still doable** → stars only when the doable rows fall short by exactly the Lucky Star row (doable < needed ≤ doable + 1). Stars that can't reach 180 are a waste: 160/170 open no chest (45/90/135/180) — Kratos/xFaktor 150 on 11-15. **Once the dailies' `weekly` step ran that game day, its leftover rows don't count** (no catch-up step does them; Nick 2026-11-16) → stars whenever the row is open and points < 180. The evening catch-up is where the stars plan pays: the dailies' swap comes after their fishing used the bread and Auto stops at 0 bread, so the catch-up's `fishing_auto` restart is the first that casts with it (2026-11-15: this check said `not needed` on 170 + Statue, swapped back to Basic, Boudior/Dino/fGotten ended the week at 170, Lucky Stars 0/50). The decision is the day's plan (`/tmp/miniheroes-state/<acct>-<game day>.weekly_plan`: `stars` / `nostars`). **Every fishing start (`ensure_bait()`) sets the bait:** Lucky Star when the plan says `stars`, otherwise the account's default bait (`fishing.bait` in the account yaml, default **Basic Bait** — the first run used Shrimp Bait on 5 accounts, Nick 2026-11-08: "should use default bait instead") — so a Lucky Star left in use is swapped back on the next run, and stars are used only when we really have to. The evening `weekly` step only swaps to stars if the account is still under 180 after its other actions and claims.
+**Sunday catch-up: `weekly_review` runs FIRST** (Nick, 2026-11-08: "review the weekly missions first"; Sunday = the **game day**, which runs until 12:00 local Monday — `daily.py` checks `GAME_DAY.weekday()`, not the clock, since the 06:30 Monday catch-up of 2026-11-09): reads the Weekly tab and decides whether the Lucky Star row is needed — Nick 2026-11-16: read only **missions still needed** (`(180 − points) / 10`) and **which rows are still doable** → stars only when the doable rows fall short by exactly the Lucky Star row (doable < needed ≤ doable + 1). Stars that can't reach 180 are a waste: 160/170 open no chest (45/90/135/180) — Kratos/pawn1 150 on 11-15. **Once the dailies' `weekly` step ran that game day, its leftover rows don't count** (no catch-up step does them; Nick 2026-11-16) → stars whenever the row is open and points < 180. The evening catch-up is where the stars plan pays: the dailies' swap comes after their fishing used the bread and Auto stops at 0 bread, so the catch-up's `fishing_auto` restart is the first that casts with it (2026-11-15: this check said `not needed` on 170 + Statue, swapped back to Basic, Boudior/Dino/pawn2 ended the week at 170, Lucky Stars 0/50). The decision is the day's plan (`/tmp/miniheroes-state/<acct>-<game day>.weekly_plan`: `stars` / `nostars`). **Every fishing start (`ensure_bait()`) sets the bait:** Lucky Star when the plan says `stars`, otherwise the account's default bait (`fishing.bait` in the account yaml, default **Basic Bait** — the first run used Shrimp Bait on 5 accounts, Nick 2026-11-08: "should use default bait instead") — so a Lucky Star left in use is swapped back on the next run, and stars are used only when we really have to. The evening `weekly` step only swaps to stars if the account is still under 180 after its other actions and claims.
 
 **Runner step `weekly`** (Sundays only, after `daily_mission`; alone: `daily.py <acct> weekly`): reads the Weekly tab (points + every row), then walks `accounts/weekly.yaml` top-down while under 180: **Draw x10** (Lucky Coins on screen ≥ price), **Honor Upgrade** ×need (gold + medal on screen ≥ cost), **Artifact Wishes** (Free + star Wishes, never the 280-gem button — the row has no daily cap, Nick 2026-11-08), **Lucky Star bait** swap; then the Daily Mission claims; still under 180 → **Statue Level Up** (last resort) and claim again. Rows the daily steps produce (Sanctuary, Canyon, Gate, …) are daily-capped → listed as `short`. The **Bait grid reorders itself — the bait in use jumps to tile 1** (Kong 2026-11-08: Lucky Star 1st, Shrimp 3rd), so tiles are found by the description title, never by position; the previous bait's name goes to `/tmp/miniheroes-state/<acct>.lucky_bait` and the next weekday `fishing` step swaps it back (stars only on Sunday). The Lucky Star row then needs 50 casts of Auto fishing (bread-limited) — the pass only sets it up. First live run 2026-11-08: Kong 170 → 180 (Treasure x10, Honor ×2), Cmajor 170 (only Lucky Stars 0/50 left).
 
@@ -1004,7 +1004,7 @@ High to Low / 4 except Cmajor). The game's own default is 4 / High to Low, so ea
   A fight can start between Join and the Auto Deploy tap → the dialog never opens → exit, Join again.
   Don't re-tap Join while the arena loads: the spot lands on the pool's big **Deploy** button (manual deploy panel).
 - The sprites value is a lone digit: OCR misses it on some frames — read the settled dialog, retry on an enlarged crop.
-- **Manual deploy** (Nick, 2026-11-11: Auto Deploy says no free attempts but the day isn't at +40 — Bino/Chien Than/Dminor/xFaktor
+- **Manual deploy** (Nick, 2026-11-11: Auto Deploy says no free attempts but the day isn't at +40 — Bino/Chien Than/Dminor/pawn1
   +39, Dino +38): the pool's big **Deploy** `(540,1640)` → panel of own pets. Free attempts are **per pet**: a card with
   **Free Attempts: N** under it deploys free (they sort first); the others show a ticket `1/0` — never those, never the
   ticket **+** (buys). Tap the card (green frame = selected, one at a time) → **Deploy** `(540,1806)` → the card gets a ✓,
@@ -1114,13 +1114,13 @@ people not 80k yet." — not yet reflected in the rules above; ask Nick.
 
 ## Poseidon's Ruins (Tribe, 3 attacks)
 
-Added by Nick 2026-10-26; mapped on xFaktor via ADB (device coords). Skill: `miniheroes-poseidon`.
+Added by Nick 2026-10-26; mapped on pawn1 via ADB (device coords). Skill: `miniheroes-poseidon`.
 **Script:** `scripts/poseidon.py <serial>...` does all of this, accounts in parallel (per-ship locks). By hand only on its exit 1.
 
 1. Main screen → **Tribe** `(448,1780)` (first tap right after the main screen appears may be ignored — retry once)
    → **Poseidon's Ruins** card `(540,1440)` (red dot = attempts left; "In Battle: hh:mm:ss") → Loading ~3 s →
    battle map, **Enemies** tab selected (Allies/Enemies at the bottom).
-2. Header: **Attack Attempts N** top-left (3/day on xFaktor) — the number is the pill right of the label; the green
+2. Header: **Attack Attempts N** top-left (3/day on pawn1) — the number is the pill right of the label; the green
    **Battling: hh:mm:ss** timer sits on the same row (OCR'd it as the count when the lone "0" was missed, 2026-11-04).
    Ignore Report / Rewards / Contribute.
 3. Enemy ships in rows of 3, sorted by CP high → low (big ships first, rowboats at the bottom). Each shows
@@ -1145,7 +1145,7 @@ pick the next ship. Lineup cards can render black for a moment; Start still work
 
 ## Storm Battlefield (right after Pet Arena)
 
-**One account per server block at a time** (Nick, 2026-11-02): s201–210 (Aminor, Cmajor, xFaktor, Dminor) and
+**One account per server block at a time** (Nick, 2026-11-02): s201–210 (Aminor, Cmajor, pawn1, Dminor) and
 s211–220 (Bino, Dino, Chien Than, Kong) can be matched against each other — never overlap their Storm runs.
 `daily.py` step `storm` holds a per-block lock (`storm_block()`, from `server:` in the yaml); a helper running
 `storm.py` by hand must wait until no other account of its block is in Storm.
@@ -1203,7 +1203,7 @@ Schedule: Preparation Mon → **Battle Tue/Wed/Thu 10:00–22:00** (server time 
 stamina left over before a reset is lost.
 
 1. Main screen → **Floating Realm** banner `(880,628)` (right column, under Dragon Temple; loads a few s late after a
-   boot; if taps on it do nothing while other buttons work, restart the game — xFaktor/Aminor 2026-11-03) → event screen
+   boot; if taps on it do nothing while other buttons work, restart the game — pawn1/Aminor 2026-11-03) → event screen
    (day tabs, **Target** `(976,1320)` = stamina-used milestones 50…4100, **Enter** `(540,1476)`).
    **Target Rewards** (red "!" on Target and on the main-screen banner = a milestone reached): green **Claim** at the
    row's right `(864,622)` for the top row → _Congratulations_ → close on its "Tap anywhere to close" text `(540,1208)`;
@@ -1249,7 +1249,7 @@ stamina left over before a reset is lost.
 
 4. **Pack** (event screen, right column `(980,1684)`; Mon–Thu, none in the truce) → _Daily Special_ list, each row
    "Limited to 1 purchases per day", button ~166 px below the row title, "Sold Out" once bought:
-   Free Pack (20 gems) · **Support Pack** (4 stamina + 1000 coins, **80 gems**) · **Motivation Pack** (potion + 2 bags, **400 gems** on Dminor; all accounts but Chien Than/xFaktor, Nick) ·
+   Free Pack (20 gems) · **Support Pack** (4 stamina + 1000 coins, **80 gems**) · **Motivation Pack** (potion + 2 bags, **400 gems** on Dminor; all accounts but Chien Than/pawn1, Nick) ·
    **Value Pack $0.99** · **Joy Pack $4.99** · Deluxe $9.99 / Supreme $19.99 / King $49.99 (never). The $ buttons
    are paid in **Stargems** (the white currency next to the gems, top left). Runner step `floating_realm_packs` (dailies only, not the catch-up — Nick) buys the
    account's `floating_realm_packs` (Nick, 2026-11-03), reading the balances from crops of the counters (whole-screen

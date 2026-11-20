@@ -7,8 +7,8 @@
 # turns into a token icon "held/cost" at 0 free attempts). Mapped on Cmajor 2026-11-10.
 # Last: the Treasure keys (clash_treasure.py, Nick 2026-11-11). Ends on the main screen.
 import os, re, sys, time
-import clash_treasure
-from flow import Stop, find, grab, is_main, joined, main, near, ocr, swipe, tap_text, tap_wait, wait
+import clash_treasure, flow
+from flow import Stop, find, grab, joined, main, near, ocr, swipe, tap_text, tap_wait, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ALLIES = {l.strip() for l in open(os.path.join(HERE, '..', 'accounts', 'allies.txt')) if l.strip()[:1].isdigit()}
@@ -75,10 +75,7 @@ def run(want=''):
 
 
 def home():
-    for _ in range(4):                                   # attack screen -> map -> TC screen -> main
-        tap_wait(92, 1810); time.sleep(0.5)
-        if is_main(): return
-    raise Stop('not back on the main screen')
+    if not flow.home(): raise Stop('not back on the main screen')
 
 
 main(run, ' '.join(sys.argv[1:]))

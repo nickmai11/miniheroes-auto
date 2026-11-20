@@ -339,11 +339,6 @@ def open_board():
     raise Stop(f'could not reach the dig board; screen: {joined(ocr())[:160]}')
 
 
-def leave():
-    for _ in range(4):
-        if is_main(grab()): return True
-        tap_wait(80, 1820); time.sleep(0.6)
-    return is_main(grab())
 
 
 
@@ -368,7 +363,7 @@ def benefit():
     got = 'benefit: nothing to claim (button grey / absent)'
     im = grab(); boxes = ocr(im)
     for x, y, w, h, t in boxes:
-        q = im.getpixel((x - 14, y + h // 2))            # button colour left of the text: green "Claim Reward" (xFaktor
+        q = im.getpixel((x - 14, y + h // 2))            # button colour left of the text: green "Claim Reward" (pawn1
         if re.fullmatch(r'Claim( Reward)?', t.strip()) and y > 1500 and \
                 max(q) - min(q) > 60 and q[0] < 240:     # 2026-11-04) or yellow; grey "Claimed" has no saturation
             tap_wait(x + w // 2, y + h // 2); time.sleep(0.8); b2 = ocr()
@@ -503,7 +498,7 @@ def run(account, dry=False, max_digs=None):
         cap = digs + n[0] + 60
     log(f'done: {digs} digs, shovels {n[0]}/{n[1]} left, items: {", ".join(got) or "none"}'
         + (f', UNKNOWN cells {unknown(g)}' if unknown(g) else '') + '\n' + show(g))
-    if not leave(): raise Stop('not back on the main screen')
+    if not home(): raise Stop('not back on the main screen')
     return 0 if n[0] == 0 or (max_digs is not None and digs >= max_digs) else 1
 
 
@@ -528,7 +523,7 @@ if __name__ == '__main__':
         sys.exit()
     sys.path.insert(0, HERE)
     from tap import grab, tap as tap_wait
-    from flow import Stop, find, is_main, joined, ocr, main, swipe
+    from flow import Stop, find, home, is_main, joined, ocr, main, swipe
     ACCOUNT = a[0]; dry = '--dry' in a
     mx = int(a[a.index('--max-digs') + 1]) if '--max-digs' in a else None
     day = time.strftime('%F', time.gmtime(time.time() - 5 * 3600))

@@ -7,7 +7,7 @@
 # the best core, next floor -> kills or a Treasure Map (map strategy). Anything else -> exit 1 (v_realm.png).
 # Never taps the stamina "+" (gems). UNTESTED end-to-end (written 2026-11-03 from Kong's first run) - watch it.
 import datetime, os, re, sys, time
-from flow import Stop, find, grab, is_main, joined, main, ocr, tap_text, tap_wait, wait
+from flow import Stop, find, grab, home, joined, main, ocr, tap_text, tap_wait, wait
 
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 RESERVE = 5       # Treasure Maps kept for Thursday's F2->F3 re-entries
@@ -229,10 +229,7 @@ def run(account, max_floor=3):
         f'points {start and start[1]} -> {end and end[1]}')
     tap_wait(96, 1812); wait(r'^Enter$', 8)                # explore -> event screen
     targets()
-    for _ in range(4):
-        if is_main(): return
-        tap_wait(96, 1812); time.sleep(1)
-    raise Stop('not back on the main screen')
+    if not home(): raise Stop('not back on the main screen')
 
 
 def logged(account, max_floor):
