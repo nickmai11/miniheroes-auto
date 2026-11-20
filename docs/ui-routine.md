@@ -617,7 +617,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started
    Tier = filled diamonds (5 max): 1 common, 2 rare, 3 legend, 4 mythic, 5 eternal (name turns red at 4+).
    Target per account: `missions.fishing.min_order_diamonds` (Cmajor: 4 = Mythic+).
 3. Refresh buttons x=`849`, y = `704 / 1058 / 1412` (orders 1–3). Costs **1 refresh ticket**. _Order Refresh_
-   confirm "Confirm to refresh orders? Cost x1" → **Confirm** `(757,1211)`. Never tick "Do not remind me today".
+   confirm "Confirm to refresh orders? Cost x1" → **Confirm** `(757,1211)`. Never tick "Do not remind me today" (the CLAUDE.md exception: a cost confirmation).
    "The order is of high quality, continue to refresh?" = something's wrong (we'd refresh a good order) → **Cancel**
    `(320,1212)` and report (Nick, 2026-10-29).
    Automate with `D=<serial> scripts/fish_orders.py ROW MAX MIN` (MIN = `min_order_diamonds`, default 4; pixel check

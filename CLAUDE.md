@@ -56,7 +56,8 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
   Realm / Tribe Clash rounds (`fr_all.sh`), and the tc / fr guesses (Nick, 2026-11-19) do it too, right after Kong is
   done there (catch-up: relics included); any other task only when named. Switch: `D=<serial> ACCOUNT=kong_ii scripts/stabilize.py` (exit 0 = its id read on
   screen), back with `ACCOUNT=kong` when Kong II is done.
-- **Tick "Do not remind me today"** wherever it shows, before closing the popup (Nick, 2026-10-29, every task).
+- **Tick "Do not remind me today"** wherever it shows, before closing the popup (Nick, 2026-10-29, every task) — except
+  on a cost confirmation (Fishing's "Confirm to refresh orders? Cost x1"): never tick it there, that popup is the price check.
 - **Scroll slowly** (every task): held drags ≥ 1.5 s, one at a time, read only once the screen is still — never fling,
   not even to reach an end.
 - **Rules beat scripts:** a script that contradicts a rule here or in a skill is a bug — say so and fix it. Describe
