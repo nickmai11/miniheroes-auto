@@ -23,7 +23,10 @@ def redeem(a, serial):
         p = subprocess.run(['python3', '-W', 'ignore', f'{R}/scripts/giftcode.py', code], cwd=out, env={**os.environ, 'D': serial}, capture_output=True, text=True)
         txt = re.sub(r"waited \S+ for '[^']*'", '', (p.stdout + p.stderr).strip())   # not the regex echoed in a Stop message
         m = re.search(OK + r'|[Ii]nvalid|expired', txt)
-        if m and re.match(OK, m[0]): return log(a, f'redeemed ({m[0]})')
+        if m and re.match(OK, m[0]):
+            log(a, f'redeemed ({m[0]})')
+            if list(inst.values()).count(inst[a]) == 1: subprocess.run([f'{R}/scripts/done.sh', serial])   # done indicator, this account now (CLAUDE.md); Kong + Kong II: neither
+            return
         if m: return log(a, f'NOT redeemed: game says {m[0]!r}')
         log(a, f'try {t + 1} failed: {txt.splitlines()[-1][:120] if txt else p.returncode} -> restarting the game')
         bl = subprocess.run([f'{R}/scripts/boot.sh', str(info()[inst[a]]['index'])], capture_output=True, text=True).stdout
