@@ -2,6 +2,7 @@
 # "catch-up all" with no LLM (Nick, 2026-11-03: scheduled): boot every accounts/tasks.yaml `catchup` instance, daily.py --catch-up on
 # each "ready" one in parallel, one result line per account. Leftovers (LEFT FOR HELPER / FAIL) are for Nick or a
 # helper later: scripts/summary.sh /tmp/miniheroes-catchup. Output -> logs/launchd-catchup.log when run by launchd.
+# --close: close every instance it booted at the end, leftovers too (Nick 2026-11-21, scheduled night run; logs keep them).
 HERE="$(cd "$(dirname "$0")" && pwd)"; R="$(dirname "$HERE")"; W=/tmp/miniheroes-catchup
 M=$("$HERE/accounts.py" mumu)   # mumu-cli path: one copy, accounts.py
 echo "=== $(date)"
@@ -30,5 +31,6 @@ if grep -q '|kong|' <<<"$pairs" && [ -n "$D" ]; then
   . "$HERE/kong_ii.sh"; with_kong_ii kong_ii
   grep -qx 'LEFT FOR HELPER: ' "$W/kong.log" && grep -qx 'LEFT FOR HELPER: ' "$W/kong_ii.log" && "$HERE/done.sh" "$D"
 fi
+[ "$1" = --close ] && "$M" close "$(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)" >/dev/null && echo "closed instances $(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)"
 "$M" config all --setting '{"maxFpsLimit":60}' >/dev/null && echo "fps back to 60"   # boot.sh set 30 (Nick 2026-11-13)
 echo "=== done $(date)"
