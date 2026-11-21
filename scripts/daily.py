@@ -1599,7 +1599,9 @@ def events(cfg):
     # 7777's banner dot is sticky once its daily Claims are ticked (only "Again" left), and the hub step above always
     # looks at 7777 -> not a leftover (Bino 2026-11-17: helper found all 15 days ticked); its nearest label can be the
     # 'Forever' timer (pawn2 2026-11-18)
-    left += [d for d in dots if not re.search(r'7777|Draws|Forever', d)]
+    # storm_max_rank accounts keep tickets by config -> Storm's dot never clears (pawn1, Dminor 2026-11-21: King +1 reached)
+    capped = re.search(r'storm_max_rank:', cfg)
+    left += [d for d in dots if not re.search(r'7777|Draws|Forever', d) and not (capped and 'Storm' in d)]
     print(f'    claimed: {", ".join(out) or "nothing"}', flush=True)   # log only: the step line reports problems only (Nick 2026-11-14)
     return f'MANUAL red dots left: {left}' if left else 'no red dot left'
 
