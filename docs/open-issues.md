@@ -6,6 +6,7 @@ Every open problem in one place (rules: CLAUDE.md "Docs"). New problem → new r
 
 | Area | Problem | Seen | Next |
 | --- | --- | --- | --- |
+| Chloe instance input freeze | Game keeps rendering (timers tick, banners rotate) but ignores every tap and Android Back; `mCurrentFocus` = AppActivity, no pending input. Back ~4 min after a `boot.sh`, then `screencap failed 3x`. Runner steps FAIL in a row (veins_forge / patrol_claim / common_recruit / canyon / events `waited … for`) | Chloe 11-21 dailies (Nick asked reboot), 11-21 catch-up ×2 (Nick: stop chloe) | compare Chloe's MuMu settings/disk with a healthy instance; try a fresh instance |
 | canyon `highest`: downgrade | Helper left a held Gold (12/min) for the topmost empty Silver (9/min) because every Gold spot was blue — `highest` should keep the current spot when nothing above it is takeable | Kong II 11-21 | add that to the Canyon Clash section + the helper rule |
 | tribe roster stale | `tribe_kingkong.txt` misses blue names RUDEUS, Greci, JiménezOlga (Kong II canyon) — arena's no-attack list may let them be hit | Kong II 11-21 | refresh the roster |
 | fishing: scroll unused | 1st pass FAIL `orders […, 2] min 3 (0 scroll packs bought)` with 1 refresh scroll still owned; the runner retry refreshed it OK | Dino, Cmajor 11-21 | use owned scrolls before giving up |
