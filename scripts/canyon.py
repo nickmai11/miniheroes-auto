@@ -3,6 +3,7 @@
 # usage: D=<serial> scripts/canyon.py <account>    (ui-routine "Canyon Clash"; Nick 2026-10-28: script, not a helper)
 #   Mon-Thu: first empty purple (Silver) platform among the top silver rows.
 #   Fri-Sun: empty Gold first, else empty purple (Fri since Nick 2026-11-08, was Sat).     canyon_clash: highest -> exit 2 at once (helper picks).
+#   Purple enough (Nick 2026-11-21, every account incl. highest): points + 9/min x minutes to season end >= 80k -> purple only.
 # Empty = a platform disc with no name label under it. Every pick is confirmed by the popup text "occupy the empty"
 # before Occupy; anything else ("About to challenge <name>'s ...") -> Cancel. Never attacks: no empty spot -> exit 2.
 # exit 0 = moved, 2 = no empty platform (helper attacks: a Sentinel, else a non-tribe player), 1 = unexpected screen.
@@ -12,6 +13,28 @@ from flow import Stop, find, main, near, ocr, swipe, tap_text, wait
 from tap import grab, tap as tap_wait
 
 PURPLE, GOLD = (203, 157, 255), (252, 170, 110)   # empty disc colours (Tiger 2026-10-28)
+TARGET, PURPLE_RATE = 80000, 9                    # points-reward top tier; purple spot points/min (Nick 2026-11-21)
+
+
+def season_left(now):
+    """Minutes from `now` (aware) to the season end, Sunday 23:00 UTC (= Monday 06:00 local)."""
+    now = now.astimezone(datetime.timezone.utc)
+    end = (now + datetime.timedelta(days=(6 - now.weekday()) % 7)).replace(hour=23, minute=0, second=0, microsecond=0)
+    if end <= now: end += datetime.timedelta(days=7)
+    return int((end - now).total_seconds() // 60)
+
+
+def purple_enough(points, minutes):
+    """Staying on a purple (9/m) spot until the season ends reaches 80k -> no Gold/Glory (Nick 2026-11-21: leave them)."""
+    return points is not None and points + PURPLE_RATE * minutes >= TARGET
+
+
+def read_points():
+    """Map -> Rewards panel (88,745) -> its points number -> close (972,240) -> map. None = unreadable."""
+    tap_wait(88, 745); boxes = wait(r'Points Reward', 10)
+    pts = next((int(t) for x, y, w, h, t in boxes if 240 <= x + w // 2 <= 420 and re.fullmatch(r'\d{3,6}', t.strip())), None)
+    tap_wait(972, 240); wait(r'Attempts', 10)
+    return pts
 
 
 def empties(im, boxes, colour):
@@ -67,13 +90,17 @@ def run(account):
     cfg = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts', account + '.yaml')).read()
     wait(r'Attempts', 10)
     highest = bool(re.search(r'canyon_clash:\s*highest\b', cfg))
+    pts, left = read_points(), season_left(datetime.datetime.now().astimezone())
+    enough = purple_enough(pts, left)
+    print(f'points {pts}, {left} min to season end -> {"purple enough" if enough else "purple not enough"}'
+          + (f' ({pts + PURPLE_RATE * left} at {PURPLE_RATE}/m)' if pts is not None else ''), flush=True)
     # highest: the topmost spot that isn't a tribemate's - empty, Sentinel or player (Nick 2026-11-19). Telling a tribemate
     # (blue name) from an enemy above an empty spot is a judgment -> always the helper; this script only does empty spots.
-    if highest: print('highest: topmost non-tribemate spot is a helper pick'); return 2
+    if highest and not enough: print('highest: topmost non-tribemate spot is a helper pick'); return 2
     weekend = datetime.datetime.now().weekday() >= 4   # Fri-Sun (Nick 2026-11-08: top spot from Friday, not Saturday)
     for _ in range(6): swipe(540, 600, 540, 1500, 300)                # to the top of the map
     time.sleep(1)
-    colours = [GOLD, PURPLE] if weekend else [PURPLE]
+    colours = [GOLD, PURPLE] if weekend and not enough else [PURPLE]
     purple_screens = 0
     for screen in range(12):
         im = settled(); boxes = ocr(im); im.resize((270, 480)).save(f'canyon{screen}.png')   # per-screen record (2026-10-29)
@@ -86,7 +113,7 @@ def run(account):
         if empties(im, [], PURPLE) or any('Silver' in b[4] for b in boxes if b[1] > 330): purple_screens += 1  # not the header
         if purple_screens >= 2: break                 # only the top silver rows (~10 spots)
         swipe(540, 1500, 540, 700, 600); time.sleep(1.5)
-    print('no empty platform found'); return 2
+    print('no empty platform found' + (' (purple enough)' if enough else '')); return 2
 
 
 if __name__ == '__main__':

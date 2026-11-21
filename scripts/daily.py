@@ -1175,7 +1175,10 @@ def canyon(cfg):
         try: out = script('canyon.py', ACCOUNT)
         except Stop as e:
             if 'exit 2' not in str(e): raise
-            out = ('MANUAL canyon_clash highest: take the TOPMOST spot on the map that is not a tribemate\'s (empty, Sentinel '
+            out = ('MANUAL canyon purple enough (points + 9/m to season end >= 80k): take a PURPLE spot only - beat a Silver '
+                   'Sentinel, else a non-tribe player on a purple spot; never Gold/Glory (Nick 2026-11-21)'
+                   if 'purple enough' in str(e) else
+                   'MANUAL canyon_clash highest: take the TOPMOST spot on the map that is not a tribemate\'s (empty, Sentinel '
                    'or player - attack it; blue name / own account -> Cancel, next one down)'
                    if re.search(r'canyon_clash:\s*highest\b', cfg)
                    else 'MANUAL no empty platform (attack choice)')

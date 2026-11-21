@@ -1125,9 +1125,14 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
 - **Mon–Thu** (not on a `highest` account — see below)**:** take a **purple (9/m) spot**. Prefer an **empty** one, else beat a Silver Sentinel.
 - **Fri–Sun** (Friday too since Nick 2026-11-08, was Sat–Sun)**:** take a **Glory** or **Gold** spot if one is empty or Sentinel-held, else a **purple/silver** one
   (empty first, else a Silver Sentinel).
+- **Purple enough → purple only** (Nick, 2026-11-21 — every day and every account, `highest` included; matters most
+  Fri–Sun): if **points + 9 × minutes left to the season end (Sunday 23:00 UTC = Monday 06:00 local) ≥ 80,000**, take a
+  **purple (9/m)** spot, never Gold/Glory — empty first, else a Silver Sentinel, else a non-tribe player on a purple spot.
+  Already at 80k counts too. Points = the Rewards panel number; `canyon.py` reads it before choosing and logs
+  `points N, M min to season end -> purple enough|purple not enough`. Not enough (or unreadable) → the rules above/below.
 - Never spend gems.
 - **`canyon_clash: highest`** in the account file (Tiger, Kratos, Boudior, Kong II — Nick 2026-11-19, was `highest_free`)
-  replaces the day rules above **and "prefer empty"**, every day: take the **topmost spot on the map** (Glory > Gold >
+  replaces the day rules above **and "prefer empty"**, every day, unless purple is enough (above): take the **topmost spot on the map** (Glory > Gold >
   Silver) that **isn't a tribemate's** — empty → occupy, Sentinel or any other player → attack. Only skip tribemates (blue
   name) and Nick's own accounts (Cancel on the popup, next one down). Still a new spot every run, even when the held one
   is the top (occupation ends after 8 h — Nick 2026-11-16). `canyon.py` exits 2 at once on these accounts → MANUAL →
@@ -1148,7 +1153,7 @@ tribemate rows) — the helper re-checks for empty ones before beating a Sentine
 The runner logs `points N, claimed xK`.
 
 Tribe chat pinned notice (Peakaboo, 2026-10-27): "Canyon: Move to 8/m if you reached 80k early. Dont attack
-people not 80k yet." — not yet reflected in the rules above; ask Nick.
+people not 80k yet." — the first half is the "Purple enough" rule above (Nick 2026-11-21); the second isn't a rule yet.
 
 - **Points Rewards** `(88,745)` (left HUD with Records / Rank / Lineup — fixed while the map scrolls) → **Claim Reward**,
   repeat while its button is yellow → ✕ `(972,240)`. Do it **after** occupying: the new spot earns the points (Nick, 2026-11-04).
