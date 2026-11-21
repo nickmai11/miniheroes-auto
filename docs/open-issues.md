@@ -67,6 +67,7 @@ Every open problem in one place (rules: CLAUDE.md "Docs"). New problem → new r
 
 | Topic | Question | Seen |
 | --- | --- | --- |
+| Kong logged out | Game auto-logged Kong out: `boot.sh` → `Kong … start-timeout`; Kong + Kong II skipped per the new "Logged out" rule. Log Kong back in by hand | Kong 11-22 06:32 catch-up |
 | Old dailies skill | A claude.ai account skill `miniheroes-dailies` (Oct 26, "read all of ui-routine", `enabled: true` accounts) syncs into `~/.claude/skills/synced/…` and lists next to the repo skill; a local delete is re-synced. Remove it in claude.ai Settings → Skills? | 11-16 |
 | Monday 150 | Canyon / Storm closed until 17:00 → a Monday daytime dailies run tops out at 150; the evening catch-up adds Canyon → 160. Call 150 "done" on Monday daytime? | dod.md 11-03; 11-16 (11 accounts at chests 40/80/120; Kong II 150: Statue, Diamonds, Canyon rows open; evening Storm + Canyon + `daily_mission` → 160 on all 11) |
 | Weekly Lucky Stars | The row = 50 casts on Lucky Star bait, and Auto fishing stops at 0 bread, so the Sunday star plan only pays at a fishing start with ≥ 50 bread before 12:00 Monday (11-15: both catch-up starts went to Basic by a `weekly_review` bug, fixed 11-16 06:02 — 18:52 Sunday and 05:40 Monday, the 2nd with the full overnight bread (0/100 at 19:03 → ~2/100 by 06:03); Boudior, Dino, pawn2 170; Kratos, pawn1 150). Add a late-Sunday fishing restart on accounts still short? | 11-15 |

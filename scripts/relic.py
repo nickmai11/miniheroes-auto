@@ -421,7 +421,7 @@ def topup(account):
     "benefit check and buy only when out of shovel, only once per day"); marker /tmp/miniheroes-state/<acct>-<day>.relic_topup."""
     day = str(accounts.game_day())
     st = f'/tmp/miniheroes-state/{account}-{day}.relic_topup'; os.makedirs('/tmp/miniheroes-state', exist_ok=True)
-    if os.path.exists(st): return f'top-up: done today ({open(st).read().strip()[:120]})'
+    if os.path.exists(st): return f'top-up: done today ({open(st).read().strip()})'
     y = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
     m = re.search(r'^\s*relic_shovel_buys:\s*\[([^\]]*)\]', y, re.M)
     prices = [int(x) for x in re.findall(r'\d+', m.group(1))] if m else [80]

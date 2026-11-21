@@ -52,6 +52,8 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 - **Paid buys: one pack at a time** (Nick, 2026-11-14 — 300 gems lost to a loop): buy 1, close its popup, check the
   count went up, use it, then the next; any buy loop stops when a buy didn't change the state. Walk a new or changed
   buy path by hand once (open → price → buy → close → count) before scripting it, and watch its first live run.
+- **Logged out** (Nick, 2026-11-22, every task): an account the game auto-logged out (login screen, boot `start-timeout`)
+  → skip it for the task and report it; never log it back in. Kong logged out → Kong II is skipped too.
 - **Right account** (every task): the top-right game id must match the account file's `game_id` before acting
   (Kong reopens on S288 Kong II after a game restart) → `stabilize.py` switches back.
 - **Kong II** (`kong_ii`, S288, on Kong's instance — Nick, 2026-11-17): catch-ups, dailies and the scheduled Floating
