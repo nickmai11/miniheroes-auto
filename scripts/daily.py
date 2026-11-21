@@ -1301,9 +1301,32 @@ def six_floor(left):
 
 def unmapped_tabs(im=None):
     """Event hub tab labels (their 1st line) that match no HUB_TABS pattern and carry a red dot."""
-    im = im or grab()
-    return [t for x, y, w, h, t in ocr(im) if 1800 < y < 1848 and len(t.strip()) > 2
+    im = im or grab(); b = ocr(im)
+    # text in a mapped tab's column is that tab's icon (Joyful Holiday's balloon read as 'TT.': all 11 accounts 2026-11-21)
+    known = [x + w // 2 for x, y, w, h, t in b if y > 1800 and any(re.search(p, t) for p in HUB_TABS)]
+    return [t for x, y, w, h, t in b if 1800 < y < 1848 and len(t.strip()) > 2 and all(abs(x + w // 2 - k) > 80 for k in known)
             and not any(re.search(p, t) for p in HUB_TABS) and red_dot(x + w // 2 + 30, 1720, min(x + w // 2 + 95, 1080), 1795, im)]
+
+
+def weekly_milestones():
+    """Weekly Event 1st sub-tab (Hero Recruit / Pet Summon / Arena King ...): reached point milestones. A row whose N/M has
+    N >= M and no green checks on its rewards = unclaimed -> tap its 1st reward (Cmajor 2005/2000 left, 2026-11-21)."""
+    tap_wait(165, 240); time.sleep(1.2)
+    n, last = claim_yellow(r'Event ends|Remaining Time'), None
+    for _ in range(10):
+        row = weekly_row(grab())
+        if row is None or row == last: break        # same row still unclaimed after a tap -> stop, the final read reports it
+        tap_wait(620, row[0] - 60); close_reward(); n += 1; last = row
+    return n
+
+
+def weekly_row(im):
+    """(text y, 'N/M') of the first reached milestone row without green checks on its rewards, else None."""
+    checks = lambda yc: sum(1 for y in range(yc - 90, yc + 50, 2) for x in range(540, 1020, 2)
+                            if (lambda p: p[1] > 170 and p[0] < 150 and p[2] < 120)(im.getpixel((x, y))))
+    return next(((y + h // 2, t) for x, y, w, h, t in ocr(im) if 800 < y < 1720 and x < 520
+                 and (m := re.fullmatch(r'(\d+)/(\d+)', t.replace(' ', ''))) and int(m[1]) >= int(m[2])
+                 and checks(y + h // 2) < 20), None)
 
 
 def close_reward(dismiss=(540, 1880)):
@@ -1545,7 +1568,8 @@ def events(cfg):
             elif tab == 'golden_woods': out += golden_woods(left)
             elif tab == 'limited_recruitment': out += limited_recruitment()
             elif tab == 'six_floor': out += six_floor(left)   # its tab dot stays (Wish Summon not rolled): judged by its cards
-            elif tab == 'weekly_event':                      # 2nd sub-tab (Wish Merchant / Pet Shop / Recruit Store): Free Benefits
+            elif tab == 'weekly_event':                      # 1st sub-tab: milestones; 2nd (Wish Merchant / Pet Shop / Recruit Store): Free Benefits
+                out.append(f'weekly milestones x{weekly_milestones()}')
                 tap_wait(410, 240); time.sleep(1); out.append(f'weekly free x{claim_yellow(r"Free Benefits")}')
             else: left.append(tab)
         except Stop as e:                                # one tab failing left every later tab uncollected, unreported (Kong 2026-11-20)
