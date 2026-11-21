@@ -44,10 +44,11 @@ up() {   # <index>: open the instance, wait for Android -> sets port name s; 1 =
   until name=$("$M" info "$1" 2>/dev/null | python3 -c "import json,sys; print(json.load(sys.stdin)['return']['name'])" 2>/dev/null) && [ -n "$name" ]; do sleep 1; done
   s=127.0.0.1:$port
   # re-connect every pass: the connection can drop while booting (pawn1 2026-10-28 hung 5 min here)
-  local t=0
-  until adb connect "$s" >/dev/null 2>&1; adb -s "$s" shell getprop sys.boot_completed 2>/dev/null | grep -q 1; do
-    sleep 1; t=$((t+1)); [ $t -ge 90 ] && return 1
+  local t=0 g
+  until adb connect "$s" >/dev/null 2>&1; g=$(adb -s "$s" shell getprop sys.boot_completed 2>&1); grep -q 1 <<<"$g"; do
+    sleep 1; t=$((t+1)); [ $t -ge 90 ] && { echo "$name $s Android not up after 90 s (getprop: ${g:-empty})" >&2; return 1; }
   done
+  return 0   # not the loop's status: the last body command ([ t -ge 90 ] false) made every cold boot a "timeout" (11-21 catch-ups)
 }
 
 boot() {
@@ -55,7 +56,13 @@ boot() {
   # tasks run at 30 fps, every instance incl. Kong/Cmajor; back to 60 when the task is done (Nick 2026-11-13).
   # The fps cap applies live (< 30 is ignored); 1 core = default, applies at instance start (Nick 2026-11-17).
   "$M" config "$i" --setting '{"maxFpsLimit":30,"vmCpuCount":1}' >/dev/null 2>&1
-  up "$i" || { echo "$name $s boot-timeout"; return; }
+  # never give up on an instance (Nick 2026-11-21): Android not up -> close + open it again, max MAX_RELAUNCHES
+  local r
+  for r in $(seq $MAX_RELAUNCHES); do
+    up "$i" && break
+    [ $r = $MAX_RELAUNCHES ] && { echo "$name $s boot-timeout"; return; }
+    echo "$name $s restarting the instance (boot $r/$MAX_RELAUNCHES)" >&2; "$M" close "$i" >/dev/null 2>&1
+  done
   # game dead after a launch (Android home in front: Boudior, Kratos 11-19) -> launch again, max MAX_RELAUNCHES
   local n st
   for n in $(seq $MAX_RELAUNCHES); do
@@ -66,7 +73,7 @@ boot() {
     # needs the instance itself restarted -> every 2nd failed relaunch: close + open the instance
     if [ $((n % 2)) = 0 ]; then
       echo "$name $s restarting the instance" >&2
-      "$M" close "$i" >/dev/null 2>&1; up "$i" || { echo "$name $s boot-timeout (instance restart)"; return; }
+      "$M" close "$i" >/dev/null 2>&1; up "$i" || echo "$name $s instance restart: Android not up, next relaunch retries" >&2
     fi
   done
   echo "$name $s $st"
