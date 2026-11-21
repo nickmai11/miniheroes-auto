@@ -16,7 +16,7 @@ missions:
 
   arena:
     tribe: Vie Gang
-    attack: non_tribemate   # or: all = tribemates too; own accounts never, and never 200+ points below ours (Nick 2026-11-20)
+    attack: non_tribemate # or: all = tribemates too; own accounts never, and never 200+ points below ours (Nick 2026-11-20)
 
   shop_freebies: true
   play_pass_claims: true
@@ -54,10 +54,10 @@ missions:
     sanctuary: [12] # rune stone pack
     tribe: [12]
     ruins: [1]
-    realm: [4] # red stone x1000
+    realm: [2] # red stone x1000
   floating_realm_packs: [free, support, motivation] # FR Pack, its event week: free 20 gems + Support 80 gems; $ packs (Stargems): value $0.99, joy $4.99 (Nick, 2026-11-03)
   relic_shovel_buys: [80] # relic shovel + buys, each once at exactly this gem price (Nick 2026-11-04: default 80; Kong 80/160/240; Cmajor 80/160)
-  pet_arena:          # Nick 2026-11-18: 2 random sprites on every account (Kong keeps 1)
+  pet_arena: # Nick 2026-11-18: 2 random sprites on every account (Kong keeps 1)
     strategy: stamina_order
     order: random
     sprites: 2
