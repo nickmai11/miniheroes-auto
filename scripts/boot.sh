@@ -37,27 +37,37 @@ game() {   # <serial> <instance name> <port>: force-stop, launch, Start, popups 
   case $st in stable*) echo "ready ($st)";; *) echo "popup-stuck ($st, /tmp/v_stabilize.png)";; esac
 }
 
+up() {   # <index>: open the instance, wait for Android -> sets port name s; 1 = boot-timeout
+  "$M" open "$1" >/dev/null 2>&1
+  until port=$("$M" info "$1" 2>/dev/null | python3 -c "import json,sys; print(json.load(sys.stdin)['return'].get('adb_port') or '')" 2>/dev/null) && [ -n "$port" ]; do sleep 1; done
+  # info can fail for a moment ("Error: invalidPort", pawn2 2026-11-17 printed with no name) -> retry
+  until name=$("$M" info "$1" 2>/dev/null | python3 -c "import json,sys; print(json.load(sys.stdin)['return']['name'])" 2>/dev/null) && [ -n "$name" ]; do sleep 1; done
+  s=127.0.0.1:$port
+  # re-connect every pass: the connection can drop while booting (pawn1 2026-10-28 hung 5 min here)
+  local t=0
+  until adb connect "$s" >/dev/null 2>&1; adb -s "$s" shell getprop sys.boot_completed 2>/dev/null | grep -q 1; do
+    sleep 1; t=$((t+1)); [ $t -ge 90 ] && return 1
+  done
+}
+
 boot() {
   local i=$1 port name s
   # tasks run at 30 fps, every instance incl. Kong/Cmajor; back to 60 when the task is done (Nick 2026-11-13).
   # The fps cap applies live (< 30 is ignored); 1 core = default, applies at instance start (Nick 2026-11-17).
   "$M" config "$i" --setting '{"maxFpsLimit":30,"vmCpuCount":1}' >/dev/null 2>&1
-  "$M" open "$i" >/dev/null 2>&1
-  until port=$("$M" info "$i" 2>/dev/null | python3 -c "import json,sys; print(json.load(sys.stdin)['return'].get('adb_port') or '')" 2>/dev/null) && [ -n "$port" ]; do sleep 1; done
-  # info can fail for a moment ("Error: invalidPort", pawn2 2026-11-17 printed with no name) -> retry
-  until name=$("$M" info "$i" 2>/dev/null | python3 -c "import json,sys; print(json.load(sys.stdin)['return']['name'])" 2>/dev/null) && [ -n "$name" ]; do sleep 1; done
-  s=127.0.0.1:$port
-  # re-connect every pass: the connection can drop while booting (pawn1 2026-10-28 hung 5 min here)
-  local t=0
-  until adb connect "$s" >/dev/null 2>&1; adb -s "$s" shell getprop sys.boot_completed 2>/dev/null | grep -q 1; do
-    sleep 1; t=$((t+1)); [ $t -ge 90 ] && { echo "$name $s boot-timeout"; return; }
-  done
+  up "$i" || { echo "$name $s boot-timeout"; return; }
   # game dead after a launch (Android home in front: Boudior, Kratos 11-19) -> launch again, max MAX_RELAUNCHES
   local n st
   for n in $(seq $MAX_RELAUNCHES); do
     st=$(game "$s" "$name" "$port")
-    [[ $st == ready* ]] || in_game "$s" || { echo "$name $s $st, game not in front -> relaunch $n/$MAX_RELAUNCHES" >&2; continue; }
-    break
+    [[ $st == ready* ]] || in_game "$s" && break
+    echo "$name $s $st, game not in front -> relaunch $n/$MAX_RELAUNCHES" >&2
+    # whatever it takes (Nick 2026-11-21): the game never starting (Chloe 11-21: launch sent, no activity, 4 relaunches)
+    # needs the instance itself restarted -> every 2nd failed relaunch: close + open the instance
+    if [ $((n % 2)) = 0 ]; then
+      echo "$name $s restarting the instance" >&2
+      "$M" close "$i" >/dev/null 2>&1; up "$i" || { echo "$name $s boot-timeout (instance restart)"; return; }
+    fi
   done
   echo "$name $s $st"
 }

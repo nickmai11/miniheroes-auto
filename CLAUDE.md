@@ -43,7 +43,9 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 - Account on a different screen than the task needs → move it there (`home()` in flow.py, the one copy: back arrow, popups, Android
   Back), don't stop (Nick, 2026-10-31, every task). Stop and report only if that fails or the screen shows a choice/price.
 - **Game crashed / on the Android home → `scripts/boot.sh <mumu index>` and retry the step** (Nick, 2026-10-27; every
-  task 2026-11-20): boot is the only relaunch; its `MAX_RELAUNCHES` (10) is the only limit. Built into `flow.main()`
+  task 2026-11-20): boot is the only relaunch; its `MAX_RELAUNCHES` (10) is the only limit. **Whatever it takes**
+  (Nick, 2026-11-21): boot restarts the whole instance every 2nd failed relaunch; a straggler in a boot is acted on
+  at once, never waited out. Built into `flow.main()`
   (every mission script) and `flow.home()`; helpers run it themselves.
 - If a step can't be done with confidence (unreadable screen, tap not working after 2 tries), skip it and report
   it as skipped + why — never loop or guess.
