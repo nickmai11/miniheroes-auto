@@ -1126,7 +1126,7 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
 - **Fri–Sun** (Friday too since Nick 2026-11-08, was Sat–Sun)**:** take a **Glory** or **Gold** spot if one is empty or Sentinel-held, else a **purple/silver** one
   (empty first, else a Silver Sentinel).
 - **Purple enough → purple only** (Nick, 2026-11-21 — every day and every account, `highest` included; matters most
-  Fri–Sun): if **points + 9 × minutes left to the season end (Sunday 23:00 UTC = Monday 06:00 local) ≥ 80,000**, take a
+  Fri–Sun): if **points + 9 × minutes left to the season end (Sunday 23:00 UTC = Monday 06:00 local) × 22/24 ≥ 80,000** (a spot is held ~22 h a day: 8 h occupations, runs in between — Nick 2026-11-21), take a
   **purple (9/m)** spot, never Gold/Glory — empty first, else a Silver Sentinel, else a non-tribe player on a purple spot.
   Already at 80k counts too. Points = the Rewards panel number; `canyon.py` reads it before choosing and logs
   `points N, M min to season end -> purple enough|purple not enough`. Not enough (or unreadable) → the rules above/below.

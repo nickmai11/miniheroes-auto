@@ -15,6 +15,8 @@ assert season_left(datetime.datetime(2026, 11, 21, 13, 0, tzinfo=datetime.timezo
 assert purple_enough(79665, 60)                                          # Tiger 11-21: 80k in under an hour
 assert purple_enough(80000, 0)                                           # already there
 assert not purple_enough(50000, 60)
-assert purple_enough(58000, 41 * 60)                                     # 58000 + 22140 >= 80k
+assert purple_enough(60000, 41 * 60)                                     # 60000 + 20295 (22 h a day) >= 80k
+assert not purple_enough(61431, 2203)                                    # Chloe 11-21: 81258 at 24 h a day, 79606 at 22
+assert purple_enough(61908, 2210)                                       # Bino 11-21: 80140 at 22 h a day
 assert not purple_enough(None, 10000)                                    # points unreadable -> old rules
 print('ok')

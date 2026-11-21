@@ -3,7 +3,7 @@
 # usage: D=<serial> scripts/canyon.py <account>    (ui-routine "Canyon Clash"; Nick 2026-10-28: script, not a helper)
 #   Mon-Thu: first empty purple (Silver) platform among the top silver rows.
 #   Fri-Sun: empty Gold first, else empty purple (Fri since Nick 2026-11-08, was Sat).     canyon_clash: highest -> exit 2 at once (helper picks).
-#   Purple enough (Nick 2026-11-21, every account incl. highest): points + 9/min x minutes to season end >= 80k -> purple only.
+#   Purple enough (Nick 2026-11-21, every account incl. highest): points + 9/min x minutes to season end x 22/24 >= 80k -> purple only.
 # Empty = a platform disc with no name label under it. Every pick is confirmed by the popup text "occupy the empty"
 # before Occupy; anything else ("About to challenge <name>'s ...") -> Cancel. Never attacks: no empty spot -> exit 2.
 # exit 0 = moved, 2 = no empty platform (helper attacks: a Sentinel, else a non-tribe player), 1 = unexpected screen.
@@ -14,6 +14,7 @@ from tap import grab, tap as tap_wait
 
 PURPLE, GOLD = (203, 157, 255), (252, 170, 110)   # empty disc colours (Tiger 2026-10-28)
 TARGET, PURPLE_RATE = 80000, 9                    # points-reward top tier; purple spot points/min (Nick 2026-11-21)
+HELD = 22 / 24                                    # share of the time a spot is actually held: 8 h occupations, runs between (Nick 2026-11-21: ~22 h a day)
 
 
 def season_left(now):
@@ -26,7 +27,11 @@ def season_left(now):
 
 def purple_enough(points, minutes):
     """Staying on a purple (9/m) spot until the season ends reaches 80k -> no Gold/Glory (Nick 2026-11-21: leave them)."""
-    return points is not None and points + PURPLE_RATE * minutes >= TARGET
+    return points is not None and points + projected(minutes) >= TARGET
+
+
+def projected(minutes):
+    return int(PURPLE_RATE * minutes * HELD)
 
 
 def read_points():
@@ -93,7 +98,7 @@ def run(account):
     pts, left = read_points(), season_left(datetime.datetime.now().astimezone())
     enough = purple_enough(pts, left)
     print(f'points {pts}, {left} min to season end -> {"purple enough" if enough else "purple not enough"}'
-          + (f' ({pts + PURPLE_RATE * left} at {PURPLE_RATE}/m)' if pts is not None else ''), flush=True)
+          + (f' ({pts + projected(left)} at {PURPLE_RATE}/m, 22 h a day)' if pts is not None else ''), flush=True)
     # highest: the topmost spot that isn't a tribemate's - empty, Sentinel or player (Nick 2026-11-19). Telling a tribemate
     # (blue name) from an enemy above an empty spot is a judgment -> always the helper; this script only does empty spots.
     if highest and not enough: print('highest: topmost non-tribemate spot is a helper pick'); return 2
