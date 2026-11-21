@@ -1819,6 +1819,13 @@ def weekly(cfg):
 
 # catch-up (.claude/skills/catch-up): Fishing auto only, Arena, Storm, Veins + Forge (no Benefit), Patrol Claim All,
 # Arena again, Tribe chat Request/Assist, Common Recruitment, Daily Mission, Fishing order rewards, Relics (last)
+def relic(cfg):
+    """Catch-up's last step. `relic_skip_until: YYYY-MM-DD` in the account file = no relic before that game day (Kong, Nick 2026-11-21)."""
+    m = re.search(r'relic_skip_until:\s*(\d{4}-\d\d-\d\d)', cfg)
+    if m and str(GAME_DAY) < m.group(1): return f'SKIP relic off until {m.group(1)} (account file)'
+    return script('relic.py', ACCOUNT)
+
+
 CATCHUP = [('weekly_review', weekly_review),   # Sundays: the Weekly tab first - decides today's fishing bait (Nick 2026-11-08)
            ('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena), ('storm', storm),   # fishing first: Auto runs during the rest (Nick, 2026-10-29)
            ('veins_forge', divine), ('patrol_claim', patrol_claim), ('arena2', arena),
@@ -1828,7 +1835,7 @@ CATCHUP = [('weekly_review', weekly_review),   # Sundays: the Weekly tab first -
            ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),  # missions always last (Nick, 2026-10-29); FR packs: dailies only (Nick 2026-11-03)
            ('play_pass2', play_pass2),   # after the missions: the run's activity unlocks new Play Pass claims (Nick 2026-11-03)
            ('pet_check', pet_check),    # Mon-Wed: re-check all 40 free Pet Arena attempts used (Nick 2026-11-03)
-           ('relic', lambda c: script('relic.py', ACCOUNT))]   # last, every catch-up account (Nick 2026-11-10/16; a step since 2026-11-20, was relic_all.sh after the run)
+           ('relic', relic)]   # last, every catch-up account (Nick 2026-11-10/16; a step since 2026-11-20, was relic_all.sh after the run)
 CATCHUP_MANUAL = []
 def seq(*parts):
     """One runner step made of sub-steps (fn, config key or None), back to main between them. MANUAL/SKIP tags of a
