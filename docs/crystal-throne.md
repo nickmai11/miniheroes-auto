@@ -74,38 +74,30 @@ Nick commands, Claude executes on all accounts in parallel — never picks targe
   appears). Note the rules: no speed-up is offered when the remaining march is ≤ 10 s, i.e. a single hop.
 - Speed target: order typed → all accounts acting in ~10 s (script path, no screenshot reads in the loop).
 
-## Map and target names (agreed with Nick 2026-11-05)
+## Map and target names (in-game terms — Nick 2026-11-22; replaces the A1–E3 grid of 2026-11-05)
 
 Screenshot `docs/crystal-throne-map.png` (819×835; the coloured lines and digits on it are someone's annotations, not
-game content — ignore them). **Labelled version: `docs/crystal-throne-names.png`** — open it before a match.
+game content — ignore them). Old A1–E3 / compass labels (2026-11-05): `docs/crystal-throne-names.png`, reference only.
 
-- **Nodes:** rows A–E top→bottom, numbered 1–3 left→right within the row (no gaps): A1 A2 A3 in front of the top
-  bases; B1 B2 B3 inner ring top; C1 / **F** (centre Fortress) / C3 on the sides; D1 D2 D3 inner ring bottom;
-  E1 E2 E3 in front of the bottom bases.
+- **Nodes are called by the name the game prints under them** — seen 11-08: Dragonblight, Grizzly Hills, Sholazar
+  Basin, Howling Fjord, Blaze Peak, Lava Strong… (cut off in the OCR), Storm Peak, Borean Tundra. Any unique part works (`grizzly`,
+  `sholazar`), case ignored; `ct_siege.py` finds it by OCR on the map.
 - **Main bases are called by the server number shown on the map** ("Зона 201 Peakaboo" → `201`), never by tribe name
   or compass. `H` = our own base, whichever number it is that week (201 on 11-05).
-- Icon types are a guess until seen in-game: ⚡ lightning/beacon icon (A1 A2 A3 B2 C1 C3 D2 E1 E2 E3, 10 of them) =
-  Watchtower 30 pts; 🏰 tower icon (B1 B3 D1 D3) = Stronghold 60 pts; centre hex cluster F = Fortress 150 pts.
-
-| Node | Image x,y | Node | Image x,y | Node | Image x,y |
-| ---- | --------- | ---- | --------- | ---- | --------- |
-| A1   | 180,235   | A2   | 415,230   | A3   | 620,225   |
-| B1   | 305,320   | B2   | 415,320   | B3   | 525,320   |
-| C1   | 210,430   | F    | 415,435   | C3   | 620,435   |
-| D1   | 305,545   | D2   | 415,540   | D3   | 525,545   |
-| E1   | 210,645   | E2   | 415,650   | E3   | 650,630   |
+- Node types (in-game): Watchtower 30 pts, Stronghold 60 pts, centre Fortress 150 pts.
 
 Main bases on the 11-05 map (image x,y): top-left 180,120 · top 415,105 · top-right 690,130 · left 80,375 ·
 right 755,480 · bottom-left 180,745 · bottom 415,760 · bottom-right 655,745 (Peakaboo, 201). Pixel positions are for
 calibrating the device tap table at the first battlefield (Sun 2026-11-08 02:00 local).
 
-**Order grammar:** `<who> <action> <target>` — who = `all`, `g1`, `g2`, account names; action = `atk` (attack),
-`go` (march), `def` (station), `revive` (scroll revive; free revives are automatic); target = node or base **server
-number** or `H`. Examples: `g1 atk 150`, `all go B3`, `kong tiger def H`, `all revive`.
+**Order grammar:** `<who> <action> <target>` — who = `all`, a group (`g1`…) or account names; action = the in-game
+button: `siege`, `attack`, `march`, `station`, or `revive` (scroll revive; free revives are automatic); target = a node
+name or a base **server number** or `H`. Examples: `g1 siege grizzly`, `all march dragonblight`, `kong tiger station H`,
+`all revive`. Run: `CT_TOOL=ct_siege.py scripts/ct_do.sh <who> <node> <Siege|Attack|March|Station>`.
 
 **Base numbers → positions (Nick, 2026-11-05):** at the start of each match Nick feeds the map; Claude must then resolve
 every base number to its map position itself, before the first order — one OCR pass over the device map (the "Зона NNN"
-/ zone label under each main base) builds the `number → x,y` table, so an order like `g1 atk 150` needs no screenshot.
+/ zone label under each main base) builds the `number → x,y` table, so an order like `g1 attack 150` needs no screenshot.
 Nodes are fixed positions; only the 8 base numbers change per match. If a number can't be read, say so at once rather
 than guess.
 

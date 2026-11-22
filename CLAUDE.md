@@ -125,7 +125,7 @@ as it happens — not reconstructed at the end:
 - **Shorthand:** fr = Floating Realm, tc = Tribe Clash, ct = Crystal Throne — chat only; steps and config keys use the
   full name (`tribe_clash_packs`, `floating_realm_packs`).
 - **Crystal Throne:** Nick gives the orders, Claude executes on every account and never picks targets — read
-  `docs/crystal-throne.md` and open `docs/crystal-throne-names.png` first.
+  `docs/crystal-throne.md` first (orders use in-game names).
 - **One home per rule:** a rule for every task goes here; a task's rule goes in its skill or `docs/ui-routine.md`
   section. Never in Claude's memory, never in two places.
 

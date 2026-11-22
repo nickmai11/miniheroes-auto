@@ -4,7 +4,7 @@ Minimap -> full map tap (mx,my, optional) -> find the node's label by OCR -> tap
 Prints OK / NO <why> + screen text. Then the one 20-gem Speed Up per move (only at price 20), ticking "Do not remind me today" on its tip."""
 import re, sys, time
 from flow import Stop, find, joined, ocr, tap, tap_wait, wait
-name, act = sys.argv[1], (sys.argv[2] if len(sys.argv) > 2 else 'Siege')
+name, act = '(?i)' + sys.argv[1], (sys.argv[2] if len(sys.argv) > 2 else 'Siege').capitalize()   # in-game names, any case (Nick 2026-11-22)
 from flow import swipe
 if find(ocr(), r'^Watchtower$'): tap_wait(92, 1810); time.sleep(0.8)       # full map open -> back to the battlefield
 if len(sys.argv) > 3 and not find(ocr(), name):                            # drag x0,y0,x1,y1 to bring the node into view
