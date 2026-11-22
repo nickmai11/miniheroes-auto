@@ -3,4 +3,4 @@ group1: [aminor, cmajor, pawn2, dminor, kong, pawn1]
 group2: [dino, bino, tiger]
 internal: [aminor, bino, pawn2, cmajor, dino, dminor, kong, tiger, pawn1, chloe, kratos, boudior]   # kratos + boudior added 2026-11-12 (Nick)
 external: [seabze, cris, wyck, pupu, cino, swayze, freak]
-ct: [pawn1, cris, pupu, pawn2, chloe, kong, cmajor]
+ct: [cris, pupu, chloe, kong, cmajor]
