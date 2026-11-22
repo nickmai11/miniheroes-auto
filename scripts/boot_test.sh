@@ -8,6 +8,7 @@ T=$(mktemp -d); trap 'rm -rf "$T"' EXIT; mkdir -p "$T/bin"; cp "$SRC" "$T/boot.s
 st() { cat "$T/st/$1" 2>/dev/null || echo 0; }                      # fake device state, one file per key
 cat > "$T/accounts.py" <<S
 #!/bin/bash
+[ "\$1" = boot-order ] && { shift; echo "\$@"; exit; }
 echo "$T/mumu"
 S
 cat > "$T/mumu" <<S

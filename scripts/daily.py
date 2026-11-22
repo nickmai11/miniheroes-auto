@@ -1556,7 +1556,13 @@ def events(cfg):
                 if c:
                     tap_wait(*c)                             # 30-card result: cards flip one by one, Confirm only after the last
                     # (>15 s: 26/30 flipped at 15 s on pawn1/Chien Than 2026-11-12); never its Open All (Nick 2026-10-28)
-                    tap_text(r'^Confirm$', (300, 1650, 780, 1850), wait(r'^Confirm$', 40, (300, 1650, 780, 1850))); out.append('7777 daily')
+                    ok = wait(r'^Confirm$', 40, (300, 1650, 780, 1850))
+                    # Mythic hero = a card of 20 fragments -> highlights (Nick 2026-11-22); ponytail: OCR of a "20" count on
+                    # the cards, unchecked on a real Mythic yet - 7777_result.png is kept to check the first one
+                    im = grab(); im.resize((540, 960)).save('7777_result.png')
+                    n = sum(bool(re.fullmatch(r'[x×]?\s?20', t.strip())) for x, y, w, h, t in ocr(im) if 150 < y < 1650)
+                    if n: print(f'    7777: MYTHIC hero (20 fragments) x{n} (7777_result.png)', flush=True)
+                    tap_text(r'^Confirm$', (300, 1650, 780, 1850), ok); out.append('7777 daily' + (f' MYTHIC x{n}' if n else ''))
             elif tab == 'wish_festival': out += wish_festival()
             elif tab == 'pet_arena':
                 time.sleep(1); pet_popup(joined(ocr()))       # round-result popup over the lobby

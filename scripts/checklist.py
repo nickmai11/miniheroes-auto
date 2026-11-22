@@ -28,7 +28,7 @@ NOOP = re.compile(r'nothing|\(0 this run\)|after 0 crashes|no red dot|already on
 def parse(lines):
     """-> dict: res {step: (tag, text)}, chests, runs, pet (n, yesterday, +today) or None, dungeons {key: (done, total)}."""
     p = {'res': {}, 'chests': set(), 'runs': [], 'pet': None, 'dungeons': {}, 'sent': False, 'refill': 0, 'auto': False,
-         'ended': True}
+         'ended': True, 'mythic': 0}
     use = False
     for l in lines:
         if re.match(r'^\d\d:\d\d:\d\d LEFT FOR HELPER:', l): p['ended'] = True   # the runner's last line
@@ -45,6 +45,7 @@ def parse(lines):
             p['pet'] = tuple(map(int, m.groups()))
         if m := HAND.search(l): p['refill'] += int(m[1])
         if re.search(r'(OK|MANUAL) pet_check.*Auto Deploying:', l): p['auto'] = True
+        if m := re.search(r'7777: MYTHIC hero \(20 fragments\) x(\d+)', l): p['mythic'] += int(m[1])   # any run (Nick 2026-11-22)
         if SENT.search(l): p['sent'] = True                # tribe help request sent this game day, by any run
         if not use: continue
         if m := DUNGEON.match(l): p['dungeons'][m.group(1)] = int(m.group(2)), int(m.group(3))
@@ -168,6 +169,8 @@ def highlights(day, accts, state=status):
     who = lambda a: f'{EMOJI[st[a]]} **{a}**'
     out = [f'# Highlights - dailies {day} ({weekday})', '', ' · '.join(f'{e} {k}' for k, e in EMOJI.items()), '',
            f'## Undone ({len(undone)} of {len(accts)} accounts)', '']
+    mythic = [f'**{a}** x{p["mythic"]}' for a, p in accts if p['mythic']]   # 7777 daily claim drew a Mythic hero (Nick 2026-11-22)
+    if mythic: out[4:4] = ['## 7777 Mythic hero (20 fragments)', '', ', '.join(mythic), '']
     out += [l for a, ts in undone for l in [f'- {who(a)}'] + [f'  - {t}' for t in ts]] or ['Nothing undone.']
     clean = [who(a) for a, _ in accts if a not in dict(undone)]
     if clean: out += ['', f'Nothing undone: {", ".join(clean)}']
@@ -189,6 +192,7 @@ def write(day, acct):
 
 
 def test():
+    global running; running = lambda a: False   # live run locks (a catch-up running) made the status asserts fail
     log = ['12:18:24 === 2026-11-11 12:18:24 daily.py kong (serial 1)',
            '12:19:00 OK pet_arena (25s): Auto Deploying: 1 sprites, Random Selection',
            '12:20:00 FAIL fishing (75s): waited 8s (screenshot /tmp/x.png)', '12:21:00 OK fishing (40s): auto started',
@@ -244,6 +248,8 @@ def test():
     assert '  - tribe: canyon NOT done\n' in highlights('2026-11-11', [('kratos', q)]), highlights('2026-11-11', [('kratos', q)])   # Kratos 2026-11-13
     q = parse(log[:1] + ['12:30:00 MANUAL tribe (90s): MANUAL tribe done, request NOT SENT (no cooldown timer after 2 taps); occupied x'])
     assert '  - tribe: request not made\n' in highlights('2026-11-11', [('q', q)]), highlights('2026-11-11', [('q', q)])
+    h = highlights('2026-11-11', [('kong', p), ('tiger', parse(log[:1] + ['13:01:00     7777: MYTHIC hero (20 fragments) x1 (7777_result.png)']))])
+    assert '## 7777 Mythic hero (20 fragments)\n\n**tiger** x1\n' in h and '7777 Mythic' not in highlights('2026-11-11', [('kong', p)]), h
     print('ok')
 
 

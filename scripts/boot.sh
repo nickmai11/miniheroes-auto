@@ -8,6 +8,8 @@
 # Timings measured on Aminor 2026-10-27: Start button shows <1 s after launch, main screen ~5 s after Start.
 HERE="$(cd "$(dirname "$0")" && pwd)"; TAP="$HERE/tap.py"
 M=$("$HERE/accounts.py" mumu)   # mumu-cli path: one copy, accounts.py
+# boot order = the windows right to left, top to bottom (Nick 2026-11-22); lookup failed -> as given
+o=$("$HERE/accounts.py" boot-order "$@" 2>/dev/null) && [ -n "$o" ] && set -- $o
 PKG=com.and.brawlen.web
 
 # the ONE relaunch limit (Nick 2026-11-20, every task): game dead after a launch -> launch again, up to this many

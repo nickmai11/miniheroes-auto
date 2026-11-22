@@ -4,6 +4,7 @@
 # usage: scripts/accounts.py <task>   -> one account name per line (exit 1 on an unknown name = typo in the yaml)
 #        scripts/accounts.py rows <task> [account ...]   -> "<mumu index>|<account>|<instance>|<adb port or empty>" per
 #        account (the given ones, else the task's) whose instance exists - the one account -> instance lookup (Nick 2026-11-20)
+#        scripts/accounts.py boot-order <mumu index>...   -> the indices in boot order (boot.sh)
 #        scripts/accounts.py mumu | game-day   -> the mumu-cli path / today's game day (for the shell scripts and layout.js)
 import datetime, glob, json, os, re, subprocess, sys
 A = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts')
@@ -42,6 +43,15 @@ def rows(accts):
     return [(info[i]['index'], a, i, info[i].get('adb_port') or '') for a in accts if (i := instance(a)) in info]
 
 
+def boot_order(idx):
+    """MuMu indices in layout-1 screen order, right to left then top to bottom (Nick 2026-11-22): `right` column, `top`
+    row, `bottom` row of accounts/layout.yaml; instances not in the layout last, as given."""
+    L = lists(f'{A}/layout.yaml')
+    slots = L.get('right', [])[::-1] + L.get('top', [])[::-1] + L.get('bottom', [])[::-1]
+    name = {str(r['index']): n for n, r in mumu().items()}
+    return sorted(idx, key=lambda i: slots.index(name[i]) if name.get(i) in slots else len(slots))
+
+
 def lists(f):
     return {k: [x.strip() for x in v.split(',') if x.strip()] for k, v in re.findall(r'^(\w+):\s*\[(.*?)\]', open(f).read(), re.M)}
 
@@ -66,5 +76,6 @@ def for_task(task):
 if __name__ == '__main__':
     if sys.argv[1] == 'mumu': print(MUMU)
     elif sys.argv[1] == 'game-day': print(game_day())
+    elif sys.argv[1] == 'boot-order': print(' '.join(boot_order(sys.argv[2:])))
     elif sys.argv[1] == 'rows': print('\n'.join('|'.join(map(str, r)) for r in rows(sys.argv[3:] or for_task(sys.argv[2]))))
     else: print('\n'.join(for_task(sys.argv[1])))
