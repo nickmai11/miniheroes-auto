@@ -60,6 +60,8 @@ def relaunch(acct=None):
     # by the instance's name: an instance restart can come back on another adb port (Chloe 2026-11-21: 26816 -> 26817)
     name = next(n for n, r in info.items() if r['index'] == idx)
     line = next((l for l in out.splitlines() if l.startswith(name + ' 127.')), '?'); print(f'    relaunch: {line}', flush=True)
+    if ' logged-out' in line:                              # login screen: skip the account, no more relaunches (Nick 2026-11-22)
+        RELAUNCHES = MAX_RELAUNCHES; print('    logged out: skip this account (CLAUDE.md "Logged out")', flush=True); return False
     if ' ready ' not in line: return False
     if D not in line: print(f'    relaunch: {name} is on a new adb port ({line[len(name) + 1:].split()[0]}), was {D}; stop - re-run with that serial', flush=True); return False
     if not acct or accounts.field(acct, 'mumu_instance'): return True   # no account given, or the instance's own

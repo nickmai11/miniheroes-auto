@@ -1,7 +1,8 @@
 #!/bin/bash
 # Start MuMu instances, (re)launch the game, tap Start, wait for the main screen — all in parallel.
 # usage: [NOLAYOUT=1] scripts/boot.sh <mumu index>...      e.g. scripts/boot.sh 1 2 4  (>4: in batches of 4, see below)
-# prints one line per instance: "<name> 127.0.0.1:<port> ready" (or "... start-timeout" / "... main-timeout").
+# prints one line per instance: "<name> 127.0.0.1:<port> ready" (or "... start-timeout (<why>)" / "... main-timeout" /
+# "... logged-out (<screen>)" = login screen, no relaunch, skip the account). Test: scripts/boot_test.sh (pre-commit runs it).
 # Then it runs scripts/layout.js (window tiling, layout 1 - every task, Nick 2026-11-19), unless NOLAYOUT=1 (stage climb only: Nick 2026-11-14).
 # Then scripts/stabilize.py closes the event popups; "ready (stable …)" = bare main screen, "popup-stuck" = close it by hand.
 # Timings measured on Aminor 2026-10-27: Start button shows <1 s after launch, main screen ~5 s after Start.
@@ -15,24 +16,33 @@ MAX_RELAUNCHES=10
 in_game() { adb -s "$1" shell dumpsys window 2>/dev/null | grep mCurrentFocus | grep -q AppActivity; }
 
 game() {   # <serial> <instance name> <port>: force-stop, launch, Start, popups -> one status line
-  local s=$1 name=$2 port=$3
-  adb -s "$s" shell am force-stop $PKG
+  local s=$1 name=$2 port=$3 why=
+  # the ADB link can drop any time (Chloe, Boudior 2026-11-22: 'device not found' through 10 relaunches, one manual
+  # `adb connect` fixed it) -> reconnect before every adb step of a launch, not only in up()
+  adb connect "$s" >/dev/null 2>&1; adb -s "$s" shell am force-stop $PKG
   # yellow Start button, then the blue Recruit icon of the bottom bar (dimmed while a popup is open -> still ok after timeout)
   # launch can silently not happen (Aminor 2026-11-03 sat on the Android home 90 s) -> relaunch every 30 s, 3 tries
   local ok=
   for try in 1 2 3; do
+    adb connect "$s" >/dev/null 2>&1
     adb -s "$s" shell monkey -p $PKG -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1
-    D=$s python3 "$TAP" -o "/tmp/boot_$port.png" --until 440,1508,255,182,16 --timeout 30 && { ok=1; break; }
+    D=$s python3 "$TAP" -o "/tmp/boot_$port.png" --until 440,1508,255,182,16 --timeout 30 2>/dev/null && { ok=1; break; }
+    # why no Start: adb-lost / not-in-front -> next try reconnects + relaunches; logged-out -> stop now (Nick 2026-11-22:
+    # skip that account for the task, never log it in); the screen stays as it is for Nick
+    why=$(D=$s python3 "$HERE/boot_state.py" 2>&1 | tail -1)
+    [[ $why == logged-out* ]] && { echo "$why"; return; }
   done
-  [ -n "$ok" ] || { echo start-timeout; return; }
+  [ -n "$ok" ] || { echo "start-timeout (${why:0:80})"; return; }
   # Start tap is sometimes ignored (pawn1/Cmajor 2026-10-27) -> re-tap up to 3x, but ONLY while the Start
   # button is still there: a blind re-tap hit an event popup's GO and opened a web page (Bino/Dino 2026-10-27).
   for try in 1 2 3; do
+    adb connect "$s" >/dev/null 2>&1   # link drops after Start too (live test 2026-11-22: cost a whole relaunch)
     D=$s python3 "$TAP" 540,1508 -o "/tmp/boot_$port.png" --until 92,1788,0,158,230 --timeout 20 && break
     D=$s python3 "$TAP" -o "/tmp/boot_$port.png" --until 440,1508,255,182,16 --timeout 1 || break  # Start gone: popup over main
     [ $try = 3 ] && { echo main-timeout; return; }
   done
   # clear start-up event popups (tick "Do not remind me today" + X) -> "stable" = bare main screen (Nick, 2026-10-28)
+  adb connect "$s" >/dev/null 2>&1
   local st; st=$(cd /tmp && D=$s NAME="$name" python3 "$HERE/stabilize.py" | tail -1)
   case $st in stable*) echo "ready ($st)";; *) echo "popup-stuck ($st, /tmp/v_stabilize.png)";; esac
 }
@@ -67,7 +77,7 @@ boot() {
   local n st
   for n in $(seq $MAX_RELAUNCHES); do
     st=$(game "$s" "$name" "$port")
-    [[ $st == ready* ]] || in_game "$s" && break
+    [[ $st == ready* || $st == logged-out* ]] || in_game "$s" && break
     echo "$name $s $st, game not in front -> relaunch $n/$MAX_RELAUNCHES" >&2
     # whatever it takes (Nick 2026-11-21): the game never starting (Chloe 11-21: launch sent, no activity, 4 relaunches)
     # needs the instance itself restarted -> every 2nd failed relaunch: close + open the instance

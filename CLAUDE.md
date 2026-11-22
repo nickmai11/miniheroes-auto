@@ -79,6 +79,11 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
   (~25 s cold, ~15 s warm); at most 4 instances boot at once, the next 4 once the CPU is calm (Nick, 2026-11-17,
   every task that boots several accounts — never one `boot.sh` per account in parallel). Prints "<name> <serial> ready (stable …)" or "popup-stuck" (close that one by hand). Always boot first. Use it instead of
   manual start-up steps in any skill; runner and helpers then begin at a clean main screen.
+- **Boot quality (Nick, 2026-11-22):** a change to `boot.sh`, `boot_state.py` or `stabilize.py` → `scripts/boot_test.sh`
+  (offline fake emulator, ~10 s; the pre-commit hook runs it — `git config core.hooksPath .githooks` once per clone),
+  then one live `boot.sh <idle index>` from the CLI and one through launchd
+  (`scripts/schedule.py add boottest +1m /bin/bash -c 'scripts/boot_test.sh; scripts/boot.sh <index>'`) before any task
+  or scheduled job relies on it. A new boot failure → its `boot_test.sh` scenario first, then the fix.
 - **FPS (Nick, 2026-11-13, every task):** tasks run at 30 fps on every instance, Kong and Cmajor included — `boot.sh`
   sets 30 before it opens an instance. **When the task is done:** `mumu-cli config all --setting '{"maxFpsLimit":60}'`
   (applies live; `fr_all.sh` does it itself). Caps below 30 are ignored. **1 core** per instance (Nick, 2026-11-17):
