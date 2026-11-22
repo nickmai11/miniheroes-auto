@@ -42,7 +42,7 @@ Pre-flight (dailies skill): rows whose Test isn't `passive:` → test on ONE acc
 | 11-11 | Sanctuary weekly modifier card matched by its Confirm (300–780, 1520–1720), not the title | passive: next new-map week | no `no floor popup under the marker` FAIL |
 | 11-08 | `relic.py`: area finished ("Area fully excavated.") → `open_board()` and keep digging | passive: next relic run that finishes an area | `area fully excavated, re-entering Archaeology`, more digs, exit 0 |
 | 11-08 | `ct_revive.sh`: Free Revive retried ~1 s through the cooldown, popup reopened, stop at 0/5 | passive: next Crystal Throne match | each defeat → `revived` within ~60 s |
-| 11-22 | `ct_siege.py`: node name matched case-insensitively (`grizzly` → Grizzly Hills), action capitalized (`siege` → Siege) | passive: next Crystal Throne order | `OK` line on every account of the group |
+| 11-22 | `ct_siege.py`: initials from `docs/ct-nodes.txt` (`gh` → Grizzly Hills, 3-letter word prefixes), case-insensitive names, action capitalized (`siege` → Siege) | passive: next Crystal Throne order | `OK` line on every account of the group |
 | 11-09 | `artifact_roll.py`: a new-artifact popup / Mythic text after Wish counts as the box opened | passive: next roll with a new Legendary | `cycle N: new non-Mythic '…' -> Confirm, go on` |
 | 11-06 | `climb_stage.py --stop-next-chapter`: after X-40 → Next chapter, no Start, `STOPPED at (X+1)-1` | next "stop at next chapter" climb | main screen shows (X+1)-1, `STOPPED at` in the log |
 | 11-06 | `storm.py cur_rank`: 2× crop OCR for the badge level | passive: next storm on an account at King +10 | `rank read (4, N)` with the right two-digit N; cap stop at +10 |

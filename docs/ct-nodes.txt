@@ -1,0 +1,9 @@
+# Crystal Throne node initials -> in-game name (Nick 2026-11-22). One home: ct_siege.py reads this, the doc points here.
+# Two-word names = first letters; one-word names as Nick sets them. Incomplete: learn the rest at the next match.
+db Dragonblight
+gh Grizzly Hills
+sb Sholazar Basin
+hf Howling Fjord
+bp Blaze Peak
+sp Storm Peak
+bt Borean Tundra

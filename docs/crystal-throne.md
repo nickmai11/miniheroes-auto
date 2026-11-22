@@ -73,15 +73,23 @@ Nick commands, Claude executes on all accounts in parallel — never picks targe
 - **Every move: one 20-diamond speed-up** (exactly one per march; tick "Don't show again" on its confirm popup if it
   appears). Note the rules: no speed-up is offered when the remaining march is ≤ 10 s, i.e. a single hop.
 - Speed target: order typed → all accounts acting in ~10 s (script path, no screenshot reads in the loop).
+- **Lag: resume, don't stall** (Nick 2026-11-22, note for the next match). CT is laggy (11-08: `screencap failed 3x`,
+  `NO popup` on a Siege, accounts left on the wrong screen). An account whose order fails gets back to the battlefield
+  by itself (full map / popup → back; out of CT → `ct_enter.sh`; game crashed → `boot.sh` + `ct_enter.sh`) and redoes
+  that order once from there; still failing → report it to Nick at once and keep the other accounts going. Learn the
+  lag states during the match and build the recovery into `ct_do.sh` / `ct_siege.py` as they show.
 
 ## Map and target names (in-game terms — Nick 2026-11-22; replaces the A1–E3 grid of 2026-11-05)
 
 Screenshot `docs/crystal-throne-map.png` (819×835; the coloured lines and digits on it are someone's annotations, not
 game content — ignore them). Old A1–E3 / compass labels (2026-11-05): `docs/crystal-throne-names.png`, reference only.
 
-- **Nodes are called by the name the game prints under them** — seen 11-08: Dragonblight, Grizzly Hills, Sholazar
-  Basin, Howling Fjord, Blaze Peak, Lava Strong… (cut off in the OCR), Storm Peak, Borean Tundra. Any unique part works (`grizzly`,
-  `sholazar`), case ignored; `ct_siege.py` finds it by OCR on the map.
+- **Nodes are called by their initials** (Nick 2026-11-22): `gh` = Grizzly Hills, `db` = Dragonblight — the table is
+  `docs/ct-nodes.txt` (`ct_siege.py` reads it; a known name is matched on each word's first 3 letters, OCR garbles the
+  ends). A full name or any unique part of it (`grizzly`) also works. Seen 11-08, not in the table yet: Lava Strong… (cut
+  off in the OCR).
+- **Next match, setup window: learn all initials** (Nick 2026-11-22) — read every node name on the map, add the missing
+  ones to `docs/ct-nodes.txt`, and tell Nick at once about any two names with the same initials (he picks).
 - **Main bases are called by the server number shown on the map** ("Зона 201 Peakaboo" → `201`), never by tribe name
   or compass. `H` = our own base, whichever number it is that week (201 on 11-05).
 - Node types (in-game): Watchtower 30 pts, Stronghold 60 pts, centre Fortress 150 pts.
@@ -92,7 +100,7 @@ calibrating the device tap table at the first battlefield (Sun 2026-11-08 02:00 
 
 **Order grammar:** `<who> <action> <target>` — who = `all`, a group (`g1`…) or account names; action = the in-game
 button: `siege`, `attack`, `march`, `station`, or `revive` (scroll revive; free revives are automatic); target = a node
-name or a base **server number** or `H`. Examples: `g1 siege grizzly`, `all march dragonblight`, `kong tiger station H`,
+name or a base **server number** or `H`. Examples: `g1 siege gh`, `all march db`, `kong tiger station H`,
 `all revive`. Run: `CT_TOOL=ct_siege.py scripts/ct_do.sh <who> <node> <Siege|Attack|March|Station>`.
 
 **Base numbers → positions (Nick, 2026-11-05):** at the start of each match Nick feeds the map; Claude must then resolve
