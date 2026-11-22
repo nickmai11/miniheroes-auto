@@ -1636,17 +1636,19 @@ def weekly_rows(boxes):
     return out
 
 
-def weekly_read():
-    """Main -> Mission popup -> Weekly tab -> (points, {name: (done, total)}) over every page; leaves the popup open."""
+def weekly_read(rows_too=True):
+    """Main -> Mission popup -> Weekly tab -> (points, {name: (done, total)}); leaves the popup open. The game lists unfinished
+    rows first (Nick 2026-11-22: "undone missions are at the top, within 1-2 screens") -> read pages only until one shows
+    no unfinished row; a row not read = finished. rows_too=False: the points only, no scrolling."""
     tap_wait(994, 1625); wait(r'^Mission$', 6); time.sleep(1.2); m = find(ocr(), r'^Mission$')
     if not m: raise Stop('Mission entry not in the side menu')
     tap_wait(m[0] - 120, m[1] - 30); wait(r'Daily Mission', 10)
     tap_wait(778, 1688); time.sleep(1); boxes = wait(r'Weekly Mission', 6)
     p = [t for x, y, w, h, t in boxes if 100 < x + w // 2 < 260 and 400 < y + h // 2 < 540 and t.strip().isdigit()]
     rows, prev = {}, None
-    for _ in range(8):                                    # slow swipes; a page equal to the last = the list's end
+    for _ in range(8 if rows_too else 0):                 # slow swipes; a page equal to the last = the list's end
         r = weekly_rows(ocr()); rows.update(r)
-        if r and set(r) == prev: break
+        if r and (set(r) == prev or all(d >= t for d, t in r.values())): break   # past the unfinished rows
         prev = set(r); swipe(540, 1400, 540, 850, 1500); time.sleep(1.8)
     return (int(p[0]) if p else -1), rows
 
@@ -1791,13 +1793,11 @@ def weekly(cfg):
     pts, rows = weekly_read(); tap_wait(972, 238)
     prog = lambda key: next(((d, t) for name, (d, t) in rows.items() if re.search(key, name)), None)
     out, short, deferred = [f'{pts} pts, {len(rows)} rows read'], [], []
-    out.append('new rows: ' + ', '.join(f'{m} {prog(WEEKLY_KEY[m]) or "?"}' for m in ('treasure_draw', 'honor', 'artifact_wish', 'lucky_stars', 'statue_upgrade')))
+    out.append('new rows: ' + ', '.join(f'{m} {prog(WEEKLY_KEY[m]) or "done (not read)"}' for m in ('treasure_draw', 'honor', 'artifact_wish', 'lucky_stars', 'statue_upgrade')))
     if pts < 180:
         for mid, do in weekly_list():
             p = prog(WEEKLY_KEY[mid])
-            if not p:
-                if do: out.append(f'{mid}: row not read')
-                continue
+            if not p: continue                              # not read = below the unfinished rows = finished
             d, t = p
             if d >= t or not do: continue
             if mid in ('statue_upgrade', 'lucky_stars'): deferred.append((mid, t - d)); continue
@@ -1811,7 +1811,7 @@ def weekly(cfg):
     claims = [str(daily_mission(cfg))]
     if deferred and pts < 180:
         if not home(): raise Stop('lost the main screen in the weekly pass')
-        pts2, _ = weekly_read(); tap_wait(972, 238); out.append(f'{pts2} pts after claims')
+        pts2, _ = weekly_read(rows_too=False); tap_wait(972, 238); out.append(f'{pts2} pts after claims')
         if pts2 < 180:
             for mid, need in deferred:                    # list order (Nick: Statue 17th, Lucky Stars 18th)
                 if not home(): raise Stop('lost the main screen in the weekly pass')
