@@ -71,6 +71,22 @@ def relaunch(acct=None):
     return r.returncode == 0
 
 
+def after_restart():
+    """The game just (re)started - a reload after "Network issue" -> Confirm. A popup can ALWAYS show then (Nick 2026-11-22:
+    Bino waited ~3 min for a main screen hidden by Snow Carnival): wait out the loading, tap Start if the title screen
+    shows (Chien Than 11-11), and the moment a popup or the main screen is up, clear the popups exactly like boot does -
+    stabilize.main(): tick "Do not remind me today", then X (Cancel / "Tap anywhere to close", never GO). True = clean main."""
+    from stabilize import close_x, main as clear_popups      # stabilize imports flow
+    for _ in range(60):
+        im = grab()
+        if is_main(im) or close_x(im): break
+        boxes = ocr(im, net=True)
+        if find(boxes, r'Do not remind me today|Tap anywhere to close|^Cancel$'): break
+        if s := find(boxes, r'^Start$', (300, 1400, 780, 1620)): tap_wait(*s)
+        time.sleep(1)
+    return clear_popups() == 0
+
+
 def home():
     """Back to the main screen - the one copy (every script; Nick 2026-11-20): back arrow / popup handling, max 8 tries.
     Back can land on Recruit -> back again.
@@ -90,11 +106,7 @@ def home():
         if find(boxes, r'^Exit') and find(boxes, r'^Confirm$'): tap_text(r'^Confirm$', boxes=boxes); continue
         if find(boxes, r'Network issue') and find(boxes, r'^Confirm$'):   # mid-battle (pawn1 gate 2026-11-10): Confirm reloads
             tap_text(r'^Confirm$', boxes=boxes); print('    network issue popup -> Confirm (game reloads)', flush=True)
-            for _ in range(60):
-                if is_main(): break
-                # reload can land on the title screen (Chien Than 11-11: Start untapped -> Back opened "Quit Game?")
-                if s := find(ocr(net=True), r'^Start$', (300, 1400, 780, 1620)): tap_wait(*s)
-                time.sleep(1)
+            print(f'    after reload: {"main" if after_restart() else "popups not cleared"}', flush=True)
             continue
         tap_wait(92, 1810); time.sleep(0.8)
     for _ in range(3):                                   # screens without the back arrow (hero detail, Cmajor 2026-10-31):

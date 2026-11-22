@@ -62,4 +62,25 @@ run drop     '^Test 127.0.0.1:26999 ready \(stable'  0 0     # link lost at each
 run dropstart '^Test 127.0.0.1:26999 ready \(stable'  0 0     # link lost on the Start tap -> reconnect, no relaunch (live 11-22)
 run logout   '^Test 127.0.0.1:26999 logged-out'      0 0     # login screen -> skip at once, no relaunch (Kong 11-22)
 run nolaunch '^Test 127.0.0.1:26999 start-timeout'   10 5    # game never starts -> 10 relaunches, instance restart every 2nd
+# reload after "Network issue" (flow.after_restart): popups cleared like boot the moment one shows (Bino 11-22 waited ~3 min)
+D=x python3 - "$HERE" <<'PY' || fails=$((fails+1))
+import sys, time; sys.path.insert(0, sys.argv[1]); import flow, stabilize
+def case(name, screens, want_taps, max_polls):
+    seq, taps, cleared = list(screens), [], []
+    cur = lambda: seq[0] if len(seq) == 1 else seq.pop(0)
+    flow.grab = lambda: cur(); flow.is_main = lambda im=None: im == 'main'
+    stabilize.close_x = lambda im: (980, 150) if im == 'popup' else None
+    flow.ocr = lambda im=None, net=False: ([(400, 1500, 100, 40, 'Start')] if im == 'title' else
+                                           [(100, 900, 300, 30, 'Do not remind me today')] if im == 'popup2' else [])
+    flow.tap_wait = lambda x, y: taps.append((x, y)); time.sleep = lambda s: None
+    stabilize.main = lambda: cleared.append(len(screens) - len(seq)) or 0
+    ok = flow.after_restart() and cleared and cleared[0] <= max_polls and len(taps) == want_taps
+    print(('ok   ' if ok else 'FAIL ') + f'reload {name}: popups cleared after {cleared[0] if cleared else None} polls, taps {taps}')
+    return ok
+r = [case('popup (X)', ['loading', 'loading', 'popup', 'main'], 0, 3),
+     case('popup (tick text)', ['loading', 'popup2', 'main'], 0, 2),
+     case('title then popup', ['title', 'loading', 'popup', 'main'], 1, 3),
+     case('straight to main', ['main'], 0, 1)]
+sys.exit(0 if all(r) else 1)
+PY
 [ $fails = 0 ] && echo "boot_test: all passed" || { echo "boot_test: $fails FAILED"; exit 1; }
