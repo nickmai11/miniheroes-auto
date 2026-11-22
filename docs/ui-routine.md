@@ -1009,7 +1009,8 @@ scaled up; the four rows nothing else produces:
    tap = 1 "time" (likely) — read the row before/after on first use.
 2. **Upgrade Statue 5 time(s)** — bottom bar **Hero** `(274,1780)` → **Statue** tab `(635,1848)` → **Level Up** `(540,1589)`
    while the _Power Required_ bar is full (Kong 248509/149931 = one level available; the bar refills from hero battle power
-   growth). No gold/gem icon on the screen. **Bless** `(835,604)` = Statue Blessings (`do: false`), Bonus `(989,419)`,
+   growth). **Full = the bar's colour, never its numbers** (Nick 2026-11-22): right end `(950,1468)` yellow/orange =
+   full, dark blue `(49,57,90)` = not; Vision garbles the numbers (`7/6224`, `\` for `/`) and stopped 3 of 5 accounts short. No gold/gem icon on the screen. **Bless** `(835,604)` = Statue Blessings (`do: false`), Bonus `(989,419)`,
    Constellation `(116,1111)` — leave alone.
 3. **Consumed 50 Lucky Star(s) in Fishing** — Lucky Star is a **bait**: Fishing `(624,1780)` → **Bait** `(986,1459)` → 2×4 grid
    (row y 1120 / 1340, x 198 / 426 / 654 / 908): tile 3 = **Lucky Star** `(654,1120)` (Kong 1474; bonus Scavenge 51.2 % +

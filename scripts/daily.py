@@ -1756,19 +1756,25 @@ def weekly_review(cfg):
             f'Lucky Stars {"%d/%d " % ls if ls else ""}{why}')
 
 
+def statue_full(im):
+    """Power Required bar full = its right end (950,1468) yellow/orange: Dminor full (255,186,58), Boudior empty (49,57,90)
+    2026-11-22. Never its numbers: Vision garbles them ('7/6224', '1056340\\76784', '[634070\\798641') and stopped 3 of 5
+    accounts short of Upgrade Statue 5/5 that day (Nick)."""
+    r, g, b = im.getpixel((950, 1468))[:3]
+    return r > 200 and g > 150 and b < 130
+
+
 def weekly_statue(need):
-    """Hero > Statue: Level Up while the Power Required bar is full (one level per full bar), at most `need` times."""
-    tap_wait(274, 1780); wait(r'^Statue$', 8); tap_wait(635, 1848); wait(r'Power Required', 8); time.sleep(0.8)
+    """Hero > Statue: Level Up while the Power Required bar is full (one level per full bar), at most `need` times.
+    Full = the bar's colour (statue_full); each Level Up must raise the level shown (Lv.N), else stop."""
+    tap_wait(274, 1780); wait(r'^Statue$', 8); tap_wait(635, 1848); wait(r'Power Required', 8)
+    wait(r'Lv\.\d+', 8); time.sleep(0.8)                          # the screen shows 0/0 for a moment before the data loads
     done = 0
     for _ in range(need):
-        boxes = ocr(); t = joined(boxes)
-        bar = [tt for x, y, w, h, tt in boxes if 1430 < y + h // 2 < 1510 and re.search(r'\d+/\d+', tt)]
-        lv = re.search(r'Lv\.(\d+)', t)
-        # Vision drops/garbles digits of the bar ("1143737/|82384", Bino + Dminor 2026-11-15): a deferred row -> report it
-        # short and let the weekly pass go on (Lucky Star, claims) instead of failing the whole step
-        if not bar or not lv: return f'statue: +{done}, bar/level unreadable ({t[t.find("Power Required"):][:40]})'
-        have, req = map(int, re.search(r'(\d+)/(\d+)', bar[0]).groups())
-        if have < req: return f'statue: +{done}, bar {have}/{req} not full'
+        im = grab()
+        if not statue_full(im): return f'statue: +{done}, bar not full (colour {im.getpixel((950, 1468))[:3]})'
+        lv = re.search(r'Lv\.(\d+)', joined(ocr(im)))
+        if not lv: return f'statue: +{done}, level unreadable'
         tap_wait(540, 1589); time.sleep(1.5)
         if find(ocr(), r'Tap anywhere|Congratulations'): tap_wait(540, 120); time.sleep(0.8)
         lv2 = re.search(r'Lv\.(\d+)', joined(ocr()))
