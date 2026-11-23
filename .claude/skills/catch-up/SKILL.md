@@ -13,9 +13,12 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: `scripts/a
    `for a in <acct>:<serial> ...; do (D=${a#*:} OUT=/tmp/miniheroes-$(date +%F-%H)/${a%%:*} scripts/daily.py ${a%%:*} --catch-up > /tmp/miniheroes-$(date +%F-%H)/${a%%:*}.log 2>&1) & done; wait`
    It does ALL steps below (claims, Canyon empty spot and event milestones too since 2026-10-28) and ends with
    `LEFT FOR HELPER:` = only MANUAL lines (no empty Canyon spot → attack choice: a Sentinel, else a non-tribe player; event tabs with an unmapped red dot)
-   and FAILs with `v_<step>.png`. Read them all with ONE `scripts/summary.sh <run dir>` (not log greps). Empty list → no helper for that account. Otherwise ONE `mh-helper` per account for
-   only those, prompt below trimmed to them. While it runs, one Monitor surfaces failures live (Dino 2026-10-28 sat
-   8 min on a FAIL start nobody saw): `tail -F <run dir>/*.log | grep --line-buffered -E '^(FAIL|Traceback)'`.
+   and FAILs with `v_<step>.png`. Empty list → no helper for that account. Otherwise ONE `mh-helper` per account for
+   only those, prompt below trimmed to them — **started the moment that account's `LEFT FOR HELPER:` line shows, never
+   after the whole run** (Nick, 2026-11-24: "don't wait, act promptly" — Tiger sat idle with a Canyon leftover while
+   others ran). One Monitor surfaces failures and per-account ends live (Dino 2026-10-28 sat 8 min on a FAIL start
+   nobody saw): `tail -F <run dir>/*.log | grep --line-buffered -E '^(FAIL|Traceback|LEFT FOR HELPER)'`.
+   `scripts/summary.sh <run dir>` once at the end for the report.
    The runner retries each FAIL once right away (in order, 2026-11-01); re-run by hand only after exit 1 (lost the main screen),
    with only the steps after its last OK: `daily.py <acct> --catch-up <step>...` (zsh: pass the steps as
    separate words — `${=steps}` — a quoted list runs nothing, 2026-10-29).
@@ -64,7 +67,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: `scripts/a
        activity unlocked; never a $ button.
    14. `pet_check` — Pet Arena check (Mon–Wed): Achievement cumulative deployments +40 since yesterday = all 40 free
        attempts used; short → Auto Deploy restarted, reported.
-       **After all helpers finish**, one more runner pass on **only the accounts that had a helper** (orders keep completing
+       **As soon as an account's helper finishes** (that account alone, not after all helpers), one more runner pass on **only the accounts that had a helper** (orders keep completing
        during the helpers; Nick, 2026-10-28): `daily.py <acct> --catch-up common_recruit fishing_rewards` — drop
        `fishing_rewards` if that account's earlier line said `AUTO STOPPED, bread N` (no bread = no new orders; Nick
        2026-10-29: the order claim ran 3-4x per account). Never re-run a step just to read something off the screen.
