@@ -45,7 +45,7 @@ def parse(lines):
             p['pet'] = tuple(map(int, m.groups()))
         if m := HAND.search(l): p['refill'] += int(m[1])
         if re.search(r'(OK|MANUAL) pet_check.*Auto Deploying:', l): p['auto'] = True
-        if m := re.search(r'7777: MYTHIC hero \(20 fragments\) x(\d+)', l): p['mythic'] += int(m[1])   # any run (Nick 2026-11-22)
+        if m := re.search(r'7777: MYTHIC hero \(red, 20 fragments\) x(\d+)', l): p['mythic'] += int(m[1])   # any run; red card only (Nick 2026-11-23: the old '(20 fragments)' lines counted any whole hero)
         if SENT.search(l): p['sent'] = True                # tribe help request sent this game day, by any run
         if not use: continue
         if m := DUNGEON.match(l): p['dungeons'][m.group(1)] = int(m.group(2)), int(m.group(3))
@@ -250,7 +250,7 @@ def test():
     assert '  - tribe: canyon NOT done\n' in highlights('2026-11-11', [('kratos', q)]), highlights('2026-11-11', [('kratos', q)])   # Kratos 2026-11-13
     q = parse(log[:1] + ['12:30:00 MANUAL tribe (90s): MANUAL tribe done, request NOT SENT (no cooldown timer after 2 taps); occupied x'])
     assert '  - tribe: request not made\n' in highlights('2026-11-11', [('q', q)]), highlights('2026-11-11', [('q', q)])
-    h = highlights('2026-11-11', [('kong', p), ('tiger', parse(log[:1] + ['13:01:00     7777: MYTHIC hero (20 fragments) x1 (7777_result.png)']))])
+    h = highlights('2026-11-11', [('kong', p), ('tiger', parse(log[:1] + ['13:01:00     7777: MYTHIC hero (red, 20 fragments) x1 (7777_result.png)']))])
     assert '## 7777 Mythic hero (20 fragments)\n\n**tiger** x1\n' in h and '7777 Mythic' not in highlights('2026-11-11', [('kong', p)]), h
     print('ok')
 

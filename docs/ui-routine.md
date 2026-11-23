@@ -831,7 +831,7 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   uncollected on every account until 2026-11-03 because unknown tabs were invisible) → map it here + in `events()`.
 - **Wish Festival:** Sign-In ≈ `(876,1500–1560)` → today's Claim `(862,1498)`; Gift `(270,1600–1660)` → Free Pack
   `(866,912)` ×2 (Limited: 2), close ✕ `(966,190)`. Treasure Vault = event-coin draws → skip.
-- **7777 Draws:** daily Claim `(540,1606)` (collects 30 draws; shows a 30-hero-card result, cards flipping one by one for ~20 s, then **Confirm** `(540,1748)`; the runner polls ≤ 40 s; before Confirm it saves `7777_result.png` and OCRs the cards for a 20-fragment count = Mythic hero → `7777: MYTHIC hero` log line → dailies highlights, Nick 2026-11-22) — then stop: **never Open All** / draw (Nick, 2026-10-28:
+- **7777 Draws:** daily Claim `(540,1606)` (collects 30 draws; shows a 30-hero-card result, cards flipping one by one for ~20 s, then **Confirm** `(540,1748)`; the runner polls ≤ 40 s; before Confirm it saves `7777_result.png` and OCRs the cards: a **red** card with a 20-fragment count = Mythic hero → `7777: MYTHIC hero (red, 20 fragments)` log line → dailies highlights, Nick 2026-11-23; 20 alone = any whole hero drawn — Kong's orange Legend was flagged 11-23) — then stop: **never Open All** / draw (Nick, 2026-10-28:
   collect only). Never "Again" / "claim one more time" — its red dot stays when all daily claims are ticked.
 - **Match Event:** Heroic Trial sub-tab `(400,190)` and **Canyon Warrior** tab — free point milestones, Claim
   ≈ `(896,1024)`. The top Claim rolls to the next row after each claim: repeat while pixel `(820,1024)` is yellow

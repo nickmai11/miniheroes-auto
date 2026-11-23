@@ -1557,11 +1557,12 @@ def events(cfg):
                     tap_wait(*c)                             # 30-card result: cards flip one by one, Confirm only after the last
                     # (>15 s: 26/30 flipped at 15 s on pawn1/Chien Than 2026-11-12); never its Open All (Nick 2026-10-28)
                     ok = wait(r'^Confirm$', 40, (300, 1650, 780, 1850))
-                    # Mythic hero = a card of 20 fragments -> highlights (Nick 2026-11-22); ponytail: OCR of a "20" count on
-                    # the cards, unchecked on a real Mythic yet - 7777_result.png is kept to check the first one
+                    # Mythic hero = a RED card of 20 fragments (20 = a whole hero drawn, any rarity; red = Mythic) -> highlights
+                    # (Nick 2026-11-23; 11-22's "any 20" flagged Kong's orange Legend). Colour just below-right of the count.
                     im = grab(); im.resize((540, 960)).save('7777_result.png')
-                    n = sum(bool(re.fullmatch(r'[x×]?\s?20', t.strip())) for x, y, w, h, t in ocr(im) if 150 < y < 1650)
-                    if n: print(f'    7777: MYTHIC hero (20 fragments) x{n} (7777_result.png)', flush=True)
+                    n = sum(bool(re.fullmatch(r'[x×]?\s?20', t.strip())) and mythic_red(im.convert('RGB').getpixel((min(x + w + 5, 1079), y + h + 12)))
+                            for x, y, w, h, t in ocr(im) if 150 < y < 1650)
+                    if n: print(f'    7777: MYTHIC hero (red, 20 fragments) x{n} (7777_result.png)', flush=True)
                     tap_text(r'^Confirm$', (300, 1650, 780, 1850), ok); out.append('7777 daily' + (f' MYTHIC x{n}' if n else ''))
             elif tab == 'wish_festival': out += wish_festival()
             elif tab == 'pet_arena':
@@ -1789,6 +1790,15 @@ def weekly_statue(need):
         if not lv2 or int(lv2.group(1)) <= int(lv.group(1)): return f'statue: +{done}, Level Up did not raise the level ({lv.group(1)})'
         done += 1
     return f'statue: +{done} level(s)'
+
+
+def mythic_red(rgb):
+    """7777 result card colour (Kong 2026-11-23 samples): red (255,69,49) Mythic, orange (255,187,0) Legend, purple (156,49,225)."""
+    r, g, b = rgb[:3]
+    return r > 200 and g < 120 and b < 100
+
+
+assert mythic_red((255, 69, 49)) and not mythic_red((255, 187, 0)) and not mythic_red((156, 49, 225))
 
 
 def weekly(cfg):
