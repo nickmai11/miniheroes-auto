@@ -91,7 +91,7 @@ def outstanding(c):
     return {t: v for t, v in c.items() if isinstance(v, int) and v > HIGH.get(t, float('inf'))}
 
 
-def rows(p):
+def rows(p, day):
     """[(done, line)] - the Daily Mission chest, then one per step."""
     res = p['res']
     folded = {'pet_check', 'pet_count', 'tribe_chat', 'canyon'}   # shown in the pet_arena / tribe rows
@@ -100,6 +100,7 @@ def rows(p):
     for n in names:
         tag, text = res.get(n, ('', 'not run'))
         if text.startswith('not in config'): continue
+        if n == 'weekly' and not tag and datetime.date.fromisoformat(day).weekday() != 6: continue   # Sunday-only: no false open box when a step list left it out (Nick 2026-11-23)
         done = tag in ('OK', 'SKIP')
         if n == 'pet_arena' and tag != 'SKIP':
             if p['pet']:
@@ -129,7 +130,7 @@ def rows(p):
 
 
 def render(acct, day, p):
-    res, rows_ = p['res'], rows(p)
+    res, rows_ = p['res'], rows(p, day)
     todo, done = [t for d, t in rows_ if not d], [t for d, t in rows_ if d]
     weekday = datetime.date.fromisoformat(day).strftime('%a')
     return '\n'.join([f'# {acct} - dailies {day} ({weekday})', '',
@@ -160,7 +161,7 @@ def highlights(day, accts, state=status):
     """_highlights.md: run status per account (Nick 2026-11-20), each account's open boxes (up to the first ';'), then
     the coins above HIGH. accts = [(acct, p)]."""
     weekday = datetime.date.fromisoformat(day).strftime('%a')
-    undone = [(a, [t.split(';')[0] for d, t in rows(p) if not d]) for a, p in accts]
+    undone = [(a, [t.split(';')[0] for d, t in rows(p, day) if not d]) for a, p in accts]
     undone = sorted([(a, ts) for a, ts in undone if ts], key=lambda u: -len(u[1]))   # most issues first (Nick 2026-11-19)
     rich = [(a, outstanding(coins(p['res'].get('grocery', ('', ''))[1]))) for a, p in accts]
     rich = [(a, o) for a, o in rich if o]
@@ -221,7 +222,8 @@ def test():
         assert f'- [ ] {open_}' in top, (open_, md)
     for ok in ('**Daily Mission 160 chest**', 'sanctuary: floors 10/10; swept', 'fishing: auto started', 'tribe: canyon done;'):
         assert f'- [x] {ok}' in bottom, (ok, md)
-    assert 'home' not in md
+    assert 'home' not in md and '- [ ] weekly:' not in md, md   # Wed: no weekly row
+    assert '- [ ] weekly: not run' in render('kong', '2026-11-15', p)   # Sunday: still listed
     h = highlights('2026-11-11', [('kong', p), ('tiger', parse(log[:1] + ['12:26:00 OK grocery (9s): done, coins: sanctuary 900 / tribe 50000 / realm 50000 / tundra 22830']))])
     assert '- ⛔ **kong**\n  - pet_arena: deployments 116/120 (+36 today)\n' in h, h
     assert p['ended'] is False and parse(log[:2] + ['12:40:01 LEFT FOR HELPER: events'])['ended'] is True
