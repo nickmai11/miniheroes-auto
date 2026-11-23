@@ -1095,8 +1095,8 @@ all) also appear — just below the Gold rows, in the Silver Sentinel rows, next
 first; otherwise a Sentinel-held spot (no player) counts as free — beat it to take it. Occupant names: **blue**
 name background = tribe member, **purple** = not in our tribe; your own spot shows a **green** name.
 
-**Scan the whole map first** (scroll top → bottom, screenshot each screen) and choose by priority — empty
-platform > Sentinel-held > a non-tribe player's — before tapping anything (an attack only when nothing is empty; Nick, 2026-11-16).
+**Empty or non-tribe, both fine** (Nick, 2026-11-23 — replaces 2026-11-16's "empty first, attack only when nothing is empty"): take the
+first spot by the day's rule that is empty (occupy) or held by a Sentinel / non-tribe player (attack) — no hunt for an empty one.
 Silver (purple-platform) spots: consider **only the first 10** from the top (Nick, 2026-10-26) — ignore
 silver spots further down. Spots change while you scroll and fill within seconds when several workers run —
 re-screenshot before tapping and re-check the popup's name before confirming.
@@ -1120,8 +1120,8 @@ After Occupy/Victory the header can keep showing the old spot — back out to Tr
 **Take a new spot every run, even if you already hold one** (Nick, 2026-10-27) — a held spot doesn't count as
 done. Pick by the rules below; done once the header shows the newly taken spot. Never spend gems on attempts.
 
-- **Prefer an empty spot; attack when none is available** (Nick, 2026-11-16 — replaces the 2026-10-30 "never attack a
-  player"): empty platform first, else beat a Sentinel, else a player who isn't in our tribe. Never a tribemate (blue
+- **Empty or non-tribe, whichever comes first** (Nick, 2026-11-23; was 2026-11-16's empty first): an empty platform,
+  a Sentinel or a player who isn't in our tribe are all fine to take. Never a tribemate (blue
   name) or one of Nick's own accounts — Cancel on the popup. Nothing attackable → skip and report.
 - **Mon–Thu** (not on a `highest` account — see below)**:** take a **purple (9/m) spot**. Prefer an **empty** one, else beat a Silver Sentinel.
 - **Fri–Sun** (Friday too since Nick 2026-11-08, was Sat–Sun)**:** take a **Glory** or **Gold** spot if one is empty or Sentinel-held, else a **purple/silver** one
