@@ -4,7 +4,8 @@
 import datetime, os, sys
 os.environ.setdefault('D', 'test')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from canyon import purple_enough, season_left
+from PIL import Image
+from canyon import foes, plate, purple_enough, season_left
 
 utc = datetime.timezone.utc
 sat = datetime.datetime(2026, 11, 21, 6, 0, tzinfo=utc)                  # Sat 13:00 local (+07)
@@ -19,4 +20,10 @@ assert purple_enough(60000, 41 * 60)                                     # 60000
 assert not purple_enough(61431, 2203)                                    # Chloe 11-21: 81258 at 24 h a day, 79606 at 22
 assert purple_enough(61908, 2210)                                       # Bino 11-21: 80140 at 22 h a day
 assert not purple_enough(None, 10000)                                    # points unreadable -> old rules
+# highest (Nick 2026-11-24): blue plate = tribemate, green = own account -> skipped; any other plate = a foe
+im = Image.new('RGB', (1080, 1920), (206, 154, 66))                      # sand
+for x, c in ((200, (58, 125, 195)), (500, (0, 150, 16)), (800, (39, 84, 132))): im.paste(c, (x - 100, 422, x + 100, 458))
+assert [plate(im, x, 500) for x in (200, 500, 800, 1000)] == ['blue', 'green', 'blue', None]
+boxes = [(150, 485, 100, 30, '* 2960k'), (450, 485, 100, 30, '4374k'), (950, 485, 100, 30, '602K'), (20, 100, 80, 30, '9999k')]
+assert foes(im, boxes) == [(1000, 364)]                                  # no plate above 602K; the header text isn't a spot
 print('ok')

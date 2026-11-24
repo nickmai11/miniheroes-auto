@@ -1136,8 +1136,10 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
   replaces the day rules above **and "prefer empty"**, every day, unless purple is enough (above): take the **topmost spot on the map** (Glory > Gold >
   Silver) that **isn't a tribemate's** — empty → occupy, Sentinel or any other player → attack. Only skip tribemates (blue
   name) and Nick's own accounts (Cancel on the popup, next one down). Still a new spot every run, even when the held one
-  is the top (occupation ends after 8 h — Nick 2026-11-16). `canyon.py` exits 2 at once on these accounts → MANUAL →
-  the helper picks (Kratos helper 2026-11-19 took an empty Silver under Gold Sentinels: wrong).
+  is the top (occupation ends after 8 h — Nick 2026-11-16). `canyon.py` does it (Nick 2026-11-24, was a helper every
+  run): top-down, past every **blue** (tribemate) and **green** (own account) name plate, it occupies the first empty
+  Gold / purple platform. A plate of any other colour above that platform, or nothing empty → exit 2 → MANUAL → the
+  helper attacks (Kratos helper 2026-11-19 took an empty Silver under Gold Sentinels: wrong).
 
 **Occupation lasts 8h** ("Collect Time 08:00:00"), then ends on its own: on the next visit a _Resource_ popup
 shows the gains → **Confirm** `(540,1460)` → dismiss `(540,1210)`; header shows "Unoccupied" → take a spot again.
