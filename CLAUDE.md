@@ -127,6 +127,9 @@ as it happens — not reconstructed at the end:
   themselves); never a mission script.
 - **Quiet during runs:** no progress chatter ("X done, waiting"); speak only for a real problem or a choice, then the
   final report.
+- **Close** (Nick, 2026-11-23): "close all" / "close <names>" = shut the MuMu instances, one command:
+  `"$(scripts/accounts.py mumu)" close all` (or `close 0,5` — indexes from `scripts/accounts.py rows boot <names>`),
+  never while a task runs on the instance (`ps` for `scripts/` first). The launcher stays open.
 - **Shorthand:** fr = Floating Realm, tc = Tribe Clash, ct = Crystal Throne — chat only; steps and config keys use the
   full name (`tribe_clash_packs`, `floating_realm_packs`).
 - **Crystal Throne:** Nick gives the orders, Claude executes on every account and never picks targets — read

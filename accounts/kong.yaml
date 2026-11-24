@@ -4,7 +4,7 @@ account:
   game_id: 15847271
   server: 220               # Settings > Server row "S220 Mr KonG" (S288 = MRKONG II, wrong one)
   enabled: true
-  storm_max_rank: King +10   # Storm: stop at this rank even with tickets left (Nick, 2026-10-31)
+  storm_max_rank: King +5   # Storm: stop at this rank even with tickets left (Nick, 2026-10-31)
 
 missions:
   land_of_trials:   # top gem price per dungeon: 0 = the 2 free sweeps only, 80 / 160 / 240 = buy up to that price (Nick 2026-11-11, was a sweep count)
