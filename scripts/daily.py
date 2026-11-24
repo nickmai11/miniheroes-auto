@@ -577,6 +577,13 @@ def sanctuary_potion():
     print('    potion used', flush=True); return True
 
 
+def short_of_10(out):
+    """True when a climb's last entry is a numbered floor below 10 ('floor 9 won skip'). 'instant win' / 'pending'
+    entries carry no floor number and are trusted as before."""
+    m = re.match(r'floor (\d+) ', out[-1]) if out else None
+    return bool(m) and m[1] != '10'
+
+
 def sanctuary_climb():
     """Map: the next floor is the node just below the yellow marker (Cmajor, Ice Citadel 2026-10-29). Crash = instant
     win; Battle -> lineup (Quick Deploy if < 5; recall all + Quick Deploy on the first Battle and after a potion) -> Start -> Victory Confirm -> bonus pick. A loss with the 5 main heroes ->
@@ -643,6 +650,10 @@ def sanctuary_climb():
         if fl[1] == '10': break
     else:                                                # DoD = all floors won (Nick 2026-11-03): a marker left = not done
         if floor_marker(grab()): return 'MANUAL climb not finished: ' + ', '.join(out)
+    # Dino / Bino 2026-11-23: no marker read after floor 9 -> "climbed" OK at 9/10 -> swept the next day. Nick 11-24: MANUAL
+    if short_of_10(out):
+        grab().resize((540, 960)).save('v_sanctuary.png')    # the map the marker wasn't read on, to tune floor_marker
+        return 'MANUAL climb not finished (no marker read, last floor below 10; v_sanctuary.png): ' + ', '.join(out)
     return 'climbed: ' + ', '.join(out) if out else 'nothing to climb (all floors won)'
 
 

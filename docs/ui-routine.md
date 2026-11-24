@@ -381,6 +381,7 @@ Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**.
 2. If a plain **Sweep** `(540,1778)` shows: Sweep → _Tip_ **Confirm** `(533,1197)` → dismiss `(540,120)`. Done.
    **Not if yesterday stopped short of 10/10** (Nick, 2026-11-12): the account's last `sanctuary` line in yesterday's
    game-day log is MANUAL / FAIL (a LOST floor, climb not finished) → don't sweep, climb again (`sanctuary_yesterday()`);
+   a climb that ends on a floor below 10 with no marker read is MANUAL too (Dino / Bino 11-23 logged OK at 9/10 and swept 11-24 — Nick 11-24);
    a map with no floor left to climb still gets the sweep.
    The weekly map-effects card rolls in first ("Generating Effect…", no Confirm yet) and dims the Sweep under it
    (`(49,36,0)`, not yellow) — wait for its Confirm (it can slide in with neither Confirm nor "Generating" readable yet: Kong 11-18 climbed past a dimmed Sweep), then read Sweep; the map doesn't matter (Nick 11-18); "Remaining Days: N" sits above a live Sweep

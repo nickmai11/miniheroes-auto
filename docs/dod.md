@@ -25,7 +25,7 @@ lines to each game-day log; a Done line here that it doesn't check = a `checklis
 - `play_pass` — **Play Pass** — no red dot on any tab (never a $ button).
 - `trials` — **Land of Trials** — every dungeon swept until the Sweep button's next price is above its config price (e.g. Gem Mine 4/4 at 160).
 - `tower` — **Tower** — 3 challenges fought; if "Claim Reward" (chest level) shows, it's claimed and the fights go on.
-- `sanctuary` — **Secret Sanctuary** — swept, or **all floors won** (floor 10 won / no next-floor marker left on the map).
+- `sanctuary` — **Secret Sanctuary** — swept, or **all floors won** (floor 10 won / nothing left to climb; a climb that ends on a lower floor = not done, even with no marker read).
 - `gate` — **Gate of Darkness** — "Chances left today: 0".
 - `beast` — **Beast Realm** — Chances dropped by 1.
 - `arena3` — Arena again — same as `arena`.
