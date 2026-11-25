@@ -75,7 +75,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: `scripts/a
        "relic is part of catchup"; never filter by the relic list; a runner step since 2026-11-20, was `relic_all.sh`
        after the run): `relic.py <account>`. **No auto-retry:** its FAIL = relic.py stopped mid-board → handle per the
        miniheroes-relic skill step 2 (never re-run it blindly); its `done:` line (digs, items, shovels left) goes in the report.
-       `relic_skip_until: <date>` in an account file = `SKIP relic off until …` before that game day (Kong until 2026-11-30, Nick 2026-11-21).
+       `relic_skip_until: <date>` in an account file = `SKIP relic off until …` before that game day (no account has one now — Kong's removed, Nick 2026-11-25).
 4. Workers don't edit the repo; afterwards add new findings to the docs and commit.
 5. Report: lead with **Concerns / issues / errors** (see CLAUDE.md "Reporting"), then per account: each step
    done/skipped (and why), every paid action with its price, and which Daily Mission chests are still
