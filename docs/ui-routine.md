@@ -867,6 +867,8 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   - **Wish Summon** = Wish Lobby: pick a **Dream Hero** (Select Hero → grid of Mythic heroes → Save), then roll with
     Wish tokens (count top right; Cmajor 11 on day 1). Each wish = a reward; 60 wishes guarantee the Wish Hero (2.5%
     each); 0.1% Abyssal Queen – Moonlit Phantom skin. Its dot (on Select Hero) stays until a hero is picked.
+    No tokens → gems: Wish x1 240, x10 2280. Rules (Description, read on Cmajor 2026-11-25): Paper Plane ×10 3%,
+    ×5 5%, ×3 12% = 0.91 planes a wish (~9 per x10); the other 80% is materials / gems / the hero.
     **Not done** — Nick 2026-11-20: don't pick or roll yet.
   - **Holiday Exchange** = the 6 floors: Paper Planes (expire at the event end; Cmajor 18) buy one item; redeeming
     any item of a floor unlocks the next. Prices: F1 5/5/5 (2500 ore, 3000 stars, 250K gold), F2 15/12/15, F3
