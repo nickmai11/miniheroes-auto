@@ -1127,14 +1127,14 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
 - **Mon–Thu** (not on a `highest` account — see below)**:** take a **purple (9/m) spot**. Prefer an **empty** one, else beat a Silver Sentinel.
 - **Fri–Sun** (Friday too since Nick 2026-11-08, was Sat–Sun)**:** take a **Glory** or **Gold** spot if one is empty or Sentinel-held, else a **purple/silver** one
   (empty first, else a Silver Sentinel).
-- **Purple enough → purple only** (Nick, 2026-11-21 — every day and every account, `highest` included; matters most
-  Fri–Sun): if **points + 9 × minutes left to the season end (Sunday 23:00 UTC = Monday 06:00 local) × 22/24 ≥ 80,000** (a spot is held ~22 h a day: 8 h occupations, runs in between — Nick 2026-11-21), take a
+- **Purple enough → purple only** (Nick, 2026-11-21 — every day; **not on a `highest` account**, Nick 2026-11-25: those keep the
+  highest rule below whatever their points; matters most Fri–Sun): if **points + 9 × minutes left to the season end (Sunday 23:00 UTC = Monday 06:00 local) × 22/24 ≥ 80,000** (a spot is held ~22 h a day: 8 h occupations, runs in between — Nick 2026-11-21), take a
   **purple (9/m)** spot, never Gold/Glory — empty first, else a Silver Sentinel, else a non-tribe player on a purple spot.
   Already at 80k counts too. Points = the Rewards panel number; `canyon.py` reads it before choosing and logs
   `points N, M min to season end -> purple enough|purple not enough`. Not enough (or unreadable) → the rules above/below.
 - Never spend gems.
 - **`canyon_clash: highest`** in the account file (Tiger, Kratos, Boudior, Kong II — Nick 2026-11-19, was `highest_free`)
-  replaces the day rules above **and "prefer empty"**, every day, unless purple is enough (above): take the **topmost spot on the map** (Glory > Gold >
+  replaces the day rules above, **"prefer empty" and "purple enough"** (Nick 2026-11-25), every day: take the **topmost spot on the map** (Glory > Gold >
   Silver) that **isn't a tribemate's** — empty → occupy, Sentinel or any other player → attack. Only skip tribemates (blue
   name) and Nick's own accounts (Cancel on the popup, next one down). Still a new spot every run, even when the held one
   is the top (occupation ends after 8 h — Nick 2026-11-16). `canyon.py` does it (Nick 2026-11-24, was a helper every

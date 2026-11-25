@@ -5,7 +5,7 @@
 #   Fri-Sun: empty Gold first, else empty purple (Fri since Nick 2026-11-08, was Sat).
 #   canyon_clash: highest (Nick 2026-11-24: script, not a helper): any day, the topmost empty Gold / purple platform,
 #     walking down past blue (tribemate) and green (own) name plates; a plate of any other colour above it -> exit 2.
-#   Purple enough (Nick 2026-11-21, every account incl. highest): points + 9/min x minutes to season end x 22/24 >= 80k -> purple only.
+#   Purple enough (Nick 2026-11-21; not on a highest account - Nick 2026-11-25): points + 9/min x minutes to season end x 22/24 >= 80k -> purple only.
 # Empty = a platform disc with no name label under it. Every pick is confirmed by the popup text "occupy the empty"
 # before Occupy; anything else ("About to challenge <name>'s ...") -> Cancel. Never attacks: no empty spot -> exit 2.
 # exit 0 = moved, 2 = no empty platform (helper attacks: a Sentinel, else a non-tribe player), 1 = unexpected screen.
@@ -114,17 +114,16 @@ def run(account):
     wait(r'Attempts', 10)
     highest = bool(re.search(r'canyon_clash:\s*highest\b', cfg))
     pts, left = read_points(), season_left(datetime.datetime.now().astimezone())
-    enough = purple_enough(pts, left)
-    print(f'points {pts}, {left} min to season end -> {"purple enough" if enough else "purple not enough"}'
+    enough = not highest and purple_enough(pts, left)   # highest accounts keep the highest rule (Nick 2026-11-25)
+    print(f'points {pts}, {left} min to season end -> {"purple enough" if enough else "highest: purple rule off" if highest else "purple not enough"}'
           + (f' ({pts + projected(left)} at {PURPLE_RATE}/m, 22 h a day)' if pts is not None else ''), flush=True)
     # highest: the topmost spot that isn't a tribemate's - empty, Sentinel or player (Nick 2026-11-19). The script takes
     # the topmost EMPTY one (Nick 2026-11-24: plates are blue or green, skip them); anything else above it = helper attacks.
     # ponytail: empty Kings / Glory discs aren't detected (colours never seen) - add them to `colours` once one shows.
-    highest = highest and not enough
     weekend = datetime.datetime.now().weekday() >= 4   # Fri-Sun (Nick 2026-11-08: top spot from Friday, not Saturday)
     for _ in range(6): swipe(540, 600, 540, 1500, 300)                # to the top of the map
     time.sleep(1)
-    colours = [GOLD, PURPLE] if (weekend or highest) and not enough else [PURPLE]
+    colours = [GOLD, PURPLE] if (weekend and not enough) or highest else [PURPLE]
     purple_screens = 0
     for screen in range(12):
         im = settled(); boxes = ocr(im); im.resize((270, 480)).save(f'canyon{screen}.png')   # per-screen record (2026-10-29)
