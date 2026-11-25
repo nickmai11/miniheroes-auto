@@ -41,8 +41,7 @@ missions:
     assist: true
     canyon_clash: true
   fishing:
-    min_order_diamonds: 3
-    ticket_pack_gem_price: 0 # 0 = never buy a refresh-scroll pack (50 gems): free scrolls only
+    ticket_pack_gem_price: 0 # no min_order_diamonds = no order refresh, so no scroll packs (50 gems) - Nick 2026-11-25
   divine_weapon: true
   adventure_stage: 3
   patrol:

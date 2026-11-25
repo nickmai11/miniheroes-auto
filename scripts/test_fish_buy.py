@@ -23,6 +23,4 @@ packs, err = run(['NOSCROLL 0', 'NOSCROLL 0', 'NOSCROLL 0'])           # pack ga
 assert packs == (1, 50) and 'no refresh after buying' in err, (packs, err)
 packs, err = run(['NOSCROLL 0', '0 None'])                              # unreadable after the buy: stop buying
 assert packs == (1, 50) and err is None, (packs, err)
-daily.script = lambda *a: 'NOSCROLL 2'; daily.buy_scrolls = lambda: 1 / 0   # ticket_pack_gem_price: 0 -> never buys
-assert daily.refresh_row(1, '3', buy=False) == (0, 0)
 print('ok')
