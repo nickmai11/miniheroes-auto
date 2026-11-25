@@ -148,7 +148,7 @@ def buy_scrolls():
     return int(p)
 
 
-def refresh_row(row, mn):
+def refresh_row(row, mn, buy=True):
     """Refresh order ROW until it has >= mn diamonds. Out of scrolls (fish_orders: NOSCROLL <refreshes done>) -> ONE
     pack, use it, only then the next one: a pack that gave no refresh = stop (Nick 2026-11-14, "how many more are you
     gonna buy": 6 packs in 70 s while the popup stayed open). Returns (packs, gems)."""
@@ -158,6 +158,7 @@ def refresh_row(row, mn):
         done = last[-1] if last[:1] == ['NOSCROLL'] else last[0]      # refreshes done in this run
         if done.isdigit() and int(done) > 0: unused = False
         if last[:1] == ['NOSCROLL']:
+            if not buy: break                             # ticket_pack_gem_price: 0 = no gems: free scrolls only
             if unused: raise Stop(f'row {row}: no refresh after buying a pack ({packs} packs, {gems} gems)')
             gems += buy_scrolls(); packs += 1; unused = True; continue
         if len(last) != 2 or not last[1].isdigit() or int(last[1]) >= int(mn): break   # done / WARN / unreadable
@@ -169,15 +170,16 @@ def fishing(cfg, orders=True):
     tap_wait(624, 1780); boxes = wait(r'Order Info', 10)
     time.sleep(0.6); back = ensure_bait(cfg) + ', '; boxes = wait(r'Order Info', 6)   # Sunday: Lucky Star only if the weekly review needs the row, else the default bait (Nick 2026-11-08)
     packs = gems = 0
+    buy = not re.search(r'ticket_pack_gem_price:\s*0\b', cfg)   # 0 = never buy a scroll pack (Dminor, Aminor - Nick 2026-11-25)
     if mn:
         tap_text(r'Order Info', boxes=boxes); b = wait(r'Daily Order', 8); time.sleep(0.5); b = ocr()
         # a Claimed order can't be refreshed and is done (Cmajor 11-18: Auto fishing had claimed all 3 by 12:48)
         rows = [r for r, y in ((1, 704), (2, 1058), (3, 1412)) if not find(b, r'^Claimed$', (700, y - 80, 1000, y + 80))]
         for row in rows:
-            p, g = refresh_row(row, mn.group(1)); packs += p; gems += g
+            p, g = refresh_row(row, mn.group(1), buy); packs += p; gems += g
         # DoD: every order >= min diamonds, read on screen (13:45 OK line said "refreshed" with 2-diamond orders left)
         tiers = [script('fish_orders.py', str(r), '0', mn.group(1)).split()[-1] for r in rows] + ['claimed'] * (3 - len(rows))
-        if any(t != 'claimed' and (not t.isdigit() or int(t) < int(mn.group(1))) for t in tiers):
+        if buy and any(t != 'claimed' and (not t.isdigit() or int(t) < int(mn.group(1))) for t in tiers):
             raise Stop(f'orders {tiers} diamonds, min {mn.group(1)} ({packs} scroll packs bought, {gems} gems)')
         tap_wait(973, 270)
     got = ''
@@ -194,7 +196,7 @@ def fishing(cfg, orders=True):
         try: wait(r'Auto Fishing', 4); break
         except Stop: pass
     else: raise Stop('Auto Fishing did not start')
-    return back + got + (f'orders {tiers} diamonds ({packs} scroll packs bought, {gems} gems), ' if mn else '') + 'auto started'
+    return back + got + (f'orders {tiers} diamonds ({packs} scroll packs bought, {gems} gems{"" if buy else "; no pack buys: config"}), ' if mn else '') + 'auto started'
 
 
 def patrol(cfg): return script('patrol.py', ACCOUNT)

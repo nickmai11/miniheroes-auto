@@ -16,7 +16,7 @@ lines to each game-day log; a Done line here that it doesn't check = a `checklis
 ## Dailies (order = `ORDER` in `scripts/daily.py`, same as ui-routine "Daily run order")
 
 - `pet_arena` — **Pet Arena** (Mon–Wed) — "Auto Deploying" on screen, or "Not enough free deployment attempts". Proven by the catch-up `pet_check`.
-- `fishing` — **Fishing** — every order worth ≥ min diamonds (refresh scrolls bought as needed) and the button shows "Auto Fishing".
+- `fishing` — **Fishing** — every order worth ≥ min diamonds (refresh scrolls bought as needed; `ticket_pack_gem_price: 0` accounts: free scrolls only, lower orders allowed) and the button shows "Auto Fishing".
 - `arena` — **Arena** (runs 3× in the day) — tickets **0**; Ranking Rewards gift box has no red dot; reached win chests ✓.
 - `patrol` — **Patrol** — Speed Patrol bought until the next price hits the config limit (e.g. 100); Claim All done.
 - `arena2` — Arena again — same as `arena`.

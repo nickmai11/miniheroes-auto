@@ -626,6 +626,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started
    It handles both popups itself (WARN line on high quality) and returns `None` on any other popup (e.g. out of tickets).
 4. Out of scrolls: buy packs as needed until every order reaches `min_order_diamonds` (Nick, 2026-11-03:
    "unlimited, buy as lacking, don't care about price" — always 50 gems), **one pack at a time** (Nick, 2026-11-14).
+   **`ticket_pack_gem_price: 0`** in the account file (Dminor, Aminor — Nick 2026-11-25: no diamonds there) = never buy:
+   refresh with the scrolls it has, then leave the orders as they are.
    Flow, seen on Boudior 2026-11-14:
    - Empty = a Refresh tap shows **no** "Confirm to refresh" popup and nothing else happens (no purchase popup).
      The count's `0` doesn't OCR (Vision skips a lone digit); 5, 10 … 30 read fine.

@@ -7,12 +7,13 @@ account:
   storm_max_rank: King +1   # Storm: stop at this rank even with tickets left (Nick, 2026-10-31)
 
 missions:
+  # No diamonds on this account (Nick 2026-11-25): every gem price below is 0 / off; free claims and Stargems packs stay.
   land_of_trials:   # top gem price per dungeon: 0 = the 2 free sweeps only, 80 / 160 / 240 = buy up to that price (Nick 2026-11-11, was a sweep count)
     abandoned_mine: 0
     ancient_battlefield: 0
     mysterious_forest: 0
-    moonlight_temple: 80
-    gem_mine: 160
+    moonlight_temple: 0
+    gem_mine: 0
 
   arena:
     tribe: Peakaboo
@@ -41,12 +42,12 @@ missions:
     canyon_clash: true
   fishing:
     min_order_diamonds: 3
-    ticket_pack_gem_price: 50
+    ticket_pack_gem_price: 0 # 0 = never buy a refresh-scroll pack (50 gems): free scrolls only
   divine_weapon: true
   adventure_stage: 3
   patrol:
-    speed_patrol: until_100   # keep buying until the price shows 100 gems, then stop
-    max_gem_price: 50
+    speed_patrol: free_only # max_gem_price 0 = only the free Speed Patrols
+    max_gem_price: 0
     claim_all: true
   rune_synthesis: 1
   grocery_free_chests: true
@@ -55,8 +56,8 @@ missions:
     tribe: [12]
     ruins: [1]
     realm: [4]        # red stone x1000
-  floating_realm_packs: [free, support, motivation, value]   # FR Pack, its event week: free 20 gems + Support 80 gems; $ packs (Stargems): value $0.99, joy $4.99 (Nick, 2026-11-03)
-  relic_shovel_buys: [80]   # relic shovel + buys, each once at exactly this gem price (Nick 2026-11-04: default 80; Kong 80/160/240; Cmajor 80/160)
+  floating_realm_packs: [free, value]   # FR Pack, its event week: free 20 gems + Support 80 gems; $ packs (Stargems): value $0.99, joy $4.99 (Nick, 2026-11-03)
+  relic_shovel_buys: []   # relic shovel + buys, each once at exactly this gem price (Nick 2026-11-04: default 80; Kong 80/160/240; Cmajor 80/160)
   pet_arena:          # Nick 2026-11-18: 2 random sprites on every account (Kong keeps 1)
     strategy: stamina_order
     order: random
