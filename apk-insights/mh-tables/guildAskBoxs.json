@@ -1,0 +1,11 @@
+[
+  { "rewardNum": [120, 3], "rewardType": ["tribeCoin", "randomFragment4"] },
+  {
+    "rewardNum": [160, 3, 1],
+    "rewardType": ["tribeCoin", "randomFragment4", "exp_1"]
+  },
+  {
+    "rewardNum": [200, 3, 1],
+    "rewardType": ["tribeCoin", "randomFragment4", "recruitRoll"]
+  }
+]

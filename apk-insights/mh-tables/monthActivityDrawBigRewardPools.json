@@ -1,0 +1,11 @@
+[
+  { "id": 1, "openFloor": 1, "reward": "zb_box1", "rewardNum": 1 },
+  { "id": 2, "openFloor": 1, "reward": "recruitRoll", "rewardNum": 3 },
+  { "id": 3, "openFloor": 1, "reward": "spiritStone_3", "rewardNum": 1500 },
+  { "id": 4, "openFloor": 3, "reward": "medal2", "rewardNum": 1 },
+  { "id": 5, "openFloor": 5, "reward": "shareDebris3", "rewardNum": 4 },
+  { "id": 6, "openFloor": 7, "reward": "tieStone", "rewardNum": 3 },
+  { "id": 7, "openFloor": 10, "reward": "memf_64004", "rewardNum": 3 },
+  { "id": 8, "openFloor": 15, "reward": "templeDust", "rewardNum": 2 },
+  { "id": 9, "openFloor": 20, "reward": "fourColorStone", "rewardNum": 2 }
+]

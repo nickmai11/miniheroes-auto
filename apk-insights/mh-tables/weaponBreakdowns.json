@@ -1,0 +1,32 @@
+[
+  {
+    "breakGiveNum": [30, 40, 4],
+    "breakGiveType": ["fireAshes", "divineCrystal", "bagExtendTool"],
+    "id": 1,
+    "quality": 1
+  },
+  {
+    "breakGiveNum": [50, 40, 5],
+    "breakGiveType": ["fireAshes", "divineCrystal", "bagExtendTool"],
+    "id": 2,
+    "quality": 2
+  },
+  {
+    "breakGiveNum": [70, 40, 6],
+    "breakGiveType": ["fireAshes", "divineCrystal", "bagExtendTool"],
+    "id": 3,
+    "quality": 3
+  },
+  {
+    "breakGiveNum": [100, 40, 7],
+    "breakGiveType": ["fireAshes", "divineCrystal", "bagExtendTool"],
+    "id": 4,
+    "quality": 4
+  },
+  {
+    "breakGiveNum": [150, 40, 8],
+    "breakGiveType": ["fireAshes", "divineCrystal", "bagExtendTool"],
+    "id": 5,
+    "quality": 5
+  }
+]

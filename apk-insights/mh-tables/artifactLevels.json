@@ -1,0 +1,1409 @@
+[
+  {
+    "goldNum": 0,
+    "heroLevel": 90,
+    "id": 1,
+    "latticeLevel": 0,
+    "materialNum": 0
+  },
+  {
+    "goldNum": 2000,
+    "heroLevel": 90,
+    "id": 2,
+    "latticeLevel": 1,
+    "materialNum": 50
+  },
+  {
+    "goldNum": 2050,
+    "heroLevel": 90,
+    "id": 3,
+    "latticeLevel": 2,
+    "materialNum": 52
+  },
+  {
+    "goldNum": 2100,
+    "heroLevel": 90,
+    "id": 4,
+    "latticeLevel": 3,
+    "materialNum": 54
+  },
+  {
+    "goldNum": 2150,
+    "heroLevel": 90,
+    "id": 5,
+    "latticeLevel": 4,
+    "materialNum": 56
+  },
+  {
+    "goldNum": 2200,
+    "heroLevel": 90,
+    "id": 6,
+    "latticeLevel": 5,
+    "materialNum": 58
+  },
+  {
+    "goldNum": 2250,
+    "heroLevel": 90,
+    "id": 7,
+    "latticeLevel": 6,
+    "materialNum": 60
+  },
+  {
+    "goldNum": 2300,
+    "heroLevel": 90,
+    "id": 8,
+    "latticeLevel": 7,
+    "materialNum": 62
+  },
+  {
+    "goldNum": 2350,
+    "heroLevel": 90,
+    "id": 9,
+    "latticeLevel": 8,
+    "materialNum": 64
+  },
+  {
+    "goldNum": 2400,
+    "heroLevel": 90,
+    "id": 10,
+    "latticeLevel": 9,
+    "materialNum": 66
+  },
+  {
+    "goldNum": 2450,
+    "heroLevel": 90,
+    "id": 11,
+    "latticeLevel": 10,
+    "materialNum": 68
+  },
+  {
+    "goldNum": 2500,
+    "heroLevel": 95,
+    "id": 12,
+    "latticeLevel": 11,
+    "materialNum": 70
+  },
+  {
+    "goldNum": 2600,
+    "heroLevel": 95,
+    "id": 13,
+    "latticeLevel": 12,
+    "materialNum": 72
+  },
+  {
+    "goldNum": 2700,
+    "heroLevel": 95,
+    "id": 14,
+    "latticeLevel": 13,
+    "materialNum": 74
+  },
+  {
+    "goldNum": 2800,
+    "heroLevel": 95,
+    "id": 15,
+    "latticeLevel": 14,
+    "materialNum": 76
+  },
+  {
+    "goldNum": 2900,
+    "heroLevel": 95,
+    "id": 16,
+    "latticeLevel": 15,
+    "materialNum": 78
+  },
+  {
+    "goldNum": 3000,
+    "heroLevel": 95,
+    "id": 17,
+    "latticeLevel": 16,
+    "materialNum": 80
+  },
+  {
+    "goldNum": 3100,
+    "heroLevel": 95,
+    "id": 18,
+    "latticeLevel": 17,
+    "materialNum": 82
+  },
+  {
+    "goldNum": 3200,
+    "heroLevel": 95,
+    "id": 19,
+    "latticeLevel": 18,
+    "materialNum": 84
+  },
+  {
+    "goldNum": 3300,
+    "heroLevel": 95,
+    "id": 20,
+    "latticeLevel": 19,
+    "materialNum": 86
+  },
+  {
+    "goldNum": 3400,
+    "heroLevel": 95,
+    "id": 21,
+    "latticeLevel": 20,
+    "materialNum": 88
+  },
+  {
+    "goldNum": 3500,
+    "heroLevel": 100,
+    "id": 22,
+    "latticeLevel": 21,
+    "materialNum": 90
+  },
+  {
+    "goldNum": 3600,
+    "heroLevel": 100,
+    "id": 23,
+    "latticeLevel": 22,
+    "materialNum": 92
+  },
+  {
+    "goldNum": 3700,
+    "heroLevel": 100,
+    "id": 24,
+    "latticeLevel": 23,
+    "materialNum": 94
+  },
+  {
+    "goldNum": 3800,
+    "heroLevel": 100,
+    "id": 25,
+    "latticeLevel": 24,
+    "materialNum": 96
+  },
+  {
+    "goldNum": 3900,
+    "heroLevel": 100,
+    "id": 26,
+    "latticeLevel": 25,
+    "materialNum": 98
+  },
+  {
+    "goldNum": 4000,
+    "heroLevel": 100,
+    "id": 27,
+    "latticeLevel": 26,
+    "materialNum": 100
+  },
+  {
+    "goldNum": 4100,
+    "heroLevel": 100,
+    "id": 28,
+    "latticeLevel": 27,
+    "materialNum": 102
+  },
+  {
+    "goldNum": 4200,
+    "heroLevel": 100,
+    "id": 29,
+    "latticeLevel": 28,
+    "materialNum": 104
+  },
+  {
+    "goldNum": 4300,
+    "heroLevel": 100,
+    "id": 30,
+    "latticeLevel": 29,
+    "materialNum": 106
+  },
+  {
+    "goldNum": 4400,
+    "heroLevel": 100,
+    "id": 31,
+    "latticeLevel": 30,
+    "materialNum": 108
+  },
+  {
+    "goldNum": 4500,
+    "heroLevel": 105,
+    "id": 32,
+    "latticeLevel": 31,
+    "materialNum": 110
+  },
+  {
+    "goldNum": 4600,
+    "heroLevel": 105,
+    "id": 33,
+    "latticeLevel": 32,
+    "materialNum": 112
+  },
+  {
+    "goldNum": 4700,
+    "heroLevel": 105,
+    "id": 34,
+    "latticeLevel": 33,
+    "materialNum": 114
+  },
+  {
+    "goldNum": 4800,
+    "heroLevel": 105,
+    "id": 35,
+    "latticeLevel": 34,
+    "materialNum": 116
+  },
+  {
+    "goldNum": 4900,
+    "heroLevel": 105,
+    "id": 36,
+    "latticeLevel": 35,
+    "materialNum": 118
+  },
+  {
+    "goldNum": 5000,
+    "heroLevel": 105,
+    "id": 37,
+    "latticeLevel": 36,
+    "materialNum": 120
+  },
+  {
+    "goldNum": 5100,
+    "heroLevel": 105,
+    "id": 38,
+    "latticeLevel": 37,
+    "materialNum": 122
+  },
+  {
+    "goldNum": 5200,
+    "heroLevel": 105,
+    "id": 39,
+    "latticeLevel": 38,
+    "materialNum": 124
+  },
+  {
+    "goldNum": 5300,
+    "heroLevel": 105,
+    "id": 40,
+    "latticeLevel": 39,
+    "materialNum": 126
+  },
+  {
+    "goldNum": 5400,
+    "heroLevel": 105,
+    "id": 41,
+    "latticeLevel": 40,
+    "materialNum": 128
+  },
+  {
+    "goldNum": 5600,
+    "heroLevel": 110,
+    "id": 42,
+    "latticeLevel": 41,
+    "materialNum": 130
+  },
+  {
+    "goldNum": 5800,
+    "heroLevel": 110,
+    "id": 43,
+    "latticeLevel": 42,
+    "materialNum": 132
+  },
+  {
+    "goldNum": 6000,
+    "heroLevel": 110,
+    "id": 44,
+    "latticeLevel": 43,
+    "materialNum": 134
+  },
+  {
+    "goldNum": 6200,
+    "heroLevel": 110,
+    "id": 45,
+    "latticeLevel": 44,
+    "materialNum": 136
+  },
+  {
+    "goldNum": 6400,
+    "heroLevel": 110,
+    "id": 46,
+    "latticeLevel": 45,
+    "materialNum": 138
+  },
+  {
+    "goldNum": 6600,
+    "heroLevel": 110,
+    "id": 47,
+    "latticeLevel": 46,
+    "materialNum": 140
+  },
+  {
+    "goldNum": 6800,
+    "heroLevel": 110,
+    "id": 48,
+    "latticeLevel": 47,
+    "materialNum": 142
+  },
+  {
+    "goldNum": 7000,
+    "heroLevel": 110,
+    "id": 49,
+    "latticeLevel": 48,
+    "materialNum": 144
+  },
+  {
+    "goldNum": 7200,
+    "heroLevel": 110,
+    "id": 50,
+    "latticeLevel": 49,
+    "materialNum": 146
+  },
+  {
+    "goldNum": 7400,
+    "heroLevel": 110,
+    "id": 51,
+    "latticeLevel": 50,
+    "materialNum": 148
+  },
+  {
+    "goldNum": 7600,
+    "heroLevel": 115,
+    "id": 52,
+    "latticeLevel": 51,
+    "materialNum": 150
+  },
+  {
+    "goldNum": 7800,
+    "heroLevel": 115,
+    "id": 53,
+    "latticeLevel": 52,
+    "materialNum": 152
+  },
+  {
+    "goldNum": 8000,
+    "heroLevel": 115,
+    "id": 54,
+    "latticeLevel": 53,
+    "materialNum": 154
+  },
+  {
+    "goldNum": 8200,
+    "heroLevel": 115,
+    "id": 55,
+    "latticeLevel": 54,
+    "materialNum": 156
+  },
+  {
+    "goldNum": 8400,
+    "heroLevel": 115,
+    "id": 56,
+    "latticeLevel": 55,
+    "materialNum": 158
+  },
+  {
+    "goldNum": 8600,
+    "heroLevel": 115,
+    "id": 57,
+    "latticeLevel": 56,
+    "materialNum": 160
+  },
+  {
+    "goldNum": 8800,
+    "heroLevel": 115,
+    "id": 58,
+    "latticeLevel": 57,
+    "materialNum": 162
+  },
+  {
+    "goldNum": 9000,
+    "heroLevel": 115,
+    "id": 59,
+    "latticeLevel": 58,
+    "materialNum": 164
+  },
+  {
+    "goldNum": 9200,
+    "heroLevel": 115,
+    "id": 60,
+    "latticeLevel": 59,
+    "materialNum": 166
+  },
+  {
+    "goldNum": 9400,
+    "heroLevel": 115,
+    "id": 61,
+    "latticeLevel": 60,
+    "materialNum": 168
+  },
+  {
+    "goldNum": 9700,
+    "heroLevel": 120,
+    "id": 62,
+    "latticeLevel": 61,
+    "materialNum": 170
+  },
+  {
+    "goldNum": 10000,
+    "heroLevel": 120,
+    "id": 63,
+    "latticeLevel": 62,
+    "materialNum": 172
+  },
+  {
+    "goldNum": 10300,
+    "heroLevel": 120,
+    "id": 64,
+    "latticeLevel": 63,
+    "materialNum": 174
+  },
+  {
+    "goldNum": 10600,
+    "heroLevel": 120,
+    "id": 65,
+    "latticeLevel": 64,
+    "materialNum": 176
+  },
+  {
+    "goldNum": 10900,
+    "heroLevel": 120,
+    "id": 66,
+    "latticeLevel": 65,
+    "materialNum": 178
+  },
+  {
+    "goldNum": 11200,
+    "heroLevel": 120,
+    "id": 67,
+    "latticeLevel": 66,
+    "materialNum": 180
+  },
+  {
+    "goldNum": 11500,
+    "heroLevel": 120,
+    "id": 68,
+    "latticeLevel": 67,
+    "materialNum": 182
+  },
+  {
+    "goldNum": 11800,
+    "heroLevel": 120,
+    "id": 69,
+    "latticeLevel": 68,
+    "materialNum": 184
+  },
+  {
+    "goldNum": 12100,
+    "heroLevel": 120,
+    "id": 70,
+    "latticeLevel": 69,
+    "materialNum": 186
+  },
+  {
+    "goldNum": 12400,
+    "heroLevel": 120,
+    "id": 71,
+    "latticeLevel": 70,
+    "materialNum": 188
+  },
+  {
+    "goldNum": 12700,
+    "heroLevel": 125,
+    "id": 72,
+    "latticeLevel": 71,
+    "materialNum": 190
+  },
+  {
+    "goldNum": 13000,
+    "heroLevel": 125,
+    "id": 73,
+    "latticeLevel": 72,
+    "materialNum": 192
+  },
+  {
+    "goldNum": 13300,
+    "heroLevel": 125,
+    "id": 74,
+    "latticeLevel": 73,
+    "materialNum": 194
+  },
+  {
+    "goldNum": 13600,
+    "heroLevel": 125,
+    "id": 75,
+    "latticeLevel": 74,
+    "materialNum": 196
+  },
+  {
+    "goldNum": 13900,
+    "heroLevel": 125,
+    "id": 76,
+    "latticeLevel": 75,
+    "materialNum": 198
+  },
+  {
+    "goldNum": 14200,
+    "heroLevel": 125,
+    "id": 77,
+    "latticeLevel": 76,
+    "materialNum": 200
+  },
+  {
+    "goldNum": 14500,
+    "heroLevel": 125,
+    "id": 78,
+    "latticeLevel": 77,
+    "materialNum": 202
+  },
+  {
+    "goldNum": 14800,
+    "heroLevel": 125,
+    "id": 79,
+    "latticeLevel": 78,
+    "materialNum": 204
+  },
+  {
+    "goldNum": 15100,
+    "heroLevel": 125,
+    "id": 80,
+    "latticeLevel": 79,
+    "materialNum": 206
+  },
+  {
+    "goldNum": 15400,
+    "heroLevel": 125,
+    "id": 81,
+    "latticeLevel": 80,
+    "materialNum": 208
+  },
+  {
+    "goldNum": 15700,
+    "heroLevel": 130,
+    "id": 82,
+    "latticeLevel": 81,
+    "materialNum": 210
+  },
+  {
+    "goldNum": 16000,
+    "heroLevel": 130,
+    "id": 83,
+    "latticeLevel": 82,
+    "materialNum": 212
+  },
+  {
+    "goldNum": 16300,
+    "heroLevel": 130,
+    "id": 84,
+    "latticeLevel": 83,
+    "materialNum": 214
+  },
+  {
+    "goldNum": 16600,
+    "heroLevel": 130,
+    "id": 85,
+    "latticeLevel": 84,
+    "materialNum": 216
+  },
+  {
+    "goldNum": 16900,
+    "heroLevel": 130,
+    "id": 86,
+    "latticeLevel": 85,
+    "materialNum": 218
+  },
+  {
+    "goldNum": 17200,
+    "heroLevel": 130,
+    "id": 87,
+    "latticeLevel": 86,
+    "materialNum": 220
+  },
+  {
+    "goldNum": 17500,
+    "heroLevel": 130,
+    "id": 88,
+    "latticeLevel": 87,
+    "materialNum": 222
+  },
+  {
+    "goldNum": 17800,
+    "heroLevel": 130,
+    "id": 89,
+    "latticeLevel": 88,
+    "materialNum": 224
+  },
+  {
+    "goldNum": 18100,
+    "heroLevel": 130,
+    "id": 90,
+    "latticeLevel": 89,
+    "materialNum": 226
+  },
+  {
+    "goldNum": 18400,
+    "heroLevel": 130,
+    "id": 91,
+    "latticeLevel": 90,
+    "materialNum": 228
+  },
+  {
+    "goldNum": 18800,
+    "heroLevel": 135,
+    "id": 92,
+    "latticeLevel": 91,
+    "materialNum": 231
+  },
+  {
+    "goldNum": 19200,
+    "heroLevel": 135,
+    "id": 93,
+    "latticeLevel": 92,
+    "materialNum": 234
+  },
+  {
+    "goldNum": 19600,
+    "heroLevel": 135,
+    "id": 94,
+    "latticeLevel": 93,
+    "materialNum": 237
+  },
+  {
+    "goldNum": 20000,
+    "heroLevel": 135,
+    "id": 95,
+    "latticeLevel": 94,
+    "materialNum": 240
+  },
+  {
+    "goldNum": 20400,
+    "heroLevel": 135,
+    "id": 96,
+    "latticeLevel": 95,
+    "materialNum": 243
+  },
+  {
+    "goldNum": 20800,
+    "heroLevel": 135,
+    "id": 97,
+    "latticeLevel": 96,
+    "materialNum": 246
+  },
+  {
+    "goldNum": 21200,
+    "heroLevel": 135,
+    "id": 98,
+    "latticeLevel": 97,
+    "materialNum": 249
+  },
+  {
+    "goldNum": 21600,
+    "heroLevel": 135,
+    "id": 99,
+    "latticeLevel": 98,
+    "materialNum": 252
+  },
+  {
+    "goldNum": 22000,
+    "heroLevel": 135,
+    "id": 100,
+    "latticeLevel": 99,
+    "materialNum": 255
+  },
+  {
+    "goldNum": 22400,
+    "heroLevel": 135,
+    "id": 101,
+    "latticeLevel": 100,
+    "materialNum": 258
+  },
+  {
+    "goldNum": 22900,
+    "heroLevel": 140,
+    "id": 102,
+    "latticeLevel": 101,
+    "materialNum": 261
+  },
+  {
+    "goldNum": 23400,
+    "heroLevel": 140,
+    "id": 103,
+    "latticeLevel": 102,
+    "materialNum": 264
+  },
+  {
+    "goldNum": 23900,
+    "heroLevel": 140,
+    "id": 104,
+    "latticeLevel": 103,
+    "materialNum": 267
+  },
+  {
+    "goldNum": 24400,
+    "heroLevel": 140,
+    "id": 105,
+    "latticeLevel": 104,
+    "materialNum": 270
+  },
+  {
+    "goldNum": 24900,
+    "heroLevel": 140,
+    "id": 106,
+    "latticeLevel": 105,
+    "materialNum": 273
+  },
+  {
+    "goldNum": 25400,
+    "heroLevel": 140,
+    "id": 107,
+    "latticeLevel": 106,
+    "materialNum": 276
+  },
+  {
+    "goldNum": 25900,
+    "heroLevel": 140,
+    "id": 108,
+    "latticeLevel": 107,
+    "materialNum": 279
+  },
+  {
+    "goldNum": 26400,
+    "heroLevel": 140,
+    "id": 109,
+    "latticeLevel": 108,
+    "materialNum": 282
+  },
+  {
+    "goldNum": 26900,
+    "heroLevel": 140,
+    "id": 110,
+    "latticeLevel": 109,
+    "materialNum": 285
+  },
+  {
+    "goldNum": 27400,
+    "heroLevel": 140,
+    "id": 111,
+    "latticeLevel": 110,
+    "materialNum": 288
+  },
+  {
+    "goldNum": 28000,
+    "heroLevel": 145,
+    "id": 112,
+    "latticeLevel": 111,
+    "materialNum": 292
+  },
+  {
+    "goldNum": 28600,
+    "heroLevel": 145,
+    "id": 113,
+    "latticeLevel": 112,
+    "materialNum": 296
+  },
+  {
+    "goldNum": 29200,
+    "heroLevel": 145,
+    "id": 114,
+    "latticeLevel": 113,
+    "materialNum": 300
+  },
+  {
+    "goldNum": 29800,
+    "heroLevel": 145,
+    "id": 115,
+    "latticeLevel": 114,
+    "materialNum": 304
+  },
+  {
+    "goldNum": 30400,
+    "heroLevel": 145,
+    "id": 116,
+    "latticeLevel": 115,
+    "materialNum": 308
+  },
+  {
+    "goldNum": 31000,
+    "heroLevel": 145,
+    "id": 117,
+    "latticeLevel": 116,
+    "materialNum": 312
+  },
+  {
+    "goldNum": 31600,
+    "heroLevel": 145,
+    "id": 118,
+    "latticeLevel": 117,
+    "materialNum": 316
+  },
+  {
+    "goldNum": 32200,
+    "heroLevel": 145,
+    "id": 119,
+    "latticeLevel": 118,
+    "materialNum": 320
+  },
+  {
+    "goldNum": 32800,
+    "heroLevel": 145,
+    "id": 120,
+    "latticeLevel": 119,
+    "materialNum": 324
+  },
+  {
+    "goldNum": 33400,
+    "heroLevel": 145,
+    "id": 121,
+    "latticeLevel": 120,
+    "materialNum": 328
+  },
+  {
+    "goldNum": 34100,
+    "heroLevel": 150,
+    "id": 122,
+    "latticeLevel": 121,
+    "materialNum": 333
+  },
+  {
+    "goldNum": 34800,
+    "heroLevel": 150,
+    "id": 123,
+    "latticeLevel": 122,
+    "materialNum": 338
+  },
+  {
+    "goldNum": 35500,
+    "heroLevel": 150,
+    "id": 124,
+    "latticeLevel": 123,
+    "materialNum": 343
+  },
+  {
+    "goldNum": 36200,
+    "heroLevel": 150,
+    "id": 125,
+    "latticeLevel": 124,
+    "materialNum": 348
+  },
+  {
+    "goldNum": 36900,
+    "heroLevel": 150,
+    "id": 126,
+    "latticeLevel": 125,
+    "materialNum": 353
+  },
+  {
+    "goldNum": 37600,
+    "heroLevel": 150,
+    "id": 127,
+    "latticeLevel": 126,
+    "materialNum": 358
+  },
+  {
+    "goldNum": 38300,
+    "heroLevel": 150,
+    "id": 128,
+    "latticeLevel": 127,
+    "materialNum": 363
+  },
+  {
+    "goldNum": 39000,
+    "heroLevel": 150,
+    "id": 129,
+    "latticeLevel": 128,
+    "materialNum": 368
+  },
+  {
+    "goldNum": 39700,
+    "heroLevel": 150,
+    "id": 130,
+    "latticeLevel": 129,
+    "materialNum": 373
+  },
+  {
+    "goldNum": 40400,
+    "heroLevel": 150,
+    "id": 131,
+    "latticeLevel": 130,
+    "materialNum": 378
+  },
+  {
+    "goldNum": 41200,
+    "heroLevel": 155,
+    "id": 132,
+    "latticeLevel": 131,
+    "materialNum": 384
+  },
+  {
+    "goldNum": 42000,
+    "heroLevel": 155,
+    "id": 133,
+    "latticeLevel": 132,
+    "materialNum": 390
+  },
+  {
+    "goldNum": 42800,
+    "heroLevel": 155,
+    "id": 134,
+    "latticeLevel": 133,
+    "materialNum": 396
+  },
+  {
+    "goldNum": 43600,
+    "heroLevel": 155,
+    "id": 135,
+    "latticeLevel": 134,
+    "materialNum": 402
+  },
+  {
+    "goldNum": 44400,
+    "heroLevel": 155,
+    "id": 136,
+    "latticeLevel": 135,
+    "materialNum": 408
+  },
+  {
+    "goldNum": 45200,
+    "heroLevel": 155,
+    "id": 137,
+    "latticeLevel": 136,
+    "materialNum": 414
+  },
+  {
+    "goldNum": 46000,
+    "heroLevel": 155,
+    "id": 138,
+    "latticeLevel": 137,
+    "materialNum": 420
+  },
+  {
+    "goldNum": 46800,
+    "heroLevel": 155,
+    "id": 139,
+    "latticeLevel": 138,
+    "materialNum": 426
+  },
+  {
+    "goldNum": 47600,
+    "heroLevel": 155,
+    "id": 140,
+    "latticeLevel": 139,
+    "materialNum": 432
+  },
+  {
+    "goldNum": 48400,
+    "heroLevel": 155,
+    "id": 141,
+    "latticeLevel": 140,
+    "materialNum": 438
+  },
+  {
+    "goldNum": 49400,
+    "heroLevel": 160,
+    "id": 142,
+    "latticeLevel": 141,
+    "materialNum": 446
+  },
+  {
+    "goldNum": 50400,
+    "heroLevel": 160,
+    "id": 143,
+    "latticeLevel": 142,
+    "materialNum": 454
+  },
+  {
+    "goldNum": 51400,
+    "heroLevel": 160,
+    "id": 144,
+    "latticeLevel": 143,
+    "materialNum": 462
+  },
+  {
+    "goldNum": 52400,
+    "heroLevel": 160,
+    "id": 145,
+    "latticeLevel": 144,
+    "materialNum": 470
+  },
+  {
+    "goldNum": 53400,
+    "heroLevel": 160,
+    "id": 146,
+    "latticeLevel": 145,
+    "materialNum": 478
+  },
+  {
+    "goldNum": 54400,
+    "heroLevel": 160,
+    "id": 147,
+    "latticeLevel": 146,
+    "materialNum": 486
+  },
+  {
+    "goldNum": 55400,
+    "heroLevel": 160,
+    "id": 148,
+    "latticeLevel": 147,
+    "materialNum": 494
+  },
+  {
+    "goldNum": 56400,
+    "heroLevel": 160,
+    "id": 149,
+    "latticeLevel": 148,
+    "materialNum": 502
+  },
+  {
+    "goldNum": 57400,
+    "heroLevel": 160,
+    "id": 150,
+    "latticeLevel": 149,
+    "materialNum": 510
+  },
+  {
+    "goldNum": 58400,
+    "heroLevel": 160,
+    "id": 151,
+    "latticeLevel": 150,
+    "materialNum": 518
+  },
+  {
+    "goldNum": 59600,
+    "heroLevel": 165,
+    "id": 152,
+    "latticeLevel": 151,
+    "materialNum": 528
+  },
+  {
+    "goldNum": 60800,
+    "heroLevel": 165,
+    "id": 153,
+    "latticeLevel": 152,
+    "materialNum": 538
+  },
+  {
+    "goldNum": 62000,
+    "heroLevel": 165,
+    "id": 154,
+    "latticeLevel": 153,
+    "materialNum": 548
+  },
+  {
+    "goldNum": 63200,
+    "heroLevel": 165,
+    "id": 155,
+    "latticeLevel": 154,
+    "materialNum": 558
+  },
+  {
+    "goldNum": 64400,
+    "heroLevel": 165,
+    "id": 156,
+    "latticeLevel": 155,
+    "materialNum": 568
+  },
+  {
+    "goldNum": 65600,
+    "heroLevel": 165,
+    "id": 157,
+    "latticeLevel": 156,
+    "materialNum": 578
+  },
+  {
+    "goldNum": 66800,
+    "heroLevel": 165,
+    "id": 158,
+    "latticeLevel": 157,
+    "materialNum": 588
+  },
+  {
+    "goldNum": 68000,
+    "heroLevel": 165,
+    "id": 159,
+    "latticeLevel": 158,
+    "materialNum": 598
+  },
+  {
+    "goldNum": 69200,
+    "heroLevel": 165,
+    "id": 160,
+    "latticeLevel": 159,
+    "materialNum": 608
+  },
+  {
+    "goldNum": 70400,
+    "heroLevel": 165,
+    "id": 161,
+    "latticeLevel": 160,
+    "materialNum": 618
+  },
+  {
+    "goldNum": 71900,
+    "heroLevel": 170,
+    "id": 162,
+    "latticeLevel": 161,
+    "materialNum": 633
+  },
+  {
+    "goldNum": 73400,
+    "heroLevel": 170,
+    "id": 163,
+    "latticeLevel": 162,
+    "materialNum": 648
+  },
+  {
+    "goldNum": 74900,
+    "heroLevel": 170,
+    "id": 164,
+    "latticeLevel": 163,
+    "materialNum": 663
+  },
+  {
+    "goldNum": 76400,
+    "heroLevel": 170,
+    "id": 165,
+    "latticeLevel": 164,
+    "materialNum": 678
+  },
+  {
+    "goldNum": 77900,
+    "heroLevel": 170,
+    "id": 166,
+    "latticeLevel": 165,
+    "materialNum": 693
+  },
+  {
+    "goldNum": 79400,
+    "heroLevel": 170,
+    "id": 167,
+    "latticeLevel": 166,
+    "materialNum": 708
+  },
+  {
+    "goldNum": 80900,
+    "heroLevel": 170,
+    "id": 168,
+    "latticeLevel": 167,
+    "materialNum": 723
+  },
+  {
+    "goldNum": 82400,
+    "heroLevel": 170,
+    "id": 169,
+    "latticeLevel": 168,
+    "materialNum": 738
+  },
+  {
+    "goldNum": 83900,
+    "heroLevel": 170,
+    "id": 170,
+    "latticeLevel": 169,
+    "materialNum": 753
+  },
+  {
+    "goldNum": 85400,
+    "heroLevel": 170,
+    "id": 171,
+    "latticeLevel": 170,
+    "materialNum": 768
+  },
+  {
+    "goldNum": 87400,
+    "heroLevel": 175,
+    "id": 172,
+    "latticeLevel": 171,
+    "materialNum": 788
+  },
+  {
+    "goldNum": 89400,
+    "heroLevel": 175,
+    "id": 173,
+    "latticeLevel": 172,
+    "materialNum": 808
+  },
+  {
+    "goldNum": 91400,
+    "heroLevel": 175,
+    "id": 174,
+    "latticeLevel": 173,
+    "materialNum": 828
+  },
+  {
+    "goldNum": 93400,
+    "heroLevel": 175,
+    "id": 175,
+    "latticeLevel": 174,
+    "materialNum": 848
+  },
+  {
+    "goldNum": 95400,
+    "heroLevel": 175,
+    "id": 176,
+    "latticeLevel": 175,
+    "materialNum": 868
+  },
+  {
+    "goldNum": 97400,
+    "heroLevel": 175,
+    "id": 177,
+    "latticeLevel": 176,
+    "materialNum": 888
+  },
+  {
+    "goldNum": 99400,
+    "heroLevel": 175,
+    "id": 178,
+    "latticeLevel": 177,
+    "materialNum": 908
+  },
+  {
+    "goldNum": 101400,
+    "heroLevel": 175,
+    "id": 179,
+    "latticeLevel": 178,
+    "materialNum": 928
+  },
+  {
+    "goldNum": 103400,
+    "heroLevel": 175,
+    "id": 180,
+    "latticeLevel": 179,
+    "materialNum": 948
+  },
+  {
+    "goldNum": 105400,
+    "heroLevel": 175,
+    "id": 181,
+    "latticeLevel": 180,
+    "materialNum": 968
+  },
+  {
+    "goldNum": 108400,
+    "heroLevel": 180,
+    "id": 182,
+    "latticeLevel": 181,
+    "materialNum": 998
+  },
+  {
+    "goldNum": 111400,
+    "heroLevel": 180,
+    "id": 183,
+    "latticeLevel": 182,
+    "materialNum": 1028
+  },
+  {
+    "goldNum": 114400,
+    "heroLevel": 180,
+    "id": 184,
+    "latticeLevel": 183,
+    "materialNum": 1058
+  },
+  {
+    "goldNum": 117400,
+    "heroLevel": 180,
+    "id": 185,
+    "latticeLevel": 184,
+    "materialNum": 1088
+  },
+  {
+    "goldNum": 120400,
+    "heroLevel": 180,
+    "id": 186,
+    "latticeLevel": 185,
+    "materialNum": 1118
+  },
+  {
+    "goldNum": 123400,
+    "heroLevel": 180,
+    "id": 187,
+    "latticeLevel": 186,
+    "materialNum": 1148
+  },
+  {
+    "goldNum": 126400,
+    "heroLevel": 180,
+    "id": 188,
+    "latticeLevel": 187,
+    "materialNum": 1178
+  },
+  {
+    "goldNum": 129400,
+    "heroLevel": 180,
+    "id": 189,
+    "latticeLevel": 188,
+    "materialNum": 1208
+  },
+  {
+    "goldNum": 132400,
+    "heroLevel": 180,
+    "id": 190,
+    "latticeLevel": 189,
+    "materialNum": 1238
+  },
+  {
+    "goldNum": 135400,
+    "heroLevel": 180,
+    "id": 191,
+    "latticeLevel": 190,
+    "materialNum": 1268
+  },
+  {
+    "goldNum": 140400,
+    "heroLevel": 185,
+    "id": 192,
+    "latticeLevel": 191,
+    "materialNum": 1318
+  },
+  {
+    "goldNum": 145400,
+    "heroLevel": 185,
+    "id": 193,
+    "latticeLevel": 192,
+    "materialNum": 1368
+  },
+  {
+    "goldNum": 150400,
+    "heroLevel": 185,
+    "id": 194,
+    "latticeLevel": 193,
+    "materialNum": 1418
+  },
+  {
+    "goldNum": 155400,
+    "heroLevel": 185,
+    "id": 195,
+    "latticeLevel": 194,
+    "materialNum": 1468
+  },
+  {
+    "goldNum": 160400,
+    "heroLevel": 185,
+    "id": 196,
+    "latticeLevel": 195,
+    "materialNum": 1518
+  },
+  {
+    "goldNum": 165400,
+    "heroLevel": 185,
+    "id": 197,
+    "latticeLevel": 196,
+    "materialNum": 1568
+  },
+  {
+    "goldNum": 170400,
+    "heroLevel": 185,
+    "id": 198,
+    "latticeLevel": 197,
+    "materialNum": 1618
+  },
+  {
+    "goldNum": 175400,
+    "heroLevel": 185,
+    "id": 199,
+    "latticeLevel": 198,
+    "materialNum": 1668
+  },
+  {
+    "goldNum": 180400,
+    "heroLevel": 185,
+    "id": 200,
+    "latticeLevel": 199,
+    "materialNum": 1718
+  },
+  {
+    "goldNum": 185400,
+    "heroLevel": 185,
+    "id": 201,
+    "latticeLevel": 200,
+    "materialNum": 1768
+  }
+]

@@ -1,0 +1,28 @@
+[
+  { "id": 1, "rewardNum": [1], "rewardType": ["hero_203"], "score": 50 },
+  {
+    "id": 2,
+    "rewardNum": [40, 5],
+    "rewardType": ["coinMinting1", "randomFragment3"],
+    "score": 100
+  },
+  {
+    "id": 3,
+    "rewardNum": [30, 5],
+    "rewardType": ["medal1", "randomFragment3"],
+    "score": 150
+  },
+  {
+    "id": 4,
+    "rewardNum": [20, 5],
+    "rewardType": ["coinMinting2", "randomFragment3"],
+    "score": 200
+  },
+  {
+    "id": 5,
+    "rewardNum": [300, 5],
+    "rewardType": ["diamond", "randomFragment3"],
+    "score": 300
+  },
+  { "id": 6, "rewardNum": [1], "rewardType": ["hero_305"], "score": 400 }
+]

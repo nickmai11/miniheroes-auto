@@ -17,7 +17,7 @@ assert purple_enough(79665, 60)                                          # Tiger
 assert purple_enough(80000, 0)                                           # already there
 assert not purple_enough(50000, 60)
 assert purple_enough(60000, 41 * 60)                                     # 60000 + 20295 (22 h a day) >= 80k
-assert not purple_enough(61431, 2203)                                    # Chloe 11-21: 81258 at 24 h a day, 79606 at 22
+assert not purple_enough(61431, 2203)                                    # Gambler 11-21: 81258 at 24 h a day, 79606 at 22
 assert purple_enough(61908, 2210)                                       # Bino 11-21: 80140 at 22 h a day
 assert not purple_enough(None, 10000)                                    # points unreadable -> old rules
 # highest (Nick 2026-11-24): blue plate = tribemate, green = own account -> skipped; any other plate = a foe
@@ -26,4 +26,6 @@ for x, c in ((200, (58, 125, 195)), (500, (0, 150, 16)), (800, (39, 84, 132))): 
 assert [plate(im, x, 500) for x in (200, 500, 800, 1000)] == ['blue', 'green', 'blue', None]
 boxes = [(150, 485, 100, 30, '* 2960k'), (450, 485, 100, 30, '4374k'), (950, 485, 100, 30, '602K'), (20, 100, 80, 30, '9999k')]
 assert foes(im, boxes) == [(1000, 364)]                                  # no plate above 602K; the header text isn't a spot
+im.paste((64, 64, 144), (900, 822, 1080, 858))                           # Sentinel plate: slate, not tribe blue
+assert foes(im, boxes + [(950, 885, 100, 30, '57918'), (150, 885, 100, 30, '5')]) == [(1000, 364), (1000, 764)]   # a Sentinel's CP has no 'k' (Tiger 2026-11-25)
 print('ok')

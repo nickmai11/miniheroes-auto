@@ -1,0 +1,26 @@
+[
+  {
+    "cardType": "blueBag_tbh",
+    "exchangeWeight": 25,
+    "fragmentsStar": [1, 2, 3],
+    "id": 1
+  },
+  {
+    "cardType": "purpleBag_tbh",
+    "exchangeWeight": 30,
+    "fragmentsStar": [2, 3, 4],
+    "id": 2
+  },
+  {
+    "cardType": "orangeBag_tbh",
+    "exchangeWeight": 30,
+    "fragmentsStar": [3, 4, 5],
+    "id": 3
+  },
+  {
+    "cardType": "allBag_tbh",
+    "exchangeWeight": 15,
+    "fragmentsStar": [],
+    "id": 4
+  }
+]

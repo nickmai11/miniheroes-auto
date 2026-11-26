@@ -1,0 +1,1370 @@
+[
+  {
+    "id": 10001,
+    "itemType": "hero_115",
+    "obtainCondition": 115,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10002,
+    "itemType": "fragment_115",
+    "obtainCondition": 115,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10003,
+    "itemType": "artf_115",
+    "obtainCondition": 115,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10004,
+    "itemType": "art_1151",
+    "obtainCondition": 115,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10005,
+    "itemType": "art_1152",
+    "obtainCondition": 115,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10006,
+    "itemType": "art_1153",
+    "obtainCondition": 115,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10073,
+    "itemType": "hero_310",
+    "obtainCondition": 310,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10074,
+    "itemType": "fragment_310",
+    "obtainCondition": 310,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10075,
+    "itemType": "artf_310",
+    "obtainCondition": 310,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10076,
+    "itemType": "art_3101",
+    "obtainCondition": 310,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10077,
+    "itemType": "art_3102",
+    "obtainCondition": 310,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10078,
+    "itemType": "art_3103",
+    "obtainCondition": 310,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10037,
+    "itemType": "hero_209",
+    "obtainCondition": 209,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10038,
+    "itemType": "fragment_209",
+    "obtainCondition": 209,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10039,
+    "itemType": "artf_209",
+    "obtainCondition": 209,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10040,
+    "itemType": "art_2091",
+    "obtainCondition": 209,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10041,
+    "itemType": "art_2092",
+    "obtainCondition": 209,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10042,
+    "itemType": "art_2093",
+    "obtainCondition": 209,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10097,
+    "itemType": "hero_410",
+    "obtainCondition": 410,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10098,
+    "itemType": "fragment_410",
+    "obtainCondition": 410,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10099,
+    "itemType": "artf_410",
+    "obtainCondition": 410,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10100,
+    "itemType": "art_4101",
+    "obtainCondition": 410,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10101,
+    "itemType": "art_4102",
+    "obtainCondition": 410,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10102,
+    "itemType": "art_4103",
+    "obtainCondition": 410,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10043,
+    "itemType": "hero_210",
+    "obtainCondition": 210,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10044,
+    "itemType": "fragment_210",
+    "obtainCondition": 210,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10045,
+    "itemType": "artf_210",
+    "obtainCondition": 210,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10046,
+    "itemType": "art_2101",
+    "obtainCondition": 210,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10047,
+    "itemType": "art_2102",
+    "obtainCondition": 210,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10048,
+    "itemType": "art_2103",
+    "obtainCondition": 210,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10121,
+    "itemType": "hero_313",
+    "obtainCondition": 313,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10122,
+    "itemType": "fragment_313",
+    "obtainCondition": 313,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10123,
+    "itemType": "artf_313",
+    "obtainCondition": 313,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10124,
+    "itemType": "art_3131",
+    "obtainCondition": 313,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10125,
+    "itemType": "art_3132",
+    "obtainCondition": 313,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10126,
+    "itemType": "art_3133",
+    "obtainCondition": 313,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10127,
+    "itemType": "hero_413",
+    "obtainCondition": 413,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10128,
+    "itemType": "fragment_413",
+    "obtainCondition": 413,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10129,
+    "itemType": "artf_413",
+    "obtainCondition": 413,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10130,
+    "itemType": "art_4131",
+    "obtainCondition": 413,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10131,
+    "itemType": "art_4132",
+    "obtainCondition": 413,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10132,
+    "itemType": "art_4133",
+    "obtainCondition": 413,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10007,
+    "itemType": "hero_119",
+    "obtainCondition": 119,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10008,
+    "itemType": "fragment_119",
+    "obtainCondition": 119,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10009,
+    "itemType": "artf_119",
+    "obtainCondition": 119,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10010,
+    "itemType": "art_1191",
+    "obtainCondition": 119,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10011,
+    "itemType": "art_1192",
+    "obtainCondition": 119,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10012,
+    "itemType": "art_1193",
+    "obtainCondition": 119,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10013,
+    "itemType": "hero_120",
+    "obtainCondition": 120,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10014,
+    "itemType": "fragment_120",
+    "obtainCondition": 120,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10015,
+    "itemType": "artf_120",
+    "obtainCondition": 120,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10016,
+    "itemType": "art_1201",
+    "obtainCondition": 120,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10017,
+    "itemType": "art_1202",
+    "obtainCondition": 120,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10018,
+    "itemType": "art_1203",
+    "obtainCondition": 120,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10103,
+    "itemType": "hero_414",
+    "obtainCondition": 414,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10104,
+    "itemType": "fragment_414",
+    "obtainCondition": 414,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10105,
+    "itemType": "artf_414",
+    "obtainCondition": 414,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10106,
+    "itemType": "art_4141",
+    "obtainCondition": 414,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10107,
+    "itemType": "art_4142",
+    "obtainCondition": 414,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10108,
+    "itemType": "art_4143",
+    "obtainCondition": 414,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10019,
+    "itemType": "hero_123",
+    "obtainCondition": 123,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10020,
+    "itemType": "fragment_123",
+    "obtainCondition": 123,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10021,
+    "itemType": "artf_123",
+    "obtainCondition": 123,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10022,
+    "itemType": "art_1231",
+    "obtainCondition": 123,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10023,
+    "itemType": "art_1232",
+    "obtainCondition": 123,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10024,
+    "itemType": "art_1233",
+    "obtainCondition": 123,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10109,
+    "itemType": "hero_415",
+    "obtainCondition": 415,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10110,
+    "itemType": "fragment_415",
+    "obtainCondition": 415,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10111,
+    "itemType": "artf_415",
+    "obtainCondition": 415,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10112,
+    "itemType": "art_4151",
+    "obtainCondition": 415,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10113,
+    "itemType": "art_4152",
+    "obtainCondition": 415,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10114,
+    "itemType": "art_4153",
+    "obtainCondition": 415,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10025,
+    "itemType": "hero_125",
+    "obtainCondition": 125,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10026,
+    "itemType": "fragment_125",
+    "obtainCondition": 125,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10027,
+    "itemType": "artf_125",
+    "obtainCondition": 125,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10028,
+    "itemType": "art_1251",
+    "obtainCondition": 125,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10029,
+    "itemType": "art_1252",
+    "obtainCondition": 125,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10030,
+    "itemType": "art_1253",
+    "obtainCondition": 125,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10061,
+    "itemType": "hero_216",
+    "obtainCondition": 216,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10062,
+    "itemType": "fragment_216",
+    "obtainCondition": 216,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10063,
+    "itemType": "artf_216",
+    "obtainCondition": 216,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10064,
+    "itemType": "art_2161",
+    "obtainCondition": 216,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10065,
+    "itemType": "art_2162",
+    "obtainCondition": 216,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10066,
+    "itemType": "art_2163",
+    "obtainCondition": 216,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10115,
+    "itemType": "hero_417",
+    "obtainCondition": 417,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10116,
+    "itemType": "fragment_417",
+    "obtainCondition": 417,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10117,
+    "itemType": "artf_417",
+    "obtainCondition": 417,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10118,
+    "itemType": "art_4171",
+    "obtainCondition": 417,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10119,
+    "itemType": "art_4172",
+    "obtainCondition": 417,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10120,
+    "itemType": "art_4173",
+    "obtainCondition": 417,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10157,
+    "itemType": "hero_128",
+    "obtainCondition": 128,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10158,
+    "itemType": "fragment_128",
+    "obtainCondition": 128,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10159,
+    "itemType": "artf_128",
+    "obtainCondition": 128,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10160,
+    "itemType": "art_1281",
+    "obtainCondition": 128,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10161,
+    "itemType": "art_1282",
+    "obtainCondition": 128,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10162,
+    "itemType": "art_1283",
+    "obtainCondition": 128,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10079,
+    "itemType": "hero_318",
+    "obtainCondition": 318,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10080,
+    "itemType": "fragment_318",
+    "obtainCondition": 318,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10081,
+    "itemType": "artf_318",
+    "obtainCondition": 318,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10082,
+    "itemType": "art_3181",
+    "obtainCondition": 318,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10083,
+    "itemType": "art_3182",
+    "obtainCondition": 318,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10084,
+    "itemType": "art_3183",
+    "obtainCondition": 318,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10133,
+    "itemType": "hero_420",
+    "obtainCondition": 420,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10134,
+    "itemType": "fragment_420",
+    "obtainCondition": 420,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10135,
+    "itemType": "artf_420",
+    "obtainCondition": 420,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10136,
+    "itemType": "art_4201",
+    "obtainCondition": 420,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10137,
+    "itemType": "art_4202",
+    "obtainCondition": 420,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10138,
+    "itemType": "art_4203",
+    "obtainCondition": 420,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 121,
+    "itemType": "hero_130",
+    "obtainCondition": 130,
+    "isAncestorHero": 1
+  },
+  {
+    "id": 122,
+    "itemType": "fragment_130",
+    "obtainCondition": 130,
+    "isAncestorHero": 1
+  },
+  {
+    "id": 123,
+    "itemType": "artf_130",
+    "obtainCondition": 130,
+    "isAncestorHero": 1
+  },
+  {
+    "id": 124,
+    "itemType": "art_1301",
+    "obtainCondition": 130,
+    "isAncestorHero": 1
+  },
+  {
+    "id": 125,
+    "itemType": "art_1302",
+    "obtainCondition": 130,
+    "isAncestorHero": 1
+  },
+  {
+    "id": 126,
+    "itemType": "art_1303",
+    "obtainCondition": 130,
+    "isAncestorHero": 1
+  },
+  {
+    "id": 127,
+    "itemType": "hero_319",
+    "obtainCondition": 319,
+    "isAncestorHero": 1
+  },
+  {
+    "id": 128,
+    "itemType": "fragment_319",
+    "obtainCondition": 319,
+    "isAncestorHero": 1
+  },
+  {
+    "id": 129,
+    "itemType": "artf_319",
+    "obtainCondition": 319,
+    "isAncestorHero": 1
+  },
+  {
+    "id": 130,
+    "itemType": "art_3191",
+    "obtainCondition": 319,
+    "isAncestorHero": 1
+  },
+  {
+    "id": 131,
+    "itemType": "art_3192",
+    "obtainCondition": 319,
+    "isAncestorHero": 1
+  },
+  {
+    "id": 132,
+    "itemType": "art_3193",
+    "obtainCondition": 319,
+    "isAncestorHero": 1
+  },
+  {
+    "id": 10151,
+    "itemType": "hero_131",
+    "obtainCondition": 131,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10152,
+    "itemType": "fragment_131",
+    "obtainCondition": 131,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10153,
+    "itemType": "artf_131",
+    "obtainCondition": 131,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10154,
+    "itemType": "art_1311",
+    "obtainCondition": 131,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10155,
+    "itemType": "art_1312",
+    "obtainCondition": 131,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10156,
+    "itemType": "art_1313",
+    "obtainCondition": 131,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10067,
+    "itemType": "hero_221",
+    "obtainCondition": 221,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10068,
+    "itemType": "fragment_221",
+    "obtainCondition": 221,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10069,
+    "itemType": "artf_221",
+    "obtainCondition": 221,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10070,
+    "itemType": "art_2211",
+    "obtainCondition": 221,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10071,
+    "itemType": "art_2212",
+    "obtainCondition": 221,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10072,
+    "itemType": "art_2213",
+    "obtainCondition": 221,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10085,
+    "itemType": "hero_320",
+    "obtainCondition": 320,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10086,
+    "itemType": "fragment_320",
+    "obtainCondition": 320,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10087,
+    "itemType": "artf_320",
+    "obtainCondition": 320,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10088,
+    "itemType": "art_3201",
+    "obtainCondition": 320,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10089,
+    "itemType": "art_3202",
+    "obtainCondition": 320,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10090,
+    "itemType": "art_3203",
+    "obtainCondition": 320,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10091,
+    "itemType": "hero_321",
+    "obtainCondition": 321,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10092,
+    "itemType": "fragment_321",
+    "obtainCondition": 321,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10093,
+    "itemType": "artf_321",
+    "obtainCondition": 321,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10094,
+    "itemType": "art_3211",
+    "obtainCondition": 321,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10095,
+    "itemType": "art_3212",
+    "obtainCondition": 321,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10096,
+    "itemType": "art_3213",
+    "obtainCondition": 321,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10139,
+    "itemType": "hero_422",
+    "obtainCondition": 422,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10140,
+    "itemType": "fragment_422",
+    "obtainCondition": 422,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10141,
+    "itemType": "artf_422",
+    "obtainCondition": 422,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10142,
+    "itemType": "art_4221",
+    "obtainCondition": 422,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10143,
+    "itemType": "art_4222",
+    "obtainCondition": 422,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 10144,
+    "itemType": "art_4223",
+    "obtainCondition": 422,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 145,
+    "itemType": "hero_127",
+    "obtainCondition": 127,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 146,
+    "itemType": "fragment_127",
+    "obtainCondition": 127,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 147,
+    "itemType": "artf_127",
+    "obtainCondition": 127,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 148,
+    "itemType": "art_1271",
+    "obtainCondition": 127,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 149,
+    "itemType": "art_1272",
+    "obtainCondition": 127,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 150,
+    "itemType": "art_1273",
+    "obtainCondition": 127,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 163,
+    "itemType": "hero_129",
+    "obtainCondition": 129,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 164,
+    "itemType": "fragment_129",
+    "obtainCondition": 129,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 165,
+    "itemType": "artf_129",
+    "obtainCondition": 129,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 166,
+    "itemType": "art_1291",
+    "obtainCondition": 129,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 167,
+    "itemType": "art_1292",
+    "obtainCondition": 129,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 168,
+    "itemType": "art_1293",
+    "obtainCondition": 129,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 169,
+    "itemType": "hero_132",
+    "obtainCondition": 132,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 170,
+    "itemType": "fragment_132",
+    "obtainCondition": 132,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 171,
+    "itemType": "artf_132",
+    "obtainCondition": 132,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 172,
+    "itemType": "art_1321",
+    "obtainCondition": 132,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 173,
+    "itemType": "art_1322",
+    "obtainCondition": 132,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 174,
+    "itemType": "art_1323",
+    "obtainCondition": 132,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 175,
+    "itemType": "hero_223",
+    "obtainCondition": 223,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 176,
+    "itemType": "fragment_223",
+    "obtainCondition": 223,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 177,
+    "itemType": "artf_223",
+    "obtainCondition": 223,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 178,
+    "itemType": "art_2231",
+    "obtainCondition": 223,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 179,
+    "itemType": "art_2232",
+    "obtainCondition": 223,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 180,
+    "itemType": "art_2233",
+    "obtainCondition": 223,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 181,
+    "itemType": "hero_224",
+    "obtainCondition": 224,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 182,
+    "itemType": "fragment_224",
+    "obtainCondition": 224,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 183,
+    "itemType": "artf_224",
+    "obtainCondition": 224,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 184,
+    "itemType": "art_2241",
+    "obtainCondition": 224,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 185,
+    "itemType": "art_2242",
+    "obtainCondition": 224,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 186,
+    "itemType": "art_2243",
+    "obtainCondition": 224,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 187,
+    "itemType": "hero_220",
+    "obtainCondition": 220,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 188,
+    "itemType": "fragment_220",
+    "obtainCondition": 220,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 189,
+    "itemType": "artf_220",
+    "obtainCondition": 220,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 190,
+    "itemType": "art_2201",
+    "obtainCondition": 220,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 191,
+    "itemType": "art_2202",
+    "obtainCondition": 220,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 192,
+    "itemType": "art_2203",
+    "obtainCondition": 220,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 193,
+    "itemType": "hero_222",
+    "obtainCondition": 222,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 194,
+    "itemType": "fragment_222",
+    "obtainCondition": 222,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 195,
+    "itemType": "artf_222",
+    "obtainCondition": 222,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 196,
+    "itemType": "art_2221",
+    "obtainCondition": 222,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 197,
+    "itemType": "art_2222",
+    "obtainCondition": 222,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 198,
+    "itemType": "art_2223",
+    "obtainCondition": 222,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 199,
+    "itemType": "hero_322",
+    "obtainCondition": 322,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 200,
+    "itemType": "fragment_322",
+    "obtainCondition": 322,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 201,
+    "itemType": "artf_322",
+    "obtainCondition": 322,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 202,
+    "itemType": "art_3221",
+    "obtainCondition": 322,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 203,
+    "itemType": "art_3222",
+    "obtainCondition": 322,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 204,
+    "itemType": "art_3223",
+    "obtainCondition": 322,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 205,
+    "itemType": "hero_322",
+    "obtainCondition": 322,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 206,
+    "itemType": "fragment_322",
+    "obtainCondition": 322,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 207,
+    "itemType": "artf_322",
+    "obtainCondition": 322,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 208,
+    "itemType": "art_3221",
+    "obtainCondition": 322,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 209,
+    "itemType": "art_3222",
+    "obtainCondition": 322,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 210,
+    "itemType": "art_3223",
+    "obtainCondition": 322,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 211,
+    "itemType": "hero_323",
+    "obtainCondition": 323,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 212,
+    "itemType": "fragment_323",
+    "obtainCondition": 323,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 213,
+    "itemType": "artf_323",
+    "obtainCondition": 323,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 214,
+    "itemType": "art_3231",
+    "obtainCondition": 323,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 215,
+    "itemType": "art_3232",
+    "obtainCondition": 323,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 216,
+    "itemType": "art_3233",
+    "obtainCondition": 323,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 217,
+    "itemType": "hero_424",
+    "obtainCondition": 424,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 218,
+    "itemType": "fragment_424",
+    "obtainCondition": 424,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 219,
+    "itemType": "artf_424",
+    "obtainCondition": 424,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 220,
+    "itemType": "art_4241",
+    "obtainCondition": 424,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 221,
+    "itemType": "art_4242",
+    "obtainCondition": 424,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 222,
+    "itemType": "art_4243",
+    "obtainCondition": 424,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 223,
+    "itemType": "hero_425",
+    "obtainCondition": 425,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 224,
+    "itemType": "fragment_425",
+    "obtainCondition": 425,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 225,
+    "itemType": "artf_425",
+    "obtainCondition": 425,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 226,
+    "itemType": "art_4251",
+    "obtainCondition": 425,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 227,
+    "itemType": "art_4252",
+    "obtainCondition": 425,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 228,
+    "itemType": "art_4253",
+    "obtainCondition": 425,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 229,
+    "itemType": "hero_423",
+    "obtainCondition": 423,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 230,
+    "itemType": "fragment_423",
+    "obtainCondition": 423,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 231,
+    "itemType": "artf_423",
+    "obtainCondition": 423,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 232,
+    "itemType": "art_4231",
+    "obtainCondition": 423,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 233,
+    "itemType": "art_4232",
+    "obtainCondition": 423,
+    "isAncestorHero": 0
+  },
+  {
+    "id": 234,
+    "itemType": "art_4233",
+    "obtainCondition": 423,
+    "isAncestorHero": 0
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "groupNum": [15, 15],
+    "groupType": ["moonCake", "rabbit"],
+    "id": 1,
+    "limit": 0,
+    "rewardNum": 1,
+    "rewardType": "shenhuabox"
+  },
+  {
+    "groupNum": [15, 15],
+    "groupType": ["festiveLantern", "riceWine"],
+    "id": 2,
+    "limit": 0,
+    "rewardNum": 8,
+    "rewardType": "fourColorStone"
+  },
+  {
+    "groupNum": [10, 10],
+    "groupType": ["festiveLantern", "fragrans"],
+    "id": 3,
+    "limit": 0,
+    "rewardNum": 1,
+    "rewardType": "crystalLight"
+  },
+  {
+    "groupNum": [5, 5],
+    "groupType": ["moonCake", "riceWine"],
+    "id": 4,
+    "limit": 0,
+    "rewardNum": 80,
+    "rewardType": "bait3"
+  },
+  {
+    "groupNum": [5, 5],
+    "groupType": ["festiveLantern", "rabbit"],
+    "id": 5,
+    "limit": 0,
+    "rewardNum": 40,
+    "rewardType": "cast"
+  },
+  {
+    "groupNum": [5, 5],
+    "groupType": ["rabbit", "riceWine"],
+    "id": 6,
+    "limit": 0,
+    "rewardNum": 2000,
+    "rewardType": "holyLight"
+  },
+  {
+    "groupNum": [5, 5],
+    "groupType": ["riceWine", "fragrans"],
+    "id": 7,
+    "limit": 0,
+    "rewardNum": 50000,
+    "rewardType": "exp"
+  },
+  {
+    "groupNum": [5, 5],
+    "groupType": ["rabbit", "fragrans"],
+    "id": 8,
+    "limit": 0,
+    "rewardNum": 80000,
+    "rewardType": "gold"
+  },
+  {
+    "groupNum": [10],
+    "groupType": ["fragrans"],
+    "id": 9,
+    "limit": 0,
+    "rewardNum": 300,
+    "rewardType": "succinctStone"
+  }
+]

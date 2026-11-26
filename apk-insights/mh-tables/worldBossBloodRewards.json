@@ -1,0 +1,1262 @@
+[
+  {
+    "bossId": 6021,
+    "bossLoss": 0.1,
+    "id": 1,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6021,
+    "bossLoss": 0.2,
+    "id": 2,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6021,
+    "bossLoss": 0.3,
+    "id": 3,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6021,
+    "bossLoss": 0.4,
+    "id": 4,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6021,
+    "bossLoss": 0.5,
+    "id": 5,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6021,
+    "bossLoss": 0.6,
+    "id": 6,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6021,
+    "bossLoss": 0.7,
+    "id": 7,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6021,
+    "bossLoss": 0.8,
+    "id": 8,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6021,
+    "bossLoss": 0.9,
+    "id": 9,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6021,
+    "bossLoss": 1,
+    "id": 10,
+    "rewardNum": [1500, 5, 3],
+    "rewardType": ["beastCoin", "recruitRoll", "shareDebris3"]
+  },
+  {
+    "bossId": 6022,
+    "bossLoss": 0.1,
+    "id": 11,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6022,
+    "bossLoss": 0.2,
+    "id": 12,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6022,
+    "bossLoss": 0.3,
+    "id": 13,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6022,
+    "bossLoss": 0.4,
+    "id": 14,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6022,
+    "bossLoss": 0.5,
+    "id": 15,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6022,
+    "bossLoss": 0.6,
+    "id": 16,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6022,
+    "bossLoss": 0.7,
+    "id": 17,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6022,
+    "bossLoss": 0.8,
+    "id": 18,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6022,
+    "bossLoss": 0.9,
+    "id": 19,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6022,
+    "bossLoss": 1,
+    "id": 20,
+    "rewardNum": [1800, 5, 3],
+    "rewardType": ["beastCoin", "recruitRoll", "shareDebris3"]
+  },
+  {
+    "bossId": 6023,
+    "bossLoss": 0.1,
+    "id": 21,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6023,
+    "bossLoss": 0.2,
+    "id": 22,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6023,
+    "bossLoss": 0.3,
+    "id": 23,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6023,
+    "bossLoss": 0.4,
+    "id": 24,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6023,
+    "bossLoss": 0.5,
+    "id": 25,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6023,
+    "bossLoss": 0.6,
+    "id": 26,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6023,
+    "bossLoss": 0.7,
+    "id": 27,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6023,
+    "bossLoss": 0.8,
+    "id": 28,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6023,
+    "bossLoss": 0.9,
+    "id": 29,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6023,
+    "bossLoss": 1,
+    "id": 30,
+    "rewardNum": [2000, 5, 3],
+    "rewardType": ["beastCoin", "recruitRoll", "shareDebris3"]
+  },
+  {
+    "bossId": 6024,
+    "bossLoss": 0.1,
+    "id": 31,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6024,
+    "bossLoss": 0.2,
+    "id": 32,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6024,
+    "bossLoss": 0.3,
+    "id": 33,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6024,
+    "bossLoss": 0.4,
+    "id": 34,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6024,
+    "bossLoss": 0.5,
+    "id": 35,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6024,
+    "bossLoss": 0.6,
+    "id": 36,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6024,
+    "bossLoss": 0.7,
+    "id": 37,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6024,
+    "bossLoss": 0.8,
+    "id": 38,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6024,
+    "bossLoss": 0.9,
+    "id": 39,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6024,
+    "bossLoss": 1,
+    "id": 40,
+    "rewardNum": [2300, 5, 3],
+    "rewardType": ["beastCoin", "recruitRoll", "shareDebris3"]
+  },
+  {
+    "bossId": 6025,
+    "bossLoss": 0.1,
+    "id": 41,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6025,
+    "bossLoss": 0.2,
+    "id": 42,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6025,
+    "bossLoss": 0.3,
+    "id": 43,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6025,
+    "bossLoss": 0.4,
+    "id": 44,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6025,
+    "bossLoss": 0.5,
+    "id": 45,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6025,
+    "bossLoss": 0.6,
+    "id": 46,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6025,
+    "bossLoss": 0.7,
+    "id": 47,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6025,
+    "bossLoss": 0.8,
+    "id": 48,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6025,
+    "bossLoss": 0.9,
+    "id": 49,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6025,
+    "bossLoss": 1,
+    "id": 50,
+    "rewardNum": [2500, 5, 3],
+    "rewardType": ["beastCoin", "recruitRoll", "shareDebris3"]
+  },
+  {
+    "bossId": 6026,
+    "bossLoss": 0.1,
+    "id": 51,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6026,
+    "bossLoss": 0.2,
+    "id": 52,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6026,
+    "bossLoss": 0.3,
+    "id": 53,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6026,
+    "bossLoss": 0.4,
+    "id": 54,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6026,
+    "bossLoss": 0.5,
+    "id": 55,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6026,
+    "bossLoss": 0.6,
+    "id": 56,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6026,
+    "bossLoss": 0.7,
+    "id": 57,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6026,
+    "bossLoss": 0.8,
+    "id": 58,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6026,
+    "bossLoss": 0.9,
+    "id": 59,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6026,
+    "bossLoss": 1,
+    "id": 60,
+    "rewardNum": [3000, 5, 3],
+    "rewardType": ["beastCoin", "recruitRoll", "shareDebris3"]
+  },
+  {
+    "bossId": 6031,
+    "bossLoss": 0.1,
+    "id": 61,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6031,
+    "bossLoss": 0.2,
+    "id": 62,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6031,
+    "bossLoss": 0.3,
+    "id": 63,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6031,
+    "bossLoss": 0.4,
+    "id": 64,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6031,
+    "bossLoss": 0.5,
+    "id": 65,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6031,
+    "bossLoss": 0.6,
+    "id": 66,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6031,
+    "bossLoss": 0.7,
+    "id": 67,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6031,
+    "bossLoss": 0.8,
+    "id": 68,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6031,
+    "bossLoss": 0.9,
+    "id": 69,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6031,
+    "bossLoss": 1,
+    "id": 70,
+    "rewardNum": [1500, 5, 1],
+    "rewardType": ["beastCoin", "recruitRoll", "medal2"]
+  },
+  {
+    "bossId": 6032,
+    "bossLoss": 0.1,
+    "id": 71,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6032,
+    "bossLoss": 0.2,
+    "id": 72,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6032,
+    "bossLoss": 0.3,
+    "id": 73,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6032,
+    "bossLoss": 0.4,
+    "id": 74,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6032,
+    "bossLoss": 0.5,
+    "id": 75,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6032,
+    "bossLoss": 0.6,
+    "id": 76,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6032,
+    "bossLoss": 0.7,
+    "id": 77,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6032,
+    "bossLoss": 0.8,
+    "id": 78,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6032,
+    "bossLoss": 0.9,
+    "id": 79,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6032,
+    "bossLoss": 1,
+    "id": 80,
+    "rewardNum": [1800, 5, 1],
+    "rewardType": ["beastCoin", "recruitRoll", "medal2"]
+  },
+  {
+    "bossId": 6033,
+    "bossLoss": 0.1,
+    "id": 81,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6033,
+    "bossLoss": 0.2,
+    "id": 82,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6033,
+    "bossLoss": 0.3,
+    "id": 83,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6033,
+    "bossLoss": 0.4,
+    "id": 84,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6033,
+    "bossLoss": 0.5,
+    "id": 85,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6033,
+    "bossLoss": 0.6,
+    "id": 86,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6033,
+    "bossLoss": 0.7,
+    "id": 87,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6033,
+    "bossLoss": 0.8,
+    "id": 88,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6033,
+    "bossLoss": 0.9,
+    "id": 89,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6033,
+    "bossLoss": 1,
+    "id": 90,
+    "rewardNum": [2000, 5, 1],
+    "rewardType": ["beastCoin", "recruitRoll", "medal2"]
+  },
+  {
+    "bossId": 6034,
+    "bossLoss": 0.1,
+    "id": 91,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6034,
+    "bossLoss": 0.2,
+    "id": 92,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6034,
+    "bossLoss": 0.3,
+    "id": 93,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6034,
+    "bossLoss": 0.4,
+    "id": 94,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6034,
+    "bossLoss": 0.5,
+    "id": 95,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6034,
+    "bossLoss": 0.6,
+    "id": 96,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6034,
+    "bossLoss": 0.7,
+    "id": 97,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6034,
+    "bossLoss": 0.8,
+    "id": 98,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6034,
+    "bossLoss": 0.9,
+    "id": 99,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6034,
+    "bossLoss": 1,
+    "id": 100,
+    "rewardNum": [2300, 5, 1],
+    "rewardType": ["beastCoin", "recruitRoll", "medal2"]
+  },
+  {
+    "bossId": 6035,
+    "bossLoss": 0.1,
+    "id": 101,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6035,
+    "bossLoss": 0.2,
+    "id": 102,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6035,
+    "bossLoss": 0.3,
+    "id": 103,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6035,
+    "bossLoss": 0.4,
+    "id": 104,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6035,
+    "bossLoss": 0.5,
+    "id": 105,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6035,
+    "bossLoss": 0.6,
+    "id": 106,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6035,
+    "bossLoss": 0.7,
+    "id": 107,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6035,
+    "bossLoss": 0.8,
+    "id": 108,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6035,
+    "bossLoss": 0.9,
+    "id": 109,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6035,
+    "bossLoss": 1,
+    "id": 110,
+    "rewardNum": [2500, 5, 1],
+    "rewardType": ["beastCoin", "recruitRoll", "medal2"]
+  },
+  {
+    "bossId": 6036,
+    "bossLoss": 0.1,
+    "id": 111,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6036,
+    "bossLoss": 0.2,
+    "id": 112,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6036,
+    "bossLoss": 0.3,
+    "id": 113,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6036,
+    "bossLoss": 0.4,
+    "id": 114,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6036,
+    "bossLoss": 0.5,
+    "id": 115,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6036,
+    "bossLoss": 0.6,
+    "id": 116,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6036,
+    "bossLoss": 0.7,
+    "id": 117,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6036,
+    "bossLoss": 0.8,
+    "id": 118,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6036,
+    "bossLoss": 0.9,
+    "id": 119,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6036,
+    "bossLoss": 1,
+    "id": 120,
+    "rewardNum": [3000, 5, 1],
+    "rewardType": ["beastCoin", "recruitRoll", "medal2"]
+  },
+  {
+    "bossId": 6041,
+    "bossLoss": 0.1,
+    "id": 121,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6041,
+    "bossLoss": 0.2,
+    "id": 122,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6041,
+    "bossLoss": 0.3,
+    "id": 123,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6041,
+    "bossLoss": 0.4,
+    "id": 124,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6041,
+    "bossLoss": 0.5,
+    "id": 125,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6041,
+    "bossLoss": 0.6,
+    "id": 126,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6041,
+    "bossLoss": 0.7,
+    "id": 127,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6041,
+    "bossLoss": 0.8,
+    "id": 128,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6041,
+    "bossLoss": 0.9,
+    "id": 129,
+    "rewardNum": [50],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6041,
+    "bossLoss": 1,
+    "id": 130,
+    "rewardNum": [1500, 5, 1],
+    "rewardType": ["beastCoin", "recruitRoll", "crystalLight"]
+  },
+  {
+    "bossId": 6042,
+    "bossLoss": 0.1,
+    "id": 131,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6042,
+    "bossLoss": 0.2,
+    "id": 132,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6042,
+    "bossLoss": 0.3,
+    "id": 133,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6042,
+    "bossLoss": 0.4,
+    "id": 134,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6042,
+    "bossLoss": 0.5,
+    "id": 135,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6042,
+    "bossLoss": 0.6,
+    "id": 136,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6042,
+    "bossLoss": 0.7,
+    "id": 137,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6042,
+    "bossLoss": 0.8,
+    "id": 138,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6042,
+    "bossLoss": 0.9,
+    "id": 139,
+    "rewardNum": [100],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6042,
+    "bossLoss": 1,
+    "id": 140,
+    "rewardNum": [1800, 5, 1],
+    "rewardType": ["beastCoin", "recruitRoll", "crystalLight"]
+  },
+  {
+    "bossId": 6043,
+    "bossLoss": 0.1,
+    "id": 141,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6043,
+    "bossLoss": 0.2,
+    "id": 142,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6043,
+    "bossLoss": 0.3,
+    "id": 143,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6043,
+    "bossLoss": 0.4,
+    "id": 144,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6043,
+    "bossLoss": 0.5,
+    "id": 145,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6043,
+    "bossLoss": 0.6,
+    "id": 146,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6043,
+    "bossLoss": 0.7,
+    "id": 147,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6043,
+    "bossLoss": 0.8,
+    "id": 148,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6043,
+    "bossLoss": 0.9,
+    "id": 149,
+    "rewardNum": [160],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6043,
+    "bossLoss": 1,
+    "id": 150,
+    "rewardNum": [2000, 5, 1],
+    "rewardType": ["beastCoin", "recruitRoll", "crystalLight"]
+  },
+  {
+    "bossId": 6044,
+    "bossLoss": 0.1,
+    "id": 151,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6044,
+    "bossLoss": 0.2,
+    "id": 152,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6044,
+    "bossLoss": 0.3,
+    "id": 153,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6044,
+    "bossLoss": 0.4,
+    "id": 154,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6044,
+    "bossLoss": 0.5,
+    "id": 155,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6044,
+    "bossLoss": 0.6,
+    "id": 156,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6044,
+    "bossLoss": 0.7,
+    "id": 157,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6044,
+    "bossLoss": 0.8,
+    "id": 158,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6044,
+    "bossLoss": 0.9,
+    "id": 159,
+    "rewardNum": [210],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6044,
+    "bossLoss": 1,
+    "id": 160,
+    "rewardNum": [2300, 5, 1],
+    "rewardType": ["beastCoin", "recruitRoll", "crystalLight"]
+  },
+  {
+    "bossId": 6045,
+    "bossLoss": 0.1,
+    "id": 161,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6045,
+    "bossLoss": 0.2,
+    "id": 162,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6045,
+    "bossLoss": 0.3,
+    "id": 163,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6045,
+    "bossLoss": 0.4,
+    "id": 164,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6045,
+    "bossLoss": 0.5,
+    "id": 165,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6045,
+    "bossLoss": 0.6,
+    "id": 166,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6045,
+    "bossLoss": 0.7,
+    "id": 167,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6045,
+    "bossLoss": 0.8,
+    "id": 168,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6045,
+    "bossLoss": 0.9,
+    "id": 169,
+    "rewardNum": [280],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6045,
+    "bossLoss": 1,
+    "id": 170,
+    "rewardNum": [2500, 5, 1],
+    "rewardType": ["beastCoin", "recruitRoll", "crystalLight"]
+  },
+  {
+    "bossId": 6046,
+    "bossLoss": 0.1,
+    "id": 171,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6046,
+    "bossLoss": 0.2,
+    "id": 172,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6046,
+    "bossLoss": 0.3,
+    "id": 173,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6046,
+    "bossLoss": 0.4,
+    "id": 174,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6046,
+    "bossLoss": 0.5,
+    "id": 175,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6046,
+    "bossLoss": 0.6,
+    "id": 176,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6046,
+    "bossLoss": 0.7,
+    "id": 177,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6046,
+    "bossLoss": 0.8,
+    "id": 178,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6046,
+    "bossLoss": 0.9,
+    "id": 179,
+    "rewardNum": [320],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6046,
+    "bossLoss": 1,
+    "id": 180,
+    "rewardNum": [3000, 5, 1],
+    "rewardType": ["beastCoin", "recruitRoll", "crystalLight"]
+  }
+]

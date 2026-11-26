@@ -1,0 +1,44 @@
+[
+  {
+    "guessScore": [7],
+    "id": 1,
+    "name": ["FORTGVG_GUESSRESULT_INFO1"],
+    "rewardNum": [6000],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "guessScore": [6],
+    "id": 2,
+    "name": ["FORTGVG_GUESSRESULT_INFO2"],
+    "rewardNum": [4500],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "guessScore": [4, 5],
+    "id": 3,
+    "name": ["FORTGVG_GUESSRESULT_INFO3"],
+    "rewardNum": [3000],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "guessScore": [2, 3],
+    "id": 4,
+    "name": ["FORTGVG_GUESSRESULT_INFO4"],
+    "rewardNum": [2000],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "guessScore": [1],
+    "id": 5,
+    "name": ["FORTGVG_GUESSRESULT_INFO5"],
+    "rewardNum": [1000],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "guessScore": [0],
+    "id": 6,
+    "name": ["FORTGVG_GUESSRESULT_INFO6"],
+    "rewardNum": [500],
+    "rewardType": ["pointGvgCoin"]
+  }
+]

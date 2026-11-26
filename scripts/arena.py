@@ -12,7 +12,7 @@
 import datetime, difflib, os, re, subprocess, sys, time, unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait
-from flow import Stop, find, joined, near, ocr, tap, tap_text, wait
+from flow import Stop, find, joined, near, ocr, swipe, tap, tap_text, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
@@ -108,7 +108,7 @@ def main(account):
         # topmost row: Crash, or Challenge below our CP — no Crash preference (Nick, 2026-11-04)
         pick = next(((y, f'{nm} {cp}k {p}pts', k) for y, k, nm, cp, p in rows[:-1] if ok(k, cp) and near_pts(p) and not tribemate(nm, roster)), None)
         if not pick:  # the last row (bot) can be cut off (Dino: 6 rows; Bino 2026-11-06: 4 shields hid a Crash bot) -> always scroll to the bottom first
-            subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', '540', '1500', '540', '900', '500']); time.sleep(1)
+            swipe(540, 1500, 540, 900); time.sleep(1)
             d = read_dialog(); rows = d[1] if d else []
             if not rows: return stop('no last row (bot) found')
             if rows[-1][1] == 'shield': return stop('last row (bot) already crashed (shielded); nothing attackable')

@@ -1,0 +1,110 @@
+[
+  {
+    "attributeName": "MEMORABILIA_ATTR_1",
+    "attributeType": "damagePre",
+    "id": 1,
+    "sort": 1
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_2",
+    "attributeType": "defensePre",
+    "id": 2,
+    "sort": 2
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_3",
+    "attributeType": "lifePre",
+    "id": 3,
+    "sort": 3
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_4",
+    "attributeType": "physicsResist",
+    "id": 4,
+    "sort": 8
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_5",
+    "attributeType": "physicsHurt",
+    "id": 5,
+    "sort": 7
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_6",
+    "attributeType": "magicResist",
+    "id": 6,
+    "sort": 10
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_7",
+    "attributeType": "magicHurt",
+    "id": 7,
+    "sort": 9
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_8",
+    "attributeType": "nearReduce",
+    "id": 8,
+    "sort": 12
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_9",
+    "attributeType": "nearHurt",
+    "id": 9,
+    "sort": 11
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_10",
+    "attributeType": "remoteReduce",
+    "id": 10,
+    "sort": 14
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_11",
+    "attributeType": "remoteHurt",
+    "id": 11,
+    "sort": 13
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_12",
+    "attributeType": "reduceHurt",
+    "id": 12,
+    "sort": 16
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_13",
+    "attributeType": "finalHurt",
+    "id": 13,
+    "sort": 15
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_14",
+    "attributeType": "cureEffect",
+    "id": 14,
+    "sort": 17
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_15",
+    "attributeType": "lifeInjury",
+    "id": 15,
+    "sort": 18
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_16",
+    "attributeType": "critical",
+    "id": 16,
+    "sort": 4
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_17",
+    "attributeType": "criticalResist",
+    "id": 17,
+    "sort": 5
+  },
+  {
+    "attributeName": "MEMORABILIA_ATTR_18",
+    "attributeType": "criticalHurtResist",
+    "id": 18,
+    "sort": 6
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "Rank": [1],
+    "id": 1,
+    "rewardNum": [30, 2, 500000],
+    "rewardType": ["randomFragment3", "zb_box2", "gold"]
+  },
+  {
+    "Rank": [2],
+    "id": 2,
+    "rewardNum": [25, 2, 400000],
+    "rewardType": ["randomFragment3", "zb_box2", "gold"]
+  },
+  {
+    "Rank": [3],
+    "id": 3,
+    "rewardNum": [20, 2, 300000],
+    "rewardType": ["randomFragment3", "zb_box2", "gold"]
+  },
+  {
+    "Rank": [4, 5],
+    "id": 4,
+    "rewardNum": [18, 1, 250000],
+    "rewardType": ["randomFragment3", "zb_box2", "gold"]
+  },
+  {
+    "Rank": [6, 10],
+    "id": 5,
+    "rewardNum": [15, 1, 200000],
+    "rewardType": ["randomFragment3", "zb_box2", "gold"]
+  },
+  {
+    "Rank": [11, 20],
+    "id": 6,
+    "rewardNum": [10, 8, 150000],
+    "rewardType": ["randomFragment3", "coinMinting3", "gold"]
+  },
+  {
+    "Rank": [21, 50],
+    "id": 7,
+    "rewardNum": [5, 5, 100000],
+    "rewardType": ["randomFragment3", "coinMinting3", "gold"]
+  },
+  {
+    "Rank": [51, 100],
+    "id": 8,
+    "rewardNum": [3, 2, 50000],
+    "rewardType": ["randomFragment3", "coinMinting3", "gold"]
+  }
+]

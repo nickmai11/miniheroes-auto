@@ -1,0 +1,62 @@
+[
+  {
+    "day": 1,
+    "id": 1,
+    "rewardNum": [8, 100],
+    "rewardType": ["greetingCard", "diamond"]
+  },
+  {
+    "day": 2,
+    "id": 2,
+    "rewardNum": [8, 100],
+    "rewardType": ["luckyCoin", "diamond"]
+  },
+  {
+    "day": 3,
+    "id": 3,
+    "rewardNum": [8, 100],
+    "rewardType": ["greetingCard", "diamond"]
+  },
+  {
+    "day": 4,
+    "id": 4,
+    "rewardNum": [8, 100],
+    "rewardType": ["luckyCoin", "diamond"]
+  },
+  {
+    "day": 5,
+    "id": 5,
+    "rewardNum": [8, 100],
+    "rewardType": ["greetingCard", "diamond"]
+  },
+  {
+    "day": 6,
+    "id": 6,
+    "rewardNum": [8, 100],
+    "rewardType": ["luckyCoin", "diamond"]
+  },
+  {
+    "day": 7,
+    "id": 7,
+    "rewardNum": [8, 100],
+    "rewardType": ["greetingCard", "diamond"]
+  },
+  {
+    "day": 8,
+    "id": 8,
+    "rewardNum": [8, 100],
+    "rewardType": ["luckyCoin", "diamond"]
+  },
+  {
+    "day": 9,
+    "id": 9,
+    "rewardNum": [8, 100],
+    "rewardType": ["greetingCard", "diamond"]
+  },
+  {
+    "day": 10,
+    "id": 10,
+    "rewardNum": [8, 100],
+    "rewardType": ["luckyCoin", "diamond"]
+  }
+]

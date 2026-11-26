@@ -1,0 +1,9 @@
+[
+  { "id": 1, "rewardNum": 10, "rewardType": "recruitRoll" },
+  { "id": 2, "rewardNum": 1, "rewardType": "zb_box2" },
+  { "id": 3, "rewardNum": 40, "rewardType": "medal1" },
+  { "id": 4, "rewardNum": 3, "rewardType": "medal2" },
+  { "id": 5, "rewardNum": 1, "rewardType": "glyphs_1004" },
+  { "id": 6, "rewardNum": 5, "rewardType": "elfSkill1" },
+  { "id": 7, "rewardNum": 1, "rewardType": "shenhuabox" }
+]

@@ -1,0 +1,16 @@
+[
+  { "ani": "", "hpHeight": 140, "id": 1, "res": "xyx_lzz_o", "type": 1 },
+  { "ani": "", "hpHeight": 140, "id": 2, "res": "xyx_zzz_o", "type": 1 },
+  { "ani": "", "hpHeight": 100, "id": 3, "res": "xyx_cz_o", "type": 1 },
+  { "ani": "", "hpHeight": 100, "id": 4, "res": "xyx_ws_o", "type": 1 },
+  { "ani": "", "hpHeight": 160, "id": 5, "res": "xyx_gws_o", "type": 1 },
+  { "ani": "", "hpHeight": 210, "id": 6, "res": "xyx_mm_o", "type": 1 },
+  { "ani": "", "hpHeight": 210, "id": 7, "res": "xyx_jt_o", "type": 1 },
+  { "ani": "", "hpHeight": 190, "id": 8, "res": "xyx_nws_o", "type": 1 },
+  { "ani": "wuqi1", "hpHeight": 140, "id": 9, "res": "xyx_zb_o", "type": 2 },
+  { "ani": "toukui", "hpHeight": 140, "id": 10, "res": "xyx_zb_o", "type": 2 },
+  { "ani": "kuijia1", "hpHeight": 140, "id": 11, "res": "xyx_zb_o", "type": 3 },
+  { "ani": "wuqi2", "hpHeight": 140, "id": 12, "res": "xyx_zb_o", "type": 3 },
+  { "ani": "kuijia2", "hpHeight": 140, "id": 13, "res": "xyx_zb_o", "type": 3 },
+  { "ani": "", "hpHeight": 130, "id": 14, "res": "xyx_hero", "type": 4 }
+]

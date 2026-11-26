@@ -1,0 +1,108 @@
+[
+  {
+    "cost": 50,
+    "id": 1,
+    "rewardNum": [3, 1, 2],
+    "rewardType": ["randomHallow01", "shareDebris3", "recruitRoll"]
+  },
+  {
+    "cost": 150,
+    "id": 2,
+    "rewardNum": [5, 2, 4],
+    "rewardType": ["randomHallow01", "shareDebris3", "recruitRoll"]
+  },
+  {
+    "cost": 300,
+    "id": 3,
+    "rewardNum": [8, 3, 6],
+    "rewardType": ["randomHallow01", "shareDebris3", "recruitRoll"]
+  },
+  {
+    "cost": 500,
+    "id": 4,
+    "rewardNum": [5, 10, 5, 10],
+    "rewardType": [
+      "sacrificeStoneFrag",
+      "randomHallow02",
+      "shareDebris3",
+      "recruitRoll"
+    ]
+  },
+  {
+    "cost": 800,
+    "id": 5,
+    "rewardNum": [5, 15, 7, 14],
+    "rewardType": [
+      "sacrificeStoneFrag",
+      "randomHallow02",
+      "shareDebris3",
+      "recruitRoll"
+    ]
+  },
+  {
+    "cost": 1150,
+    "id": 6,
+    "rewardNum": [5, 20, 10, 20],
+    "rewardType": [
+      "sacrificeStoneFrag",
+      "randomHallow02",
+      "shareDebris3",
+      "recruitRoll"
+    ]
+  },
+  {
+    "cost": 1550,
+    "id": 7,
+    "rewardNum": [5, 25, 15, 30],
+    "rewardType": [
+      "sacrificeStoneFrag",
+      "randomHallow02",
+      "shareDebris3",
+      "recruitRoll"
+    ]
+  },
+  {
+    "cost": 2050,
+    "id": 8,
+    "rewardNum": [10, 30, 20, 40],
+    "rewardType": [
+      "sacrificeStoneFrag",
+      "randomHallow02",
+      "shareDebris3",
+      "recruitRoll"
+    ]
+  },
+  {
+    "cost": 2650,
+    "id": 9,
+    "rewardNum": [10, 20, 25, 50],
+    "rewardType": [
+      "sacrificeStoneFrag",
+      "randomHallow03",
+      "shareDebris3",
+      "recruitRoll"
+    ]
+  },
+  {
+    "cost": 3350,
+    "id": 10,
+    "rewardNum": [10, 25, 30, 60],
+    "rewardType": [
+      "sacrificeStoneFrag",
+      "randomHallow03",
+      "shareDebris3",
+      "recruitRoll"
+    ]
+  },
+  {
+    "cost": 4100,
+    "id": 11,
+    "rewardNum": [10, 30, 40, 80],
+    "rewardType": [
+      "sacrificeStoneFrag",
+      "randomHallow03",
+      "shareDebris3",
+      "recruitRoll"
+    ]
+  }
+]

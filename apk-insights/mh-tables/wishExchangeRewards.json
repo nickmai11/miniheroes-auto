@@ -1,0 +1,110 @@
+[
+  {
+    "groupNum": 2000,
+    "groupType": "moonExchange",
+    "id": 1,
+    "limit": 1,
+    "rewardNum": 1,
+    "rewardType": "skinAct_314003",
+    "unlockRequire": 1000
+  },
+  {
+    "groupNum": 370,
+    "groupType": "moonExchange",
+    "id": 2,
+    "limit": 3,
+    "rewardNum": 1,
+    "rewardType": "strongPotion",
+    "unlockRequire": 1000
+  },
+  {
+    "groupNum": 350,
+    "groupType": "moonExchange",
+    "id": 3,
+    "limit": 5,
+    "rewardNum": 5,
+    "rewardType": "gemSpirit",
+    "unlockRequire": 1000
+  },
+  {
+    "groupNum": 125,
+    "groupType": "moonExchange",
+    "id": 4,
+    "limit": 5,
+    "rewardNum": 10,
+    "rewardType": "tieStone",
+    "unlockRequire": 1000
+  },
+  {
+    "groupNum": 3200,
+    "groupType": "moonExchange",
+    "id": 5,
+    "limit": 5,
+    "rewardNum": 1,
+    "rewardType": "danArtBox",
+    "unlockRequire": 0
+  },
+  {
+    "groupNum": 300,
+    "groupType": "moonExchange",
+    "id": 6,
+    "limit": 10,
+    "rewardNum": 1,
+    "rewardType": "shenhuabox",
+    "unlockRequire": 0
+  },
+  {
+    "groupNum": 150,
+    "groupType": "moonExchange",
+    "id": 7,
+    "limit": 10,
+    "rewardNum": 20,
+    "rewardType": "memf_64003",
+    "unlockRequire": 0
+  },
+  {
+    "groupNum": 100,
+    "groupType": "moonExchange",
+    "id": 8,
+    "limit": 10,
+    "rewardNum": 5,
+    "rewardType": "fourColorStone",
+    "unlockRequire": 0
+  },
+  {
+    "groupNum": 75,
+    "groupType": "moonExchange",
+    "id": 9,
+    "limit": 50,
+    "rewardNum": 5,
+    "rewardType": "shareDebris3",
+    "unlockRequire": 0
+  },
+  {
+    "groupNum": 12,
+    "groupType": "moonExchange",
+    "id": 10,
+    "limit": 50,
+    "rewardNum": 1500,
+    "rewardType": "holyLight",
+    "unlockRequire": 0
+  },
+  {
+    "groupNum": 6,
+    "groupType": "moonExchange",
+    "id": 11,
+    "limit": 50,
+    "rewardNum": 2000,
+    "rewardType": "blindBoxCoin",
+    "unlockRequire": 0
+  },
+  {
+    "groupNum": 2,
+    "groupType": "moonExchange",
+    "id": 12,
+    "limit": 50,
+    "rewardNum": 1,
+    "rewardType": "gold_1",
+    "unlockRequire": 0
+  }
+]

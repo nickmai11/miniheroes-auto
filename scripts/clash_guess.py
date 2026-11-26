@@ -25,7 +25,7 @@ def run(picks):
     boxes = ocr()
     if find(boxes, r'Please select a tribe'): return pick(boxes, picks)   # dialog already open (Guess shows under it)
     if not find(boxes, r'^Guess$', (900, 1800, 1080, 1920)):
-        tap_text(r'Tribe Clash', (680, 560, 1080, 680), boxes)   # main-screen banner
+        tap_text(r'Tribe Clash', (680, 560, 1080, 680), wait(r'Tribe Clash', 10, (680, 560, 1080, 680)))   # main-screen banner
         boxes = wait(r'^Guess$', 10, (900, 1800, 1080, 1920))
     pick(open_guess(boxes), picks)
 
@@ -53,13 +53,13 @@ ROW = 375                                                 # tile row pitch; a sw
 
 def visible(name):
     """Scroll the tile list (top first, then a page per slow swipe) until the tribe shows -> (tap point, boxes)."""
-    swipe(540, 800, 540, 800 + 2 * ROW, 800); time.sleep(0.8)
+    swipe(540, 850, 540, 850 + 2 * ROW, 2000); time.sleep(1.5)   # held 2 s drags that START inside the list (y 850..1450): from y 700 / 1550 the Tribe Clash list didn't move (Kong 2026-11-26)
     for i in range(3):
         boxes = ocr()
         try: return tile(boxes, name), boxes
         except Stop:
             if i == 2: raise
-            swipe(540, 800 + 2 * ROW, 540, 800, 800); time.sleep(1)
+            swipe(540, 1450, 540, 1450 - 2 * ROW, 2000); time.sleep(1.5)
 
 
 def pick(boxes, picks, slot=slot_name):

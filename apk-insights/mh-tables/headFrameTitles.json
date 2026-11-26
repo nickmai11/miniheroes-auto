@@ -1,0 +1,252 @@
+[
+  {
+    "affixNum": [],
+    "affixType": [],
+    "classify": 1,
+    "id": 1,
+    "play": 1,
+    "textColour": "",
+    "timeLimit": 60000,
+    "type": "headFrame_0"
+  },
+  {
+    "affixNum": [75, 1300],
+    "affixType": ["damage", "life"],
+    "classify": 1,
+    "id": 2,
+    "play": 1,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_1"
+  },
+  {
+    "affixNum": [65, 1000],
+    "affixType": ["damage", "life"],
+    "classify": 1,
+    "id": 3,
+    "play": 1,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_2"
+  },
+  {
+    "affixNum": [95, 75],
+    "affixType": ["damage", "defense"],
+    "classify": 1,
+    "id": 4,
+    "play": 1,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_3"
+  },
+  {
+    "affixNum": [75, 65],
+    "affixType": ["damage", "defense"],
+    "classify": 1,
+    "id": 5,
+    "play": 1,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_4"
+  },
+  {
+    "affixNum": [85, 1600],
+    "affixType": ["defense", "life"],
+    "classify": 1,
+    "id": 6,
+    "play": 1,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_5"
+  },
+  {
+    "affixNum": [70, 1400],
+    "affixType": ["defense", "life"],
+    "classify": 1,
+    "id": 7,
+    "play": 1,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_6"
+  },
+  {
+    "affixNum": [50, 800],
+    "affixType": ["damage", "life"],
+    "classify": 1,
+    "id": 8,
+    "play": 1,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_7"
+  },
+  {
+    "affixNum": [65, 50],
+    "affixType": ["damage", "defense"],
+    "classify": 1,
+    "id": 9,
+    "play": 1,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_8"
+  },
+  {
+    "affixNum": [100, 2000],
+    "affixType": ["damage", "life"],
+    "classify": 1,
+    "id": 10,
+    "play": 2,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_9"
+  },
+  {
+    "affixNum": [85, 1650],
+    "affixType": ["damage", "life"],
+    "classify": 1,
+    "id": 11,
+    "play": 2,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_10"
+  },
+  {
+    "affixNum": [75, 1200],
+    "affixType": ["defense", "life"],
+    "classify": 1,
+    "id": 12,
+    "play": 1,
+    "textColour": "",
+    "timeLimit": 7,
+    "type": "headFrame_11"
+  },
+  {
+    "affixNum": [85, 1500],
+    "affixType": ["defense", "life"],
+    "classify": 1,
+    "id": 13,
+    "play": 2,
+    "textColour": "",
+    "timeLimit": 7,
+    "type": "headFrame_12"
+  },
+  {
+    "affixNum": [100, 65],
+    "affixType": ["damage", "defense"],
+    "classify": 1,
+    "id": 14,
+    "play": 2,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_13"
+  },
+  {
+    "affixNum": [90, 50],
+    "affixType": ["damage", "defense"],
+    "classify": 1,
+    "id": 15,
+    "play": 1,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_14"
+  },
+  {
+    "affixNum": [100, 1500],
+    "affixType": ["damage", "life"],
+    "classify": 1,
+    "id": 16,
+    "play": 2,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_15"
+  },
+  {
+    "affixNum": [80, 1200],
+    "affixType": ["damage", "life"],
+    "classify": 1,
+    "id": 17,
+    "play": 1,
+    "textColour": "",
+    "timeLimit": 60,
+    "type": "headFrame_16"
+  },
+  {
+    "affixNum": [75, 1300],
+    "affixType": ["damage", "life"],
+    "classify": 1,
+    "id": 18,
+    "play": 1,
+    "textColour": "",
+    "timeLimit": 60000,
+    "type": "headFrame_17"
+  },
+  {
+    "affixNum": [80, 1500],
+    "affixType": ["damage", "life"],
+    "classify": 1,
+    "id": 19,
+    "play": 2,
+    "textColour": "",
+    "timeLimit": 60000,
+    "type": "headFrame_18"
+  },
+  {
+    "affixNum": [150, 150],
+    "affixType": ["damage", "defense"],
+    "classify": 2,
+    "id": 20,
+    "play": 2,
+    "textColour": "a00707",
+    "timeLimit": 7,
+    "type": "title_1"
+  },
+  {
+    "affixNum": [150, 2500],
+    "affixType": ["defense", "life"],
+    "classify": 2,
+    "id": 21,
+    "play": 2,
+    "textColour": "1b52b2",
+    "timeLimit": 7,
+    "type": "title_2"
+  },
+  {
+    "affixNum": [220, 4000],
+    "affixType": ["damage", "life"],
+    "classify": 2,
+    "id": 22,
+    "play": 2,
+    "textColour": "a00707",
+    "timeLimit": 30,
+    "type": "title_3"
+  },
+  {
+    "affixNum": [180, 3000],
+    "affixType": ["damage", "life"],
+    "classify": 2,
+    "id": 23,
+    "play": 2,
+    "textColour": "a00707",
+    "timeLimit": 30,
+    "type": "title_4"
+  },
+  {
+    "affixNum": [120, 3200],
+    "affixType": ["defense", "life"],
+    "classify": 2,
+    "id": 24,
+    "play": 2,
+    "textColour": "3630A7",
+    "timeLimit": 15,
+    "type": "title_5"
+  },
+  {
+    "affixNum": [150, 2600],
+    "affixType": ["defense", "life"],
+    "classify": 2,
+    "id": 25,
+    "play": 2,
+    "textColour": "3c1311",
+    "timeLimit": 15,
+    "type": "title_6"
+  }
+]

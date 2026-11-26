@@ -1,0 +1,16 @@
+[
+  {
+    "buyType": [5],
+    "display": 1,
+    "floorNumber": [100],
+    "floorPool": [43],
+    "heroDropPool": [130, 319],
+    "id": 1,
+    "integralReward": 250,
+    "integralRewardPool": 44,
+    "price": [1],
+    "price10": [10],
+    "rewardNum": 1,
+    "rewardType": 42
+  }
+]

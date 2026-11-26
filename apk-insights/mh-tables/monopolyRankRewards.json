@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "ranking": [1],
+    "rewardNum": [60, 40, 20000],
+    "rewardType": ["memf_64004", "recruitRoll", "holyLight"]
+  },
+  {
+    "id": 2,
+    "ranking": [2],
+    "rewardNum": [50, 30, 15000],
+    "rewardType": ["memf_64004", "recruitRoll", "holyLight"]
+  },
+  {
+    "id": 3,
+    "ranking": [3],
+    "rewardNum": [40, 25, 12000],
+    "rewardType": ["memf_64004", "recruitRoll", "holyLight"]
+  },
+  {
+    "id": 4,
+    "ranking": [4, 10],
+    "rewardNum": [30, 20, 10000],
+    "rewardType": ["memf_64004", "recruitRoll", "holyLight"]
+  },
+  {
+    "id": 5,
+    "ranking": [11, 30],
+    "rewardNum": [20, 15, 8000],
+    "rewardType": ["memf_64004", "recruitRoll", "holyLight"]
+  },
+  {
+    "id": 6,
+    "ranking": [31, 50],
+    "rewardNum": [15, 10, 6000],
+    "rewardType": ["memf_64004", "recruitRoll", "holyLight"]
+  },
+  {
+    "id": 7,
+    "ranking": [51, 100],
+    "rewardNum": [10, 8, 4000],
+    "rewardType": ["memf_64004", "recruitRoll", "holyLight"]
+  },
+  {
+    "id": 8,
+    "ranking": [101, 300],
+    "rewardNum": [5, 6, 3000],
+    "rewardType": ["memf_64004", "recruitRoll", "holyLight"]
+  },
+  {
+    "id": 9,
+    "ranking": [301, 500],
+    "rewardNum": [2, 4, 2000],
+    "rewardType": ["memf_64004", "recruitRoll", "holyLight"]
+  },
+  {
+    "id": 10,
+    "ranking": [501, 9999],
+    "rewardNum": [2, 1000],
+    "rewardType": ["recruitRoll", "holyLight"]
+  }
+]

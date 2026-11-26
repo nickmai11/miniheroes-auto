@@ -1,0 +1,82 @@
+[
+  {
+    "abyssCoin": 0,
+    "describe": "UI_FUNCTION_59",
+    "displayNum": [1, 1],
+    "id": 1,
+    "level": 1,
+    "name": "UI_FUNCTION_58"
+  },
+  {
+    "abyssCoin": 40,
+    "describe": "UI_FUNCTION_59",
+    "displayNum": [2, 1],
+    "id": 2,
+    "level": 2,
+    "name": "UI_FUNCTION_58"
+  },
+  {
+    "abyssCoin": 100,
+    "describe": "UI_FUNCTION_59",
+    "displayNum": [3, 1],
+    "id": 3,
+    "level": 3,
+    "name": "UI_FUNCTION_58"
+  },
+  {
+    "abyssCoin": 200,
+    "describe": "UI_FUNCTION_59",
+    "displayNum": [4, 1],
+    "id": 4,
+    "level": 4,
+    "name": "UI_FUNCTION_58"
+  },
+  {
+    "abyssCoin": 400,
+    "describe": "UI_FUNCTION_59",
+    "displayNum": [5, 1],
+    "id": 5,
+    "level": 5,
+    "name": "UI_FUNCTION_58"
+  },
+  {
+    "abyssCoin": 800,
+    "describe": "UI_FUNCTION_59",
+    "displayNum": [6, 1],
+    "id": 6,
+    "level": 6,
+    "name": "UI_FUNCTION_58"
+  },
+  {
+    "abyssCoin": 1200,
+    "describe": "UI_FUNCTION_59",
+    "displayNum": [7, 1],
+    "id": 7,
+    "level": 7,
+    "name": "UI_FUNCTION_58"
+  },
+  {
+    "abyssCoin": 2000,
+    "describe": "UI_FUNCTION_59",
+    "displayNum": [8, 1],
+    "id": 8,
+    "level": 8,
+    "name": "UI_FUNCTION_58"
+  },
+  {
+    "abyssCoin": 3500,
+    "describe": "UI_FUNCTION_59",
+    "displayNum": [9, 1],
+    "id": 9,
+    "level": 9,
+    "name": "UI_FUNCTION_58"
+  },
+  {
+    "abyssCoin": 5000,
+    "describe": "UI_FUNCTION_60",
+    "displayNum": [10],
+    "id": 10,
+    "level": 10,
+    "name": "UI_FUNCTION_58"
+  }
+]

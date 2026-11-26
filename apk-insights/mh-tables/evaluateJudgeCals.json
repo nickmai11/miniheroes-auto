@@ -1,0 +1,709 @@
+[
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 101,
+    "heroType": 1,
+    "id": 1
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 102,
+    "heroType": 1,
+    "id": 2
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 103,
+    "heroType": 1,
+    "id": 3
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 104,
+    "heroType": 1,
+    "id": 4
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 105,
+    "heroType": 1,
+    "id": 5
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 106,
+    "heroType": 1,
+    "id": 6
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 107,
+    "heroType": 1,
+    "id": 7
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 108,
+    "heroType": 1,
+    "id": 8
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 109,
+    "heroType": 1,
+    "id": 9
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 110,
+    "heroType": 1,
+    "id": 10
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 111,
+    "heroType": 1,
+    "id": 11
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 112,
+    "heroType": 1,
+    "id": 12
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 113,
+    "heroType": 1,
+    "id": 13
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 114,
+    "heroType": 1,
+    "id": 14
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 115,
+    "heroType": 1,
+    "id": 15
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 116,
+    "heroType": 1,
+    "id": 16
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 117,
+    "heroType": 1,
+    "id": 17
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 118,
+    "heroType": 1,
+    "id": 18
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 119,
+    "heroType": 1,
+    "id": 19
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 120,
+    "heroType": 1,
+    "id": 20
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 121,
+    "heroType": 1,
+    "id": 21
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 122,
+    "heroType": 1,
+    "id": 22
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 123,
+    "heroType": 1,
+    "id": 23
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 124,
+    "heroType": 1,
+    "id": 24
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 125,
+    "heroType": 1,
+    "id": 25
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 126,
+    "heroType": 1,
+    "id": 26
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 127,
+    "heroType": 1,
+    "id": 27
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 128,
+    "heroType": 1,
+    "id": 28
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 129,
+    "heroType": 1,
+    "id": 29
+  },
+  {
+    "attributeCoe": [12, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 130,
+    "heroType": 1,
+    "id": 30
+  },
+  {
+    "attributeCoe": [11, 10, 1.5],
+    "attributeType": [1, 2, 3],
+    "heroId": 201,
+    "heroType": 2,
+    "id": 31
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 202,
+    "heroType": 2,
+    "id": 32
+  },
+  {
+    "attributeCoe": [11, 10, 1.5],
+    "attributeType": [1, 2, 3],
+    "heroId": 203,
+    "heroType": 2,
+    "id": 33
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 204,
+    "heroType": 2,
+    "id": 34
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 205,
+    "heroType": 2,
+    "id": 35
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 206,
+    "heroType": 2,
+    "id": 36
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 207,
+    "heroType": 2,
+    "id": 37
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 208,
+    "heroType": 2,
+    "id": 38
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 209,
+    "heroType": 2,
+    "id": 39
+  },
+  {
+    "attributeCoe": [11, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 210,
+    "heroType": 2,
+    "id": 40
+  },
+  {
+    "attributeCoe": [11, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 211,
+    "heroType": 2,
+    "id": 41
+  },
+  {
+    "attributeCoe": [11, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 212,
+    "heroType": 2,
+    "id": 42
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 213,
+    "heroType": 2,
+    "id": 43
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 214,
+    "heroType": 2,
+    "id": 44
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 215,
+    "heroType": 2,
+    "id": 45
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 216,
+    "heroType": 2,
+    "id": 46
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 217,
+    "heroType": 2,
+    "id": 47
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 218,
+    "heroType": 2,
+    "id": 48
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 219,
+    "heroType": 2,
+    "id": 49
+  },
+  {
+    "attributeCoe": [10, 10, 5],
+    "attributeType": [1, 2, 3],
+    "heroId": 220,
+    "heroType": 2,
+    "id": 50
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 301,
+    "heroType": 3,
+    "id": 51
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 302,
+    "heroType": 3,
+    "id": 52
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 303,
+    "heroType": 3,
+    "id": 53
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 304,
+    "heroType": 3,
+    "id": 54
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 305,
+    "heroType": 3,
+    "id": 55
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 306,
+    "heroType": 3,
+    "id": 56
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 307,
+    "heroType": 3,
+    "id": 57
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 308,
+    "heroType": 3,
+    "id": 58
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 309,
+    "heroType": 3,
+    "id": 59
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 310,
+    "heroType": 3,
+    "id": 60
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 311,
+    "heroType": 3,
+    "id": 61
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 312,
+    "heroType": 3,
+    "id": 62
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 313,
+    "heroType": 3,
+    "id": 63
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 314,
+    "heroType": 3,
+    "id": 64
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 315,
+    "heroType": 3,
+    "id": 65
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 316,
+    "heroType": 3,
+    "id": 66
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 317,
+    "heroType": 3,
+    "id": 67
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 318,
+    "heroType": 3,
+    "id": 68
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 319,
+    "heroType": 3,
+    "id": 69
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 401,
+    "heroType": 4,
+    "id": 70
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 402,
+    "heroType": 4,
+    "id": 71
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 403,
+    "heroType": 4,
+    "id": 72
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 404,
+    "heroType": 4,
+    "id": 73
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 405,
+    "heroType": 4,
+    "id": 74
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 406,
+    "heroType": 4,
+    "id": 75
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 407,
+    "heroType": 4,
+    "id": 76
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 408,
+    "heroType": 4,
+    "id": 77
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 409,
+    "heroType": 4,
+    "id": 78
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 410,
+    "heroType": 4,
+    "id": 79
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 411,
+    "heroType": 4,
+    "id": 80
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 412,
+    "heroType": 4,
+    "id": 81
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 413,
+    "heroType": 4,
+    "id": 82
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 414,
+    "heroType": 4,
+    "id": 83
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 415,
+    "heroType": 4,
+    "id": 84
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 416,
+    "heroType": 4,
+    "id": 85
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 417,
+    "heroType": 4,
+    "id": 86
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 418,
+    "heroType": 4,
+    "id": 87
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 419,
+    "heroType": 4,
+    "id": 88
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 420,
+    "heroType": 4,
+    "id": 89
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 421,
+    "heroType": 4,
+    "id": 90
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 501,
+    "heroType": 1,
+    "id": 91
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 502,
+    "heroType": 3,
+    "id": 92
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 701,
+    "heroType": 1,
+    "id": 93
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 702,
+    "heroType": 1,
+    "id": 94
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 703,
+    "heroType": 3,
+    "id": 95
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 704,
+    "heroType": 4,
+    "id": 96
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 705,
+    "heroType": 1,
+    "id": 97
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 706,
+    "heroType": 3,
+    "id": 98
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 707,
+    "heroType": 1,
+    "id": 99
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 708,
+    "heroType": 4,
+    "id": 100
+  },
+  {
+    "attributeCoe": [10, 10, 6],
+    "attributeType": [1, 2, 3],
+    "heroId": 709,
+    "heroType": 3,
+    "id": 101
+  }
+]

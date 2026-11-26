@@ -1,0 +1,11 @@
+[
+  {
+    "buyGiveNum": 6,
+    "buyNeedNum": [500, 1000, 1500, 2000, 3000, 4000, 5000],
+    "buyNeedType": "diamond",
+    "equipmentNeed": 1,
+    "id": 1,
+    "maxBuyNum": 10,
+    "startNum": 30
+  }
+]

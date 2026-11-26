@@ -1,0 +1,344 @@
+[
+  {
+    "describe": "",
+    "display": 0,
+    "id": 1,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "gold_1",
+    "weight": 600
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 2,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "gold_2",
+    "weight": 250
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 3,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "gold_3",
+    "weight": 100
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 4,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "gold_4",
+    "weight": 50
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 5,
+    "limitTime": 0,
+    "rewardNum": 10,
+    "rewardType": "coinMinting1",
+    "weight": 300
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 6,
+    "limitTime": 0,
+    "rewardNum": 5,
+    "rewardType": "coinMinting2",
+    "weight": 600
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 7,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "glyphs_1002",
+    "weight": 125
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 8,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "glyphs_2002",
+    "weight": 125
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 9,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "glyphs_3002",
+    "weight": 125
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 10,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "glyphs_4002",
+    "weight": 125
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 11,
+    "limitTime": 0,
+    "rewardNum": 5,
+    "rewardType": "medal1",
+    "weight": 650
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 12,
+    "limitTime": 0,
+    "rewardNum": 200,
+    "rewardType": "spiritStone_1",
+    "weight": 200
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 13,
+    "limitTime": 0,
+    "rewardNum": 200,
+    "rewardType": "spiritStone_2",
+    "weight": 500
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 14,
+    "limitTime": 0,
+    "rewardNum": 200,
+    "rewardType": "spiritStone_3",
+    "weight": 600
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 15,
+    "limitTime": 0,
+    "rewardNum": 1500,
+    "rewardType": "holyLight",
+    "weight": 1000
+  },
+  {
+    "describe": "",
+    "display": 0,
+    "id": 16,
+    "limitTime": 0,
+    "rewardNum": 350,
+    "rewardType": "succinctStone",
+    "weight": 500
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 17,
+    "limitTime": 0,
+    "rewardNum": 3,
+    "rewardType": "exchangeCoin",
+    "weight": 1200
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 18,
+    "limitTime": 0,
+    "rewardNum": 5,
+    "rewardType": "exchangeCoin",
+    "weight": 500
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 19,
+    "limitTime": 0,
+    "rewardNum": 10,
+    "rewardType": "exchangeCoin",
+    "weight": 300
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 20,
+    "limitTime": 0,
+    "rewardNum": 588,
+    "rewardType": "diamond",
+    "weight": 50
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 21,
+    "limitTime": 0,
+    "rewardNum": 888,
+    "rewardType": "diamond",
+    "weight": 50
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 22,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "glyphs_1003",
+    "weight": 25
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 23,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "glyphs_2003",
+    "weight": 25
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 24,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "glyphs_3003",
+    "weight": 25
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 25,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "glyphs_4003",
+    "weight": 25
+  },
+  {
+    "describe": "",
+    "display": 2,
+    "id": 26,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "danRandomDwBox",
+    "weight": 40
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 27,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "medal2",
+    "weight": 150
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 28,
+    "limitTime": 0,
+    "rewardNum": 5,
+    "rewardType": "coinMinting3",
+    "weight": 150
+  },
+  {
+    "describe": "",
+    "display": 2,
+    "id": 29,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "crystalLight",
+    "weight": 50
+  },
+  {
+    "describe": "",
+    "display": 2,
+    "id": 30,
+    "limitTime": 1,
+    "rewardNum": 1,
+    "rewardType": "skinAct_407003",
+    "weight": 10
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 31,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "shareDebris3",
+    "weight": 500
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 32,
+    "limitTime": 0,
+    "rewardNum": 2,
+    "rewardType": "shareDebris3",
+    "weight": 300
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 33,
+    "limitTime": 0,
+    "rewardNum": 3,
+    "rewardType": "shareDebris3",
+    "weight": 150
+  },
+  {
+    "describe": "",
+    "display": 2,
+    "id": 34,
+    "limitTime": 0,
+    "rewardNum": 5,
+    "rewardType": "shareDebris3",
+    "weight": 50
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 35,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "tieStone",
+    "weight": 300
+  },
+  {
+    "describe": "",
+    "display": 1,
+    "id": 36,
+    "limitTime": 0,
+    "rewardNum": 1888,
+    "rewardType": "diamond",
+    "weight": 45
+  },
+  {
+    "describe": "HERO_BUFF_512",
+    "display": 1,
+    "id": 37,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "floorHero",
+    "weight": 195
+  },
+  {
+    "describe": "",
+    "display": 2,
+    "id": 38,
+    "limitTime": 0,
+    "rewardNum": 1,
+    "rewardType": "strongPotion",
+    "weight": 10
+  }
+]

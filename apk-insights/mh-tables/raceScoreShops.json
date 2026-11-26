@@ -1,0 +1,110 @@
+[
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 3000,
+    "id": 1,
+    "number": 5,
+    "positionId": 1,
+    "quotaNum": 1,
+    "rewardType": "fragment_407"
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 1500,
+    "id": 2,
+    "number": 5,
+    "positionId": 2,
+    "quotaNum": 1,
+    "rewardType": "fragment_107"
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 1500,
+    "id": 3,
+    "number": 5,
+    "positionId": 3,
+    "quotaNum": 1,
+    "rewardType": "fragment_302"
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 1500,
+    "id": 4,
+    "number": 5,
+    "positionId": 4,
+    "quotaNum": 0,
+    "rewardType": "fragment_405"
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 1500,
+    "id": 5,
+    "number": 5,
+    "positionId": 5,
+    "quotaNum": 0,
+    "rewardType": "fragment_203"
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 750,
+    "id": 6,
+    "number": 5,
+    "positionId": 6,
+    "quotaNum": 0,
+    "rewardType": "fragment_102"
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 750,
+    "id": 7,
+    "number": 5,
+    "positionId": 7,
+    "quotaNum": 0,
+    "rewardType": "fragment_306"
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 750,
+    "id": 8,
+    "number": 5,
+    "positionId": 8,
+    "quotaNum": 0,
+    "rewardType": "fragment_402"
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 750,
+    "id": 9,
+    "number": 5,
+    "positionId": 9,
+    "quotaNum": 0,
+    "rewardType": "fragment_205"
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 1500,
+    "id": 10,
+    "number": 3,
+    "positionId": 10,
+    "quotaNum": 0,
+    "rewardType": "soulStone1"
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 4500,
+    "id": 11,
+    "number": 3,
+    "positionId": 11,
+    "quotaNum": 0,
+    "rewardType": "soulStone2"
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 6000,
+    "id": 12,
+    "number": 1,
+    "positionId": 12,
+    "quotaNum": 0,
+    "rewardType": "medal2"
+  }
+]

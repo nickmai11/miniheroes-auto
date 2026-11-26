@@ -5,14 +5,14 @@
 # (flow.watch_ad) -> Congratulations popup. Gem-priced buttons are never tapped (not green, no "Free" text).
 import subprocess, time, os, sys
 from PIL import Image
-from flow import find, is_main, ocr, watch_ad
+from flow import find, is_main, ocr, tap, watch_ad
 D=os.environ['D']; T=os.path.join(os.path.dirname(os.path.abspath(__file__)),'tap.py')
 def shot(o='g.png'): subprocess.run([T,'-o',o],env=os.environ); return Image.open(o).convert('RGB')
 def green(p): return p[1]>180 and p[0]<150 and p[2]<90
-def tap(x,y): subprocess.run(['adb','-s',D,'shell','input','tap',str(x),str(y)])
 def popup_green_y(p):   # scan popup column for the green Free button
     for y in range(500,820,4):
         if green(p.getpixel((200,y))): return y+12
+def dimmed(p): return max(p.getpixel((470,100)))<120   # Grocery's X button under a chest popup: (44,45,49); bare, or under a toast: (225,230,247) - 12 accounts' p.png / g.png 2026-11-26
 def chests():   # (Sold Out, still Free) on the top row = the step's proof (Kong 2026-11-09: 3 chests left, OK "done")
     b=ocr(shot()); n=lambda pat: sum(bool(find(b, pat, (x-55,405,x+55,470))) for x in (82,207,332,457))
     return n(r'Sold Out'), n(r'Free$')
@@ -39,6 +39,10 @@ for rnd in range(3):
                 if not find(boxes, r'Free$', (x-55,405,x+55,470)): continue   # OCR gives '} Free' (the ▶ icon) on chest 3 (pawn1 2026-11-08)
                 ad=True
             subprocess.run([T,f'{x*2},893','-o','p.png'],env=os.environ); p=Image.open('p.png').convert('RGB'); y=popup_green_y(p)
+            if not y and not dimmed(p): time.sleep(0.8); p=shot('p.png'); y=popup_green_y(p)   # popup still sliding in?
+            # no popup at all = the chest just sold out (toast "Insufficient remaining count"): nothing to close - the close
+            # tap (540,1850) is outside Grocery and shut it -> "grocery closed; reopening" (5 accounts 2026-11-26, Nick: no close + reopen)
+            if not y and not dimmed(p): print('no popup (chest sold out); nothing to close',x,flush=True); break
             if not y: print('popup has no green Free; closing',x,flush=True); subprocess.run([T,'540,1850','-o','g.png'],env=os.environ); break
             if not ad:
                 subprocess.run([T,f'540,{y*2}','540,1850','-o','g.png'],env=os.environ); print('claimed',x,flush=True); got=True; break

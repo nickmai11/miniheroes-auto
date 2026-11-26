@@ -1,0 +1,68 @@
+[
+  {
+    "animationTime": 1,
+    "buffAnimation": "show",
+    "buffHanging": 1,
+    "buffId": 1001,
+    "buffRes": "debuff_137",
+    "buffSize": 2.55,
+    "id": 1,
+    "image1": 0,
+    "type": 2
+  },
+  {
+    "animationTime": 1,
+    "buffAnimation": "show",
+    "buffHanging": 1,
+    "buffId": 1002,
+    "buffRes": "debuff_137",
+    "buffSize": 2.55,
+    "id": 2,
+    "image1": 1,
+    "type": 2
+  },
+  {
+    "animationTime": 1,
+    "buffAnimation": "show",
+    "buffHanging": 1,
+    "buffId": 1003,
+    "buffRes": "buff_193",
+    "buffSize": 2.55,
+    "id": 3,
+    "image1": 0,
+    "type": 1
+  },
+  {
+    "animationTime": 1,
+    "buffAnimation": "show",
+    "buffHanging": 3,
+    "buffId": 1004,
+    "buffRes": "debuff_88",
+    "buffSize": 2.55,
+    "id": 4,
+    "image1": 0,
+    "type": 2
+  },
+  {
+    "animationTime": 1.5,
+    "buffAnimation": "show2",
+    "buffHanging": 3,
+    "buffId": 1005,
+    "buffRes": "buff_142",
+    "buffSize": 2.55,
+    "id": 5,
+    "image1": 0,
+    "type": 1
+  },
+  {
+    "animationTime": 1,
+    "buffAnimation": "show",
+    "buffHanging": 3,
+    "buffId": 3001,
+    "buffRes": "debuff_93",
+    "buffSize": 2.55,
+    "id": 6,
+    "image1": 0,
+    "type": 2
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "day": 1,
+    "id": 1,
+    "money": 6,
+    "rewardNum": [200, 1, 1],
+    "rewardType": ["diamond", "exp_1", "gold_1"]
+  },
+  {
+    "day": 2,
+    "id": 2,
+    "money": 6,
+    "rewardNum": [200, 40, 1],
+    "rewardType": ["diamond", "coinMinting1", "gold_1"]
+  },
+  {
+    "day": 3,
+    "id": 3,
+    "money": 6,
+    "rewardNum": [300, 10, 1],
+    "rewardType": ["diamond", "recruitRoll", "gold_2"]
+  },
+  {
+    "day": 4,
+    "id": 4,
+    "money": 6,
+    "rewardNum": [200, 20, 1],
+    "rewardType": ["diamond", "medal1", "gold_1"]
+  },
+  {
+    "day": 5,
+    "id": 5,
+    "money": 6,
+    "rewardNum": [200, 50, 1],
+    "rewardType": ["diamond", "bread", "gold_1"]
+  },
+  {
+    "day": 6,
+    "id": 6,
+    "money": 6,
+    "rewardNum": [300, 50, 1],
+    "rewardType": ["diamond", "cast", "gold_2"]
+  },
+  {
+    "day": 7,
+    "id": 7,
+    "money": 6,
+    "rewardNum": [500, 1, 1],
+    "rewardType": ["diamond", "glyphs_3004", "gold_3"]
+  }
+]

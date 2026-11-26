@@ -1,0 +1,7 @@
+{
+  "stageId": 1,
+  "chapterid": 1,
+  "battleId": 12000,
+  "player": { "Userid": 1, "Nickname": "我方", "Level": 1, "Chapter": 1 },
+  "opponent": { "Userid": 2, "Nickname": "敌方", "Level": 1, "Chapter": 1 }
+}

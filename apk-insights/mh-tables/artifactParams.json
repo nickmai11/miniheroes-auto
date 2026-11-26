@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "material": "spiritStone_1",
+    "position": 1,
+    "quality": 1,
+    "unlockLevel": 90
+  },
+  {
+    "id": 2,
+    "material": "spiritStone_1",
+    "position": 2,
+    "quality": 1,
+    "unlockLevel": 90
+  },
+  {
+    "id": 3,
+    "material": "spiritStone_2",
+    "position": 3,
+    "quality": 2,
+    "unlockLevel": 100
+  },
+  {
+    "id": 4,
+    "material": "spiritStone_2",
+    "position": 4,
+    "quality": 2,
+    "unlockLevel": 110
+  },
+  {
+    "id": 5,
+    "material": "spiritStone_3",
+    "position": 5,
+    "quality": 3,
+    "unlockLevel": 120
+  },
+  {
+    "id": 6,
+    "material": "spiritStone_3",
+    "position": 6,
+    "quality": 3,
+    "unlockLevel": 130
+  }
+]

@@ -1,0 +1,422 @@
+[
+  {
+    "bossId": 6027,
+    "damageValue": 220000,
+    "id": 1,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 450000,
+    "id": 2,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 750000,
+    "id": 3,
+    "rewardNum": [1],
+    "rewardType": ["randomFragment4"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 1120000,
+    "id": 4,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 1500000,
+    "id": 5,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 2250000,
+    "id": 6,
+    "rewardNum": [1],
+    "rewardType": ["randomFragment4"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 3370000,
+    "id": 7,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 4500000,
+    "id": 8,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 6000000,
+    "id": 9,
+    "rewardNum": [1],
+    "rewardType": ["gold_2"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 7500000,
+    "id": 10,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 11000000,
+    "id": 11,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 15000000,
+    "id": 12,
+    "rewardNum": [1],
+    "rewardType": ["randomFragment3"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 19000000,
+    "id": 13,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 23000000,
+    "id": 14,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 30000000,
+    "id": 15,
+    "rewardNum": [1],
+    "rewardType": ["randomFragment3"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 37000000,
+    "id": 16,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 45000000,
+    "id": 17,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 52000000,
+    "id": 18,
+    "rewardNum": [300],
+    "rewardType": ["spiritStone_3"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 60000000,
+    "id": 19,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6027,
+    "damageValue": 75000000,
+    "id": 20,
+    "rewardNum": [1],
+    "rewardType": ["shareDebris3"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 300000,
+    "id": 21,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 600000,
+    "id": 22,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 1000000,
+    "id": 23,
+    "rewardNum": [2],
+    "rewardType": ["medal1"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 1500000,
+    "id": 24,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 2000000,
+    "id": 25,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 3000000,
+    "id": 26,
+    "rewardNum": [2],
+    "rewardType": ["medal1"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 4500000,
+    "id": 27,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 6000000,
+    "id": 28,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 8000000,
+    "id": 29,
+    "rewardNum": [1],
+    "rewardType": ["gold_2"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 10000000,
+    "id": 30,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 15000000,
+    "id": 31,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 20000000,
+    "id": 32,
+    "rewardNum": [2],
+    "rewardType": ["medal1"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 25000000,
+    "id": 33,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 30000000,
+    "id": 34,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 40000000,
+    "id": 35,
+    "rewardNum": [2],
+    "rewardType": ["medal1"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 50000000,
+    "id": 36,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 60000000,
+    "id": 37,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 70000000,
+    "id": 38,
+    "rewardNum": [300],
+    "rewardType": ["spiritStone_3"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 80000000,
+    "id": 39,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6037,
+    "damageValue": 100000000,
+    "id": 40,
+    "rewardNum": [5],
+    "rewardType": ["medal1"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 150000,
+    "id": 41,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 300000,
+    "id": 42,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 500000,
+    "id": 43,
+    "rewardNum": [500],
+    "rewardType": ["holyLight"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 750000,
+    "id": 44,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 1000000,
+    "id": 45,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 1500000,
+    "id": 46,
+    "rewardNum": [500],
+    "rewardType": ["holyLight"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 2250000,
+    "id": 47,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 3000000,
+    "id": 48,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 4000000,
+    "id": 49,
+    "rewardNum": [1],
+    "rewardType": ["gold_2"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 5000000,
+    "id": 50,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 7500000,
+    "id": 51,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 10000000,
+    "id": 52,
+    "rewardNum": [500],
+    "rewardType": ["holyLight"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 12000000,
+    "id": 53,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 15000000,
+    "id": 54,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 20000000,
+    "id": 55,
+    "rewardNum": [500],
+    "rewardType": ["holyLight"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 25000000,
+    "id": 56,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 30000000,
+    "id": 57,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 35000000,
+    "id": 58,
+    "rewardNum": [300],
+    "rewardType": ["spiritStone_3"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 40000000,
+    "id": 59,
+    "rewardNum": [250],
+    "rewardType": ["beastCoin"]
+  },
+  {
+    "bossId": 6047,
+    "damageValue": 50000000,
+    "id": 60,
+    "rewardNum": [1000],
+    "rewardType": ["holyLight"]
+  }
+]

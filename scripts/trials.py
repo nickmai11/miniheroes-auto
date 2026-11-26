@@ -14,7 +14,7 @@
 import os, re, subprocess, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait
-from flow import Stop, find, ocr, tap, tickets_full
+from flow import Stop, find, ocr, swipe, tap, tickets_full
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
@@ -111,7 +111,7 @@ def main(account):
             if key not in targets: continue
             if h != half:
                 y0, y1 = ('500', '1500') if h == 'top' else ('1600', '400')
-                subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', '540', y0, '540', y1, '500']); time.sleep(1); half = h
+                swipe(540, y0, 540, y1); time.sleep(1); half = h
             for attempt in (1, 2):                    # the tickets-full popup can swallow the GO tap (Kong 2026-10-28)
                 tap_wait(x, y); time.sleep(1.5)       # dialog must settle or the Sweep tap is lost
                 if counter() or attempt == 2: break

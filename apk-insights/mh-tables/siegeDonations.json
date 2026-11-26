@@ -1,0 +1,18 @@
+[
+  {
+    "getExp": 2,
+    "id": 1,
+    "numsLimit": 5,
+    "show": ["spiritStone_1", "spiritStone_2"],
+    "showNum": [0, 0],
+    "type": 1
+  },
+  {
+    "getExp": 5,
+    "id": 2,
+    "numsLimit": 0,
+    "show": ["spiritStone_2", "pointGvgCoin", "blindBoxCoin", "succinctStone"],
+    "showNum": [0, 0, 0, 0],
+    "type": 2
+  }
+]

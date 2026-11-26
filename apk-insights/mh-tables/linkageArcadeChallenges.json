@@ -1,0 +1,28 @@
+[
+  {
+    "BOSSCd": [7, 9],
+    "actSpeed": 1.5,
+    "angryDamageParam": 3,
+    "angryNum": 1000,
+    "angryTime": 20,
+    "attackTimes": 5,
+    "buyAttackTimes": 999,
+    "damageTimeParam": 2,
+    "damageTimeRequire": 7.5,
+    "display": 1,
+    "heroId": 1002,
+    "id": 1,
+    "rewardNum": [1, 1, 1, 1],
+    "rewardTimes": 2,
+    "rewardType": [
+      "linktbhStone",
+      "orangeBag_tbh",
+      "purpleBag_tbh",
+      "blueBag_tbh"
+    ],
+    "roundRefreshTime": 1.5,
+    "roundTime": 15,
+    "snkMaxTime": 100,
+    "userHeroId": 1001
+  }
+]

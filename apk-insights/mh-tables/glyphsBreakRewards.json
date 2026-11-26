@@ -1,0 +1,12 @@
+[
+  {
+    "breakNums": 10,
+    "id": 1,
+    "rewardNum": 1500,
+    "rewardType": "succinctStone"
+  },
+  { "breakNums": 20, "id": 2, "rewardNum": 3, "rewardType": "tieStone" },
+  { "breakNums": 30, "id": 3, "rewardNum": 500, "rewardType": "diamond" },
+  { "breakNums": 45, "id": 4, "rewardNum": 5, "rewardType": "tieStone" },
+  { "breakNums": 60, "id": 5, "rewardNum": 1, "rewardType": "strongPotion" }
+]

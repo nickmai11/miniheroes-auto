@@ -1,0 +1,72 @@
+[
+  {
+    "angryGetParam": 2,
+    "damageParam": 2,
+    "debuffNum": 0.9,
+    "debuffTime": 1,
+    "debuffType": "damagePre",
+    "id": 1,
+    "showEffect": "3_perfect",
+    "wrongSkillNum": 0
+  },
+  {
+    "angryGetParam": 1.5,
+    "damageParam": 1.1,
+    "debuffNum": 0.7,
+    "debuffTime": 1,
+    "debuffType": "damagePre",
+    "id": 2,
+    "showEffect": "2_great",
+    "wrongSkillNum": 0.13
+  },
+  {
+    "angryGetParam": 1.4,
+    "damageParam": 0.9,
+    "debuffNum": 0.5,
+    "debuffTime": 1,
+    "debuffType": "damagePre",
+    "id": 3,
+    "showEffect": "2_great",
+    "wrongSkillNum": 0.23
+  },
+  {
+    "angryGetParam": 1.3,
+    "damageParam": 0.7,
+    "debuffNum": 0,
+    "debuffTime": 0,
+    "debuffType": "",
+    "id": 4,
+    "showEffect": "1_good",
+    "wrongSkillNum": 0.45
+  },
+  {
+    "angryGetParam": 1.2,
+    "damageParam": 0.5,
+    "debuffNum": 0,
+    "debuffTime": 0,
+    "debuffType": "",
+    "id": 5,
+    "showEffect": "1_good",
+    "wrongSkillNum": 0.56
+  },
+  {
+    "angryGetParam": 1,
+    "damageParam": 0.2,
+    "debuffNum": 0,
+    "debuffTime": 0,
+    "debuffType": "",
+    "id": 6,
+    "showEffect": "1_good",
+    "wrongSkillNum": 0.99
+  },
+  {
+    "angryGetParam": 0,
+    "damageParam": 0,
+    "debuffNum": 0,
+    "debuffTime": 0,
+    "debuffType": "",
+    "id": 7,
+    "showEffect": "0_miss",
+    "wrongSkillNum": 1
+  }
+]

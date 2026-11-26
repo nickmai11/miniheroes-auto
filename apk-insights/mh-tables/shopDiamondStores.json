@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "productIdentifying": "pay4001",
+    "rewardNum1": [240, 120],
+    "rewardNum2": [120, 120],
+    "rewardType1": ["diamond", "noblePoints"],
+    "rewardType2": ["diamond", "noblePoints"]
+  },
+  {
+    "id": 2,
+    "productIdentifying": "pay4002",
+    "rewardNum1": [600, 300],
+    "rewardNum2": [300, 300],
+    "rewardType1": ["diamond", "noblePoints"],
+    "rewardType2": ["diamond", "noblePoints"]
+  },
+  {
+    "id": 3,
+    "productIdentifying": "pay4003",
+    "rewardNum1": [1760, 880],
+    "rewardNum2": [880, 880],
+    "rewardType1": ["diamond", "noblePoints"],
+    "rewardType2": ["diamond", "noblePoints"]
+  },
+  {
+    "id": 4,
+    "productIdentifying": "pay4004",
+    "rewardNum1": [3960, 1980],
+    "rewardNum2": [1980, 1980],
+    "rewardType1": ["diamond", "noblePoints"],
+    "rewardType2": ["diamond", "noblePoints"]
+  },
+  {
+    "id": 5,
+    "productIdentifying": "pay4005",
+    "rewardNum1": [6560, 3280],
+    "rewardNum2": [3280, 3280],
+    "rewardType1": ["diamond", "noblePoints"],
+    "rewardType2": ["diamond", "noblePoints"]
+  },
+  {
+    "id": 6,
+    "productIdentifying": "pay4006",
+    "rewardNum1": [12960, 6480],
+    "rewardNum2": [6480, 6480],
+    "rewardType1": ["diamond", "noblePoints"],
+    "rewardType2": ["diamond", "noblePoints"]
+  }
+]

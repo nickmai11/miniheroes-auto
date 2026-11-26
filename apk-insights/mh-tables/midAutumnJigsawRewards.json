@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "rewardNum": [15, 10, 8],
+    "rewardType": ["randomFragment3", "coinMinting2", "midAutumnMaterialBox"],
+    "squareNeed": [1, 2, 3, 4]
+  },
+  {
+    "id": 2,
+    "rewardNum": [15, 10, 8],
+    "rewardType": ["randomFragment3", "coinMinting2", "midAutumnMaterialBox"],
+    "squareNeed": [5, 6, 7, 8]
+  },
+  {
+    "id": 3,
+    "rewardNum": [15, 10, 8],
+    "rewardType": ["randomFragment3", "coinMinting2", "midAutumnMaterialBox"],
+    "squareNeed": [9, 10, 11, 12]
+  },
+  {
+    "id": 4,
+    "rewardNum": [15, 10, 8],
+    "rewardType": ["randomFragment3", "coinMinting2", "midAutumnMaterialBox"],
+    "squareNeed": [13, 14, 15, 16]
+  },
+  {
+    "id": 5,
+    "rewardNum": [1, 2, 8],
+    "rewardType": ["medal2", "templeDust", "midAutumnMaterialBox"],
+    "squareNeed": [1, 5, 9, 13]
+  },
+  {
+    "id": 6,
+    "rewardNum": [1, 2, 8],
+    "rewardType": ["medal2", "templeDust", "midAutumnMaterialBox"],
+    "squareNeed": [2, 6, 10, 14]
+  },
+  {
+    "id": 7,
+    "rewardNum": [1, 2, 8],
+    "rewardType": ["medal2", "templeDust", "midAutumnMaterialBox"],
+    "squareNeed": [3, 7, 11, 15]
+  },
+  {
+    "id": 8,
+    "rewardNum": [1, 2, 8],
+    "rewardType": ["medal2", "templeDust", "midAutumnMaterialBox"],
+    "squareNeed": [4, 8, 12, 16]
+  },
+  {
+    "id": 9,
+    "rewardNum": [5, 8, 10, 1000],
+    "rewardType": ["soulStone3", "artFragment", "recruitRoll", "diamond"],
+    "squareNeed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+  }
+]

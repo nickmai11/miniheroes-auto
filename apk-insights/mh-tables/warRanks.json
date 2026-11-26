@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "personRanking": [1],
+    "rewardNum": [6000, 1, 2],
+    "rewardType": ["tribeCoin", "zb_box2", "exp_3"]
+  },
+  {
+    "id": 2,
+    "personRanking": [2],
+    "rewardNum": [5000, 1, 1],
+    "rewardType": ["tribeCoin", "zb_box1", "exp_3"]
+  },
+  {
+    "id": 3,
+    "personRanking": [3],
+    "rewardNum": [4500, 1, 1],
+    "rewardType": ["tribeCoin", "zb_box1", "exp_3"]
+  },
+  {
+    "id": 4,
+    "personRanking": [4, 5],
+    "rewardNum": [4000, 15, 3],
+    "rewardType": ["tribeCoin", "coinMinting2", "exp_1"]
+  },
+  {
+    "id": 5,
+    "personRanking": [6, 10],
+    "rewardNum": [3500, 10, 3],
+    "rewardType": ["tribeCoin", "coinMinting2", "exp_1"]
+  },
+  {
+    "id": 6,
+    "personRanking": [11, 30],
+    "rewardNum": [3000, 30, 2],
+    "rewardType": ["tribeCoin", "coinMinting1", "exp_1"]
+  },
+  {
+    "id": 7,
+    "personRanking": [31, 50],
+    "rewardNum": [2500, 20, 2],
+    "rewardType": ["tribeCoin", "coinMinting1", "exp_1"]
+  },
+  {
+    "id": 8,
+    "personRanking": [51, 100],
+    "rewardNum": [2000, 15, 1],
+    "rewardType": ["tribeCoin", "coinMinting1", "exp_1"]
+  },
+  {
+    "id": 9,
+    "personRanking": [101, 9999],
+    "rewardNum": [1500, 10, 1],
+    "rewardType": ["tribeCoin", "coinMinting1", "exp_1"]
+  }
+]

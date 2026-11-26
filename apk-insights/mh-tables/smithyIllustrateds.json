@@ -1,0 +1,538 @@
+[
+  {
+    "atlasAttribute": ["physicsResist", "magicResist"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_50001",
+    "id": 1,
+    "openCondition": [25006, 25007],
+    "type": 1
+  },
+  {
+    "atlasAttribute": ["nearHurt", "remoteHurt"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_50002",
+    "id": 2,
+    "openCondition": [25010, 25017],
+    "type": 1
+  },
+  {
+    "atlasAttribute": ["physicsHurt", "magicHurt"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_50003",
+    "id": 3,
+    "openCondition": [25024, 25003],
+    "type": 1
+  },
+  {
+    "atlasAttribute": ["defensePre", "nearReduce"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_50004",
+    "id": 4,
+    "openCondition": [25013, 25014, 25030],
+    "type": 1
+  },
+  {
+    "atlasAttribute": ["lifePre", "remoteReduce"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_50005",
+    "id": 5,
+    "openCondition": [25002, 25020, 25026],
+    "type": 1
+  },
+  {
+    "atlasAttribute": ["damagePre", "finalHurt"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_50006",
+    "id": 6,
+    "openCondition": [25016, 25015, 25019],
+    "type": 1
+  },
+  {
+    "atlasAttribute": ["defensePre", "reduceHurt"],
+    "attributeNum": [0.03, 0.02],
+    "describe": "TJ_50009",
+    "id": 7,
+    "openCondition": [25032, 25033, 25034],
+    "type": 1
+  },
+  {
+    "atlasAttribute": ["defensePre"],
+    "attributeNum": [0.05],
+    "describe": "TJ_50007",
+    "id": 8,
+    "openCondition": [25021, 25023, 25025],
+    "type": 1
+  },
+  {
+    "atlasAttribute": ["lifePre"],
+    "attributeNum": [0.05],
+    "describe": "TJ_50008",
+    "id": 9,
+    "openCondition": [25001, 25012, 25018],
+    "type": 1
+  },
+  {
+    "atlasAttribute": ["damagePre"],
+    "attributeNum": [0.05],
+    "describe": "TJ_50010",
+    "id": 10,
+    "openCondition": [25035, 25036, 25037],
+    "type": 1
+  },
+  {
+    "atlasAttribute": ["life_1", "defense_1"],
+    "attributeNum": [6000, 600],
+    "describe": "TJ_51001",
+    "id": 11,
+    "openCondition": [21005, 21004, 21006],
+    "type": 2
+  },
+  {
+    "atlasAttribute": ["magicResist", "physicsResist"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_51002",
+    "id": 12,
+    "openCondition": [23006],
+    "type": 2
+  },
+  {
+    "atlasAttribute": ["damage_1", "remoteReduce"],
+    "attributeNum": [600, 0.01],
+    "describe": "TJ_51003",
+    "id": 13,
+    "openCondition": [23001, 21009, 23002],
+    "type": 2
+  },
+  {
+    "atlasAttribute": ["defense_3", "reduceHurt"],
+    "attributeNum": [600, 0.01],
+    "describe": "TJ_51004",
+    "id": 14,
+    "openCondition": [21019, 24001],
+    "type": 2
+  },
+  {
+    "atlasAttribute": ["defense_2", "nearReduce"],
+    "attributeNum": [600, 0.01],
+    "describe": "TJ_51005",
+    "id": 15,
+    "openCondition": [24002, 22026, 22004],
+    "type": 2
+  },
+  {
+    "atlasAttribute": ["life_3", "finalHurt"],
+    "attributeNum": [6000, 0.01],
+    "describe": "TJ_51006",
+    "id": 16,
+    "openCondition": [21021, 21003],
+    "type": 2
+  },
+  {
+    "atlasAttribute": ["physicsHurt", "magicHurt"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_51007",
+    "id": 17,
+    "openCondition": [23005, 22001, 24030],
+    "type": 2
+  },
+  {
+    "atlasAttribute": ["life_2", "nearHurt"],
+    "attributeNum": [6000, 0.01],
+    "describe": "TJ_51008",
+    "id": 18,
+    "openCondition": [24003, 24004],
+    "type": 2
+  },
+  {
+    "atlasAttribute": ["life_4", "defense_4"],
+    "attributeNum": [6000, 600],
+    "describe": "TJ_51009",
+    "id": 19,
+    "openCondition": [22025, 22030],
+    "type": 2
+  },
+  {
+    "atlasAttribute": ["defense_3", "life_3"],
+    "attributeNum": [650, 6500],
+    "describe": "TJ_52001",
+    "id": 20,
+    "openCondition": [23003, 21017, 22014],
+    "type": 3
+  },
+  {
+    "atlasAttribute": ["life_3", "reduceHurt"],
+    "attributeNum": [6500, 0.01],
+    "describe": "TJ_52002",
+    "id": 21,
+    "openCondition": [22007, 22003],
+    "type": 3
+  },
+  {
+    "atlasAttribute": ["nearReduce", "remoteReduce"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_52003",
+    "id": 22,
+    "openCondition": [23013, 22008, 23010],
+    "type": 3
+  },
+  {
+    "atlasAttribute": ["life_4", "remoteHurt"],
+    "attributeNum": [6500, 0.01],
+    "describe": "TJ_52004",
+    "id": 23,
+    "openCondition": [24006, 24007, 24009],
+    "type": 3
+  },
+  {
+    "atlasAttribute": ["defense_4", "life_4"],
+    "attributeNum": [650, 6500],
+    "describe": "TJ_52005",
+    "id": 24,
+    "openCondition": [21030, 21018],
+    "type": 3
+  },
+  {
+    "atlasAttribute": ["life_2", "finalHurt"],
+    "attributeNum": [6500, 0.01],
+    "describe": "TJ_52006",
+    "id": 25,
+    "openCondition": [24008, 24010],
+    "type": 3
+  },
+  {
+    "atlasAttribute": ["nearHurt", "remoteHurt"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_52007",
+    "id": 26,
+    "openCondition": [22021],
+    "type": 3
+  },
+  {
+    "atlasAttribute": ["life_3", "magicResist"],
+    "attributeNum": [7000, 0.01],
+    "describe": "TJ_53001",
+    "id": 27,
+    "openCondition": [24019, 24005, 21014],
+    "type": 4
+  },
+  {
+    "atlasAttribute": ["damage_1", "physicsHurt"],
+    "attributeNum": [700, 0.01],
+    "describe": "TJ_53002",
+    "id": 28,
+    "openCondition": [21011, 24012],
+    "type": 4
+  },
+  {
+    "atlasAttribute": ["defense_2", "life_2"],
+    "attributeNum": [700, 7000],
+    "describe": "TJ_53003",
+    "id": 29,
+    "openCondition": [21010, 21001, 22010],
+    "type": 4
+  },
+  {
+    "atlasAttribute": ["damage_3", "physicsResist"],
+    "attributeNum": [700, 0.01],
+    "describe": "TJ_53004",
+    "id": 30,
+    "openCondition": [24011, 22011],
+    "type": 4
+  },
+  {
+    "atlasAttribute": ["life_2", "life_4"],
+    "attributeNum": [7000, 7000],
+    "describe": "TJ_53005",
+    "id": 31,
+    "openCondition": [23014, 23011],
+    "type": 4
+  },
+  {
+    "atlasAttribute": ["finalHurt", "reduceHurt"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_53006",
+    "id": 32,
+    "openCondition": [21007],
+    "type": 4
+  },
+  {
+    "atlasAttribute": ["life_4", "magicHurt"],
+    "attributeNum": [7000, 0.01],
+    "describe": "TJ_53007",
+    "id": 33,
+    "openCondition": [22009, 24015],
+    "type": 4
+  },
+  {
+    "atlasAttribute": ["nearHurt", "remoteHurt"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_53008",
+    "id": 34,
+    "openCondition": [22002, 21024, 23004],
+    "type": 4
+  },
+  {
+    "atlasAttribute": ["life_3", "remoteReduce"],
+    "attributeNum": [8000, 0.01],
+    "describe": "TJ_54001",
+    "id": 35,
+    "openCondition": [21029, 22006, 22016],
+    "type": 5
+  },
+  {
+    "atlasAttribute": ["damage_4", "life_4"],
+    "attributeNum": [800, 8000],
+    "describe": "TJ_54002",
+    "id": 36,
+    "openCondition": [23007, 23008],
+    "type": 5
+  },
+  {
+    "atlasAttribute": ["physicsHurt", "magicHurt"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_54003",
+    "id": 37,
+    "openCondition": [22015, 23016, 22013],
+    "type": 5
+  },
+  {
+    "atlasAttribute": ["defense_1", "nearReduce"],
+    "attributeNum": [800, 0.01],
+    "describe": "TJ_54004",
+    "id": 38,
+    "openCondition": [24026, 22017, 21028],
+    "type": 5
+  },
+  {
+    "atlasAttribute": ["life_3", "life_2"],
+    "attributeNum": [8000, 8000],
+    "describe": "TJ_54005",
+    "id": 39,
+    "openCondition": [24029, 24028],
+    "type": 5
+  },
+  {
+    "atlasAttribute": ["physicsResist", "magicResist"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_54006",
+    "id": 40,
+    "openCondition": [21008],
+    "type": 5
+  },
+  {
+    "atlasAttribute": ["life_2", "remoteReduce"],
+    "attributeNum": [8000, 0.01],
+    "describe": "TJ_54007",
+    "id": 41,
+    "openCondition": [21020, 24025, 24013],
+    "type": 5
+  },
+  {
+    "atlasAttribute": ["damage_1", "nearHurt"],
+    "attributeNum": [900, 0.01],
+    "describe": "TJ_55001",
+    "id": 42,
+    "openCondition": [21013, 21002, 22019],
+    "type": 6
+  },
+  {
+    "atlasAttribute": ["defense_3", "life_3"],
+    "attributeNum": [900, 9000],
+    "describe": "TJ_55002",
+    "id": 43,
+    "openCondition": [22012, 23017],
+    "type": 6
+  },
+  {
+    "atlasAttribute": ["nearHurt", "remoteHurt"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_55003",
+    "id": 44,
+    "openCondition": [24020],
+    "type": 6
+  },
+  {
+    "atlasAttribute": ["life_4", "reduceHurt"],
+    "attributeNum": [9000, 0.01],
+    "describe": "TJ_55004",
+    "id": 45,
+    "openCondition": [24014, 24027],
+    "type": 6
+  },
+  {
+    "atlasAttribute": ["defense_2", "life_2"],
+    "attributeNum": [900, 9000],
+    "describe": "TJ_55005",
+    "id": 46,
+    "openCondition": [23012],
+    "type": 6
+  },
+  {
+    "atlasAttribute": ["life_3", "remoteHurt"],
+    "attributeNum": [9000, 0.01],
+    "describe": "TJ_55006",
+    "id": 47,
+    "openCondition": [22022, 21012],
+    "type": 6
+  },
+  {
+    "atlasAttribute": ["defense_4", "remoteReduce"],
+    "attributeNum": [900, 0.01],
+    "describe": "TJ_55007",
+    "id": 48,
+    "openCondition": [22018, 21025, 22020],
+    "type": 6
+  },
+  {
+    "atlasAttribute": ["life_4", "magicResist"],
+    "attributeNum": [9000, 0.01],
+    "describe": "TJ_55008",
+    "id": 49,
+    "openCondition": [24018, 24023],
+    "type": 6
+  },
+  {
+    "atlasAttribute": ["finalHurt", "reduceHurt"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_55009",
+    "id": 50,
+    "openCondition": [23018, 22005, 23009],
+    "type": 6
+  },
+  {
+    "atlasAttribute": ["life_1", "nearReduce"],
+    "attributeNum": [10000, 0.01],
+    "describe": "TJ_56001",
+    "id": 51,
+    "openCondition": [21022, 21016, 21023],
+    "type": 7
+  },
+  {
+    "atlasAttribute": ["damage_2", "life_2"],
+    "attributeNum": [1000, 10000],
+    "describe": "TJ_56002",
+    "id": 52,
+    "openCondition": [21027, 22023],
+    "type": 7
+  },
+  {
+    "atlasAttribute": ["life_4", "reduceHurt"],
+    "attributeNum": [10000, 0.01],
+    "describe": "TJ_56003",
+    "id": 53,
+    "openCondition": [24016, 24021, 24022],
+    "type": 7
+  },
+  {
+    "atlasAttribute": ["nearReduce", "remoteReduce"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_56004",
+    "id": 54,
+    "openCondition": [24024, 24017, 21026],
+    "type": 7
+  },
+  {
+    "atlasAttribute": ["life_3", "physicsResist"],
+    "attributeNum": [10000, 0.01],
+    "describe": "TJ_56005",
+    "id": 55,
+    "openCondition": [22027, 23015],
+    "type": 7
+  },
+  {
+    "atlasAttribute": ["physicsHurt", "magicHurt"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_56006",
+    "id": 56,
+    "openCondition": [23020],
+    "type": 7
+  },
+  {
+    "atlasAttribute": ["defense_1", "nearReduce"],
+    "attributeNum": [1000, 0.01],
+    "describe": "TJ_56007",
+    "id": 57,
+    "openCondition": [22024, 22029, 21015],
+    "type": 7
+  },
+  {
+    "atlasAttribute": ["life_2", "life_4"],
+    "attributeNum": [10000, 10000],
+    "describe": "TJ_56008",
+    "id": 58,
+    "openCondition": [23019, 22028],
+    "type": 7
+  },
+  {
+    "atlasAttribute": ["defense_3", "finalHurt"],
+    "attributeNum": [1000, 0.01],
+    "describe": "TJ_57001",
+    "id": 59,
+    "openCondition": [21031, 21034, 21032],
+    "type": 8
+  },
+  {
+    "atlasAttribute": ["nearReduce", "remoteReduce"],
+    "attributeNum": [0.01, 0.01],
+    "describe": "TJ_57002",
+    "id": 60,
+    "openCondition": [23021, 21033],
+    "type": 8
+  },
+  {
+    "atlasAttribute": ["life_2", "reduceHurt"],
+    "attributeNum": [10000, 0.01],
+    "describe": "TJ_57003",
+    "id": 61,
+    "openCondition": [22031, 23023],
+    "type": 8
+  },
+  {
+    "atlasAttribute": ["physicsResist", "magicResist"],
+    "attributeNum": [0.01, 0.01],
+    "describe": "TJ_57004",
+    "id": 62,
+    "openCondition": [23025, 24034],
+    "type": 8
+  },
+  {
+    "atlasAttribute": ["life_3", "finalHurt"],
+    "attributeNum": [10000, 0.01],
+    "describe": "TJ_57005",
+    "id": 63,
+    "openCondition": [23024, 24032],
+    "type": 8
+  },
+  {
+    "atlasAttribute": ["physicsHurt", "magicHurt"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_57006",
+    "id": 64,
+    "openCondition": [21035, 22034],
+    "type": 8
+  },
+  {
+    "atlasAttribute": ["life_4", "finalHurt"],
+    "attributeNum": [10000, 0.01],
+    "describe": "TJ_57007",
+    "id": 65,
+    "openCondition": [22032, 22033],
+    "type": 8
+  },
+  {
+    "atlasAttribute": ["nearHurt", "remoteHurt"],
+    "attributeNum": [0.01, 0.01],
+    "describe": "TJ_57008",
+    "id": 66,
+    "openCondition": [24031, 24033],
+    "type": 8
+  },
+  {
+    "atlasAttribute": ["physicsResist", "magicResist"],
+    "attributeNum": [0.02, 0.02],
+    "describe": "TJ_57009",
+    "id": 67,
+    "openCondition": [22035, 23022, 24035],
+    "type": 8
+  }
+]

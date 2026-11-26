@@ -1,0 +1,802 @@
+[
+  {
+    "affixDescribe": "ELF_S73",
+    "affixNum": 0.08,
+    "affixType": "cureEffect",
+    "id": 1,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "cureEffect",
+    "uid": 101,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S82",
+    "affixNum": 0.08,
+    "affixType": "nearReduce",
+    "id": 2,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "nearReduce",
+    "uid": 101,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S70",
+    "affixNum": 0.08,
+    "affixType": "magicHurt",
+    "id": 3,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "magicHurt",
+    "uid": 101,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S89",
+    "affixNum": 0.08,
+    "affixType": "criticalHurtResist",
+    "id": 4,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "criticalHurtResist",
+    "uid": 101,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S85",
+    "affixNum": 0.08,
+    "affixType": "criticalHurt",
+    "id": 5,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "criticalHurt",
+    "uid": 102,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S88",
+    "affixNum": 0.08,
+    "affixType": "attackRangePre",
+    "id": 6,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "attackRangePre",
+    "uid": 102,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S80",
+    "affixNum": 0.08,
+    "affixType": "criticalResist",
+    "id": 7,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "criticalResist",
+    "uid": 102,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S72",
+    "affixNum": 0.08,
+    "affixType": "finalHurt",
+    "id": 8,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "finalHurt",
+    "uid": 102,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S68",
+    "affixNum": 0.08,
+    "affixType": "broken",
+    "id": 9,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "broken",
+    "uid": 103,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S86",
+    "affixNum": 0.08,
+    "affixType": "movingSpeedPre",
+    "id": 10,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "movingSpeedPre",
+    "uid": 103,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S78",
+    "affixNum": 0.08,
+    "affixType": "physicsResist",
+    "id": 11,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "physicsResist",
+    "uid": 103,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S91",
+    "affixNum": 0.08,
+    "affixType": "controlReduction",
+    "id": 12,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "controlReduction",
+    "uid": 103,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S89",
+    "affixNum": 0.08,
+    "affixType": "criticalHurtResist",
+    "id": 13,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "criticalHurtResist",
+    "uid": 104,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S75",
+    "affixNum": 0.08,
+    "affixType": "attackSpeedPre",
+    "id": 14,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "attackSpeedPre",
+    "uid": 104,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S79",
+    "affixNum": 0.08,
+    "affixType": "magicResist",
+    "id": 15,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "magicResist",
+    "uid": 104,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S71",
+    "affixNum": 0.08,
+    "affixType": "critical",
+    "id": 16,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "critical",
+    "uid": 104,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S74",
+    "affixNum": 0.08,
+    "affixType": "repelEffectPre",
+    "id": 17,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "repelEffectPre",
+    "uid": 105,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S93",
+    "affixNum": 0.08,
+    "affixType": "reduceControlTime",
+    "id": 18,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "reduceControlTime",
+    "uid": 105,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S83",
+    "affixNum": 0.08,
+    "affixType": "remoteReduce",
+    "id": 19,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "remoteReduce",
+    "uid": 105,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S87",
+    "affixNum": 0.08,
+    "affixType": "lifeInjury",
+    "id": 20,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "lifeInjury",
+    "uid": 105,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S69",
+    "affixNum": 0.08,
+    "affixType": "physicsHurt",
+    "id": 21,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "physicsHurt",
+    "uid": 106,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S77",
+    "affixNum": 0.08,
+    "affixType": "remoteHurt",
+    "id": 22,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "remoteHurt",
+    "uid": 106,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S82",
+    "affixNum": 0.08,
+    "affixType": "nearReduce",
+    "id": 23,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "nearReduce",
+    "uid": 106,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S84",
+    "affixNum": 0.08,
+    "affixType": "repelResist",
+    "id": 24,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "repelResist",
+    "uid": 106,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S81",
+    "affixNum": 0.08,
+    "affixType": "reduceHurt",
+    "id": 25,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "reduceHurt",
+    "uid": 107,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S75",
+    "affixNum": 0.08,
+    "affixType": "attackSpeedPre",
+    "id": 26,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "attackSpeedPre",
+    "uid": 107,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S84",
+    "affixNum": 0.08,
+    "affixType": "repelResist",
+    "id": 27,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "repelResist",
+    "uid": 107,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S86",
+    "affixNum": 0.08,
+    "affixType": "movingSpeedPre",
+    "id": 28,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "movingSpeedPre",
+    "uid": 107,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S71",
+    "affixNum": 0.08,
+    "affixType": "critical",
+    "id": 29,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "critical",
+    "uid": 108,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S88",
+    "affixNum": 0.08,
+    "affixType": "attackRangePre",
+    "id": 30,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "attackRangePre",
+    "uid": 108,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S79",
+    "affixNum": 0.08,
+    "affixType": "magicResist",
+    "id": 31,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "magicResist",
+    "uid": 108,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S90",
+    "affixNum": 0.08,
+    "affixType": "moderateResist",
+    "id": 32,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "moderateResist",
+    "uid": 108,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S68",
+    "affixNum": 0.08,
+    "affixType": "broken",
+    "id": 33,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "broken",
+    "uid": 109,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S73",
+    "affixNum": 0.08,
+    "affixType": "cureEffect",
+    "id": 34,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "cureEffect",
+    "uid": 109,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S78",
+    "affixNum": 0.08,
+    "affixType": "physicsResist",
+    "id": 35,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "physicsResist",
+    "uid": 109,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S93",
+    "affixNum": 0.08,
+    "affixType": "reduceControlTime",
+    "id": 36,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "reduceControlTime",
+    "uid": 109,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S69",
+    "affixNum": 0.08,
+    "affixType": "physicsHurt",
+    "id": 37,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "physicsHurt",
+    "uid": 110,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S80",
+    "affixNum": 0.08,
+    "affixType": "criticalResist",
+    "id": 38,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "criticalResist",
+    "uid": 110,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S75",
+    "affixNum": 0.08,
+    "affixType": "attackSpeedPre",
+    "id": 39,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "attackSpeedPre",
+    "uid": 110,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S89",
+    "affixNum": 0.08,
+    "affixType": "criticalHurtResist",
+    "id": 40,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "criticalHurtResist",
+    "uid": 110,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S84",
+    "affixNum": 0.08,
+    "affixType": "repelResist",
+    "id": 41,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "repelResist",
+    "uid": 111,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S76",
+    "affixNum": 0.08,
+    "affixType": "nearHurt",
+    "id": 42,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "nearHurt",
+    "uid": 111,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S83",
+    "affixNum": 0.08,
+    "affixType": "remoteReduce",
+    "id": 43,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "remoteReduce",
+    "uid": 111,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S90",
+    "affixNum": 0.08,
+    "affixType": "moderateResist",
+    "id": 44,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "moderateResist",
+    "uid": 111,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S70",
+    "affixNum": 0.08,
+    "affixType": "magicHurt",
+    "id": 45,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "magicHurt",
+    "uid": 112,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S74",
+    "affixNum": 0.08,
+    "affixType": "repelEffectPre",
+    "id": 46,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "repelEffectPre",
+    "uid": 112,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S80",
+    "affixNum": 0.08,
+    "affixType": "criticalResist",
+    "id": 47,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "criticalResist",
+    "uid": 112,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S91",
+    "affixNum": 0.08,
+    "affixType": "controlReduction",
+    "id": 48,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "controlReduction",
+    "uid": 112,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S68",
+    "affixNum": 0.08,
+    "affixType": "broken",
+    "id": 49,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "broken",
+    "uid": 113,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S77",
+    "affixNum": 0.08,
+    "affixType": "remoteHurt",
+    "id": 50,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "remoteHurt",
+    "uid": 113,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S79",
+    "affixNum": 0.08,
+    "affixType": "magicResist",
+    "id": 51,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "magicResist",
+    "uid": 113,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S92",
+    "affixNum": 0.08,
+    "affixType": "heal",
+    "id": 52,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "heal",
+    "uid": 113,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S85",
+    "affixNum": 0.08,
+    "affixType": "criticalHurt",
+    "id": 53,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "criticalHurt",
+    "uid": 114,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S87",
+    "affixNum": 0.08,
+    "affixType": "lifeInjury",
+    "id": 54,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "lifeInjury",
+    "uid": 114,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S81",
+    "affixNum": 0.08,
+    "affixType": "reduceHurt",
+    "id": 55,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "reduceHurt",
+    "uid": 114,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S69",
+    "affixNum": 0.08,
+    "affixType": "physicsHurt",
+    "id": 56,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "physicsHurt",
+    "uid": 114,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S72",
+    "affixNum": 0.08,
+    "affixType": "finalHurt",
+    "id": 57,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "finalHurt",
+    "uid": 115,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S76",
+    "affixNum": 0.08,
+    "affixType": "nearHurt",
+    "id": 58,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "nearHurt",
+    "uid": 115,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S78",
+    "affixNum": 0.08,
+    "affixType": "physicsResist",
+    "id": 59,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "physicsResist",
+    "uid": 115,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S92",
+    "affixNum": 0.08,
+    "affixType": "heal",
+    "id": 60,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "heal",
+    "uid": 115,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S92",
+    "affixNum": 0.08,
+    "affixType": "heal",
+    "id": 61,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "heal",
+    "uid": 116,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S71",
+    "affixNum": 0.08,
+    "affixType": "critical",
+    "id": 62,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "critical",
+    "uid": 116,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S83",
+    "affixNum": 0.08,
+    "affixType": "remoteReduce",
+    "id": 63,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "remoteReduce",
+    "uid": 116,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S70",
+    "affixNum": 0.08,
+    "affixType": "magicHurt",
+    "id": 64,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "magicHurt",
+    "uid": 116,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S72",
+    "affixNum": 0.08,
+    "affixType": "finalHurt",
+    "id": 65,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "finalHurt",
+    "uid": 117,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S85",
+    "affixNum": 0.08,
+    "affixType": "criticalHurt",
+    "id": 66,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "criticalHurt",
+    "uid": 117,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S80",
+    "affixNum": 0.08,
+    "affixType": "criticalResist",
+    "id": 67,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "criticalResist",
+    "uid": 117,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S90",
+    "affixNum": 0.08,
+    "affixType": "moderateResist",
+    "id": 68,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "moderateResist",
+    "uid": 117,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S91",
+    "affixNum": 0.08,
+    "affixType": "controlReduction",
+    "id": 69,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "controlReduction",
+    "uid": 118,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S77",
+    "affixNum": 0.08,
+    "affixType": "remoteHurt",
+    "id": 70,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "remoteHurt",
+    "uid": 118,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S82",
+    "affixNum": 0.08,
+    "affixType": "nearReduce",
+    "id": 71,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "nearReduce",
+    "uid": 118,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S70",
+    "affixNum": 0.08,
+    "affixType": "magicHurt",
+    "id": 72,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "magicHurt",
+    "uid": 118,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S68",
+    "affixNum": 0.08,
+    "affixType": "broken",
+    "id": 73,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "broken",
+    "uid": 119,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S81",
+    "affixNum": 0.08,
+    "affixType": "reduceHurt",
+    "id": 74,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "reduceHurt",
+    "uid": 119,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S78",
+    "affixNum": 0.08,
+    "affixType": "physicsResist",
+    "id": 75,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "physicsResist",
+    "uid": 119,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S93",
+    "affixNum": 0.08,
+    "affixType": "reduceControlTime",
+    "id": 76,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "reduceControlTime",
+    "uid": 119,
+    "unlock": 5
+  },
+  {
+    "affixDescribe": "ELF_S89",
+    "affixNum": 0.08,
+    "affixType": "criticalHurtResist",
+    "id": 77,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "criticalHurtResist",
+    "uid": 120,
+    "unlock": 2
+  },
+  {
+    "affixDescribe": "ELF_S87",
+    "affixNum": 0.08,
+    "affixType": "lifeInjury",
+    "id": 78,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "lifeInjury",
+    "uid": 120,
+    "unlock": 3
+  },
+  {
+    "affixDescribe": "ELF_S79",
+    "affixNum": 0.08,
+    "affixType": "magicResist",
+    "id": 79,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "magicResist",
+    "uid": 120,
+    "unlock": 4
+  },
+  {
+    "affixDescribe": "ELF_S69",
+    "affixNum": 0.08,
+    "affixType": "physicsHurt",
+    "id": 80,
+    "specialAffixNum": 0.08,
+    "specialAffixType": "physicsHurt",
+    "uid": 120,
+    "unlock": 5
+  }
+]

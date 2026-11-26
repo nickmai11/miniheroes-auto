@@ -1,0 +1,794 @@
+[
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [108],
+    "id": 1,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [111],
+    "id": 2,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [112],
+    "id": 3,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [113],
+    "id": 4,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [114],
+    "id": 5,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [116],
+    "id": 6,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [117],
+    "id": 7,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [118],
+    "id": 8,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [121],
+    "id": 9,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [122],
+    "id": 10,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [124],
+    "id": 11,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [126],
+    "id": 12,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [127],
+    "id": 13,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [129],
+    "id": 14,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [900, 0.0005, 0.0002, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [206],
+    "id": 15,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1700, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [207],
+    "id": 16,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1700, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [208],
+    "id": 17,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1700, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2, 0.01],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre", "repelResist"],
+    "heroId": [212],
+    "id": 18,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1700, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [213],
+    "id": 19,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1700, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [215],
+    "id": 20,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1700, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [217],
+    "id": 21,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1700, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [218],
+    "id": 22,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1700, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [219],
+    "id": 23,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1700, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [220],
+    "id": 24,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1700, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [301],
+    "id": 25,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1500, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [305],
+    "id": 26,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1500, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [309],
+    "id": 27,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1500, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [311],
+    "id": 28,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1500, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [312],
+    "id": 29,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1500, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [314],
+    "id": 30,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1500, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [315],
+    "id": 31,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1500, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [316],
+    "id": 32,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1500, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [317],
+    "id": 33,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1500, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [406],
+    "id": 34,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1850, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [407],
+    "id": 35,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1850, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [408],
+    "id": 36,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1850, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [409],
+    "id": 37,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1850, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [411],
+    "id": 38,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1850, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [412],
+    "id": 39,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1850, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [413],
+    "id": 40,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1850, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [416],
+    "id": 41,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1850, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [418],
+    "id": 42,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1850, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [419],
+    "id": 43,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [1850, 0, 0.0006, 0.0001]
+  },
+  {
+    "addAttributeCondition1": [999],
+    "addAttributeCondition2": [999, 999],
+    "addAttributeNum1": [0.02],
+    "addAttributeNum2": [0.2],
+    "addAttributeType1": ["damagePre"],
+    "addAttributeType2": ["damagePre"],
+    "heroId": [421],
+    "id": 44,
+    "lossLifeProportion": 0.00001,
+    "lossLifeProportion1": [
+      "damage",
+      "repelResist",
+      "repelEffectPre",
+      "reduceControlTime"
+    ],
+    "lossLifeProportion2": [3422, 0, 0.0006, 0.0001]
+  }
+]

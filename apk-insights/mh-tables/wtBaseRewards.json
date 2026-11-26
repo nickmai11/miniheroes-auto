@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "rewardNum": [100, 3000],
+    "rewardType": ["wildScore", "gold"],
+    "type": 1
+  },
+  {
+    "id": 2,
+    "rewardNum": [100, 3000],
+    "rewardType": ["wildScore", "gold"],
+    "type": 2
+  }
+]

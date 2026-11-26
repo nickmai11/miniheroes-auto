@@ -1,0 +1,34 @@
+[
+  {
+    "buyRewardNum": [120, 10, 1, 120],
+    "buyRewardType": ["diamond", "recruitRoll", "exp_4", "noblePoints"],
+    "discountDisplay": 25,
+    "id": 1,
+    "productIdentifying": "pay3003",
+    "type": 1
+  },
+  {
+    "buyRewardNum": [120, 1, 1, 120],
+    "buyRewardType": ["diamond", "glyphs_3003", "gold_4", "noblePoints"],
+    "discountDisplay": 0,
+    "id": 2,
+    "productIdentifying": "",
+    "type": 2
+  },
+  {
+    "buyRewardNum": [120, 120, 40, 120],
+    "buyRewardType": ["diamond", "cast", "bread", "noblePoints"],
+    "discountDisplay": 25,
+    "id": 3,
+    "productIdentifying": "pay3004",
+    "type": 3
+  },
+  {
+    "buyRewardNum": [120, 1, 5000, 120],
+    "buyRewardType": ["diamond", "randomMem3", "blindBoxCoin", "noblePoints"],
+    "discountDisplay": 25,
+    "id": 4,
+    "productIdentifying": "pay3005",
+    "type": 4
+  }
+]

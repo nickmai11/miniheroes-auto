@@ -1,0 +1,162 @@
+[
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 1,
+    "payRewardNum": [40],
+    "payRewardType": ["medal1"],
+    "victorySessions": 10
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 2,
+    "payRewardNum": [1],
+    "payRewardType": ["medal2"],
+    "victorySessions": 20
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 3,
+    "payRewardNum": [40],
+    "payRewardType": ["medal1"],
+    "victorySessions": 30
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 4,
+    "payRewardNum": [1],
+    "payRewardType": ["medal2"],
+    "victorySessions": 50
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 5,
+    "payRewardNum": [40],
+    "payRewardType": ["medal1"],
+    "victorySessions": 75
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 6,
+    "payRewardNum": [1],
+    "payRewardType": ["medal2"],
+    "victorySessions": 100
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 7,
+    "payRewardNum": [40],
+    "payRewardType": ["medal1"],
+    "victorySessions": 125
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 8,
+    "payRewardNum": [1],
+    "payRewardType": ["medal2"],
+    "victorySessions": 150
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 9,
+    "payRewardNum": [40],
+    "payRewardType": ["medal1"],
+    "victorySessions": 175
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 10,
+    "payRewardNum": [1],
+    "payRewardType": ["medal2"],
+    "victorySessions": 200
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 11,
+    "payRewardNum": [40],
+    "payRewardType": ["medal1"],
+    "victorySessions": 225
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 12,
+    "payRewardNum": [1],
+    "payRewardType": ["medal2"],
+    "victorySessions": 250
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 13,
+    "payRewardNum": [40],
+    "payRewardType": ["medal1"],
+    "victorySessions": 275
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 14,
+    "payRewardNum": [1],
+    "payRewardType": ["medal2"],
+    "victorySessions": 300
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 15,
+    "payRewardNum": [40],
+    "payRewardType": ["medal1"],
+    "victorySessions": 325
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 16,
+    "payRewardNum": [1],
+    "payRewardType": ["medal2"],
+    "victorySessions": 350
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 17,
+    "payRewardNum": [40],
+    "payRewardType": ["medal1"],
+    "victorySessions": 375
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 18,
+    "payRewardNum": [1],
+    "payRewardType": ["medal2"],
+    "victorySessions": 400
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 19,
+    "payRewardNum": [40],
+    "payRewardType": ["medal1"],
+    "victorySessions": 450
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["medal1"],
+    "id": 20,
+    "payRewardNum": [1],
+    "payRewardType": ["medal2"],
+    "victorySessions": 500
+  }
+]

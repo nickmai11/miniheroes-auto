@@ -1,0 +1,30 @@
+[
+  {
+    "heroNum": 4,
+    "id": 1,
+    "productIdentifying": "pay18001",
+    "rewardNum": [60, 1, 60],
+    "rewardType": ["diamond", "gold_1", "noblePoints"]
+  },
+  {
+    "heroNum": 8,
+    "id": 2,
+    "productIdentifying": "pay18002",
+    "rewardNum": [120, 2, 120],
+    "rewardType": ["diamond", "gold_1", "noblePoints"]
+  },
+  {
+    "heroNum": 12,
+    "id": 3,
+    "productIdentifying": "pay18003",
+    "rewardNum": [180, 3, 180],
+    "rewardType": ["diamond", "gold_1", "noblePoints"]
+  },
+  {
+    "heroNum": 24,
+    "id": 4,
+    "productIdentifying": "pay18004",
+    "rewardNum": [360, 6, 300],
+    "rewardType": ["diamond", "gold_1", "noblePoints"]
+  }
+]

@@ -57,7 +57,7 @@ COLX = [136, 336, 536, 736, 936]
 ROW1, PITCH = 1255, 232          # card centers at the top of the grid: row r at ROW1 + (r-1)*PITCH
 
 
-def adb(d, *a): subprocess.run(['adb', '-s', d, 'shell', 'input', *map(str, a)])
+def adb(d, *a): subprocess.run(['adb', '-s', d, 'shell', 'input', a[0], *T.dev(*a[1:5]), *map(str, a[5:])])   # tap x y | swipe x0 y0 x1 y1 ms
 
 
 def gray(): return __import__('numpy').asarray(T.grab().convert('L'), dtype=float)[:, ::4]

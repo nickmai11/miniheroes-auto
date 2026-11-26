@@ -1,0 +1,212 @@
+[
+  {
+    "bossGroup": 1,
+    "id": 1,
+    "ranking": [1],
+    "rewardNum": [3000, 10, 300000],
+    "rewardType": ["beastCoin", "coinMinting3", "gold"]
+  },
+  {
+    "bossGroup": 1,
+    "id": 2,
+    "ranking": [2],
+    "rewardNum": [2500, 9, 250000],
+    "rewardType": ["beastCoin", "coinMinting3", "gold"]
+  },
+  {
+    "bossGroup": 1,
+    "id": 3,
+    "ranking": [3],
+    "rewardNum": [2000, 8, 200000],
+    "rewardType": ["beastCoin", "coinMinting3", "gold"]
+  },
+  {
+    "bossGroup": 1,
+    "id": 4,
+    "ranking": [4, 5],
+    "rewardNum": [1800, 6, 170000],
+    "rewardType": ["beastCoin", "coinMinting3", "gold"]
+  },
+  {
+    "bossGroup": 1,
+    "id": 5,
+    "ranking": [6, 10],
+    "rewardNum": [1500, 5, 140000],
+    "rewardType": ["beastCoin", "coinMinting3", "gold"]
+  },
+  {
+    "bossGroup": 1,
+    "id": 6,
+    "ranking": [11, 30],
+    "rewardNum": [1200, 4, 120000],
+    "rewardType": ["beastCoin", "coinMinting3", "gold"]
+  },
+  {
+    "bossGroup": 1,
+    "id": 7,
+    "ranking": [31, 50],
+    "rewardNum": [1000, 3, 100000],
+    "rewardType": ["beastCoin", "coinMinting3", "gold"]
+  },
+  {
+    "bossGroup": 1,
+    "id": 8,
+    "ranking": [51, 100],
+    "rewardNum": [700, 2, 80000],
+    "rewardType": ["beastCoin", "coinMinting3", "gold"]
+  },
+  {
+    "bossGroup": 1,
+    "id": 9,
+    "ranking": [101, 200],
+    "rewardNum": [500, 1, 50000],
+    "rewardType": ["beastCoin", "coinMinting3", "gold"]
+  },
+  {
+    "bossGroup": 1,
+    "id": 10,
+    "ranking": [201, 9999],
+    "rewardNum": [300, 1, 20000],
+    "rewardType": ["beastCoin", "coinMinting3", "gold"]
+  },
+  {
+    "bossGroup": 2,
+    "id": 11,
+    "ranking": [1],
+    "rewardNum": [3000, 2000, 300000],
+    "rewardType": ["beastCoin", "spiritStone_2", "gold"]
+  },
+  {
+    "bossGroup": 2,
+    "id": 12,
+    "ranking": [2],
+    "rewardNum": [2500, 1800, 250000],
+    "rewardType": ["beastCoin", "spiritStone_2", "gold"]
+  },
+  {
+    "bossGroup": 2,
+    "id": 13,
+    "ranking": [3],
+    "rewardNum": [2000, 1500, 200000],
+    "rewardType": ["beastCoin", "spiritStone_2", "gold"]
+  },
+  {
+    "bossGroup": 2,
+    "id": 14,
+    "ranking": [4, 5],
+    "rewardNum": [1800, 1200, 170000],
+    "rewardType": ["beastCoin", "spiritStone_2", "gold"]
+  },
+  {
+    "bossGroup": 2,
+    "id": 15,
+    "ranking": [6, 10],
+    "rewardNum": [1500, 1000, 140000],
+    "rewardType": ["beastCoin", "spiritStone_2", "gold"]
+  },
+  {
+    "bossGroup": 2,
+    "id": 16,
+    "ranking": [11, 30],
+    "rewardNum": [1200, 800, 120000],
+    "rewardType": ["beastCoin", "spiritStone_2", "gold"]
+  },
+  {
+    "bossGroup": 2,
+    "id": 17,
+    "ranking": [31, 50],
+    "rewardNum": [1000, 600, 100000],
+    "rewardType": ["beastCoin", "spiritStone_2", "gold"]
+  },
+  {
+    "bossGroup": 2,
+    "id": 18,
+    "ranking": [51, 100],
+    "rewardNum": [700, 400, 80000],
+    "rewardType": ["beastCoin", "spiritStone_2", "gold"]
+  },
+  {
+    "bossGroup": 2,
+    "id": 19,
+    "ranking": [101, 200],
+    "rewardNum": [500, 200, 50000],
+    "rewardType": ["beastCoin", "spiritStone_2", "gold"]
+  },
+  {
+    "bossGroup": 2,
+    "id": 20,
+    "ranking": [201, 9999],
+    "rewardNum": [300, 100, 20000],
+    "rewardType": ["beastCoin", "spiritStone_2", "gold"]
+  },
+  {
+    "bossGroup": 3,
+    "id": 21,
+    "ranking": [1],
+    "rewardNum": [3000, 1200, 300000],
+    "rewardType": ["beastCoin", "spiritStone_3", "gold"]
+  },
+  {
+    "bossGroup": 3,
+    "id": 22,
+    "ranking": [2],
+    "rewardNum": [2500, 1100, 250000],
+    "rewardType": ["beastCoin", "spiritStone_3", "gold"]
+  },
+  {
+    "bossGroup": 3,
+    "id": 23,
+    "ranking": [3],
+    "rewardNum": [2000, 1000, 200000],
+    "rewardType": ["beastCoin", "spiritStone_3", "gold"]
+  },
+  {
+    "bossGroup": 3,
+    "id": 24,
+    "ranking": [4, 5],
+    "rewardNum": [1800, 800, 170000],
+    "rewardType": ["beastCoin", "spiritStone_3", "gold"]
+  },
+  {
+    "bossGroup": 3,
+    "id": 25,
+    "ranking": [6, 10],
+    "rewardNum": [1500, 700, 140000],
+    "rewardType": ["beastCoin", "spiritStone_3", "gold"]
+  },
+  {
+    "bossGroup": 3,
+    "id": 26,
+    "ranking": [11, 30],
+    "rewardNum": [1200, 600, 120000],
+    "rewardType": ["beastCoin", "spiritStone_3", "gold"]
+  },
+  {
+    "bossGroup": 3,
+    "id": 27,
+    "ranking": [31, 50],
+    "rewardNum": [1000, 400, 100000],
+    "rewardType": ["beastCoin", "spiritStone_3", "gold"]
+  },
+  {
+    "bossGroup": 3,
+    "id": 28,
+    "ranking": [51, 100],
+    "rewardNum": [700, 300, 80000],
+    "rewardType": ["beastCoin", "spiritStone_3", "gold"]
+  },
+  {
+    "bossGroup": 3,
+    "id": 29,
+    "ranking": [101, 200],
+    "rewardNum": [500, 200, 50000],
+    "rewardType": ["beastCoin", "spiritStone_3", "gold"]
+  },
+  {
+    "bossGroup": 3,
+    "id": 30,
+    "ranking": [201, 9999],
+    "rewardNum": [300, 100, 20000],
+    "rewardType": ["beastCoin", "spiritStone_3", "gold"]
+  }
+]

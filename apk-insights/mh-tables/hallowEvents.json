@@ -1,0 +1,415 @@
+[
+  {
+    "eventIcon": "ui_relic_wakuang_dz2",
+    "eventId": 101,
+    "eventParamBig": 0,
+    "eventType": 1,
+    "id": 1
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz1",
+    "eventId": 201,
+    "eventParamBig": 0,
+    "eventType": 2,
+    "id": 2
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz15",
+    "eventId": 301,
+    "eventParamBig": 0,
+    "eventType": 3,
+    "id": 3
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz15",
+    "eventId": 302,
+    "eventParamBig": 0,
+    "eventType": 3,
+    "id": 4
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz15",
+    "eventId": 303,
+    "eventParamBig": 0,
+    "eventType": 3,
+    "id": 5
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz15",
+    "eventId": 304,
+    "eventParamBig": 0,
+    "eventType": 3,
+    "id": 6
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz15",
+    "eventId": 305,
+    "eventParamBig": 0,
+    "eventType": 3,
+    "id": 7
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz15",
+    "eventId": 306,
+    "eventParamBig": 0,
+    "eventType": 3,
+    "id": 8
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz15",
+    "eventId": 307,
+    "eventParamBig": 0,
+    "eventType": 3,
+    "id": 9
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz15",
+    "eventId": 308,
+    "eventParamBig": 0,
+    "eventType": 3,
+    "id": 10
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz15",
+    "eventId": 309,
+    "eventParamBig": 0,
+    "eventType": 3,
+    "id": 11
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz6",
+    "eventId": 401,
+    "eventParamBig": 0,
+    "eventType": 4,
+    "id": 12
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz6",
+    "eventId": 402,
+    "eventParamBig": 0,
+    "eventType": 4,
+    "id": 13
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz6",
+    "eventId": 403,
+    "eventParamBig": 0,
+    "eventType": 4,
+    "id": 14
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz6",
+    "eventId": 404,
+    "eventParamBig": 0,
+    "eventType": 4,
+    "id": 15
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz6",
+    "eventId": 405,
+    "eventParamBig": 0,
+    "eventType": 4,
+    "id": 16
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz6",
+    "eventId": 406,
+    "eventParamBig": 0,
+    "eventType": 4,
+    "id": 17
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz6",
+    "eventId": 407,
+    "eventParamBig": 0,
+    "eventType": 4,
+    "id": 18
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz6",
+    "eventId": 408,
+    "eventParamBig": 0,
+    "eventType": 4,
+    "id": 19
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz6",
+    "eventId": 409,
+    "eventParamBig": 0,
+    "eventType": 4,
+    "id": 20
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz5",
+    "eventId": 501,
+    "eventParamBig": 0,
+    "eventType": 5,
+    "id": 21
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz4",
+    "eventId": 601,
+    "eventParamBig": 0,
+    "eventType": 6,
+    "id": 22
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz3",
+    "eventId": 701,
+    "eventParamBig": 0,
+    "eventType": 7,
+    "id": 23
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz14",
+    "eventId": 801,
+    "eventParamBig": 0,
+    "eventType": 8,
+    "id": 24
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz14",
+    "eventId": 802,
+    "eventParamBig": 0,
+    "eventType": 8,
+    "id": 25
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz14",
+    "eventId": 803,
+    "eventParamBig": 0,
+    "eventType": 8,
+    "id": 26
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz14",
+    "eventId": 804,
+    "eventParamBig": 0,
+    "eventType": 8,
+    "id": 27
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz14",
+    "eventId": 805,
+    "eventParamBig": 0,
+    "eventType": 8,
+    "id": 28
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz14",
+    "eventId": 806,
+    "eventParamBig": 0,
+    "eventType": 8,
+    "id": 29
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz14",
+    "eventId": 807,
+    "eventParamBig": 0,
+    "eventType": 8,
+    "id": 30
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz14",
+    "eventId": 808,
+    "eventParamBig": 0,
+    "eventType": 8,
+    "id": 31
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz14",
+    "eventId": 809,
+    "eventParamBig": 0,
+    "eventType": 8,
+    "id": 32
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz11",
+    "eventId": 901,
+    "eventParamBig": 1,
+    "eventType": 9,
+    "id": 33
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz12",
+    "eventId": 902,
+    "eventParamBig": 2,
+    "eventType": 9,
+    "id": 34
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz13",
+    "eventId": 903,
+    "eventParamBig": 3,
+    "eventType": 9,
+    "id": 35
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz11",
+    "eventId": 904,
+    "eventParamBig": 1,
+    "eventType": 9,
+    "id": 36
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz12",
+    "eventId": 905,
+    "eventParamBig": 2,
+    "eventType": 9,
+    "id": 37
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz13",
+    "eventId": 906,
+    "eventParamBig": 3,
+    "eventType": 9,
+    "id": 38
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz11",
+    "eventId": 907,
+    "eventParamBig": 1,
+    "eventType": 9,
+    "id": 39
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz12",
+    "eventId": 908,
+    "eventParamBig": 2,
+    "eventType": 9,
+    "id": 40
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz13",
+    "eventId": 909,
+    "eventParamBig": 3,
+    "eventType": 9,
+    "id": 41
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz11",
+    "eventId": 910,
+    "eventParamBig": 1,
+    "eventType": 9,
+    "id": 42
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz12",
+    "eventId": 911,
+    "eventParamBig": 2,
+    "eventType": 9,
+    "id": 43
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz13",
+    "eventId": 912,
+    "eventParamBig": 3,
+    "eventType": 9,
+    "id": 44
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz11",
+    "eventId": 913,
+    "eventParamBig": 1,
+    "eventType": 9,
+    "id": 45
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz12",
+    "eventId": 914,
+    "eventParamBig": 2,
+    "eventType": 9,
+    "id": 46
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz13",
+    "eventId": 915,
+    "eventParamBig": 3,
+    "eventType": 9,
+    "id": 47
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz11",
+    "eventId": 916,
+    "eventParamBig": 1,
+    "eventType": 9,
+    "id": 48
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz12",
+    "eventId": 917,
+    "eventParamBig": 2,
+    "eventType": 9,
+    "id": 49
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz13",
+    "eventId": 918,
+    "eventParamBig": 3,
+    "eventType": 9,
+    "id": 50
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz11",
+    "eventId": 919,
+    "eventParamBig": 1,
+    "eventType": 9,
+    "id": 51
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz12",
+    "eventId": 920,
+    "eventParamBig": 2,
+    "eventType": 9,
+    "id": 52
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz13",
+    "eventId": 921,
+    "eventParamBig": 3,
+    "eventType": 9,
+    "id": 53
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz11",
+    "eventId": 922,
+    "eventParamBig": 1,
+    "eventType": 9,
+    "id": 54
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz12",
+    "eventId": 923,
+    "eventParamBig": 2,
+    "eventType": 9,
+    "id": 55
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz13",
+    "eventId": 924,
+    "eventParamBig": 3,
+    "eventType": 9,
+    "id": 56
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz11",
+    "eventId": 925,
+    "eventParamBig": 1,
+    "eventType": 9,
+    "id": 57
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz12",
+    "eventId": 926,
+    "eventParamBig": 2,
+    "eventType": 9,
+    "id": 58
+  },
+  {
+    "eventIcon": "ui_relic_wakuang_dz13",
+    "eventId": 927,
+    "eventParamBig": 3,
+    "eventType": 9,
+    "id": 59
+  }
+]

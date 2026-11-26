@@ -1,0 +1,53 @@
+{
+  "fiveEliminateScore": {
+    "eventType": "fiveEliminateScore",
+    "id": 9,
+    "num": 17
+  },
+  "fourEliminateScore": {
+    "eventType": "fourEliminateScore",
+    "id": 8,
+    "num": 13
+  },
+  "removeMultiLineRatio": {
+    "eventType": "removeMultiLineRatio",
+    "id": 3,
+    "num": 5
+  },
+  "removeMultiLineScoreRatio": {
+    "eventType": "removeMultiLineScoreRatio",
+    "id": 6,
+    "num": 200
+  },
+  "removeOneLineRecoverTime": {
+    "eventType": "removeOneLineRecoverTime",
+    "id": 2,
+    "num": 2
+  },
+  "removeOneLineScore": {
+    "eventType": "removeOneLineScore",
+    "id": 5,
+    "num": 100
+  },
+  "risingPixelPerSecond": {
+    "eventType": "risingPixelPerSecond",
+    "id": 4,
+    "num": 8
+  },
+  "sevenEliminateScore": {
+    "eventType": "sevenEliminateScore",
+    "id": 11,
+    "num": 25
+  },
+  "sixEliminateScore": {
+    "eventType": "sixEliminateScore",
+    "id": 10,
+    "num": 21
+  },
+  "tetrisGameTime": { "eventType": "tetrisGameTime", "id": 1, "num": 600 },
+  "threeEliminateScore": {
+    "eventType": "threeEliminateScore",
+    "id": 7,
+    "num": 9
+  }
+}

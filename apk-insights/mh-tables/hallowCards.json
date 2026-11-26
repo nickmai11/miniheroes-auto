@@ -1,0 +1,15 @@
+[
+  {
+    "continueDays": 30,
+    "dayRewardNum": [1, 1, 15],
+    "dayRewardType": ["explosiveNew", "broachNew", "shove"],
+    "discount": 66,
+    "id": 1,
+    "maxShoveAdd": 50,
+    "openAutoFunction": 1,
+    "productIdentifying": "pay43001",
+    "recoverShoveQuick": 60,
+    "rewardNum": [600, 600],
+    "rewardType": ["diamond", "noblePoints"]
+  }
+]

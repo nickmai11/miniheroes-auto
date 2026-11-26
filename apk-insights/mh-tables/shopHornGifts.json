@@ -1,0 +1,9 @@
+[
+  {
+    "describe": "UI_CHAT_23",
+    "id": 1,
+    "productIdentifying": "pay52001",
+    "rewardNum": [180, 10, 180],
+    "rewardType": ["diamond", "loudSpeaker", "noblePoints"]
+  }
+]

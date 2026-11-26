@@ -1,0 +1,61 @@
+[
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["herodebris"],
+    "id": 1,
+    "paidRewardNum": [300, 10, 1, 300],
+    "paidRewardType": ["diamond", "limitRoll", "exp_2", "noblePoints"],
+    "productIdentifying": "pay17001",
+    "starCondition": 0
+  },
+  {
+    "freeRewardNum": [5],
+    "freeRewardType": ["herodebris"],
+    "id": 2,
+    "paidRewardNum": [680, 1, 1, 680],
+    "paidRewardType": ["diamond", "shenhuabox", "gold_3", "noblePoints"],
+    "productIdentifying": "pay17002",
+    "starCondition": 2
+  },
+  {
+    "freeRewardNum": [7],
+    "freeRewardType": ["herodebris"],
+    "id": 3,
+    "paidRewardNum": [880, 1, 5000, 880],
+    "paidRewardType": [
+      "diamond",
+      "strongPotion",
+      "succinctStone",
+      "noblePoints"
+    ],
+    "productIdentifying": "pay17003",
+    "starCondition": 5
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["heroSkin2"],
+    "id": 4,
+    "paidRewardNum": [1980, 3, 5, 1980],
+    "paidRewardType": ["diamond", "danDwBox", "gold_3", "noblePoints"],
+    "productIdentifying": "pay17004",
+    "starCondition": 8
+  },
+  {
+    "freeRewardNum": [20],
+    "freeRewardType": ["herodebris"],
+    "id": 5,
+    "paidRewardNum": [3280, 10, 30000, 3280],
+    "paidRewardType": ["diamond", "tieStone", "succinctStone", "noblePoints"],
+    "productIdentifying": "pay17005",
+    "starCondition": 12
+  },
+  {
+    "freeRewardNum": [25],
+    "freeRewardType": ["herodebris"],
+    "id": 6,
+    "paidRewardNum": [6480, 1, 10, 6480],
+    "paidRewardType": ["diamond", "heroeq", "soulStone3", "noblePoints"],
+    "productIdentifying": "pay17006",
+    "starCondition": 16
+  }
+]

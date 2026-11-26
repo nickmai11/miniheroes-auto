@@ -1,0 +1,50 @@
+[
+  {
+    "conditionParam": 1,
+    "conditionType": 1,
+    "id": 1,
+    "rewardNum": [50, 3],
+    "rewardType": ["diamond", "recruitRoll"],
+    "taskDes": "SHARE_TASK_DES01"
+  },
+  {
+    "conditionParam": 1,
+    "conditionType": 2,
+    "id": 2,
+    "rewardNum": [10, 5],
+    "rewardType": ["templeDust", "recruitRoll"],
+    "taskDes": "SHARE_TASK_DES02"
+  },
+  {
+    "conditionParam": 3,
+    "conditionType": 2,
+    "id": 3,
+    "rewardNum": [10, 5],
+    "rewardType": ["templeDust", "recruitRoll"],
+    "taskDes": "SHARE_TASK_DES02"
+  },
+  {
+    "conditionParam": 5,
+    "conditionType": 2,
+    "id": 4,
+    "rewardNum": [10, 5],
+    "rewardType": ["templeDust", "recruitRoll"],
+    "taskDes": "SHARE_TASK_DES02"
+  },
+  {
+    "conditionParam": 7,
+    "conditionType": 2,
+    "id": 5,
+    "rewardNum": [10, 5],
+    "rewardType": ["templeDust", "recruitRoll"],
+    "taskDes": "SHARE_TASK_DES02"
+  },
+  {
+    "conditionParam": 10,
+    "conditionType": 2,
+    "id": 6,
+    "rewardNum": [10, 1],
+    "rewardType": ["templeDust", "headFrame_17"],
+    "taskDes": "SHARE_TASK_DES02"
+  }
+]

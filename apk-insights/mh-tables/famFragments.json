@@ -1,0 +1,182 @@
+[
+  { "id": 1, "mapName": "3", "show": ["coinMinting1"], "showNum": [20] },
+  { "id": 2, "mapName": "3", "show": ["coinMinting1"], "showNum": [22] },
+  { "id": 3, "mapName": "3", "show": ["coinMinting1"], "showNum": [24] },
+  { "id": 4, "mapName": "3", "show": ["coinMinting1"], "showNum": [26] },
+  { "id": 5, "mapName": "3", "show": ["coinMinting1"], "showNum": [28] },
+  { "id": 6, "mapName": "3", "show": ["coinMinting1"], "showNum": [30] },
+  {
+    "id": 7,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2"],
+    "showNum": [20, 3]
+  },
+  {
+    "id": 8,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2"],
+    "showNum": [19, 4]
+  },
+  {
+    "id": 9,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2"],
+    "showNum": [18, 5]
+  },
+  {
+    "id": 10,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2"],
+    "showNum": [17, 6]
+  },
+  {
+    "id": 11,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2"],
+    "showNum": [16, 7]
+  },
+  {
+    "id": 12,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2"],
+    "showNum": [15, 8]
+  },
+  {
+    "id": 13,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2"],
+    "showNum": [14, 9]
+  },
+  {
+    "id": 14,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2"],
+    "showNum": [13, 10]
+  },
+  {
+    "id": 15,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2"],
+    "showNum": [14, 10]
+  },
+  {
+    "id": 16,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2"],
+    "showNum": [13, 11]
+  },
+  {
+    "id": 17,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2"],
+    "showNum": [12, 12]
+  },
+  {
+    "id": 18,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [10, 12, 2]
+  },
+  {
+    "id": 19,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [12, 13, 2]
+  },
+  {
+    "id": 20,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [10, 13, 3]
+  },
+  {
+    "id": 21,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [10, 14, 3]
+  },
+  {
+    "id": 22,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [12, 14, 3]
+  },
+  {
+    "id": 23,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [10, 14, 4]
+  },
+  {
+    "id": 24,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [10, 15, 4]
+  },
+  {
+    "id": 25,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [12, 15, 4]
+  },
+  {
+    "id": 26,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [10, 15, 5]
+  },
+  {
+    "id": 27,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [12, 15, 5]
+  },
+  {
+    "id": 28,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [10, 15, 6]
+  },
+  {
+    "id": 29,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [10, 15, 7]
+  },
+  {
+    "id": 30,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [10, 15, 8]
+  },
+  {
+    "id": 31,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [11, 15, 8]
+  },
+  {
+    "id": 32,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [12, 15, 8]
+  },
+  {
+    "id": 33,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [12, 16, 8]
+  },
+  {
+    "id": 34,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [12, 16, 9]
+  },
+  {
+    "id": 35,
+    "mapName": "3",
+    "show": ["coinMinting1", "coinMinting2", "coinMinting3"],
+    "showNum": [13, 16, 9]
+  }
+]

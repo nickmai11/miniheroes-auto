@@ -1,0 +1,162 @@
+[
+  {
+    "forgeFrequency": 5,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 1,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 10,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 2,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 20,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 3,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 30,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 4,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 50,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 5,
+    "payRewardNum": [1],
+    "payRewardType": ["weapon_1010804010"]
+  },
+  {
+    "forgeFrequency": 70,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 6,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 100,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 7,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 150,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 8,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 200,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 9,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 250,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 10,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 300,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 11,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 350,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 12,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 400,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 13,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 450,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 14,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 500,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 15,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 600,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 16,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 700,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 17,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 800,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 18,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 900,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 19,
+    "payRewardNum": [3500],
+    "payRewardType": ["forgeCoin"]
+  },
+  {
+    "forgeFrequency": 1000,
+    "freeRewardNum": [350],
+    "freeRewardType": ["forgeCoin"],
+    "id": 20,
+    "payRewardNum": [1],
+    "payRewardType": ["weapon_1030405030"]
+  }
+]

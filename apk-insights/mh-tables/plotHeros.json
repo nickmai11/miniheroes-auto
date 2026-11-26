@@ -1,0 +1,112 @@
+[
+  {
+    "attributeAddition": ["physicsDamage", "defense", "life"],
+    "attributeAdditionNum": [3441, 1900, 144388],
+    "attributeReduce": ["physicsDamage", "defense", "life"],
+    "attributeReduceNum": [0, 0, 0],
+    "fightSession": 1,
+    "heroId": 10100,
+    "id": 1,
+    "quality": 3,
+    "star": 16
+  },
+  {
+    "attributeAddition": ["physicsDamage", "defense", "life"],
+    "attributeAdditionNum": [3441, 1900, 144388],
+    "attributeReduce": ["physicsDamage", "defense", "life"],
+    "attributeReduceNum": [0, 0, 0],
+    "fightSession": 1,
+    "heroId": 10800,
+    "id": 2,
+    "quality": 3,
+    "star": 16
+  },
+  {
+    "attributeAddition": ["physicsDamage", "defense", "life"],
+    "attributeAdditionNum": [6022, 1828, 100483],
+    "attributeReduce": ["physicsDamage", "defense", "life"],
+    "attributeReduceNum": [0, 0, 0],
+    "fightSession": 1,
+    "heroId": 30500,
+    "id": 3,
+    "quality": 3,
+    "star": 16
+  },
+  {
+    "attributeAddition": ["magicDamage", "defense", "life"],
+    "attributeAdditionNum": [6340, 1802, 111383],
+    "attributeReduce": ["magicDamage", "defense", "life"],
+    "attributeReduceNum": [0, 0, 0],
+    "fightSession": 1,
+    "heroId": 20700,
+    "id": 4,
+    "quality": 3,
+    "star": 16
+  },
+  {
+    "attributeAddition": ["magicDamage", "defense", "life"],
+    "attributeAdditionNum": [7692, 1703, 99147],
+    "attributeReduce": ["magicDamage", "defense", "life"],
+    "attributeReduceNum": [0, 0, 0],
+    "fightSession": 1,
+    "heroId": 40100,
+    "id": 5,
+    "quality": 3,
+    "star": 16
+  },
+  {
+    "attributeAddition": ["physicsDamage", "defense", "life", "repelResist"],
+    "attributeAdditionNum": [3441, 2280, 2310220, 0.38],
+    "attributeReduce": ["physicsDamage", "defense", "life"],
+    "attributeReduceNum": [0, 0, 0],
+    "fightSession": 2,
+    "heroId": 101,
+    "id": 6,
+    "quality": 3,
+    "star": 16
+  },
+  {
+    "attributeAddition": ["physicsDamage", "defense", "life", "repelResist"],
+    "attributeAdditionNum": [3441, 2280, 924088, 0.38],
+    "attributeReduce": ["physicsDamage", "defense", "life"],
+    "attributeReduceNum": [0, 0, 0],
+    "fightSession": 2,
+    "heroId": 108,
+    "id": 7,
+    "quality": 3,
+    "star": 16
+  },
+  {
+    "attributeAddition": ["physicsDamage", "defense", "life"],
+    "attributeAdditionNum": [6022, 1828, 506438],
+    "attributeReduce": ["physicsDamage", "defense", "life"],
+    "attributeReduceNum": [0, 0, 0],
+    "fightSession": 2,
+    "heroId": 305,
+    "id": 8,
+    "quality": 3,
+    "star": 16
+  },
+  {
+    "attributeAddition": ["magicDamage", "defense", "life"],
+    "attributeAdditionNum": [6340, 1802, 561374],
+    "attributeReduce": ["magicDamage", "defense", "life"],
+    "attributeReduceNum": [0, 0, 0],
+    "fightSession": 2,
+    "heroId": 207,
+    "id": 9,
+    "quality": 3,
+    "star": 16
+  },
+  {
+    "attributeAddition": ["magicDamage", "defense", "life"],
+    "attributeAdditionNum": [7692, 2043, 1586360],
+    "attributeReduce": ["magicDamage", "defense", "life"],
+    "attributeReduceNum": [0, 0, 0],
+    "fightSession": 2,
+    "heroId": 401,
+    "id": 10,
+    "quality": 3,
+    "star": 16
+  }
+]

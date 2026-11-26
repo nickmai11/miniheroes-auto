@@ -1,0 +1,58 @@
+[
+  {
+    "daysRequire": 1,
+    "freeRewardNum": [1],
+    "freeRewardType": ["flipCard"],
+    "id": 1,
+    "payRewardNum": [8, 3],
+    "payRewardType": ["flipCard", "recruitRoll"]
+  },
+  {
+    "daysRequire": 2,
+    "freeRewardNum": [2],
+    "freeRewardType": ["flipCard"],
+    "id": 2,
+    "payRewardNum": [8, 3],
+    "payRewardType": ["flipCard", "recruitRoll"]
+  },
+  {
+    "daysRequire": 3,
+    "freeRewardNum": [1],
+    "freeRewardType": ["flipCard"],
+    "id": 3,
+    "payRewardNum": [8, 3],
+    "payRewardType": ["flipCard", "recruitRoll"]
+  },
+  {
+    "daysRequire": 4,
+    "freeRewardNum": [2],
+    "freeRewardType": ["flipCard"],
+    "id": 4,
+    "payRewardNum": [8, 3],
+    "payRewardType": ["flipCard", "recruitRoll"]
+  },
+  {
+    "daysRequire": 5,
+    "freeRewardNum": [1],
+    "freeRewardType": ["flipCard"],
+    "id": 5,
+    "payRewardNum": [8, 3],
+    "payRewardType": ["flipCard", "recruitRoll"]
+  },
+  {
+    "daysRequire": 6,
+    "freeRewardNum": [2],
+    "freeRewardType": ["flipCard"],
+    "id": 6,
+    "payRewardNum": [8, 3],
+    "payRewardType": ["flipCard", "recruitRoll"]
+  },
+  {
+    "daysRequire": 7,
+    "freeRewardNum": [1],
+    "freeRewardType": ["flipCard"],
+    "id": 7,
+    "payRewardNum": [8, 3],
+    "payRewardType": ["flipCard", "recruitRoll"]
+  }
+]

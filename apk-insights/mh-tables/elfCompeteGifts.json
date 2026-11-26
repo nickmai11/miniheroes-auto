@@ -1,0 +1,71 @@
+[
+  {
+    "describe": "ELFACT_GIFT_NAME1",
+    "id": 1,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay37000",
+    "rewardNum": [20],
+    "rewardType": ["diamond"]
+  },
+  {
+    "describe": "ELFACT_GIFT_NAME2",
+    "id": 2,
+    "limitNum": 10,
+    "limitType": 2,
+    "productIdentifying": "pay37001",
+    "rewardNum": [180, 2, 2000, 1, 180],
+    "rewardType": [
+      "diamond",
+      "elfBattleTicket",
+      "elfStone",
+      "breakStone3",
+      "noblePoints"
+    ]
+  },
+  {
+    "describe": "ELFACT_GIFT_NAME3",
+    "id": 3,
+    "limitNum": 5,
+    "limitType": 2,
+    "productIdentifying": "pay37002",
+    "rewardNum": [300, 3, 3000, 2, 300],
+    "rewardType": [
+      "diamond",
+      "elfBattleTicket",
+      "elfStone",
+      "breakStone3",
+      "noblePoints"
+    ]
+  },
+  {
+    "describe": "ELFACT_GIFT_NAME4",
+    "id": 4,
+    "limitNum": 3,
+    "limitType": 2,
+    "productIdentifying": "pay37003",
+    "rewardNum": [600, 4, 6000, 1, 600],
+    "rewardType": [
+      "diamond",
+      "elfBattleTicket",
+      "elfStone",
+      "breakStone4",
+      "noblePoints"
+    ]
+  },
+  {
+    "describe": "ELFACT_GIFT_NAME5",
+    "id": 5,
+    "limitNum": 2,
+    "limitType": 2,
+    "productIdentifying": "pay37004",
+    "rewardNum": [1980, 8, 18000, 2, 1980],
+    "rewardType": [
+      "diamond",
+      "elfBattleTicket",
+      "elfStone",
+      "breakStone4",
+      "noblePoints"
+    ]
+  }
+]

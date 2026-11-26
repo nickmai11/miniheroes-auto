@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "key": 401,
+    "name": "ZHD_INFO_2",
+    "sort": 1,
+    "unlockingCondition": 1,
+    "unlockingNum": 22,
+    "unlockingNum1": [22]
+  },
+  {
+    "id": 2,
+    "key": 402,
+    "name": "ZHD_INFO_3",
+    "sort": 2,
+    "unlockingCondition": 1,
+    "unlockingNum": 40,
+    "unlockingNum1": [40]
+  },
+  {
+    "id": 3,
+    "key": 403,
+    "name": "ZHD_INFO_12",
+    "sort": 3,
+    "unlockingCondition": 1,
+    "unlockingNum": 35,
+    "unlockingNum1": [35]
+  },
+  {
+    "id": 4,
+    "key": 404,
+    "name": "ZHD_INFO_13",
+    "sort": 5,
+    "unlockingCondition": 1,
+    "unlockingNum": 85,
+    "unlockingNum1": [85]
+  },
+  {
+    "id": 5,
+    "key": 405,
+    "name": "ZHD_INFO_14",
+    "sort": 6,
+    "unlockingCondition": 3,
+    "unlockingNum": 30,
+    "unlockingNum1": [30]
+  },
+  {
+    "id": 6,
+    "key": 406,
+    "name": "SKIN_RELIC_WORDS_015",
+    "sort": 4,
+    "unlockingCondition": 1,
+    "unlockingNum": 75,
+    "unlockingNum1": [75]
+  }
+]

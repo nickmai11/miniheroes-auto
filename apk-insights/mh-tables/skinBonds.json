@@ -1,0 +1,218 @@
+[
+  {
+    "bgPic": "banner_pf1",
+    "fettersId": 10001,
+    "id": 1,
+    "name": "SKIN_FETTERS_NAME_10001",
+    "picBox": "skinBox_10001",
+    "repeatPointNeed": 30,
+    "rewardSkin": [
+      "skinAct_309002",
+      "skinAct_208002",
+      "skinAct_107002",
+      "skinAct_101002"
+    ],
+    "showInList": 0,
+    "skinList": [309002, 208002, 107002, 101002],
+    "sortList": 99,
+    "star": 0
+  },
+  {
+    "bgPic": "banner_pf2",
+    "fettersId": 10002,
+    "id": 2,
+    "name": "SKIN_FETTERS_NAME_10002",
+    "picBox": "skinBox_10002",
+    "repeatPointNeed": 30,
+    "rewardSkin": [
+      "skinAct_407002",
+      "skinAct_207002",
+      "skinAct_204002",
+      "skinAct_403002"
+    ],
+    "showInList": 1,
+    "skinList": [407002, 207002, 204002, 403002],
+    "sortList": 98,
+    "star": 0
+  },
+  {
+    "bgPic": "banner_pf3",
+    "fettersId": 10003,
+    "id": 3,
+    "name": "SKIN_FETTERS_NAME_10003",
+    "picBox": "skinBox_10003",
+    "repeatPointNeed": 30,
+    "rewardSkin": [
+      "skinAct_108002",
+      "skinAct_206002",
+      "skinAct_405002",
+      "skinAct_205002"
+    ],
+    "showInList": 1,
+    "skinList": [108002, 206002, 405002, 205002],
+    "sortList": 97,
+    "star": 0
+  },
+  {
+    "bgPic": "banner_pf4",
+    "fettersId": 10004,
+    "id": 4,
+    "name": "SKIN_FETTERS_NAME_10004",
+    "picBox": "skinBox_10004",
+    "repeatPointNeed": 30,
+    "rewardSkin": [
+      "skinAct_113002",
+      "skinAct_305002",
+      "skinAct_307002",
+      "skinAct_308002"
+    ],
+    "showInList": 1,
+    "skinList": [113002, 305002, 307002, 308002],
+    "sortList": 96,
+    "star": 0
+  },
+  {
+    "bgPic": "banner_pf5",
+    "fettersId": 10005,
+    "id": 5,
+    "name": "SKIN_FETTERS_NAME_10005",
+    "picBox": "skinBox_10005",
+    "repeatPointNeed": 30,
+    "rewardSkin": [
+      "skinAct_114002",
+      "skinAct_409002",
+      "skinAct_201002",
+      "skinAct_104002"
+    ],
+    "showInList": 0,
+    "skinList": [114002, 409002, 201002, 104002],
+    "sortList": 95,
+    "star": 0
+  },
+  {
+    "bgPic": "banner_pf6",
+    "fettersId": 10006,
+    "id": 6,
+    "name": "SKIN_FETTERS_NAME_10006",
+    "picBox": "skinBox_10006",
+    "repeatPointNeed": 30,
+    "rewardSkin": [
+      "skinAct_116002",
+      "skinAct_301002",
+      "skinAct_103002",
+      "skinAct_306002"
+    ],
+    "showInList": 0,
+    "skinList": [116002, 301002, 103002, 306002],
+    "sortList": 94,
+    "star": 0
+  },
+  {
+    "bgPic": "banner_pf7",
+    "fettersId": 10007,
+    "id": 7,
+    "name": "SKIN_FETTERS_NAME_10007",
+    "picBox": "skinBox_10007",
+    "repeatPointNeed": 30,
+    "rewardSkin": [
+      "skinAct_112002",
+      "skinAct_411002",
+      "skinAct_105002",
+      "skinAct_102002"
+    ],
+    "showInList": 1,
+    "skinList": [112002, 411002, 105002, 102002],
+    "sortList": 93,
+    "star": 0
+  },
+  {
+    "bgPic": "banner_pf8",
+    "fettersId": 10008,
+    "id": 8,
+    "name": "SKIN_FETTERS_NAME_10008",
+    "picBox": "skinBox_10008",
+    "repeatPointNeed": 30,
+    "rewardSkin": [
+      "skinAct_212002",
+      "skinAct_412002",
+      "skinAct_304002",
+      "skinAct_401002"
+    ],
+    "showInList": 0,
+    "skinList": [212002, 412002, 304002, 401002],
+    "sortList": 92,
+    "star": 0
+  },
+  {
+    "bgPic": "banner_pf9",
+    "fettersId": 10009,
+    "id": 9,
+    "name": "SKIN_FETTERS_NAME_10009",
+    "picBox": "skinBox_10009",
+    "repeatPointNeed": 30,
+    "rewardSkin": [
+      "skinAct_117002",
+      "skinAct_408002",
+      "skinAct_110002",
+      "skinAct_402002"
+    ],
+    "showInList": 0,
+    "skinList": [117002, 408002, 110002, 402002],
+    "sortList": 91,
+    "star": 0
+  },
+  {
+    "bgPic": "banner_pf10",
+    "fettersId": 10010,
+    "id": 10,
+    "name": "SKIN_FETTERS_NAME_10010",
+    "picBox": "skinBox_10010",
+    "repeatPointNeed": 30,
+    "rewardSkin": [
+      "skinAct_111002",
+      "skinAct_406002",
+      "skinAct_302002",
+      "skinAct_303002"
+    ],
+    "showInList": 1,
+    "skinList": [111002, 406002, 302002, 303002],
+    "sortList": 90,
+    "star": 0
+  },
+  {
+    "bgPic": "banner_pf11",
+    "fettersId": 10011,
+    "id": 11,
+    "name": "SKIN_FETTERS_NAME_10011",
+    "picBox": "skinBox_10011",
+    "repeatPointNeed": 30,
+    "rewardSkin": [
+      "skinAct_312002",
+      "skinAct_311002",
+      "skinAct_106002",
+      "skinAct_202002"
+    ],
+    "showInList": 0,
+    "skinList": [312002, 311002, 106002, 202002],
+    "sortList": 89,
+    "star": 0
+  },
+  {
+    "bgPic": "banner_pf12",
+    "fettersId": 10012,
+    "id": 12,
+    "name": "SKIN_FETTERS_NAME_10012",
+    "picBox": "skinBox_10012",
+    "repeatPointNeed": 30,
+    "rewardSkin": [
+      "skinAct_118002",
+      "skinAct_213002",
+      "skinAct_203002",
+      "skinAct_404002"
+    ],
+    "showInList": 0,
+    "skinList": [118002, 213002, 203002, 404002],
+    "sortList": 88,
+    "star": 0
+  }
+]

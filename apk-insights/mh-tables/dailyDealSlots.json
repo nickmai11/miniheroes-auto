@@ -1,0 +1,134 @@
+[
+  {
+    "icon": "",
+    "id": 1,
+    "positionId": 1,
+    "positionType": 1,
+    "randomProbability": [1],
+    "typeDescription2": "",
+    "typeIcon2": [],
+    "typeName2": "",
+    "typeNumber2": []
+  },
+  {
+    "icon": "2",
+    "id": 2,
+    "positionId": 2,
+    "positionType": 2,
+    "randomProbability": [1, 0.35, 0.9],
+    "typeDescription2": "ZHD_MRJX_INFO_1",
+    "typeIcon2": ["exp_1", "soulStone1", "randomFragment2"],
+    "typeName2": "ZHD_MRJX_BOX_1",
+    "typeNumber2": [1, 2, 1]
+  },
+  {
+    "icon": "3",
+    "id": 3,
+    "positionId": 3,
+    "positionType": 2,
+    "randomProbability": [1, 0.35, 0.99],
+    "typeDescription2": "ZHD_MRJX_INFO_2",
+    "typeIcon2": ["gold_1", "diamond", "exp"],
+    "typeName2": "ZHD_MRJX_BOX_2",
+    "typeNumber2": [1, 50, 5000]
+  },
+  {
+    "icon": "4",
+    "id": 4,
+    "positionId": 4,
+    "positionType": 2,
+    "randomProbability": [1, 0.99, 0.35],
+    "typeDescription2": "ZHD_MRJX_INFO_3",
+    "typeIcon2": ["diamond", "coinMinting1", "glyphs_2001"],
+    "typeName2": "ZHD_MRJX_BOX_3",
+    "typeNumber2": [80, 3, 1]
+  },
+  {
+    "icon": "",
+    "id": 5,
+    "positionId": 5,
+    "positionType": 3,
+    "randomProbability": [1],
+    "typeDescription2": "",
+    "typeIcon2": [],
+    "typeName2": "",
+    "typeNumber2": []
+  },
+  {
+    "icon": "",
+    "id": 6,
+    "positionId": 6,
+    "positionType": 3,
+    "randomProbability": [1],
+    "typeDescription2": "",
+    "typeIcon2": [],
+    "typeName2": "",
+    "typeNumber2": []
+  },
+  {
+    "icon": "",
+    "id": 7,
+    "positionId": 7,
+    "positionType": 3,
+    "randomProbability": [1],
+    "typeDescription2": "",
+    "typeIcon2": [],
+    "typeName2": "",
+    "typeNumber2": []
+  },
+  {
+    "icon": "",
+    "id": 8,
+    "positionId": 8,
+    "positionType": 3,
+    "randomProbability": [1],
+    "typeDescription2": "",
+    "typeIcon2": [],
+    "typeName2": "",
+    "typeNumber2": []
+  },
+  {
+    "icon": "",
+    "id": 9,
+    "positionId": 9,
+    "positionType": 3,
+    "randomProbability": [1],
+    "typeDescription2": "",
+    "typeIcon2": [],
+    "typeName2": "",
+    "typeNumber2": []
+  },
+  {
+    "icon": "",
+    "id": 10,
+    "positionId": 10,
+    "positionType": 3,
+    "randomProbability": [1],
+    "typeDescription2": "",
+    "typeIcon2": [],
+    "typeName2": "",
+    "typeNumber2": []
+  },
+  {
+    "icon": "",
+    "id": 11,
+    "positionId": 11,
+    "positionType": 3,
+    "randomProbability": [1],
+    "typeDescription2": "",
+    "typeIcon2": [],
+    "typeName2": "",
+    "typeNumber2": []
+  },
+  {
+    "icon": "",
+    "id": 12,
+    "positionId": 12,
+    "positionType": 3,
+    "randomProbability": [1],
+    "typeDescription2": "",
+    "typeIcon2": [],
+    "typeName2": "",
+    "typeNumber2": []
+  }
+]

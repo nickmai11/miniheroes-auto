@@ -1,0 +1,82 @@
+[
+  {
+    "animation": 0,
+    "id": 1,
+    "key": 101,
+    "name": "UI_SETTING_1",
+    "sort": 1,
+    "unlockingCondition": 1,
+    "unlockingNum": 1,
+    "unlockingNum1": [1]
+  },
+  {
+    "animation": 0,
+    "id": 2,
+    "key": 102,
+    "name": "UI_SETTING_8",
+    "sort": 2,
+    "unlockingCondition": 1,
+    "unlockingNum": 1,
+    "unlockingNum1": [1]
+  },
+  {
+    "animation": 0,
+    "id": 3,
+    "key": 106,
+    "name": "UI_SETTING_5",
+    "sort": 3,
+    "unlockingCondition": 1,
+    "unlockingNum": 1,
+    "unlockingNum1": [1]
+  },
+  {
+    "animation": 0,
+    "id": 4,
+    "key": 104,
+    "name": "UI_SETTING_3",
+    "sort": 5,
+    "unlockingCondition": 1,
+    "unlockingNum": 22,
+    "unlockingNum1": [22]
+  },
+  {
+    "animation": 0,
+    "id": 5,
+    "key": 107,
+    "name": "UI_SETTING_6",
+    "sort": 6,
+    "unlockingCondition": 1,
+    "unlockingNum": 15,
+    "unlockingNum1": [15]
+  },
+  {
+    "animation": 0,
+    "id": 6,
+    "key": 108,
+    "name": "UI_SETTING_7",
+    "sort": 8,
+    "unlockingCondition": 1,
+    "unlockingNum": 1,
+    "unlockingNum1": [1]
+  },
+  {
+    "animation": 0,
+    "id": 7,
+    "key": 109,
+    "name": "UI_SETTING_9",
+    "sort": 4,
+    "unlockingCondition": 1,
+    "unlockingNum": 30,
+    "unlockingNum1": [30]
+  },
+  {
+    "animation": 0,
+    "id": 8,
+    "key": 110,
+    "name": "UI_SETTING_10",
+    "sort": 7,
+    "unlockingCondition": 1,
+    "unlockingNum": 40,
+    "unlockingNum1": [40]
+  }
+]

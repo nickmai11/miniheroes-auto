@@ -1,0 +1,9 @@
+[
+  {
+    "buyType": [2, 4],
+    "id": 1,
+    "integralReward": 150,
+    "price": [240, 1],
+    "price10": [2280, 10]
+  }
+]

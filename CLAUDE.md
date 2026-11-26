@@ -32,7 +32,7 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
   the CP shown on screen (Arena Challenge, Poseidon lowest-CP ship) are unchanged.
 - **Allies** (Nick, 2026-11-10): in **Tribe Clash** never attack a tribe from a server in `accounts/allies.txt`
   (the one list). Other events (Crystal Throne, Floating Realm) aren't affected.
-- **Never spend gems beyond what the account config allows.** Land of Trials: each dungeon's entry is the top gem
+- **Never spend gems beyond what the account config allows** (Ancient Ruins: a Search up to 50 diamonds, never its stamina offer — ui-routine "Ancient Ruins", Nick 2026-11-26)**.** Land of Trials: each dungeon's entry is the top gem
   price to pay there (Nick, 2026-11-11) — the price ladder is in ui-routine "Land of Trials".
 - Verify the attempt counter on screen before **and** after each sweep — never tap blindly.
 - Don't touch anything outside the missions listed in the config (shop, purchases, settings).
@@ -100,6 +100,9 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
   `boot.sh` run, all batches, done — Nick, 2026-11-21: runners started on ready accounts kept the CPU busy, so the last
   boot batch waited its full ~2 min for calm). One Monitor per batch (`daily.py` run dir, `relic_all.sh`, `fr_all.sh`,
   `catchup_all.sh`) for `FAIL` / `Traceback` / `exit 1` — act the moment one shows (home + re-run that account).
+- **One visit per section** (Nick, 2026-11-26, every script and step): nothing is closed and reopened for nothing — two
+  things on the same screen are done in one visit, and a step that follows another on the same section goes on from
+  the screen it left (`STAY` in `scripts/daily.py`). A reopen needs a reason, written where it happens.
 - **Right tool:** fixed taps / counters / pixel checks → a script; judgment (targets, unknown popups) → helper or
   skill. If Nick asks for the wrong one, say which fits and why in one line, then do it.
 
@@ -129,7 +132,8 @@ as it happens — not reconstructed at the end:
   final report.
 - **Close** (Nick, 2026-11-23): "close all" / "close <names>" = shut the MuMu instances, one command:
   `"$(scripts/accounts.py mumu)" close all` (or `close 0,5` — indexes from `scripts/accounts.py rows boot <names>`),
-  never while a task runs on the instance (`ps` for `scripts/` first). The launcher stays open.
+  never while a task runs on the instance (`ps` for `scripts/` first). A task still running on some → close the done
+  instances at once, each other one the moment its task ends — never wait for all (Nick, 2026-11-26). The launcher stays open.
 - **Shorthand:** fr = Floating Realm, tc = Tribe Clash, ct = Crystal Throne — chat only; steps and config keys use the
   full name (`tribe_clash_packs`, `floating_realm_packs`).
 - **Crystal Throne:** Nick gives the orders, Claude executes on every account and never picks targets — read

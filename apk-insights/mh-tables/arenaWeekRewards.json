@@ -1,0 +1,57 @@
+[
+  {
+    "rewardNum": [20, 1000, 10, 1],
+    "rewardType": ["randomFragment3", "diamond", "medal2", "headFrame_1"],
+    "weekRanking": [1]
+  },
+  {
+    "rewardNum": [18, 800, 8, 1],
+    "rewardType": ["randomFragment3", "diamond", "medal2", "headFrame_2"],
+    "weekRanking": [2]
+  },
+  {
+    "rewardNum": [16, 700, 7, 1],
+    "rewardType": ["randomFragment3", "diamond", "medal2", "headFrame_2"],
+    "weekRanking": [3]
+  },
+  {
+    "rewardNum": [14, 600, 6],
+    "rewardType": ["randomFragment3", "diamond", "medal2"],
+    "weekRanking": [4]
+  },
+  {
+    "rewardNum": [12, 500, 5],
+    "rewardType": ["randomFragment3", "diamond", "medal2"],
+    "weekRanking": [5, 6]
+  },
+  {
+    "rewardNum": [10, 450, 5],
+    "rewardType": ["randomFragment3", "diamond", "medal2"],
+    "weekRanking": [7, 10]
+  },
+  {
+    "rewardNum": [8, 400, 4],
+    "rewardType": ["randomFragment3", "diamond", "medal2"],
+    "weekRanking": [11, 20]
+  },
+  {
+    "rewardNum": [6, 350, 4],
+    "rewardType": ["randomFragment3", "diamond", "medal2"],
+    "weekRanking": [21, 30]
+  },
+  {
+    "rewardNum": [5, 300, 3],
+    "rewardType": ["randomFragment3", "diamond", "medal2"],
+    "weekRanking": [31, 50]
+  },
+  {
+    "rewardNum": [4, 200, 2],
+    "rewardType": ["randomFragment3", "diamond", "medal2"],
+    "weekRanking": [51, 100]
+  },
+  {
+    "rewardNum": [100, 1],
+    "rewardType": ["diamond", "medal2"],
+    "weekRanking": [101, 9999]
+  }
+]

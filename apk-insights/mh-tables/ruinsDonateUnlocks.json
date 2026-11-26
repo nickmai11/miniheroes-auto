@@ -1,0 +1,20 @@
+[
+  {
+    "describe": "SKIN_GIVE_CARD_DES",
+    "discount": 194,
+    "id": 1,
+    "levelRequire": 75,
+    "limitBuy": 1,
+    "name": "SKIN_GIVE_CARD_NAME",
+    "productIdentifying": "pay32001",
+    "rewardNum": [10, 2, 10, 3, 1000, 10],
+    "rewardType": [
+      "diamond",
+      "recruitRoll",
+      "relicF_9998",
+      "skinFettersBox",
+      "relicCoin",
+      "noblePoints"
+    ]
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "buyRewardNum": [1980, 1980],
+    "buyRewardType": ["diamond", "noblePoints"],
+    "dayRewardNum": [288, 3],
+    "dayRewardType": ["diamond", "arenaTicket"],
+    "id": 1,
+    "privilegeParameter": [0.1, 1, 2, 50, 0.5],
+    "privilegeType": [12, 18, 20, 13, 14],
+    "productIdentifying": "pay3002",
+    "showParameter": [10, 1, 2, 50, 50]
+  }
+]

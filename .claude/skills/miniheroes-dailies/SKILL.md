@@ -1,6 +1,6 @@
 ---
 name: miniheroes-dailies
-description: Run Mini Heroes: Magic Throne daily missions (Land of Trials, Arena, Shop/Play Pass freebies, Tower of the Throne, Secret Sanctuary, Gate of Darkness, Beast Realm, free Recruit summons, hero upgrade, Tribe, Fishing, Divine Weapon, Stage, Patrol, rune synthesis, Grocery) on Nick's MuMuPlayer accounts via ADB, following per-account configs in the miniheroes-auto repo.
+description: Run Mini Heroes: Magic Throne daily missions (Land of Trials, Arena, Shop/Play Pass freebies, Tower of the Throne, Secret Sanctuary, Gate of Darkness, Ancient Ruins, Beast Realm, free Recruit summons, hero upgrade, Tribe, Fishing, Divine Weapon, Stage, Patrol, rune synthesis, Grocery) on Nick's MuMuPlayer accounts via ADB, following per-account configs in the miniheroes-auto repo.
 ---
 
 # Mini Heroes dailies

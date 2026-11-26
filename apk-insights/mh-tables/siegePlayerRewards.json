@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "ranking": [1],
+    "rewardNum": [60, 1, 300, 1000, 6000],
+    "rewardType": [
+      "memf_64007",
+      "divineBoxAuto5",
+      "equipEssenceRandom",
+      "diamond",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 2,
+    "ranking": [2],
+    "rewardNum": [40, 1, 250, 800, 5000],
+    "rewardType": [
+      "memf_64007",
+      "divineBoxAuto5",
+      "equipEssenceRandom",
+      "diamond",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 3,
+    "ranking": [3],
+    "rewardNum": [30, 1, 200, 700, 4000],
+    "rewardType": [
+      "memf_64007",
+      "divineBoxAuto5",
+      "equipEssenceRandom",
+      "diamond",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 4,
+    "ranking": [4, 10],
+    "rewardNum": [20, 1, 150, 600, 3500],
+    "rewardType": [
+      "memf_64007",
+      "divineBoxAuto4",
+      "equipEssenceRandom",
+      "diamond",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 5,
+    "ranking": [11, 20],
+    "rewardNum": [15, 1, 120, 500, 3000],
+    "rewardType": [
+      "memf_64007",
+      "divineBoxAuto4",
+      "equipEssenceRandom",
+      "diamond",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 6,
+    "ranking": [21, 50],
+    "rewardNum": [10, 1, 100, 400, 2500],
+    "rewardType": [
+      "memf_64007",
+      "divineBoxAuto3",
+      "equipEssenceRandom",
+      "diamond",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 7,
+    "ranking": [51, 100],
+    "rewardNum": [5, 1, 80, 300, 2000],
+    "rewardType": [
+      "memf_64007",
+      "divineBoxAuto3",
+      "equipEssenceRandom",
+      "diamond",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 8,
+    "ranking": [101, 200],
+    "rewardNum": [3, 50, 200, 1500],
+    "rewardType": [
+      "memf_64007",
+      "equipEssenceRandom",
+      "diamond",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 9,
+    "ranking": [201, 500],
+    "rewardNum": [1, 30, 100, 1000],
+    "rewardType": [
+      "memf_64007",
+      "equipEssenceRandom",
+      "diamond",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 10,
+    "ranking": [501, 9999],
+    "rewardNum": [50, 500],
+    "rewardType": ["diamond", "pointGvgCoin"]
+  }
+]

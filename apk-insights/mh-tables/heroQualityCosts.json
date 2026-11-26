@@ -1,0 +1,21 @@
+[
+  { "id": 1, "quality": 1, "resourceNum": [], "resourceType": [] },
+  {
+    "id": 2,
+    "quality": 2,
+    "resourceNum": [100],
+    "resourceType": ["soulStone1"]
+  },
+  {
+    "id": 3,
+    "quality": 3,
+    "resourceNum": [100],
+    "resourceType": ["soulStone2"]
+  },
+  {
+    "id": 4,
+    "quality": 4,
+    "resourceNum": [100],
+    "resourceType": ["soulStone3"]
+  }
+]

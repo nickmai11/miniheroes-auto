@@ -1,0 +1,19 @@
+[
+  { "id": 1, "reward": "templeDust", "rewardNum": 3, "rewardQuality": 50 },
+  { "id": 2, "reward": "memf_64004", "rewardNum": 10, "rewardQuality": 100 },
+  {
+    "id": 3,
+    "reward": "skinFettersBox",
+    "rewardNum": 10,
+    "rewardQuality": 150
+  },
+  { "id": 4, "reward": "memf_64004", "rewardNum": 10, "rewardQuality": 200 },
+  { "id": 5, "reward": "glyphs_2004", "rewardNum": 1, "rewardQuality": 250 },
+  { "id": 6, "reward": "memf_64004", "rewardNum": 10, "rewardQuality": 300 },
+  {
+    "id": 7,
+    "reward": "starOptionalMark5",
+    "rewardNum": 1,
+    "rewardQuality": 350
+  }
+]

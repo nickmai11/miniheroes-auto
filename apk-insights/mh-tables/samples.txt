@@ -1,0 +1,2291 @@
+﻿=== hero (count 172) ===
+[
+    {
+        "animation1":  "101",
+        "attackRange":  0,
+        "attackSound":  "battle_101_atk",
+        "attackSpeed":  1,
+        "bleedingHurt":  0,
+        "bleedingResist":  0,
+        "broken":  1,
+        "brokenResist":  0,
+        "bullet":  "",
+        "bulletHurtRange":  0,
+        "bulletRange":  0,
+        "bulletResSkin":  [
+
+                          ],
+        "bulletSpeed":  0,
+        "burnHurt":  0,
+        "burnResist":  0,
+        "campsite":  1,
+        "controlReduction":  0,
+        "critical":  0,
+        "criticalHurt":  0,
+        "criticalHurtResist":  0,
+        "criticalResist":  0,
+        "cureEffect":  0,
+        "damageReduce":  0,
+        "defense":  76,
+        "dodge":  0,
+        "duty":  "HERO_LABEL_1",
+        "electricHurt":  0,
+        "electricResist":  0,
+        "energyHero":  1,
+        "finalHurt":  0,
+        "frostGrowth":  0,
+        "frostHurt":  0,
+        "frostResist":  0,
+        "grade":  "UI_STANDARD_4",
+        "heal":  0,
+        "heroHeight":  90,
+        "heroSkinList":  [
+                             101001,
+                             101002
+                         ],
+        "heroStation":  0,
+        "heroType":  1,
+        "id":  1,
+        "isUnderAttack":  0,
+        "life":  4590,
+        "lifeInjury":  0,
+        "lifeRecovery":  0,
+        "magicDamage":  0,
+        "magicHurt":  0,
+        "magicResist":  0,
+        "methysisHurt":  0,
+        "methysisResist":  0,
+        "moderateHurt":  0,
+        "moderateResist":  0,
+        "movingSpeed":  130,
+        "name":  "HERO_NAME_101",
+        "nearAttackRange":  1,
+        "nearFar":  1,
+        "nearHurt":  0,
+        "nearReduce":  0,
+        "occupation":  "UI_HERO_6",
+        "physicsDamage":  132,
+        "physicsHurt":  0,
+        "physicsResist":  0,
+        "quality":  1,
+        "range":  0,
+        "ready":  0.66,
+        "rebound":  0,
+        "reduceControlTime":  0,
+        "reduceHurt":  0,
+        "remoteHurt":  0,
+        "remoteReduce":  0,
+        "repel":  40,
+        "repelEffectPre":  0,
+        "repelResist":  0,
+        "resistDamage":  0.5,
+        "resistWeight":  0,
+        "skillEnergyReduce":  0,
+        "sleepGrowth":  0,
+        "sleepHurt":  0,
+        "sleepResist":  0,
+        "sucking":  0,
+        "talentStorageNum":  [
+                                 10,
+                                 10,
+                                 10
+                             ],
+        "talentType":  [
+                           10110,
+                           10120,
+                           10130
+                       ],
+        "tieGrowth":  0,
+        "tieHurt":  0,
+        "tieResist":  0,
+        "typeDistinguish":  1,
+        "uuid":  10100,
+        "vertigoGrowth":  0,
+        "vertigoHurt":  0,
+        "vertigoResist":  0
+    },
+    {
+        "animation1":  "108",
+        "attackRange":  0,
+        "attackSound":  "battle_108_atk",
+        "attackSpeed":  1,
+        "bleedingHurt":  0,
+        "bleedingResist":  0,
+        "broken":  1,
+        "brokenResist":  0,
+        "bullet":  "",
+        "bulletHurtRange":  0,
+        "bulletRange":  0,
+        "bulletResSkin":  [
+
+                          ],
+        "bulletSpeed":  0,
+        "burnHurt":  0,
+        "burnResist":  0,
+        "campsite":  1,
+        "controlReduction":  0,
+        "critical":  0,
+        "criticalHurt":  0,
+        "criticalHurtResist":  0,
+        "criticalResist":  0,
+        "cureEffect":  0,
+        "damageReduce":  0,
+        "defense":  199,
+        "dodge":  0,
+        "duty":  "HERO_LABEL_2",
+        "electricHurt":  0,
+        "electricResist":  0,
+        "energyHero":  1,
+        "finalHurt":  0,
+        "frostGrowth":  0,
+        "frostHurt":  0,
+        "frostResist":  0,
+        "grade":  "UI_STANDARD_6",
+        "heal":  0,
+        "heroHeight":  90,
+        "heroSkinList":  [
+                             108001,
+                             108002
+                         ],
+        "heroStation":  0,
+        "heroType":  1,
+        "id":  2,
+        "isUnderAttack":  0,
+        "life":  12154,
+        "lifeInjury":  0,
+        "lifeRecovery":  0,
+        "magicDamage":  0,
+        "magicHurt":  0,
+        "magicResist":  0,
+        "methysisHurt":  0,
+        "methysisResist":  0,
+        "moderateHurt":  0,
+        "moderateResist":  0,
+        "movingSpeed":  145,
+        "name":  "HERO_NAME_108",
+        "nearAttackRange":  1,
+        "nearFar":  1,
+        "nearHurt":  0,
+        "nearReduce":  0,
+        "occupation":  "UI_HERO_6",
+        "physicsDamage":  360,
+        "physicsHurt":  0,
+        "physicsResist":  0,
+        "quality":  3,
+        "range":  0,
+        "ready":  0.66,
+        "rebound":  0,
+        "reduceControlTime":  0,
+        "reduceHurt":  0,
+        "remoteHurt":  0,
+        "remoteReduce":  0,
+        "repel":  40,
+        "repelEffectPre":  0,
+        "repelResist":  0,
+        "resistDamage":  0.5,
+        "resistWeight":  0,
+        "skillEnergyReduce":  0,
+        "sleepGrowth":  0,
+        "sleepHurt":  0,
+        "sleepResist":  0,
+        "sucking":  0,
+        "talentStorageNum":  [
+                                 10,
+                                 10,
+                                 10
+                             ],
+        "talentType":  [
+                           10830,
+                           10810,
+                           10820
+                       ],
+        "tieGrowth":  0,
+        "tieHurt":  0,
+        "tieResist":  0,
+        "typeDistinguish":  1,
+        "uuid":  10800,
+        "vertigoGrowth":  0,
+        "vertigoHurt":  0,
+        "vertigoResist":  0
+    },
+    {
+        "animation1":  "108",
+        "attackRange":  0,
+        "attackSound":  "battle_108_atk",
+        "attackSpeed":  2,
+        "bleedingHurt":  0,
+        "bleedingResist":  0,
+        "broken":  0,
+        "brokenResist":  0,
+        "bullet":  "",
+        "bulletHurtRange":  0,
+        "bulletRange":  0,
+        "bulletResSkin":  [
+
+                          ],
+        "bulletSpeed":  0,
+        "burnHurt":  0,
+        "burnResist":  0,
+        "campsite":  1,
+        "controlReduction":  0,
+        "critical":  0,
+        "criticalHurt":  0,
+        "criticalHurtResist":  0,
+        "criticalResist":  0,
+        "cureEffect":  0,
+        "damageReduce":  0,
+        "defense":  1,
+        "dodge":  0,
+        "duty":  "HERO_LABEL_2",
+        "electricHurt":  0,
+        "electricResist":  0,
+        "energyHero":  0,
+        "finalHurt":  0,
+        "frostGrowth":  0,
+        "frostHurt":  0,
+        "frostResist":  0,
+        "grade":  "UI_STANDARD_6",
+        "heal":  0,
+        "heroHeight":  90,
+        "heroSkinList":  [
+                             108001,
+                             108002
+                         ],
+        "heroStation":  0,
+        "heroType":  1,
+        "id":  3,
+        "isUnderAttack":  0,
+        "life":  1,
+        "lifeInjury":  0,
+        "lifeRecovery":  0,
+        "magicDamage":  0,
+        "magicHurt":  0,
+        "magicResist":  0,
+        "methysisHurt":  0,
+        "methysisResist":  0,
+        "moderateHurt":  0,
+        "moderateResist":  0,
+        "movingSpeed":  135,
+        "name":  "HERO_NAME_108",
+        "nearAttackRange":  1,
+        "nearFar":  1,
+        "nearHurt":  0,
+        "nearReduce":  0,
+        "occupation":  "UI_HERO_6",
+        "physicsDamage":  1,
+        "physicsHurt":  0,
+        "physicsResist":  0,
+        "quality":  3,
+        "range":  0,
+        "ready":  0.66,
+        "rebound":  0,
+        "reduceControlTime":  0,
+        "reduceHurt":  0,
+        "remoteHurt":  0,
+        "remoteReduce":  0,
+        "repel":  25,
+        "repelEffectPre":  0,
+        "repelResist":  0,
+        "resistDamage":  0.5,
+        "resistWeight":  0,
+        "skillEnergyReduce":  0,
+        "sleepGrowth":  0,
+        "sleepHurt":  0,
+        "sleepResist":  0,
+        "sucking":  0,
+        "talentStorageNum":  [
+                                 1
+                             ],
+        "talentType":  [
+                           9999
+                       ],
+        "tieGrowth":  0,
+        "tieHurt":  0,
+        "tieResist":  0,
+        "typeDistinguish":  3,
+        "uuid":  1080100,
+        "vertigoGrowth":  0,
+        "vertigoHurt":  0,
+        "vertigoResist":  0
+    }
+]
+=== heroSkills (count 2453) ===
+[
+    {
+        "artifactId":  0,
+        "buffId":  [
+                       1800,
+                       1300
+                   ],
+        "buffId1":  [
+                        1,
+                        0
+                    ],
+        "buffWeight":  [
+
+                       ],
+        "bulletSkillId":  [
+                              1600
+                          ],
+        "bulletSkillId1":  [
+                               1
+                           ],
+        "bulletWeight":  [
+
+                         ],
+        "callId":  [
+
+                   ],
+        "callId1":  [
+
+                    ],
+        "callWeight":  [
+
+                       ],
+        "coordinate":  [
+
+                       ],
+        "damageId":  [
+
+                     ],
+        "damageId1":  [
+
+                      ],
+        "damageWeight":  [
+
+                         ],
+        "debuffId":  [
+                         1600
+                     ],
+        "debuffId1":  [
+                          0
+                      ],
+        "debuffWeight":  [
+
+                         ],
+        "effectType":  [
+                           1,
+                           1,
+                           2,
+                           3
+                       ],
+        "enemyAddAttributeLimit":  0,
+        "enemyAddAttributeNum":  [
+
+                                 ],
+        "enemyAddAttributeType":  [
+
+                                  ],
+        "energyCenterId":  0,
+        "friendAddAttributeLimit":  0,
+        "friendAddAttributeNum":  [
+
+                                  ],
+        "friendAddAttributeType":  [
+
+                                   ],
+        "gemSkillType":  0,
+        "id":  1,
+        "isDisappear":  0,
+        "isTriggerTimes":  999,
+        "lossLifeProportion":  0,
+        "lossLifeProportion1":  [
+
+                                ],
+        "lossLifeProportion2":  [
+
+                                ],
+        "reduceCondition":  0,
+        "reduceConditionNum":  0,
+        "reduceIntervalTime":  0,
+        "skillNum":  1,
+        "skillSound":  "battle_103_skill",
+        "slay":  0,
+        "specialSilentDebuff":  [
+
+                                ],
+        "talentAnimation":  "skill",
+        "talentArtifactId":  0,
+        "talentDec":  "SKILL_MS_103_1",
+        "talentDisplay":  "SKILL_XS_103_1",
+        "talentId":  0,
+        "talentName":  "SKILL_MC_103_1",
+        "talentName1":  "SKILL_TIPS_1",
+        "talentNum":  [
+                          480
+                      ],
+        "talentType":  10310,
+        "target":  [
+                       1,
+                       1,
+                       5,
+                       5
+                   ],
+        "targetAddAttributeLimit":  0,
+        "targetAddAttributeNum":  [
+
+                                  ],
+        "targetAddAttributeType":  [
+
+                                   ],
+        "targetTriggerConditionType1":  0,
+        "targetTriggerConditionType2":  0,
+        "triggerCondition":  18,
+        "triggerCondition1":  3,
+        "triggerCondition2":  0,
+        "triggerConditionNum":  [
+                                    1000,
+                                    1000
+                                ],
+        "triggerConditionNum1":  0,
+        "triggerConditionNum2":  [
+
+                                 ],
+        "triggerConditionNum3":  [
+
+                                 ],
+        "triggerWeight":  1,
+        "triggerWeight1":  0,
+        "triggerWeight2":  [
+
+                           ],
+        "triggerWeight3":  [
+
+                           ],
+        "unlockCondition":  [
+                                1
+                            ],
+        "unlockNum":  [
+                          0
+                      ],
+        "whetherSilent":  0
+    },
+    {
+        "artifactId":  0,
+        "buffId":  [
+                       1800,
+                       1300
+                   ],
+        "buffId1":  [
+                        0,
+                        0
+                    ],
+        "buffWeight":  [
+
+                       ],
+        "bulletSkillId":  [
+                              1600
+                          ],
+        "bulletSkillId1":  [
+                               0
+                           ],
+        "bulletWeight":  [
+
+                         ],
+        "callId":  [
+
+                   ],
+        "callId1":  [
+
+                    ],
+        "callWeight":  [
+
+                       ],
+        "coordinate":  [
+
+                       ],
+        "damageId":  [
+
+                     ],
+        "damageId1":  [
+
+                      ],
+        "damageWeight":  [
+
+                         ],
+        "debuffId":  [
+                         1600
+                     ],
+        "debuffId1":  [
+                          1
+                      ],
+        "debuffWeight":  [
+
+                         ],
+        "effectType":  [
+                           0,
+                           0,
+                           0,
+                           0
+                       ],
+        "enemyAddAttributeLimit":  0,
+        "enemyAddAttributeNum":  [
+
+                                 ],
+        "enemyAddAttributeType":  [
+
+                                  ],
+        "energyCenterId":  0,
+        "friendAddAttributeLimit":  0,
+        "friendAddAttributeNum":  [
+
+                                  ],
+        "friendAddAttributeType":  [
+
+                                   ],
+        "gemSkillType":  0,
+        "id":  2,
+        "isDisappear":  0,
+        "isTriggerTimes":  0,
+        "lossLifeProportion":  0,
+        "lossLifeProportion1":  [
+
+                                ],
+        "lossLifeProportion2":  [
+
+                                ],
+        "reduceCondition":  0,
+        "reduceConditionNum":  0,
+        "reduceIntervalTime":  0,
+        "skillNum":  0,
+        "skillSound":  "",
+        "slay":  0,
+        "specialSilentDebuff":  [
+
+                                ],
+        "talentAnimation":  "skill",
+        "talentArtifactId":  0,
+        "talentDec":  "SKILL_MS_103_3",
+        "talentDisplay":  "",
+        "talentId":  0,
+        "talentName":  "SKILL_MC_103_3",
+        "talentName1":  "SKILL_TIPS_2",
+        "talentNum":  [
+                          40,
+                          5
+                      ],
+        "talentType":  10310,
+        "target":  [
+                       0,
+                       0,
+                       0,
+                       0
+                   ],
+        "targetAddAttributeLimit":  0,
+        "targetAddAttributeNum":  [
+
+                                  ],
+        "targetAddAttributeType":  [
+
+                                   ],
+        "targetTriggerConditionType1":  0,
+        "targetTriggerConditionType2":  0,
+        "triggerCondition":  18,
+        "triggerCondition1":  0,
+        "triggerCondition2":  0,
+        "triggerConditionNum":  [
+                                    0,
+                                    0
+                                ],
+        "triggerConditionNum1":  0,
+        "triggerConditionNum2":  [
+
+                                 ],
+        "triggerConditionNum3":  [
+
+                                 ],
+        "triggerWeight":  0,
+        "triggerWeight1":  0,
+        "triggerWeight2":  [
+
+                           ],
+        "triggerWeight3":  [
+
+                           ],
+        "unlockCondition":  [
+                                1
+                            ],
+        "unlockNum":  [
+                          5
+                      ],
+        "whetherSilent":  0
+    },
+    {
+        "artifactId":  0,
+        "buffId":  [
+                       1800,
+                       1300
+                   ],
+        "buffId1":  [
+                        0,
+                        1
+                    ],
+        "buffWeight":  [
+
+                       ],
+        "bulletSkillId":  [
+                              1600
+                          ],
+        "bulletSkillId1":  [
+                               2
+                           ],
+        "bulletWeight":  [
+
+                         ],
+        "callId":  [
+
+                   ],
+        "callId1":  [
+
+                    ],
+        "callWeight":  [
+
+                       ],
+        "coordinate":  [
+
+                       ],
+        "damageId":  [
+
+                     ],
+        "damageId1":  [
+
+                      ],
+        "damageWeight":  [
+
+                         ],
+        "debuffId":  [
+                         1600
+                     ],
+        "debuffId1":  [
+                          0
+                      ],
+        "debuffWeight":  [
+
+                         ],
+        "effectType":  [
+                           0,
+                           0,
+                           0,
+                           0
+                       ],
+        "enemyAddAttributeLimit":  0,
+        "enemyAddAttributeNum":  [
+
+                                 ],
+        "enemyAddAttributeType":  [
+
+                                  ],
+        "energyCenterId":  0,
+        "friendAddAttributeLimit":  0,
+        "friendAddAttributeNum":  [
+
+                                  ],
+        "friendAddAttributeType":  [
+
+                                   ],
+        "gemSkillType":  0,
+        "id":  3,
+        "isDisappear":  0,
+        "isTriggerTimes":  0,
+        "lossLifeProportion":  0,
+        "lossLifeProportion1":  [
+
+                                ],
+        "lossLifeProportion2":  [
+
+                                ],
+        "reduceCondition":  0,
+        "reduceConditionNum":  0,
+        "reduceIntervalTime":  0,
+        "skillNum":  0,
+        "skillSound":  "",
+        "slay":  0,
+        "specialSilentDebuff":  [
+
+                                ],
+        "talentAnimation":  "skill",
+        "talentArtifactId":  0,
+        "talentDec":  "SKILL_MS_103_6",
+        "talentDisplay":  "",
+        "talentId":  0,
+        "talentName":  "SKILL_MC_103_6",
+        "talentName1":  "SKILL_TIPS_2",
+        "talentNum":  [
+                          50,
+                          30,
+                          5
+                      ],
+        "talentType":  10310,
+        "target":  [
+                       0,
+                       0,
+                       0,
+                       0
+                   ],
+        "targetAddAttributeLimit":  0,
+        "targetAddAttributeNum":  [
+
+                                  ],
+        "targetAddAttributeType":  [
+
+                                   ],
+        "targetTriggerConditionType1":  0,
+        "targetTriggerConditionType2":  0,
+        "triggerCondition":  18,
+        "triggerCondition1":  0,
+        "triggerCondition2":  0,
+        "triggerConditionNum":  [
+                                    0,
+                                    0
+                                ],
+        "triggerConditionNum1":  0,
+        "triggerConditionNum2":  [
+
+                                 ],
+        "triggerConditionNum3":  [
+
+                                 ],
+        "triggerWeight":  0,
+        "triggerWeight1":  0,
+        "triggerWeight2":  [
+
+                           ],
+        "triggerWeight3":  [
+
+                           ],
+        "unlockCondition":  [
+                                1,
+                                3
+                            ],
+        "unlockNum":  [
+                          16,
+                          3
+                      ],
+        "whetherSilent":  0
+    }
+]
+=== heroBuffs (count 1381) ===
+[
+    {
+        "addAttributes":  [
+                              "damagePre"
+                          ],
+        "addAttributesNum":  [
+                                 0.08
+                             ],
+        "addBuffType":  0,
+        "addBuffTypeWeight":  0,
+        "animationTime":  0,
+        "bindingBullet":  0,
+        "bkb":  [
+
+                ],
+        "bkb1":  [
+
+                 ],
+        "buffAddNum":  [
+
+                       ],
+        "buffAddType":  [
+
+                        ],
+        "buffAdditionNum":  [
+
+                            ],
+        "buffAnimation":  "",
+        "buffAttenuationNum":  [
+
+                               ],
+        "buffAttenuationTime":  0,
+        "buffCancel":  0,
+        "buffCancelNum":  0,
+        "buffDisappear":  0,
+        "buffEffectInterval":  0,
+        "buffEffectRange":  0,
+        "buffEnhanceNum":  [
+
+                           ],
+        "buffEnhanceTime":  0,
+        "buffHanging":  0,
+        "buffId":  1001,
+        "buffLevel":  1,
+        "buffReduceCondition":  0,
+        "buffReduceConditionNum":  0,
+        "buffRes":  "",
+        "buffResSkin":  [
+
+                        ],
+        "buffSize":  0,
+        "buffStorey":  0,
+        "buffType":  0,
+        "buffTypeNum":  [
+
+                        ],
+        "cleanDebuff":  0,
+        "cleanDebuffId":  [
+
+                          ],
+        "contactShield":  0,
+        "convertProportion":  0,
+        "cureAdd":  [
+
+                    ],
+        "cureEffect":  0,
+        "cureEffectInterval":  0,
+        "cureEffectNum":  [
+
+                          ],
+        "cureTriggerCondition":  0,
+        "defenseTurnDamage":  [
+
+                              ],
+        "disperseDebuffId":  [
+
+                             ],
+        "disperseDebuffNum":  0,
+        "duration":  999,
+        "effectPile":  0,
+        "energyAbsorbDamage":  0,
+        "energyBearDamage":  0,
+        "expRepel":  0,
+        "explode":  0,
+        "explodeAnimation":  "",
+        "explodeHurtLimit":  [
+
+                             ],
+        "explodeHurtNum":  [
+
+                           ],
+        "explodeHurtRange":  0,
+        "explodeHurtType":  [
+
+                            ],
+        "hurtChangeLife":  0,
+        "hurtChangeLifeLimit":  0,
+        "id":  1,
+        "image":  0,
+        "image1":  0,
+        "immuneWeight":  0,
+        "isMainBuff":  0,
+        "layerNum":  1,
+        "lifeEffect":  0,
+        "lifeTurnDamage":  [
+
+                           ],
+        "magicImmunityProportion":  0,
+        "mustAddBuffId":  [
+
+                          ],
+        "onceLayer":  1,
+        "physicsImmunityProportion":  0,
+        "proportion":  0,
+        "rebirthLifePre":  0,
+        "recoveryLife":  0,
+        "recoveryLostLife":  0,
+        "reduceAttackerEnergy":  0,
+        "replaceBuff":  0,
+        "restoreEnergy":  0,
+        "retainLife":  0,
+        "retainLifePre":  0,
+        "retainLifePre1":  0,
+        "retainLifePre2":  0,
+        "shieldReboundNum":  0,
+        "shieldReboundRange":  0,
+        "shieldReduceNum":  [
+
+                            ],
+        "shieldReduceTime":  0,
+        "shieldReduceType":  [
+
+                             ],
+        "skillDamageType":  0,
+        "skillHurt":  0,
+        "subBuffEffectType":  [
+
+                              ],
+        "subBuffId":  [
+
+                      ],
+        "subBuffRange":  0,
+        "subBuffRangeType":  0,
+        "subBuffTarget":  [
+
+                          ],
+        "sureRefresh":  0,
+        "text":  [
+                     "HERO_BUFF_1"
+                 ],
+        "treatmentTransform":  0,
+        "triggerBuffId":  [
+
+                          ],
+        "triggerBuffStorey":  0,
+        "triggerBuffWeight":  [
+
+                              ],
+        "triggerBuffWeight1":  [
+
+                               ]
+    },
+    {
+        "addAttributes":  [
+                              "defensePre"
+                          ],
+        "addAttributesNum":  [
+                                 0.08
+                             ],
+        "addBuffType":  0,
+        "addBuffTypeWeight":  0,
+        "animationTime":  0,
+        "bindingBullet":  0,
+        "bkb":  [
+
+                ],
+        "bkb1":  [
+
+                 ],
+        "buffAddNum":  [
+
+                       ],
+        "buffAddType":  [
+
+                        ],
+        "buffAdditionNum":  [
+
+                            ],
+        "buffAnimation":  "",
+        "buffAttenuationNum":  [
+
+                               ],
+        "buffAttenuationTime":  0,
+        "buffCancel":  0,
+        "buffCancelNum":  0,
+        "buffDisappear":  0,
+        "buffEffectInterval":  0,
+        "buffEffectRange":  0,
+        "buffEnhanceNum":  [
+
+                           ],
+        "buffEnhanceTime":  0,
+        "buffHanging":  0,
+        "buffId":  1002,
+        "buffLevel":  1,
+        "buffReduceCondition":  0,
+        "buffReduceConditionNum":  0,
+        "buffRes":  "",
+        "buffResSkin":  [
+
+                        ],
+        "buffSize":  0,
+        "buffStorey":  0,
+        "buffType":  0,
+        "buffTypeNum":  [
+
+                        ],
+        "cleanDebuff":  0,
+        "cleanDebuffId":  [
+
+                          ],
+        "contactShield":  0,
+        "convertProportion":  0,
+        "cureAdd":  [
+
+                    ],
+        "cureEffect":  0,
+        "cureEffectInterval":  0,
+        "cureEffectNum":  [
+
+                          ],
+        "cureTriggerCondition":  0,
+        "defenseTurnDamage":  [
+
+                              ],
+        "disperseDebuffId":  [
+
+                             ],
+        "disperseDebuffNum":  0,
+        "duration":  999,
+        "effectPile":  0,
+        "energyAbsorbDamage":  0,
+        "energyBearDamage":  0,
+        "expRepel":  0,
+        "explode":  0,
+        "explodeAnimation":  "",
+        "explodeHurtLimit":  [
+
+                             ],
+        "explodeHurtNum":  [
+
+                           ],
+        "explodeHurtRange":  0,
+        "explodeHurtType":  [
+
+                            ],
+        "hurtChangeLife":  0,
+        "hurtChangeLifeLimit":  0,
+        "id":  2,
+        "image":  0,
+        "image1":  0,
+        "immuneWeight":  0,
+        "isMainBuff":  0,
+        "layerNum":  1,
+        "lifeEffect":  0,
+        "lifeTurnDamage":  [
+
+                           ],
+        "magicImmunityProportion":  0,
+        "mustAddBuffId":  [
+
+                          ],
+        "onceLayer":  1,
+        "physicsImmunityProportion":  0,
+        "proportion":  0,
+        "rebirthLifePre":  0,
+        "recoveryLife":  0,
+        "recoveryLostLife":  0,
+        "reduceAttackerEnergy":  0,
+        "replaceBuff":  0,
+        "restoreEnergy":  0,
+        "retainLife":  0,
+        "retainLifePre":  0,
+        "retainLifePre1":  0,
+        "retainLifePre2":  0,
+        "shieldReboundNum":  0,
+        "shieldReboundRange":  0,
+        "shieldReduceNum":  [
+
+                            ],
+        "shieldReduceTime":  0,
+        "shieldReduceType":  [
+
+                             ],
+        "skillDamageType":  0,
+        "skillHurt":  0,
+        "subBuffEffectType":  [
+
+                              ],
+        "subBuffId":  [
+
+                      ],
+        "subBuffRange":  0,
+        "subBuffRangeType":  0,
+        "subBuffTarget":  [
+
+                          ],
+        "sureRefresh":  0,
+        "text":  [
+                     "HERO_BUFF_2"
+                 ],
+        "treatmentTransform":  0,
+        "triggerBuffId":  [
+
+                          ],
+        "triggerBuffStorey":  0,
+        "triggerBuffWeight":  [
+
+                              ],
+        "triggerBuffWeight1":  [
+
+                               ]
+    },
+    {
+        "addAttributes":  [
+                              "reduceHurt"
+                          ],
+        "addAttributesNum":  [
+                                 0.08
+                             ],
+        "addBuffType":  0,
+        "addBuffTypeWeight":  0,
+        "animationTime":  0,
+        "bindingBullet":  0,
+        "bkb":  [
+
+                ],
+        "bkb1":  [
+
+                 ],
+        "buffAddNum":  [
+
+                       ],
+        "buffAddType":  [
+
+                        ],
+        "buffAdditionNum":  [
+
+                            ],
+        "buffAnimation":  "",
+        "buffAttenuationNum":  [
+
+                               ],
+        "buffAttenuationTime":  0,
+        "buffCancel":  0,
+        "buffCancelNum":  0,
+        "buffDisappear":  0,
+        "buffEffectInterval":  0,
+        "buffEffectRange":  0,
+        "buffEnhanceNum":  [
+
+                           ],
+        "buffEnhanceTime":  0,
+        "buffHanging":  0,
+        "buffId":  1003,
+        "buffLevel":  1,
+        "buffReduceCondition":  0,
+        "buffReduceConditionNum":  0,
+        "buffRes":  "",
+        "buffResSkin":  [
+
+                        ],
+        "buffSize":  0,
+        "buffStorey":  0,
+        "buffType":  0,
+        "buffTypeNum":  [
+
+                        ],
+        "cleanDebuff":  0,
+        "cleanDebuffId":  [
+
+                          ],
+        "contactShield":  0,
+        "convertProportion":  0,
+        "cureAdd":  [
+
+                    ],
+        "cureEffect":  0,
+        "cureEffectInterval":  0,
+        "cureEffectNum":  [
+
+                          ],
+        "cureTriggerCondition":  0,
+        "defenseTurnDamage":  [
+
+                              ],
+        "disperseDebuffId":  [
+
+                             ],
+        "disperseDebuffNum":  0,
+        "duration":  999,
+        "effectPile":  0,
+        "energyAbsorbDamage":  0,
+        "energyBearDamage":  0,
+        "expRepel":  0,
+        "explode":  0,
+        "explodeAnimation":  "",
+        "explodeHurtLimit":  [
+
+                             ],
+        "explodeHurtNum":  [
+
+                           ],
+        "explodeHurtRange":  0,
+        "explodeHurtType":  [
+
+                            ],
+        "hurtChangeLife":  0,
+        "hurtChangeLifeLimit":  0,
+        "id":  3,
+        "image":  0,
+        "image1":  0,
+        "immuneWeight":  0,
+        "isMainBuff":  0,
+        "layerNum":  1,
+        "lifeEffect":  0,
+        "lifeTurnDamage":  [
+
+                           ],
+        "magicImmunityProportion":  0,
+        "mustAddBuffId":  [
+
+                          ],
+        "onceLayer":  1,
+        "physicsImmunityProportion":  0,
+        "proportion":  0,
+        "rebirthLifePre":  0,
+        "recoveryLife":  0,
+        "recoveryLostLife":  0,
+        "reduceAttackerEnergy":  0,
+        "replaceBuff":  0,
+        "restoreEnergy":  0,
+        "retainLife":  0,
+        "retainLifePre":  0,
+        "retainLifePre1":  0,
+        "retainLifePre2":  0,
+        "shieldReboundNum":  0,
+        "shieldReboundRange":  0,
+        "shieldReduceNum":  [
+
+                            ],
+        "shieldReduceTime":  0,
+        "shieldReduceType":  [
+
+                             ],
+        "skillDamageType":  0,
+        "skillHurt":  0,
+        "subBuffEffectType":  [
+
+                              ],
+        "subBuffId":  [
+
+                      ],
+        "subBuffRange":  0,
+        "subBuffRangeType":  0,
+        "subBuffTarget":  [
+
+                          ],
+        "sureRefresh":  0,
+        "text":  [
+                     "HERO_BUFF_22"
+                 ],
+        "treatmentTransform":  0,
+        "triggerBuffId":  [
+
+                          ],
+        "triggerBuffStorey":  0,
+        "triggerBuffWeight":  [
+
+                              ],
+        "triggerBuffWeight1":  [
+
+                               ]
+    }
+]
+=== heroDebuffs (count 1760) ===
+[
+    {
+        "addDamageCondition":  0,
+        "addDamageConditionNum":  [
+
+                                  ],
+        "addDamageNum":  0,
+        "addDebuffType":  0,
+        "addDebuffTypeWeight":  0,
+        "additionalHurt":  0,
+        "additionalMagicHurt":  0,
+        "additionalPhysicsHurt":  0,
+        "animationDelay":  0,
+        "animationTime":  6,
+        "avoidSilent":  [
+
+                        ],
+        "bindingBullet":  0,
+        "buffRes":  "debuff_1",
+        "buffResSkin":  [
+                            "debuff_1"
+                        ],
+        "continuedHurt":  0,
+        "controlReduction":  1,
+        "damageChangeLife":  0,
+        "damageResultAdd":  0,
+        "damageResultReduce":  0,
+        "debuffAddNum":  0,
+        "debuffAddType":  [
+
+                          ],
+        "debuffAdditionNum":  [
+
+                              ],
+        "debuffAdditionType":  0,
+        "debuffAnimation":  "loop",
+        "debuffAttenuationNum":  [
+
+                                 ],
+        "debuffAttenuationTime":  0,
+        "debuffCancel":  0,
+        "debuffCancelNum":  0,
+        "debuffDisappear":  0,
+        "debuffEnhanceNum":  [
+
+                             ],
+        "debuffEnhanceTime":  0,
+        "debuffHanging":  1,
+        "debuffHurtNum":  0,
+        "debuffHurtType":  0,
+        "debuffId":  1017,
+        "debuffInherit":  0,
+        "debuffLevel":  1,
+        "debuffSize":  1,
+        "debuffStorey":  0,
+        "debuffType":  [
+                           2
+                       ],
+        "debuffTypeNum":  [
+
+                          ],
+        "disperseBuffId":  [
+
+                           ],
+        "disperseBuffNum":  0,
+        "dodge":  0,
+        "duration":  6,
+        "effectPile":  0,
+        "id":  1,
+        "image":  0,
+        "image1":  0,
+        "isMainBuff":  0,
+        "layerNum":  1,
+        "lifeLossLimit":  0,
+        "lifeLossTime":  0,
+        "lifePreLossLimit":  0,
+        "lossLifePre":  0,
+        "mustAddDebuffId":  [
+
+                            ],
+        "onceLayer":  1,
+        "proportion":  0,
+        "rangeTarget":  0,
+        "rangeTargetOne":  0,
+        "reduceAttribute":  [
+                                "movingSpeedPre"
+                            ],
+        "reduceAttributeNum":  [
+                                   1
+                               ],
+        "reduceControlTime":  1,
+        "reduceEnergy":  0,
+        "reduceEnergyProportion":  0,
+        "replaceDebuff":  0,
+        "silent1":  0,
+        "silent2":  0,
+        "silent3":  0,
+        "skillDamageType":  0,
+        "skillRange":  0,
+        "skillTimeInterval":  0,
+        "subBuffEffectType":  [
+
+                              ],
+        "subBuffId":  [
+
+                      ],
+        "subBuffRange":  0,
+        "subBuffRangeType":  0,
+        "subBuffTarget":  [
+
+                          ],
+        "sureRefresh":  1,
+        "text":  [
+
+                 ],
+        "transferAttribute":  0,
+        "transferAttributeLimit":  0,
+        "transferAttributeTime":  0,
+        "triggerDebuffId":  [
+
+                            ],
+        "triggerDebuffStorey":  0,
+        "triggerDebuffWeight":  [
+
+                                ],
+        "triggerDebuffWeight1":  [
+
+                                 ],
+        "vampirism":  0
+    },
+    {
+        "addDamageCondition":  0,
+        "addDamageConditionNum":  [
+
+                                  ],
+        "addDamageNum":  0,
+        "addDebuffType":  0,
+        "addDebuffTypeWeight":  0,
+        "additionalHurt":  0,
+        "additionalMagicHurt":  0,
+        "additionalPhysicsHurt":  0,
+        "animationDelay":  0,
+        "animationTime":  2.5,
+        "avoidSilent":  [
+
+                        ],
+        "bindingBullet":  0,
+        "buffRes":  "debuff_1",
+        "buffResSkin":  [
+                            "debuff_1"
+                        ],
+        "continuedHurt":  0,
+        "controlReduction":  1,
+        "damageChangeLife":  0,
+        "damageResultAdd":  0,
+        "damageResultReduce":  0,
+        "debuffAddNum":  0,
+        "debuffAddType":  [
+
+                          ],
+        "debuffAdditionNum":  [
+
+                              ],
+        "debuffAdditionType":  0,
+        "debuffAnimation":  "loop",
+        "debuffAttenuationNum":  [
+
+                                 ],
+        "debuffAttenuationTime":  0,
+        "debuffCancel":  0,
+        "debuffCancelNum":  0,
+        "debuffDisappear":  0,
+        "debuffEnhanceNum":  [
+
+                             ],
+        "debuffEnhanceTime":  0,
+        "debuffHanging":  1,
+        "debuffHurtNum":  0,
+        "debuffHurtType":  0,
+        "debuffId":  1018,
+        "debuffInherit":  0,
+        "debuffLevel":  1,
+        "debuffSize":  1,
+        "debuffStorey":  0,
+        "debuffType":  [
+                           2
+                       ],
+        "debuffTypeNum":  [
+
+                          ],
+        "disperseBuffId":  [
+
+                           ],
+        "disperseBuffNum":  0,
+        "dodge":  0,
+        "duration":  2.5,
+        "effectPile":  0,
+        "id":  2,
+        "image":  0,
+        "image1":  0,
+        "isMainBuff":  0,
+        "layerNum":  1,
+        "lifeLossLimit":  0,
+        "lifeLossTime":  0,
+        "lifePreLossLimit":  0,
+        "lossLifePre":  0,
+        "mustAddDebuffId":  [
+
+                            ],
+        "onceLayer":  1,
+        "proportion":  0,
+        "rangeTarget":  0,
+        "rangeTargetOne":  0,
+        "reduceAttribute":  [
+                                "movingSpeedPre"
+                            ],
+        "reduceAttributeNum":  [
+                                   1
+                               ],
+        "reduceControlTime":  1,
+        "reduceEnergy":  0,
+        "reduceEnergyProportion":  0,
+        "replaceDebuff":  0,
+        "silent1":  0,
+        "silent2":  0,
+        "silent3":  0,
+        "skillDamageType":  0,
+        "skillRange":  0,
+        "skillTimeInterval":  0,
+        "subBuffEffectType":  [
+
+                              ],
+        "subBuffId":  [
+
+                      ],
+        "subBuffRange":  0,
+        "subBuffRangeType":  0,
+        "subBuffTarget":  [
+
+                          ],
+        "sureRefresh":  1,
+        "text":  [
+
+                 ],
+        "transferAttribute":  0,
+        "transferAttributeLimit":  0,
+        "transferAttributeTime":  0,
+        "triggerDebuffId":  [
+
+                            ],
+        "triggerDebuffStorey":  0,
+        "triggerDebuffWeight":  [
+
+                                ],
+        "triggerDebuffWeight1":  [
+
+                                 ],
+        "vampirism":  0
+    },
+    {
+        "addDamageCondition":  0,
+        "addDamageConditionNum":  [
+
+                                  ],
+        "addDamageNum":  0,
+        "addDebuffType":  0,
+        "addDebuffTypeWeight":  0,
+        "additionalHurt":  0,
+        "additionalMagicHurt":  0,
+        "additionalPhysicsHurt":  0,
+        "animationDelay":  0,
+        "animationTime":  0,
+        "avoidSilent":  [
+
+                        ],
+        "bindingBullet":  0,
+        "buffRes":  "",
+        "buffResSkin":  [
+
+                        ],
+        "continuedHurt":  0,
+        "controlReduction":  0,
+        "damageChangeLife":  0,
+        "damageResultAdd":  0,
+        "damageResultReduce":  0,
+        "debuffAddNum":  0,
+        "debuffAddType":  [
+
+                          ],
+        "debuffAdditionNum":  [
+
+                              ],
+        "debuffAdditionType":  0,
+        "debuffAnimation":  "",
+        "debuffAttenuationNum":  [
+
+                                 ],
+        "debuffAttenuationTime":  0,
+        "debuffCancel":  0,
+        "debuffCancelNum":  0,
+        "debuffDisappear":  0,
+        "debuffEnhanceNum":  [
+
+                             ],
+        "debuffEnhanceTime":  0,
+        "debuffHanging":  0,
+        "debuffHurtNum":  0,
+        "debuffHurtType":  0,
+        "debuffId":  1019,
+        "debuffInherit":  0,
+        "debuffLevel":  1,
+        "debuffSize":  0,
+        "debuffStorey":  0,
+        "debuffType":  [
+                           0
+                       ],
+        "debuffTypeNum":  [
+
+                          ],
+        "disperseBuffId":  [
+
+                           ],
+        "disperseBuffNum":  0,
+        "dodge":  0,
+        "duration":  3,
+        "effectPile":  0,
+        "id":  3,
+        "image":  0,
+        "image1":  0,
+        "isMainBuff":  0,
+        "layerNum":  1,
+        "lifeLossLimit":  0,
+        "lifeLossTime":  0,
+        "lifePreLossLimit":  0,
+        "lossLifePre":  0,
+        "mustAddDebuffId":  [
+
+                            ],
+        "onceLayer":  1,
+        "proportion":  0,
+        "rangeTarget":  0,
+        "rangeTargetOne":  0,
+        "reduceAttribute":  [
+                                "damagePre"
+                            ],
+        "reduceAttributeNum":  [
+                                   0.3
+                               ],
+        "reduceControlTime":  0,
+        "reduceEnergy":  0,
+        "reduceEnergyProportion":  0,
+        "replaceDebuff":  0,
+        "silent1":  0,
+        "silent2":  0,
+        "silent3":  0,
+        "skillDamageType":  0,
+        "skillRange":  0,
+        "skillTimeInterval":  0,
+        "subBuffEffectType":  [
+
+                              ],
+        "subBuffId":  [
+
+                      ],
+        "subBuffRange":  0,
+        "subBuffRangeType":  0,
+        "subBuffTarget":  [
+
+                          ],
+        "sureRefresh":  1,
+        "text":  [
+                     "HERO_DEBUFF_1"
+                 ],
+        "transferAttribute":  0,
+        "transferAttributeLimit":  0,
+        "transferAttributeTime":  0,
+        "triggerDebuffId":  [
+
+                            ],
+        "triggerDebuffStorey":  0,
+        "triggerDebuffWeight":  [
+
+                                ],
+        "triggerDebuffWeight1":  [
+
+                                 ],
+        "vampirism":  0
+    }
+]
+=== heroBulletSkills (count 954) ===
+[
+    {
+        "id":  1,
+        "bulletId":  1600,
+        "bulletLevel":  1,
+        "dodge":  0,
+        "resist":  1,
+        "bulletRangeInterrupt":  0,
+        "inherit":  1,
+        "bulletSize":  1,
+        "inheritEnergy":  0,
+        "vampirism":  0,
+        "bulletChangeLife":  0,
+        "bulletRes":  "103_1",
+        "bulletResSkin":  [
+                              "103_1"
+                          ],
+        "hurtDefend":  0,
+        "launch":  "fire",
+        "bulletAdmission":  0,
+        "attackType":  0,
+        "bulletTime":  1,
+        "bulletTarget":  1,
+        "appointBulletTarget":  0,
+        "bulletNum":  [
+                          1
+                      ],
+        "bulletTimeInterval":  0,
+        "bulletPenetrate":  999,
+        "bulletPenetrateWeight":  [
+
+                                  ],
+        "bulletPenetrateNum":  [
+
+                               ],
+        "bulletStrikeNum":  0,
+        "bulletCatapult":  0,
+        "bulletTreatment":  0,
+        "bulletCatapultInterval":  0,
+        "bulletSpeed":  350,
+        "bulletRange":  350,
+        "bulletHurtRange":  0,
+        "bulletHurtRange1":  [
+
+                             ],
+        "bulletRangeEnergy":  0,
+        "bulletHurtRange2":  0,
+        "bulletHurtRange3":  0,
+        "bulletHurt":  [
+                           4.8
+                       ],
+        "bulletHurt1":  [
+
+                        ],
+        "bulletRecoveryRnergy":  0,
+        "bulletReduceRnergy":  0,
+        "bulletReduceRnergyProportion":  [
+
+                                         ],
+        "bulletRecoveryLostLife":  0,
+        "bulletHurtReduce":  0,
+        "bulletHurtEnhance":  0,
+        "bulletRepelReduce":  0,
+        "bulletRepelEnhance":  0,
+        "bulletDistanceRepelAdd":  0,
+        "bulletDistanceRepelAddNum":  0,
+        "bulletDistanceRepelAddLimit":  0,
+        "penetrationBulletDamage":  [
+
+                                    ],
+        "cureTriggerCondition":  0,
+        "cureEffectNum":  [
+
+                          ],
+        "cureAdd":  [
+
+                    ],
+        "bonusDamageTarget":  0,
+        "bonusTargetNum":  [
+
+                           ],
+        "bonusDamageType":  0,
+        "bonusDamageNum":  [
+
+                           ],
+        "lossLifeLimit":  0,
+        "bulletDistanceDamageAdd":  0,
+        "bulletDistanceDamageAddNum":  0,
+        "bulletDistanceDamageAddLimit":  0
+    },
+    {
+        "id":  2,
+        "bulletId":  1600,
+        "bulletLevel":  2,
+        "dodge":  0,
+        "resist":  0,
+        "bulletRangeInterrupt":  0,
+        "inherit":  0.5,
+        "bulletSize":  0,
+        "inheritEnergy":  0,
+        "vampirism":  0,
+        "bulletChangeLife":  0,
+        "bulletRes":  "",
+        "bulletResSkin":  [
+
+                          ],
+        "hurtDefend":  0,
+        "launch":  "fire",
+        "bulletAdmission":  0,
+        "attackType":  0,
+        "bulletTime":  1,
+        "bulletTarget":  1,
+        "appointBulletTarget":  0,
+        "bulletNum":  [
+                          0
+                      ],
+        "bulletTimeInterval":  0,
+        "bulletPenetrate":  0,
+        "bulletPenetrateWeight":  [
+
+                                  ],
+        "bulletPenetrateNum":  [
+
+                               ],
+        "bulletStrikeNum":  0,
+        "bulletCatapult":  0,
+        "bulletTreatment":  0,
+        "bulletCatapultInterval":  0,
+        "bulletSpeed":  0,
+        "bulletRange":  0,
+        "bulletHurtRange":  0,
+        "bulletHurtRange1":  [
+
+                             ],
+        "bulletRangeEnergy":  0,
+        "bulletHurtRange2":  0,
+        "bulletHurtRange3":  0,
+        "bulletHurt":  [
+                           0
+                       ],
+        "bulletHurt1":  [
+
+                        ],
+        "bulletRecoveryRnergy":  0,
+        "bulletReduceRnergy":  0,
+        "bulletReduceRnergyProportion":  [
+
+                                         ],
+        "bulletRecoveryLostLife":  0,
+        "bulletHurtReduce":  0,
+        "bulletHurtEnhance":  0,
+        "bulletRepelReduce":  0,
+        "bulletRepelEnhance":  0,
+        "bulletDistanceRepelAdd":  0,
+        "bulletDistanceRepelAddNum":  0,
+        "bulletDistanceRepelAddLimit":  0,
+        "penetrationBulletDamage":  [
+
+                                    ],
+        "cureTriggerCondition":  0,
+        "cureEffectNum":  [
+
+                          ],
+        "cureAdd":  [
+
+                    ],
+        "bonusDamageTarget":  0,
+        "bonusTargetNum":  [
+
+                           ],
+        "bonusDamageType":  0,
+        "bonusDamageNum":  [
+
+                           ],
+        "lossLifeLimit":  0,
+        "bulletDistanceDamageAdd":  0,
+        "bulletDistanceDamageAddNum":  0,
+        "bulletDistanceDamageAddLimit":  0
+    },
+    {
+        "id":  3,
+        "bulletId":  2600,
+        "bulletLevel":  1,
+        "dodge":  1,
+        "resist":  1,
+        "bulletRangeInterrupt":  1,
+        "inherit":  1,
+        "bulletSize":  1,
+        "inheritEnergy":  0,
+        "vampirism":  0,
+        "bulletChangeLife":  0,
+        "bulletRes":  "000_0",
+        "bulletResSkin":  [
+                              "000_0"
+                          ],
+        "hurtDefend":  0,
+        "launch":  "fire",
+        "bulletAdmission":  0,
+        "attackType":  0,
+        "bulletTime":  0.1,
+        "bulletTarget":  1,
+        "appointBulletTarget":  0,
+        "bulletNum":  [
+                          1
+                      ],
+        "bulletTimeInterval":  0,
+        "bulletPenetrate":  999,
+        "bulletPenetrateWeight":  [
+
+                                  ],
+        "bulletPenetrateNum":  [
+
+                               ],
+        "bulletStrikeNum":  0,
+        "bulletCatapult":  0,
+        "bulletTreatment":  0,
+        "bulletCatapultInterval":  0,
+        "bulletSpeed":  80,
+        "bulletRange":  135,
+        "bulletHurtRange":  0,
+        "bulletHurtRange1":  [
+
+                             ],
+        "bulletRangeEnergy":  0,
+        "bulletHurtRange2":  0,
+        "bulletHurtRange3":  0,
+        "bulletHurt":  [
+                           3
+                       ],
+        "bulletHurt1":  [
+
+                        ],
+        "bulletRecoveryRnergy":  0,
+        "bulletReduceRnergy":  0,
+        "bulletReduceRnergyProportion":  [
+
+                                         ],
+        "bulletRecoveryLostLife":  0,
+        "bulletHurtReduce":  0,
+        "bulletHurtEnhance":  0,
+        "bulletRepelReduce":  0,
+        "bulletRepelEnhance":  0,
+        "bulletDistanceRepelAdd":  0,
+        "bulletDistanceRepelAddNum":  0,
+        "bulletDistanceRepelAddLimit":  0,
+        "penetrationBulletDamage":  [
+
+                                    ],
+        "cureTriggerCondition":  0,
+        "cureEffectNum":  [
+
+                          ],
+        "cureAdd":  [
+
+                    ],
+        "bonusDamageTarget":  0,
+        "bonusTargetNum":  [
+
+                           ],
+        "bonusDamageType":  0,
+        "bonusDamageNum":  [
+
+                           ],
+        "lossLifeLimit":  0,
+        "bulletDistanceDamageAdd":  0,
+        "bulletDistanceDamageAddNum":  0,
+        "bulletDistanceDamageAddLimit":  0
+    }
+]
+=== heroHurtSkills (count 43) ===
+[
+    {
+        "bonusDamageNum":  [
+
+                           ],
+        "bonusDamageTarget":  0,
+        "bonusDamageType":  0,
+        "bonusTargetNum":  [
+
+                           ],
+        "damageHurtRange":  0,
+        "damageId":  100,
+        "damageLevel":  1,
+        "damageMultiple":  [
+                               3
+                           ],
+        "damageMultiple1":  [
+                                0
+                            ],
+        "damageRepel":  1.5,
+        "dodge":  1,
+        "hurtRes":  "",
+        "id":  1,
+        "lossLifeLimit":  0,
+        "resist":  [
+                       1
+                   ],
+        "skillChangeLife":  0,
+        "vampirism":  0
+    },
+    {
+        "bonusDamageNum":  [
+
+                           ],
+        "bonusDamageTarget":  0,
+        "bonusDamageType":  0,
+        "bonusTargetNum":  [
+
+                           ],
+        "damageHurtRange":  0,
+        "damageId":  200,
+        "damageLevel":  1,
+        "damageMultiple":  [
+                               1.5
+                           ],
+        "damageMultiple1":  [
+                                0
+                            ],
+        "damageRepel":  1,
+        "dodge":  1,
+        "hurtRes":  "",
+        "id":  2,
+        "lossLifeLimit":  0,
+        "resist":  [
+                       1
+                   ],
+        "skillChangeLife":  0,
+        "vampirism":  0
+    },
+    {
+        "bonusDamageNum":  [
+
+                           ],
+        "bonusDamageTarget":  0,
+        "bonusDamageType":  0,
+        "bonusTargetNum":  [
+
+                           ],
+        "damageHurtRange":  0,
+        "damageId":  500,
+        "damageLevel":  1,
+        "damageMultiple":  [
+                               3.5
+                           ],
+        "damageMultiple1":  [
+                                0
+                            ],
+        "damageRepel":  1,
+        "dodge":  0,
+        "hurtRes":  "",
+        "id":  3,
+        "lossLifeLimit":  0,
+        "resist":  [
+                       1
+                   ],
+        "skillChangeLife":  0,
+        "vampirism":  0
+    }
+]
+=== heroSkillEnergies (count 245) ===
+[
+    {
+        "energyLevel":  1,
+        "energyLimit":  1000,
+        "energyRestoreNum1":  [
+                                  76,
+                                  0
+                              ],
+        "energyRestoreType":  [
+                                  1,
+                                  4
+                              ],
+        "heroId":  10100,
+        "id":  1,
+        "initialEnergy":  0,
+        "unlockEnergyType":  [
+                                 1
+                             ],
+        "unlockEnergyType1":  [
+                                  0
+                              ]
+    },
+    {
+        "energyLevel":  2,
+        "energyLimit":  1000,
+        "energyRestoreNum1":  [
+                                  0,
+                                  0
+                              ],
+        "energyRestoreType":  [
+                                  0,
+                                  0
+                              ],
+        "heroId":  10100,
+        "id":  2,
+        "initialEnergy":  0,
+        "unlockEnergyType":  [
+                                 1
+                             ],
+        "unlockEnergyType1":  [
+                                  20
+                              ]
+    },
+    {
+        "energyLevel":  1,
+        "energyLimit":  1000,
+        "energyRestoreNum1":  [
+                                  42,
+                                  0
+                              ],
+        "energyRestoreType":  [
+                                  1,
+                                  4
+                              ],
+        "heroId":  10800,
+        "id":  3,
+        "initialEnergy":  0,
+        "unlockEnergyType":  [
+                                 1
+                             ],
+        "unlockEnergyType1":  [
+                                  0
+                              ]
+    }
+]
+=== heroSkillNum (count 90) ===
+[
+    {
+        "heroId":  101,
+        "id":  1,
+        "talentIcon":  [
+                           "talent_101_1",
+                           "talent_101_2",
+                           "talent_101_5",
+                           "talent_101_3",
+                           "talent_101_4",
+                           "talent_101_6"
+                       ],
+        "talentId":  [
+                         10101,
+                         10102,
+                         10103,
+                         10104,
+                         10105,
+                         10106
+                     ]
+    },
+    {
+        "heroId":  102,
+        "id":  2,
+        "talentIcon":  [
+                           "talent_102_1",
+                           "talent_102_2",
+                           "talent_102_3",
+                           "talent_102_4",
+                           "talent_102_5",
+                           "talent_102_6"
+                       ],
+        "talentId":  [
+                         10201,
+                         10202,
+                         10203,
+                         10204,
+                         10205,
+                         10206
+                     ]
+    },
+    {
+        "heroId":  103,
+        "id":  3,
+        "talentIcon":  [
+                           "talent_103_1",
+                           "talent_103_2",
+                           "talent_103_3",
+                           "talent_103_4",
+                           "talent_103_5",
+                           "talent_103_6"
+                       ],
+        "talentId":  [
+                         10301,
+                         10302,
+                         10303,
+                         10304,
+                         10305,
+                         10306
+                     ]
+    }
+]
+=== heroAwakeAttrs (count 5760) ===
+[
+    {
+        "attributeNum":  0.1,
+        "attributeType":  "lifePre",
+        "awakenGrade":  1,
+        "displayNum":  [
+                           10
+                       ],
+        "heroId":  101,
+        "icon":  "lifePre",
+        "id":  1,
+        "talentDec":  "JXSX_21",
+        "talentName":  "",
+        "upgradeNum":  [
+                           40
+                       ],
+        "upgradeType":  [
+                            "fragment_101"
+                        ]
+    },
+    {
+        "attributeNum":  0.1,
+        "attributeType":  "damagePre",
+        "awakenGrade":  2,
+        "displayNum":  [
+                           10
+                       ],
+        "heroId":  101,
+        "icon":  "damagePre",
+        "id":  2,
+        "talentDec":  "JXSX_6",
+        "talentName":  "",
+        "upgradeNum":  [
+                           40
+                       ],
+        "upgradeType":  [
+                            "fragment_101"
+                        ]
+    },
+    {
+        "attributeNum":  0.1,
+        "attributeType":  "defensePre",
+        "awakenGrade":  3,
+        "displayNum":  [
+                           10
+                       ],
+        "heroId":  101,
+        "icon":  "defensePre",
+        "id":  3,
+        "talentDec":  "JXSX_5",
+        "talentName":  "",
+        "upgradeNum":  [
+                           40
+                       ],
+        "upgradeType":  [
+                            "fragment_101"
+                        ]
+    }
+]
+=== heroStars (count 26) ===
+[
+    {
+        "costCard":  0,
+        "damage":  1,
+        "defense":  1,
+        "id":  1,
+        "level":  0,
+        "life":  1
+    },
+    {
+        "costCard":  20,
+        "damage":  1.2,
+        "defense":  1.2,
+        "id":  2,
+        "level":  1,
+        "life":  1.2
+    },
+    {
+        "costCard":  20,
+        "damage":  1.4,
+        "defense":  1.4,
+        "id":  3,
+        "level":  2,
+        "life":  1.4
+    }
+]
+=== heroLevelCosts (count 200) ===
+[
+    {
+        "id":  1,
+        "level":  1,
+        "upgradeConsumeNum":  [
+                                  0
+                              ],
+        "upgradeConsumeType":  [
+                                   "exp"
+                               ]
+    },
+    {
+        "id":  2,
+        "level":  2,
+        "upgradeConsumeNum":  [
+                                  100
+                              ],
+        "upgradeConsumeType":  [
+                                   "exp"
+                               ]
+    },
+    {
+        "id":  3,
+        "level":  3,
+        "upgradeConsumeNum":  [
+                                  150
+                              ],
+        "upgradeConsumeType":  [
+                                   "exp"
+                               ]
+    }
+]
+=== constConfig (battle-ish keys) ===
+arenaRankBattleBreak = 100
+attackCityNeedGuildMedals = 2500
+attackCityStaminaLimit = 15
+attackDecline = 0
+auxiliaryAttackDecline = 0.33
+battleOccupyTime = 28800
+battleProtectTime = 3600
+benefitSkilled = 0.12
+benefitfishingSpeed = 0
+continuousRepel = 0.8
+darknessEnergy = 0
+darknessKill = 50
+glyphsLockHeroLevel = 1
+heroDamageMinCoefficient = 0.1
+heroReborn = 1
+heroReborn1 = 1
+initialBattleChallenge = 5
+knockbackSpeed = 100
+mageAttackDecline = 0.28
+pointGvgAttackCityFeats = 1
+pointGvgAttackCityNeedTime = 10
+pointGvgAttackCityReduceHp = 1
+pointGvgBattleSpeed = 8
+pointGvgDefaultEnergy = 100
+pointGvgSpeedUpCost = 20
+rankBattleBreakEnemy = 0.7
+rankBattleDiamondPayNum = 100
+rankBattleTicketLimit = 5
+rankBattleTicketNum = 5
+rankBattleTicketRechargeTime = 7200
+rankBattleUnlock = 7
+rankBattleVideoBuyNum = 2
+remoteAttack = 110
+shooterAttackDecline = 0.38
+speedReelTime = 10
+weekHeroStarScore = 3
+westMonopolyStealRange = 0.8
+wildTraceEnergyMax = 60
+wildTraceEnergyRestoreNum = 3

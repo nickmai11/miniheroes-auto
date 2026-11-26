@@ -1,0 +1,306 @@
+[
+  {
+    "desc": "DIAOYU_58",
+    "id": 1,
+    "type": 5,
+    "typeNum": [180],
+    "typeNum1": [7, 40],
+    "uuid": 40001
+  },
+  {
+    "desc": "DIAOYU_59",
+    "id": 2,
+    "type": 6,
+    "typeNum": [2500],
+    "typeNum1": [2500],
+    "uuid": 40002
+  },
+  {
+    "desc": "DIAOYU_57",
+    "id": 3,
+    "type": 4,
+    "typeNum": [50],
+    "typeNum1": [50],
+    "uuid": 40003
+  },
+  {
+    "desc": "DIAOYU_58",
+    "id": 4,
+    "type": 5,
+    "typeNum": [300],
+    "typeNum1": [10, 40],
+    "uuid": 40004
+  },
+  {
+    "desc": "DIAOYU_59",
+    "id": 5,
+    "type": 6,
+    "typeNum": [12000],
+    "typeNum1": [12000],
+    "uuid": 40005
+  },
+  {
+    "desc": "DIAOYU_56",
+    "id": 6,
+    "type": 3,
+    "typeNum": [40],
+    "typeNum1": [40],
+    "uuid": 40006
+  },
+  {
+    "desc": "DIAOYU_169",
+    "id": 7,
+    "type": 5,
+    "typeNum": [420],
+    "typeNum1": [3, 40],
+    "uuid": 40007
+  },
+  {
+    "desc": "DIAOYU_59",
+    "id": 8,
+    "type": 6,
+    "typeNum": [50000],
+    "typeNum1": [50000],
+    "uuid": 40008
+  },
+  {
+    "desc": "DIAOYU_55",
+    "id": 9,
+    "type": 2,
+    "typeNum": [350],
+    "typeNum1": [350],
+    "uuid": 40009
+  },
+  {
+    "desc": "DIAOYU_169",
+    "id": 10,
+    "type": 5,
+    "typeNum": [580],
+    "typeNum1": [7, 40],
+    "uuid": 40010
+  },
+  {
+    "desc": "DIAOYU_59",
+    "id": 11,
+    "type": 6,
+    "typeNum": [200000],
+    "typeNum1": [200000],
+    "uuid": 40011
+  },
+  {
+    "desc": "DIAOYU_61",
+    "id": 12,
+    "type": 8,
+    "typeNum": [500, 30],
+    "typeNum1": [500, 30],
+    "uuid": 40012
+  },
+  {
+    "desc": "DIAOYU_169",
+    "id": 13,
+    "type": 5,
+    "typeNum": [700],
+    "typeNum1": [10, 40],
+    "uuid": 40013
+  },
+  {
+    "desc": "DIAOYU_59",
+    "id": 14,
+    "type": 6,
+    "typeNum": [700000],
+    "typeNum1": [700000],
+    "uuid": 40014
+  },
+  {
+    "desc": "DIAOYU_62",
+    "id": 15,
+    "type": 9,
+    "typeNum": [800, 5],
+    "typeNum1": [800, 5],
+    "uuid": 40015
+  },
+  {
+    "desc": "DIAOYU_161",
+    "id": 16,
+    "type": 8,
+    "typeNum": [10, 20],
+    "typeNum1": [10, 20],
+    "uuid": 41001
+  },
+  {
+    "desc": "DIAOYU_161",
+    "id": 17,
+    "type": 8,
+    "typeNum": [15, 25],
+    "typeNum1": [15, 25],
+    "uuid": 41002
+  },
+  {
+    "desc": "DIAOYU_161",
+    "id": 18,
+    "type": 8,
+    "typeNum": [20, 25],
+    "typeNum1": [20, 25],
+    "uuid": 41003
+  },
+  {
+    "desc": "DIAOYU_161",
+    "id": 19,
+    "type": 8,
+    "typeNum": [25, 30],
+    "typeNum1": [25, 30],
+    "uuid": 41004
+  },
+  {
+    "desc": "DIAOYU_161",
+    "id": 20,
+    "type": 8,
+    "typeNum": [30, 30],
+    "typeNum1": [30, 30],
+    "uuid": 41005
+  },
+  {
+    "desc": "DIAOYU_162",
+    "id": 21,
+    "type": 7,
+    "typeNum": [5],
+    "typeNum1": [5],
+    "uuid": 42001
+  },
+  {
+    "desc": "DIAOYU_162",
+    "id": 22,
+    "type": 7,
+    "typeNum": [8],
+    "typeNum1": [8],
+    "uuid": 42002
+  },
+  {
+    "desc": "DIAOYU_162",
+    "id": 23,
+    "type": 7,
+    "typeNum": [12],
+    "typeNum1": [12],
+    "uuid": 42003
+  },
+  {
+    "desc": "DIAOYU_162",
+    "id": 24,
+    "type": 7,
+    "typeNum": [20],
+    "typeNum1": [20],
+    "uuid": 42004
+  },
+  {
+    "desc": "DIAOYU_162",
+    "id": 25,
+    "type": 7,
+    "typeNum": [30],
+    "typeNum1": [30],
+    "uuid": 42005
+  },
+  {
+    "desc": "DIAOYU_163",
+    "id": 26,
+    "type": 6,
+    "typeNum": [500],
+    "typeNum1": [500],
+    "uuid": 43001
+  },
+  {
+    "desc": "DIAOYU_163",
+    "id": 27,
+    "type": 6,
+    "typeNum": [1000],
+    "typeNum1": [1000],
+    "uuid": 43002
+  },
+  {
+    "desc": "DIAOYU_163",
+    "id": 28,
+    "type": 6,
+    "typeNum": [2000],
+    "typeNum1": [2000],
+    "uuid": 43003
+  },
+  {
+    "desc": "DIAOYU_163",
+    "id": 29,
+    "type": 6,
+    "typeNum": [5000],
+    "typeNum1": [5000],
+    "uuid": 43004
+  },
+  {
+    "desc": "DIAOYU_163",
+    "id": 30,
+    "type": 6,
+    "typeNum": [10000],
+    "typeNum1": [10000],
+    "uuid": 43005
+  },
+  {
+    "desc": "DIAOYU_164",
+    "id": 31,
+    "type": 9,
+    "typeNum": [10, 3],
+    "typeNum1": [10, 3],
+    "uuid": 44001
+  },
+  {
+    "desc": "DIAOYU_164",
+    "id": 32,
+    "type": 9,
+    "typeNum": [10, 4],
+    "typeNum1": [10, 4],
+    "uuid": 44002
+  },
+  {
+    "desc": "DIAOYU_164",
+    "id": 33,
+    "type": 9,
+    "typeNum": [10, 5],
+    "typeNum1": [10, 5],
+    "uuid": 44003
+  },
+  {
+    "desc": "DIAOYU_164",
+    "id": 34,
+    "type": 9,
+    "typeNum": [15, 5],
+    "typeNum1": [15, 5],
+    "uuid": 44004
+  },
+  {
+    "desc": "DIAOYU_164",
+    "id": 35,
+    "type": 9,
+    "typeNum": [20, 5],
+    "typeNum1": [20, 5],
+    "uuid": 44005
+  },
+  {
+    "desc": "DIAOYU_170",
+    "id": 36,
+    "type": 5,
+    "typeNum": [1100],
+    "typeNum1": [10, 40],
+    "uuid": 40016
+  },
+  {
+    "desc": "DIAOYU_59",
+    "id": 37,
+    "type": 6,
+    "typeNum": [2500000],
+    "typeNum1": [2500000],
+    "uuid": 40017
+  },
+  {
+    "desc": "DIAOYU_54",
+    "id": 38,
+    "type": 1,
+    "typeNum": [8500],
+    "typeNum1": [8500],
+    "uuid": 40018
+  }
+]

@@ -1,0 +1,302 @@
+[
+  {
+    "bagLevel": 1,
+    "id": 1,
+    "upLevelNeedNum": 1000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 2,
+    "id": 2,
+    "upLevelNeedNum": 1500,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 3,
+    "id": 3,
+    "upLevelNeedNum": 2000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 4,
+    "id": 4,
+    "upLevelNeedNum": 3000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 5,
+    "id": 5,
+    "upLevelNeedNum": 5000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 6,
+    "id": 6,
+    "upLevelNeedNum": 7000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 7,
+    "id": 7,
+    "upLevelNeedNum": 10000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 8,
+    "id": 8,
+    "upLevelNeedNum": 13000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 9,
+    "id": 9,
+    "upLevelNeedNum": 14000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 10,
+    "id": 10,
+    "upLevelNeedNum": 17000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 11,
+    "id": 11,
+    "upLevelNeedNum": 20000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 12,
+    "id": 12,
+    "upLevelNeedNum": 23000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 13,
+    "id": 13,
+    "upLevelNeedNum": 26000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 14,
+    "id": 14,
+    "upLevelNeedNum": 30000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 15,
+    "id": 15,
+    "upLevelNeedNum": 34000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 16,
+    "id": 16,
+    "upLevelNeedNum": 38000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 17,
+    "id": 17,
+    "upLevelNeedNum": 42500,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 18,
+    "id": 18,
+    "upLevelNeedNum": 47500,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 19,
+    "id": 19,
+    "upLevelNeedNum": 52500,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 20,
+    "id": 20,
+    "upLevelNeedNum": 58000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 21,
+    "id": 21,
+    "upLevelNeedNum": 63500,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 22,
+    "id": 22,
+    "upLevelNeedNum": 70000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 23,
+    "id": 23,
+    "upLevelNeedNum": 76000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 24,
+    "id": 24,
+    "upLevelNeedNum": 83000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 25,
+    "id": 25,
+    "upLevelNeedNum": 90000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 26,
+    "id": 26,
+    "upLevelNeedNum": 98000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 27,
+    "id": 27,
+    "upLevelNeedNum": 107000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 28,
+    "id": 28,
+    "upLevelNeedNum": 116000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 29,
+    "id": 29,
+    "upLevelNeedNum": 125000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 30,
+    "id": 30,
+    "upLevelNeedNum": 135000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 31,
+    "id": 31,
+    "upLevelNeedNum": 146000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 32,
+    "id": 32,
+    "upLevelNeedNum": 157000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 33,
+    "id": 33,
+    "upLevelNeedNum": 168000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 34,
+    "id": 34,
+    "upLevelNeedNum": 180000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 35,
+    "id": 35,
+    "upLevelNeedNum": 193000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 36,
+    "id": 36,
+    "upLevelNeedNum": 206000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 37,
+    "id": 37,
+    "upLevelNeedNum": 219000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 38,
+    "id": 38,
+    "upLevelNeedNum": 233000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 39,
+    "id": 39,
+    "upLevelNeedNum": 248000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 40,
+    "id": 40,
+    "upLevelNeedNum": 263000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 41,
+    "id": 41,
+    "upLevelNeedNum": 279000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 42,
+    "id": 42,
+    "upLevelNeedNum": 296000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 43,
+    "id": 43,
+    "upLevelNeedNum": 314000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 44,
+    "id": 44,
+    "upLevelNeedNum": 334000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 45,
+    "id": 45,
+    "upLevelNeedNum": 356000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 46,
+    "id": 46,
+    "upLevelNeedNum": 380000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 47,
+    "id": 47,
+    "upLevelNeedNum": 406000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 48,
+    "id": 48,
+    "upLevelNeedNum": 434000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 49,
+    "id": 49,
+    "upLevelNeedNum": 464000,
+    "upLevelNeedType": "divineCrystal"
+  },
+  {
+    "bagLevel": 50,
+    "id": 50,
+    "upLevelNeedNum": 0,
+    "upLevelNeedType": "divineCrystal"
+  }
+]

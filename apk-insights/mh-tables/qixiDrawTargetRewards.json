@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "rewardNum": [3, 1, 7000, 15, 100],
+    "rewardType": [
+      "gold_4",
+      "zb_box2",
+      "spiritStone_2",
+      "randomFragment3",
+      "bait3"
+    ],
+    "targetNum": 50
+  },
+  {
+    "id": 2,
+    "rewardNum": [1, 10, 7000, 5, 15],
+    "rewardType": [
+      "randomMem3",
+      "qxDisplaceStone",
+      "spiritStone_3",
+      "soulStone3",
+      "shareDebris3"
+    ],
+    "targetNum": 150
+  },
+  {
+    "id": 3,
+    "rewardNum": [50, 4, 20, 1, 1],
+    "rewardType": [
+      "randomFragment3",
+      "crystalLight",
+      "fourColorStone",
+      "strongPotion",
+      "strongPotion"
+    ],
+    "targetNum": 300
+  },
+  {
+    "id": 4,
+    "rewardNum": [4, 50, 30, 35, 40],
+    "rewardType": [
+      "randomMem3",
+      "shareDebris3",
+      "soulStone3",
+      "fourColorStone",
+      "tieStone"
+    ],
+    "targetNum": 500
+  },
+  {
+    "id": 5,
+    "rewardNum": [1, 1, 1, 50, 120],
+    "rewardType": [
+      "danArtBox",
+      "danArtBox",
+      "skinAct_124003",
+      "divineStone",
+      "qxDisplaceStone"
+    ],
+    "targetNum": 800
+  }
+]

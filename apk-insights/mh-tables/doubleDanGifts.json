@@ -1,0 +1,47 @@
+[
+  {
+    "describe": "activity_dan_info_29",
+    "id": 1,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay11001",
+    "rewardNum": [10, 1],
+    "rewardType": ["diamond", "runeStone"]
+  },
+  {
+    "describe": "activity_dan_info_30",
+    "id": 2,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay11002",
+    "rewardNum": [300, 10, 3, 300],
+    "rewardType": ["diamond", "runeStone", "exchangeCoin", "noblePoints"]
+  },
+  {
+    "describe": "activity_dan_info_31",
+    "id": 3,
+    "limitNum": 3,
+    "limitType": 2,
+    "productIdentifying": "pay11003",
+    "rewardNum": [1280, 30, 5, 1280],
+    "rewardType": ["diamond", "runeStone", "exchangeCoin", "noblePoints"]
+  },
+  {
+    "describe": "activity_dan_info_32",
+    "id": 4,
+    "limitNum": 5,
+    "limitType": 2,
+    "productIdentifying": "pay11004",
+    "rewardNum": [3280, 50, 15, 3280],
+    "rewardType": ["diamond", "runeStone", "exchangeCoin", "noblePoints"]
+  },
+  {
+    "describe": "activity_dan_info_33",
+    "id": 5,
+    "limitNum": 10,
+    "limitType": 2,
+    "productIdentifying": "pay11005",
+    "rewardNum": [6480, 100, 25, 6480],
+    "rewardType": ["diamond", "runeStone", "exchangeCoin", "noblePoints"]
+  }
+]

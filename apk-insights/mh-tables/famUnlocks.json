@@ -1,0 +1,57 @@
+[
+  {
+    "buyDiamond": [80, 160, 240, 320, 400],
+    "copyType": 1,
+    "id": 1,
+    "key": "UI_FUNCTION_18",
+    "open": [0],
+    "show": ["exp"],
+    "unlockCondition": 1,
+    "unlockNum": 14,
+    "unlockNum1": [14]
+  },
+  {
+    "buyDiamond": [80, 160, 240, 320, 400],
+    "copyType": 2,
+    "id": 2,
+    "key": "UI_FUNCTION_19",
+    "open": [0],
+    "show": ["coinMinting1"],
+    "unlockCondition": 1,
+    "unlockNum": 26,
+    "unlockNum1": [26]
+  },
+  {
+    "buyDiamond": [80, 160, 240, 320, 400],
+    "copyType": 3,
+    "id": 3,
+    "key": "UI_FUNCTION_25",
+    "open": [0],
+    "show": ["glyphs_2003"],
+    "unlockCondition": 1,
+    "unlockNum": 50,
+    "unlockNum1": [50]
+  },
+  {
+    "buyDiamond": [80, 160, 240, 320, 400],
+    "copyType": 4,
+    "id": 4,
+    "key": "ELF_S66",
+    "open": [0],
+    "show": ["elfStone"],
+    "unlockCondition": 1,
+    "unlockNum": 100,
+    "unlockNum1": [100]
+  },
+  {
+    "buyDiamond": [80, 160, 240, 320, 400],
+    "copyType": 5,
+    "id": 5,
+    "key": "GEM_FUNCTION",
+    "open": [0],
+    "show": ["gemSpirit"],
+    "unlockCondition": 1,
+    "unlockNum": 130,
+    "unlockNum1": [130]
+  }
+]

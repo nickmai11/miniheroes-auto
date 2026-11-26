@@ -1,0 +1,82 @@
+[
+  {
+    "daysRequire": 1,
+    "freeRewardNum": [2],
+    "freeRewardType": ["moonCoin"],
+    "id": 1,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["moonCoin", "headFrame_18"]
+  },
+  {
+    "daysRequire": 2,
+    "freeRewardNum": [2],
+    "freeRewardType": ["moonCoin"],
+    "id": 2,
+    "payRewardNum": [10, 10],
+    "payRewardType": ["moonCoin", "moonExchange"]
+  },
+  {
+    "daysRequire": 3,
+    "freeRewardNum": [2],
+    "freeRewardType": ["moonCoin"],
+    "id": 3,
+    "payRewardNum": [10, 10],
+    "payRewardType": ["moonCoin", "moonExchange"]
+  },
+  {
+    "daysRequire": 4,
+    "freeRewardNum": [2],
+    "freeRewardType": ["moonCoin"],
+    "id": 4,
+    "payRewardNum": [10, 10],
+    "payRewardType": ["moonCoin", "moonExchange"]
+  },
+  {
+    "daysRequire": 5,
+    "freeRewardNum": [6],
+    "freeRewardType": ["moonCoin"],
+    "id": 5,
+    "payRewardNum": [10, 10],
+    "payRewardType": ["moonCoin", "moonExchange"]
+  },
+  {
+    "daysRequire": 6,
+    "freeRewardNum": [2],
+    "freeRewardType": ["moonCoin"],
+    "id": 6,
+    "payRewardNum": [10, 10],
+    "payRewardType": ["moonCoin", "moonExchange"]
+  },
+  {
+    "daysRequire": 7,
+    "freeRewardNum": [6],
+    "freeRewardType": ["moonCoin"],
+    "id": 7,
+    "payRewardNum": [10, 10],
+    "payRewardType": ["moonCoin", "moonExchange"]
+  },
+  {
+    "daysRequire": 8,
+    "freeRewardNum": [2],
+    "freeRewardType": ["moonCoin"],
+    "id": 8,
+    "payRewardNum": [10, 10],
+    "payRewardType": ["moonCoin", "moonExchange"]
+  },
+  {
+    "daysRequire": 9,
+    "freeRewardNum": [2],
+    "freeRewardType": ["moonCoin"],
+    "id": 9,
+    "payRewardNum": [10, 10],
+    "payRewardType": ["moonCoin", "moonExchange"]
+  },
+  {
+    "daysRequire": 10,
+    "freeRewardNum": [6],
+    "freeRewardType": ["moonCoin"],
+    "id": 10,
+    "payRewardNum": [10, 10],
+    "payRewardType": ["moonCoin", "moonExchange"]
+  }
+]

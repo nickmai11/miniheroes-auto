@@ -92,7 +92,8 @@ arrow `(80,1820)`). Screenshot before retrying anything.
   `(938,636)` and stop (Aminor 2026-11-04: 320 on screen = the 80 was already bought by hand). The day's buys and the
   last price seen are remembered (`/tmp/miniheroes-state/<acct>-<day>.relic_buys`), so a re-run never opens the Tip
   again (Nick 2026-11-04: every pass re-opening it looked like extra buy taps). Prices escalate
-  80 → 160 → 240 → 320 within the day; each buy is verified by the counter (+10).
+  80 → 160 → 240 → 320 → 400 within the day (5 buys at most — APK table `hallowBuyCounts`, 2026-11-25; 80–320 seen
+  live); each buy is verified by the counter (+10).
 - **Area fully excavated** (Dino 2026-11-08, Blaze Peaks): the dig that finishes an area drops the game onto Relic
   Display ("Area fully excavated." toast), then a Congratulations popup (area reward: relics) opens over Fragment —
   not a combine. `relic.py` re-enters Archaeology (next area's board, new milestone count) and keeps digging.
@@ -140,7 +141,7 @@ the known route is taken.
 
 **Top row first** (Nick 2026-11-04): every bottom-row dig scrolls row 1 off the board for good — collect an item there
 before any dig-down (free pickaxes included) if it's worth its route; one that isn't (a shard 4 digs away) is let go,
-logged `letting … go`. **The top rows count as one group** (Nick 2026-11-11, Chloe: 3 shards + a gold chest sharing one
+logged `letting … go`. **The top rows count as one group** (Nick 2026-11-11, Gambler: 3 shards + a gold chest sharing one
 tunnel for 6 net digs = 0.16/shovel, while each shard alone was 3–4 digs and was let go): before a scroll, `tour()`
 tries every order of collecting the rows 1–3 items (each leg the cheapest route from what's dug so far, bottom row
 shut) and takes the best value/cost that reaches a row-1 item if ≥ r — logged `top rows as one group: N items, cost C`. The point is not to lose a shard the planner would have collected anyway — not to chase every

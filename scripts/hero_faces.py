@@ -9,7 +9,7 @@
 import fcntl, os, re, subprocess, sys, time
 import numpy as np
 from PIL import Image
-from flow import D, grab, ocr, tap_wait
+from flow import D, grab, ocr, swipe, tap_wait
 
 import hero
 
@@ -98,7 +98,7 @@ def still():
 def scroll(y0, y1):
     """Slow swipe, wait till still -> (moved, screen)."""
     a = grab().crop((0, TOP, 1080, BOTTOM)).convert('L')
-    subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', '540', str(y0), '540', str(y1), '1500'])
+    swipe(540, y0, 540, y1, 1500)
     b = still(); return diff(a, b.crop((0, TOP, 1080, BOTTOM)).convert('L')) >= 2, b
 
 

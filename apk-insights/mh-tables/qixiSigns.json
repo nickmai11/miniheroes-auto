@@ -1,0 +1,44 @@
+[
+  {
+    "day": 1,
+    "id": 1,
+    "rewardNum": [3, 5, 100],
+    "rewardType": ["qxTurntableItem", "qxBpItem", "diamond"]
+  },
+  {
+    "day": 2,
+    "id": 2,
+    "rewardNum": [3, 5, 100],
+    "rewardType": ["qxTurntableItem", "qxBpItem", "diamond"]
+  },
+  {
+    "day": 3,
+    "id": 3,
+    "rewardNum": [3, 5, 100],
+    "rewardType": ["qxTurntableItem", "qxBpItem", "diamond"]
+  },
+  {
+    "day": 4,
+    "id": 4,
+    "rewardNum": [3, 5, 100],
+    "rewardType": ["qxTurntableItem", "qxBpItem", "diamond"]
+  },
+  {
+    "day": 5,
+    "id": 5,
+    "rewardNum": [3, 5, 100],
+    "rewardType": ["qxTurntableItem", "qxBpItem", "diamond"]
+  },
+  {
+    "day": 6,
+    "id": 6,
+    "rewardNum": [3, 5, 100],
+    "rewardType": ["qxTurntableItem", "qxBpItem", "diamond"]
+  },
+  {
+    "day": 7,
+    "id": 7,
+    "rewardNum": [3, 5, 100],
+    "rewardType": ["qxTurntableItem", "qxBpItem", "diamond"]
+  }
+]

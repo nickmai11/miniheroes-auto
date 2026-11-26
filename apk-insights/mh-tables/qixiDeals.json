@@ -1,0 +1,62 @@
+[
+  {
+    "buyCondition": 2,
+    "describe": "HD_QXLB_1",
+    "id": 1,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay19000",
+    "rewardNum": [10, 1],
+    "rewardType": ["diamond", "qxTurntableItem"]
+  },
+  {
+    "buyCondition": 1,
+    "describe": "HD_QXLB_2",
+    "id": 2,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay19001",
+    "rewardNum": [300, 10, 15, 300],
+    "rewardType": ["diamond", "qxTurntableItem", "qxBpItem", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "describe": "HD_QXLB_3",
+    "id": 3,
+    "limitNum": 20,
+    "limitType": 2,
+    "productIdentifying": "pay19003",
+    "rewardNum": [1280, 20, 5, 1280],
+    "rewardType": ["diamond", "qxDisplaceStone", "shareDebris3", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "describe": "HD_QXLB_5",
+    "id": 4,
+    "limitNum": 3,
+    "limitType": 2,
+    "productIdentifying": "pay19004",
+    "rewardNum": [1280, 30, 5, 1280],
+    "rewardType": ["diamond", "qxTurntableItem", "shareDebris3", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "describe": "HD_QXLB_6",
+    "id": 5,
+    "limitNum": 5,
+    "limitType": 2,
+    "productIdentifying": "pay19005",
+    "rewardNum": [3280, 50, 10, 3280],
+    "rewardType": ["diamond", "qxTurntableItem", "shareDebris3", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "describe": "HD_QXLB_7",
+    "id": 6,
+    "limitNum": 10,
+    "limitType": 2,
+    "productIdentifying": "pay19006",
+    "rewardNum": [6480, 100, 15, 6480],
+    "rewardType": ["diamond", "qxTurntableItem", "shareDebris3", "noblePoints"]
+  }
+]

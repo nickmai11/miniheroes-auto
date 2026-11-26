@@ -1,0 +1,32 @@
+[
+  {
+    "grade": 5,
+    "id": 1,
+    "rewardNum": [1, 20, 20000, 500000],
+    "rewardType": ["medal2", "randomFragment3", "holyLight", "gold"]
+  },
+  {
+    "grade": 4,
+    "id": 2,
+    "rewardNum": [1, 15, 10000, 400000],
+    "rewardType": ["medal2", "randomFragment3", "holyLight", "gold"]
+  },
+  {
+    "grade": 3,
+    "id": 3,
+    "rewardNum": [1, 10, 5000, 300000],
+    "rewardType": ["medal2", "randomFragment3", "holyLight", "gold"]
+  },
+  {
+    "grade": 2,
+    "id": 4,
+    "rewardNum": [6, 3000, 200000],
+    "rewardType": ["randomFragment3", "holyLight", "gold"]
+  },
+  {
+    "grade": 1,
+    "id": 5,
+    "rewardNum": [3, 1000, 100000],
+    "rewardType": ["randomFragment3", "holyLight", "gold"]
+  }
+]

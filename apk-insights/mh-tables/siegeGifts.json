@@ -1,0 +1,158 @@
+[
+  {
+    "cost": 0,
+    "describe": "ATTACKCITY_GIFT_NAME1",
+    "id": 1,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay36001",
+    "rewardNum": [20],
+    "rewardType": ["diamond"],
+    "type": 1
+  },
+  {
+    "cost": 80,
+    "describe": "ATTACKCITY_GIFT_NAME2",
+    "id": 2,
+    "limitNum": 3,
+    "limitType": 1,
+    "productIdentifying": "pay36002",
+    "rewardNum": [1, 2],
+    "rewardType": ["attackCityPower", "attackCityCastStone"],
+    "type": 2
+  },
+  {
+    "cost": 250,
+    "describe": "ATTACKCITY_GIFT_NAME3",
+    "id": 3,
+    "limitNum": 3,
+    "limitType": 1,
+    "productIdentifying": "pay36003",
+    "rewardNum": [3, 4],
+    "rewardType": ["attackCityAttackToken", "attackCityCastStone"],
+    "type": 2
+  },
+  {
+    "cost": 980,
+    "describe": "ATTACKCITY_GIFT_NAME4",
+    "id": 4,
+    "limitNum": 3,
+    "limitType": 1,
+    "productIdentifying": "pay36004",
+    "rewardNum": [1, 6],
+    "rewardType": ["attackCityPhoenix", "attackCityCastStone"],
+    "type": 2
+  },
+  {
+    "cost": 0,
+    "describe": "ATTACKCITY_GIFT_NAME5",
+    "id": 5,
+    "limitNum": 3,
+    "limitType": 2,
+    "productIdentifying": "pay36005",
+    "rewardNum": [60, 3, 60],
+    "rewardType": ["diamond", "attackCityAttackToken", "noblePoints"],
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "ATTACKCITY_GIFT_NAME6",
+    "id": 6,
+    "limitNum": 3,
+    "limitType": 2,
+    "productIdentifying": "pay36006",
+    "rewardNum": [250, 8, 6, 250],
+    "rewardType": [
+      "diamond",
+      "attackCityCastStone",
+      "attackCityAttackToken",
+      "noblePoints"
+    ],
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "ATTACKCITY_GIFT_NAME7",
+    "id": 7,
+    "limitNum": 3,
+    "limitType": 2,
+    "productIdentifying": "pay36007",
+    "rewardNum": [600, 1, 13, 10, 600],
+    "rewardType": [
+      "diamond",
+      "attackCityPhoenix",
+      "attackCityCastStone",
+      "attackCityAttackToken",
+      "noblePoints"
+    ],
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "ATTACKCITY_GIFT_NAME8",
+    "id": 8,
+    "limitNum": 3,
+    "limitType": 2,
+    "productIdentifying": "pay36008",
+    "rewardNum": [1280, 2, 35, 13, 1280],
+    "rewardType": [
+      "diamond",
+      "attackCityPhoenix",
+      "attackCityCastStone",
+      "attackCityAttackToken",
+      "noblePoints"
+    ],
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "ATTACKCITY_GIFT_NAME9",
+    "id": 9,
+    "limitNum": 3,
+    "limitType": 2,
+    "productIdentifying": "pay36009",
+    "rewardNum": [3280, 3, 90, 25, 3280],
+    "rewardType": [
+      "diamond",
+      "attackCityPhoenix",
+      "attackCityCastStone",
+      "attackCityAttackToken",
+      "noblePoints"
+    ],
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "ATTACKCITY_GIFT_NAME10",
+    "id": 10,
+    "limitNum": 5,
+    "limitType": 2,
+    "productIdentifying": "pay36010",
+    "rewardNum": [6480, 6, 160, 45, 6480],
+    "rewardType": [
+      "diamond",
+      "attackCityPhoenix",
+      "attackCityCastStone",
+      "attackCityAttackToken",
+      "noblePoints"
+    ],
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "ATTACKCITY_GIFT_NAME11",
+    "id": 11,
+    "limitNum": 15,
+    "limitType": 2,
+    "productIdentifying": "pay36011",
+    "rewardNum": [6480, 15, 20, 10, 6480],
+    "rewardType": [
+      "diamond",
+      "attackCityPhoenix",
+      "shareDebris3",
+      "tieStone",
+      "noblePoints"
+    ],
+    "type": 1
+  }
+]

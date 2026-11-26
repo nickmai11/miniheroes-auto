@@ -1,0 +1,4052 @@
+[
+  {
+    "energyLevelRequire": 1,
+    "heroId": 101,
+    "id": 1,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 101,
+    "id": 2,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 101,
+    "id": 3,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 101,
+    "id": 4,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 101,
+    "id": 5,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 102,
+    "id": 6,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 102,
+    "id": 7,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 102,
+    "id": 8,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 102,
+    "id": 9,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 102,
+    "id": 10,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 103,
+    "id": 11,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 103,
+    "id": 12,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 103,
+    "id": 13,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 103,
+    "id": 14,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 103,
+    "id": 15,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 104,
+    "id": 16,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 104,
+    "id": 17,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 104,
+    "id": 18,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 104,
+    "id": 19,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 104,
+    "id": 20,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 105,
+    "id": 21,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 105,
+    "id": 22,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 105,
+    "id": 23,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 105,
+    "id": 24,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 105,
+    "id": 25,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 106,
+    "id": 26,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 106,
+    "id": 27,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 106,
+    "id": 28,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 106,
+    "id": 29,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 106,
+    "id": 30,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 107,
+    "id": 31,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 107,
+    "id": 32,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 107,
+    "id": 33,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 107,
+    "id": 34,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 107,
+    "id": 35,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 108,
+    "id": 36,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 108,
+    "id": 37,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 108,
+    "id": 38,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 108,
+    "id": 39,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 108,
+    "id": 40,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 109,
+    "id": 41,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 109,
+    "id": 42,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 109,
+    "id": 43,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 109,
+    "id": 44,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 109,
+    "id": 45,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 110,
+    "id": 46,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 110,
+    "id": 47,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 110,
+    "id": 48,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 110,
+    "id": 49,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 110,
+    "id": 50,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 111,
+    "id": 51,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 111,
+    "id": 52,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 111,
+    "id": 53,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 111,
+    "id": 54,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 111,
+    "id": 55,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 112,
+    "id": 56,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 112,
+    "id": 57,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 112,
+    "id": 58,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 112,
+    "id": 59,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 112,
+    "id": 60,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 113,
+    "id": 61,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 113,
+    "id": 62,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 113,
+    "id": 63,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 113,
+    "id": 64,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 113,
+    "id": 65,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 114,
+    "id": 66,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 114,
+    "id": 67,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 114,
+    "id": 68,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 114,
+    "id": 69,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 114,
+    "id": 70,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 115,
+    "id": 71,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 115,
+    "id": 72,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 115,
+    "id": 73,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 115,
+    "id": 74,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 115,
+    "id": 75,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 116,
+    "id": 76,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 116,
+    "id": 77,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 116,
+    "id": 78,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 116,
+    "id": 79,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 116,
+    "id": 80,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 117,
+    "id": 81,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 117,
+    "id": 82,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 117,
+    "id": 83,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 117,
+    "id": 84,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 117,
+    "id": 85,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 118,
+    "id": 86,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 118,
+    "id": 87,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 118,
+    "id": 88,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 118,
+    "id": 89,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 118,
+    "id": 90,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 119,
+    "id": 91,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 119,
+    "id": 92,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 119,
+    "id": 93,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 119,
+    "id": 94,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 119,
+    "id": 95,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 120,
+    "id": 96,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 120,
+    "id": 97,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 120,
+    "id": 98,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 120,
+    "id": 99,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 120,
+    "id": 100,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 121,
+    "id": 101,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 121,
+    "id": 102,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 121,
+    "id": 103,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 121,
+    "id": 104,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 121,
+    "id": 105,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 122,
+    "id": 106,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 122,
+    "id": 107,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 122,
+    "id": 108,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 122,
+    "id": 109,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 122,
+    "id": 110,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 123,
+    "id": 111,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 123,
+    "id": 112,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 123,
+    "id": 113,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 123,
+    "id": 114,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 123,
+    "id": 115,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 124,
+    "id": 116,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 124,
+    "id": 117,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 124,
+    "id": 118,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 124,
+    "id": 119,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 124,
+    "id": 120,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 125,
+    "id": 121,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 125,
+    "id": 122,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 125,
+    "id": 123,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 125,
+    "id": 124,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 125,
+    "id": 125,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 126,
+    "id": 126,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 126,
+    "id": 127,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 126,
+    "id": 128,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 126,
+    "id": 129,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 126,
+    "id": 130,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 127,
+    "id": 131,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 127,
+    "id": 132,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 127,
+    "id": 133,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 127,
+    "id": 134,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 127,
+    "id": 135,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 128,
+    "id": 136,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 128,
+    "id": 137,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 128,
+    "id": 138,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 128,
+    "id": 139,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 128,
+    "id": 140,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 129,
+    "id": 141,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 129,
+    "id": 142,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 129,
+    "id": 143,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 129,
+    "id": 144,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 129,
+    "id": 145,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 130,
+    "id": 146,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [100, 40, 800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 130,
+    "id": 147,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [300, 120, 2400],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 130,
+    "id": 148,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [600, 240, 4800],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 130,
+    "id": 149,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1000, 400, 8000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 130,
+    "id": 150,
+    "resonanceAttrName": ["SG_AT_NAME_6", "SG_AT_NAME_7", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1500, 600, 12000],
+    "resonanceAttrType": ["damage_1", "defense_1", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 201,
+    "id": 151,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 201,
+    "id": 152,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 201,
+    "id": 153,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 201,
+    "id": 154,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 201,
+    "id": 155,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 202,
+    "id": 156,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 202,
+    "id": 157,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 202,
+    "id": 158,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 202,
+    "id": 159,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 202,
+    "id": 160,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 203,
+    "id": 161,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 203,
+    "id": 162,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 203,
+    "id": 163,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 203,
+    "id": 164,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 203,
+    "id": 165,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 204,
+    "id": 166,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 204,
+    "id": 167,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 204,
+    "id": 168,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 204,
+    "id": 169,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 204,
+    "id": 170,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 205,
+    "id": 171,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 205,
+    "id": 172,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 205,
+    "id": 173,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 205,
+    "id": 174,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 205,
+    "id": 175,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 206,
+    "id": 176,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 206,
+    "id": 177,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 206,
+    "id": 178,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 206,
+    "id": 179,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 206,
+    "id": 180,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 207,
+    "id": 181,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 207,
+    "id": 182,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 207,
+    "id": 183,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 207,
+    "id": 184,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 207,
+    "id": 185,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 208,
+    "id": 186,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 208,
+    "id": 187,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 208,
+    "id": 188,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 208,
+    "id": 189,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 208,
+    "id": 190,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 209,
+    "id": 191,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 209,
+    "id": 192,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 209,
+    "id": 193,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 209,
+    "id": 194,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 209,
+    "id": 195,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 210,
+    "id": 196,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 210,
+    "id": 197,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 210,
+    "id": 198,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 210,
+    "id": 199,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 210,
+    "id": 200,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 211,
+    "id": 201,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 211,
+    "id": 202,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 211,
+    "id": 203,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 211,
+    "id": 204,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 211,
+    "id": 205,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 212,
+    "id": 206,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 212,
+    "id": 207,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 212,
+    "id": 208,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 212,
+    "id": 209,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 212,
+    "id": 210,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 213,
+    "id": 211,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 213,
+    "id": 212,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 213,
+    "id": 213,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 213,
+    "id": 214,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 213,
+    "id": 215,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 214,
+    "id": 216,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 214,
+    "id": 217,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 214,
+    "id": 218,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 214,
+    "id": 219,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 214,
+    "id": 220,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 215,
+    "id": 221,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 215,
+    "id": 222,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 215,
+    "id": 223,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 215,
+    "id": 224,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 215,
+    "id": 225,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 216,
+    "id": 226,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 216,
+    "id": 227,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 216,
+    "id": 228,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 216,
+    "id": 229,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 216,
+    "id": 230,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 217,
+    "id": 231,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 217,
+    "id": 232,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 217,
+    "id": 233,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 217,
+    "id": 234,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 217,
+    "id": 235,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 218,
+    "id": 236,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 218,
+    "id": 237,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 218,
+    "id": 238,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 218,
+    "id": 239,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 218,
+    "id": 240,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 219,
+    "id": 241,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 219,
+    "id": 242,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 219,
+    "id": 243,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 219,
+    "id": 244,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 219,
+    "id": 245,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 220,
+    "id": 246,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [130, 40, 800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 220,
+    "id": 247,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [390, 120, 2400],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 220,
+    "id": 248,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [780, 240, 4800],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 220,
+    "id": 249,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1300, 400, 8000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 220,
+    "id": 250,
+    "resonanceAttrName": ["SG_AT_NAME_12", "SG_AT_NAME_13", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1950, 600, 12000],
+    "resonanceAttrType": ["damage_2", "defense_2", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 301,
+    "id": 251,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 301,
+    "id": 252,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 301,
+    "id": 253,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 301,
+    "id": 254,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 301,
+    "id": 255,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 302,
+    "id": 256,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 302,
+    "id": 257,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 302,
+    "id": 258,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 302,
+    "id": 259,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 302,
+    "id": 260,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 303,
+    "id": 261,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 303,
+    "id": 262,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 303,
+    "id": 263,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 303,
+    "id": 264,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 303,
+    "id": 265,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 304,
+    "id": 266,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 304,
+    "id": 267,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 304,
+    "id": 268,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 304,
+    "id": 269,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 304,
+    "id": 270,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 305,
+    "id": 271,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 305,
+    "id": 272,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 305,
+    "id": 273,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 305,
+    "id": 274,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 305,
+    "id": 275,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 306,
+    "id": 276,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 306,
+    "id": 277,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 306,
+    "id": 278,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 306,
+    "id": 279,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 306,
+    "id": 280,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 307,
+    "id": 281,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 307,
+    "id": 282,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 307,
+    "id": 283,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 307,
+    "id": 284,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 307,
+    "id": 285,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 308,
+    "id": 286,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 308,
+    "id": 287,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 308,
+    "id": 288,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 308,
+    "id": 289,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 308,
+    "id": 290,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 309,
+    "id": 291,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 309,
+    "id": 292,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 309,
+    "id": 293,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 309,
+    "id": 294,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 309,
+    "id": 295,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 310,
+    "id": 296,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 310,
+    "id": 297,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 310,
+    "id": 298,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 310,
+    "id": 299,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 310,
+    "id": 300,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 311,
+    "id": 301,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 311,
+    "id": 302,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 311,
+    "id": 303,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 311,
+    "id": 304,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 311,
+    "id": 305,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 312,
+    "id": 306,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 312,
+    "id": 307,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 312,
+    "id": 308,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 312,
+    "id": 309,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 312,
+    "id": 310,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 313,
+    "id": 311,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 313,
+    "id": 312,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 313,
+    "id": 313,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 313,
+    "id": 314,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 313,
+    "id": 315,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 314,
+    "id": 316,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 314,
+    "id": 317,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 314,
+    "id": 318,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 314,
+    "id": 319,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 314,
+    "id": 320,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 315,
+    "id": 321,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 315,
+    "id": 322,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 315,
+    "id": 323,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 315,
+    "id": 324,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 315,
+    "id": 325,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 316,
+    "id": 326,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 316,
+    "id": 327,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 316,
+    "id": 328,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 316,
+    "id": 329,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 316,
+    "id": 330,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 317,
+    "id": 331,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 317,
+    "id": 332,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 317,
+    "id": 333,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 317,
+    "id": 334,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 317,
+    "id": 335,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 318,
+    "id": 336,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 318,
+    "id": 337,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 318,
+    "id": 338,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 318,
+    "id": 339,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 318,
+    "id": 340,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 319,
+    "id": 341,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [120, 40, 800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 319,
+    "id": 342,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [360, 120, 2400],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 319,
+    "id": 343,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [720, 240, 4800],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 319,
+    "id": 344,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1200, 400, 8000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 319,
+    "id": 345,
+    "resonanceAttrName": ["SG_AT_NAME_9", "SG_AT_NAME_10", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1800, 600, 12000],
+    "resonanceAttrType": ["damage_3", "defense_3", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 401,
+    "id": 346,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 401,
+    "id": 347,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 401,
+    "id": 348,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 401,
+    "id": 349,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 401,
+    "id": 350,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 402,
+    "id": 351,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 402,
+    "id": 352,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 402,
+    "id": 353,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 402,
+    "id": 354,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 402,
+    "id": 355,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 403,
+    "id": 356,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 403,
+    "id": 357,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 403,
+    "id": 358,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 403,
+    "id": 359,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 403,
+    "id": 360,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 404,
+    "id": 361,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 404,
+    "id": 362,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 404,
+    "id": 363,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 404,
+    "id": 364,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 404,
+    "id": 365,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 405,
+    "id": 366,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 405,
+    "id": 367,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 405,
+    "id": 368,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 405,
+    "id": 369,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 405,
+    "id": 370,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 406,
+    "id": 371,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 406,
+    "id": 372,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 406,
+    "id": 373,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 406,
+    "id": 374,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 406,
+    "id": 375,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 407,
+    "id": 376,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 407,
+    "id": 377,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 407,
+    "id": 378,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 407,
+    "id": 379,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 407,
+    "id": 380,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 408,
+    "id": 381,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 408,
+    "id": 382,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 408,
+    "id": 383,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 408,
+    "id": 384,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 408,
+    "id": 385,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 409,
+    "id": 386,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 409,
+    "id": 387,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 409,
+    "id": 388,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 409,
+    "id": 389,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 409,
+    "id": 390,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 410,
+    "id": 391,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 410,
+    "id": 392,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 410,
+    "id": 393,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 410,
+    "id": 394,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 410,
+    "id": 395,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 411,
+    "id": 396,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 411,
+    "id": 397,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 411,
+    "id": 398,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 411,
+    "id": 399,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 411,
+    "id": 400,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 412,
+    "id": 401,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 412,
+    "id": 402,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 412,
+    "id": 403,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 412,
+    "id": 404,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 412,
+    "id": 405,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 413,
+    "id": 406,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 413,
+    "id": 407,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 413,
+    "id": 408,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 413,
+    "id": 409,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 413,
+    "id": 410,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 414,
+    "id": 411,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 414,
+    "id": 412,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 414,
+    "id": 413,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 414,
+    "id": 414,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 414,
+    "id": 415,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 415,
+    "id": 416,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 415,
+    "id": 417,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 415,
+    "id": 418,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 415,
+    "id": 419,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 415,
+    "id": 420,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 416,
+    "id": 421,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 416,
+    "id": 422,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 416,
+    "id": 423,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 416,
+    "id": 424,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 416,
+    "id": 425,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 417,
+    "id": 426,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 417,
+    "id": 427,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 417,
+    "id": 428,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 417,
+    "id": 429,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 417,
+    "id": 430,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 418,
+    "id": 431,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 418,
+    "id": 432,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 418,
+    "id": 433,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 418,
+    "id": 434,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 418,
+    "id": 435,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 419,
+    "id": 436,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 419,
+    "id": 437,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 419,
+    "id": 438,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 419,
+    "id": 439,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 419,
+    "id": 440,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 420,
+    "id": 441,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 420,
+    "id": 442,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 420,
+    "id": 443,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 420,
+    "id": 444,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 420,
+    "id": 445,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  },
+  {
+    "energyLevelRequire": 1,
+    "heroId": 421,
+    "id": 446,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [140, 40, 800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 1
+  },
+  {
+    "energyLevelRequire": 2,
+    "heroId": 421,
+    "id": 447,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [420, 120, 2400],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 2
+  },
+  {
+    "energyLevelRequire": 3,
+    "heroId": 421,
+    "id": 448,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [840, 240, 4800],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 3
+  },
+  {
+    "energyLevelRequire": 4,
+    "heroId": 421,
+    "id": 449,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [1400, 400, 8000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 4
+  },
+  {
+    "energyLevelRequire": 5,
+    "heroId": 421,
+    "id": 450,
+    "resonanceAttrName": ["SG_AT_NAME_15", "SG_AT_NAME_16", "SG_AT_NAME_20"],
+    "resonanceAttrNum": [2100, 600, 12000],
+    "resonanceAttrType": ["damage_4", "defense_4", "life"],
+    "resonanceLevel": 5
+  }
+]

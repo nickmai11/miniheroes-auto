@@ -1,0 +1,29 @@
+[
+  {
+    "adSpeedCold": 0,
+    "adSpeedTime": 0,
+    "divineEquipPer": ["30:3600", "30:3600", "30:3600"],
+    "id": 1,
+    "itemTpye": ["diamond", "energyFuel"],
+    "speedUpType": 1,
+    "timeRemain": ["1:3600", "3601:10800", "10801:999999999"]
+  },
+  {
+    "adSpeedCold": 7200,
+    "adSpeedTime": 1800,
+    "divineEquipPer": ["600", "600", "600"],
+    "id": 2,
+    "itemTpye": ["fireCore"],
+    "speedUpType": 2,
+    "timeRemain": ["1:3600", "3601:10800", "10801:999999999"]
+  },
+  {
+    "adSpeedCold": 7200,
+    "adSpeedTime": 1800,
+    "divineEquipPer": ["30", "30", "30"],
+    "id": 3,
+    "itemTpye": ["diamond"],
+    "speedUpType": 3,
+    "timeRemain": ["1:1800", "1801:3600", "3601:99999999"]
+  }
+]

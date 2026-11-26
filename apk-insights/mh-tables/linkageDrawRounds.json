@@ -1,0 +1,32 @@
+[
+  {
+    "buyType": ["tbhCoin"],
+    "describe": "TANGBOHU_WORD_033",
+    "display": 1,
+    "id": 1,
+    "jackpotMin": 1,
+    "pot": 1001,
+    "price": [200],
+    "price10": [2000]
+  },
+  {
+    "buyType": ["tbhCoin"],
+    "describe": "TANGBOHU_WORD_033",
+    "display": 2,
+    "id": 2,
+    "jackpotMin": 1,
+    "pot": 1002,
+    "price": [200],
+    "price10": [2000]
+  },
+  {
+    "buyType": ["tbhCoin"],
+    "describe": "TANGBOHU_WORD_033",
+    "display": 3,
+    "id": 3,
+    "jackpotMin": 1,
+    "pot": 1003,
+    "price": [200],
+    "price10": [2000]
+  }
+]

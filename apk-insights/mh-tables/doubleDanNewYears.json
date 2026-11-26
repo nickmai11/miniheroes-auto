@@ -1,0 +1,8 @@
+[
+  {
+    "activationTime": 1793462400,
+    "id": 1,
+    "rewardNum": [1, 8888, 10, 1000],
+    "rewardType": ["strongPotion", "spiritStone_2", "exchangeCoin", "diamond"]
+  }
+]

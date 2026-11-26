@@ -1,0 +1,23 @@
+[
+  { "id": 1, "ranking": [1], "score": 1200, "type": 1 },
+  { "id": 2, "ranking": [2], "score": 1000, "type": 1 },
+  { "id": 3, "ranking": [3], "score": 800, "type": 1 },
+  { "id": 4, "ranking": [4], "score": 600, "type": 1 },
+  { "id": 5, "ranking": [5, 6], "score": 400, "type": 1 },
+  { "id": 6, "ranking": [7, 9], "score": 200, "type": 1 },
+  { "id": 7, "ranking": [10, 16], "score": 100, "type": 1 },
+  { "id": 8, "ranking": [1], "score": 1680, "type": 2 },
+  { "id": 9, "ranking": [2], "score": 1400, "type": 2 },
+  { "id": 10, "ranking": [3], "score": 1120, "type": 2 },
+  { "id": 11, "ranking": [4], "score": 840, "type": 2 },
+  { "id": 12, "ranking": [5, 6], "score": 560, "type": 2 },
+  { "id": 13, "ranking": [7, 9], "score": 280, "type": 2 },
+  { "id": 14, "ranking": [10, 16], "score": 140, "type": 2 },
+  { "id": 15, "ranking": [1], "score": 3550, "type": 3 },
+  { "id": 16, "ranking": [2], "score": 3230, "type": 3 },
+  { "id": 17, "ranking": [3], "score": 2940, "type": 3 },
+  { "id": 18, "ranking": [4], "score": 2670, "type": 3 },
+  { "id": 19, "ranking": [5, 6], "score": 2430, "type": 3 },
+  { "id": 20, "ranking": [7, 9], "score": 2210, "type": 3 },
+  { "id": 21, "ranking": [10, 16], "score": 1700, "type": 3 }
+]

@@ -1,0 +1,128 @@
+[
+  {
+    "eventID": 101,
+    "eventIcon": "",
+    "eventParam1": [],
+    "eventParam2": [],
+    "eventParam3": [],
+    "eventQuality": 0,
+    "id": 1
+  },
+  {
+    "eventID": 201,
+    "eventIcon": "forgeCoin",
+    "eventParam1": ["forgeCoin"],
+    "eventParam2": [80, 120, 160],
+    "eventParam3": [],
+    "eventQuality": 1,
+    "id": 2
+  },
+  {
+    "eventID": 202,
+    "eventIcon": "energyFuel",
+    "eventParam1": ["energyFuel"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventQuality": 2,
+    "id": 3
+  },
+  {
+    "eventID": 203,
+    "eventIcon": "fireAshes",
+    "eventParam1": ["fireAshes"],
+    "eventParam2": [20],
+    "eventParam3": [],
+    "eventQuality": 2,
+    "id": 4
+  },
+  {
+    "eventID": 204,
+    "eventIcon": "fireCore",
+    "eventParam1": ["fireCore"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventQuality": 3,
+    "id": 5
+  },
+  {
+    "eventID": 205,
+    "eventIcon": "divineCrystal",
+    "eventParam1": ["divineCrystal"],
+    "eventParam2": [80, 120, 160],
+    "eventParam3": [],
+    "eventQuality": 1,
+    "id": 6
+  },
+  {
+    "eventID": 206,
+    "eventIcon": "bagExtendTool",
+    "eventParam1": ["bagExtendTool"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventQuality": 3,
+    "id": 7
+  },
+  {
+    "eventID": 207,
+    "eventIcon": "pickax",
+    "eventParam1": ["pickax"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventQuality": 1,
+    "id": 8
+  },
+  {
+    "eventID": 208,
+    "eventIcon": "oreEssence",
+    "eventParam1": ["oreEssence"],
+    "eventParam2": [20, 25, 30],
+    "eventParam3": [],
+    "eventQuality": 2,
+    "id": 9
+  },
+  {
+    "eventID": 209,
+    "eventIcon": "explosive",
+    "eventParam1": ["explosive"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventQuality": 3,
+    "id": 10
+  },
+  {
+    "eventID": 210,
+    "eventIcon": "broach",
+    "eventParam1": ["broach"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventQuality": 3,
+    "id": 11
+  },
+  {
+    "eventID": 301,
+    "eventIcon": "forgeCoin1",
+    "eventParam1": ["forgeCoin", "oreEssence", "divineCrystal", "gold"],
+    "eventParam2": [200, 10, 100, 10000],
+    "eventParam3": [1, 1],
+    "eventQuality": 4,
+    "id": 12
+  },
+  {
+    "eventID": 302,
+    "eventIcon": "forgeCoin2",
+    "eventParam1": ["forgeCoin", "oreEssence", "divineCrystal", "gold"],
+    "eventParam2": [800, 30, 300, 30000],
+    "eventParam3": [2, 2],
+    "eventQuality": 4,
+    "id": 13
+  },
+  {
+    "eventID": 303,
+    "eventIcon": "forgeCoin3",
+    "eventParam1": ["forgeCoin", "oreEssence", "divineCrystal", "gold"],
+    "eventParam2": [1200, 50, 500, 50000],
+    "eventParam3": [2, 3],
+    "eventQuality": 4,
+    "id": 14
+  }
+]

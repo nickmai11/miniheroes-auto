@@ -1,0 +1,7 @@
+[
+  { "blockGroup": [1, 4], "blockGroupType": 1, "id": 1 },
+  { "blockGroup": [2, 3, 5, 20, 21], "blockGroupType": 2, "id": 2 },
+  { "blockGroup": [17, 18, 19], "blockGroupType": 3, "id": 3 },
+  { "blockGroup": [6, 7, 8, 11, 14, 16], "blockGroupType": 4, "id": 4 },
+  { "blockGroup": [9, 10, 12, 13, 15], "blockGroupType": 5, "id": 5 }
+]

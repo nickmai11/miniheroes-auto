@@ -1,0 +1,7 @@
+[
+  { "id": 1, "quality": 1, "qualityBaseEnergy": 120, "qualityPerLevel": 10 },
+  { "id": 2, "quality": 2, "qualityBaseEnergy": 350, "qualityPerLevel": 30 },
+  { "id": 3, "quality": 3, "qualityBaseEnergy": 1300, "qualityPerLevel": 90 },
+  { "id": 4, "quality": 4, "qualityBaseEnergy": 4970, "qualityPerLevel": 270 },
+  { "id": 5, "quality": 5, "qualityBaseEnergy": 18520, "qualityPerLevel": 800 }
+]

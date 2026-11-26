@@ -1,0 +1,9 @@
+[
+  { "eventRanking": [1], "id": 1, "pointsNum": 1000 },
+  { "eventRanking": [2], "id": 2, "pointsNum": 600 },
+  { "eventRanking": [3, 4], "id": 3, "pointsNum": 400 },
+  { "eventRanking": [5, 8], "id": 4, "pointsNum": 250 },
+  { "eventRanking": [9, 16], "id": 5, "pointsNum": 150 },
+  { "eventRanking": [17, 32], "id": 6, "pointsNum": 100 },
+  { "eventRanking": [33, 64], "id": 7, "pointsNum": 50 }
+]

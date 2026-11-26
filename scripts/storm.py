@@ -12,7 +12,7 @@
 import os, re, subprocess, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tap import grab, tap as tap_wait
-from flow import find, near, ocr, watch_ad
+from flow import find, near, ocr, tap, watch_ad
 TIERS = ['Bronze', 'Silver', 'Gold', 'Glory', 'King']
 
 
@@ -61,7 +61,6 @@ def arena(im): p = im.getpixel((400, 1580)); return p[0] > 200 and p[1] > 150 an
 def free_btn(im):
     p = im.getpixel((260, 1250))
     return 'green' if near(p, (123, 206, 49)) else 'grey' if near(p, (181, 178, 181)) else None
-def tap(x, y): subprocess.run(['adb', '-s', D, 'shell', 'input', 'tap', str(x), str(y)])
 def close_popup(): tap(100, 1150); time.sleep(1)
 
 

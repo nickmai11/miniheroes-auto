@@ -1,0 +1,326 @@
+[
+  {
+    "des": "TASK_DESC_1",
+    "id": 1,
+    "jump": 16,
+    "taskCond": 1,
+    "unlockingCondition": 1,
+    "unlockingNum": 10,
+    "unlockingNum1": [10]
+  },
+  {
+    "des": "TASK_DESC_2",
+    "id": 2,
+    "jump": 2,
+    "taskCond": 2,
+    "unlockingCondition": 1,
+    "unlockingNum": 10,
+    "unlockingNum1": [10]
+  },
+  {
+    "des": "TASK_DESC_3",
+    "id": 3,
+    "jump": 2,
+    "taskCond": 3,
+    "unlockingCondition": 1,
+    "unlockingNum": 10,
+    "unlockingNum1": [10]
+  },
+  {
+    "des": "TASK_DESC_4",
+    "id": 4,
+    "jump": 3,
+    "taskCond": 4,
+    "unlockingCondition": 1,
+    "unlockingNum": 10,
+    "unlockingNum1": [10]
+  },
+  {
+    "des": "TASK_DESC_5",
+    "id": 5,
+    "jump": 3,
+    "taskCond": 5,
+    "unlockingCondition": 1,
+    "unlockingNum": 10,
+    "unlockingNum1": [10]
+  },
+  {
+    "des": "TASK_DESC_6",
+    "id": 6,
+    "jump": 4,
+    "taskCond": 6,
+    "unlockingCondition": 1,
+    "unlockingNum": 10,
+    "unlockingNum1": [10]
+  },
+  {
+    "des": "TASK_DESC_7",
+    "id": 7,
+    "jump": 6,
+    "taskCond": 7,
+    "unlockingCondition": 1,
+    "unlockingNum": 25,
+    "unlockingNum1": [25]
+  },
+  {
+    "des": "TASK_DESC_8",
+    "id": 8,
+    "jump": 7,
+    "taskCond": 8,
+    "unlockingCondition": 1,
+    "unlockingNum": 30,
+    "unlockingNum1": [30]
+  },
+  {
+    "des": "TASK_DESC_9",
+    "id": 9,
+    "jump": 7,
+    "taskCond": 9,
+    "unlockingCondition": 1,
+    "unlockingNum": 30,
+    "unlockingNum1": [30]
+  },
+  {
+    "des": "TASK_DESC_10",
+    "id": 10,
+    "jump": 6,
+    "taskCond": 10,
+    "unlockingCondition": 1,
+    "unlockingNum": 40,
+    "unlockingNum1": [40]
+  },
+  {
+    "des": "TASK_DESC_11",
+    "id": 11,
+    "jump": 6,
+    "taskCond": 11,
+    "unlockingCondition": 1,
+    "unlockingNum": 40,
+    "unlockingNum1": [40]
+  },
+  {
+    "des": "TASK_DESC_12",
+    "id": 12,
+    "jump": 2,
+    "taskCond": 12,
+    "unlockingCondition": 1,
+    "unlockingNum": 10,
+    "unlockingNum1": [10]
+  },
+  {
+    "des": "TASK_DESC_16",
+    "id": 13,
+    "jump": 6,
+    "taskCond": 16,
+    "unlockingCondition": 1,
+    "unlockingNum": 14,
+    "unlockingNum1": [14]
+  },
+  {
+    "des": "TASK_DESC_17",
+    "id": 14,
+    "jump": 9,
+    "taskCond": 17,
+    "unlockingCondition": 1,
+    "unlockingNum": 10,
+    "unlockingNum1": [10]
+  },
+  {
+    "des": "TASK_DESC_18",
+    "id": 15,
+    "jump": 15,
+    "taskCond": 18,
+    "unlockingCondition": 1,
+    "unlockingNum": 20,
+    "unlockingNum1": [20]
+  },
+  {
+    "des": "TASK_DESC_19",
+    "id": 16,
+    "jump": 9,
+    "taskCond": 19,
+    "unlockingCondition": 1,
+    "unlockingNum": 10,
+    "unlockingNum1": [10]
+  },
+  {
+    "des": "TASK_DESC_20",
+    "id": 17,
+    "jump": 13,
+    "taskCond": 20,
+    "unlockingCondition": 1,
+    "unlockingNum": 10,
+    "unlockingNum1": [10]
+  },
+  {
+    "des": "TASK_DESC_21",
+    "id": 18,
+    "jump": 7,
+    "taskCond": 21,
+    "unlockingCondition": 1,
+    "unlockingNum": 30,
+    "unlockingNum1": [30]
+  },
+  {
+    "des": "TASK_DESC_22",
+    "id": 19,
+    "jump": 17,
+    "taskCond": 22,
+    "unlockingCondition": 1,
+    "unlockingNum": 10,
+    "unlockingNum1": [10]
+  },
+  {
+    "des": "TASK_DESC_23",
+    "id": 20,
+    "jump": 35,
+    "taskCond": 23,
+    "unlockingCondition": 1,
+    "unlockingNum": 60,
+    "unlockingNum1": [60]
+  },
+  {
+    "des": "TASK_DESC_24",
+    "id": 21,
+    "jump": 24,
+    "taskCond": 24,
+    "unlockingCondition": 1,
+    "unlockingNum": 35,
+    "unlockingNum1": [35]
+  },
+  {
+    "des": "TASK_DESC_25",
+    "id": 22,
+    "jump": 22,
+    "taskCond": 25,
+    "unlockingCondition": 1,
+    "unlockingNum": 35,
+    "unlockingNum1": [35]
+  },
+  {
+    "des": "TASK_DESC_26",
+    "id": 23,
+    "jump": 30,
+    "taskCond": 26,
+    "unlockingCondition": 1,
+    "unlockingNum": 70,
+    "unlockingNum1": [70]
+  },
+  {
+    "des": "TASK_DESC_27",
+    "id": 24,
+    "jump": 21,
+    "taskCond": 27,
+    "unlockingCondition": 1,
+    "unlockingNum": 65,
+    "unlockingNum1": [65]
+  },
+  {
+    "des": "TASK_DESC_28",
+    "id": 25,
+    "jump": 34,
+    "taskCond": 28,
+    "unlockingCondition": 1,
+    "unlockingNum": 130,
+    "unlockingNum1": [130]
+  },
+  {
+    "des": "TASK_DESC_29",
+    "id": 26,
+    "jump": 21,
+    "taskCond": 29,
+    "unlockingCondition": 1,
+    "unlockingNum": 65,
+    "unlockingNum1": [65]
+  },
+  {
+    "des": "TASK_DESC_30",
+    "id": 27,
+    "jump": 23,
+    "taskCond": 30,
+    "unlockingCondition": 1,
+    "unlockingNum": 90,
+    "unlockingNum1": [90]
+  },
+  {
+    "des": "TASK_DESC_31",
+    "id": 28,
+    "jump": 33,
+    "taskCond": 31,
+    "unlockingCondition": 1,
+    "unlockingNum": 120,
+    "unlockingNum1": [120]
+  },
+  {
+    "des": "TASK_DESC_33",
+    "id": 29,
+    "jump": 11,
+    "taskCond": 33,
+    "unlockingCondition": 1,
+    "unlockingNum": 100,
+    "unlockingNum1": [100]
+  },
+  {
+    "des": "TASK_DESC_34",
+    "id": 30,
+    "jump": 42,
+    "taskCond": 34,
+    "unlockingCondition": 1,
+    "unlockingNum": 100,
+    "unlockingNum1": [100]
+  },
+  {
+    "des": "TASK_DESC_35",
+    "id": 31,
+    "jump": 42,
+    "taskCond": 35,
+    "unlockingCondition": 1,
+    "unlockingNum": 100,
+    "unlockingNum1": [100]
+  },
+  {
+    "des": "TASK_DESC_36",
+    "id": 32,
+    "jump": 0,
+    "taskCond": 36,
+    "unlockingCondition": 1,
+    "unlockingNum": 140,
+    "unlockingNum1": [140]
+  },
+  {
+    "des": "TASK_DESC_37",
+    "id": 33,
+    "jump": 0,
+    "taskCond": 37,
+    "unlockingCondition": 1,
+    "unlockingNum": 140,
+    "unlockingNum1": [140]
+  },
+  {
+    "des": "TASK_DESC_38",
+    "id": 34,
+    "jump": 0,
+    "taskCond": 38,
+    "unlockingCondition": 1,
+    "unlockingNum": 140,
+    "unlockingNum1": [140]
+  },
+  {
+    "des": "TASK_DESC_39",
+    "id": 35,
+    "jump": 0,
+    "taskCond": 39,
+    "unlockingCondition": 1,
+    "unlockingNum": 140,
+    "unlockingNum1": [140]
+  },
+  {
+    "des": "TASK_DESC_40",
+    "id": 36,
+    "jump": 0,
+    "taskCond": 40,
+    "unlockingCondition": 1,
+    "unlockingNum": 140,
+    "unlockingNum1": [140]
+  }
+]

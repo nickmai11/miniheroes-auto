@@ -1,0 +1,23 @@
+[
+  { "id": 1, "teamLevel": 0 },
+  { "id": 2, "teamLevel": 10 },
+  { "id": 3, "teamLevel": 20 },
+  { "id": 4, "teamLevel": 30 },
+  { "id": 5, "teamLevel": 40 },
+  { "id": 6, "teamLevel": 50 },
+  { "id": 7, "teamLevel": 60 },
+  { "id": 8, "teamLevel": 70 },
+  { "id": 9, "teamLevel": 80 },
+  { "id": 10, "teamLevel": 90 },
+  { "id": 11, "teamLevel": 100 },
+  { "id": 12, "teamLevel": 110 },
+  { "id": 13, "teamLevel": 120 },
+  { "id": 14, "teamLevel": 130 },
+  { "id": 15, "teamLevel": 140 },
+  { "id": 16, "teamLevel": 150 },
+  { "id": 17, "teamLevel": 160 },
+  { "id": 18, "teamLevel": 170 },
+  { "id": 19, "teamLevel": 180 },
+  { "id": 20, "teamLevel": 190 },
+  { "id": 21, "teamLevel": 200 }
+]

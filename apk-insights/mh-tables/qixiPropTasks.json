@@ -1,0 +1,38 @@
+[
+  {
+    "des": "QX_TASK_TXT_1",
+    "id": 1,
+    "jump": 15,
+    "rewardScore": 1,
+    "taskId": 1001,
+    "taskType": 1,
+    "taskValue": 800
+  },
+  {
+    "des": "QX_TASK_TXT_2",
+    "id": 2,
+    "jump": 7,
+    "rewardScore": 1,
+    "taskId": 1002,
+    "taskType": 2,
+    "taskValue": 4
+  },
+  {
+    "des": "QX_TASK_TXT_3",
+    "id": 3,
+    "jump": 8,
+    "rewardScore": 1,
+    "taskId": 1003,
+    "taskType": 3,
+    "taskValue": 30
+  },
+  {
+    "des": "QX_TASK_TXT_4",
+    "id": 4,
+    "jump": 36,
+    "rewardScore": 1,
+    "taskId": 1004,
+    "taskType": 4,
+    "taskValue": 10
+  }
+]

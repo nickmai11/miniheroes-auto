@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "personRanking": [1],
+    "personRewardNum": [10, 1, 200000],
+    "personRewardType": ["randomFragment3", "zb_box1", "gold"]
+  },
+  {
+    "id": 2,
+    "personRanking": [2],
+    "personRewardNum": [8, 1, 180000],
+    "personRewardType": ["randomFragment3", "zb_box1", "gold"]
+  },
+  {
+    "id": 3,
+    "personRanking": [3],
+    "personRewardNum": [7, 1, 150000],
+    "personRewardType": ["randomFragment3", "zb_box1", "gold"]
+  },
+  {
+    "id": 4,
+    "personRanking": [4, 10],
+    "personRewardNum": [6, 15, 120000],
+    "personRewardType": ["randomFragment3", "coinMinting2", "gold"]
+  },
+  {
+    "id": 5,
+    "personRanking": [11, 30],
+    "personRewardNum": [5, 10, 120000],
+    "personRewardType": ["randomFragment3", "coinMinting2", "gold"]
+  },
+  {
+    "id": 6,
+    "personRanking": [31, 50],
+    "personRewardNum": [4, 20, 100000],
+    "personRewardType": ["randomFragment3", "coinMinting1", "gold"]
+  },
+  {
+    "id": 7,
+    "personRanking": [51, 100],
+    "personRewardNum": [3, 20, 80000],
+    "personRewardType": ["randomFragment3", "coinMinting1", "gold"]
+  },
+  {
+    "id": 8,
+    "personRanking": [101, 200],
+    "personRewardNum": [2, 15, 60000],
+    "personRewardType": ["randomFragment3", "coinMinting1", "gold"]
+  }
+]

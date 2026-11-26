@@ -1,0 +1,7 @@
+[
+  { "id": 1, "rewardNum": 1, "rewardType": "gemPick_06" },
+  { "id": 2, "rewardNum": 30, "rewardType": "tieStone" },
+  { "id": 3, "rewardNum": 30, "rewardType": "templeDust" },
+  { "id": 4, "rewardNum": 80, "rewardType": "coinMinting3" },
+  { "id": 5, "rewardNum": 1, "rewardType": "starOptionalMark5" }
+]

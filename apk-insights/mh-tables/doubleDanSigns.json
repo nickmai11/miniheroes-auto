@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "rewardNum": [5, 2, 100],
+    "rewardType": ["runeStone", "exchangeCoin", "diamond"]
+  },
+  {
+    "id": 2,
+    "rewardNum": [3, 2, 100],
+    "rewardType": ["runeStone", "exchangeCoin", "diamond"]
+  },
+  {
+    "id": 3,
+    "rewardNum": [5, 2, 100],
+    "rewardType": ["runeStone", "exchangeCoin", "diamond"]
+  },
+  {
+    "id": 4,
+    "rewardNum": [3, 2, 100],
+    "rewardType": ["runeStone", "exchangeCoin", "diamond"]
+  },
+  {
+    "id": 5,
+    "rewardNum": [5, 2, 100],
+    "rewardType": ["runeStone", "exchangeCoin", "diamond"]
+  },
+  {
+    "id": 6,
+    "rewardNum": [3, 2, 100],
+    "rewardType": ["runeStone", "exchangeCoin", "diamond"]
+  },
+  {
+    "id": 7,
+    "rewardNum": [5, 2, 100],
+    "rewardType": ["runeStone", "exchangeCoin", "diamond"]
+  },
+  {
+    "id": 8,
+    "rewardNum": [3, 2, 100],
+    "rewardType": ["runeStone", "exchangeCoin", "diamond"]
+  },
+  {
+    "id": 9,
+    "rewardNum": [5, 2, 100],
+    "rewardType": ["runeStone", "exchangeCoin", "diamond"]
+  },
+  {
+    "id": 10,
+    "rewardNum": [3, 2, 100],
+    "rewardType": ["runeStone", "exchangeCoin", "diamond"]
+  },
+  {
+    "id": 11,
+    "rewardNum": [5, 2, 100],
+    "rewardType": ["runeStone", "exchangeCoin", "diamond"]
+  },
+  {
+    "id": 12,
+    "rewardNum": [5, 2, 100],
+    "rewardType": ["runeStone", "exchangeCoin", "diamond"]
+  }
+]

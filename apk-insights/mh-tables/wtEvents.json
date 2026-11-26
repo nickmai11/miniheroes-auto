@@ -1,0 +1,185 @@
+[
+  {
+    "dialogue": "",
+    "id": 1,
+    "map": 1,
+    "showProb": [],
+    "showReward": [],
+    "showRewardNum": [],
+    "title": "WILD_EVENT_INFO3",
+    "type": 1
+  },
+  {
+    "dialogue": "WILD_EVENT_INFO15",
+    "id": 2,
+    "map": 1,
+    "showProb": [0, 1, 1, 1, 0],
+    "showReward": [
+      "wildScore",
+      "holyLight",
+      "blindBoxCoin",
+      "recruitRoll",
+      "pickax"
+    ],
+    "showRewardNum": [1300, 500, 300, 1, 1],
+    "title": "WILD_EVENT_INFO1",
+    "type": 2
+  },
+  {
+    "dialogue": "WILD_EVENT_INFO16",
+    "id": 3,
+    "map": 1,
+    "showProb": [0, 0, 1, 1],
+    "showReward": [
+      "wildScore",
+      "randomFragment3",
+      "equipEssenceRandom",
+      "gemRandom_01"
+    ],
+    "showRewardNum": [1500, 1, 3, 1],
+    "title": "WILD_EVENT_INFO2",
+    "type": 3
+  },
+  {
+    "dialogue": "WILD_EVENT_INFO17",
+    "id": 4,
+    "map": 1,
+    "showProb": [0, 0, 0],
+    "showReward": ["wildScore", "wildMap", "blindBoxCoin"],
+    "showRewardNum": [1000, 1, 300],
+    "title": "WILD_EVENT_INFO7",
+    "type": 4
+  },
+  {
+    "dialogue": "WILD_EVENT_INFO9",
+    "id": 5,
+    "map": 1,
+    "showProb": [0, 0],
+    "showReward": ["wildScore", "elfStone"],
+    "showRewardNum": [1200, 50],
+    "title": "WILD_EVENT_INFO8",
+    "type": 5
+  },
+  {
+    "dialogue": "",
+    "id": 6,
+    "map": 2,
+    "showProb": [],
+    "showReward": [],
+    "showRewardNum": [],
+    "title": "WILD_EVENT_INFO3",
+    "type": 1
+  },
+  {
+    "dialogue": "WILD_EVENT_INFO15",
+    "id": 7,
+    "map": 2,
+    "showProb": [0, 1, 1, 1, 0],
+    "showReward": [
+      "wildScore",
+      "holyLight",
+      "blindBoxCoin",
+      "recruitRoll",
+      "pickax"
+    ],
+    "showRewardNum": [2860, 1000, 600, 2, 2],
+    "title": "WILD_EVENT_INFO1",
+    "type": 2
+  },
+  {
+    "dialogue": "WILD_EVENT_INFO16",
+    "id": 8,
+    "map": 2,
+    "showProb": [0, 0, 1, 1],
+    "showReward": [
+      "wildScore",
+      "randomFragment3",
+      "equipEssenceRandom",
+      "gemRandom_01"
+    ],
+    "showRewardNum": [3300, 2, 6, 2],
+    "title": "WILD_EVENT_INFO2",
+    "type": 3
+  },
+  {
+    "dialogue": "WILD_EVENT_INFO17",
+    "id": 9,
+    "map": 2,
+    "showProb": [0, 0, 0],
+    "showReward": ["wildScore", "wildMap", "blindBoxCoin"],
+    "showRewardNum": [2200, 2, 600],
+    "title": "WILD_EVENT_INFO7",
+    "type": 4
+  },
+  {
+    "dialogue": "WILD_EVENT_INFO9",
+    "id": 10,
+    "map": 2,
+    "showProb": [0, 1, 1],
+    "showReward": ["wildScore", "elfStone", "elfSkill1"],
+    "showRewardNum": [2640, 100, 1],
+    "title": "WILD_EVENT_INFO8",
+    "type": 5
+  },
+  {
+    "dialogue": "",
+    "id": 11,
+    "map": 3,
+    "showProb": [],
+    "showReward": [],
+    "showRewardNum": [],
+    "title": "WILD_EVENT_INFO3",
+    "type": 1
+  },
+  {
+    "dialogue": "WILD_EVENT_INFO15",
+    "id": 12,
+    "map": 3,
+    "showProb": [0, 1, 1, 1, 0],
+    "showReward": [
+      "wildScore",
+      "holyLight",
+      "blindBoxCoin",
+      "recruitRoll",
+      "pickax"
+    ],
+    "showRewardNum": [5200, 1500, 900, 3, 3],
+    "title": "WILD_EVENT_INFO1",
+    "type": 2
+  },
+  {
+    "dialogue": "WILD_EVENT_INFO16",
+    "id": 13,
+    "map": 3,
+    "showProb": [0, 0, 1, 1],
+    "showReward": [
+      "wildScore",
+      "shareDebris3",
+      "equipEssenceRandom",
+      "gemRandom_02"
+    ],
+    "showRewardNum": [6000, 2, 9, 1],
+    "title": "WILD_EVENT_INFO2",
+    "type": 3
+  },
+  {
+    "dialogue": "WILD_EVENT_INFO9",
+    "id": 14,
+    "map": 3,
+    "showProb": [0, 1, 1],
+    "showReward": ["wildScore", "elfStone", "elfSkill1"],
+    "showRewardNum": [4800, 150, 1],
+    "title": "WILD_EVENT_INFO8",
+    "type": 5
+  },
+  {
+    "dialogue": "WILD_EVENT_INFO18",
+    "id": 15,
+    "map": 3,
+    "showProb": [0, 0],
+    "showReward": ["wildScore", "memf_64008"],
+    "showRewardNum": [5000, 1],
+    "title": "WILD_EVENT_INFO4",
+    "type": 6
+  }
+]

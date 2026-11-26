@@ -1,0 +1,38 @@
+[
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "XS_ZM_1",
+    "id": 1,
+    "productIdentifying": "pay10000",
+    "rewardNum": [10],
+    "rewardType": ["limitRoll"]
+  },
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "XS_ZM_2",
+    "id": 2,
+    "productIdentifying": "pay10001",
+    "rewardNum": [1280, 30, 1280],
+    "rewardType": ["diamond", "limitRoll", "noblePoints"]
+  },
+  {
+    "buyNum": 8,
+    "discount": 0,
+    "giftBagName": "XS_ZM_3",
+    "id": 3,
+    "productIdentifying": "pay10002",
+    "rewardNum": [3280, 50, 3280],
+    "rewardType": ["diamond", "limitRoll", "noblePoints"]
+  },
+  {
+    "buyNum": 8,
+    "discount": 0,
+    "giftBagName": "XS_ZM_4",
+    "id": 4,
+    "productIdentifying": "pay10003",
+    "rewardNum": [6480, 100, 6480],
+    "rewardType": ["diamond", "limitRoll", "noblePoints"]
+  }
+]

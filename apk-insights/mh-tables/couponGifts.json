@@ -1,0 +1,50 @@
+[
+  {
+    "describe": "ROOKIE_GIFT_INFO1",
+    "discount": 80,
+    "id": 1,
+    "limitNum": 1,
+    "limitType": 2,
+    "originalPrice": "pay49101",
+    "productIdentifying": "pay49001",
+    "redBag": "redBag6-5",
+    "rewardNum": [60, 3, 5000, 60],
+    "rewardType": ["diamond", "recruitRoll", "exp", "noblePoints"]
+  },
+  {
+    "describe": "ROOKIE_GIFT_INFO2",
+    "discount": 80,
+    "id": 2,
+    "limitNum": 1,
+    "limitType": 2,
+    "originalPrice": "pay49102",
+    "productIdentifying": "pay49002",
+    "redBag": "redBag6-5",
+    "rewardNum": [60, 3, 5000, 60],
+    "rewardType": ["diamond", "recruitRoll", "exp", "noblePoints"]
+  },
+  {
+    "describe": "ROOKIE_GIFT_INFO3",
+    "discount": 45,
+    "id": 3,
+    "limitNum": 1,
+    "limitType": 2,
+    "originalPrice": "pay49103",
+    "productIdentifying": "pay49003",
+    "redBag": "redBag18-12",
+    "rewardNum": [180, 1, 10000, 180],
+    "rewardType": ["diamond", "shenhuasuijibox", "exp", "noblePoints"]
+  },
+  {
+    "describe": "ROOKIE_GIFT_INFO4",
+    "discount": 43,
+    "id": 4,
+    "limitNum": 1,
+    "limitType": 2,
+    "originalPrice": "pay49104",
+    "productIdentifying": "pay49004",
+    "redBag": "redBag30-18",
+    "rewardNum": [300, 1, 20000, 300],
+    "rewardType": ["diamond", "shenhuabox", "exp", "noblePoints"]
+  }
+]

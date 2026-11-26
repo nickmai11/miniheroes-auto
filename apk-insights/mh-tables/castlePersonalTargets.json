@@ -1,0 +1,38 @@
+[
+  {
+    "feats": 10,
+    "id": 1,
+    "rewardNum": [1500, 500],
+    "rewardType": ["blindBoxCoin", "pointGvgCoin"]
+  },
+  {
+    "feats": 20,
+    "id": 2,
+    "rewardNum": [600, 500],
+    "rewardType": ["spiritStone_2", "pointGvgCoin"]
+  },
+  {
+    "feats": 30,
+    "id": 3,
+    "rewardNum": [100, 500],
+    "rewardType": ["diamond", "pointGvgCoin"]
+  },
+  {
+    "feats": 40,
+    "id": 4,
+    "rewardNum": [5, 500],
+    "rewardType": ["randomMemf3", "pointGvgCoin"]
+  },
+  {
+    "feats": 50,
+    "id": 5,
+    "rewardNum": [600, 500],
+    "rewardType": ["spiritStone_3", "pointGvgCoin"]
+  },
+  {
+    "feats": 60,
+    "id": 6,
+    "rewardNum": [200, 500],
+    "rewardType": ["diamond", "pointGvgCoin"]
+  }
+]

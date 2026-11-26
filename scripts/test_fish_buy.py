@@ -23,4 +23,15 @@ packs, err = run(['NOSCROLL 0', 'NOSCROLL 0', 'NOSCROLL 0'])           # pack ga
 assert packs == (1, 50) and 'no refresh after buying' in err, (packs, err)
 packs, err = run(['NOSCROLL 0', '0 None'])                              # unreadable after the buy: stop buying
 assert packs == (1, 50) and err is None, (packs, err)
+
+# Shrimp Bait in use -> every fishing step skips, nothing swapped (Nick 2026-11-25)
+taps = []
+daily.ocr = lambda: [(940, 1440, 90, 40, 'Bait'), (480, 1540, 120, 40, 'Swap'), (150, 1060, 90, 30, 'In use'), (440, 390, 200, 40, 'Shrimp Bait')]
+daily.tap_wait = lambda *p: taps.append(p)
+daily.wait = lambda *a: daily.ocr()
+daily.time.sleep = lambda s: None
+daily.ACCOUNT = 'test'
+for step in (lambda: daily.set_bait('Basic Bait'), lambda: daily.fishing(''), lambda: daily.fishing_rewards('')):
+    assert step() == daily.SHRIMP, step()
+assert (539, 1557) not in taps and (982, 1222) not in taps, taps      # no Swap, no Auto
 print('ok')

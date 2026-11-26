@@ -1,0 +1,12 @@
+[
+  {
+    "discount": 30,
+    "giftBagName": "SNK_BOSS_GIFT_NAME",
+    "id": 1,
+    "limitNum": 3,
+    "limitType": 1,
+    "productIdentifying": "",
+    "rewardNum": [120, 30, 120],
+    "rewardType": ["diamond", "westMonopolyDiceBuy", "noblePoints"]
+  }
+]

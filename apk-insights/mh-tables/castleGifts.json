@@ -1,0 +1,62 @@
+[
+  {
+    "describe": "FORTGVG_GIFT_NAME1",
+    "id": 1,
+    "limitNum": 1,
+    "limitTime": [1, 2],
+    "limitType": 1,
+    "productIdentifying": "pay21000",
+    "rewardNum": [20],
+    "rewardType": ["diamond"]
+  },
+  {
+    "describe": "FORTGVG_GIFT_NAME2",
+    "id": 2,
+    "limitNum": 1,
+    "limitTime": [1, 2],
+    "limitType": 1,
+    "productIdentifying": "pay21001",
+    "rewardNum": [60, 1, 2, 60],
+    "rewardType": ["diamond", "reviveItem", "shareDebris3", "noblePoints"]
+  },
+  {
+    "describe": "FORTGVG_GIFT_NAME3",
+    "id": 3,
+    "limitNum": 1,
+    "limitTime": [1, 2],
+    "limitType": 1,
+    "productIdentifying": "pay21002",
+    "rewardNum": [120, 2, 3, 120],
+    "rewardType": ["diamond", "reviveItem", "shareDebris3", "noblePoints"]
+  },
+  {
+    "describe": "FORTGVG_GIFT_NAME4",
+    "id": 4,
+    "limitNum": 1,
+    "limitTime": [1, 2],
+    "limitType": 1,
+    "productIdentifying": "pay21003",
+    "rewardNum": [250, 3, 5, 250],
+    "rewardType": ["diamond", "reviveItem", "shareDebris3", "noblePoints"]
+  },
+  {
+    "describe": "FORTGVG_GIFT_NAME5",
+    "id": 5,
+    "limitNum": 1,
+    "limitTime": [2],
+    "limitType": 1,
+    "productIdentifying": "pay21004",
+    "rewardNum": [600, 6, 10, 600],
+    "rewardType": ["diamond", "reviveItem", "shareDebris3", "noblePoints"]
+  },
+  {
+    "describe": "FORTGVG_GIFT_NAME6",
+    "id": 6,
+    "limitNum": 1,
+    "limitTime": [2],
+    "limitType": 1,
+    "productIdentifying": "pay21005",
+    "rewardNum": [1280, 13, 20, 1280],
+    "rewardType": ["diamond", "reviveItem", "shareDebris3", "noblePoints"]
+  }
+]

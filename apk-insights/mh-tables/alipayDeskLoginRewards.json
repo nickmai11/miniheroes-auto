@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "rewardScore": 3,
+    "rewardType": ["gold_2", "recruitRoll"],
+    "rewardValue": [1, 5]
+  },
+  {
+    "id": 2,
+    "rewardScore": 7,
+    "rewardType": ["gold_3", "recruitRoll"],
+    "rewardValue": [1, 7]
+  },
+  {
+    "id": 3,
+    "rewardScore": 14,
+    "rewardType": ["gold_4", "recruitRoll"],
+    "rewardValue": [1, 10]
+  }
+]

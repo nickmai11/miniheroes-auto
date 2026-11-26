@@ -1,0 +1,98 @@
+[
+  {
+    "groupNum": 1300,
+    "groupType": "greetingCard",
+    "id": 1,
+    "limit": 5,
+    "rewardNum": 1,
+    "rewardType": "danArtBox"
+  },
+  {
+    "groupNum": 1000,
+    "groupType": "greetingCard",
+    "id": 2,
+    "limit": 1,
+    "rewardNum": 1,
+    "rewardType": "skinAct_124003"
+  },
+  {
+    "groupNum": 200,
+    "groupType": "greetingCard",
+    "id": 3,
+    "limit": 5,
+    "rewardNum": 10,
+    "rewardType": "divineStone"
+  },
+  {
+    "groupNum": 160,
+    "groupType": "greetingCard",
+    "id": 4,
+    "limit": 5,
+    "rewardNum": 10,
+    "rewardType": "soulStone3"
+  },
+  {
+    "groupNum": 50,
+    "groupType": "greetingCard",
+    "id": 5,
+    "limit": 5,
+    "rewardNum": 10,
+    "rewardType": "memf_64005"
+  },
+  {
+    "groupNum": 100,
+    "groupType": "greetingCard",
+    "id": 6,
+    "limit": 5,
+    "rewardNum": 10,
+    "rewardType": "fourColorStone"
+  },
+  {
+    "groupNum": 40,
+    "groupType": "greetingCard",
+    "id": 7,
+    "limit": 10,
+    "rewardNum": 2,
+    "rewardType": "medal2"
+  },
+  {
+    "groupNum": 25,
+    "groupType": "greetingCard",
+    "id": 8,
+    "limit": 10,
+    "rewardNum": 5,
+    "rewardType": "tieStone"
+  },
+  {
+    "groupNum": 15,
+    "groupType": "greetingCard",
+    "id": 9,
+    "limit": 20,
+    "rewardNum": 5000,
+    "rewardType": "holyLight"
+  },
+  {
+    "groupNum": 10,
+    "groupType": "greetingCard",
+    "id": 10,
+    "limit": 20,
+    "rewardNum": 10000,
+    "rewardType": "blindBoxCoin"
+  },
+  {
+    "groupNum": 5,
+    "groupType": "greetingCard",
+    "id": 11,
+    "limit": 20,
+    "rewardNum": 1,
+    "rewardType": "exp_3"
+  },
+  {
+    "groupNum": 4,
+    "groupType": "greetingCard",
+    "id": 12,
+    "limit": 20,
+    "rewardNum": 1,
+    "rewardType": "gold_3"
+  }
+]

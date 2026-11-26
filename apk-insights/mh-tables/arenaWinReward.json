@@ -1,0 +1,7 @@
+[
+  {
+    "playerFraction": [1, 999999],
+    "rewardNum": [5000, 1],
+    "rewardType": ["gold", "medal1"]
+  }
+]

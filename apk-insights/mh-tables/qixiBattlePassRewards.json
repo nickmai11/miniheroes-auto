@@ -1,0 +1,167 @@
+[
+  {
+    "exp": 50,
+    "freeRewardNum": [1],
+    "freeRewardType": ["qxTurntableItem"],
+    "id": 1,
+    "level": 1,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["qxTurntableItem", "glyphs_1004"],
+    "rewardId": 1,
+    "sort": 0
+  },
+  {
+    "exp": 50,
+    "freeRewardNum": [1],
+    "freeRewardType": ["qxTurntableItem"],
+    "id": 2,
+    "level": 2,
+    "payRewardNum": [3, 1],
+    "payRewardType": ["qxTurntableItem", "gold_2"],
+    "rewardId": 2,
+    "sort": 0
+  },
+  {
+    "exp": 50,
+    "freeRewardNum": [1],
+    "freeRewardType": ["qxTurntableItem"],
+    "id": 3,
+    "level": 3,
+    "payRewardNum": [3, 1],
+    "payRewardType": ["qxTurntableItem", "glyphs_1002"],
+    "rewardId": 3,
+    "sort": 0
+  },
+  {
+    "exp": 50,
+    "freeRewardNum": [1],
+    "freeRewardType": ["qxTurntableItem"],
+    "id": 4,
+    "level": 4,
+    "payRewardNum": [3, 5],
+    "payRewardType": ["qxTurntableItem", "medal1"],
+    "rewardId": 4,
+    "sort": 0
+  },
+  {
+    "exp": 100,
+    "freeRewardNum": [2],
+    "freeRewardType": ["qxDisplaceStone"],
+    "id": 5,
+    "level": 5,
+    "payRewardNum": [5, 3],
+    "payRewardType": ["qxTurntableItem", "qxDisplaceStone"],
+    "rewardId": 5,
+    "sort": 0
+  },
+  {
+    "exp": 100,
+    "freeRewardNum": [1],
+    "freeRewardType": ["qxTurntableItem"],
+    "id": 6,
+    "level": 6,
+    "payRewardNum": [3, 5],
+    "payRewardType": ["qxTurntableItem", "coinMinting2"],
+    "rewardId": 6,
+    "sort": 0
+  },
+  {
+    "exp": 100,
+    "freeRewardNum": [1],
+    "freeRewardType": ["qxTurntableItem"],
+    "id": 7,
+    "level": 7,
+    "payRewardNum": [3, 5],
+    "payRewardType": ["qxTurntableItem", "randomFragment3"],
+    "rewardId": 7,
+    "sort": 0
+  },
+  {
+    "exp": 100,
+    "freeRewardNum": [1],
+    "freeRewardType": ["qxTurntableItem"],
+    "id": 8,
+    "level": 8,
+    "payRewardNum": [3, 1],
+    "payRewardType": ["qxTurntableItem", "zb_box2"],
+    "rewardId": 8,
+    "sort": 0
+  },
+  {
+    "exp": 100,
+    "freeRewardNum": [1],
+    "freeRewardType": ["qxTurntableItem"],
+    "id": 9,
+    "level": 9,
+    "payRewardNum": [3, 1],
+    "payRewardType": ["qxTurntableItem", "glyphs_2002"],
+    "rewardId": 9,
+    "sort": 0
+  },
+  {
+    "exp": 100,
+    "freeRewardNum": [2],
+    "freeRewardType": ["qxDisplaceStone"],
+    "id": 10,
+    "level": 10,
+    "payRewardNum": [5, 3],
+    "payRewardType": ["qxTurntableItem", "qxDisplaceStone"],
+    "rewardId": 10,
+    "sort": 0
+  },
+  {
+    "exp": 100,
+    "freeRewardNum": [1],
+    "freeRewardType": ["qxTurntableItem"],
+    "id": 11,
+    "level": 11,
+    "payRewardNum": [3, 1],
+    "payRewardType": ["qxTurntableItem", "gold_2"],
+    "rewardId": 11,
+    "sort": 0
+  },
+  {
+    "exp": 100,
+    "freeRewardNum": [1],
+    "freeRewardType": ["qxTurntableItem"],
+    "id": 12,
+    "level": 12,
+    "payRewardNum": [3, 5],
+    "payRewardType": ["qxTurntableItem", "coinMinting3"],
+    "rewardId": 12,
+    "sort": 0
+  },
+  {
+    "exp": 100,
+    "freeRewardNum": [1],
+    "freeRewardType": ["qxTurntableItem"],
+    "id": 13,
+    "level": 13,
+    "payRewardNum": [3, 5],
+    "payRewardType": ["qxTurntableItem", "medal1"],
+    "rewardId": 13,
+    "sort": 0
+  },
+  {
+    "exp": 200,
+    "freeRewardNum": [1],
+    "freeRewardType": ["qxTurntableItem"],
+    "id": 14,
+    "level": 14,
+    "payRewardNum": [3, 5],
+    "payRewardType": ["qxTurntableItem", "randomFragment3"],
+    "rewardId": 14,
+    "sort": 0
+  },
+  {
+    "exp": 200,
+    "freeRewardNum": [2],
+    "freeRewardType": ["qxDisplaceStone"],
+    "id": 15,
+    "level": 15,
+    "payRewardNum": [10, 3],
+    "payRewardType": ["qxTurntableItem", "qxDisplaceStone"],
+    "rewardId": 15,
+    "sort": 0
+  }
+]

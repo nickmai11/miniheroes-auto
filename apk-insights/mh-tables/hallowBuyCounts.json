@@ -1,0 +1,37 @@
+[
+  {
+    "buyTimes": 1,
+    "costShoveNum": 80,
+    "costShoveType": "diamond",
+    "id": 1,
+    "shoveGive": 10
+  },
+  {
+    "buyTimes": 2,
+    "costShoveNum": 160,
+    "costShoveType": "diamond",
+    "id": 2,
+    "shoveGive": 10
+  },
+  {
+    "buyTimes": 3,
+    "costShoveNum": 240,
+    "costShoveType": "diamond",
+    "id": 3,
+    "shoveGive": 10
+  },
+  {
+    "buyTimes": 4,
+    "costShoveNum": 320,
+    "costShoveType": "diamond",
+    "id": 4,
+    "shoveGive": 10
+  },
+  {
+    "buyTimes": 5,
+    "costShoveNum": 400,
+    "costShoveType": "diamond",
+    "id": 5,
+    "shoveGive": 10
+  }
+]

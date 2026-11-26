@@ -1,0 +1,36 @@
+[
+  {
+    "describe": "SC_XSLB_1",
+    "id": 1,
+    "productIdentifying": "pay6001",
+    "rewardNum": [1, 60, 10000, 10000, 60],
+    "rewardType": ["hero_111", "diamond", "exp", "gold", "noblePoints"]
+  },
+  {
+    "describe": "SC_XSLB_2",
+    "id": 2,
+    "productIdentifying": "pay6002",
+    "rewardNum": [40, 300, 50000, 50000, 300],
+    "rewardType": ["fragment_111", "diamond", "exp", "gold", "noblePoints"]
+  },
+  {
+    "describe": "SC_XSLB_5",
+    "id": 3,
+    "productIdentifying": "pay6003",
+    "rewardNum": [60, 680, 6, 3, 680],
+    "rewardType": ["fragment_111", "diamond", "exp_1", "zb_box1", "noblePoints"]
+  },
+  {
+    "describe": "SC_XSLB_6",
+    "id": 4,
+    "productIdentifying": "pay6004",
+    "rewardNum": [120, 1980, 6, 30, 1980],
+    "rewardType": [
+      "fragment_111",
+      "diamond",
+      "medal2",
+      "recruitRoll",
+      "noblePoints"
+    ]
+  }
+]

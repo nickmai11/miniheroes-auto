@@ -1,0 +1,122 @@
+[
+  {
+    "bossName": "HERO_NAME_608",
+    "bossSkill": "SKILL_MC_608_4",
+    "bossSkillDescription": [
+      "SKILL_MS_608_1",
+      "SKILL_MS_608_2",
+      "SKILL_MS_608_3",
+      "SKILL_MS_608_4"
+    ],
+    "bossSkillName": [
+      "SKILL_MC_608_1",
+      "SKILL_MC_608_2",
+      "SKILL_MC_608_3",
+      "SKILL_MC_608_4"
+    ],
+    "heroId": 617,
+    "id": 1,
+    "skillIcon": ["skill_608_1", "skill_608_2", "skill_608_3", "skill_608_4"],
+    "skillNum": ["300", "15:200:15", "7:3:80:11", "0"]
+  },
+  {
+    "bossName": "HERO_NAME_608",
+    "bossSkill": "SKILL_MC_608_5",
+    "bossSkillDescription": [
+      "SKILL_MS_608_1",
+      "SKILL_MS_608_2",
+      "SKILL_MS_608_3",
+      "SKILL_MS_608_5"
+    ],
+    "bossSkillName": [
+      "SKILL_MC_608_1",
+      "SKILL_MC_608_2",
+      "SKILL_MC_608_3",
+      "SKILL_MC_608_5"
+    ],
+    "heroId": 618,
+    "id": 2,
+    "skillIcon": ["skill_608_1", "skill_608_2", "skill_608_3", "skill_608_5"],
+    "skillNum": ["300", "15:200:15", "7:3:80:11", "50:50:30:80:10"]
+  },
+  {
+    "bossName": "HERO_NAME_608",
+    "bossSkill": "SKILL_MC_608_6",
+    "bossSkillDescription": [
+      "SKILL_MS_608_1",
+      "SKILL_MS_608_2",
+      "SKILL_MS_608_3",
+      "SKILL_MS_608_6"
+    ],
+    "bossSkillName": [
+      "SKILL_MC_608_1",
+      "SKILL_MC_608_2",
+      "SKILL_MC_608_3",
+      "SKILL_MC_608_6"
+    ],
+    "heroId": 619,
+    "id": 3,
+    "skillIcon": ["skill_608_1", "skill_608_2", "skill_608_3", "skill_608_6"],
+    "skillNum": ["300", "15:200:15", "7:3:80:11", "30"]
+  },
+  {
+    "bossName": "HERO_NAME_608",
+    "bossSkill": "SKILL_MC_608_7",
+    "bossSkillDescription": [
+      "SKILL_MS_608_1",
+      "SKILL_MS_608_2",
+      "SKILL_MS_608_3",
+      "SKILL_MS_608_7"
+    ],
+    "bossSkillName": [
+      "SKILL_MC_608_1",
+      "SKILL_MC_608_2",
+      "SKILL_MC_608_3",
+      "SKILL_MC_608_7"
+    ],
+    "heroId": 620,
+    "id": 4,
+    "skillIcon": ["skill_608_1", "skill_608_2", "skill_608_3", "skill_608_7"],
+    "skillNum": ["300", "15:200:15", "7:3:80:11", "50:5"]
+  },
+  {
+    "bossName": "HERO_NAME_608",
+    "bossSkill": "SKILL_MC_608_8",
+    "bossSkillDescription": [
+      "SKILL_MS_608_1",
+      "SKILL_MS_608_2",
+      "SKILL_MS_608_3",
+      "SKILL_MS_608_8"
+    ],
+    "bossSkillName": [
+      "SKILL_MC_608_1",
+      "SKILL_MC_608_2",
+      "SKILL_MC_608_3",
+      "SKILL_MC_608_8"
+    ],
+    "heroId": 621,
+    "id": 5,
+    "skillIcon": ["skill_608_1", "skill_608_2", "skill_608_3", "skill_608_8"],
+    "skillNum": ["300", "15:200:15", "7:3:80:11", "25"]
+  },
+  {
+    "bossName": "HERO_NAME_608",
+    "bossSkill": "SKILL_MC_608_9",
+    "bossSkillDescription": [
+      "SKILL_MS_608_1",
+      "SKILL_MS_608_2",
+      "SKILL_MS_608_3",
+      "SKILL_MS_608_9"
+    ],
+    "bossSkillName": [
+      "SKILL_MC_608_1",
+      "SKILL_MC_608_2",
+      "SKILL_MC_608_3",
+      "SKILL_MC_608_9"
+    ],
+    "heroId": 622,
+    "id": 6,
+    "skillIcon": ["skill_608_1", "skill_608_2", "skill_608_3", "skill_608_9"],
+    "skillNum": ["300", "15:200:15", "7:3:80:11", "35:5"]
+  }
+]

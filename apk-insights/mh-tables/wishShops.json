@@ -1,0 +1,52 @@
+[
+  {
+    "buyCondition": 2,
+    "describe": "BIG_EVENT_GIFT01",
+    "id": 1,
+    "limitNum": 2,
+    "limitType": 1,
+    "productIdentifying": "pay53000",
+    "rewardNum": [20, 1],
+    "rewardType": ["diamond", "moonCoin"]
+  },
+  {
+    "buyCondition": 1,
+    "describe": "BIG_EVENT_GIFT02",
+    "id": 2,
+    "limitNum": 2,
+    "limitType": 1,
+    "productIdentifying": "pay53001",
+    "rewardNum": [680, 20, 10, 680],
+    "rewardType": ["diamond", "moonCoin", "moonExchange", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "describe": "BIG_EVENT_GIFT03",
+    "id": 3,
+    "limitNum": 3,
+    "limitType": 2,
+    "productIdentifying": "pay53002",
+    "rewardNum": [1280, 35, 10, 1280],
+    "rewardType": ["diamond", "moonCoin", "moonExchange", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "describe": "BIG_EVENT_GIFT04",
+    "id": 4,
+    "limitNum": 5,
+    "limitType": 2,
+    "productIdentifying": "pay53003",
+    "rewardNum": [3280, 80, 20, 3280],
+    "rewardType": ["diamond", "moonCoin", "moonExchange", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "describe": "BIG_EVENT_GIFT05",
+    "id": 5,
+    "limitNum": 8,
+    "limitType": 2,
+    "productIdentifying": "pay53004",
+    "rewardNum": [6480, 150, 50, 6480],
+    "rewardType": ["diamond", "moonCoin", "moonExchange", "noblePoints"]
+  }
+]

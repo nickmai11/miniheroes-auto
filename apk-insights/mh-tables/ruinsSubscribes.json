@@ -1,0 +1,13 @@
+[
+  {
+    "continueDays": 30,
+    "dayRewardNum": [10, 3, 3],
+    "dayRewardType": ["relicStep", "eliminate", "cleanup"],
+    "discount": 35,
+    "id": 1,
+    "productIdentifying": "pay28001",
+    "relicCoinBonus": 0.6,
+    "rewardNum": [600, 600],
+    "rewardType": ["diamond", "noblePoints"]
+  }
+]

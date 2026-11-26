@@ -1,0 +1,282 @@
+[
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 800,
+    "id": 1,
+    "rewardNum": [2000, 3000, 1],
+    "rewardType": ["holyLight", "spiritStone_1", "templeCube"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1600,
+    "id": 2,
+    "rewardNum": [2000, 3000, 1],
+    "rewardType": ["holyLight", "spiritStone_2", "templeCube"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 2400,
+    "id": 3,
+    "rewardNum": [2500, 2, 2],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 3200,
+    "id": 4,
+    "rewardNum": [2500, 2, 2],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 4000,
+    "id": 5,
+    "rewardNum": [3000, 3, 3],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 5000,
+    "id": 6,
+    "rewardNum": [4000, 3, 4],
+    "rewardType": ["holyLight", "divineStone", "templeCube"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 6000,
+    "id": 7,
+    "rewardNum": [5000, 3, 5],
+    "rewardType": ["holyLight", "divineStone", "templeCube"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 800,
+    "id": 8,
+    "rewardNum": [2000, 3000, 1],
+    "rewardType": ["holyLight", "spiritStone_1", "templeCube"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1600,
+    "id": 9,
+    "rewardNum": [2000, 3000, 1],
+    "rewardType": ["holyLight", "spiritStone_2", "templeCube"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 2400,
+    "id": 10,
+    "rewardNum": [2500, 2, 2],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 3200,
+    "id": 11,
+    "rewardNum": [2500, 2, 2],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 4000,
+    "id": 12,
+    "rewardNum": [3000, 3, 3],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 5000,
+    "id": 13,
+    "rewardNum": [4000, 3, 4],
+    "rewardType": ["holyLight", "divineStone", "templeCube"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 6000,
+    "id": 14,
+    "rewardNum": [5000, 3, 5],
+    "rewardType": ["holyLight", "divineStone", "templeCube"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 800,
+    "id": 15,
+    "rewardNum": [2000, 3000, 1],
+    "rewardType": ["holyLight", "spiritStone_1", "templeCube"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1600,
+    "id": 16,
+    "rewardNum": [2000, 3000, 1],
+    "rewardType": ["holyLight", "spiritStone_2", "templeCube"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 2400,
+    "id": 17,
+    "rewardNum": [2500, 2, 2],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 3200,
+    "id": 18,
+    "rewardNum": [2500, 2, 2],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 4000,
+    "id": 19,
+    "rewardNum": [3000, 3, 3],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 5000,
+    "id": 20,
+    "rewardNum": [4000, 3, 4],
+    "rewardType": ["holyLight", "divineStone", "templeCube"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 6000,
+    "id": 21,
+    "rewardNum": [5000, 3, 5],
+    "rewardType": ["holyLight", "divineStone", "templeCube"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 800,
+    "id": 22,
+    "rewardNum": [2000, 3000, 1],
+    "rewardType": ["holyLight", "spiritStone_1", "templeCube"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1600,
+    "id": 23,
+    "rewardNum": [2000, 3000, 1],
+    "rewardType": ["holyLight", "spiritStone_2", "templeCube"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 2400,
+    "id": 24,
+    "rewardNum": [2500, 2, 2],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 3200,
+    "id": 25,
+    "rewardNum": [2500, 2, 2],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 4000,
+    "id": 26,
+    "rewardNum": [3000, 3, 3],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 5000,
+    "id": 27,
+    "rewardNum": [4000, 3, 4],
+    "rewardType": ["holyLight", "divineStone", "templeCube"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 6000,
+    "id": 28,
+    "rewardNum": [5000, 3, 5],
+    "rewardType": ["holyLight", "divineStone", "templeCube"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 800,
+    "id": 29,
+    "rewardNum": [2000, 3000, 1],
+    "rewardType": ["holyLight", "spiritStone_1", "templeCube"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1600,
+    "id": 30,
+    "rewardNum": [2000, 3000, 1],
+    "rewardType": ["holyLight", "spiritStone_2", "templeCube"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 2400,
+    "id": 31,
+    "rewardNum": [2500, 2, 2],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 3200,
+    "id": 32,
+    "rewardNum": [2500, 2, 2],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 4000,
+    "id": 33,
+    "rewardNum": [3000, 3, 3],
+    "rewardType": ["holyLight", "templeDust", "templeCube"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 5000,
+    "id": 34,
+    "rewardNum": [4000, 3, 4],
+    "rewardType": ["holyLight", "divineStone", "templeCube"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 6000,
+    "id": 35,
+    "rewardNum": [5000, 3, 5],
+    "rewardType": ["holyLight", "divineStone", "templeCube"],
+    "round": 5
+  }
+]

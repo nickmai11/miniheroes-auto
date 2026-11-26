@@ -1,0 +1,162 @@
+[
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 1,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 10
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 2,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 20
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 3,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 40
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 4,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 70
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 5,
+    "payRewardNum": [8],
+    "payRewardType": ["elfSkill1"],
+    "summoningFrequency": 100
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 6,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 130
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 7,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 160
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 8,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 200
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 9,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 240
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 10,
+    "payRewardNum": [8],
+    "payRewardType": ["elfSkill1"],
+    "summoningFrequency": 280
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 11,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 320
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 12,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 360
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 13,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 400
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 14,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 440
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 15,
+    "payRewardNum": [8],
+    "payRewardType": ["elfSkill1"],
+    "summoningFrequency": 480
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 16,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 520
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 17,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 560
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 18,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 600
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 19,
+    "payRewardNum": [2500],
+    "payRewardType": ["elfStone"],
+    "summoningFrequency": 650
+  },
+  {
+    "freeRewardNum": [250],
+    "freeRewardType": ["elfStone"],
+    "id": 20,
+    "payRewardNum": [8],
+    "payRewardType": ["elfSkill1"],
+    "summoningFrequency": 700
+  }
+]

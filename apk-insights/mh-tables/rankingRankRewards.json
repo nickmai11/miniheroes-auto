@@ -1,0 +1,81 @@
+[
+  {
+    "id": 1,
+    "ranking": [1],
+    "rewardNum": [2, 20, 60000, 2500, 1, 1],
+    "rewardType": [
+      "starMark5",
+      "shareDebris3",
+      "holyLight",
+      "diamond",
+      "headFrame_3",
+      "title_1"
+    ]
+  },
+  {
+    "id": 2,
+    "ranking": [2],
+    "rewardNum": [1, 18, 45000, 2000, 1],
+    "rewardType": [
+      "starMark5",
+      "shareDebris3",
+      "holyLight",
+      "diamond",
+      "headFrame_4"
+    ]
+  },
+  {
+    "id": 3,
+    "ranking": [3],
+    "rewardNum": [1, 16, 35000, 2000, 1],
+    "rewardType": [
+      "starMark5",
+      "shareDebris3",
+      "holyLight",
+      "diamond",
+      "headFrame_4"
+    ]
+  },
+  {
+    "id": 4,
+    "ranking": [4, 10],
+    "rewardNum": [1, 12, 30000, 1800],
+    "rewardType": ["starMark5", "shareDebris3", "holyLight", "diamond"]
+  },
+  {
+    "id": 5,
+    "ranking": [11, 30],
+    "rewardNum": [1, 10, 25000, 1600],
+    "rewardType": ["starMark4", "shareDebris3", "holyLight", "diamond"]
+  },
+  {
+    "id": 6,
+    "ranking": [31, 50],
+    "rewardNum": [1, 8, 20000, 1200],
+    "rewardType": ["starMark4", "shareDebris3", "holyLight", "diamond"]
+  },
+  {
+    "id": 7,
+    "ranking": [51, 100],
+    "rewardNum": [1, 7, 15000, 1000],
+    "rewardType": ["starMark3", "shareDebris3", "holyLight", "diamond"]
+  },
+  {
+    "id": 8,
+    "ranking": [101, 300],
+    "rewardNum": [1, 5, 10000, 800],
+    "rewardType": ["starMark3", "shareDebris3", "holyLight", "diamond"]
+  },
+  {
+    "id": 9,
+    "ranking": [301, 500],
+    "rewardNum": [3, 5000, 500],
+    "rewardType": ["shareDebris3", "holyLight", "diamond"]
+  },
+  {
+    "id": 10,
+    "ranking": [501, 9999],
+    "rewardNum": [1, 3000, 300],
+    "rewardType": ["shareDebris3", "holyLight", "diamond"]
+  }
+]

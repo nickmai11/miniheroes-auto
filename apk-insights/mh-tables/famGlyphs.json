@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002"],
+    "showNum": [1, 0.5]
+  },
+  {
+    "id": 2,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002"],
+    "showNum": [1, 0.5]
+  },
+  {
+    "id": 3,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002"],
+    "showNum": [1, 0.5]
+  },
+  {
+    "id": 4,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002"],
+    "showNum": [1, 0.5]
+  },
+  {
+    "id": 5,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002"],
+    "showNum": [1, 0.5]
+  },
+  {
+    "id": 6,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002"],
+    "showNum": [1, 0.5]
+  },
+  {
+    "id": 7,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003"],
+    "showNum": [1, 0.5, 0.5]
+  },
+  {
+    "id": 8,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003"],
+    "showNum": [1, 0.5, 0.5]
+  },
+  {
+    "id": 9,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003"],
+    "showNum": [1, 0.5, 0.5]
+  },
+  {
+    "id": 10,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003"],
+    "showNum": [1, 0.5, 0.5]
+  },
+  {
+    "id": 11,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003"],
+    "showNum": [2, 0.5, 0.5]
+  },
+  {
+    "id": 12,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003"],
+    "showNum": [2, 0.5, 0.5]
+  },
+  {
+    "id": 13,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003"],
+    "showNum": [2, 0.5, 0.5]
+  },
+  {
+    "id": 14,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003"],
+    "showNum": [2, 0.5, 0.5]
+  },
+  {
+    "id": 15,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003"],
+    "showNum": [2, 0.5, 0.5]
+  },
+  {
+    "id": 16,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [2, 0.5, 0.5, 400]
+  },
+  {
+    "id": 17,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 420]
+  },
+  {
+    "id": 18,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 440]
+  },
+  {
+    "id": 19,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 460]
+  },
+  {
+    "id": 20,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 480]
+  },
+  {
+    "id": 21,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 500]
+  },
+  {
+    "id": 22,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 520]
+  },
+  {
+    "id": 23,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 540]
+  },
+  {
+    "id": 24,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 560]
+  },
+  {
+    "id": 25,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 580]
+  },
+  {
+    "id": 26,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 600]
+  },
+  {
+    "id": 27,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 610]
+  },
+  {
+    "id": 28,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 620]
+  },
+  {
+    "id": 29,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 630]
+  },
+  {
+    "id": 30,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [3, 0.5, 0.5, 640]
+  },
+  {
+    "id": 31,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [4, 0.5, 0.5, 650]
+  },
+  {
+    "id": 32,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [4, 0.5, 0.5, 660]
+  },
+  {
+    "id": 33,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [4, 0.5, 0.5, 670]
+  },
+  {
+    "id": 34,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [4, 0.5, 0.5, 680]
+  },
+  {
+    "id": 35,
+    "mapName": "6",
+    "show": ["glyphs_2001", "glyphs_2002", "glyphs_2003", "succinctStone"],
+    "showNum": [4, 0.5, 0.5, 690]
+  }
+]

@@ -1,0 +1,650 @@
+[
+  {
+    "grandPrize": 1,
+    "id": 1,
+    "itemWeight": 110,
+    "layers": 1,
+    "rewardNum": [1, 1, 200],
+    "rewardType": ["memf_64007", "randomFragment3", "spiritStone_3"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 2,
+    "itemWeight": 120,
+    "layers": 1,
+    "rewardNum": [50],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 3,
+    "itemWeight": 120,
+    "layers": 1,
+    "rewardNum": [75],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 4,
+    "itemWeight": 120,
+    "layers": 1,
+    "rewardNum": [100],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 5,
+    "itemWeight": 120,
+    "layers": 1,
+    "rewardNum": [1],
+    "rewardType": ["randomFragment2"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 6,
+    "itemWeight": 110,
+    "layers": 1,
+    "rewardNum": [1],
+    "rewardType": ["gold_1"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 7,
+    "itemWeight": 100,
+    "layers": 1,
+    "rewardNum": [150],
+    "rewardType": ["spiritStone_1"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 8,
+    "itemWeight": 100,
+    "layers": 1,
+    "rewardNum": [1],
+    "rewardType": ["medal1"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 9,
+    "itemWeight": 100,
+    "layers": 1,
+    "rewardNum": [2],
+    "rewardType": ["coinMinting1"]
+  },
+  {
+    "grandPrize": 1,
+    "id": 10,
+    "itemWeight": 110,
+    "layers": 2,
+    "rewardNum": [1, 1, 1],
+    "rewardType": ["memf_64007", "soulStone1", "gold_2"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 11,
+    "itemWeight": 120,
+    "layers": 2,
+    "rewardNum": [80],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 12,
+    "itemWeight": 120,
+    "layers": 2,
+    "rewardNum": [120],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 13,
+    "itemWeight": 120,
+    "layers": 2,
+    "rewardNum": [160],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 14,
+    "itemWeight": 120,
+    "layers": 2,
+    "rewardNum": [2],
+    "rewardType": ["exp_1"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 15,
+    "itemWeight": 110,
+    "layers": 2,
+    "rewardNum": [150],
+    "rewardType": ["spiritStone_2"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 16,
+    "itemWeight": 100,
+    "layers": 2,
+    "rewardNum": [2],
+    "rewardType": ["medal1"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 17,
+    "itemWeight": 100,
+    "layers": 2,
+    "rewardNum": [1],
+    "rewardType": ["glyphs_1002"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 18,
+    "itemWeight": 100,
+    "layers": 2,
+    "rewardNum": [2],
+    "rewardType": ["coinMinting2"]
+  },
+  {
+    "grandPrize": 1,
+    "id": 19,
+    "itemWeight": 110,
+    "layers": 3,
+    "rewardNum": [1, 1, 1],
+    "rewardType": ["memf_64007", "skinFettersBox", "soulStone2"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 20,
+    "itemWeight": 120,
+    "layers": 3,
+    "rewardNum": [120],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 21,
+    "itemWeight": 120,
+    "layers": 3,
+    "rewardNum": [180],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 22,
+    "itemWeight": 120,
+    "layers": 3,
+    "rewardNum": [240],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 23,
+    "itemWeight": 120,
+    "layers": 3,
+    "rewardNum": [300],
+    "rewardType": ["succinctStone"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 24,
+    "itemWeight": 110,
+    "layers": 3,
+    "rewardNum": [1],
+    "rewardType": ["gold_2"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 25,
+    "itemWeight": 100,
+    "layers": 3,
+    "rewardNum": [1],
+    "rewardType": ["skinBox_10002"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 26,
+    "itemWeight": 100,
+    "layers": 3,
+    "rewardNum": [1],
+    "rewardType": ["coinMinting3"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 27,
+    "itemWeight": 100,
+    "layers": 3,
+    "rewardNum": [1],
+    "rewardType": ["glyphs_4002"]
+  },
+  {
+    "grandPrize": 1,
+    "id": 28,
+    "itemWeight": 110,
+    "layers": 4,
+    "rewardNum": [1, 2, 2000],
+    "rewardType": ["memf_64007", "randomFragment3", "blindBoxCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 29,
+    "itemWeight": 120,
+    "layers": 4,
+    "rewardNum": [160],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 30,
+    "itemWeight": 120,
+    "layers": 4,
+    "rewardNum": [240],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 31,
+    "itemWeight": 120,
+    "layers": 4,
+    "rewardNum": [320],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 32,
+    "itemWeight": 120,
+    "layers": 4,
+    "rewardNum": [1000],
+    "rewardType": ["holyLight"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 33,
+    "itemWeight": 110,
+    "layers": 4,
+    "rewardNum": [300],
+    "rewardType": ["spiritStone_3"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 34,
+    "itemWeight": 100,
+    "layers": 4,
+    "rewardNum": [800],
+    "rewardType": ["holyLight"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 35,
+    "itemWeight": 100,
+    "layers": 4,
+    "rewardNum": [2],
+    "rewardType": ["skinBox_10003"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 36,
+    "itemWeight": 100,
+    "layers": 4,
+    "rewardNum": [1],
+    "rewardType": ["exp_3"]
+  },
+  {
+    "grandPrize": 1,
+    "id": 37,
+    "itemWeight": 110,
+    "layers": 5,
+    "rewardNum": [1, 1, 1],
+    "rewardType": ["memf_64007", "templeCube", "randomMem1"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 38,
+    "itemWeight": 120,
+    "layers": 5,
+    "rewardNum": [200],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 39,
+    "itemWeight": 120,
+    "layers": 5,
+    "rewardNum": [300],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 40,
+    "itemWeight": 120,
+    "layers": 5,
+    "rewardNum": [400],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 41,
+    "itemWeight": 120,
+    "layers": 5,
+    "rewardNum": [1],
+    "rewardType": ["gold_2"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 42,
+    "itemWeight": 110,
+    "layers": 5,
+    "rewardNum": [2],
+    "rewardType": ["randomFragment3"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 43,
+    "itemWeight": 100,
+    "layers": 5,
+    "rewardNum": [2],
+    "rewardType": ["skinBox_10004"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 44,
+    "itemWeight": 100,
+    "layers": 5,
+    "rewardNum": [1],
+    "rewardType": ["coinMinting3"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 45,
+    "itemWeight": 100,
+    "layers": 5,
+    "rewardNum": [3],
+    "rewardType": ["medal1"]
+  },
+  {
+    "grandPrize": 1,
+    "id": 46,
+    "itemWeight": 110,
+    "layers": 6,
+    "rewardNum": [1, 1, 2, 20],
+    "rewardType": ["memf_64007", "templeDust", "coinMinting3", "baitBox"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 47,
+    "itemWeight": 120,
+    "layers": 6,
+    "rewardNum": [240],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 48,
+    "itemWeight": 120,
+    "layers": 6,
+    "rewardNum": [360],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 49,
+    "itemWeight": 120,
+    "layers": 6,
+    "rewardNum": [480],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 50,
+    "itemWeight": 120,
+    "layers": 6,
+    "rewardNum": [1],
+    "rewardType": ["exp_3"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 51,
+    "itemWeight": 110,
+    "layers": 6,
+    "rewardNum": [2],
+    "rewardType": ["recruitRoll"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 52,
+    "itemWeight": 100,
+    "layers": 6,
+    "rewardNum": [4],
+    "rewardType": ["medal1"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 53,
+    "itemWeight": 100,
+    "layers": 6,
+    "rewardNum": [3],
+    "rewardType": ["skinBox_10007"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 54,
+    "itemWeight": 100,
+    "layers": 6,
+    "rewardNum": [2000],
+    "rewardType": ["blindBoxCoin"]
+  },
+  {
+    "grandPrize": 1,
+    "id": 55,
+    "itemWeight": 110,
+    "layers": 7,
+    "rewardNum": [1, 2, 1, 1],
+    "rewardType": ["memf_64007", "elfSkill1", "glyphs_3003", "recruitRoll"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 56,
+    "itemWeight": 120,
+    "layers": 7,
+    "rewardNum": [300],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 57,
+    "itemWeight": 120,
+    "layers": 7,
+    "rewardNum": [450],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 58,
+    "itemWeight": 120,
+    "layers": 7,
+    "rewardNum": [600],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 59,
+    "itemWeight": 120,
+    "layers": 7,
+    "rewardNum": [1],
+    "rewardType": ["gold_4"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 60,
+    "itemWeight": 110,
+    "layers": 7,
+    "rewardNum": [3],
+    "rewardType": ["randomFragment3"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 61,
+    "itemWeight": 100,
+    "layers": 7,
+    "rewardNum": [1],
+    "rewardType": ["randomMem0"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 62,
+    "itemWeight": 100,
+    "layers": 7,
+    "rewardNum": [3],
+    "rewardType": ["skinBox_10010"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 63,
+    "itemWeight": 100,
+    "layers": 7,
+    "rewardNum": [1],
+    "rewardType": ["fourColorStone"]
+  },
+  {
+    "grandPrize": 1,
+    "id": 64,
+    "itemWeight": 110,
+    "layers": 8,
+    "rewardNum": [1, 1, 1, 2],
+    "rewardType": ["memf_64007", "tieStone", "randomMem2", "recruitRoll"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 65,
+    "itemWeight": 120,
+    "layers": 8,
+    "rewardNum": [360],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 66,
+    "itemWeight": 120,
+    "layers": 8,
+    "rewardNum": [540],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 67,
+    "itemWeight": 120,
+    "layers": 8,
+    "rewardNum": [720],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 68,
+    "itemWeight": 120,
+    "layers": 8,
+    "rewardNum": [1000],
+    "rewardType": ["spiritStone_2"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 69,
+    "itemWeight": 110,
+    "layers": 8,
+    "rewardNum": [3],
+    "rewardType": ["skinBox_10010"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 70,
+    "itemWeight": 100,
+    "layers": 8,
+    "rewardNum": [2],
+    "rewardType": ["shareDebris3"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 71,
+    "itemWeight": 100,
+    "layers": 8,
+    "rewardNum": [1],
+    "rewardType": ["randomMem1"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 72,
+    "itemWeight": 100,
+    "layers": 8,
+    "rewardNum": [5],
+    "rewardType": ["medal1"]
+  },
+  {
+    "grandPrize": 1,
+    "id": 73,
+    "itemWeight": 110,
+    "layers": 9,
+    "rewardNum": [1, 1, 1, 3],
+    "rewardType": ["memf_64007", "medal2", "starMark4", "recruitRoll"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 74,
+    "itemWeight": 120,
+    "layers": 9,
+    "rewardNum": [420],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 75,
+    "itemWeight": 120,
+    "layers": 9,
+    "rewardNum": [630],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 76,
+    "itemWeight": 120,
+    "layers": 9,
+    "rewardNum": [840],
+    "rewardType": ["pointGvgCoin"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 77,
+    "itemWeight": 120,
+    "layers": 9,
+    "rewardNum": [1000],
+    "rewardType": ["spiritStone_3"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 78,
+    "itemWeight": 110,
+    "layers": 9,
+    "rewardNum": [1],
+    "rewardType": ["crystalLight"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 79,
+    "itemWeight": 100,
+    "layers": 9,
+    "rewardNum": [2],
+    "rewardType": ["shareDebris3"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 80,
+    "itemWeight": 100,
+    "layers": 9,
+    "rewardNum": [3],
+    "rewardType": ["skinFettersBox"]
+  },
+  {
+    "grandPrize": 0,
+    "id": 81,
+    "itemWeight": 100,
+    "layers": 9,
+    "rewardNum": [2000],
+    "rewardType": ["holyLight"]
+  }
+]

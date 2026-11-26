@@ -1,0 +1,2261 @@
+[
+  {
+    "attributeDes": "",
+    "attributeIcon": "",
+    "attributeType": "",
+    "attributeValue": 0,
+    "id": 1,
+    "level": 0,
+    "sort": 0
+  },
+  {
+    "attributeDes": "DX_ZF_MS_104",
+    "attributeIcon": "prop_physicsHurt",
+    "attributeType": "physicsHurt",
+    "attributeValue": 0.01,
+    "id": 2,
+    "level": 1,
+    "sort": 13
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 3,
+    "level": 2,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_106",
+    "attributeIcon": "prop_remoteHurt",
+    "attributeType": "remoteHurt",
+    "attributeValue": 0.01,
+    "id": 4,
+    "level": 3,
+    "sort": 11
+  },
+  {
+    "attributeDes": "DX_ZF_MS_107",
+    "attributeIcon": "prop_movingSpeedPre",
+    "attributeType": "movingSpeedPre",
+    "attributeValue": 0.01,
+    "id": 5,
+    "level": 4,
+    "sort": 20
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 6,
+    "level": 5,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 7,
+    "level": 6,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_109",
+    "attributeIcon": "prop_attackRangePre",
+    "attributeType": "attackRangePre",
+    "attributeValue": 0.01,
+    "id": 8,
+    "level": 7,
+    "sort": 4
+  },
+  {
+    "attributeDes": "DX_ZF_MS_110",
+    "attributeIcon": "prop_magicHurt",
+    "attributeType": "magicHurt",
+    "attributeValue": 0.01,
+    "id": 9,
+    "level": 8,
+    "sort": 15
+  },
+  {
+    "attributeDes": "DX_ZF_MS_111",
+    "attributeIcon": "prop_attackSpeed",
+    "attributeType": "attackSpeedPre",
+    "attributeValue": 0.01,
+    "id": 10,
+    "level": 9,
+    "sort": 19
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 11,
+    "level": 10,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_112",
+    "attributeIcon": "prop_physicsResist",
+    "attributeType": "physicsResist",
+    "attributeValue": 0.01,
+    "id": 12,
+    "level": 11,
+    "sort": 14
+  },
+  {
+    "attributeDes": "DX_ZF_MS_113",
+    "attributeIcon": "prop_magicResist",
+    "attributeType": "magicResist",
+    "attributeValue": 0.01,
+    "id": 13,
+    "level": 12,
+    "sort": 16
+  },
+  {
+    "attributeDes": "DX_ZF_MS_114",
+    "attributeIcon": "prop_critical",
+    "attributeType": "critical",
+    "attributeValue": 0.01,
+    "id": 14,
+    "level": 13,
+    "sort": 5
+  },
+  {
+    "attributeDes": "DX_ZF_MS_115",
+    "attributeIcon": "prop_reduceHurt",
+    "attributeType": "reduceHurt",
+    "attributeValue": 0.01,
+    "id": 15,
+    "level": 14,
+    "sort": 18
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 16,
+    "level": 15,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_116",
+    "attributeIcon": "prop_finalHurt",
+    "attributeType": "finalHurt",
+    "attributeValue": 0.01,
+    "id": 17,
+    "level": 16,
+    "sort": 17
+  },
+  {
+    "attributeDes": "DX_ZF_MS_104",
+    "attributeIcon": "prop_physicsHurt",
+    "attributeType": "physicsHurt",
+    "attributeValue": 0.01,
+    "id": 18,
+    "level": 17,
+    "sort": 13
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 19,
+    "level": 18,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_106",
+    "attributeIcon": "prop_remoteHurt",
+    "attributeType": "remoteHurt",
+    "attributeValue": 0.01,
+    "id": 20,
+    "level": 19,
+    "sort": 11
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 21,
+    "level": 20,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_107",
+    "attributeIcon": "prop_movingSpeedPre",
+    "attributeType": "movingSpeedPre",
+    "attributeValue": 0.01,
+    "id": 22,
+    "level": 21,
+    "sort": 20
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 23,
+    "level": 22,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_109",
+    "attributeIcon": "prop_attackRangePre",
+    "attributeType": "attackRangePre",
+    "attributeValue": 0.01,
+    "id": 24,
+    "level": 23,
+    "sort": 4
+  },
+  {
+    "attributeDes": "DX_ZF_MS_110",
+    "attributeIcon": "prop_magicHurt",
+    "attributeType": "magicHurt",
+    "attributeValue": 0.01,
+    "id": 25,
+    "level": 24,
+    "sort": 15
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 26,
+    "level": 25,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_111",
+    "attributeIcon": "prop_attackSpeed",
+    "attributeType": "attackSpeedPre",
+    "attributeValue": 0.01,
+    "id": 27,
+    "level": 26,
+    "sort": 19
+  },
+  {
+    "attributeDes": "DX_ZF_MS_117",
+    "attributeIcon": "prop_repelResist",
+    "attributeType": "repelResist",
+    "attributeValue": 0.01,
+    "id": 28,
+    "level": 27,
+    "sort": 8
+  },
+  {
+    "attributeDes": "DX_ZF_MS_118",
+    "attributeIcon": "prop_repelEffectPre",
+    "attributeType": "repelEffectPre",
+    "attributeValue": 0.01,
+    "id": 29,
+    "level": 28,
+    "sort": 7
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 30,
+    "level": 29,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 31,
+    "level": 30,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_120",
+    "attributeIcon": "prop_remoteReduce",
+    "attributeType": "remoteReduce",
+    "attributeValue": 0.01,
+    "id": 32,
+    "level": 31,
+    "sort": 12
+  },
+  {
+    "attributeDes": "DX_ZF_MS_104",
+    "attributeIcon": "prop_physicsHurt",
+    "attributeType": "physicsHurt",
+    "attributeValue": 0.01,
+    "id": 33,
+    "level": 32,
+    "sort": 13
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 34,
+    "level": 33,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_106",
+    "attributeIcon": "prop_remoteHurt",
+    "attributeType": "remoteHurt",
+    "attributeValue": 0.01,
+    "id": 35,
+    "level": 34,
+    "sort": 11
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 36,
+    "level": 35,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_107",
+    "attributeIcon": "prop_movingSpeedPre",
+    "attributeType": "movingSpeedPre",
+    "attributeValue": 0.01,
+    "id": 37,
+    "level": 36,
+    "sort": 20
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 38,
+    "level": 37,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_109",
+    "attributeIcon": "prop_attackRangePre",
+    "attributeType": "attackRangePre",
+    "attributeValue": 0.01,
+    "id": 39,
+    "level": 38,
+    "sort": 4
+  },
+  {
+    "attributeDes": "DX_ZF_MS_110",
+    "attributeIcon": "prop_magicHurt",
+    "attributeType": "magicHurt",
+    "attributeValue": 0.01,
+    "id": 40,
+    "level": 39,
+    "sort": 15
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 41,
+    "level": 40,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_111",
+    "attributeIcon": "prop_attackSpeed",
+    "attributeType": "attackSpeedPre",
+    "attributeValue": 0.01,
+    "id": 42,
+    "level": 41,
+    "sort": 19
+  },
+  {
+    "attributeDes": "DX_ZF_MS_112",
+    "attributeIcon": "prop_physicsResist",
+    "attributeType": "physicsResist",
+    "attributeValue": 0.01,
+    "id": 43,
+    "level": 42,
+    "sort": 14
+  },
+  {
+    "attributeDes": "DX_ZF_MS_113",
+    "attributeIcon": "prop_magicResist",
+    "attributeType": "magicResist",
+    "attributeValue": 0.01,
+    "id": 44,
+    "level": 43,
+    "sort": 16
+  },
+  {
+    "attributeDes": "DX_ZF_MS_114",
+    "attributeIcon": "prop_critical",
+    "attributeType": "critical",
+    "attributeValue": 0.01,
+    "id": 45,
+    "level": 44,
+    "sort": 5
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 46,
+    "level": 45,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_115",
+    "attributeIcon": "prop_reduceHurt",
+    "attributeType": "reduceHurt",
+    "attributeValue": 0.01,
+    "id": 47,
+    "level": 46,
+    "sort": 18
+  },
+  {
+    "attributeDes": "DX_ZF_MS_116",
+    "attributeIcon": "prop_finalHurt",
+    "attributeType": "finalHurt",
+    "attributeValue": 0.01,
+    "id": 48,
+    "level": 47,
+    "sort": 17
+  },
+  {
+    "attributeDes": "DX_ZF_MS_104",
+    "attributeIcon": "prop_physicsHurt",
+    "attributeType": "physicsHurt",
+    "attributeValue": 0.01,
+    "id": 49,
+    "level": 48,
+    "sort": 13
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 50,
+    "level": 49,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 51,
+    "level": 50,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_106",
+    "attributeIcon": "prop_remoteHurt",
+    "attributeType": "remoteHurt",
+    "attributeValue": 0.01,
+    "id": 52,
+    "level": 51,
+    "sort": 11
+  },
+  {
+    "attributeDes": "DX_ZF_MS_107",
+    "attributeIcon": "prop_movingSpeedPre",
+    "attributeType": "movingSpeedPre",
+    "attributeValue": 0.01,
+    "id": 53,
+    "level": 52,
+    "sort": 20
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 54,
+    "level": 53,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_109",
+    "attributeIcon": "prop_attackRangePre",
+    "attributeType": "attackRangePre",
+    "attributeValue": 0.01,
+    "id": 55,
+    "level": 54,
+    "sort": 4
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 56,
+    "level": 55,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_110",
+    "attributeIcon": "prop_magicHurt",
+    "attributeType": "magicHurt",
+    "attributeValue": 0.01,
+    "id": 57,
+    "level": 56,
+    "sort": 15
+  },
+  {
+    "attributeDes": "DX_ZF_MS_111",
+    "attributeIcon": "prop_attackSpeed",
+    "attributeType": "attackSpeedPre",
+    "attributeValue": 0.01,
+    "id": 58,
+    "level": 57,
+    "sort": 19
+  },
+  {
+    "attributeDes": "DX_ZF_MS_117",
+    "attributeIcon": "prop_repelResist",
+    "attributeType": "repelResist",
+    "attributeValue": 0.01,
+    "id": 59,
+    "level": 58,
+    "sort": 8
+  },
+  {
+    "attributeDes": "DX_ZF_MS_118",
+    "attributeIcon": "prop_repelEffectPre",
+    "attributeType": "repelEffectPre",
+    "attributeValue": 0.01,
+    "id": 60,
+    "level": 59,
+    "sort": 7
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 61,
+    "level": 60,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 62,
+    "level": 61,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_120",
+    "attributeIcon": "prop_remoteReduce",
+    "attributeType": "remoteReduce",
+    "attributeValue": 0.01,
+    "id": 63,
+    "level": 62,
+    "sort": 12
+  },
+  {
+    "attributeDes": "DX_ZF_MS_104",
+    "attributeIcon": "prop_physicsHurt",
+    "attributeType": "physicsHurt",
+    "attributeValue": 0.01,
+    "id": 64,
+    "level": 63,
+    "sort": 13
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 65,
+    "level": 64,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 66,
+    "level": 65,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_106",
+    "attributeIcon": "prop_remoteHurt",
+    "attributeType": "remoteHurt",
+    "attributeValue": 0.01,
+    "id": 67,
+    "level": 66,
+    "sort": 11
+  },
+  {
+    "attributeDes": "DX_ZF_MS_107",
+    "attributeIcon": "prop_movingSpeedPre",
+    "attributeType": "movingSpeedPre",
+    "attributeValue": 0.01,
+    "id": 68,
+    "level": 67,
+    "sort": 20
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 69,
+    "level": 68,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_109",
+    "attributeIcon": "prop_attackRangePre",
+    "attributeType": "attackRangePre",
+    "attributeValue": 0.01,
+    "id": 70,
+    "level": 69,
+    "sort": 4
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 71,
+    "level": 70,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_110",
+    "attributeIcon": "prop_magicHurt",
+    "attributeType": "magicHurt",
+    "attributeValue": 0.01,
+    "id": 72,
+    "level": 71,
+    "sort": 15
+  },
+  {
+    "attributeDes": "DX_ZF_MS_111",
+    "attributeIcon": "prop_attackSpeed",
+    "attributeType": "attackSpeedPre",
+    "attributeValue": 0.01,
+    "id": 73,
+    "level": 72,
+    "sort": 19
+  },
+  {
+    "attributeDes": "DX_ZF_MS_112",
+    "attributeIcon": "prop_physicsResist",
+    "attributeType": "physicsResist",
+    "attributeValue": 0.01,
+    "id": 74,
+    "level": 73,
+    "sort": 14
+  },
+  {
+    "attributeDes": "DX_ZF_MS_113",
+    "attributeIcon": "prop_magicResist",
+    "attributeType": "magicResist",
+    "attributeValue": 0.01,
+    "id": 75,
+    "level": 74,
+    "sort": 16
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 76,
+    "level": 75,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_114",
+    "attributeIcon": "prop_critical",
+    "attributeType": "critical",
+    "attributeValue": 0.01,
+    "id": 77,
+    "level": 76,
+    "sort": 5
+  },
+  {
+    "attributeDes": "DX_ZF_MS_115",
+    "attributeIcon": "prop_reduceHurt",
+    "attributeType": "reduceHurt",
+    "attributeValue": 0.01,
+    "id": 78,
+    "level": 77,
+    "sort": 18
+  },
+  {
+    "attributeDes": "DX_ZF_MS_116",
+    "attributeIcon": "prop_finalHurt",
+    "attributeType": "finalHurt",
+    "attributeValue": 0.01,
+    "id": 79,
+    "level": 78,
+    "sort": 17
+  },
+  {
+    "attributeDes": "DX_ZF_MS_104",
+    "attributeIcon": "prop_physicsHurt",
+    "attributeType": "physicsHurt",
+    "attributeValue": 0.01,
+    "id": 80,
+    "level": 79,
+    "sort": 13
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 81,
+    "level": 80,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 82,
+    "level": 81,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_106",
+    "attributeIcon": "prop_remoteHurt",
+    "attributeType": "remoteHurt",
+    "attributeValue": 0.01,
+    "id": 83,
+    "level": 82,
+    "sort": 11
+  },
+  {
+    "attributeDes": "DX_ZF_MS_107",
+    "attributeIcon": "prop_movingSpeedPre",
+    "attributeType": "movingSpeedPre",
+    "attributeValue": 0.01,
+    "id": 84,
+    "level": 83,
+    "sort": 20
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 85,
+    "level": 84,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 86,
+    "level": 85,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_109",
+    "attributeIcon": "prop_attackRangePre",
+    "attributeType": "attackRangePre",
+    "attributeValue": 0.01,
+    "id": 87,
+    "level": 86,
+    "sort": 4
+  },
+  {
+    "attributeDes": "DX_ZF_MS_110",
+    "attributeIcon": "prop_magicHurt",
+    "attributeType": "magicHurt",
+    "attributeValue": 0.01,
+    "id": 88,
+    "level": 87,
+    "sort": 15
+  },
+  {
+    "attributeDes": "DX_ZF_MS_111",
+    "attributeIcon": "prop_attackSpeed",
+    "attributeType": "attackSpeedPre",
+    "attributeValue": 0.01,
+    "id": 89,
+    "level": 88,
+    "sort": 19
+  },
+  {
+    "attributeDes": "DX_ZF_MS_117",
+    "attributeIcon": "prop_repelResist",
+    "attributeType": "repelResist",
+    "attributeValue": 0.01,
+    "id": 90,
+    "level": 89,
+    "sort": 8
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 91,
+    "level": 90,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_118",
+    "attributeIcon": "prop_repelEffectPre",
+    "attributeType": "repelEffectPre",
+    "attributeValue": 0.01,
+    "id": 92,
+    "level": 91,
+    "sort": 7
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 93,
+    "level": 92,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_120",
+    "attributeIcon": "prop_remoteReduce",
+    "attributeType": "remoteReduce",
+    "attributeValue": 0.01,
+    "id": 94,
+    "level": 93,
+    "sort": 12
+  },
+  {
+    "attributeDes": "DX_ZF_MS_104",
+    "attributeIcon": "prop_physicsHurt",
+    "attributeType": "physicsHurt",
+    "attributeValue": 0.01,
+    "id": 95,
+    "level": 94,
+    "sort": 13
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 96,
+    "level": 95,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 97,
+    "level": 96,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_106",
+    "attributeIcon": "prop_remoteHurt",
+    "attributeType": "remoteHurt",
+    "attributeValue": 0.01,
+    "id": 98,
+    "level": 97,
+    "sort": 11
+  },
+  {
+    "attributeDes": "DX_ZF_MS_107",
+    "attributeIcon": "prop_movingSpeedPre",
+    "attributeType": "movingSpeedPre",
+    "attributeValue": 0.01,
+    "id": 99,
+    "level": 98,
+    "sort": 20
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 100,
+    "level": 99,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 101,
+    "level": 100,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_109",
+    "attributeIcon": "prop_attackRangePre",
+    "attributeType": "attackRangePre",
+    "attributeValue": 0.01,
+    "id": 102,
+    "level": 101,
+    "sort": 4
+  },
+  {
+    "attributeDes": "DX_ZF_MS_110",
+    "attributeIcon": "prop_magicHurt",
+    "attributeType": "magicHurt",
+    "attributeValue": 0.01,
+    "id": 103,
+    "level": 102,
+    "sort": 15
+  },
+  {
+    "attributeDes": "DX_ZF_MS_111",
+    "attributeIcon": "prop_attackSpeed",
+    "attributeType": "attackSpeedPre",
+    "attributeValue": 0.01,
+    "id": 104,
+    "level": 103,
+    "sort": 19
+  },
+  {
+    "attributeDes": "DX_ZF_MS_112",
+    "attributeIcon": "prop_physicsResist",
+    "attributeType": "physicsResist",
+    "attributeValue": 0.01,
+    "id": 105,
+    "level": 104,
+    "sort": 14
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 106,
+    "level": 105,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_113",
+    "attributeIcon": "prop_magicResist",
+    "attributeType": "magicResist",
+    "attributeValue": 0.01,
+    "id": 107,
+    "level": 106,
+    "sort": 16
+  },
+  {
+    "attributeDes": "DX_ZF_MS_114",
+    "attributeIcon": "prop_critical",
+    "attributeType": "critical",
+    "attributeValue": 0.01,
+    "id": 108,
+    "level": 107,
+    "sort": 5
+  },
+  {
+    "attributeDes": "DX_ZF_MS_115",
+    "attributeIcon": "prop_reduceHurt",
+    "attributeType": "reduceHurt",
+    "attributeValue": 0.01,
+    "id": 109,
+    "level": 108,
+    "sort": 18
+  },
+  {
+    "attributeDes": "DX_ZF_MS_116",
+    "attributeIcon": "prop_finalHurt",
+    "attributeType": "finalHurt",
+    "attributeValue": 0.01,
+    "id": 110,
+    "level": 109,
+    "sort": 17
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 111,
+    "level": 110,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_121",
+    "attributeIcon": "prop_criticalHurt",
+    "attributeType": "criticalHurt",
+    "attributeValue": 0.03,
+    "id": 112,
+    "level": 111,
+    "sort": 21
+  },
+  {
+    "attributeDes": "DX_ZF_MS_112",
+    "attributeIcon": "prop_physicsResist",
+    "attributeType": "physicsResist",
+    "attributeValue": 0.01,
+    "id": 113,
+    "level": 112,
+    "sort": 14
+  },
+  {
+    "attributeDes": "DX_ZF_MS_113",
+    "attributeIcon": "prop_magicResist",
+    "attributeType": "magicResist",
+    "attributeValue": 0.01,
+    "id": 114,
+    "level": 113,
+    "sort": 16
+  },
+  {
+    "attributeDes": "DX_ZF_MS_114",
+    "attributeIcon": "prop_critical",
+    "attributeType": "critical",
+    "attributeValue": 0.01,
+    "id": 115,
+    "level": 114,
+    "sort": 5
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 116,
+    "level": 115,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 117,
+    "level": 116,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_123",
+    "attributeIcon": "prop_lifeInjury",
+    "attributeType": "lifeInjury",
+    "attributeValue": 0.01,
+    "id": 118,
+    "level": 117,
+    "sort": 23
+  },
+  {
+    "attributeDes": "DX_ZF_MS_124",
+    "attributeIcon": "prop_moderateResist",
+    "attributeType": "moderateResist",
+    "attributeValue": 0.01,
+    "id": 119,
+    "level": 118,
+    "sort": 24
+  },
+  {
+    "attributeDes": "DX_ZF_MS_122",
+    "attributeIcon": "prop_criticalHurtResist",
+    "attributeType": "criticalHurtResist",
+    "attributeValue": 0.03,
+    "id": 120,
+    "level": 119,
+    "sort": 22
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 121,
+    "level": 120,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_121",
+    "attributeIcon": "prop_criticalHurt",
+    "attributeType": "criticalHurt",
+    "attributeValue": 0.03,
+    "id": 122,
+    "level": 121,
+    "sort": 21
+  },
+  {
+    "attributeDes": "DX_ZF_MS_112",
+    "attributeIcon": "prop_physicsResist",
+    "attributeType": "physicsResist",
+    "attributeValue": 0.01,
+    "id": 123,
+    "level": 122,
+    "sort": 14
+  },
+  {
+    "attributeDes": "DX_ZF_MS_113",
+    "attributeIcon": "prop_magicResist",
+    "attributeType": "magicResist",
+    "attributeValue": 0.01,
+    "id": 124,
+    "level": 123,
+    "sort": 16
+  },
+  {
+    "attributeDes": "DX_ZF_MS_114",
+    "attributeIcon": "prop_critical",
+    "attributeType": "critical",
+    "attributeValue": 0.01,
+    "id": 125,
+    "level": 124,
+    "sort": 5
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 126,
+    "level": 125,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 127,
+    "level": 126,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_120",
+    "attributeIcon": "prop_remoteReduce",
+    "attributeType": "remoteReduce",
+    "attributeValue": 0.01,
+    "id": 128,
+    "level": 127,
+    "sort": 12
+  },
+  {
+    "attributeDes": "DX_ZF_MS_122",
+    "attributeIcon": "prop_criticalHurtResist",
+    "attributeType": "criticalHurtResist",
+    "attributeValue": 0.03,
+    "id": 129,
+    "level": 128,
+    "sort": 22
+  },
+  {
+    "attributeDes": "DX_ZF_MS_104",
+    "attributeIcon": "prop_physicsHurt",
+    "attributeType": "physicsHurt",
+    "attributeValue": 0.01,
+    "id": 130,
+    "level": 129,
+    "sort": 13
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 131,
+    "level": 130,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_112",
+    "attributeIcon": "prop_physicsResist",
+    "attributeType": "physicsResist",
+    "attributeValue": 0.01,
+    "id": 132,
+    "level": 131,
+    "sort": 14
+  },
+  {
+    "attributeDes": "DX_ZF_MS_110",
+    "attributeIcon": "prop_magicHurt",
+    "attributeType": "magicHurt",
+    "attributeValue": 0.01,
+    "id": 133,
+    "level": 132,
+    "sort": 15
+  },
+  {
+    "attributeDes": "DX_ZF_MS_113",
+    "attributeIcon": "prop_magicResist",
+    "attributeType": "magicResist",
+    "attributeValue": 0.01,
+    "id": 134,
+    "level": 133,
+    "sort": 16
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 135,
+    "level": 134,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 136,
+    "level": 135,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 137,
+    "level": 136,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_106",
+    "attributeIcon": "prop_remoteHurt",
+    "attributeType": "remoteHurt",
+    "attributeValue": 0.01,
+    "id": 138,
+    "level": 137,
+    "sort": 11
+  },
+  {
+    "attributeDes": "DX_ZF_MS_120",
+    "attributeIcon": "prop_remoteReduce",
+    "attributeType": "remoteReduce",
+    "attributeValue": 0.01,
+    "id": 139,
+    "level": 138,
+    "sort": 12
+  },
+  {
+    "attributeDes": "DX_ZF_MS_116",
+    "attributeIcon": "prop_finalHurt",
+    "attributeType": "finalHurt",
+    "attributeValue": 0.01,
+    "id": 140,
+    "level": 139,
+    "sort": 17
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 141,
+    "level": 140,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_115",
+    "attributeIcon": "prop_reduceHurt",
+    "attributeType": "reduceHurt",
+    "attributeValue": 0.01,
+    "id": 142,
+    "level": 141,
+    "sort": 18
+  },
+  {
+    "attributeDes": "DX_ZF_MS_114",
+    "attributeIcon": "prop_critical",
+    "attributeType": "critical",
+    "attributeValue": 0.01,
+    "id": 143,
+    "level": 142,
+    "sort": 5
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 144,
+    "level": 143,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_122",
+    "attributeIcon": "prop_criticalHurtResist",
+    "attributeType": "criticalHurtResist",
+    "attributeValue": 0.03,
+    "id": 145,
+    "level": 144,
+    "sort": 22
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 146,
+    "level": 145,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_124",
+    "attributeIcon": "prop_moderateResist",
+    "attributeType": "moderateResist",
+    "attributeValue": 0.01,
+    "id": 147,
+    "level": 146,
+    "sort": 24
+  },
+  {
+    "attributeDes": "DX_ZF_MS_123",
+    "attributeIcon": "prop_lifeInjury",
+    "attributeType": "lifeInjury",
+    "attributeValue": 0.01,
+    "id": 148,
+    "level": 147,
+    "sort": 23
+  },
+  {
+    "attributeDes": "DX_ZF_MS_118",
+    "attributeIcon": "prop_repelEffectPre",
+    "attributeType": "repelEffectPre",
+    "attributeValue": 0.01,
+    "id": 149,
+    "level": 148,
+    "sort": 7
+  },
+  {
+    "attributeDes": "DX_ZF_MS_117",
+    "attributeIcon": "prop_repelResist",
+    "attributeType": "repelResist",
+    "attributeValue": 0.01,
+    "id": 150,
+    "level": 149,
+    "sort": 8
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 151,
+    "level": 150,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_121",
+    "attributeIcon": "prop_criticalHurt",
+    "attributeType": "criticalHurt",
+    "attributeValue": 0.03,
+    "id": 152,
+    "level": 151,
+    "sort": 21
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 153,
+    "level": 152,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_120",
+    "attributeIcon": "prop_remoteReduce",
+    "attributeType": "remoteReduce",
+    "attributeValue": 0.01,
+    "id": 154,
+    "level": 153,
+    "sort": 12
+  },
+  {
+    "attributeDes": "DX_ZF_MS_122",
+    "attributeIcon": "prop_criticalHurtResist",
+    "attributeType": "criticalHurtResist",
+    "attributeValue": 0.03,
+    "id": 155,
+    "level": 154,
+    "sort": 22
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 156,
+    "level": 155,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_104",
+    "attributeIcon": "prop_physicsHurt",
+    "attributeType": "physicsHurt",
+    "attributeValue": 0.01,
+    "id": 157,
+    "level": 156,
+    "sort": 13
+  },
+  {
+    "attributeDes": "DX_ZF_MS_112",
+    "attributeIcon": "prop_physicsResist",
+    "attributeType": "physicsResist",
+    "attributeValue": 0.01,
+    "id": 158,
+    "level": 157,
+    "sort": 14
+  },
+  {
+    "attributeDes": "DX_ZF_MS_110",
+    "attributeIcon": "prop_magicHurt",
+    "attributeType": "magicHurt",
+    "attributeValue": 0.01,
+    "id": 159,
+    "level": 158,
+    "sort": 15
+  },
+  {
+    "attributeDes": "DX_ZF_MS_113",
+    "attributeIcon": "prop_magicResist",
+    "attributeType": "magicResist",
+    "attributeValue": 0.01,
+    "id": 160,
+    "level": 159,
+    "sort": 16
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 161,
+    "level": 160,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 162,
+    "level": 161,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 163,
+    "level": 162,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_106",
+    "attributeIcon": "prop_remoteHurt",
+    "attributeType": "remoteHurt",
+    "attributeValue": 0.01,
+    "id": 164,
+    "level": 163,
+    "sort": 11
+  },
+  {
+    "attributeDes": "DX_ZF_MS_120",
+    "attributeIcon": "prop_remoteReduce",
+    "attributeType": "remoteReduce",
+    "attributeValue": 0.01,
+    "id": 165,
+    "level": 164,
+    "sort": 12
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 166,
+    "level": 165,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_116",
+    "attributeIcon": "prop_finalHurt",
+    "attributeType": "finalHurt",
+    "attributeValue": 0.01,
+    "id": 167,
+    "level": 166,
+    "sort": 17
+  },
+  {
+    "attributeDes": "DX_ZF_MS_115",
+    "attributeIcon": "prop_reduceHurt",
+    "attributeType": "reduceHurt",
+    "attributeValue": 0.01,
+    "id": 168,
+    "level": 167,
+    "sort": 18
+  },
+  {
+    "attributeDes": "DX_ZF_MS_114",
+    "attributeIcon": "prop_critical",
+    "attributeType": "critical",
+    "attributeValue": 0.01,
+    "id": 169,
+    "level": 168,
+    "sort": 5
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 170,
+    "level": 169,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 171,
+    "level": 170,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_122",
+    "attributeIcon": "prop_criticalHurtResist",
+    "attributeType": "criticalHurtResist",
+    "attributeValue": 0.03,
+    "id": 172,
+    "level": 171,
+    "sort": 22
+  },
+  {
+    "attributeDes": "DX_ZF_MS_124",
+    "attributeIcon": "prop_moderateResist",
+    "attributeType": "moderateResist",
+    "attributeValue": 0.01,
+    "id": 173,
+    "level": 172,
+    "sort": 24
+  },
+  {
+    "attributeDes": "DX_ZF_MS_123",
+    "attributeIcon": "prop_lifeInjury",
+    "attributeType": "lifeInjury",
+    "attributeValue": 0.01,
+    "id": 174,
+    "level": 173,
+    "sort": 23
+  },
+  {
+    "attributeDes": "DX_ZF_MS_118",
+    "attributeIcon": "prop_repelEffectPre",
+    "attributeType": "repelEffectPre",
+    "attributeValue": 0.01,
+    "id": 175,
+    "level": 174,
+    "sort": 7
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 176,
+    "level": 175,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_117",
+    "attributeIcon": "prop_repelResist",
+    "attributeType": "repelResist",
+    "attributeValue": 0.01,
+    "id": 177,
+    "level": 176,
+    "sort": 8
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 178,
+    "level": 177,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_120",
+    "attributeIcon": "prop_remoteReduce",
+    "attributeType": "remoteReduce",
+    "attributeValue": 0.01,
+    "id": 179,
+    "level": 178,
+    "sort": 12
+  },
+  {
+    "attributeDes": "DX_ZF_MS_122",
+    "attributeIcon": "prop_criticalHurtResist",
+    "attributeType": "criticalHurtResist",
+    "attributeValue": 0.03,
+    "id": 180,
+    "level": 179,
+    "sort": 22
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 181,
+    "level": 180,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_112",
+    "attributeIcon": "prop_physicsResist",
+    "attributeType": "physicsResist",
+    "attributeValue": 0.01,
+    "id": 182,
+    "level": 181,
+    "sort": 14
+  },
+  {
+    "attributeDes": "DX_ZF_MS_113",
+    "attributeIcon": "prop_magicResist",
+    "attributeType": "magicResist",
+    "attributeValue": 0.01,
+    "id": 183,
+    "level": 182,
+    "sort": 16
+  },
+  {
+    "attributeDes": "DX_ZF_MS_115",
+    "attributeIcon": "prop_reduceHurt",
+    "attributeType": "reduceHurt",
+    "attributeValue": 0.01,
+    "id": 184,
+    "level": 183,
+    "sort": 18
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 185,
+    "level": 184,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 186,
+    "level": 185,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 187,
+    "level": 186,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_118",
+    "attributeIcon": "prop_repelEffectPre",
+    "attributeType": "repelEffectPre",
+    "attributeValue": 0.01,
+    "id": 188,
+    "level": 187,
+    "sort": 7
+  },
+  {
+    "attributeDes": "DX_ZF_MS_117",
+    "attributeIcon": "prop_repelResist",
+    "attributeType": "repelResist",
+    "attributeValue": 0.01,
+    "id": 189,
+    "level": 188,
+    "sort": 8
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 190,
+    "level": 189,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 191,
+    "level": 190,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_120",
+    "attributeIcon": "prop_remoteReduce",
+    "attributeType": "remoteReduce",
+    "attributeValue": 0.01,
+    "id": 192,
+    "level": 191,
+    "sort": 12
+  },
+  {
+    "attributeDes": "DX_ZF_MS_122",
+    "attributeIcon": "prop_criticalHurtResist",
+    "attributeType": "criticalHurtResist",
+    "attributeValue": 0.03,
+    "id": 193,
+    "level": 192,
+    "sort": 22
+  },
+  {
+    "attributeDes": "DX_ZF_MS_121",
+    "attributeIcon": "prop_criticalHurt",
+    "attributeType": "criticalHurt",
+    "attributeValue": 0.03,
+    "id": 194,
+    "level": 193,
+    "sort": 21
+  },
+  {
+    "attributeDes": "DX_ZF_MS_116",
+    "attributeIcon": "prop_finalHurt",
+    "attributeType": "finalHurt",
+    "attributeValue": 0.01,
+    "id": 195,
+    "level": 194,
+    "sort": 17
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 196,
+    "level": 195,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_112",
+    "attributeIcon": "prop_physicsResist",
+    "attributeType": "physicsResist",
+    "attributeValue": 0.01,
+    "id": 197,
+    "level": 196,
+    "sort": 14
+  },
+  {
+    "attributeDes": "DX_ZF_MS_113",
+    "attributeIcon": "prop_magicResist",
+    "attributeType": "magicResist",
+    "attributeValue": 0.01,
+    "id": 198,
+    "level": 197,
+    "sort": 16
+  },
+  {
+    "attributeDes": "DX_ZF_MS_115",
+    "attributeIcon": "prop_reduceHurt",
+    "attributeType": "reduceHurt",
+    "attributeValue": 0.01,
+    "id": 199,
+    "level": 198,
+    "sort": 18
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 200,
+    "level": 199,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 201,
+    "level": 200,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 202,
+    "level": 201,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_118",
+    "attributeIcon": "prop_repelEffectPre",
+    "attributeType": "repelEffectPre",
+    "attributeValue": 0.01,
+    "id": 203,
+    "level": 202,
+    "sort": 7
+  },
+  {
+    "attributeDes": "DX_ZF_MS_117",
+    "attributeIcon": "prop_repelResist",
+    "attributeType": "repelResist",
+    "attributeValue": 0.01,
+    "id": 204,
+    "level": 203,
+    "sort": 8
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 205,
+    "level": 204,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 206,
+    "level": 205,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_120",
+    "attributeIcon": "prop_remoteReduce",
+    "attributeType": "remoteReduce",
+    "attributeValue": 0.01,
+    "id": 207,
+    "level": 206,
+    "sort": 12
+  },
+  {
+    "attributeDes": "DX_ZF_MS_122",
+    "attributeIcon": "prop_criticalHurtResist",
+    "attributeType": "criticalHurtResist",
+    "attributeValue": 0.03,
+    "id": 208,
+    "level": 207,
+    "sort": 22
+  },
+  {
+    "attributeDes": "DX_ZF_MS_121",
+    "attributeIcon": "prop_criticalHurt",
+    "attributeType": "criticalHurt",
+    "attributeValue": 0.03,
+    "id": 209,
+    "level": 208,
+    "sort": 21
+  },
+  {
+    "attributeDes": "DX_ZF_MS_116",
+    "attributeIcon": "prop_finalHurt",
+    "attributeType": "finalHurt",
+    "attributeValue": 0.01,
+    "id": 210,
+    "level": 209,
+    "sort": 17
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 211,
+    "level": 210,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_112",
+    "attributeIcon": "prop_physicsResist",
+    "attributeType": "physicsResist",
+    "attributeValue": 0.01,
+    "id": 212,
+    "level": 211,
+    "sort": 14
+  },
+  {
+    "attributeDes": "DX_ZF_MS_113",
+    "attributeIcon": "prop_magicResist",
+    "attributeType": "magicResist",
+    "attributeValue": 0.01,
+    "id": 213,
+    "level": 212,
+    "sort": 16
+  },
+  {
+    "attributeDes": "DX_ZF_MS_115",
+    "attributeIcon": "prop_reduceHurt",
+    "attributeType": "reduceHurt",
+    "attributeValue": 0.01,
+    "id": 214,
+    "level": 213,
+    "sort": 18
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 215,
+    "level": 214,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 216,
+    "level": 215,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 217,
+    "level": 216,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_118",
+    "attributeIcon": "prop_repelEffectPre",
+    "attributeType": "repelEffectPre",
+    "attributeValue": 0.01,
+    "id": 218,
+    "level": 217,
+    "sort": 7
+  },
+  {
+    "attributeDes": "DX_ZF_MS_117",
+    "attributeIcon": "prop_repelResist",
+    "attributeType": "repelResist",
+    "attributeValue": 0.01,
+    "id": 219,
+    "level": 218,
+    "sort": 8
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 220,
+    "level": 219,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 221,
+    "level": 220,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_120",
+    "attributeIcon": "prop_remoteReduce",
+    "attributeType": "remoteReduce",
+    "attributeValue": 0.01,
+    "id": 222,
+    "level": 221,
+    "sort": 12
+  },
+  {
+    "attributeDes": "DX_ZF_MS_122",
+    "attributeIcon": "prop_criticalHurtResist",
+    "attributeType": "criticalHurtResist",
+    "attributeValue": 0.03,
+    "id": 223,
+    "level": 222,
+    "sort": 22
+  },
+  {
+    "attributeDes": "DX_ZF_MS_121",
+    "attributeIcon": "prop_criticalHurt",
+    "attributeType": "criticalHurt",
+    "attributeValue": 0.03,
+    "id": 224,
+    "level": 223,
+    "sort": 21
+  },
+  {
+    "attributeDes": "DX_ZF_MS_116",
+    "attributeIcon": "prop_finalHurt",
+    "attributeType": "finalHurt",
+    "attributeValue": 0.01,
+    "id": 225,
+    "level": 224,
+    "sort": 17
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 226,
+    "level": 225,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_112",
+    "attributeIcon": "prop_physicsResist",
+    "attributeType": "physicsResist",
+    "attributeValue": 0.01,
+    "id": 227,
+    "level": 226,
+    "sort": 14
+  },
+  {
+    "attributeDes": "DX_ZF_MS_113",
+    "attributeIcon": "prop_magicResist",
+    "attributeType": "magicResist",
+    "attributeValue": 0.01,
+    "id": 228,
+    "level": 227,
+    "sort": 16
+  },
+  {
+    "attributeDes": "DX_ZF_MS_115",
+    "attributeIcon": "prop_reduceHurt",
+    "attributeType": "reduceHurt",
+    "attributeValue": 0.01,
+    "id": 229,
+    "level": 228,
+    "sort": 18
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 230,
+    "level": 229,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 231,
+    "level": 230,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 232,
+    "level": 231,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_118",
+    "attributeIcon": "prop_repelEffectPre",
+    "attributeType": "repelEffectPre",
+    "attributeValue": 0.01,
+    "id": 233,
+    "level": 232,
+    "sort": 7
+  },
+  {
+    "attributeDes": "DX_ZF_MS_117",
+    "attributeIcon": "prop_repelResist",
+    "attributeType": "repelResist",
+    "attributeValue": 0.01,
+    "id": 234,
+    "level": 233,
+    "sort": 8
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 235,
+    "level": 234,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 236,
+    "level": 235,
+    "sort": 2
+  },
+  {
+    "attributeDes": "DX_ZF_MS_120",
+    "attributeIcon": "prop_remoteReduce",
+    "attributeType": "remoteReduce",
+    "attributeValue": 0.01,
+    "id": 237,
+    "level": 236,
+    "sort": 12
+  },
+  {
+    "attributeDes": "DX_ZF_MS_122",
+    "attributeIcon": "prop_criticalHurtResist",
+    "attributeType": "criticalHurtResist",
+    "attributeValue": 0.03,
+    "id": 238,
+    "level": 237,
+    "sort": 22
+  },
+  {
+    "attributeDes": "DX_ZF_MS_121",
+    "attributeIcon": "prop_criticalHurt",
+    "attributeType": "criticalHurt",
+    "attributeValue": 0.03,
+    "id": 239,
+    "level": 238,
+    "sort": 21
+  },
+  {
+    "attributeDes": "DX_ZF_MS_116",
+    "attributeIcon": "prop_finalHurt",
+    "attributeType": "finalHurt",
+    "attributeValue": 0.01,
+    "id": 240,
+    "level": 239,
+    "sort": 17
+  },
+  {
+    "attributeDes": "DX_ZF_MS_101",
+    "attributeIcon": "prop_damage",
+    "attributeType": "damagePre",
+    "attributeValue": 0.04,
+    "id": 241,
+    "level": 240,
+    "sort": 1
+  },
+  {
+    "attributeDes": "DX_ZF_MS_112",
+    "attributeIcon": "prop_physicsResist",
+    "attributeType": "physicsResist",
+    "attributeValue": 0.01,
+    "id": 242,
+    "level": 241,
+    "sort": 14
+  },
+  {
+    "attributeDes": "DX_ZF_MS_113",
+    "attributeIcon": "prop_magicResist",
+    "attributeType": "magicResist",
+    "attributeValue": 0.01,
+    "id": 243,
+    "level": 242,
+    "sort": 16
+  },
+  {
+    "attributeDes": "DX_ZF_MS_115",
+    "attributeIcon": "prop_reduceHurt",
+    "attributeType": "reduceHurt",
+    "attributeValue": 0.01,
+    "id": 244,
+    "level": 243,
+    "sort": 18
+  },
+  {
+    "attributeDes": "DX_ZF_MS_105",
+    "attributeIcon": "prop_criticalResist",
+    "attributeType": "criticalResist",
+    "attributeValue": 0.01,
+    "id": 245,
+    "level": 244,
+    "sort": 6
+  },
+  {
+    "attributeDes": "DX_ZF_MS_102",
+    "attributeIcon": "prop_defense",
+    "attributeType": "defensePre",
+    "attributeValue": 0.04,
+    "id": 246,
+    "level": 245,
+    "sort": 3
+  },
+  {
+    "attributeDes": "DX_ZF_MS_108",
+    "attributeIcon": "prop_nearHurt",
+    "attributeType": "nearHurt",
+    "attributeValue": 0.01,
+    "id": 247,
+    "level": 246,
+    "sort": 9
+  },
+  {
+    "attributeDes": "DX_ZF_MS_118",
+    "attributeIcon": "prop_repelEffectPre",
+    "attributeType": "repelEffectPre",
+    "attributeValue": 0.01,
+    "id": 248,
+    "level": 247,
+    "sort": 7
+  },
+  {
+    "attributeDes": "DX_ZF_MS_117",
+    "attributeIcon": "prop_repelResist",
+    "attributeType": "repelResist",
+    "attributeValue": 0.01,
+    "id": 249,
+    "level": 248,
+    "sort": 8
+  },
+  {
+    "attributeDes": "DX_ZF_MS_119",
+    "attributeIcon": "prop_nearReduce",
+    "attributeType": "nearReduce",
+    "attributeValue": 0.01,
+    "id": 250,
+    "level": 249,
+    "sort": 10
+  },
+  {
+    "attributeDes": "DX_ZF_MS_103",
+    "attributeIcon": "prop_life",
+    "attributeType": "lifePre",
+    "attributeValue": 0.04,
+    "id": 251,
+    "level": 250,
+    "sort": 2
+  }
+]

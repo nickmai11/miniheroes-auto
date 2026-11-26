@@ -34,7 +34,7 @@ def run(want=''):
     b = ocr()
     if not find(b, r'will advance'):
         if not find(b, r'^Enter$'):
-            tap_text(r'Tribe Clash', (680, 560, 1080, 680), b)         # main-screen banner
+            tap_text(r'Tribe Clash', (680, 560, 1080, 680), wait(r'Tribe Clash', 10, (680, 560, 1080, 680)))         # main-screen banner; wait: an Auto-close banner can cover it for a few s (Kong II 2026-11-26)
             b = wait(r'^Enter$', 15)
         tap_text(r'^Enter$', boxes=b); b = wait(r'will advance', 10)
     own = re.search(r'S(\d{1,3})', ' '.join(t for x, y, w, h, t in b if y < 160 and x < 500))
@@ -69,8 +69,13 @@ def run(want=''):
         tap_wait(540, 1700); b = wait(r'^Attack$', 8)
         if 'Free Attempts' in joined(b) and re.search(r'Free Attempts: (\d+)', joined(b))[1] == c[1]:
             raise Stop(f'counter did not drop after attack {n}: {joined(b)[:200]}')
-    home()
-    clash_treasure.run()                                 # last tc step: spend the Treasure keys (Nick 2026-11-11)
+    for _ in range(4):                                   # attack dialog -> map -> Tribe Clash screen: Treasure is on it, so no
+        b = ocr()                                        # trip to main and the banner again (Nick 2026-11-26)
+        if flow.is_main() or find(b, r'^Enter$') and find(b, r'^Guess$', (900, 1800, 1080, 1920)): break
+        tap_wait(92, 1810); time.sleep(0.8)
+    try: clash_treasure.run()                            # last tc step: spend the Treasure keys (Nick 2026-11-11)
+    except Stop as e:                                    # not the screen it looked like: the old way, from main
+        print(f'treasure from the Tribe Clash screen: {e} -> again from main', flush=True); home(); clash_treasure.run()
     home()
 
 

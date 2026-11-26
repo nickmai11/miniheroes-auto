@@ -1,0 +1,51 @@
+[
+  {
+    "grade": 1,
+    "id": 1,
+    "randomPer": 10,
+    "reward": "gemRandom_05",
+    "rewardNum": 1
+  },
+  {
+    "grade": 2,
+    "id": 2,
+    "randomPer": 35,
+    "reward": "memf_64004",
+    "rewardNum": 10
+  },
+  {
+    "grade": 2,
+    "id": 3,
+    "randomPer": 80,
+    "reward": "flipCard",
+    "rewardNum": 10
+  },
+  {
+    "grade": 3,
+    "id": 4,
+    "randomPer": 150,
+    "reward": "glyphs_1004",
+    "rewardNum": 1
+  },
+  {
+    "grade": 3,
+    "id": 5,
+    "randomPer": 150,
+    "reward": "artFragment",
+    "rewardNum": 10
+  },
+  {
+    "grade": 3,
+    "id": 6,
+    "randomPer": 150,
+    "reward": "randomFragment3",
+    "rewardNum": 15
+  },
+  {
+    "grade": 3,
+    "id": 7,
+    "randomPer": 150,
+    "reward": "recruitRoll",
+    "rewardNum": 10
+  }
+]

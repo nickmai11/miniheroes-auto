@@ -1,0 +1,230 @@
+[
+  {
+    "freeGift": ["arenaTicket", "exp_1", "gold_1"],
+    "freeGiftNum": [1, 1, 1],
+    "icon": 60,
+    "id": 1,
+    "key": "VIP_DESC_1",
+    "payGift": ["diamond", "coinMinting1", "gold", "noblePoints"],
+    "payGiftNum": [60, 40, 100000, 60],
+    "privilegeParameter": [0.05, 0.05, 2],
+    "privilegeType": [1, 2, 3],
+    "productIdentifying": "pay5001",
+    "showParameter": [5, 5, 2],
+    "vipLevel": 1
+  },
+  {
+    "freeGift": ["recruitRoll", "exp_1", "gold_1"],
+    "freeGiftNum": [2, 2, 2],
+    "icon": 500,
+    "id": 2,
+    "key": "VIP_DESC_2",
+    "payGift": ["diamond", "medal1", "gold_2", "noblePoints"],
+    "payGiftNum": [120, 30, 2, 120],
+    "privilegeParameter": [0.1, 0.1, 3, 1],
+    "privilegeType": [1, 2, 3, 4],
+    "productIdentifying": "pay5002",
+    "showParameter": [10, 10, 3, 1],
+    "vipLevel": 2
+  },
+  {
+    "freeGift": ["medal1", "exp_2", "gold_2"],
+    "freeGiftNum": [10, 1, 1],
+    "icon": 2000,
+    "id": 3,
+    "key": "VIP_DESC_3",
+    "payGift": ["diamond", "recruitRoll", "gold_3", "noblePoints"],
+    "payGiftNum": [250, 10, 2, 250],
+    "privilegeParameter": [0.2, 0.2, 4, 1, 1, 0.1],
+    "privilegeType": [1, 2, 3, 4, 5, 7],
+    "productIdentifying": "pay5003",
+    "showParameter": [20, 20, 4, 1, 1, 10],
+    "vipLevel": 3
+  },
+  {
+    "freeGift": ["coinMinting1", "exp_2", "gold_2"],
+    "freeGiftNum": [20, 2, 2],
+    "icon": 4000,
+    "id": 4,
+    "key": "VIP_DESC_4",
+    "payGift": ["diamond", "zb_box2", "gold_3", "noblePoints"],
+    "payGiftNum": [600, 3, 2, 600],
+    "privilegeParameter": [0.25, 0.25, 5, 1, 1, 1, 0.15],
+    "privilegeType": [1, 2, 3, 4, 5, 6, 7],
+    "productIdentifying": "pay5004",
+    "showParameter": [25, 25, 5, 1, 1, 1, 15],
+    "vipLevel": 4
+  },
+  {
+    "freeGift": ["sanctuaryCoin", "exp_2", "gold_2"],
+    "freeGiftNum": [2000, 3, 3],
+    "icon": 7500,
+    "id": 5,
+    "key": "VIP_DESC_5",
+    "payGift": ["diamond", "recruitRoll", "gold_4", "noblePoints"],
+    "payGiftNum": [880, 30, 2, 880],
+    "privilegeParameter": [0.3, 0.3, 6, 2, 1, 1, 0.2, 0.05, 0.05, 0.05, 1],
+    "privilegeType": [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 21],
+    "productIdentifying": "pay5005",
+    "showParameter": [30, 30, 6, 2, 1, 1, 20, 5, 5, 5, 1],
+    "vipLevel": 5
+  },
+  {
+    "freeGift": ["glyphs_2002", "exp_3", "gold_3"],
+    "freeGiftNum": [1, 2, 2],
+    "icon": 14000,
+    "id": 6,
+    "key": "VIP_DESC_6",
+    "payGift": ["diamond", "coinMinting2", "gold_4", "noblePoints"],
+    "payGiftNum": [1280, 120, 5, 1280],
+    "privilegeParameter": [
+      0.4, 0.4, 7, 2, 2, 1, 0.25, 1, 0.07, 0.07, 0.07, 1, 1
+    ],
+    "privilegeType": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 21, 22],
+    "productIdentifying": "pay5006",
+    "showParameter": [40, 40, 7, 2, 2, 1, 25, 1, 7, 7, 7, 1, 1],
+    "vipLevel": 6
+  },
+  {
+    "freeGift": ["glyphs_4003", "exp_3", "gold_3"],
+    "freeGiftNum": [1, 3, 3],
+    "icon": 23000,
+    "id": 7,
+    "key": "VIP_DESC_7",
+    "payGift": ["diamond", "medal1", "gold_4", "noblePoints"],
+    "payGiftNum": [1980, 300, 5, 1980],
+    "privilegeParameter": [
+      0.45, 0.45, 8, 2, 2, 2, 0.3, 1, 0.09, 0.09, 0.09, 1, 1
+    ],
+    "privilegeType": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 21, 22],
+    "productIdentifying": "pay5007",
+    "showParameter": [45, 45, 8, 2, 2, 2, 30, 1, 9, 9, 9, 1, 1],
+    "vipLevel": 7
+  },
+  {
+    "freeGift": ["glyphs_1003", "exp_3", "gold_3"],
+    "freeGiftNum": [1, 4, 4],
+    "icon": 35000,
+    "id": 8,
+    "key": "VIP_DESC_8",
+    "payGift": ["diamond", "shenhuasuijibox", "recruitRoll", "noblePoints"],
+    "payGiftNum": [3280, 2, 75, 3280],
+    "privilegeParameter": [
+      0.5, 0.5, 9, 3, 2, 2, 0.35, 1, 0.11, 0.11, 0.11, 1, 2, 1
+    ],
+    "privilegeType": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 19, 21, 22],
+    "productIdentifying": "pay5008",
+    "showParameter": [50, 50, 9, 3, 2, 2, 35, 1, 11, 11, 11, 1, 2, 1],
+    "vipLevel": 8
+  },
+  {
+    "freeGift": ["glyphs_3003", "exp_4", "gold_4"],
+    "freeGiftNum": [1, 3, 3],
+    "icon": 50000,
+    "id": 9,
+    "key": "VIP_DESC_9",
+    "payGift": ["diamond", "shenhuasuijibox", "recruitRoll", "noblePoints"],
+    "payGiftNum": [3280, 2, 75, 3280],
+    "privilegeParameter": [
+      0.6, 0.6, 10, 3, 3, 2, 0.4, 1, 0.13, 0.13, 0.13, 1, 2, 1
+    ],
+    "privilegeType": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 19, 21, 22],
+    "productIdentifying": "pay5009",
+    "showParameter": [60, 60, 10, 3, 3, 2, 40, 1, 13, 13, 13, 1, 2, 1],
+    "vipLevel": 9
+  },
+  {
+    "freeGift": ["glyphs_4004", "exp_4", "gold_4"],
+    "freeGiftNum": [1, 4, 4],
+    "icon": 70000,
+    "id": 10,
+    "key": "VIP_DESC_10",
+    "payGift": ["diamond", "shenhuasuijibox", "recruitRoll", "noblePoints"],
+    "payGiftNum": [3280, 2, 75, 3280],
+    "privilegeParameter": [
+      0.65, 0.65, 11, 3, 3, 3, 0.5, 1, 0.15, 0.15, 0.15, 1, 2, 1
+    ],
+    "privilegeType": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 19, 21, 22],
+    "productIdentifying": "pay5010",
+    "showParameter": [65, 65, 11, 3, 3, 3, 50, 1, 15, 15, 15, 1, 2, 1],
+    "vipLevel": 10
+  },
+  {
+    "freeGift": ["glyphs_2004", "exp_4", "gold_4"],
+    "freeGiftNum": [1, 5, 5],
+    "icon": 100000,
+    "id": 11,
+    "key": "VIP_DESC_11",
+    "payGift": ["diamond", "shenhuasuijibox", "recruitRoll", "noblePoints"],
+    "payGiftNum": [3280, 2, 75, 3280],
+    "privilegeParameter": [
+      0.7, 0.7, 12, 4, 3, 3, 0.6, 1, 0.17, 0.17, 0.17, 1, 3, 1
+    ],
+    "privilegeType": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 19, 21, 22],
+    "productIdentifying": "pay5011",
+    "showParameter": [70, 70, 12, 4, 3, 3, 60, 1, 17, 17, 17, 1, 3, 1],
+    "vipLevel": 11
+  },
+  {
+    "freeGift": ["strongPotion", "exp_4", "gold_4"],
+    "freeGiftNum": [1, 6, 6],
+    "icon": 150000,
+    "id": 12,
+    "key": "VIP_DESC_12",
+    "payGift": ["diamond", "glyphs_4005", "recruitRoll", "noblePoints"],
+    "payGiftNum": [6480, 1, 150, 6480],
+    "privilegeParameter": [
+      0.9, 0.9, 13, 4, 4, 3, 0.7, 1, 0.19, 0.19, 0.19, 1, 3, 2
+    ],
+    "privilegeType": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 19, 21, 22],
+    "productIdentifying": "pay5012",
+    "showParameter": [90, 90, 13, 4, 4, 3, 70, 1, 19, 19, 19, 1, 3, 2],
+    "vipLevel": 12
+  },
+  {
+    "freeGift": ["strongPotion", "exp_4", "gold_4"],
+    "freeGiftNum": [1, 7, 7],
+    "icon": 300000,
+    "id": 13,
+    "key": "VIP_DESC_13",
+    "payGift": ["diamond", "glyphs_3005", "recruitRoll", "noblePoints"],
+    "payGiftNum": [6480, 1, 150, 6480],
+    "privilegeParameter": [
+      1, 1, 14, 4, 4, 4, 0.8, 1, 0.21, 0.21, 0.21, 1, 3, 2
+    ],
+    "privilegeType": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 19, 21, 22],
+    "productIdentifying": "pay5013",
+    "showParameter": [100, 100, 14, 4, 4, 4, 80, 1, 21, 21, 21, 1, 3, 2],
+    "vipLevel": 13
+  },
+  {
+    "freeGift": ["strongPotion", "exp_4", "gold_4"],
+    "freeGiftNum": [1, 8, 8],
+    "icon": 600000,
+    "id": 14,
+    "key": "VIP_DESC_14",
+    "payGift": ["diamond", "glyphs_1005", "recruitRoll", "noblePoints"],
+    "payGiftNum": [6480, 1, 150, 6480],
+    "privilegeParameter": [
+      1.2, 1.2, 15, 4, 4, 4, 0.9, 1, 0.24, 0.24, 0.24, 1, 4, 2
+    ],
+    "privilegeType": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 19, 21, 22],
+    "productIdentifying": "pay5014",
+    "showParameter": [120, 120, 15, 4, 4, 4, 90, 1, 24, 24, 24, 1, 4, 2],
+    "vipLevel": 14
+  },
+  {
+    "freeGift": ["strongPotion", "exp_4", "gold_4"],
+    "freeGiftNum": [1, 9, 9],
+    "icon": 1000000,
+    "id": 15,
+    "key": "VIP_DESC_15",
+    "payGift": ["diamond", "glyphs_2005", "recruitRoll", "noblePoints"],
+    "payGiftNum": [6480, 1, 150, 6480],
+    "privilegeParameter": [1.5, 1.5, 16, 4, 5, 4, 1, 1, 0.3, 0.3, 0.3, 1, 4, 2],
+    "privilegeType": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 19, 21, 22],
+    "productIdentifying": "pay5015",
+    "showParameter": [150, 150, 16, 4, 5, 4, 100, 1, 30, 30, 30, 1, 4, 2],
+    "vipLevel": 15
+  }
+]

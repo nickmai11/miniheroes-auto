@@ -5,14 +5,14 @@
 #        (state: /tmp/miniheroes-state/<account>-<game day>.done, game day starts 05:00 UTC))
 # Log: every line (incl. the mission scripts' output) is appended to logs/<account>/<game day>.log.
 #        OUT=<dir> sets the scratch dir (default /tmp/miniheroes-<date>/<account>) for screenshots/scripts' files.
-# Each step starts and ends on the main screen. Output: one "OK|SKIP|FAIL|MANUAL <step>: ..." line per step, then
+# Each step starts and ends on the main screen (except a STAY pair: the next step goes on from the screen the first leaves). Output: one "OK|SKIP|FAIL|MANUAL <step>: ..." line per step, then
 # "LEFT FOR HELPER: ..." = steps a helper must do by hand (judgment steps + failures, each with a v_*.png).
 # exit 0 = ran to the end, 1 = lost the main screen (helper: recover, then re-run the steps after the last OK).
 # Never spends gems except through trials.py (cap-checked) and patrol.py (cap-checked).
 # UNTESTED (written 2026-10-28 from saved screenshots) — run on one account first, watch it.
 import datetime, fcntl, os, re, subprocess, sys, time
 from stabilize import close_x
-from tap import diff, thumb
+from tap import dev, diff, thumb
 from flow import Stop, adventure, battle, find, grab, home, is_main, joined, lone_hero, near, ocr, swipe, tap, tap_text, tap_wait, wait, watch_ad
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -167,7 +167,9 @@ def refresh_row(row, mn):
 def fishing(cfg, orders=True):
     mn = orders and re.search(r'min_order_diamonds:\s*(\d+)', cfg)
     tap_wait(624, 1780); boxes = wait(r'Order Info', 10)
-    time.sleep(0.6); back = ensure_bait(cfg) + ', '; boxes = wait(r'Order Info', 6)   # Sunday: Lucky Star only if the weekly review needs the row, else the default bait (Nick 2026-11-08)
+    time.sleep(0.6); back = ensure_bait(cfg)
+    if back == SHRIMP: return back
+    back += ', '; boxes = wait(r'Order Info', 6)   # Sunday: Lucky Star only if the weekly review needs the row, else the default bait (Nick 2026-11-08)
     packs = gems = 0
     if mn:
         tap_text(r'Order Info', boxes=boxes); b = wait(r'Daily Order', 8); time.sleep(0.5); b = ocr()
@@ -278,8 +280,22 @@ def pet_back(to_join=False):
     raise Stop(f'could not back out of the Pet Arena; screen: {joined(ocr())[:150]}')
 
 
-def pet_arena(cfg):
+def pet_open():
+    """Main -> event hub -> Pet Arena tab (its lobby: Join). Not on main = pet_check's previous part left that lobby
+    open -> nothing to open (read, Auto Deploy and the manual deploy in one visit - Nick 2026-11-26: no close + reopen)."""
+    if not is_main(): return
+    tap_wait(896, 340); x = None
+    for _ in range(12):                                  # tab bar slides in: same x twice = settled
+        x2 = hub_tabs().get('pet_arena')
+        if x2 and x2 == x: break
+        x = x2; time.sleep(0.3)
+    if not x: raise Stop('no Pet Arena tab in the event hub')
+    tap_wait(x, 1840)
+
+
+def pet_arena(cfg, stay=False):
     """Pet Arena, game days Mon-Wed, FIRST step: event hub -> Pet Arena -> Join -> Auto Deploy -> Start, left running.
+    stay (pet_check): out of free attempts -> back to the Join screen, not main - pet_manual goes on from there.
     Nick 2026-11-03: be fast (the arena is busy right after the reset) - open a dropdown only when its value is wrong
     (default = 4 sprites, High to Low, kept by the game); a fight on = exit it right away, then Join again; no free
     attempts left = done for the day, however it got done."""
@@ -289,13 +305,7 @@ def pet_arena(cfg):
     if get('strategy') != 'stamina_order': return f'MANUAL strategy {get("strategy")} (per-pet dropdowns not scripted)'
     sprites, order = get('sprites'), PET_ORDER[get('order')]
     done = 'no free attempts left - done for today'
-    tap_wait(896, 340); x = None
-    for _ in range(12):                                  # tab bar slides in: same x twice = settled
-        x2 = hub_tabs().get('pet_arena')
-        if x2 and x2 == x: break
-        x = x2; time.sleep(0.3)
-    if not x: raise Stop('no Pet Arena tab in the event hub')
-    tap_wait(x, 1840)
+    pet_open()
     for _ in range(6):
         t0 = time.time()
         while True:                                      # Champion popup can cover Join
@@ -306,7 +316,7 @@ def pet_arena(cfg):
             time.sleep(0.3)
         tap_text(r'^Join$', (300, 1400, 780, 1650), boxes, settle=False)
         st = pet_state()
-        if st == 'used': pet_back(); return done
+        if st == 'used': pet_back(to_join=stay); return done
         if st == 'running': pet_back(); return 'Auto Deploying already on'
         if st == 'open':
             r = pet_dialog(sprites, order)
@@ -331,14 +341,14 @@ def pet_arena(cfg):
     while True:
         t = joined(ocr())
         if 'Auto Deploying' in t: break
-        if re.search(r'Not enough free|attempts used up', t): tap(938, 282); time.sleep(0.5); pet_back(); return done
+        if re.search(r'Not enough free|attempts used up', t): tap(938, 282); time.sleep(0.5); pet_back(to_join=stay); return done
         if pet_popup(t): continue
         if time.time() - t0 > 8:
             # a fight starting right after Start hides the label (Bino/Dino/Kratos/Boudior 11-18: deploying all the same)
             # -> back to Join and read the state there
             pet_back(to_join=True); tap_text(r'^Join$', (300, 1400, 780, 1650)); st = pet_state()
             if st == 'running': pet_back(); return f'Auto Deploying: {sprites} sprites, {order} (seen after rejoin)'
-            if st == 'used': pet_back(); return done
+            if st == 'used': pet_back(to_join=stay); return done
             raise Stop(f'no "Auto Deploying" after Start (rejoin: {st})')
         time.sleep(0.3)
     pet_back()
@@ -347,10 +357,7 @@ def pet_arena(cfg):
 
 def pet_deployments():
     """Main screen -> Pet Arena -> Achievement: "Cumulative pet deployments completed: N" (whole event, Mon-Wed)."""
-    tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920)); time.sleep(1.2)
-    x = hub_tabs().get('pet_arena')
-    if not x: raise Stop('no Pet Arena tab in the event hub')
-    tap_wait(x, 1840); time.sleep(1.5); pet_popup(joined(ocr()))
+    pet_open(); time.sleep(1.5); pet_popup(joined(ocr()))
     tap_wait(90, 700); t = joined(wait(r'Cumulative pet deployments', 6))
     m = re.search(r'Cumulative pet deployments completed\D*?\d+ times\s*\|\s*(\d+)\s*/', t) or re.search(r'(\d+)\s*/\s*\d+', t[t.find('Cumulative'):])
     if not m: raise Stop(f'cumulative deployments unreadable: {t[:150]}')
@@ -388,10 +395,8 @@ def pet_check(cfg):
     if GAME_DAY.weekday() > 2: return 'SKIP closed (Mon-Wed only)'
     n, prev = pet_progress()
     if n - prev >= 40: return f'all 40 free deployments used (pet deployments {n}, +{n - prev})'
-    if not home(): raise Stop('lost the main screen after reading the deployments')
-    r = pet_arena(cfg)
+    r = pet_arena(cfg, stay=True)                        # from the lobby the read left open
     if r.startswith('no free attempts left'):            # Auto Deploy can't, quota not reached -> by hand (Nick 2026-11-11)
-        if not home(): raise Stop('lost the main screen after Auto Deploy')
         r += '; ' + pet_manual(40 - (n - prev))
     return f'MANUAL only +{n - prev} of 40 deployments so far ({r}) - re-check in the catch-up'
 
@@ -402,10 +407,7 @@ def pet_manual(need):
     the green frame), Deploy, "Available for deployment this round: k/4" must go +1 (not the pool count:
     others deploy too, Chien Than 57 -> 60). Free cards sort first; only the first row's labels read.
     Mapped on Dino 2026-11-11 (+38 with "no free attempts left": 2 free cards, both deployed)."""
-    tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920)); time.sleep(1.2)
-    x = hub_tabs().get('pet_arena')
-    if not x: raise Stop('no Pet Arena tab in the event hub')
-    tap_wait(x, 1840); time.sleep(1.5)
+    pet_open(); time.sleep(1.5)
     for _ in range(6):
         pet_popup(joined(ocr()))
         tap_text(r'^Join$', (300, 1400, 780, 1650), wait(r'^Join$', 15, (300, 1400, 780, 1650)), settle=False)
@@ -811,7 +813,14 @@ def gems(boxes):
 
 
 def hero(cfg): return script('hero.py', ACCOUNT)
-def treasury(cfg): return script('treasury.py', ACCOUNT)   # King's Treasury keys, after events claims them (Nick 2026-11-10)
+def ruins(cfg): return script('ruins.py', ACCOUNT)   # Ancient Ruins: floors asap until the stamina is out (Nick 2026-11-26)
+def treasury(cfg):
+    """King's Treasury keys, after events claims them (Nick 2026-11-10). In a run with the events step, events() flips
+    them in its own hub visit and this step reports that result (Nick 2026-11-26: no hub close + reopen)."""
+    return treasury.out or script('treasury.py', ACCOUNT)
+
+
+treasury.out = None
 def tribe(cfg):
     r = script('tribe.py')
     # report the request only when it wasn't made: sent, or NOT SENT because of the cooldown = fine, silent (Nick 2026-11-20)
@@ -992,7 +1001,7 @@ def rune(cfg):
     tap_wait(*rune_pick()); tap_text(r'Quick ?Equip', (250, 1600, 580, 1720), wait(r'Quick ?Equip', 6))
     boxes = wait(r'^Synthesize$', 4, (650, 1600, 1000, 1720))
     if not find(boxes, r'^[xX]1$', (60, 1600, 200, 1720)): raise Stop('rune: multiplier is not x1')
-    im = grab()   # grey Synthesize = Quick Equip found < 4 runes of that quality (Chloe 2026-11-10: 2) -> nothing to do
+    im = grab()   # grey Synthesize = Quick Equip found < 4 runes of that quality (Gambler 2026-11-10: 2) -> nothing to do
     if sum(1 for x in range(700, 950, 6) for y in range(1640, 1700, 6)
            if (lambda p: max(p) - min(p) > 40)(im.getpixel((x, y)))) < 20:
         grab().save('v_rune.png'); tap_wait(972, 560); time.sleep(0.8); tap_wait(972, 238)
@@ -1051,17 +1060,20 @@ def grocery_buy(cfg):
     return ', '.join(out + ['coins: ' + ' / '.join(coins)])
 
 
-def daily_mission(cfg):
+def daily_mission(cfg, close=None):
     """Mapped on Kong 2026-10-28: menu icon dot ≈ (1040,1580); Mission = the ICON left of its label (the label doesn't
     react); top Claim row ≈ (860,672) claims all rows; chests above the level labels (y≈510) glow when reachable; tabs
     Daily (300,1686) / Weekly (778,1688), each tab's red dot at its top-right (Weekly ≈ (972,1636)), hidden while selected.
     Both tabs are always opened (2026-11-04: the Weekly tab was gated on its dot, which the daily chest reward popup still
     dimmed -> every account skipped 4 claimable weekly rows, Nick). Ends with the dot check = the step's DoD."""
-    if not red_dot(1000, 1545, 1080, 1615): return "no red dot"   # menu icon dot (Mission / Lobby / Backpack)
-    tap_wait(994, 1625); wait(r'^Mission$', 6); time.sleep(1.2)   # side menu slides in: read the position once settled
-    m = find(ocr(), r'^Mission$')
-    if not m: raise Stop('Mission entry not in the side menu')
-    tap_wait(m[0] - 120, m[1] - 30); wait(r'Daily Mission', 10)
+    if close is None: close = not (NEXT and STAY.get('daily_mission') == NEXT)   # Sunday dailies: weekly() reads on in the open popup
+    if is_main():
+        if not red_dot(1000, 1545, 1080, 1615): return "no red dot"   # menu icon dot (Mission / Lobby / Backpack)
+        tap_wait(994, 1625); wait(r'^Mission$', 6); time.sleep(1.2)   # side menu slides in: read the position once settled
+        m = find(ocr(), r'^Mission$')
+        if not m: raise Stop('Mission entry not in the side menu')
+        tap_wait(m[0] - 120, m[1] - 30); wait(r'Daily Mission', 10)
+    else: tap_wait(300, 1688); wait(r'Daily Mission', 6)   # weekly() left the popup open on its Weekly tab (no close + reopen, Nick 2026-11-26)
     out = []
     TABS = {'daily': (300, r'Daily Mission', (40, 80, 120, 160)), 'weekly': (778, r'Weekly Mission', (45, 90, 135, 180))}
     dot = {'daily': (420, 1595, 540, 1665), 'weekly': (898, 1595, 1018, 1665)}   # x+120..x+240 (Weekly dot y 1618-1650 Aminor)
@@ -1090,12 +1102,14 @@ def daily_mission(cfg):
     tap_wait(300, 1688); time.sleep(1)
     if red_dot(*dot['weekly']): left.append('weekly')
     if left: grab().save('v_daily_mission.png'); out.append(f'{left} tab still has a red dot (v_daily_mission.png)')
-    tap_wait(972, 238)
+    if close: tap_wait(972, 238)
     return ('MANUAL ' if left else '') + f'{out or "nothing"}'
 
 
 def fishing_rewards(cfg):
-    tap_wait(624, 1780); boxes = wait(r'Order Info', 10)
+    tap_wait(624, 1780); wait(r'Order Info', 10); time.sleep(0.6)
+    if set_bait() == SHRIMP: return SHRIMP
+    boxes = wait(r'Order Info', 6)
     tap_text(r'Order Info', boxes=boxes); wait(r'Daily Order', 8)
     n = 0
     for y in (704, 1058, 1412):                          # "Claim" where Refresh normally is — never tap Refresh
@@ -1150,9 +1164,14 @@ def arena_claims():
 
 
 def open_canyon():
-    """Main -> Tribe -> Canyon map. The 8 h occupation ends with a *Resource* popup on entry ("resources gathering is
+    """Main (or the Tribe chat) -> Tribe -> Canyon map. The 8 h occupation ends with a *Resource* popup on entry ("resources gathering is
     now completed", Collect Time 08:00:00) — "Attempts" shows behind it, so close it first: Confirm, dismiss (Nick, 2026-10-31)."""
-    tap_wait(448, 1780); time.sleep(1.5); tap_wait(540, 1090); boxes = wait(r'Attempts', 10)
+    if is_main(): tap_wait(448, 1780)
+    else:   # after tribe.py: the Tribe chat - its Lobby button is the Tribe screen, no trip to main (Nick 2026-11-26)
+        l = find(ocr(), r'^Lobby$', (880, 1780, 1080, 1920))
+        if not l: raise Stop('Canyon: neither the main screen nor the Tribe chat')
+        tap_wait(l[0], l[1] - 40)                        # the icon above its label
+    time.sleep(1.5); tap_wait(540, 1090); boxes = wait(r'Attempts', 10)
     for _ in range(2):
         if not find(boxes, r'gathering is now completed|^Resource$'): return
         c = find(boxes, r'^Confirm$'); tap_wait(*(c or (540, 1460))); time.sleep(1); boxes = ocr()
@@ -1285,7 +1304,10 @@ def six_floor(left):
         tap_wait(p[0], p[1] + 60); wait(title, 6); return True
     if card(r'Sign In\b', r'Sign-in Reward'):
         n = claim_yellow(r'Sign-in Reward')
-        if red_dot(340, 300, 400, 360):                  # Holiday Gift chest (top left): one-time Free pack
+        for _ in range(3):                               # from Day 6 today's row is below the 5 visible ones, its Claim clipped (Kong 2026-11-25)
+            if n: break
+            swipe(540, 1400, 540, 1000, 1600); time.sleep(1.5); n = claim_yellow(r'Sign-in Reward')
+        if red_dot(340, 300, 400, 360):                 # Holiday Gift chest (top left): one-time Free pack
             tap_wait(280, 400); n += claim_yellow(r'Holiday Gift')
         got.append(f'sign-in x{n}'); tap_wait(978, 192)
     if card(r'Gift Box', r'Holiday Pack'):
@@ -1406,7 +1428,7 @@ def balance(box):
 def drag(y0, y1, x=540):
     """Scroll by holding the finger still before lifting: no fling. A plain 680 px swipe glided ~1300 px and an OCR of
     the still-moving list put taps at stale spots (FR Pack, Dminor 2026-11-03). Moves ~60 px less than y0-y1 (slop)."""
-    ys = ' '.join(str(y) for y in range(y0 - 100, y1, -100)) + f' {y1}'
+    x, y0, y1, *ys = dev(x, y0, y1, *range(y0 - 100, y1, -100), y1); ys = ' '.join(ys)   # device px
     subprocess.run(['adb', '-s', D, 'shell', f'input motionevent DOWN {x} {y0}; for y in {ys}; do input motionevent MOVE {x} $y; '
                     f'done; sleep 0.6; input motionevent UP {x} {y1}'])
 
@@ -1465,7 +1487,7 @@ def tribe_clash_packs(cfg):
     tap_wait(980, 1610)
     try: wait(r'Limited', 6)
     except Stop:
-        tap_wait(980, 1610)   # Tribe Clash "Participation Requirements" overlay ate the 1st tap (Chloe/Tiger/Dminor 11-11)
+        tap_wait(980, 1610)   # Tribe Clash "Participation Requirements" overlay ate the 1st tap (Gambler/Tiger/Dminor 11-11)
         try: wait(r'Limited', 6)
         except Stop:   # Claim day (grey "Claiming Rewards", banner "On Truce"): Pack doesn't open — 4 script + 3 hand taps on pawn2 2026-11-13
             if find(ocr(), r'^Claiming Rewards$'): return 'SKIP Tribe Clash Claim day: Pack does not open'
@@ -1598,6 +1620,14 @@ def events(cfg):
             if not home(): raise
             tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920)); time.sleep(1.5)
 
+    if events.treasury:                                  # the keys just claimed: flipped now, hub still open
+        if 'golden_woods' not in tabs: treasury.out = 'SKIP no Golden Woods event'
+        else:
+            try: treasury.out = script('treasury.py', ACCOUNT)
+            except Stop as e:                            # the treasury step then does it by itself, from main
+                treasury.out = None; print(f'    treasury in the events visit: {e}', flush=True)
+                if not home(): raise
+                tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920)); time.sleep(1.5)
     # DoD (Nick 2026-11-11): no red dot left on a hub tab or a main-screen banner, except Tribe Clash's. Read like at the
     # start - the selected tab hides its own dot, so the old per-tab re-check never fired. Golden Woods = treasury's step.
     final = read()
@@ -1607,7 +1637,9 @@ def events(cfg):
     left += [t for t, d in final.items() if d and t not in ('golden_woods', 'six_floor') and t not in left]
     if not home(): raise Stop('lost the main screen after the event hub')
     dots = banner_dots()
-    if dots:   # Storm Battlefield's dot clears on a visit, Weekly Event's lags its hub claim (Dminor/pawn1 2026-11-12) -> re-read
+    capped = re.search(r'storm_max_rank:', cfg)
+    # a storm_max_rank account's Storm dot can't clear (tickets kept) -> no Storm visit for it alone (Nick 2026-11-26)
+    if dots and not (capped and all('Storm' in d for d in dots)):   # Storm Battlefield's dot clears on a visit, Weekly Event's lags its hub claim (Dminor/pawn1 2026-11-12) -> re-read
         # any dot, not just one named Storm: the 2nd card rotates Storm / Dragon Temple, so the name is whichever face
         # showed (Tiger 2026-11-14: Storm's dot read as 'banner 1d 15h', the Dragon Temple timer). Dot clears a few s late.
         try: storm_arena()
@@ -1618,10 +1650,12 @@ def events(cfg):
     # looks at 7777 -> not a leftover (Bino 2026-11-17: helper found all 15 days ticked); its nearest label can be the
     # 'Forever' timer (pawn2 2026-11-18)
     # storm_max_rank accounts keep tickets by config -> Storm's dot never clears (pawn1, Dminor 2026-11-21: King +1 reached)
-    capped = re.search(r'storm_max_rank:', cfg)
     left += [d for d in dots if not re.search(r'7777|Draws|Forever', d) and not (capped and 'Storm' in d)]
     print(f'    claimed: {", ".join(out) or "nothing"}', flush=True)   # log only: the step line reports problems only (Nick 2026-11-14)
     return f'MANUAL red dots left: {left}' if left else 'no red dot left'
+
+
+events.treasury = False   # main(): True when this run also has the treasury step
 
 
 # --- Weekly missions, Sunday pass (Nick 2026-11-08): accounts/weekly.yaml top-down; the four rows no daily step makes were
@@ -1655,12 +1689,13 @@ def weekly_rows(boxes):
 
 
 def weekly_read(rows_too=True):
-    """Main -> Mission popup -> Weekly tab -> (points, {name: (done, total)}); leaves the popup open. The game lists unfinished
+    """Main (or the open Mission popup) -> Weekly tab -> (points, {name: (done, total)}); leaves the popup open. The game lists unfinished
     rows first (Nick 2026-11-22: "undone missions are at the top, within 1-2 screens") -> read pages only until one shows
     no unfinished row; a row not read = finished. rows_too=False: the points only, no scrolling."""
-    tap_wait(994, 1625); wait(r'^Mission$', 6); time.sleep(1.2); m = find(ocr(), r'^Mission$')
-    if not m: raise Stop('Mission entry not in the side menu')
-    tap_wait(m[0] - 120, m[1] - 30); wait(r'Daily Mission', 10)
+    if is_main():   # else: the popup is open already (daily_mission / weekly left it so: no close + reopen, Nick 2026-11-26)
+        tap_wait(994, 1625); wait(r'^Mission$', 6); time.sleep(1.2); m = find(ocr(), r'^Mission$')
+        if not m: raise Stop('Mission entry not in the side menu')
+        tap_wait(m[0] - 120, m[1] - 30); wait(r'Daily Mission', 10)
     tap_wait(778, 1688); time.sleep(1); boxes = wait(r'Weekly Mission', 6)
     p = [t for x, y, w, h, t in boxes if 100 < x + w // 2 < 260 and 400 < y + h // 2 < 540 and t.strip().isdigit()]
     rows, prev = {}, None
@@ -1713,10 +1748,14 @@ def weekly_honor(need):
     return 'honor: ' + ', '.join(done)
 
 
-def set_bait(target):
+SHRIMP = 'SKIP Shrimp Bait in use: no fishing (Nick 2026-11-25)'
+
+
+def set_bait(target=None):
     """On the fishing screen: Bait tab -> make `target` the bait in use (Swap) and verify. The grid reorders itself - the
     bait in use jumps to tile 1 (Kong 2026-11-08: Lucky Star 1st, Shrimp 3rd) - so tiles are found by the description
-    title, never by position."""
+    title, never by position. Shrimp Bait in use -> SHRIMP, nothing swapped: every fishing step skips on it.
+    No target = only that check."""
     title = lambda boxes=None: next((t.strip() for x, y, w, h, t in (boxes or ocr()) if 300 < x + w // 2 < 760 and 370 < y + h // 2 < 450), '')
     def in_use():
         boxes = ocr(); iu = find(boxes, r'In use')
@@ -1724,7 +1763,8 @@ def set_bait(target):
         return title(boxes)
     b = find(ocr(), r'^Bait$', (880, 1380, 1080, 1540)); tap_wait(*(b or (986, 1459))); wait(r'^Swap$', 6); time.sleep(0.8)
     now = in_use()
-    if now == target: tap_wait(968, 240); return f'bait {target} (in use)'
+    if re.search(r'shrimp', now, re.I): tap_wait(968, 240); return SHRIMP
+    if now == target or not target: tap_wait(968, 240); return f'bait {now} (in use)'
     for p in BAIT_TILES:
         tap_wait(*p); time.sleep(0.7)
         if title() == target: break
@@ -1817,9 +1857,9 @@ def weekly(cfg):
     Wishes; claim; still under 180 -> the deferred rows in list order (Statue Level Up, Lucky Star bait - only when we really
     have to) and claim again. Rows the daily steps produce can't be pushed past their daily caps -> listed as short."""
     if GAME_DAY.weekday() != 6: return 'SKIP not Sunday'
-    pts, rows = weekly_read(); tap_wait(972, 238)
+    pts, rows = weekly_read()                             # the Mission popup stays open: closed only to go and do a row
     prog = lambda key: next(((d, t) for name, (d, t) in rows.items() if re.search(key, name)), None)
-    out, short, deferred = [f'{pts} pts, {len(rows)} rows read'], [], []
+    out, short, deferred, away = [f'{pts} pts, {len(rows)} rows read'], [], [], False   # away: a row took us off the popup
     out.append('new rows: ' + ', '.join(f'{m} {prog(WEEKLY_KEY[m]) or "done (not read)"}' for m in ('treasure_draw', 'honor', 'artifact_wish', 'lucky_stars', 'statue_upgrade')))
     if pts < 180:
         for mid, do in weekly_list():
@@ -1830,20 +1870,21 @@ def weekly(cfg):
             if mid in ('statue_upgrade', 'lucky_stars'): deferred.append((mid, t - d)); continue
             if mid not in ('treasure_draw', 'honor', 'artifact_wish'): short.append(f'{mid} {d}/{t}'); continue
             if not home(): raise Stop('lost the main screen in the weekly pass')
+            away = True
             if mid == 'treasure_draw': out.append(weekly_treasure(t - d))
             elif mid == 'honor': out.append(weekly_honor(t - d))
             else:
                 got = []; tap_wait(96, 1810); wait(r'Recruitment|Recruit 1', 10); artifact_rolls(t - d, got); out.append('artifact wishes: ' + ', '.join(got))
-    if not home(): raise Stop('lost the main screen in the weekly pass')
-    claims = [str(daily_mission(cfg))]
-    if deferred and pts < 180:
-        if not home(): raise Stop('lost the main screen in the weekly pass')
+    if away and not home(): raise Stop('lost the main screen in the weekly pass')
+    more = bool(deferred) and pts < 180
+    claims = [str(daily_mission(cfg, close=not more))]    # in the open popup when no row sent us away; left open for the re-read
+    if more:
         pts2, _ = weekly_read(rows_too=False); tap_wait(972, 238); out.append(f'{pts2} pts after claims')
         if pts2 < 180:
             for mid, need in deferred:                    # list order (Nick: Statue 17th, Lucky Stars 18th)
                 if not home(): raise Stop('lost the main screen in the weekly pass')
                 if mid == 'statue_upgrade': out.append(weekly_statue(need))
-                else: tap_wait(624, 1780); wait(r'Order Info', 10); time.sleep(0.6); out.append(set_bait('Lucky Star') + ' (50 casts to go)')
+                else: tap_wait(624, 1780); wait(r'Order Info', 10); time.sleep(0.6); r = set_bait('Lucky Star'); out.append(r + ' (50 casts to go)' * (r != SHRIMP))
             if not home(): raise Stop('lost the main screen in the weekly pass')
             claims.append(str(daily_mission(cfg)))
     tag = 'MANUAL ' if any(c.startswith('MANUAL') for c in claims) else ''
@@ -1863,21 +1904,21 @@ CATCHUP = [('weekly_review', weekly_review),   # Sundays: the Weekly tab first -
            ('fishing_auto', lambda c: fishing(c, orders=False)), ('arena', arena), ('storm', storm),   # fishing first: Auto runs during the rest (Nick, 2026-10-29)
            ('veins_forge', divine), ('patrol_claim', patrol_claim), ('arena2', arena),
            # Request every run, morning too: on cooldown the tap does nothing (Nick 2026-11-08, undoes the 11-07 morning skip)
-           ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('common_recruit', lambda c: recruit(c, common_only=True)),
-           ('canyon', canyon),
+           ('tribe_chat', lambda c: script('tribe.py', '--chat-only')), ('canyon', canyon),   # Canyon straight from the Tribe chat (STAY)
+           ('common_recruit', lambda c: recruit(c, common_only=True)), ('ruins', ruins),   # Ancient Ruins: the stamina regrown since the last run (Nick 2026-11-26)
            ('events', events), ('fishing_rewards', fishing_rewards), ('daily_mission', daily_mission),  # missions always last (Nick, 2026-10-29); FR packs: dailies only (Nick 2026-11-03)
            ('play_pass2', play_pass2),   # after the missions: the run's activity unlocks new Play Pass claims (Nick 2026-11-03)
            ('pet_check', pet_check),    # Mon-Wed: re-check all 40 free Pet Arena attempts used (Nick 2026-11-03)
            ('relic', relic)]   # last, every catch-up account (Nick 2026-11-10/16; a step since 2026-11-20, was relic_all.sh after the run)
 CATCHUP_MANUAL = []
 def seq(*parts):
-    """One runner step made of sub-steps (fn, config key or None), back to main between them. MANUAL/SKIP tags of a
-    part carry over to the whole step; a part whose config key is off is left out."""
+    """One runner step made of sub-steps (fn, config key or None); a part starts on the screen the one before left
+    (tribe.py's chat -> open_canyon: no trip to main, Nick 2026-11-26). MANUAL/SKIP tags of a part carry over to the
+    whole step; a part whose config key is off is left out."""
     def run(cfg):
         out = []
         for fn, key in parts:
             if not enabled(cfg, key): continue
-            if out and not home(): raise Stop('lost the main screen between sub-steps')
             out.append(str(fn(cfg)))
         tag = next((t for t in ('MANUAL', 'SKIP') if any(o.startswith(t) for o in out)), '')
         return (tag + ' ' if tag and not out[0].startswith(tag) else '') + '; '.join(out)
@@ -1889,7 +1930,7 @@ def seq(*parts):
 # to bottom (Trials first); Canyon inside Tribe; Daily Mission always last.
 ORDER = [('pet_arena', pet_arena), ('fishing', fishing), ('arena', arena), ('patrol', patrol), ('arena2', arena),
          ('storm', storm), ('shop', shop), ('play_pass', play_pass),
-         ('trials', trials), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('beast', beast),
+         ('trials', trials), ('tower', tower), ('sanctuary', sanctuary), ('gate', gate), ('ruins', ruins), ('beast', beast),
          ('arena3', arena), ('recruit', recruit), ('hero', hero),
          ('tribe', seq((tribe, None), (canyon, 'canyon_clash'))), ('divine', divine),
          ('stage', stage), ('patrol_claim', patrol_claim), ('rune', rune),
@@ -1906,7 +1947,13 @@ KEY = {'pet_arena': 'pet_arena', 'storm': None, 'arena': 'arena', 'arena2': 'are
        'tribe': 'tribe', 'divine': 'divine_weapon', 'stage': 'adventure_stage', 'grocery': None, 'arena3': 'arena',
        'daily_mission': None, 'fishing_rewards': 'fishing', 'fishing_auto': 'fishing', 'veins_forge': 'divine_weapon',
        'tribe_chat': 'tribe', 'common_recruit': 'recruit',
-       'events': None, 'treasury': None, 'weekly': None, 'weekly_review': None, 'tribe_clash_packs': 'shop_freebies', 'floating_realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy', 'relic': None}
+       'events': None, 'treasury': None, 'ruins': None, 'weekly': None, 'weekly_review': None, 'tribe_clash_packs': 'shop_freebies', 'floating_realm_packs': 'floating_realm_packs', 'canyon': 'canyon_clash', 'rune': 'rune_synthesis', 'grocery_buy': 'grocery_buy', 'relic': None}
+
+
+# step -> the next step that starts on the screen this one leaves: no trip to main between the two (Nick 2026-11-26:
+# nothing closed and reopened for nothing). Sundays also daily_mission -> weekly (the Mission popup stays open).
+STAY = {'tribe_chat': 'canyon', **({'daily_mission': 'weekly'} if GAME_DAY.weekday() == 6 else {})}
+NEXT = None   # the step that runs after the current one (main() sets it)
 
 
 def enabled(cfg, key):
@@ -1927,7 +1974,7 @@ class Tee:
 
 
 def main(argv):
-    global ACCOUNT
+    global ACCOUNT, NEXT
     catch_up = '--catch-up' in argv
     argv = [a for a in argv if a != '--catch-up']
     ACCOUNT = argv[0]; only = argv[1:]
@@ -1976,16 +2023,21 @@ def main(argv):
             except Exception: pass                           # device gone (instance stopped)
             print(f'FAIL {name} ({time.time() - t0:.0f}s): {e} (screenshot {out}/v_{name}.png)', flush=True)
             ok = False
+        if ok and NEXT and STAY.get(name) == NEXT: return ok   # the next step goes on from this screen
         if not home():
             print(f'FAIL home after {name}: lost the main screen; stop'); return None
         return ok
 
     steps = CATCHUP if catch_up else ORDER
+    skip = lambda n: n in ONCE and n in done and not force
+    will = [n for n, _ in steps if (not only or n in only) and enabled(cfg, KEY[n]) and not skip(n)]   # the steps that run, in order
+    events.treasury = 'events' in will and 'treasury' in will
     failed = []
     for name, fn in steps:
         if only and name not in only: continue
         if not enabled(cfg, KEY[name]): print(f'SKIP {name}: not in config', flush=True); continue
-        if name in ONCE and name in done and not force: print(f'SKIP {name}: already OK this game day ({GAME_DAY})', flush=True); continue
+        if skip(name): print(f'SKIP {name}: already OK this game day ({GAME_DAY})', flush=True); continue
+        NEXT = (will[will.index(name) + 1:] or [None])[0]
         r = step(name, fn)
         # one retry, right away: most FAILs are transient (2026-10-29: 18 of 19 passed on a re-run; steps re-read their
         # counters, so a retry never double-spends). In place, not at the end: Chien Than's Speed Patrol ran after Daily

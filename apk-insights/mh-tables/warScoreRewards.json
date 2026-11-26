@@ -1,0 +1,74 @@
+[
+  {
+    "battleFraction": 4000,
+    "id": 1,
+    "rewardNum": [30, 1],
+    "rewardType": ["coinMinting1", "gold_1"]
+  },
+  {
+    "battleFraction": 8000,
+    "id": 2,
+    "rewardNum": [200, 1],
+    "rewardType": ["diamond", "recruitRoll"]
+  },
+  {
+    "battleFraction": 14000,
+    "id": 3,
+    "rewardNum": [2, 1],
+    "rewardType": ["glyphs_3002", "gold_1"]
+  },
+  {
+    "battleFraction": 20000,
+    "id": 4,
+    "rewardNum": [5, 1],
+    "rewardType": ["randomFragment3", "recruitRoll"]
+  },
+  {
+    "battleFraction": 30000,
+    "id": 5,
+    "rewardNum": [15, 1],
+    "rewardType": ["medal1", "gold_1"]
+  },
+  {
+    "battleFraction": 40000,
+    "id": 6,
+    "rewardNum": [300, 1],
+    "rewardType": ["diamond", "recruitRoll"]
+  },
+  {
+    "battleFraction": 50000,
+    "id": 7,
+    "rewardNum": [1, 1],
+    "rewardType": ["glyphs_1003", "gold_1"]
+  },
+  {
+    "battleFraction": 60000,
+    "id": 8,
+    "rewardNum": [1, 1],
+    "rewardType": ["zb_box1", "recruitRoll"]
+  },
+  {
+    "battleFraction": 70000,
+    "id": 9,
+    "rewardNum": [1, 2],
+    "rewardType": ["medal2", "gold_1"]
+  },
+  {
+    "battleFraction": 80000,
+    "id": 10,
+    "rewardNum": [3, 1],
+    "rewardType": ["soulStone3", "recruitRoll"]
+  },
+  {
+    "battleFraction": 90000,
+    "id": 11,
+    "rewardNum": [20, 2],
+    "rewardType": ["medal1", "gold_1"]
+  },
+  {
+    "battleFraction": 100000,
+    "id": 12,
+    "rewardNum": [1, 1],
+    "rewardType": ["zb_box2", "gold_3"]
+  }
+]

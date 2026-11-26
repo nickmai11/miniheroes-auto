@@ -1,0 +1,222 @@
+[
+  {
+    "buyTimes": 1,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 0,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 1,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 2,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 50,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 2,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 3,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 50,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 3,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 4,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 100,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 4,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 5,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 100,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 5,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 6,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 100,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 6,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 7,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 150,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 7,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 8,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 150,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 8,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 9,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 150,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 9,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 10,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 150,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 10,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 11,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 200,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 11,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 12,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 200,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 12,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 13,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 200,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 13,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 14,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 200,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 14,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 15,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 200,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 15,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 16,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 200,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 16,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 17,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 200,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 17,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 18,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 200,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 18,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 19,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 200,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 19,
+    "stepGive": 5
+  },
+  {
+    "buyTimes": 20,
+    "cleanupGive": 1,
+    "costCleanup": 50,
+    "costEliminate": 50,
+    "costRefresh": 200,
+    "costStep": 200,
+    "eliminateGive": 1,
+    "id": 20,
+    "stepGive": 5
+  }
+]

@@ -10,7 +10,7 @@
 # single taps for the last <= 4 levels. A hero found above the target is rebirthed and redone.
 import os, re, subprocess, sys, time
 import hero
-from flow import Stop, D, find, grab, main, ocr, tap_wait, wait
+from flow import Stop, D, find, grab, main, ocr, swipe, tap_wait, wait
 
 BTN, LV = (200, 1050, 880, 1300), (300, 340, 800, 460)
 ROW, Y, STEP = (0, 1480, 1080, 1700), 1600, 382       # bottom hero row; cards ~191 px apart; one drag = 2 cards
@@ -28,7 +28,7 @@ def lv_now():
 
 def hold(sec):
     p = find(wait(r'^Level Up$', 6, BTN), r'^Level Up$', BTN)
-    subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', *map(str, (p[0], p[1], p[0], p[1], int(sec * 1000)))])
+    swipe(p[0], p[1], p[0], p[1], sec * 1000)
     time.sleep(1.2)
 
 
@@ -72,7 +72,7 @@ def still():
 def drag(dx):
     """Slow held drag only (Nick 2026-11-12), then wait until the row is still. True = the row moved."""
     a = still()
-    subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', *map(str, (540 - dx // 2, Y, 540 + dx // 2, Y, 1500))])
+    swipe(540 - dx // 2, Y, 540 + dx // 2, Y, 1500)
     return not hero.same(still(), a)
 
 

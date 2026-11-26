@@ -1,0 +1,282 @@
+[
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 50,
+    "id": 1,
+    "rewardNum": [1500, 5, 2],
+    "rewardType": ["elfStone", "breakStone1", "elfSkill1"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 125,
+    "id": 2,
+    "rewardNum": [2000, 5, 2],
+    "rewardType": ["elfStone", "breakStone1", "elfSkill1"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 200,
+    "id": 3,
+    "rewardNum": [2000, 5, 3],
+    "rewardType": ["elfStone", "breakStone2", "elfSkill1"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 275,
+    "id": 4,
+    "rewardNum": [2000, 5, 3],
+    "rewardType": ["elfStone", "breakStone2", "elfSkill1"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 350,
+    "id": 5,
+    "rewardNum": [2000, 1, 3],
+    "rewardType": ["elfStone", "elfStoneBox1", "elfSkill1"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 425,
+    "id": 6,
+    "rewardNum": [2000, 1, 5],
+    "rewardType": ["elfStone", "elfStoneBox1", "elfSkill1"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 500,
+    "id": 7,
+    "rewardNum": [2000, 1, 5],
+    "rewardType": ["elfStone", "elfStoneBox2", "elfSkill1"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 50,
+    "id": 8,
+    "rewardNum": [1500, 5, 2],
+    "rewardType": ["elfStone", "breakStone1", "elfSkill1"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 125,
+    "id": 9,
+    "rewardNum": [2000, 5, 2],
+    "rewardType": ["elfStone", "breakStone1", "elfSkill1"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 200,
+    "id": 10,
+    "rewardNum": [2000, 5, 3],
+    "rewardType": ["elfStone", "breakStone2", "elfSkill1"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 275,
+    "id": 11,
+    "rewardNum": [2000, 5, 3],
+    "rewardType": ["elfStone", "breakStone2", "elfSkill1"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 350,
+    "id": 12,
+    "rewardNum": [2000, 1, 3],
+    "rewardType": ["elfStone", "elfStoneBox1", "elfSkill1"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 425,
+    "id": 13,
+    "rewardNum": [2000, 1, 5],
+    "rewardType": ["elfStone", "elfStoneBox1", "elfSkill1"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 500,
+    "id": 14,
+    "rewardNum": [2000, 1, 5],
+    "rewardType": ["elfStone", "elfStoneBox2", "elfSkill1"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 50,
+    "id": 15,
+    "rewardNum": [1500, 5, 2],
+    "rewardType": ["elfStone", "breakStone1", "elfSkill1"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 125,
+    "id": 16,
+    "rewardNum": [2000, 5, 2],
+    "rewardType": ["elfStone", "breakStone1", "elfSkill1"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 200,
+    "id": 17,
+    "rewardNum": [2000, 5, 3],
+    "rewardType": ["elfStone", "breakStone2", "elfSkill1"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 275,
+    "id": 18,
+    "rewardNum": [2000, 5, 3],
+    "rewardType": ["elfStone", "breakStone2", "elfSkill1"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 350,
+    "id": 19,
+    "rewardNum": [2000, 1, 3],
+    "rewardType": ["elfStone", "elfStoneBox1", "elfSkill1"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 425,
+    "id": 20,
+    "rewardNum": [2000, 1, 5],
+    "rewardType": ["elfStone", "elfStoneBox1", "elfSkill1"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 500,
+    "id": 21,
+    "rewardNum": [2000, 1, 5],
+    "rewardType": ["elfStone", "elfStoneBox2", "elfSkill1"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 50,
+    "id": 22,
+    "rewardNum": [1500, 5, 2],
+    "rewardType": ["elfStone", "breakStone1", "elfSkill1"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 125,
+    "id": 23,
+    "rewardNum": [2000, 5, 2],
+    "rewardType": ["elfStone", "breakStone1", "elfSkill1"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 200,
+    "id": 24,
+    "rewardNum": [2000, 5, 3],
+    "rewardType": ["elfStone", "breakStone2", "elfSkill1"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 275,
+    "id": 25,
+    "rewardNum": [2000, 5, 3],
+    "rewardType": ["elfStone", "breakStone2", "elfSkill1"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 350,
+    "id": 26,
+    "rewardNum": [2000, 1, 3],
+    "rewardType": ["elfStone", "elfStoneBox1", "elfSkill1"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 425,
+    "id": 27,
+    "rewardNum": [2000, 1, 5],
+    "rewardType": ["elfStone", "elfStoneBox1", "elfSkill1"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 500,
+    "id": 28,
+    "rewardNum": [2000, 1, 5],
+    "rewardType": ["elfStone", "elfStoneBox2", "elfSkill1"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 50,
+    "id": 29,
+    "rewardNum": [1500, 5, 2],
+    "rewardType": ["elfStone", "breakStone1", "elfSkill1"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 125,
+    "id": 30,
+    "rewardNum": [2000, 5, 2],
+    "rewardType": ["elfStone", "breakStone1", "elfSkill1"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 200,
+    "id": 31,
+    "rewardNum": [2000, 5, 3],
+    "rewardType": ["elfStone", "breakStone2", "elfSkill1"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 275,
+    "id": 32,
+    "rewardNum": [2000, 5, 3],
+    "rewardType": ["elfStone", "breakStone2", "elfSkill1"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 350,
+    "id": 33,
+    "rewardNum": [2000, 1, 3],
+    "rewardType": ["elfStone", "elfStoneBox1", "elfSkill1"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 425,
+    "id": 34,
+    "rewardNum": [2000, 1, 5],
+    "rewardType": ["elfStone", "elfStoneBox1", "elfSkill1"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 500,
+    "id": 35,
+    "rewardNum": [2000, 1, 5],
+    "rewardType": ["elfStone", "elfStoneBox2", "elfSkill1"],
+    "round": 5
+  }
+]

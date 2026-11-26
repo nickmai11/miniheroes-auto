@@ -1,0 +1,134 @@
+[
+  {
+    "digitalDisplayType": 0,
+    "id": 1,
+    "privilegeDes": "SC_GZ_MS_1",
+    "privilegeType": 1
+  },
+  {
+    "digitalDisplayType": 0,
+    "id": 2,
+    "privilegeDes": "SC_GZ_MS_2",
+    "privilegeType": 2
+  },
+  {
+    "digitalDisplayType": 1,
+    "id": 3,
+    "privilegeDes": "SC_GZ_MS_3",
+    "privilegeType": 3
+  },
+  {
+    "digitalDisplayType": 1,
+    "id": 4,
+    "privilegeDes": "SC_GZ_MS_4",
+    "privilegeType": 4
+  },
+  {
+    "digitalDisplayType": 1,
+    "id": 5,
+    "privilegeDes": "SC_GZ_MS_5",
+    "privilegeType": 5
+  },
+  {
+    "digitalDisplayType": 1,
+    "id": 6,
+    "privilegeDes": "SC_GZ_MS_6",
+    "privilegeType": 6
+  },
+  {
+    "digitalDisplayType": 0,
+    "id": 7,
+    "privilegeDes": "SC_GZ_MS_7",
+    "privilegeType": 7
+  },
+  {
+    "digitalDisplayType": 1,
+    "id": 8,
+    "privilegeDes": "SC_GZ_MS_8",
+    "privilegeType": 8
+  },
+  {
+    "digitalDisplayType": 0,
+    "id": 9,
+    "privilegeDes": "SC_GZ_MS_9",
+    "privilegeType": 9
+  },
+  {
+    "digitalDisplayType": 0,
+    "id": 10,
+    "privilegeDes": "SC_GZ_MS_10",
+    "privilegeType": 10
+  },
+  {
+    "digitalDisplayType": 0,
+    "id": 11,
+    "privilegeDes": "SC_GZ_MS_11",
+    "privilegeType": 11
+  },
+  {
+    "digitalDisplayType": 0,
+    "id": 12,
+    "privilegeDes": "SC_GZ_MS_12",
+    "privilegeType": 12
+  },
+  {
+    "digitalDisplayType": -1,
+    "id": 13,
+    "privilegeDes": "SC_GZ_MS_13",
+    "privilegeType": 13
+  },
+  {
+    "digitalDisplayType": -1,
+    "id": 14,
+    "privilegeDes": "SC_GZ_MS_14",
+    "privilegeType": 14
+  },
+  {
+    "digitalDisplayType": -1,
+    "id": 15,
+    "privilegeDes": "SC_GZ_MS_15",
+    "privilegeType": 15
+  },
+  {
+    "digitalDisplayType": 1,
+    "id": 16,
+    "privilegeDes": "SC_GZ_MS_16",
+    "privilegeType": 16
+  },
+  {
+    "digitalDisplayType": 1,
+    "id": 17,
+    "privilegeDes": "SC_GZ_MS_17",
+    "privilegeType": 17
+  },
+  {
+    "digitalDisplayType": -1,
+    "id": 18,
+    "privilegeDes": "SC_GZ_MS_18",
+    "privilegeType": 18
+  },
+  {
+    "digitalDisplayType": -1,
+    "id": 19,
+    "privilegeDes": "SC_GZ_MS_19",
+    "privilegeType": 19
+  },
+  {
+    "digitalDisplayType": -1,
+    "id": 20,
+    "privilegeDes": "SC_GZ_MS_20",
+    "privilegeType": 20
+  },
+  {
+    "digitalDisplayType": 1,
+    "id": 21,
+    "privilegeDes": "SC_GZ_MS_21",
+    "privilegeType": 21
+  },
+  {
+    "digitalDisplayType": 1,
+    "id": 22,
+    "privilegeDes": "SC_GZ_MS_22",
+    "privilegeType": 22
+  }
+]

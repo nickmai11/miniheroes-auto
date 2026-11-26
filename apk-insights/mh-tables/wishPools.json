@@ -1,0 +1,135 @@
+[
+  {
+    "id": 1,
+    "rewardGear": 1,
+    "rewardNum": 90,
+    "rewardQuality": 3,
+    "rewardType": "shareDebris3"
+  },
+  {
+    "id": 2,
+    "rewardGear": 1,
+    "rewardNum": 60,
+    "rewardQuality": 3,
+    "rewardType": "fourColorStone"
+  },
+  {
+    "id": 3,
+    "rewardGear": 1,
+    "rewardNum": 1,
+    "rewardQuality": 3,
+    "rewardType": "gemRandom_07"
+  },
+  {
+    "id": 4,
+    "rewardGear": 1,
+    "rewardNum": 3,
+    "rewardQuality": 3,
+    "rewardType": "randomMem4"
+  },
+  {
+    "id": 5,
+    "rewardGear": 0,
+    "rewardNum": 2,
+    "rewardQuality": 1,
+    "rewardType": "medal1"
+  },
+  {
+    "id": 6,
+    "rewardGear": 0,
+    "rewardNum": 20,
+    "rewardQuality": 3,
+    "rewardType": "moonExchange"
+  },
+  {
+    "id": 7,
+    "rewardGear": 0,
+    "rewardNum": 500,
+    "rewardQuality": 1,
+    "rewardType": "holyLight"
+  },
+  {
+    "id": 8,
+    "rewardGear": 0,
+    "rewardNum": 1,
+    "rewardQuality": 3,
+    "rewardType": "divineStone"
+  },
+  {
+    "id": 9,
+    "rewardGear": 0,
+    "rewardNum": 300,
+    "rewardQuality": 1,
+    "rewardType": "succinctStone"
+  },
+  {
+    "id": 10,
+    "rewardGear": 0,
+    "rewardNum": 400,
+    "rewardQuality": 3,
+    "rewardType": "spiritStone_3"
+  },
+  {
+    "id": 11,
+    "rewardGear": 0,
+    "rewardNum": 5,
+    "rewardQuality": 1,
+    "rewardType": "moonExchange"
+  },
+  {
+    "id": 12,
+    "rewardGear": 0,
+    "rewardNum": 1,
+    "rewardQuality": 3,
+    "rewardType": "soulStone3"
+  },
+  {
+    "id": 13,
+    "rewardGear": 0,
+    "rewardNum": 400,
+    "rewardQuality": 2,
+    "rewardType": "spiritStone_2"
+  },
+  {
+    "id": 14,
+    "rewardGear": 0,
+    "rewardNum": 10,
+    "rewardQuality": 2,
+    "rewardType": "moonExchange"
+  },
+  {
+    "id": 15,
+    "rewardGear": 0,
+    "rewardNum": 2,
+    "rewardQuality": 2,
+    "rewardType": "coinMinting2"
+  },
+  {
+    "id": 16,
+    "rewardGear": 0,
+    "rewardNum": 1,
+    "rewardQuality": 3,
+    "rewardType": "gemSpirit"
+  },
+  {
+    "id": 17,
+    "rewardGear": 0,
+    "rewardNum": 1,
+    "rewardQuality": 1,
+    "rewardType": "gold_2"
+  },
+  {
+    "id": 18,
+    "rewardGear": 0,
+    "rewardNum": 1,
+    "rewardQuality": 3,
+    "rewardType": "coinMinting3"
+  },
+  {
+    "id": 19,
+    "rewardGear": 0,
+    "rewardNum": 400,
+    "rewardQuality": 1,
+    "rewardType": "spiritStone_1"
+  }
+]

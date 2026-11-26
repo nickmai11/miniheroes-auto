@@ -1,0 +1,145 @@
+[
+  {
+    "des": "",
+    "id": 1,
+    "ifGiveAtOnce": 0,
+    "name": "",
+    "pic": "",
+    "pic2": "",
+    "rewardNum": [],
+    "rewardType": [],
+    "type": 1
+  },
+  {
+    "des": "MONOPOLY_EVENT_DES2",
+    "id": 2,
+    "ifGiveAtOnce": 0,
+    "name": "MONOPOLY_EVENT_NAME2",
+    "pic": "icon_dhxy_sj1",
+    "pic2": "",
+    "rewardNum": [],
+    "rewardType": [],
+    "type": 2
+  },
+  {
+    "des": "MONOPOLY_EVENT_DES3",
+    "id": 3,
+    "ifGiveAtOnce": 0,
+    "name": "MONOPOLY_EVENT_NAME3",
+    "pic": "icon_dhxy_sj9",
+    "pic2": "",
+    "rewardNum": [1400],
+    "rewardType": ["westMonopolyCoin"],
+    "type": 3
+  },
+  {
+    "des": "MONOPOLY_EVENT_DES4",
+    "id": 4,
+    "ifGiveAtOnce": 0,
+    "name": "MONOPOLY_EVENT_NAME4",
+    "pic": "icon_dhxy_sj8",
+    "pic2": "",
+    "rewardNum": [],
+    "rewardType": [],
+    "type": 4
+  },
+  {
+    "des": "MONOPOLY_EVENT_DES5",
+    "id": 5,
+    "ifGiveAtOnce": 1,
+    "name": "MONOPOLY_EVENT_NAME5",
+    "pic": "icon_dhxy_sj3",
+    "pic2": "banner_sj2",
+    "rewardNum": [200],
+    "rewardType": ["westMonopolyCoin"],
+    "type": 5
+  },
+  {
+    "des": "MONOPOLY_EVENT_DES6",
+    "id": 6,
+    "ifGiveAtOnce": 1,
+    "name": "MONOPOLY_EVENT_NAME6",
+    "pic": "icon_dhxy_sj11",
+    "pic2": "banner_sj3",
+    "rewardNum": [200],
+    "rewardType": ["westMonopolyCoin"],
+    "type": 6
+  },
+  {
+    "des": "MONOPOLY_EVENT_DES7",
+    "id": 7,
+    "ifGiveAtOnce": 1,
+    "name": "MONOPOLY_EVENT_NAME7",
+    "pic": "icon_dhxy_sj7",
+    "pic2": "banner_sj4",
+    "rewardNum": [600],
+    "rewardType": ["westMonopolyCoin"],
+    "type": 7
+  },
+  {
+    "des": "MONOPOLY_EVENT_DES8",
+    "id": 8,
+    "ifGiveAtOnce": 1,
+    "name": "MONOPOLY_EVENT_NAME8",
+    "pic": "icon_dhxy_sj10",
+    "pic2": "banner_sj1",
+    "rewardNum": [400],
+    "rewardType": ["westMonopolyCoin"],
+    "type": 8
+  },
+  {
+    "des": "MONOPOLY_EVENT_DES9",
+    "id": 9,
+    "ifGiveAtOnce": 1,
+    "name": "MONOPOLY_EVENT_NAME9",
+    "pic": "icon_dhxy_sj2",
+    "pic2": "banner_sj5",
+    "rewardNum": [400],
+    "rewardType": ["westMonopolyCoin"],
+    "type": 9
+  },
+  {
+    "des": "MONOPOLY_EVENT_DES10",
+    "id": 10,
+    "ifGiveAtOnce": 0,
+    "name": "MONOPOLY_EVENT_NAME10",
+    "pic": "icon_dhxy_sj5",
+    "pic2": "",
+    "rewardNum": [800],
+    "rewardType": ["westMonopolyCoin"],
+    "type": 10
+  },
+  {
+    "des": "MONOPOLY_EVENT_DES11",
+    "id": 11,
+    "ifGiveAtOnce": 1,
+    "name": "MONOPOLY_EVENT_NAME11",
+    "pic": "icon_dhxy_sj4",
+    "pic2": "",
+    "rewardNum": [1, 300],
+    "rewardType": ["westMonopolyShield", "westMonopolyCoin"],
+    "type": 11
+  },
+  {
+    "des": "MONOPOLY_EVENT_DES12",
+    "id": 12,
+    "ifGiveAtOnce": 0,
+    "name": "MONOPOLY_EVENT_NAME12",
+    "pic": "icon_dhxy_sj6",
+    "pic2": "",
+    "rewardNum": [],
+    "rewardType": [],
+    "type": 12
+  },
+  {
+    "des": "",
+    "id": 13,
+    "ifGiveAtOnce": 0,
+    "name": "",
+    "pic": "",
+    "pic2": "",
+    "rewardNum": [],
+    "rewardType": [],
+    "type": 13
+  }
+]

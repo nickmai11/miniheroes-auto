@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [20000, 2]
+  },
+  {
+    "id": 2,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [25000, 2]
+  },
+  {
+    "id": 3,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [30000, 2]
+  },
+  {
+    "id": 4,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [35000, 2]
+  },
+  {
+    "id": 5,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [40000, 2]
+  },
+  {
+    "id": 6,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [45000, 3]
+  },
+  {
+    "id": 7,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [50000, 3]
+  },
+  {
+    "id": 8,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [55000, 3]
+  },
+  {
+    "id": 9,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [60000, 3]
+  },
+  {
+    "id": 10,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [65000, 3]
+  },
+  {
+    "id": 11,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [70000, 3]
+  },
+  {
+    "id": 12,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [75000, 3]
+  },
+  {
+    "id": 13,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [80000, 3]
+  },
+  {
+    "id": 14,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [85000, 3]
+  },
+  {
+    "id": 15,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [90000, 3]
+  },
+  {
+    "id": 16,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [95000, 4]
+  },
+  {
+    "id": 17,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [100000, 4]
+  },
+  {
+    "id": 18,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [105000, 4]
+  },
+  {
+    "id": 19,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [110000, 4]
+  },
+  {
+    "id": 20,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [115000, 4]
+  },
+  {
+    "id": 21,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [120000, 4]
+  },
+  {
+    "id": 22,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [125000, 4]
+  },
+  {
+    "id": 23,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [130000, 4]
+  },
+  {
+    "id": 24,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [135000, 4]
+  },
+  {
+    "id": 25,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [140000, 4]
+  },
+  {
+    "id": 26,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [145000, 4]
+  },
+  {
+    "id": 27,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [150000, 4]
+  },
+  {
+    "id": 28,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [155000, 4]
+  },
+  {
+    "id": 29,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [160000, 4]
+  },
+  {
+    "id": 30,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [165000, 4]
+  },
+  {
+    "id": 31,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [170000, 4]
+  },
+  {
+    "id": 32,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [175000, 4]
+  },
+  {
+    "id": 33,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [180000, 4]
+  },
+  {
+    "id": 34,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [185000, 4]
+  },
+  {
+    "id": 35,
+    "mapName": "7",
+    "show": ["exp", "randomFragment9"],
+    "showNum": [190000, 4]
+  }
+]

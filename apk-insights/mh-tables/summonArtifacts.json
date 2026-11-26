@@ -1,0 +1,52 @@
+[
+  {
+    "cheatMaterial": "",
+    "cheatMaterialNum": 0,
+    "id": 1,
+    "integral": 2,
+    "material": "holyLight",
+    "materialNum": 200,
+    "poolType": 15,
+    "templeType": 1
+  },
+  {
+    "cheatMaterial": "",
+    "cheatMaterialNum": 0,
+    "id": 2,
+    "integral": 3,
+    "material": "holyLight",
+    "materialNum": 250,
+    "poolType": 16,
+    "templeType": 2
+  },
+  {
+    "cheatMaterial": "",
+    "cheatMaterialNum": 0,
+    "id": 3,
+    "integral": 5,
+    "material": "holyLight",
+    "materialNum": 500,
+    "poolType": 17,
+    "templeType": 3
+  },
+  {
+    "cheatMaterial": "diamond",
+    "cheatMaterialNum": 280,
+    "id": 4,
+    "integral": 10,
+    "material": "holyLight",
+    "materialNum": 1000,
+    "poolType": 18,
+    "templeType": 4
+  },
+  {
+    "cheatMaterial": "crystalLight",
+    "cheatMaterialNum": 1,
+    "id": 5,
+    "integral": 15,
+    "material": "holyLight",
+    "materialNum": 1500,
+    "poolType": 19,
+    "templeType": 5
+  }
+]

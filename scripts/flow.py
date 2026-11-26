@@ -3,7 +3,7 @@ Text matching is English (every account's UI language). An unexpected screen tim
 stops with exit 1 (Stop), never guessing."""
 import os, re, subprocess, sys, tempfile, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from tap import grab, tap as tap_wait
+from tap import dev, grab, swipe, tap as tap_wait   # dev/swipe: 1080x1920 coords -> the device's (tap.py SIZE)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
@@ -20,10 +20,9 @@ def is_main(im=None):
     return near((im or grab()).getpixel((92, 1788)), (0, 158, 230), 40)
 
 
-def tap(x, y): subprocess.run(['adb', '-s', D, 'shell', 'input', 'tap', str(x), str(y)])
+def tap(x, y): subprocess.run(['adb', '-s', D, 'shell', 'input', 'tap', *dev(x, y)])
 
 
-def swipe(x0, y0, x1, y1, ms=500): subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', *map(str, (x0, y0, x1, y1, ms))])
 
 
 def focus():
@@ -57,7 +56,7 @@ def relaunch(acct=None):
         print(f'    game not in front, no MuMu instance for {acct or D}; stop', flush=True); return False
     print(f'    game not in front ({focus().strip()[-45:]}) -> boot.sh {idx} ({RELAUNCHES}/{MAX_RELAUNCHES})', flush=True)
     out = subprocess.run([BOOT, str(idx)], capture_output=True, text=True).stdout
-    # by the instance's name: an instance restart can come back on another adb port (Chloe 2026-11-21: 26816 -> 26817)
+    # by the instance's name: an instance restart can come back on another adb port (Gambler 2026-11-21: 26816 -> 26817)
     name = next(n for n, r in info.items() if r['index'] == idx)
     line = next((l for l in out.splitlines() if l.startswith(name + ' 127.')), '?'); print(f'    relaunch: {line}', flush=True)
     if ' logged-out' in line:                              # login screen: skip the account, no more relaunches (Nick 2026-11-22)
@@ -133,13 +132,13 @@ def watch_ad(timeout=180, log=print):
     while time.time() - t0 < timeout:
         f = focus()
         if 'AppActivity' in f: log(f'    ad closed after {time.time() - t0:.0f}s ({tries} close taps)'); return True
-        if f and 'com.and.brawlen.web' not in f:   # a close tap opened Play Store / settings / feedback (Chloe 11-18)
+        if f and 'com.and.brawlen.web' not in f:   # a close tap opened Play Store / settings / feedback (Gambler 11-18)
             # back to the game like its icon tap (launcher intent = the running task to the front, no restart; Nick)
             subprocess.run(['adb', '-s', D, 'shell', 'monkey', '-p', 'com.and.brawlen.web', '-c',
                             'android.intent.category.LAUNCHER', '1'], capture_output=True)
             log(f'    ad opened {f.strip()[-50:]} -> back to the game'); time.sleep(2); continue
         try: boxes = ocr()
-        except RuntimeError: boxes = []   # screencap hung 3x under a playable (Chloe/Dminor 2026-11-13): no read, the close taps below still run
+        except RuntimeError: boxes = []   # screencap hung 3x under a playable (Gambler/Dminor 2026-11-13): no read, the close taps below still run
         el = time.time() - t0
         cd = find(boxes, r'\d+\s*s\b|rewarded|Reward in', (0, 0, 1080, 300))
         if cd: seen = time.time()

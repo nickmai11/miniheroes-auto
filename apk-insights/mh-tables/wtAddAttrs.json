@@ -1,0 +1,122 @@
+[
+  {
+    "attrNum": 0.04,
+    "attrType": "damagePre",
+    "goodsType": "wildBuff1",
+    "id": 1,
+    "quality": 1,
+    "type": 1
+  },
+  {
+    "attrNum": 0.04,
+    "attrType": "defensePre",
+    "goodsType": "wildBuff2",
+    "id": 2,
+    "quality": 1,
+    "type": 2
+  },
+  {
+    "attrNum": 0.04,
+    "attrType": "lifePre",
+    "goodsType": "wildBuff3",
+    "id": 3,
+    "quality": 1,
+    "type": 3
+  },
+  {
+    "attrNum": 0.08,
+    "attrType": "damagePre",
+    "goodsType": "wildBuff4",
+    "id": 4,
+    "quality": 2,
+    "type": 1
+  },
+  {
+    "attrNum": 0.08,
+    "attrType": "defensePre",
+    "goodsType": "wildBuff5",
+    "id": 5,
+    "quality": 2,
+    "type": 2
+  },
+  {
+    "attrNum": 0.08,
+    "attrType": "lifePre",
+    "goodsType": "wildBuff6",
+    "id": 6,
+    "quality": 2,
+    "type": 3
+  },
+  {
+    "attrNum": 0.12,
+    "attrType": "damagePre",
+    "goodsType": "wildBuff7",
+    "id": 7,
+    "quality": 3,
+    "type": 1
+  },
+  {
+    "attrNum": 0.12,
+    "attrType": "defensePre",
+    "goodsType": "wildBuff8",
+    "id": 8,
+    "quality": 3,
+    "type": 2
+  },
+  {
+    "attrNum": 0.12,
+    "attrType": "lifePre",
+    "goodsType": "wildBuff9",
+    "id": 9,
+    "quality": 3,
+    "type": 3
+  },
+  {
+    "attrNum": 0.16,
+    "attrType": "damagePre",
+    "goodsType": "wildBuff10",
+    "id": 10,
+    "quality": 4,
+    "type": 1
+  },
+  {
+    "attrNum": 0.16,
+    "attrType": "defensePre",
+    "goodsType": "wildBuff11",
+    "id": 11,
+    "quality": 4,
+    "type": 2
+  },
+  {
+    "attrNum": 0.16,
+    "attrType": "lifePre",
+    "goodsType": "wildBuff12",
+    "id": 12,
+    "quality": 4,
+    "type": 3
+  },
+  {
+    "attrNum": 0.2,
+    "attrType": "damagePre",
+    "goodsType": "wildBuff13",
+    "id": 13,
+    "quality": 5,
+    "type": 1
+  },
+  {
+    "attrNum": 0.2,
+    "attrType": "defensePre",
+    "goodsType": "wildBuff14",
+    "id": 14,
+    "quality": 5,
+    "type": 2
+  },
+  {
+    "attrNum": 0.2,
+    "attrType": "lifePre",
+    "goodsType": "wildBuff15",
+    "id": 15,
+    "quality": 5,
+    "type": 3
+  }
+]

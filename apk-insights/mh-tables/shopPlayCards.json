@@ -1,0 +1,10 @@
+[
+  {
+    "buyRewardNum": [10, 250],
+    "buyRewardType": ["recruitRoll", "noblePoints"],
+    "id": 1,
+    "privilegeParameter": [1, 1, 1],
+    "privilegeType": [15, 16, 17],
+    "productIdentifying": "pay3001"
+  }
+]

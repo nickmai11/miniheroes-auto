@@ -1,0 +1,110 @@
+[
+  {
+    "exchangeItem": "relicCoin",
+    "exchangeNumber": 3000,
+    "exchangeTime": 1,
+    "id": 1,
+    "itmeID": "fragment_207",
+    "number": 5,
+    "positionId": 1
+  },
+  {
+    "exchangeItem": "relicCoin",
+    "exchangeNumber": 750,
+    "exchangeTime": 1,
+    "id": 2,
+    "itmeID": "spiritStone_1",
+    "number": 1000,
+    "positionId": 2
+  },
+  {
+    "exchangeItem": "relicCoin",
+    "exchangeNumber": 1500,
+    "exchangeTime": 1,
+    "id": 3,
+    "itmeID": "spiritStone_2",
+    "number": 1000,
+    "positionId": 3
+  },
+  {
+    "exchangeItem": "relicCoin",
+    "exchangeNumber": 3000,
+    "exchangeTime": 1,
+    "id": 4,
+    "itmeID": "spiritStone_3",
+    "number": 1000,
+    "positionId": 4
+  },
+  {
+    "exchangeItem": "relicCoin",
+    "exchangeNumber": 350,
+    "exchangeTime": 1,
+    "id": 5,
+    "itmeID": "randomMemf0",
+    "number": 10,
+    "positionId": 5
+  },
+  {
+    "exchangeItem": "relicCoin",
+    "exchangeNumber": 750,
+    "exchangeTime": 1,
+    "id": 6,
+    "itmeID": "randomMemf1",
+    "number": 10,
+    "positionId": 6
+  },
+  {
+    "exchangeItem": "relicCoin",
+    "exchangeNumber": 1500,
+    "exchangeTime": 1,
+    "id": 7,
+    "itmeID": "randomMemf2",
+    "number": 10,
+    "positionId": 7
+  },
+  {
+    "exchangeItem": "relicCoin",
+    "exchangeNumber": 3000,
+    "exchangeTime": 1,
+    "id": 8,
+    "itmeID": "randomMemf3",
+    "number": 10,
+    "positionId": 8
+  },
+  {
+    "exchangeItem": "relicCoin",
+    "exchangeNumber": 4000,
+    "exchangeTime": 1,
+    "id": 9,
+    "itmeID": "skinFettersBox",
+    "number": 4,
+    "positionId": 9
+  },
+  {
+    "exchangeItem": "relicCoin",
+    "exchangeNumber": 2000,
+    "exchangeTime": 1,
+    "id": 10,
+    "itmeID": "relicF_9998",
+    "number": 5,
+    "positionId": 10
+  },
+  {
+    "exchangeItem": "relicCoin",
+    "exchangeNumber": 900,
+    "exchangeTime": 1,
+    "id": 11,
+    "itmeID": "gold_3",
+    "number": 1,
+    "positionId": 11
+  },
+  {
+    "exchangeItem": "relicCoin",
+    "exchangeNumber": 1350,
+    "exchangeTime": 1,
+    "id": 12,
+    "itmeID": "exp_3",
+    "number": 1,
+    "positionId": 12
+  }
+]

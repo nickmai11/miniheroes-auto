@@ -1,0 +1,167 @@
+[
+  {
+    "fixRewardNum": 1,
+    "fixRewardType": "assembleStone",
+    "id": 1,
+    "ranRewardNum": [30, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 100, 100, 100, 1],
+    "ranRewardNumShow": [30, 1, 1, 1, 100, 1],
+    "ranRewardType": [
+      "diamond",
+      "randomFragment3",
+      "shareDebris3",
+      "medal1",
+      "gold_2",
+      "gold_3",
+      "exp_2",
+      "exp_3",
+      "glyphs_1002",
+      "glyphs_2002",
+      "glyphs_3002",
+      "glyphs_4002",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3",
+      "gemRandom_02"
+    ],
+    "ranRewardTypeShow": [
+      "diamond",
+      "randomFragment3",
+      "shareDebris3",
+      "glyphs_2002",
+      "spiritStone_3",
+      "gemRandom_02"
+    ]
+  },
+  {
+    "fixRewardNum": 1,
+    "fixRewardType": "assembleStone",
+    "id": 2,
+    "ranRewardNum": [30, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 100, 100, 100, 1],
+    "ranRewardNumShow": [30, 1, 1, 1, 100, 1],
+    "ranRewardType": [
+      "diamond",
+      "randomFragment3",
+      "shareDebris3",
+      "medal1",
+      "gold_2",
+      "gold_3",
+      "exp_2",
+      "exp_3",
+      "glyphs_1002",
+      "glyphs_2002",
+      "glyphs_3002",
+      "glyphs_4002",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3",
+      "gemRandom_02"
+    ],
+    "ranRewardTypeShow": [
+      "diamond",
+      "randomFragment3",
+      "shareDebris3",
+      "glyphs_2002",
+      "spiritStone_3",
+      "gemRandom_02"
+    ]
+  },
+  {
+    "fixRewardNum": 1,
+    "fixRewardType": "assembleStone",
+    "id": 3,
+    "ranRewardNum": [30, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 100, 100, 100, 1],
+    "ranRewardNumShow": [30, 1, 1, 1, 100, 1],
+    "ranRewardType": [
+      "diamond",
+      "randomFragment3",
+      "shareDebris3",
+      "medal1",
+      "gold_2",
+      "gold_3",
+      "exp_2",
+      "exp_3",
+      "glyphs_1002",
+      "glyphs_2002",
+      "glyphs_3002",
+      "glyphs_4002",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3",
+      "gemRandom_02"
+    ],
+    "ranRewardTypeShow": [
+      "diamond",
+      "randomFragment3",
+      "shareDebris3",
+      "glyphs_2002",
+      "spiritStone_3",
+      "gemRandom_02"
+    ]
+  },
+  {
+    "fixRewardNum": 1,
+    "fixRewardType": "assembleStone",
+    "id": 4,
+    "ranRewardNum": [30, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 100, 100, 100, 1],
+    "ranRewardNumShow": [30, 1, 1, 1, 100, 1],
+    "ranRewardType": [
+      "diamond",
+      "randomFragment3",
+      "shareDebris3",
+      "medal1",
+      "gold_2",
+      "gold_3",
+      "exp_2",
+      "exp_3",
+      "glyphs_1002",
+      "glyphs_2002",
+      "glyphs_3002",
+      "glyphs_4002",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3",
+      "gemRandom_02"
+    ],
+    "ranRewardTypeShow": [
+      "diamond",
+      "randomFragment3",
+      "shareDebris3",
+      "glyphs_2002",
+      "spiritStone_3",
+      "gemRandom_02"
+    ]
+  },
+  {
+    "fixRewardNum": 1,
+    "fixRewardType": "assembleStone",
+    "id": 5,
+    "ranRewardNum": [30, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 100, 100, 100, 1],
+    "ranRewardNumShow": [30, 1, 1, 1, 100, 1],
+    "ranRewardType": [
+      "diamond",
+      "randomFragment3",
+      "shareDebris3",
+      "medal1",
+      "gold_2",
+      "gold_3",
+      "exp_2",
+      "exp_3",
+      "glyphs_1002",
+      "glyphs_2002",
+      "glyphs_3002",
+      "glyphs_4002",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3",
+      "gemRandom_02"
+    ],
+    "ranRewardTypeShow": [
+      "diamond",
+      "randomFragment3",
+      "shareDebris3",
+      "glyphs_2002",
+      "spiritStone_3",
+      "gemRandom_02"
+    ]
+  }
+]

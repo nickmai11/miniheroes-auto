@@ -1,0 +1,194 @@
+[
+  {
+    "PoolType": 1,
+    "id": 1,
+    "itemNum": 100,
+    "itemType": "spiritStone_1",
+    "itemWeight": 400,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 1,
+    "id": 2,
+    "itemNum": 120,
+    "itemType": "spiritStone_1",
+    "itemWeight": 300,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 1,
+    "id": 3,
+    "itemNum": 150,
+    "itemType": "spiritStone_1",
+    "itemWeight": 200,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 1,
+    "id": 4,
+    "itemNum": 200,
+    "itemType": "spiritStone_1",
+    "itemWeight": 100,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 1,
+    "id": 5,
+    "itemNum": 100,
+    "itemType": "spiritStone_2",
+    "itemWeight": 400,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 1,
+    "id": 6,
+    "itemNum": 120,
+    "itemType": "spiritStone_2",
+    "itemWeight": 300,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 1,
+    "id": 7,
+    "itemNum": 150,
+    "itemType": "spiritStone_2",
+    "itemWeight": 200,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 1,
+    "id": 8,
+    "itemNum": 200,
+    "itemType": "spiritStone_2",
+    "itemWeight": 100,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 2,
+    "id": 9,
+    "itemNum": 100,
+    "itemType": "spiritStone_2",
+    "itemWeight": 400,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 2,
+    "id": 10,
+    "itemNum": 120,
+    "itemType": "spiritStone_2",
+    "itemWeight": 300,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 2,
+    "id": 11,
+    "itemNum": 150,
+    "itemType": "spiritStone_2",
+    "itemWeight": 200,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 2,
+    "id": 12,
+    "itemNum": 200,
+    "itemType": "spiritStone_2",
+    "itemWeight": 100,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 3,
+    "id": 13,
+    "itemNum": 120,
+    "itemType": "pointGvgCoin",
+    "itemWeight": 400,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 3,
+    "id": 14,
+    "itemNum": 150,
+    "itemType": "pointGvgCoin",
+    "itemWeight": 300,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 3,
+    "id": 15,
+    "itemNum": 180,
+    "itemType": "pointGvgCoin",
+    "itemWeight": 200,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 3,
+    "id": 16,
+    "itemNum": 200,
+    "itemType": "pointGvgCoin",
+    "itemWeight": 100,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 3,
+    "id": 17,
+    "itemNum": 200,
+    "itemType": "succinctStone",
+    "itemWeight": 400,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 3,
+    "id": 18,
+    "itemNum": 250,
+    "itemType": "succinctStone",
+    "itemWeight": 300,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 3,
+    "id": 19,
+    "itemNum": 300,
+    "itemType": "succinctStone",
+    "itemWeight": 200,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 3,
+    "id": 20,
+    "itemNum": 400,
+    "itemType": "succinctStone",
+    "itemWeight": 100,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 3,
+    "id": 21,
+    "itemNum": 400,
+    "itemType": "blindBoxCoin",
+    "itemWeight": 400,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 3,
+    "id": 22,
+    "itemNum": 500,
+    "itemType": "blindBoxCoin",
+    "itemWeight": 300,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 3,
+    "id": 23,
+    "itemNum": 600,
+    "itemType": "blindBoxCoin",
+    "itemWeight": 200,
+    "showWeight": 0.04
+  },
+  {
+    "PoolType": 3,
+    "id": 24,
+    "itemNum": 700,
+    "itemType": "blindBoxCoin",
+    "itemWeight": 100,
+    "showWeight": 0.04
+  }
+]

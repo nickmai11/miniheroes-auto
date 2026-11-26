@@ -1,0 +1,326 @@
+[
+  {
+    "externalIdentifying": 0,
+    "id": 1,
+    "rewardGear": 0,
+    "rewardIdentifying": 1,
+    "rewardNum": 1,
+    "rewardQuality": 1,
+    "rewardType": "gold_1"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 2,
+    "rewardGear": 0,
+    "rewardIdentifying": 2,
+    "rewardNum": 1,
+    "rewardQuality": 1,
+    "rewardType": "gold_2"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 3,
+    "rewardGear": 0,
+    "rewardIdentifying": 3,
+    "rewardNum": 1,
+    "rewardQuality": 2,
+    "rewardType": "gold_3"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 4,
+    "rewardGear": 0,
+    "rewardIdentifying": 4,
+    "rewardNum": 1,
+    "rewardQuality": 3,
+    "rewardType": "gold_4"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 5,
+    "rewardGear": 0,
+    "rewardIdentifying": 5,
+    "rewardNum": 10,
+    "rewardQuality": 1,
+    "rewardType": "coinMinting1"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 6,
+    "rewardGear": 0,
+    "rewardIdentifying": 6,
+    "rewardNum": 5,
+    "rewardQuality": 2,
+    "rewardType": "coinMinting2"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 7,
+    "rewardGear": 0,
+    "rewardIdentifying": 7,
+    "rewardNum": 1,
+    "rewardQuality": 1,
+    "rewardType": "gemRandom_02"
+  },
+  {
+    "externalIdentifying": 1,
+    "id": 8,
+    "rewardGear": 0,
+    "rewardIdentifying": 8,
+    "rewardNum": 1,
+    "rewardQuality": 2,
+    "rewardType": "gemRandom_03"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 9,
+    "rewardGear": 0,
+    "rewardIdentifying": 9,
+    "rewardNum": 5,
+    "rewardQuality": 1,
+    "rewardType": "medal1"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 10,
+    "rewardGear": 0,
+    "rewardIdentifying": 10,
+    "rewardNum": 200,
+    "rewardQuality": 1,
+    "rewardType": "spiritStone_1"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 11,
+    "rewardGear": 0,
+    "rewardIdentifying": 11,
+    "rewardNum": 200,
+    "rewardQuality": 2,
+    "rewardType": "spiritStone_2"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 12,
+    "rewardGear": 0,
+    "rewardIdentifying": 12,
+    "rewardNum": 200,
+    "rewardQuality": 1,
+    "rewardType": "spiritStone_3"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 13,
+    "rewardGear": 0,
+    "rewardIdentifying": 13,
+    "rewardNum": 1500,
+    "rewardQuality": 2,
+    "rewardType": "holyLight"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 14,
+    "rewardGear": 0,
+    "rewardIdentifying": 14,
+    "rewardNum": 350,
+    "rewardQuality": 3,
+    "rewardType": "succinctStone"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 15,
+    "rewardGear": 0,
+    "rewardIdentifying": 15,
+    "rewardNum": 5,
+    "rewardQuality": 1,
+    "rewardType": "greetingCard"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 16,
+    "rewardGear": 0,
+    "rewardIdentifying": 16,
+    "rewardNum": 10,
+    "rewardQuality": 1,
+    "rewardType": "greetingCard"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 17,
+    "rewardGear": 0,
+    "rewardIdentifying": 17,
+    "rewardNum": 20,
+    "rewardQuality": 2,
+    "rewardType": "greetingCard"
+  },
+  {
+    "externalIdentifying": 1,
+    "id": 18,
+    "rewardGear": 0,
+    "rewardIdentifying": 18,
+    "rewardNum": 1,
+    "rewardQuality": 2,
+    "rewardType": "randomMem3"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 19,
+    "rewardGear": 0,
+    "rewardIdentifying": 19,
+    "rewardNum": 1,
+    "rewardQuality": 2,
+    "rewardType": "randomMem2"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 20,
+    "rewardGear": 0,
+    "rewardIdentifying": 20,
+    "rewardNum": 1,
+    "rewardQuality": 3,
+    "rewardType": "glyphs_1004"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 21,
+    "rewardGear": 0,
+    "rewardIdentifying": 21,
+    "rewardNum": 1,
+    "rewardQuality": 2,
+    "rewardType": "glyphs_2004"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 22,
+    "rewardGear": 0,
+    "rewardIdentifying": 22,
+    "rewardNum": 1,
+    "rewardQuality": 2,
+    "rewardType": "glyphs_3004"
+  },
+  {
+    "externalIdentifying": 1,
+    "id": 23,
+    "rewardGear": 0,
+    "rewardIdentifying": 23,
+    "rewardNum": 1,
+    "rewardQuality": 2,
+    "rewardType": "glyphs_4004"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 24,
+    "rewardGear": 0,
+    "rewardIdentifying": 24,
+    "rewardNum": 1,
+    "rewardQuality": 2,
+    "rewardType": "medal2"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 25,
+    "rewardGear": 0,
+    "rewardIdentifying": 25,
+    "rewardNum": 5,
+    "rewardQuality": 2,
+    "rewardType": "coinMinting3"
+  },
+  {
+    "externalIdentifying": 1,
+    "id": 26,
+    "rewardGear": 0,
+    "rewardIdentifying": 26,
+    "rewardNum": 1,
+    "rewardQuality": 3,
+    "rewardType": "crystalLight"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 27,
+    "rewardGear": 0,
+    "rewardIdentifying": 27,
+    "rewardNum": 1,
+    "rewardQuality": 3,
+    "rewardType": "sacrificeStoneFrag"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 28,
+    "rewardGear": 0,
+    "rewardIdentifying": 28,
+    "rewardNum": 1,
+    "rewardQuality": 3,
+    "rewardType": "shareDebris3"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 29,
+    "rewardGear": 0,
+    "rewardIdentifying": 29,
+    "rewardNum": 2,
+    "rewardQuality": 3,
+    "rewardType": "shareDebris3"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 30,
+    "rewardGear": 0,
+    "rewardIdentifying": 30,
+    "rewardNum": 3,
+    "rewardQuality": 1,
+    "rewardType": "shareDebris3"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 31,
+    "rewardGear": 0,
+    "rewardIdentifying": 31,
+    "rewardNum": 1,
+    "rewardQuality": 3,
+    "rewardType": "tieStone"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 32,
+    "rewardGear": 0,
+    "rewardIdentifying": 32,
+    "rewardNum": 1888,
+    "rewardQuality": 3,
+    "rewardType": "diamond"
+  },
+  {
+    "externalIdentifying": 1,
+    "id": 33,
+    "rewardGear": 0,
+    "rewardIdentifying": 33,
+    "rewardNum": 1,
+    "rewardQuality": 3,
+    "rewardType": "strongPotion"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 34,
+    "rewardGear": 1,
+    "rewardIdentifying": 34,
+    "rewardNum": 18,
+    "rewardQuality": 3,
+    "rewardType": "shareDebris3"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 35,
+    "rewardGear": 1,
+    "rewardIdentifying": 35,
+    "rewardNum": 10,
+    "rewardQuality": 3,
+    "rewardType": "fourColorStone"
+  },
+  {
+    "externalIdentifying": 0,
+    "id": 36,
+    "rewardGear": 1,
+    "rewardIdentifying": 36,
+    "rewardNum": 20,
+    "rewardQuality": 3,
+    "rewardType": "randomMemf4"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "ranking": [1, 1],
+    "rewardNum": [800, 2, 150],
+    "rewardType": ["tribeCoin", "glyphs_2002", "diamond"]
+  },
+  {
+    "ranking": [2, 2],
+    "rewardNum": [600, 1, 120],
+    "rewardType": ["tribeCoin", "glyphs_2002", "diamond"]
+  },
+  {
+    "ranking": [3, 3],
+    "rewardNum": [500, 1, 100],
+    "rewardType": ["tribeCoin", "glyphs_2002", "diamond"]
+  },
+  {
+    "ranking": [4, 10],
+    "rewardNum": [400, 2, 80],
+    "rewardType": ["tribeCoin", "glyphs_2001", "diamond"]
+  },
+  {
+    "ranking": [11, 30],
+    "rewardNum": [300, 1, 60],
+    "rewardType": ["tribeCoin", "glyphs_2001", "diamond"]
+  },
+  {
+    "ranking": [31, 100],
+    "rewardNum": [200, 1, 50],
+    "rewardType": ["tribeCoin", "glyphs_2001", "diamond"]
+  }
+]

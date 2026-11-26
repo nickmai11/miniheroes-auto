@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "ranking": [1],
+    "rewardNum": [40, 2500, 300000],
+    "rewardType": ["darknessCoin", "starCrystal", "gold"]
+  },
+  {
+    "id": 2,
+    "ranking": [2],
+    "rewardNum": [30, 2000, 250000],
+    "rewardType": ["darknessCoin", "starCrystal", "gold"]
+  },
+  {
+    "id": 3,
+    "ranking": [3],
+    "rewardNum": [25, 1500, 200000],
+    "rewardType": ["darknessCoin", "starCrystal", "gold"]
+  },
+  {
+    "id": 4,
+    "ranking": [4, 5],
+    "rewardNum": [20, 1200, 170000],
+    "rewardType": ["darknessCoin", "starCrystal", "gold"]
+  },
+  {
+    "id": 5,
+    "ranking": [6, 10],
+    "rewardNum": [15, 1000, 140000],
+    "rewardType": ["darknessCoin", "starCrystal", "gold"]
+  },
+  {
+    "id": 6,
+    "ranking": [11, 30],
+    "rewardNum": [10, 800, 110000],
+    "rewardType": ["darknessCoin", "starCrystal", "gold"]
+  },
+  {
+    "id": 7,
+    "ranking": [31, 50],
+    "rewardNum": [8, 600, 80000],
+    "rewardType": ["darknessCoin", "starCrystal", "gold"]
+  },
+  {
+    "id": 8,
+    "ranking": [51, 100],
+    "rewardNum": [6, 300, 50000],
+    "rewardType": ["darknessCoin", "starCrystal", "gold"]
+  },
+  {
+    "id": 9,
+    "ranking": [101, 9999],
+    "rewardNum": [4, 100, 20000],
+    "rewardType": ["darknessCoin", "starCrystal", "gold"]
+  }
+]

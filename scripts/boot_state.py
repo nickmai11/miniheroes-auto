@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Why the Start button didn't show (boot.sh game(), after a launch try) -> one line:
-  adb-lost (<adb get-state>)   the ADB link dropped (Chloe, Boudior 2026-11-22: 'device not found' through 10 relaunches)
+  adb-lost (<adb get-state>)   the ADB link dropped (Gambler, Boudior 2026-11-22: 'device not found' through 10 relaunches)
   not-in-front (<focus>)       game not the focused app (Android home, crashed)
   logged-out (<screen text>)   a login screen, no Start (Kong 2026-11-22) -> boot skips the account, never logs in (CLAUDE.md)
   other (<screen text>)        loading / unknown

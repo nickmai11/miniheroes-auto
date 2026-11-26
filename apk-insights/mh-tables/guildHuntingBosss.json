@@ -1,0 +1,25 @@
+[
+  {
+    "bossBodyRatio": 1,
+    "bossName": "HERO_NAME_601",
+    "bossSkillDescription": [
+      "SKILL_MS_601_1",
+      "SKILL_MS_601_2",
+      "SKILL_MS_601_3"
+    ],
+    "bossSkillName": ["SKILL_MC_601_1", "SKILL_MC_601_2", "SKILL_MC_601_3"],
+    "bossSort": 1,
+    "heroId": [601],
+    "reward": [
+      "tribeCoin",
+      "soulStone2",
+      "soulStone1",
+      "coinMinting2",
+      "coinMinting1",
+      "randomFragment4",
+      "exp",
+      "gold"
+    ],
+    "skillIcon": ["icon1", "icon2", "icon3"]
+  }
+]

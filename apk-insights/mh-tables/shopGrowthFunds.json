@@ -1,0 +1,154 @@
+[
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 1,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 10
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 2,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 20
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 3,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 30
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 4,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 40
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 5,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 50
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 6,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 60
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 7,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 70
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 8,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 80
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 9,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 90
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 10,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 100
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 11,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 110
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 12,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 115
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 13,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 120
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 14,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 125
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 15,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 130
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 16,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 135
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 17,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 140
+  },
+  {
+    "freeRewardNum": [120],
+    "freeRewardType": ["diamond"],
+    "id": 18,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 145
+  },
+  {
+    "freeRewardNum": [240],
+    "freeRewardType": ["diamond"],
+    "id": 19,
+    "payRewardNum": [880],
+    "payRewardType": ["diamond"],
+    "protagonistLevel": 150
+  }
+]

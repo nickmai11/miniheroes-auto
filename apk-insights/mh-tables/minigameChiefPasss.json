@@ -1,0 +1,22 @@
+[
+  { "id": 1, "throughCondition": 50 },
+  { "id": 2, "throughCondition": 100 },
+  { "id": 3, "throughCondition": 150 },
+  { "id": 4, "throughCondition": 200 },
+  { "id": 5, "throughCondition": 300 },
+  { "id": 6, "throughCondition": 400 },
+  { "id": 7, "throughCondition": 500 },
+  { "id": 8, "throughCondition": 600 },
+  { "id": 9, "throughCondition": 700 },
+  { "id": 10, "throughCondition": 800 },
+  { "id": 11, "throughCondition": 900 },
+  { "id": 12, "throughCondition": 1000 },
+  { "id": 13, "throughCondition": 1100 },
+  { "id": 14, "throughCondition": 1200 },
+  { "id": 15, "throughCondition": 1300 },
+  { "id": 16, "throughCondition": 1400 },
+  { "id": 17, "throughCondition": 1500 },
+  { "id": 18, "throughCondition": 1600 },
+  { "id": 19, "throughCondition": 1800 },
+  { "id": 20, "throughCondition": 2000 }
+]

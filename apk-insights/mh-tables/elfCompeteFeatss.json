@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "rewardNum": [200, 1],
+    "rewardType": ["elfStone", "exp_1"],
+    "targetPoints": 5
+  },
+  {
+    "id": 2,
+    "rewardNum": [3, 400],
+    "rewardType": ["breakStone2", "spiritStone_1"],
+    "targetPoints": 10
+  },
+  {
+    "id": 3,
+    "rewardNum": [250, 1],
+    "rewardType": ["elfStone", "gold_2"],
+    "targetPoints": 20
+  },
+  {
+    "id": 4,
+    "rewardNum": [1, 1],
+    "rewardType": ["elfSkill1", "glyphs_1002"],
+    "targetPoints": 40
+  },
+  {
+    "id": 5,
+    "rewardNum": [300, 800],
+    "rewardType": ["elfStone", "spiritStone_2"],
+    "targetPoints": 60
+  },
+  {
+    "id": 6,
+    "rewardNum": [3, 3],
+    "rewardType": ["breakStone3", "randomFragment3"],
+    "targetPoints": 80
+  },
+  {
+    "id": 7,
+    "rewardNum": [350, 3],
+    "rewardType": ["elfStone", "skinFettersBox"],
+    "targetPoints": 100
+  },
+  {
+    "id": 8,
+    "rewardNum": [2, 10],
+    "rewardType": ["elfSkill1", "coinMinting2"],
+    "targetPoints": 115
+  },
+  {
+    "id": 9,
+    "rewardNum": [1000, 5],
+    "rewardType": ["elfStone", "randomFragment3"],
+    "targetPoints": 125
+  },
+  {
+    "id": 10,
+    "rewardNum": [5, 3000],
+    "rewardType": ["breakStone4", "spiritStone_3"],
+    "targetPoints": 135
+  },
+  {
+    "id": 11,
+    "rewardNum": [2000, 10],
+    "rewardType": ["elfStone", "coinMinting3"],
+    "targetPoints": 145
+  },
+  {
+    "id": 12,
+    "rewardNum": [5, 10],
+    "rewardType": ["elfSkill1", "shareDebris3"],
+    "targetPoints": 155
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "ranking": 1,
+    "rewardNum": [50000, 1, 6000, 1],
+    "rewardType": ["holyLight", "glyphs_2004", "tribeCoin", "headFrame_7"],
+    "type": 1,
+    "winDefeat": 0
+  },
+  {
+    "id": 2,
+    "ranking": 2,
+    "rewardNum": [40000, 1, 4500],
+    "rewardType": ["holyLight", "glyphs_2004", "tribeCoin"],
+    "type": 1,
+    "winDefeat": 0
+  },
+  {
+    "id": 3,
+    "ranking": 4,
+    "rewardNum": [30000, 1, 3500],
+    "rewardType": ["holyLight", "glyphs_2004", "tribeCoin"],
+    "type": 1,
+    "winDefeat": 0
+  },
+  {
+    "id": 4,
+    "ranking": 8,
+    "rewardNum": [20000, 1, 2200],
+    "rewardType": ["holyLight", "glyphs_2003", "tribeCoin"],
+    "type": 1,
+    "winDefeat": 0
+  },
+  {
+    "id": 5,
+    "ranking": 16,
+    "rewardNum": [12000, 1, 1200],
+    "rewardType": ["holyLight", "glyphs_2003", "tribeCoin"],
+    "type": 1,
+    "winDefeat": 0
+  },
+  {
+    "id": 6,
+    "ranking": 32,
+    "rewardNum": [5000, 1, 500],
+    "rewardType": ["holyLight", "glyphs_2002", "tribeCoin"],
+    "type": 1,
+    "winDefeat": 0
+  },
+  {
+    "id": 7,
+    "ranking": 0,
+    "rewardNum": [500, 1, 20000],
+    "rewardType": ["tribeCoin", "medal1", "gold"],
+    "type": 2,
+    "winDefeat": 1
+  },
+  {
+    "id": 8,
+    "ranking": 0,
+    "rewardNum": [200, 10000],
+    "rewardType": ["tribeCoin", "gold"],
+    "type": 2,
+    "winDefeat": 2
+  },
+  {
+    "id": 9,
+    "ranking": 0,
+    "rewardNum": [10000, 1000],
+    "rewardType": ["holyLight", "tribeCoin"],
+    "type": 3,
+    "winDefeat": 0
+  }
+]

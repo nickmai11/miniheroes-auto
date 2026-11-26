@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "showReward": ["shenhuabox", "starMark5", "glyphs_1004", "randomMem3"],
+    "showRewardNum": [2, 1, 1, 1],
+    "type": 1
+  },
+  {
+    "id": 2,
+    "showReward": ["starMark5", "soulStone3", "templeDust", "spiritStone_3"],
+    "showRewardNum": [1, 2, 5, 5000],
+    "type": 2
+  }
+]

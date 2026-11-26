@@ -19,7 +19,7 @@ in_game() { adb -s "$1" shell dumpsys window 2>/dev/null | grep mCurrentFocus | 
 
 game() {   # <serial> <instance name> <port>: force-stop, launch, Start, popups -> one status line
   local s=$1 name=$2 port=$3 why=
-  # the ADB link can drop any time (Chloe, Boudior 2026-11-22: 'device not found' through 10 relaunches, one manual
+  # the ADB link can drop any time (Gambler, Boudior 2026-11-22: 'device not found' through 10 relaunches, one manual
   # `adb connect` fixed it) -> reconnect before every adb step of a launch, not only in up()
   adb connect "$s" >/dev/null 2>&1; adb -s "$s" shell am force-stop $PKG
   # yellow Start button, then the blue Recruit icon of the bottom bar (dimmed while a popup is open -> still ok after timeout)
@@ -81,7 +81,7 @@ boot() {
     st=$(game "$s" "$name" "$port")
     [[ $st == ready* || $st == logged-out* ]] || in_game "$s" && break
     echo "$name $s $st, game not in front -> relaunch $n/$MAX_RELAUNCHES" >&2
-    # whatever it takes (Nick 2026-11-21): the game never starting (Chloe 11-21: launch sent, no activity, 4 relaunches)
+    # whatever it takes (Nick 2026-11-21): the game never starting (Gambler 11-21: launch sent, no activity, 4 relaunches)
     # needs the instance itself restarted -> every 2nd failed relaunch: close + open the instance
     if [ $((n % 2)) = 0 ]; then
       echo "$name $s restarting the instance" >&2

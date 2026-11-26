@@ -1,0 +1,164 @@
+[
+  {
+    "expertiseLevel": 0,
+    "id": 1,
+    "levelUpRequireNum": [3],
+    "levelUpRequireType": [1],
+    "unlockExpertise": 0,
+    "unlockWord": "HERO_SYN_WORD034",
+    "uuid": 130
+  },
+  {
+    "expertiseLevel": 1,
+    "id": 2,
+    "levelUpRequireNum": [6],
+    "levelUpRequireType": [1],
+    "unlockExpertise": 130001,
+    "unlockWord": "HERO_SYN_WORD034",
+    "uuid": 130
+  },
+  {
+    "expertiseLevel": 2,
+    "id": 3,
+    "levelUpRequireNum": [10],
+    "levelUpRequireType": [1],
+    "unlockExpertise": 130002,
+    "unlockWord": "HERO_SYN_WORD034",
+    "uuid": 130
+  },
+  {
+    "expertiseLevel": 3,
+    "id": 4,
+    "levelUpRequireNum": [15],
+    "levelUpRequireType": [1],
+    "unlockExpertise": 130003,
+    "unlockWord": "HERO_SYN_WORD034",
+    "uuid": 130
+  },
+  {
+    "expertiseLevel": 4,
+    "id": 5,
+    "levelUpRequireNum": [16],
+    "levelUpRequireType": [2],
+    "unlockExpertise": 130004,
+    "unlockWord": "HERO_SYN_WORD035",
+    "uuid": 130
+  },
+  {
+    "expertiseLevel": 5,
+    "id": 6,
+    "levelUpRequireNum": [32],
+    "levelUpRequireType": [2],
+    "unlockExpertise": 130005,
+    "unlockWord": "HERO_SYN_WORD036",
+    "uuid": 130
+  },
+  {
+    "expertiseLevel": 6,
+    "id": 7,
+    "levelUpRequireNum": [48],
+    "levelUpRequireType": [2],
+    "unlockExpertise": 130006,
+    "unlockWord": "HERO_SYN_WORD037",
+    "uuid": 130
+  },
+  {
+    "expertiseLevel": 7,
+    "id": 8,
+    "levelUpRequireNum": [64],
+    "levelUpRequireType": [2],
+    "unlockExpertise": 130007,
+    "unlockWord": "HERO_SYN_WORD038",
+    "uuid": 130
+  },
+  {
+    "expertiseLevel": 8,
+    "id": 9,
+    "levelUpRequireNum": [],
+    "levelUpRequireType": [],
+    "unlockExpertise": 130008,
+    "unlockWord": "",
+    "uuid": 130
+  },
+  {
+    "expertiseLevel": 0,
+    "id": 10,
+    "levelUpRequireNum": [3],
+    "levelUpRequireType": [1],
+    "unlockExpertise": 0,
+    "unlockWord": "HERO_SYN_WORD034",
+    "uuid": 319
+  },
+  {
+    "expertiseLevel": 1,
+    "id": 11,
+    "levelUpRequireNum": [6],
+    "levelUpRequireType": [1],
+    "unlockExpertise": 319001,
+    "unlockWord": "HERO_SYN_WORD034",
+    "uuid": 319
+  },
+  {
+    "expertiseLevel": 2,
+    "id": 12,
+    "levelUpRequireNum": [10],
+    "levelUpRequireType": [1],
+    "unlockExpertise": 319002,
+    "unlockWord": "HERO_SYN_WORD034",
+    "uuid": 319
+  },
+  {
+    "expertiseLevel": 3,
+    "id": 13,
+    "levelUpRequireNum": [15],
+    "levelUpRequireType": [1],
+    "unlockExpertise": 319003,
+    "unlockWord": "HERO_SYN_WORD034",
+    "uuid": 319
+  },
+  {
+    "expertiseLevel": 4,
+    "id": 14,
+    "levelUpRequireNum": [16],
+    "levelUpRequireType": [2],
+    "unlockExpertise": 319004,
+    "unlockWord": "HERO_SYN_WORD035",
+    "uuid": 319
+  },
+  {
+    "expertiseLevel": 5,
+    "id": 15,
+    "levelUpRequireNum": [32],
+    "levelUpRequireType": [2],
+    "unlockExpertise": 319005,
+    "unlockWord": "HERO_SYN_WORD036",
+    "uuid": 319
+  },
+  {
+    "expertiseLevel": 6,
+    "id": 16,
+    "levelUpRequireNum": [48],
+    "levelUpRequireType": [2],
+    "unlockExpertise": 319006,
+    "unlockWord": "HERO_SYN_WORD037",
+    "uuid": 319
+  },
+  {
+    "expertiseLevel": 7,
+    "id": 17,
+    "levelUpRequireNum": [64],
+    "levelUpRequireType": [2],
+    "unlockExpertise": 319007,
+    "unlockWord": "HERO_SYN_WORD038",
+    "uuid": 319
+  },
+  {
+    "expertiseLevel": 8,
+    "id": 18,
+    "levelUpRequireNum": [],
+    "levelUpRequireType": [],
+    "unlockExpertise": 319008,
+    "unlockWord": "",
+    "uuid": 319
+  }
+]

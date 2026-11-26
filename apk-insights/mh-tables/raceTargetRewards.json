@@ -1,0 +1,722 @@
+[
+  {
+    "des": "RECUR_ACTIVITIES_DES_1",
+    "id": 1,
+    "parameterNum": 30000,
+    "recurType": 1,
+    "rewardId": 1,
+    "rewardNum": [3, 20000],
+    "rewardType": ["medal1", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_1",
+    "id": 2,
+    "parameterNum": 70000,
+    "recurType": 1,
+    "rewardId": 2,
+    "rewardNum": [4, 30000],
+    "rewardType": ["medal1", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_1",
+    "id": 3,
+    "parameterNum": 120000,
+    "recurType": 1,
+    "rewardId": 3,
+    "rewardNum": [4, 40000],
+    "rewardType": ["medal1", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_1",
+    "id": 4,
+    "parameterNum": 180000,
+    "recurType": 1,
+    "rewardId": 4,
+    "rewardNum": [5, 40000],
+    "rewardType": ["medal1", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_1",
+    "id": 5,
+    "parameterNum": 250000,
+    "recurType": 1,
+    "rewardId": 5,
+    "rewardNum": [5, 50000],
+    "rewardType": ["medal1", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_1",
+    "id": 6,
+    "parameterNum": 350000,
+    "recurType": 1,
+    "rewardId": 6,
+    "rewardNum": [6, 50000],
+    "rewardType": ["medal1", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_1",
+    "id": 7,
+    "parameterNum": 450000,
+    "recurType": 1,
+    "rewardId": 7,
+    "rewardNum": [8, 60000],
+    "rewardType": ["medal1", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_1",
+    "id": 8,
+    "parameterNum": 550000,
+    "recurType": 1,
+    "rewardId": 8,
+    "rewardNum": [10, 70000],
+    "rewardType": ["medal1", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_1",
+    "id": 9,
+    "parameterNum": 650000,
+    "recurType": 1,
+    "rewardId": 9,
+    "rewardNum": [1, 80000],
+    "rewardType": ["medal2", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_1",
+    "id": 10,
+    "parameterNum": 750000,
+    "recurType": 1,
+    "rewardId": 10,
+    "rewardNum": [1, 100000],
+    "rewardType": ["medal2", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_2",
+    "id": 11,
+    "parameterNum": 80,
+    "recurType": 2,
+    "rewardId": 1,
+    "rewardNum": [5, 5000],
+    "rewardType": ["coinMinting1", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_2",
+    "id": 12,
+    "parameterNum": 110,
+    "recurType": 2,
+    "rewardId": 2,
+    "rewardNum": [5, 6000],
+    "rewardType": ["coinMinting1", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_2",
+    "id": 13,
+    "parameterNum": 140,
+    "recurType": 2,
+    "rewardId": 3,
+    "rewardNum": [10, 7000],
+    "rewardType": ["coinMinting1", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_2",
+    "id": 14,
+    "parameterNum": 170,
+    "recurType": 2,
+    "rewardId": 4,
+    "rewardNum": [5, 8000],
+    "rewardType": ["coinMinting2", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_2",
+    "id": 15,
+    "parameterNum": 200,
+    "recurType": 2,
+    "rewardId": 5,
+    "rewardNum": [10, 9000],
+    "rewardType": ["coinMinting2", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_2",
+    "id": 16,
+    "parameterNum": 230,
+    "recurType": 2,
+    "rewardId": 6,
+    "rewardNum": [15, 10000],
+    "rewardType": ["coinMinting2", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_2",
+    "id": 17,
+    "parameterNum": 260,
+    "recurType": 2,
+    "rewardId": 7,
+    "rewardNum": [1, 12000],
+    "rewardType": ["zb_box1", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_2",
+    "id": 18,
+    "parameterNum": 290,
+    "recurType": 2,
+    "rewardId": 8,
+    "rewardNum": [1, 14000],
+    "rewardType": ["zb_box1", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_2",
+    "id": 19,
+    "parameterNum": 320,
+    "recurType": 2,
+    "rewardId": 9,
+    "rewardNum": [1, 17000],
+    "rewardType": ["zb_box2", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_2",
+    "id": 20,
+    "parameterNum": 350,
+    "recurType": 2,
+    "rewardId": 10,
+    "rewardNum": [1, 20000],
+    "rewardType": ["zb_box2", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_101",
+    "id": 21,
+    "parameterNum": 20,
+    "recurType": 101,
+    "rewardId": 1,
+    "rewardNum": [300, 20000],
+    "rewardType": ["holyLight", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_101",
+    "id": 22,
+    "parameterNum": 40,
+    "recurType": 101,
+    "rewardId": 2,
+    "rewardNum": [400, 30000],
+    "rewardType": ["holyLight", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_101",
+    "id": 23,
+    "parameterNum": 60,
+    "recurType": 101,
+    "rewardId": 3,
+    "rewardNum": [500, 40000],
+    "rewardType": ["holyLight", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_101",
+    "id": 24,
+    "parameterNum": 80,
+    "recurType": 101,
+    "rewardId": 4,
+    "rewardNum": [600, 40000],
+    "rewardType": ["holyLight", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_101",
+    "id": 25,
+    "parameterNum": 100,
+    "recurType": 101,
+    "rewardId": 5,
+    "rewardNum": [700, 50000],
+    "rewardType": ["holyLight", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_101",
+    "id": 26,
+    "parameterNum": 120,
+    "recurType": 101,
+    "rewardId": 6,
+    "rewardNum": [800, 50000],
+    "rewardType": ["holyLight", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_101",
+    "id": 27,
+    "parameterNum": 140,
+    "recurType": 101,
+    "rewardId": 7,
+    "rewardNum": [900, 60000],
+    "rewardType": ["holyLight", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_101",
+    "id": 28,
+    "parameterNum": 160,
+    "recurType": 101,
+    "rewardId": 8,
+    "rewardNum": [1000, 70000],
+    "rewardType": ["holyLight", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_101",
+    "id": 29,
+    "parameterNum": 180,
+    "recurType": 101,
+    "rewardId": 9,
+    "rewardNum": [1100, 80000],
+    "rewardType": ["holyLight", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_101",
+    "id": 30,
+    "parameterNum": 200,
+    "recurType": 101,
+    "rewardId": 10,
+    "rewardNum": [2, 100000],
+    "rewardType": ["templeDust", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_102",
+    "id": 31,
+    "parameterNum": 3000000,
+    "recurType": 102,
+    "rewardId": 1,
+    "rewardNum": [50, 5000],
+    "rewardType": ["spiritStone_3", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_102",
+    "id": 32,
+    "parameterNum": 6000000,
+    "recurType": 102,
+    "rewardId": 2,
+    "rewardNum": [50, 6000],
+    "rewardType": ["spiritStone_3", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_102",
+    "id": 33,
+    "parameterNum": 10000000,
+    "recurType": 102,
+    "rewardId": 3,
+    "rewardNum": [100, 7000],
+    "rewardType": ["spiritStone_3", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_102",
+    "id": 34,
+    "parameterNum": 15000000,
+    "recurType": 102,
+    "rewardId": 4,
+    "rewardNum": [100, 8000],
+    "rewardType": ["spiritStone_3", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_102",
+    "id": 35,
+    "parameterNum": 20000000,
+    "recurType": 102,
+    "rewardId": 5,
+    "rewardNum": [150, 9000],
+    "rewardType": ["spiritStone_3", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_102",
+    "id": 36,
+    "parameterNum": 27000000,
+    "recurType": 102,
+    "rewardId": 6,
+    "rewardNum": [150, 10000],
+    "rewardType": ["spiritStone_3", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_102",
+    "id": 37,
+    "parameterNum": 35000000,
+    "recurType": 102,
+    "rewardId": 7,
+    "rewardNum": [150, 12000],
+    "rewardType": ["spiritStone_3", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_102",
+    "id": 38,
+    "parameterNum": 45000000,
+    "recurType": 102,
+    "rewardId": 8,
+    "rewardNum": [200, 14000],
+    "rewardType": ["spiritStone_3", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_102",
+    "id": 39,
+    "parameterNum": 60000000,
+    "recurType": 102,
+    "rewardId": 9,
+    "rewardNum": [300, 17000],
+    "rewardType": ["spiritStone_3", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_102",
+    "id": 40,
+    "parameterNum": 80000000,
+    "recurType": 102,
+    "rewardId": 10,
+    "rewardNum": [2, 20000],
+    "rewardType": ["divineStone", "exp"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_103",
+    "id": 41,
+    "parameterNum": 5000,
+    "recurType": 103,
+    "rewardId": 1,
+    "rewardNum": [1, 400],
+    "rewardType": ["glyphs_4001", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_103",
+    "id": 42,
+    "parameterNum": 8000,
+    "recurType": 103,
+    "rewardId": 2,
+    "rewardNum": [1, 400],
+    "rewardType": ["glyphs_4001", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_103",
+    "id": 43,
+    "parameterNum": 12000,
+    "recurType": 103,
+    "rewardId": 3,
+    "rewardNum": [1, 500],
+    "rewardType": ["glyphs_4001", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_103",
+    "id": 44,
+    "parameterNum": 16000,
+    "recurType": 103,
+    "rewardId": 4,
+    "rewardNum": [2, 500],
+    "rewardType": ["glyphs_4001", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_103",
+    "id": 45,
+    "parameterNum": 20000,
+    "recurType": 103,
+    "rewardId": 5,
+    "rewardNum": [2, 600],
+    "rewardType": ["glyphs_4001", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_103",
+    "id": 46,
+    "parameterNum": 25000,
+    "recurType": 103,
+    "rewardId": 6,
+    "rewardNum": [2, 600],
+    "rewardType": ["glyphs_4001", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_103",
+    "id": 47,
+    "parameterNum": 30000,
+    "recurType": 103,
+    "rewardId": 7,
+    "rewardNum": [3, 800],
+    "rewardType": ["glyphs_4001", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_103",
+    "id": 48,
+    "parameterNum": 35000,
+    "recurType": 103,
+    "rewardId": 8,
+    "rewardNum": [3, 800],
+    "rewardType": ["glyphs_4001", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_103",
+    "id": 49,
+    "parameterNum": 40000,
+    "recurType": 103,
+    "rewardId": 9,
+    "rewardNum": [1, 1000],
+    "rewardType": ["glyphs_4002", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_103",
+    "id": 50,
+    "parameterNum": 45000,
+    "recurType": 103,
+    "rewardId": 10,
+    "rewardNum": [1, 1000],
+    "rewardType": ["glyphs_4003", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_104",
+    "id": 51,
+    "parameterNum": 65,
+    "recurType": 104,
+    "rewardId": 1,
+    "rewardNum": [1, 20000],
+    "rewardType": ["randomFragment3", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_104",
+    "id": 52,
+    "parameterNum": 130,
+    "recurType": 104,
+    "rewardId": 2,
+    "rewardNum": [1, 30000],
+    "rewardType": ["randomFragment3", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_104",
+    "id": 53,
+    "parameterNum": 200,
+    "recurType": 104,
+    "rewardId": 3,
+    "rewardNum": [1, 40000],
+    "rewardType": ["randomFragment3", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_104",
+    "id": 54,
+    "parameterNum": 290,
+    "recurType": 104,
+    "rewardId": 4,
+    "rewardNum": [1, 40000],
+    "rewardType": ["randomFragment3", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_104",
+    "id": 55,
+    "parameterNum": 400,
+    "recurType": 104,
+    "rewardId": 5,
+    "rewardNum": [1, 50000],
+    "rewardType": ["randomFragment3", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_104",
+    "id": 56,
+    "parameterNum": 500,
+    "recurType": 104,
+    "rewardId": 6,
+    "rewardNum": [1, 50000],
+    "rewardType": ["randomFragment3", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_104",
+    "id": 57,
+    "parameterNum": 610,
+    "recurType": 104,
+    "rewardId": 7,
+    "rewardNum": [1, 60000],
+    "rewardType": ["randomFragment3", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_104",
+    "id": 58,
+    "parameterNum": 720,
+    "recurType": 104,
+    "rewardId": 8,
+    "rewardNum": [1, 70000],
+    "rewardType": ["randomFragment3", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_104",
+    "id": 59,
+    "parameterNum": 820,
+    "recurType": 104,
+    "rewardId": 9,
+    "rewardNum": [1, 80000],
+    "rewardType": ["randomFragment3", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_104",
+    "id": 60,
+    "parameterNum": 930,
+    "recurType": 104,
+    "rewardId": 10,
+    "rewardNum": [2, 100000],
+    "rewardType": ["soulStone3", "gold"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_105",
+    "id": 61,
+    "parameterNum": 3000,
+    "recurType": 105,
+    "rewardId": 1,
+    "rewardNum": [500, 2],
+    "rewardType": ["silver", "speedReel"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_105",
+    "id": 62,
+    "parameterNum": 6000,
+    "recurType": 105,
+    "rewardId": 2,
+    "rewardNum": [500, 2],
+    "rewardType": ["silver", "speedReel"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_105",
+    "id": 63,
+    "parameterNum": 9000,
+    "recurType": 105,
+    "rewardId": 3,
+    "rewardNum": [800, 3],
+    "rewardType": ["silver", "speedReel"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_105",
+    "id": 64,
+    "parameterNum": 12000,
+    "recurType": 105,
+    "rewardId": 4,
+    "rewardNum": [800, 3],
+    "rewardType": ["silver", "speedReel"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_105",
+    "id": 65,
+    "parameterNum": 15000,
+    "recurType": 105,
+    "rewardId": 5,
+    "rewardNum": [1000, 3],
+    "rewardType": ["silver", "speedReel"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_105",
+    "id": 66,
+    "parameterNum": 18000,
+    "recurType": 105,
+    "rewardId": 6,
+    "rewardNum": [1000, 4],
+    "rewardType": ["silver", "speedReel"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_105",
+    "id": 67,
+    "parameterNum": 21000,
+    "recurType": 105,
+    "rewardId": 7,
+    "rewardNum": [1200, 4],
+    "rewardType": ["silver", "speedReel"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_105",
+    "id": 68,
+    "parameterNum": 24000,
+    "recurType": 105,
+    "rewardId": 8,
+    "rewardNum": [1200, 4],
+    "rewardType": ["silver", "speedReel"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_105",
+    "id": 69,
+    "parameterNum": 27000,
+    "recurType": 105,
+    "rewardId": 9,
+    "rewardNum": [1500, 5],
+    "rewardType": ["silver", "speedReel"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_105",
+    "id": 70,
+    "parameterNum": 30000,
+    "recurType": 105,
+    "rewardId": 10,
+    "rewardNum": [40, 5],
+    "rewardType": ["bait2", "speedReel"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_106",
+    "id": 71,
+    "parameterNum": 350,
+    "recurType": 106,
+    "rewardId": 1,
+    "rewardNum": [300, 400],
+    "rewardType": ["succinctStone", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_106",
+    "id": 72,
+    "parameterNum": 700,
+    "recurType": 106,
+    "rewardId": 2,
+    "rewardNum": [400, 400],
+    "rewardType": ["succinctStone", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_106",
+    "id": 73,
+    "parameterNum": 1050,
+    "recurType": 106,
+    "rewardId": 3,
+    "rewardNum": [500, 500],
+    "rewardType": ["succinctStone", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_106",
+    "id": 74,
+    "parameterNum": 1400,
+    "recurType": 106,
+    "rewardId": 4,
+    "rewardNum": [600, 500],
+    "rewardType": ["succinctStone", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_106",
+    "id": 75,
+    "parameterNum": 1750,
+    "recurType": 106,
+    "rewardId": 5,
+    "rewardNum": [700, 600],
+    "rewardType": ["succinctStone", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_106",
+    "id": 76,
+    "parameterNum": 2100,
+    "recurType": 106,
+    "rewardId": 6,
+    "rewardNum": [800, 600],
+    "rewardType": ["succinctStone", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_106",
+    "id": 77,
+    "parameterNum": 2450,
+    "recurType": 106,
+    "rewardId": 7,
+    "rewardNum": [900, 800],
+    "rewardType": ["succinctStone", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_106",
+    "id": 78,
+    "parameterNum": 2800,
+    "recurType": 106,
+    "rewardId": 8,
+    "rewardNum": [1000, 800],
+    "rewardType": ["succinctStone", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_106",
+    "id": 79,
+    "parameterNum": 3150,
+    "recurType": 106,
+    "rewardId": 9,
+    "rewardNum": [1100, 1000],
+    "rewardType": ["succinctStone", "starCrystal"]
+  },
+  {
+    "des": "RECUR_ACTIVITIES_DES_106",
+    "id": 80,
+    "parameterNum": 3500,
+    "recurType": 106,
+    "rewardId": 10,
+    "rewardNum": [2, 1000],
+    "rewardType": ["tieStone", "starCrystal"]
+  }
+]

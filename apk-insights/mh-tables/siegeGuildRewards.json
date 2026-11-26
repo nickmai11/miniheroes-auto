@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "ranking": [1],
+    "rewardNum": [20, 1600, 13000, 1, 1, 1],
+    "rewardType": [
+      "randomFragment3",
+      "diamond",
+      "pointGvgCoin",
+      "headFrame_13",
+      "title_5",
+      "headMark2"
+    ]
+  },
+  {
+    "id": 2,
+    "ranking": [2],
+    "rewardNum": [15, 1400, 12000, 1],
+    "rewardType": ["randomFragment3", "diamond", "pointGvgCoin", "headFrame_14"]
+  },
+  {
+    "id": 3,
+    "ranking": [3],
+    "rewardNum": [12, 1200, 11000, 1],
+    "rewardType": ["randomFragment3", "diamond", "pointGvgCoin", "headFrame_14"]
+  },
+  {
+    "id": 4,
+    "ranking": [4, 5],
+    "rewardNum": [10, 1000, 10000],
+    "rewardType": ["randomFragment3", "diamond", "pointGvgCoin"]
+  },
+  {
+    "id": 5,
+    "ranking": [6, 10],
+    "rewardNum": [8, 800, 9000],
+    "rewardType": ["randomFragment3", "diamond", "pointGvgCoin"]
+  },
+  {
+    "id": 6,
+    "ranking": [11, 20],
+    "rewardNum": [6, 500, 8000],
+    "rewardType": ["randomFragment3", "diamond", "pointGvgCoin"]
+  },
+  {
+    "id": 7,
+    "ranking": [21, 30],
+    "rewardNum": [4, 300, 7000],
+    "rewardType": ["randomFragment3", "diamond", "pointGvgCoin"]
+  },
+  {
+    "id": 8,
+    "ranking": [31, 50],
+    "rewardNum": [2, 200, 5000],
+    "rewardType": ["randomFragment3", "diamond", "pointGvgCoin"]
+  },
+  {
+    "id": 9,
+    "ranking": [51, 999],
+    "rewardNum": [1, 100, 3000],
+    "rewardType": ["randomFragment3", "diamond", "pointGvgCoin"]
+  }
+]

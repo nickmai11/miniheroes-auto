@@ -1,0 +1,100 @@
+[
+  {
+    "eventDes": "SKINEVENTDES_1",
+    "eventName": "SKINEVENTNAME_1",
+    "eventType": 1,
+    "eventTypeIcon": "",
+    "id": 1
+  },
+  {
+    "eventDes": "SKINEVENTDES_2",
+    "eventName": "SKINEVENTNAME_2",
+    "eventType": 2,
+    "eventTypeIcon": "icon_daoju4",
+    "id": 2
+  },
+  {
+    "eventDes": "SKINEVENTDES_3",
+    "eventName": "SKINEVENTNAME_3",
+    "eventType": 3,
+    "eventTypeIcon": "icon_daoju15",
+    "id": 3
+  },
+  {
+    "eventDes": "SKINEVENTDES_4",
+    "eventName": "SKINEVENTNAME_4",
+    "eventType": 4,
+    "eventTypeIcon": "icon_daoju5",
+    "id": 4
+  },
+  {
+    "eventDes": "SKINEVENTDES_5",
+    "eventName": "SKINEVENTNAME_5",
+    "eventType": 5,
+    "eventTypeIcon": "icon_daoju6",
+    "id": 5
+  },
+  {
+    "eventDes": "SKINEVENTDES_6",
+    "eventName": "SKINEVENTNAME_6",
+    "eventType": 6,
+    "eventTypeIcon": "",
+    "id": 6
+  },
+  {
+    "eventDes": "SKINEVENTDES_7",
+    "eventName": "SKINEVENTNAME_7",
+    "eventType": 7,
+    "eventTypeIcon": "icon_daoju10",
+    "id": 7
+  },
+  {
+    "eventDes": "SKINEVENTDES_8",
+    "eventName": "SKINEVENTNAME_8",
+    "eventType": 8,
+    "eventTypeIcon": "icon_daoju9",
+    "id": 8
+  },
+  {
+    "eventDes": "SKINEVENTDES_9",
+    "eventName": "SKINEVENTNAME_9",
+    "eventType": 9,
+    "eventTypeIcon": "icon_daoju8_1",
+    "id": 9
+  },
+  {
+    "eventDes": "SKINEVENTDES_10",
+    "eventName": "SKINEVENTNAME_10",
+    "eventType": 10,
+    "eventTypeIcon": "icon_daoju13",
+    "id": 10
+  },
+  {
+    "eventDes": "SKINEVENTDES_11",
+    "eventName": "SKINEVENTNAME_11",
+    "eventType": 11,
+    "eventTypeIcon": "icon_daoju11_0",
+    "id": 11
+  },
+  {
+    "eventDes": "SKINEVENTDES_12",
+    "eventName": "SKINEVENTNAME_12",
+    "eventType": 12,
+    "eventTypeIcon": "icon_daoju1",
+    "id": 12
+  },
+  {
+    "eventDes": "SKINEVENTDES_13",
+    "eventName": "SKINEVENTNAME_13",
+    "eventType": 13,
+    "eventTypeIcon": "icon_daoju11_0",
+    "id": 13
+  },
+  {
+    "eventDes": "SKINEVENTDES_14",
+    "eventName": "SKINEVENTNAME_14",
+    "eventType": 14,
+    "eventTypeIcon": "icon_daoju12_0",
+    "id": 14
+  }
+]

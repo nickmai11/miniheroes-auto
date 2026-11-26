@@ -1,0 +1,123 @@
+[
+  {
+    "attributeNum": [],
+    "attributeType": [],
+    "baitQuality": 1,
+    "buyDiamond": 40,
+    "buyNum": 5,
+    "buyType": "bait1",
+    "hide": 1,
+    "id": 1,
+    "typeId": 1
+  },
+  {
+    "attributeNum": [0.25],
+    "attributeType": [10001],
+    "baitQuality": 2,
+    "buyDiamond": 40,
+    "buyNum": 5,
+    "buyType": "bait2",
+    "hide": 0,
+    "id": 2,
+    "typeId": 2
+  },
+  {
+    "attributeNum": [0.1, 0.1],
+    "attributeType": [10007, 10001],
+    "baitQuality": 3,
+    "buyDiamond": 40,
+    "buyNum": 5,
+    "buyType": "bait3",
+    "hide": 0,
+    "id": 3,
+    "typeId": 3
+  },
+  {
+    "attributeNum": [0.35, 0.1],
+    "attributeType": [10009, 10001],
+    "baitQuality": 4,
+    "buyDiamond": 40,
+    "buyNum": 5,
+    "buyType": "bait4",
+    "hide": 0,
+    "id": 4,
+    "typeId": 4
+  },
+  {
+    "attributeNum": [0.35, 0.1],
+    "attributeType": [10010, 10001],
+    "baitQuality": 5,
+    "buyDiamond": 40,
+    "buyNum": 5,
+    "buyType": "bait5",
+    "hide": 0,
+    "id": 5,
+    "typeId": 5
+  },
+  {
+    "attributeNum": [0.35, 0.1],
+    "attributeType": [10011, 10001],
+    "baitQuality": 5,
+    "buyDiamond": 40,
+    "buyNum": 5,
+    "buyType": "bait6",
+    "hide": 0,
+    "id": 6,
+    "typeId": 6
+  },
+  {
+    "attributeNum": [0.35, 0.1],
+    "attributeType": [10012, 10001],
+    "baitQuality": 5,
+    "buyDiamond": 40,
+    "buyNum": 5,
+    "buyType": "bait7",
+    "hide": 0,
+    "id": 7,
+    "typeId": 7
+  },
+  {
+    "attributeNum": [0.3],
+    "attributeType": [10009],
+    "baitQuality": 5,
+    "buyDiamond": 30,
+    "buyNum": 10,
+    "buyType": "bait8",
+    "hide": 0,
+    "id": 8,
+    "typeId": 8
+  },
+  {
+    "attributeNum": [0.3],
+    "attributeType": [10010],
+    "baitQuality": 5,
+    "buyDiamond": 30,
+    "buyNum": 10,
+    "buyType": "bait9",
+    "hide": 0,
+    "id": 9,
+    "typeId": 9
+  },
+  {
+    "attributeNum": [0.3],
+    "attributeType": [10011],
+    "baitQuality": 5,
+    "buyDiamond": 30,
+    "buyNum": 10,
+    "buyType": "bait10",
+    "hide": 0,
+    "id": 10,
+    "typeId": 10
+  },
+  {
+    "attributeNum": [0.3],
+    "attributeType": [10012],
+    "baitQuality": 5,
+    "buyDiamond": 30,
+    "buyNum": 10,
+    "buyType": "bait11",
+    "hide": 0,
+    "id": 11,
+    "typeId": 11
+  }
+]

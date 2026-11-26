@@ -1,0 +1,156 @@
+[
+  {
+    "atlasAttribute": ["criticalResist", "lifeInjury"],
+    "attributeNum": [0.01, 0.01],
+    "groupName": "MEMORABILIA_GROUP_1",
+    "id": 1,
+    "memorabiliaGroup": [60001, 60002]
+  },
+  {
+    "atlasAttribute": ["nearReduce", "remoteReduce"],
+    "attributeNum": [0.01, 0.01],
+    "groupName": "MEMORABILIA_GROUP_2",
+    "id": 2,
+    "memorabiliaGroup": [60003, 61001]
+  },
+  {
+    "atlasAttribute": ["physicsResist", "magicResist"],
+    "attributeNum": [0.01, 0.01],
+    "groupName": "MEMORABILIA_GROUP_3",
+    "id": 3,
+    "memorabiliaGroup": [61002, 62001]
+  },
+  {
+    "atlasAttribute": ["cureEffect", "nearReduce"],
+    "attributeNum": [0.01, 0.01],
+    "groupName": "MEMORABILIA_GROUP_4",
+    "id": 4,
+    "memorabiliaGroup": [60004, 61003]
+  },
+  {
+    "atlasAttribute": ["reduceHurt", "finalHurt"],
+    "attributeNum": [0.01, 0.01],
+    "groupName": "MEMORABILIA_GROUP_5",
+    "id": 5,
+    "memorabiliaGroup": [61004, 61005]
+  },
+  {
+    "atlasAttribute": ["physicsResist", "magicResist"],
+    "attributeNum": [0.01, 0.01],
+    "groupName": "MEMORABILIA_GROUP_6",
+    "id": 6,
+    "memorabiliaGroup": [61006, 62002]
+  },
+  {
+    "atlasAttribute": ["cureEffect", "lifeInjury"],
+    "attributeNum": [0.02, 0.02],
+    "groupName": "MEMORABILIA_GROUP_7",
+    "id": 7,
+    "memorabiliaGroup": [60005, 61010, 63011]
+  },
+  {
+    "atlasAttribute": ["defensePre", "lifePre"],
+    "attributeNum": [0.03, 0.03],
+    "groupName": "MEMORABILIA_GROUP_8",
+    "id": 8,
+    "memorabiliaGroup": [61008, 61009, 63016]
+  },
+  {
+    "atlasAttribute": ["damagePre", "defensePre"],
+    "attributeNum": [0.03, 0.03],
+    "groupName": "MEMORABILIA_GROUP_9",
+    "id": 9,
+    "memorabiliaGroup": [61007, 62004, 63017]
+  },
+  {
+    "atlasAttribute": ["damagePre", "lifePre"],
+    "attributeNum": [0.03, 0.03],
+    "groupName": "MEMORABILIA_GROUP_10",
+    "id": 10,
+    "memorabiliaGroup": [60006, 62003, 63014]
+  },
+  {
+    "atlasAttribute": ["lifeInjury", "remoteReduce"],
+    "attributeNum": [0.02, 0.02],
+    "groupName": "MEMORABILIA_GROUP_11",
+    "id": 11,
+    "memorabiliaGroup": [62010, 62006, 63012]
+  },
+  {
+    "atlasAttribute": ["defensePre", "nearHurt"],
+    "attributeNum": [0.05, 0.02],
+    "groupName": "MEMORABILIA_GROUP_12",
+    "id": 12,
+    "memorabiliaGroup": [61012, 62007, 63010]
+  },
+  {
+    "atlasAttribute": ["lifePre", "remoteHurt"],
+    "attributeNum": [0.05, 0.02],
+    "groupName": "MEMORABILIA_GROUP_13",
+    "id": 13,
+    "memorabiliaGroup": [60007, 62009, 63028]
+  },
+  {
+    "atlasAttribute": ["damagePre", "lifeInjury"],
+    "attributeNum": [0.05, 0.02],
+    "groupName": "MEMORABILIA_GROUP_14",
+    "id": 14,
+    "memorabiliaGroup": [60008, 62008, 63024]
+  },
+  {
+    "atlasAttribute": ["defensePre", "physicsHurt"],
+    "attributeNum": [0.05, 0.02],
+    "groupName": "MEMORABILIA_GROUP_15",
+    "id": 15,
+    "memorabiliaGroup": [61013, 62011, 63029]
+  },
+  {
+    "atlasAttribute": ["lifePre", "magicHurt"],
+    "attributeNum": [0.05, 0.02],
+    "groupName": "MEMORABILIA_GROUP_16",
+    "id": 16,
+    "memorabiliaGroup": [61011, 63018, 63020]
+  },
+  {
+    "atlasAttribute": ["damagePre", "critical"],
+    "attributeNum": [0.05, 0.02],
+    "groupName": "MEMORABILIA_GROUP_17",
+    "id": 17,
+    "memorabiliaGroup": [62005, 63021, 63022]
+  },
+  {
+    "atlasAttribute": ["defensePre", "lifePre", "criticalResist"],
+    "attributeNum": [0.05, 0.05, 0.02],
+    "groupName": "MEMORABILIA_GROUP_18",
+    "id": 18,
+    "memorabiliaGroup": [62012, 63023, 63030]
+  },
+  {
+    "atlasAttribute": ["damagePre", "defensePre", "reduceHurt"],
+    "attributeNum": [0.05, 0.05, 0.02],
+    "groupName": "MEMORABILIA_GROUP_19",
+    "id": 19,
+    "memorabiliaGroup": [63025, 63026, 63027]
+  },
+  {
+    "atlasAttribute": ["damagePre", "lifePre", "finalHurt"],
+    "attributeNum": [0.05, 0.05, 0.02],
+    "groupName": "MEMORABILIA_GROUP_20",
+    "id": 20,
+    "memorabiliaGroup": [63015, 63019, 63013]
+  },
+  {
+    "atlasAttribute": ["damagePre", "defensePre", "criticalResist"],
+    "attributeNum": [0.07, 0.07, 0.02],
+    "groupName": "MEMORABILIA_GROUP_21",
+    "id": 21,
+    "memorabiliaGroup": [64001, 64002, 64003]
+  },
+  {
+    "atlasAttribute": ["lifePre", "lifeInjury", "criticalHurtResist"],
+    "attributeNum": [0.07, 0.02, 0.04],
+    "groupName": "MEMORABILIA_GROUP_22",
+    "id": 22,
+    "memorabiliaGroup": [64004, 64005, 64006]
+  }
+]

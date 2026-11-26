@@ -1,0 +1,6 @@
+[
+  { "id": 1, "triggerSkillCondition": 1, "triggerSkillId": [107] },
+  { "id": 2, "triggerSkillCondition": 2, "triggerSkillId": [108] },
+  { "id": 3, "triggerSkillCondition": 3, "triggerSkillId": [109] },
+  { "id": 4, "triggerSkillCondition": 4, "triggerSkillId": [110] }
+]

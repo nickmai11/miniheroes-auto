@@ -1,0 +1,1952 @@
+[
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_1",
+    "glyphsAffixName": "DW_CZ_NL_1",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 5,
+    "glyphsAffixType": "energy8",
+    "glyphsType": 1,
+    "id": 1
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_2",
+    "glyphsAffixName": "DW_CZ_NL_2",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 10,
+    "glyphsAffixType": "energy1",
+    "glyphsType": 1,
+    "id": 2
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_3",
+    "glyphsAffixName": "DW_CZ_NL_3",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 15,
+    "glyphsAffixType": "energy9",
+    "glyphsType": 1,
+    "id": 3
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_4",
+    "glyphsAffixName": "DW_CZ_NL_4",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 20,
+    "glyphsAffixType": "energy10",
+    "glyphsType": 1,
+    "id": 4
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_5",
+    "glyphsAffixName": "DW_CZ_NL_5",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 25,
+    "glyphsAffixType": "energy11",
+    "glyphsType": 1,
+    "id": 5
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_6",
+    "glyphsAffixName": "DW_CZ_NL_6",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 30,
+    "glyphsAffixType": "energy12",
+    "glyphsType": 1,
+    "id": 6
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_7",
+    "glyphsAffixName": "DW_CZ_NL_7",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 35,
+    "glyphsAffixType": "energy5",
+    "glyphsType": 1,
+    "id": 7
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_8",
+    "glyphsAffixName": "DW_CZ_NL_8",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 40,
+    "glyphsAffixType": "energy13",
+    "glyphsType": 1,
+    "id": 8
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_1",
+    "glyphsAffixName": "DW_CZ_NL_1",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 4,
+    "glyphsAffixType": "energy8",
+    "glyphsType": 1,
+    "id": 9
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_2",
+    "glyphsAffixName": "DW_CZ_NL_2",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 9,
+    "glyphsAffixType": "energy1",
+    "glyphsType": 1,
+    "id": 10
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_3",
+    "glyphsAffixName": "DW_CZ_NL_3",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 14,
+    "glyphsAffixType": "energy9",
+    "glyphsType": 1,
+    "id": 11
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_4",
+    "glyphsAffixName": "DW_CZ_NL_4",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 19,
+    "glyphsAffixType": "energy10",
+    "glyphsType": 1,
+    "id": 12
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_5",
+    "glyphsAffixName": "DW_CZ_NL_5",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 24,
+    "glyphsAffixType": "energy11",
+    "glyphsType": 1,
+    "id": 13
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_6",
+    "glyphsAffixName": "DW_CZ_NL_6",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 29,
+    "glyphsAffixType": "energy12",
+    "glyphsType": 1,
+    "id": 14
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_7",
+    "glyphsAffixName": "DW_CZ_NL_7",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 34,
+    "glyphsAffixType": "energy5",
+    "glyphsType": 1,
+    "id": 15
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_8",
+    "glyphsAffixName": "DW_CZ_NL_8",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 39,
+    "glyphsAffixType": "energy13",
+    "glyphsType": 1,
+    "id": 16
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_1",
+    "glyphsAffixName": "DW_CZ_NL_1",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 3,
+    "glyphsAffixType": "energy8",
+    "glyphsType": 1,
+    "id": 17
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_2",
+    "glyphsAffixName": "DW_CZ_NL_2",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 8,
+    "glyphsAffixType": "energy1",
+    "glyphsType": 1,
+    "id": 18
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_3",
+    "glyphsAffixName": "DW_CZ_NL_3",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 13,
+    "glyphsAffixType": "energy9",
+    "glyphsType": 1,
+    "id": 19
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_4",
+    "glyphsAffixName": "DW_CZ_NL_4",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 18,
+    "glyphsAffixType": "energy10",
+    "glyphsType": 1,
+    "id": 20
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_5",
+    "glyphsAffixName": "DW_CZ_NL_5",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 23,
+    "glyphsAffixType": "energy11",
+    "glyphsType": 1,
+    "id": 21
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_6",
+    "glyphsAffixName": "DW_CZ_NL_6",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 28,
+    "glyphsAffixType": "energy12",
+    "glyphsType": 1,
+    "id": 22
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_7",
+    "glyphsAffixName": "DW_CZ_NL_7",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 33,
+    "glyphsAffixType": "energy5",
+    "glyphsType": 1,
+    "id": 23
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_8",
+    "glyphsAffixName": "DW_CZ_NL_8",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 38,
+    "glyphsAffixType": "energy13",
+    "glyphsType": 1,
+    "id": 24
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_1",
+    "glyphsAffixName": "DW_CZ_NL_1",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 2,
+    "glyphsAffixType": "energy8",
+    "glyphsType": 1,
+    "id": 25
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_2",
+    "glyphsAffixName": "DW_CZ_NL_2",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 7,
+    "glyphsAffixType": "energy1",
+    "glyphsType": 1,
+    "id": 26
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_3",
+    "glyphsAffixName": "DW_CZ_NL_3",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 12,
+    "glyphsAffixType": "energy9",
+    "glyphsType": 1,
+    "id": 27
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_4",
+    "glyphsAffixName": "DW_CZ_NL_4",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 17,
+    "glyphsAffixType": "energy10",
+    "glyphsType": 1,
+    "id": 28
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_5",
+    "glyphsAffixName": "DW_CZ_NL_5",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 22,
+    "glyphsAffixType": "energy11",
+    "glyphsType": 1,
+    "id": 29
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_6",
+    "glyphsAffixName": "DW_CZ_NL_6",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 27,
+    "glyphsAffixType": "energy12",
+    "glyphsType": 1,
+    "id": 30
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_7",
+    "glyphsAffixName": "DW_CZ_NL_7",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 32,
+    "glyphsAffixType": "energy5",
+    "glyphsType": 1,
+    "id": 31
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_8",
+    "glyphsAffixName": "DW_CZ_NL_8",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 37,
+    "glyphsAffixType": "energy13",
+    "glyphsType": 1,
+    "id": 32
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_1",
+    "glyphsAffixName": "DW_CZ_NL_1",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 1,
+    "glyphsAffixType": "energy8",
+    "glyphsType": 1,
+    "id": 33
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_2",
+    "glyphsAffixName": "DW_CZ_NL_2",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 6,
+    "glyphsAffixType": "energy1",
+    "glyphsType": 1,
+    "id": 34
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_3",
+    "glyphsAffixName": "DW_CZ_NL_3",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 11,
+    "glyphsAffixType": "energy9",
+    "glyphsType": 1,
+    "id": 35
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_4",
+    "glyphsAffixName": "DW_CZ_NL_4",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 16,
+    "glyphsAffixType": "energy10",
+    "glyphsType": 1,
+    "id": 36
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_5",
+    "glyphsAffixName": "DW_CZ_NL_5",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 21,
+    "glyphsAffixType": "energy11",
+    "glyphsType": 1,
+    "id": 37
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_6",
+    "glyphsAffixName": "DW_CZ_NL_6",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 26,
+    "glyphsAffixType": "energy12",
+    "glyphsType": 1,
+    "id": 38
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_7",
+    "glyphsAffixName": "DW_CZ_NL_7",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 31,
+    "glyphsAffixType": "energy5",
+    "glyphsType": 1,
+    "id": 39
+  },
+  {
+    "calculationType": 4,
+    "glyphsAffixDes": "DW_MS_NL_8",
+    "glyphsAffixName": "DW_CZ_NL_8",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 36,
+    "glyphsAffixType": "energy13",
+    "glyphsType": 1,
+    "id": 40
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_1",
+    "glyphsAffixName": "DW_CZ_GJ_1",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 5,
+    "glyphsAffixType": "damagePre",
+    "glyphsType": 2,
+    "id": 41
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_2",
+    "glyphsAffixName": "DW_CZ_GJ_2",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 10,
+    "glyphsAffixType": "broken",
+    "glyphsType": 2,
+    "id": 42
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_3",
+    "glyphsAffixName": "DW_CZ_GJ_3",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 15,
+    "glyphsAffixType": "critical",
+    "glyphsType": 2,
+    "id": 43
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_4",
+    "glyphsAffixName": "DW_CZ_GJ_4",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 20,
+    "glyphsAffixType": "criticalHurt",
+    "glyphsType": 2,
+    "id": 44
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_5",
+    "glyphsAffixName": "DW_CZ_GJ_5",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 25,
+    "glyphsAffixType": "sucking",
+    "glyphsType": 2,
+    "id": 45
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_6",
+    "glyphsAffixName": "DW_CZ_GJ_6",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 30,
+    "glyphsAffixType": "repelEffectPre",
+    "glyphsType": 2,
+    "id": 46
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_7",
+    "glyphsAffixName": "DW_CZ_GJ_7",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 40,
+    "glyphsAffixType": "physicsHurt",
+    "glyphsType": 2,
+    "id": 47
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_8",
+    "glyphsAffixName": "DW_CZ_GJ_8",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 45,
+    "glyphsAffixType": "magicHurt",
+    "glyphsType": 2,
+    "id": 48
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_9",
+    "glyphsAffixName": "DW_CZ_GJ_9",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 50,
+    "glyphsAffixType": "finalHurt",
+    "glyphsType": 2,
+    "id": 49
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_1",
+    "glyphsAffixName": "DW_CZ_GJ_1",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 4,
+    "glyphsAffixType": "damagePre",
+    "glyphsType": 2,
+    "id": 50
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_2",
+    "glyphsAffixName": "DW_CZ_GJ_2",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 9,
+    "glyphsAffixType": "broken",
+    "glyphsType": 2,
+    "id": 51
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_3",
+    "glyphsAffixName": "DW_CZ_GJ_3",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 14,
+    "glyphsAffixType": "critical",
+    "glyphsType": 2,
+    "id": 52
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_4",
+    "glyphsAffixName": "DW_CZ_GJ_4",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 19,
+    "glyphsAffixType": "criticalHurt",
+    "glyphsType": 2,
+    "id": 53
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_5",
+    "glyphsAffixName": "DW_CZ_GJ_5",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 24,
+    "glyphsAffixType": "sucking",
+    "glyphsType": 2,
+    "id": 54
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_6",
+    "glyphsAffixName": "DW_CZ_GJ_6",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 29,
+    "glyphsAffixType": "repelEffectPre",
+    "glyphsType": 2,
+    "id": 55
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_7",
+    "glyphsAffixName": "DW_CZ_GJ_7",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 39,
+    "glyphsAffixType": "physicsHurt",
+    "glyphsType": 2,
+    "id": 56
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_8",
+    "glyphsAffixName": "DW_CZ_GJ_8",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 44,
+    "glyphsAffixType": "magicHurt",
+    "glyphsType": 2,
+    "id": 57
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_9",
+    "glyphsAffixName": "DW_CZ_GJ_9",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 49,
+    "glyphsAffixType": "finalHurt",
+    "glyphsType": 2,
+    "id": 58
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_1",
+    "glyphsAffixName": "DW_CZ_GJ_1",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 3,
+    "glyphsAffixType": "damagePre",
+    "glyphsType": 2,
+    "id": 59
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_2",
+    "glyphsAffixName": "DW_CZ_GJ_2",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 8,
+    "glyphsAffixType": "broken",
+    "glyphsType": 2,
+    "id": 60
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_3",
+    "glyphsAffixName": "DW_CZ_GJ_3",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 13,
+    "glyphsAffixType": "critical",
+    "glyphsType": 2,
+    "id": 61
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_4",
+    "glyphsAffixName": "DW_CZ_GJ_4",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 18,
+    "glyphsAffixType": "criticalHurt",
+    "glyphsType": 2,
+    "id": 62
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_5",
+    "glyphsAffixName": "DW_CZ_GJ_5",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 23,
+    "glyphsAffixType": "sucking",
+    "glyphsType": 2,
+    "id": 63
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_6",
+    "glyphsAffixName": "DW_CZ_GJ_6",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 28,
+    "glyphsAffixType": "repelEffectPre",
+    "glyphsType": 2,
+    "id": 64
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_7",
+    "glyphsAffixName": "DW_CZ_GJ_7",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 38,
+    "glyphsAffixType": "physicsHurt",
+    "glyphsType": 2,
+    "id": 65
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_8",
+    "glyphsAffixName": "DW_CZ_GJ_8",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 43,
+    "glyphsAffixType": "magicHurt",
+    "glyphsType": 2,
+    "id": 66
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_9",
+    "glyphsAffixName": "DW_CZ_GJ_9",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 48,
+    "glyphsAffixType": "finalHurt",
+    "glyphsType": 2,
+    "id": 67
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_1",
+    "glyphsAffixName": "DW_CZ_GJ_1",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 2,
+    "glyphsAffixType": "damagePre",
+    "glyphsType": 2,
+    "id": 68
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_2",
+    "glyphsAffixName": "DW_CZ_GJ_2",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 7,
+    "glyphsAffixType": "broken",
+    "glyphsType": 2,
+    "id": 69
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_3",
+    "glyphsAffixName": "DW_CZ_GJ_3",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 12,
+    "glyphsAffixType": "critical",
+    "glyphsType": 2,
+    "id": 70
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_4",
+    "glyphsAffixName": "DW_CZ_GJ_4",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 17,
+    "glyphsAffixType": "criticalHurt",
+    "glyphsType": 2,
+    "id": 71
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_5",
+    "glyphsAffixName": "DW_CZ_GJ_5",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 22,
+    "glyphsAffixType": "sucking",
+    "glyphsType": 2,
+    "id": 72
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_6",
+    "glyphsAffixName": "DW_CZ_GJ_6",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 27,
+    "glyphsAffixType": "repelEffectPre",
+    "glyphsType": 2,
+    "id": 73
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_7",
+    "glyphsAffixName": "DW_CZ_GJ_7",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 37,
+    "glyphsAffixType": "physicsHurt",
+    "glyphsType": 2,
+    "id": 74
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_8",
+    "glyphsAffixName": "DW_CZ_GJ_8",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 42,
+    "glyphsAffixType": "magicHurt",
+    "glyphsType": 2,
+    "id": 75
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_9",
+    "glyphsAffixName": "DW_CZ_GJ_9",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 47,
+    "glyphsAffixType": "finalHurt",
+    "glyphsType": 2,
+    "id": 76
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_1",
+    "glyphsAffixName": "DW_CZ_GJ_1",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 1,
+    "glyphsAffixType": "damagePre",
+    "glyphsType": 2,
+    "id": 77
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_2",
+    "glyphsAffixName": "DW_CZ_GJ_2",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 6,
+    "glyphsAffixType": "broken",
+    "glyphsType": 2,
+    "id": 78
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_3",
+    "glyphsAffixName": "DW_CZ_GJ_3",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 11,
+    "glyphsAffixType": "critical",
+    "glyphsType": 2,
+    "id": 79
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_4",
+    "glyphsAffixName": "DW_CZ_GJ_4",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 16,
+    "glyphsAffixType": "criticalHurt",
+    "glyphsType": 2,
+    "id": 80
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_5",
+    "glyphsAffixName": "DW_CZ_GJ_5",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 21,
+    "glyphsAffixType": "sucking",
+    "glyphsType": 2,
+    "id": 81
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_6",
+    "glyphsAffixName": "DW_CZ_GJ_6",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 26,
+    "glyphsAffixType": "repelEffectPre",
+    "glyphsType": 2,
+    "id": 82
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_7",
+    "glyphsAffixName": "DW_CZ_GJ_7",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 36,
+    "glyphsAffixType": "physicsHurt",
+    "glyphsType": 2,
+    "id": 83
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_8",
+    "glyphsAffixName": "DW_CZ_GJ_8",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 41,
+    "glyphsAffixType": "magicHurt",
+    "glyphsType": 2,
+    "id": 84
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_9",
+    "glyphsAffixName": "DW_CZ_GJ_9",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 46,
+    "glyphsAffixType": "finalHurt",
+    "glyphsType": 2,
+    "id": 85
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_1",
+    "glyphsAffixName": "DW_CZ_SC_1",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 5,
+    "glyphsAffixType": "lifePre",
+    "glyphsType": 3,
+    "id": 86
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_2",
+    "glyphsAffixName": "DW_CZ_SC_2",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 10,
+    "glyphsAffixType": "defensePre",
+    "glyphsType": 3,
+    "id": 87
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_3",
+    "glyphsAffixName": "DW_CZ_SC_3",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 15,
+    "glyphsAffixType": "resistWeight",
+    "glyphsType": 3,
+    "id": 88
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_4",
+    "glyphsAffixName": "DW_CZ_SC_4",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 20,
+    "glyphsAffixType": "criticalResist",
+    "glyphsType": 3,
+    "id": 89
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_5",
+    "glyphsAffixName": "DW_CZ_SC_5",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 30,
+    "glyphsAffixType": "nearReduce",
+    "glyphsType": 3,
+    "id": 90
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_6",
+    "glyphsAffixName": "DW_CZ_SC_6",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 35,
+    "glyphsAffixType": "remoteReduce",
+    "glyphsType": 3,
+    "id": 91
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_7",
+    "glyphsAffixName": "DW_CZ_SC_7",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 40,
+    "glyphsAffixType": "physicsResist",
+    "glyphsType": 3,
+    "id": 92
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_8",
+    "glyphsAffixName": "DW_CZ_SC_8",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 45,
+    "glyphsAffixType": "magicResist",
+    "glyphsType": 3,
+    "id": 93
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_9",
+    "glyphsAffixName": "DW_CZ_SC_9",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 50,
+    "glyphsAffixType": "reduceHurt",
+    "glyphsType": 3,
+    "id": 94
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_1",
+    "glyphsAffixName": "DW_CZ_SC_1",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 4,
+    "glyphsAffixType": "lifePre",
+    "glyphsType": 3,
+    "id": 95
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_2",
+    "glyphsAffixName": "DW_CZ_SC_2",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 9,
+    "glyphsAffixType": "defensePre",
+    "glyphsType": 3,
+    "id": 96
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_3",
+    "glyphsAffixName": "DW_CZ_SC_3",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 14,
+    "glyphsAffixType": "resistWeight",
+    "glyphsType": 3,
+    "id": 97
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_4",
+    "glyphsAffixName": "DW_CZ_SC_4",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 19,
+    "glyphsAffixType": "criticalResist",
+    "glyphsType": 3,
+    "id": 98
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_5",
+    "glyphsAffixName": "DW_CZ_SC_5",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 29,
+    "glyphsAffixType": "nearReduce",
+    "glyphsType": 3,
+    "id": 99
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_6",
+    "glyphsAffixName": "DW_CZ_SC_6",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 34,
+    "glyphsAffixType": "remoteReduce",
+    "glyphsType": 3,
+    "id": 100
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_7",
+    "glyphsAffixName": "DW_CZ_SC_7",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 39,
+    "glyphsAffixType": "physicsResist",
+    "glyphsType": 3,
+    "id": 101
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_8",
+    "glyphsAffixName": "DW_CZ_SC_8",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 44,
+    "glyphsAffixType": "magicResist",
+    "glyphsType": 3,
+    "id": 102
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_9",
+    "glyphsAffixName": "DW_CZ_SC_9",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 49,
+    "glyphsAffixType": "reduceHurt",
+    "glyphsType": 3,
+    "id": 103
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_1",
+    "glyphsAffixName": "DW_CZ_SC_1",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 3,
+    "glyphsAffixType": "lifePre",
+    "glyphsType": 3,
+    "id": 104
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_2",
+    "glyphsAffixName": "DW_CZ_SC_2",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 8,
+    "glyphsAffixType": "defensePre",
+    "glyphsType": 3,
+    "id": 105
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_3",
+    "glyphsAffixName": "DW_CZ_SC_3",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 13,
+    "glyphsAffixType": "resistWeight",
+    "glyphsType": 3,
+    "id": 106
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_4",
+    "glyphsAffixName": "DW_CZ_SC_4",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 18,
+    "glyphsAffixType": "criticalResist",
+    "glyphsType": 3,
+    "id": 107
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_5",
+    "glyphsAffixName": "DW_CZ_SC_5",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 28,
+    "glyphsAffixType": "nearReduce",
+    "glyphsType": 3,
+    "id": 108
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_6",
+    "glyphsAffixName": "DW_CZ_SC_6",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 33,
+    "glyphsAffixType": "remoteReduce",
+    "glyphsType": 3,
+    "id": 109
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_7",
+    "glyphsAffixName": "DW_CZ_SC_7",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 38,
+    "glyphsAffixType": "physicsResist",
+    "glyphsType": 3,
+    "id": 110
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_8",
+    "glyphsAffixName": "DW_CZ_SC_8",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 43,
+    "glyphsAffixType": "magicResist",
+    "glyphsType": 3,
+    "id": 111
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_9",
+    "glyphsAffixName": "DW_CZ_SC_9",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 48,
+    "glyphsAffixType": "reduceHurt",
+    "glyphsType": 3,
+    "id": 112
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_1",
+    "glyphsAffixName": "DW_CZ_SC_1",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 2,
+    "glyphsAffixType": "lifePre",
+    "glyphsType": 3,
+    "id": 113
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_2",
+    "glyphsAffixName": "DW_CZ_SC_2",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 7,
+    "glyphsAffixType": "defensePre",
+    "glyphsType": 3,
+    "id": 114
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_3",
+    "glyphsAffixName": "DW_CZ_SC_3",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 12,
+    "glyphsAffixType": "resistWeight",
+    "glyphsType": 3,
+    "id": 115
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_4",
+    "glyphsAffixName": "DW_CZ_SC_4",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 17,
+    "glyphsAffixType": "criticalResist",
+    "glyphsType": 3,
+    "id": 116
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_5",
+    "glyphsAffixName": "DW_CZ_SC_5",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 27,
+    "glyphsAffixType": "nearReduce",
+    "glyphsType": 3,
+    "id": 117
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_6",
+    "glyphsAffixName": "DW_CZ_SC_6",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 32,
+    "glyphsAffixType": "remoteReduce",
+    "glyphsType": 3,
+    "id": 118
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_7",
+    "glyphsAffixName": "DW_CZ_SC_7",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 37,
+    "glyphsAffixType": "physicsResist",
+    "glyphsType": 3,
+    "id": 119
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_8",
+    "glyphsAffixName": "DW_CZ_SC_8",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 42,
+    "glyphsAffixType": "magicResist",
+    "glyphsType": 3,
+    "id": 120
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_9",
+    "glyphsAffixName": "DW_CZ_SC_9",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 47,
+    "glyphsAffixType": "reduceHurt",
+    "glyphsType": 3,
+    "id": 121
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_1",
+    "glyphsAffixName": "DW_CZ_SC_1",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 1,
+    "glyphsAffixType": "lifePre",
+    "glyphsType": 3,
+    "id": 122
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_2",
+    "glyphsAffixName": "DW_CZ_SC_2",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 6,
+    "glyphsAffixType": "defensePre",
+    "glyphsType": 3,
+    "id": 123
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_3",
+    "glyphsAffixName": "DW_CZ_SC_3",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 11,
+    "glyphsAffixType": "resistWeight",
+    "glyphsType": 3,
+    "id": 124
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_4",
+    "glyphsAffixName": "DW_CZ_SC_4",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 16,
+    "glyphsAffixType": "criticalResist",
+    "glyphsType": 3,
+    "id": 125
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_5",
+    "glyphsAffixName": "DW_CZ_SC_5",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 26,
+    "glyphsAffixType": "nearReduce",
+    "glyphsType": 3,
+    "id": 126
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_6",
+    "glyphsAffixName": "DW_CZ_SC_6",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 31,
+    "glyphsAffixType": "remoteReduce",
+    "glyphsType": 3,
+    "id": 127
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_7",
+    "glyphsAffixName": "DW_CZ_SC_7",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 36,
+    "glyphsAffixType": "physicsResist",
+    "glyphsType": 3,
+    "id": 128
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_8",
+    "glyphsAffixName": "DW_CZ_SC_8",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 41,
+    "glyphsAffixType": "magicResist",
+    "glyphsType": 3,
+    "id": 129
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_9",
+    "glyphsAffixName": "DW_CZ_SC_9",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 46,
+    "glyphsAffixType": "reduceHurt",
+    "glyphsType": 3,
+    "id": 130
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_1",
+    "glyphsAffixName": "DW_CZ_XG_1",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 5,
+    "glyphsAffixType": "heal",
+    "glyphsType": 4,
+    "id": 131
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_2",
+    "glyphsAffixName": "DW_CZ_XG_2",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 10,
+    "glyphsAffixType": "cureEffect",
+    "glyphsType": 4,
+    "id": 132
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_3",
+    "glyphsAffixName": "DW_CZ_XG_3",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 15,
+    "glyphsAffixType": "movingSpeedPre",
+    "glyphsType": 4,
+    "id": 133
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_4",
+    "glyphsAffixName": "DW_CZ_XG_4",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 20,
+    "glyphsAffixType": "rebound",
+    "glyphsType": 4,
+    "id": 134
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_5",
+    "glyphsAffixName": "DW_CZ_XG_5",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 25,
+    "glyphsAffixType": "controlReduction",
+    "glyphsType": 4,
+    "id": 135
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_6",
+    "glyphsAffixName": "DW_CZ_XG_6",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 30,
+    "glyphsAffixType": "reduceControlTime",
+    "glyphsType": 4,
+    "id": 136
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_7",
+    "glyphsAffixName": "DW_CZ_XG_7",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 35,
+    "glyphsAffixType": "attackSpeedPre",
+    "glyphsType": 4,
+    "id": 137
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_8",
+    "glyphsAffixName": "DW_CZ_XG_8",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 40,
+    "glyphsAffixType": "dodge",
+    "glyphsType": 4,
+    "id": 138
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_9",
+    "glyphsAffixName": "DW_CZ_XG_9",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 50,
+    "glyphsAffixType": "repelResist",
+    "glyphsType": 4,
+    "id": 139
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_10",
+    "glyphsAffixName": "DW_CZ_XG_10",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 55,
+    "glyphsAffixType": "lifeRecovery",
+    "glyphsType": 4,
+    "id": 140
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_1",
+    "glyphsAffixName": "DW_CZ_XG_1",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 4,
+    "glyphsAffixType": "heal",
+    "glyphsType": 4,
+    "id": 141
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_2",
+    "glyphsAffixName": "DW_CZ_XG_2",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 9,
+    "glyphsAffixType": "cureEffect",
+    "glyphsType": 4,
+    "id": 142
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_3",
+    "glyphsAffixName": "DW_CZ_XG_3",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 14,
+    "glyphsAffixType": "movingSpeedPre",
+    "glyphsType": 4,
+    "id": 143
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_4",
+    "glyphsAffixName": "DW_CZ_XG_4",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 19,
+    "glyphsAffixType": "rebound",
+    "glyphsType": 4,
+    "id": 144
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_5",
+    "glyphsAffixName": "DW_CZ_XG_5",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 24,
+    "glyphsAffixType": "controlReduction",
+    "glyphsType": 4,
+    "id": 145
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_6",
+    "glyphsAffixName": "DW_CZ_XG_6",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 29,
+    "glyphsAffixType": "reduceControlTime",
+    "glyphsType": 4,
+    "id": 146
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_7",
+    "glyphsAffixName": "DW_CZ_XG_7",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 34,
+    "glyphsAffixType": "attackSpeedPre",
+    "glyphsType": 4,
+    "id": 147
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_8",
+    "glyphsAffixName": "DW_CZ_XG_8",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 39,
+    "glyphsAffixType": "dodge",
+    "glyphsType": 4,
+    "id": 148
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_9",
+    "glyphsAffixName": "DW_CZ_XG_9",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 49,
+    "glyphsAffixType": "repelResist",
+    "glyphsType": 4,
+    "id": 149
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_10",
+    "glyphsAffixName": "DW_CZ_XG_10",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 54,
+    "glyphsAffixType": "lifeRecovery",
+    "glyphsType": 4,
+    "id": 150
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_1",
+    "glyphsAffixName": "DW_CZ_XG_1",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 3,
+    "glyphsAffixType": "heal",
+    "glyphsType": 4,
+    "id": 151
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_2",
+    "glyphsAffixName": "DW_CZ_XG_2",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 8,
+    "glyphsAffixType": "cureEffect",
+    "glyphsType": 4,
+    "id": 152
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_3",
+    "glyphsAffixName": "DW_CZ_XG_3",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 13,
+    "glyphsAffixType": "movingSpeedPre",
+    "glyphsType": 4,
+    "id": 153
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_4",
+    "glyphsAffixName": "DW_CZ_XG_4",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 18,
+    "glyphsAffixType": "rebound",
+    "glyphsType": 4,
+    "id": 154
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_5",
+    "glyphsAffixName": "DW_CZ_XG_5",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 23,
+    "glyphsAffixType": "controlReduction",
+    "glyphsType": 4,
+    "id": 155
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_6",
+    "glyphsAffixName": "DW_CZ_XG_6",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 28,
+    "glyphsAffixType": "reduceControlTime",
+    "glyphsType": 4,
+    "id": 156
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_7",
+    "glyphsAffixName": "DW_CZ_XG_7",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 33,
+    "glyphsAffixType": "attackSpeedPre",
+    "glyphsType": 4,
+    "id": 157
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_8",
+    "glyphsAffixName": "DW_CZ_XG_8",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 38,
+    "glyphsAffixType": "dodge",
+    "glyphsType": 4,
+    "id": 158
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_9",
+    "glyphsAffixName": "DW_CZ_XG_9",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 48,
+    "glyphsAffixType": "repelResist",
+    "glyphsType": 4,
+    "id": 159
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_10",
+    "glyphsAffixName": "DW_CZ_XG_10",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 53,
+    "glyphsAffixType": "lifeRecovery",
+    "glyphsType": 4,
+    "id": 160
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_1",
+    "glyphsAffixName": "DW_CZ_XG_1",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 2,
+    "glyphsAffixType": "heal",
+    "glyphsType": 4,
+    "id": 161
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_2",
+    "glyphsAffixName": "DW_CZ_XG_2",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 7,
+    "glyphsAffixType": "cureEffect",
+    "glyphsType": 4,
+    "id": 162
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_3",
+    "glyphsAffixName": "DW_CZ_XG_3",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 12,
+    "glyphsAffixType": "movingSpeedPre",
+    "glyphsType": 4,
+    "id": 163
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_4",
+    "glyphsAffixName": "DW_CZ_XG_4",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 17,
+    "glyphsAffixType": "rebound",
+    "glyphsType": 4,
+    "id": 164
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_5",
+    "glyphsAffixName": "DW_CZ_XG_5",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 22,
+    "glyphsAffixType": "controlReduction",
+    "glyphsType": 4,
+    "id": 165
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_6",
+    "glyphsAffixName": "DW_CZ_XG_6",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 27,
+    "glyphsAffixType": "reduceControlTime",
+    "glyphsType": 4,
+    "id": 166
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_7",
+    "glyphsAffixName": "DW_CZ_XG_7",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 32,
+    "glyphsAffixType": "attackSpeedPre",
+    "glyphsType": 4,
+    "id": 167
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_8",
+    "glyphsAffixName": "DW_CZ_XG_8",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 37,
+    "glyphsAffixType": "dodge",
+    "glyphsType": 4,
+    "id": 168
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_9",
+    "glyphsAffixName": "DW_CZ_XG_9",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 47,
+    "glyphsAffixType": "repelResist",
+    "glyphsType": 4,
+    "id": 169
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_10",
+    "glyphsAffixName": "DW_CZ_XG_10",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 52,
+    "glyphsAffixType": "lifeRecovery",
+    "glyphsType": 4,
+    "id": 170
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_1",
+    "glyphsAffixName": "DW_CZ_XG_1",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 1,
+    "glyphsAffixType": "heal",
+    "glyphsType": 4,
+    "id": 171
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_2",
+    "glyphsAffixName": "DW_CZ_XG_2",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 6,
+    "glyphsAffixType": "cureEffect",
+    "glyphsType": 4,
+    "id": 172
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_3",
+    "glyphsAffixName": "DW_CZ_XG_3",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 11,
+    "glyphsAffixType": "movingSpeedPre",
+    "glyphsType": 4,
+    "id": 173
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_4",
+    "glyphsAffixName": "DW_CZ_XG_4",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 16,
+    "glyphsAffixType": "rebound",
+    "glyphsType": 4,
+    "id": 174
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_5",
+    "glyphsAffixName": "DW_CZ_XG_5",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 21,
+    "glyphsAffixType": "controlReduction",
+    "glyphsType": 4,
+    "id": 175
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_6",
+    "glyphsAffixName": "DW_CZ_XG_6",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 26,
+    "glyphsAffixType": "reduceControlTime",
+    "glyphsType": 4,
+    "id": 176
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_7",
+    "glyphsAffixName": "DW_CZ_XG_7",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 31,
+    "glyphsAffixType": "attackSpeedPre",
+    "glyphsType": 4,
+    "id": 177
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_8",
+    "glyphsAffixName": "DW_CZ_XG_8",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 36,
+    "glyphsAffixType": "dodge",
+    "glyphsType": 4,
+    "id": 178
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_9",
+    "glyphsAffixName": "DW_CZ_XG_9",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 46,
+    "glyphsAffixType": "repelResist",
+    "glyphsType": 4,
+    "id": 179
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_10",
+    "glyphsAffixName": "DW_CZ_XG_10",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 51,
+    "glyphsAffixType": "lifeRecovery",
+    "glyphsType": 4,
+    "id": 180
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_10",
+    "glyphsAffixName": "DW_CZ_GJ_10",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 35,
+    "glyphsAffixType": "lifeInjury",
+    "glyphsType": 2,
+    "id": 181
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_10",
+    "glyphsAffixName": "DW_CZ_GJ_10",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 34,
+    "glyphsAffixType": "lifeInjury",
+    "glyphsType": 2,
+    "id": 182
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_10",
+    "glyphsAffixName": "DW_CZ_GJ_10",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 33,
+    "glyphsAffixType": "lifeInjury",
+    "glyphsType": 2,
+    "id": 183
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_10",
+    "glyphsAffixName": "DW_CZ_GJ_10",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 32,
+    "glyphsAffixType": "lifeInjury",
+    "glyphsType": 2,
+    "id": 184
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_GJ_10",
+    "glyphsAffixName": "DW_CZ_GJ_10",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 31,
+    "glyphsAffixType": "lifeInjury",
+    "glyphsType": 2,
+    "id": 185
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_10",
+    "glyphsAffixName": "DW_CZ_SC_10",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 25,
+    "glyphsAffixType": "criticalHurtResist",
+    "glyphsType": 3,
+    "id": 186
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_10",
+    "glyphsAffixName": "DW_CZ_SC_10",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 24,
+    "glyphsAffixType": "criticalHurtResist",
+    "glyphsType": 3,
+    "id": 187
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_10",
+    "glyphsAffixName": "DW_CZ_SC_10",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 23,
+    "glyphsAffixType": "criticalHurtResist",
+    "glyphsType": 3,
+    "id": 188
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_10",
+    "glyphsAffixName": "DW_CZ_SC_10",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 22,
+    "glyphsAffixType": "criticalHurtResist",
+    "glyphsType": 3,
+    "id": 189
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_SC_10",
+    "glyphsAffixName": "DW_CZ_SC_10",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 21,
+    "glyphsAffixType": "criticalHurtResist",
+    "glyphsType": 3,
+    "id": 190
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_11",
+    "glyphsAffixName": "DW_CZ_XG_11",
+    "glyphsAffixQuality": 1,
+    "glyphsAffixSort": 45,
+    "glyphsAffixType": "moderateResist",
+    "glyphsType": 4,
+    "id": 191
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_11",
+    "glyphsAffixName": "DW_CZ_XG_11",
+    "glyphsAffixQuality": 2,
+    "glyphsAffixSort": 44,
+    "glyphsAffixType": "moderateResist",
+    "glyphsType": 4,
+    "id": 192
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_11",
+    "glyphsAffixName": "DW_CZ_XG_11",
+    "glyphsAffixQuality": 3,
+    "glyphsAffixSort": 43,
+    "glyphsAffixType": "moderateResist",
+    "glyphsType": 4,
+    "id": 193
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_11",
+    "glyphsAffixName": "DW_CZ_XG_11",
+    "glyphsAffixQuality": 4,
+    "glyphsAffixSort": 42,
+    "glyphsAffixType": "moderateResist",
+    "glyphsType": 4,
+    "id": 194
+  },
+  {
+    "calculationType": 2,
+    "glyphsAffixDes": "DW_MS_XG_11",
+    "glyphsAffixName": "DW_CZ_XG_11",
+    "glyphsAffixQuality": 5,
+    "glyphsAffixSort": 41,
+    "glyphsAffixType": "moderateResist",
+    "glyphsType": 4,
+    "id": 195
+  }
+]

@@ -1,0 +1,3765 @@
+[
+  { "id": 1, "mExp": 40, "mGold": 80, "mPrestige": 40, "passLevel": [1, 1, 1] },
+  { "id": 2, "mExp": 41, "mGold": 81, "mPrestige": 41, "passLevel": [1, 1, 5] },
+  {
+    "id": 3,
+    "mExp": 42,
+    "mGold": 82,
+    "mPrestige": 42,
+    "passLevel": [1, 1, 10]
+  },
+  { "id": 4, "mExp": 43, "mGold": 83, "mPrestige": 43, "passLevel": [1, 2, 5] },
+  {
+    "id": 5,
+    "mExp": 44,
+    "mGold": 84,
+    "mPrestige": 44,
+    "passLevel": [1, 2, 10]
+  },
+  {
+    "id": 6,
+    "mExp": 45,
+    "mGold": 85,
+    "mPrestige": 45,
+    "passLevel": [1, 2, 15]
+  },
+  { "id": 7, "mExp": 46, "mGold": 86, "mPrestige": 46, "passLevel": [1, 3, 5] },
+  {
+    "id": 8,
+    "mExp": 47,
+    "mGold": 87,
+    "mPrestige": 47,
+    "passLevel": [1, 3, 10]
+  },
+  {
+    "id": 9,
+    "mExp": 48,
+    "mGold": 88,
+    "mPrestige": 48,
+    "passLevel": [1, 3, 15]
+  },
+  {
+    "id": 10,
+    "mExp": 49,
+    "mGold": 89,
+    "mPrestige": 49,
+    "passLevel": [1, 3, 20]
+  },
+  {
+    "id": 11,
+    "mExp": 50,
+    "mGold": 90,
+    "mPrestige": 50,
+    "passLevel": [1, 4, 5]
+  },
+  {
+    "id": 12,
+    "mExp": 51,
+    "mGold": 91,
+    "mPrestige": 51,
+    "passLevel": [1, 4, 10]
+  },
+  {
+    "id": 13,
+    "mExp": 52,
+    "mGold": 92,
+    "mPrestige": 52,
+    "passLevel": [1, 4, 15]
+  },
+  {
+    "id": 14,
+    "mExp": 53,
+    "mGold": 93,
+    "mPrestige": 53,
+    "passLevel": [1, 4, 20]
+  },
+  {
+    "id": 15,
+    "mExp": 54,
+    "mGold": 94,
+    "mPrestige": 54,
+    "passLevel": [1, 4, 25]
+  },
+  {
+    "id": 16,
+    "mExp": 55,
+    "mGold": 95,
+    "mPrestige": 55,
+    "passLevel": [1, 5, 5]
+  },
+  {
+    "id": 17,
+    "mExp": 56,
+    "mGold": 96,
+    "mPrestige": 56,
+    "passLevel": [1, 5, 10]
+  },
+  {
+    "id": 18,
+    "mExp": 57,
+    "mGold": 97,
+    "mPrestige": 57,
+    "passLevel": [1, 5, 15]
+  },
+  {
+    "id": 19,
+    "mExp": 58,
+    "mGold": 98,
+    "mPrestige": 58,
+    "passLevel": [1, 5, 20]
+  },
+  {
+    "id": 20,
+    "mExp": 59,
+    "mGold": 99,
+    "mPrestige": 59,
+    "passLevel": [1, 5, 25]
+  },
+  {
+    "id": 21,
+    "mExp": 60,
+    "mGold": 100,
+    "mPrestige": 60,
+    "passLevel": [1, 5, 30]
+  },
+  {
+    "id": 22,
+    "mExp": 61,
+    "mGold": 101,
+    "mPrestige": 61,
+    "passLevel": [1, 6, 5]
+  },
+  {
+    "id": 23,
+    "mExp": 62,
+    "mGold": 102,
+    "mPrestige": 62,
+    "passLevel": [1, 6, 10]
+  },
+  {
+    "id": 24,
+    "mExp": 63,
+    "mGold": 103,
+    "mPrestige": 63,
+    "passLevel": [1, 6, 15]
+  },
+  {
+    "id": 25,
+    "mExp": 64,
+    "mGold": 104,
+    "mPrestige": 64,
+    "passLevel": [1, 6, 20]
+  },
+  {
+    "id": 26,
+    "mExp": 65,
+    "mGold": 105,
+    "mPrestige": 65,
+    "passLevel": [1, 6, 25]
+  },
+  {
+    "id": 27,
+    "mExp": 66,
+    "mGold": 106,
+    "mPrestige": 66,
+    "passLevel": [1, 6, 30]
+  },
+  {
+    "id": 28,
+    "mExp": 67,
+    "mGold": 107,
+    "mPrestige": 67,
+    "passLevel": [1, 6, 35]
+  },
+  {
+    "id": 29,
+    "mExp": 68,
+    "mGold": 108,
+    "mPrestige": 68,
+    "passLevel": [1, 6, 40]
+  },
+  {
+    "id": 30,
+    "mExp": 69,
+    "mGold": 109,
+    "mPrestige": 69,
+    "passLevel": [1, 7, 5]
+  },
+  {
+    "id": 31,
+    "mExp": 70,
+    "mGold": 110,
+    "mPrestige": 70,
+    "passLevel": [1, 7, 10]
+  },
+  {
+    "id": 32,
+    "mExp": 71,
+    "mGold": 111,
+    "mPrestige": 71,
+    "passLevel": [1, 7, 15]
+  },
+  {
+    "id": 33,
+    "mExp": 72,
+    "mGold": 112,
+    "mPrestige": 72,
+    "passLevel": [1, 7, 20]
+  },
+  {
+    "id": 34,
+    "mExp": 73,
+    "mGold": 113,
+    "mPrestige": 73,
+    "passLevel": [1, 7, 25]
+  },
+  {
+    "id": 35,
+    "mExp": 74,
+    "mGold": 114,
+    "mPrestige": 74,
+    "passLevel": [1, 7, 30]
+  },
+  {
+    "id": 36,
+    "mExp": 75,
+    "mGold": 115,
+    "mPrestige": 75,
+    "passLevel": [1, 7, 35]
+  },
+  {
+    "id": 37,
+    "mExp": 76,
+    "mGold": 116,
+    "mPrestige": 76,
+    "passLevel": [1, 7, 40]
+  },
+  {
+    "id": 38,
+    "mExp": 77,
+    "mGold": 117,
+    "mPrestige": 77,
+    "passLevel": [1, 8, 5]
+  },
+  {
+    "id": 39,
+    "mExp": 78,
+    "mGold": 118,
+    "mPrestige": 78,
+    "passLevel": [1, 8, 10]
+  },
+  {
+    "id": 40,
+    "mExp": 79,
+    "mGold": 119,
+    "mPrestige": 79,
+    "passLevel": [1, 8, 15]
+  },
+  {
+    "id": 41,
+    "mExp": 80,
+    "mGold": 120,
+    "mPrestige": 80,
+    "passLevel": [1, 8, 20]
+  },
+  {
+    "id": 42,
+    "mExp": 81,
+    "mGold": 121,
+    "mPrestige": 81,
+    "passLevel": [1, 8, 25]
+  },
+  {
+    "id": 43,
+    "mExp": 82,
+    "mGold": 122,
+    "mPrestige": 82,
+    "passLevel": [1, 8, 30]
+  },
+  {
+    "id": 44,
+    "mExp": 83,
+    "mGold": 123,
+    "mPrestige": 83,
+    "passLevel": [1, 8, 35]
+  },
+  {
+    "id": 45,
+    "mExp": 84,
+    "mGold": 124,
+    "mPrestige": 84,
+    "passLevel": [1, 8, 40]
+  },
+  {
+    "id": 46,
+    "mExp": 85,
+    "mGold": 125,
+    "mPrestige": 85,
+    "passLevel": [1, 9, 5]
+  },
+  {
+    "id": 47,
+    "mExp": 86,
+    "mGold": 126,
+    "mPrestige": 86,
+    "passLevel": [1, 9, 10]
+  },
+  {
+    "id": 48,
+    "mExp": 87,
+    "mGold": 127,
+    "mPrestige": 87,
+    "passLevel": [1, 9, 15]
+  },
+  {
+    "id": 49,
+    "mExp": 88,
+    "mGold": 128,
+    "mPrestige": 88,
+    "passLevel": [1, 9, 20]
+  },
+  {
+    "id": 50,
+    "mExp": 89,
+    "mGold": 129,
+    "mPrestige": 89,
+    "passLevel": [1, 9, 25]
+  },
+  {
+    "id": 51,
+    "mExp": 90,
+    "mGold": 130,
+    "mPrestige": 90,
+    "passLevel": [1, 9, 30]
+  },
+  {
+    "id": 52,
+    "mExp": 91,
+    "mGold": 131,
+    "mPrestige": 91,
+    "passLevel": [1, 9, 35]
+  },
+  {
+    "id": 53,
+    "mExp": 92,
+    "mGold": 132,
+    "mPrestige": 92,
+    "passLevel": [1, 9, 40]
+  },
+  {
+    "id": 54,
+    "mExp": 93,
+    "mGold": 133,
+    "mPrestige": 93,
+    "passLevel": [1, 10, 5]
+  },
+  {
+    "id": 55,
+    "mExp": 94,
+    "mGold": 134,
+    "mPrestige": 94,
+    "passLevel": [1, 10, 10]
+  },
+  {
+    "id": 56,
+    "mExp": 95,
+    "mGold": 135,
+    "mPrestige": 95,
+    "passLevel": [1, 10, 15]
+  },
+  {
+    "id": 57,
+    "mExp": 96,
+    "mGold": 136,
+    "mPrestige": 96,
+    "passLevel": [1, 10, 20]
+  },
+  {
+    "id": 58,
+    "mExp": 97,
+    "mGold": 137,
+    "mPrestige": 97,
+    "passLevel": [1, 10, 25]
+  },
+  {
+    "id": 59,
+    "mExp": 98,
+    "mGold": 138,
+    "mPrestige": 98,
+    "passLevel": [1, 10, 30]
+  },
+  {
+    "id": 60,
+    "mExp": 99,
+    "mGold": 139,
+    "mPrestige": 99,
+    "passLevel": [1, 10, 35]
+  },
+  {
+    "id": 61,
+    "mExp": 100,
+    "mGold": 140,
+    "mPrestige": 100,
+    "passLevel": [1, 10, 40]
+  },
+  {
+    "id": 62,
+    "mExp": 100.8,
+    "mGold": 140.8,
+    "mPrestige": 100.8,
+    "passLevel": [2, 1, 5]
+  },
+  {
+    "id": 63,
+    "mExp": 101.6,
+    "mGold": 141.6,
+    "mPrestige": 101.6,
+    "passLevel": [2, 1, 10]
+  },
+  {
+    "id": 64,
+    "mExp": 102.4,
+    "mGold": 142.4,
+    "mPrestige": 102.4,
+    "passLevel": [2, 1, 15]
+  },
+  {
+    "id": 65,
+    "mExp": 103.2,
+    "mGold": 143.2,
+    "mPrestige": 103.2,
+    "passLevel": [2, 1, 20]
+  },
+  {
+    "id": 66,
+    "mExp": 104,
+    "mGold": 144,
+    "mPrestige": 104,
+    "passLevel": [2, 1, 25]
+  },
+  {
+    "id": 67,
+    "mExp": 104.8,
+    "mGold": 144.8,
+    "mPrestige": 104.8,
+    "passLevel": [2, 1, 30]
+  },
+  {
+    "id": 68,
+    "mExp": 105.6,
+    "mGold": 145.6,
+    "mPrestige": 105.6,
+    "passLevel": [2, 1, 35]
+  },
+  {
+    "id": 69,
+    "mExp": 106.4,
+    "mGold": 146.4,
+    "mPrestige": 106.4,
+    "passLevel": [2, 1, 40]
+  },
+  {
+    "id": 70,
+    "mExp": 107.2,
+    "mGold": 147.2,
+    "mPrestige": 107.2,
+    "passLevel": [2, 2, 5]
+  },
+  {
+    "id": 71,
+    "mExp": 108,
+    "mGold": 148,
+    "mPrestige": 108,
+    "passLevel": [2, 2, 10]
+  },
+  {
+    "id": 72,
+    "mExp": 108.8,
+    "mGold": 148.8,
+    "mPrestige": 108.8,
+    "passLevel": [2, 2, 15]
+  },
+  {
+    "id": 73,
+    "mExp": 109.6,
+    "mGold": 149.6,
+    "mPrestige": 109.6,
+    "passLevel": [2, 2, 20]
+  },
+  {
+    "id": 74,
+    "mExp": 110.4,
+    "mGold": 150.4,
+    "mPrestige": 110.4,
+    "passLevel": [2, 2, 25]
+  },
+  {
+    "id": 75,
+    "mExp": 111.2,
+    "mGold": 151.2,
+    "mPrestige": 111.2,
+    "passLevel": [2, 2, 30]
+  },
+  {
+    "id": 76,
+    "mExp": 112,
+    "mGold": 152,
+    "mPrestige": 112,
+    "passLevel": [2, 2, 35]
+  },
+  {
+    "id": 77,
+    "mExp": 112.8,
+    "mGold": 152.8,
+    "mPrestige": 112.8,
+    "passLevel": [2, 2, 40]
+  },
+  {
+    "id": 78,
+    "mExp": 113.6,
+    "mGold": 153.6,
+    "mPrestige": 113.6,
+    "passLevel": [2, 3, 5]
+  },
+  {
+    "id": 79,
+    "mExp": 114.4,
+    "mGold": 154.4,
+    "mPrestige": 114.4,
+    "passLevel": [2, 3, 10]
+  },
+  {
+    "id": 80,
+    "mExp": 115.2,
+    "mGold": 155.2,
+    "mPrestige": 115.2,
+    "passLevel": [2, 3, 15]
+  },
+  {
+    "id": 81,
+    "mExp": 116,
+    "mGold": 156,
+    "mPrestige": 116,
+    "passLevel": [2, 3, 20]
+  },
+  {
+    "id": 82,
+    "mExp": 116.8,
+    "mGold": 156.8,
+    "mPrestige": 116.8,
+    "passLevel": [2, 3, 25]
+  },
+  {
+    "id": 83,
+    "mExp": 117.6,
+    "mGold": 157.6,
+    "mPrestige": 117.6,
+    "passLevel": [2, 3, 30]
+  },
+  {
+    "id": 84,
+    "mExp": 118.4,
+    "mGold": 158.4,
+    "mPrestige": 118.4,
+    "passLevel": [2, 3, 35]
+  },
+  {
+    "id": 85,
+    "mExp": 119.2,
+    "mGold": 159.2,
+    "mPrestige": 119.2,
+    "passLevel": [2, 3, 40]
+  },
+  {
+    "id": 86,
+    "mExp": 120,
+    "mGold": 160,
+    "mPrestige": 120,
+    "passLevel": [2, 4, 5]
+  },
+  {
+    "id": 87,
+    "mExp": 120.8,
+    "mGold": 160.8,
+    "mPrestige": 120.8,
+    "passLevel": [2, 4, 10]
+  },
+  {
+    "id": 88,
+    "mExp": 121.6,
+    "mGold": 161.6,
+    "mPrestige": 121.6,
+    "passLevel": [2, 4, 15]
+  },
+  {
+    "id": 89,
+    "mExp": 122.4,
+    "mGold": 162.4,
+    "mPrestige": 122.4,
+    "passLevel": [2, 4, 20]
+  },
+  {
+    "id": 90,
+    "mExp": 123.2,
+    "mGold": 163.2,
+    "mPrestige": 123.2,
+    "passLevel": [2, 4, 25]
+  },
+  {
+    "id": 91,
+    "mExp": 124,
+    "mGold": 164,
+    "mPrestige": 124,
+    "passLevel": [2, 4, 30]
+  },
+  {
+    "id": 92,
+    "mExp": 124.8,
+    "mGold": 164.8,
+    "mPrestige": 124.8,
+    "passLevel": [2, 4, 35]
+  },
+  {
+    "id": 93,
+    "mExp": 125.6,
+    "mGold": 165.6,
+    "mPrestige": 125.6,
+    "passLevel": [2, 4, 40]
+  },
+  {
+    "id": 94,
+    "mExp": 126.4,
+    "mGold": 166.4,
+    "mPrestige": 126.4,
+    "passLevel": [2, 5, 5]
+  },
+  {
+    "id": 95,
+    "mExp": 127.2,
+    "mGold": 167.2,
+    "mPrestige": 127.2,
+    "passLevel": [2, 5, 10]
+  },
+  {
+    "id": 96,
+    "mExp": 128,
+    "mGold": 168,
+    "mPrestige": 128,
+    "passLevel": [2, 5, 15]
+  },
+  {
+    "id": 97,
+    "mExp": 128.8,
+    "mGold": 168.8,
+    "mPrestige": 128.8,
+    "passLevel": [2, 5, 20]
+  },
+  {
+    "id": 98,
+    "mExp": 129.6,
+    "mGold": 169.6,
+    "mPrestige": 129.6,
+    "passLevel": [2, 5, 25]
+  },
+  {
+    "id": 99,
+    "mExp": 130.4,
+    "mGold": 170.4,
+    "mPrestige": 130.4,
+    "passLevel": [2, 5, 30]
+  },
+  {
+    "id": 100,
+    "mExp": 131.2,
+    "mGold": 171.2,
+    "mPrestige": 131.2,
+    "passLevel": [2, 5, 35]
+  },
+  {
+    "id": 101,
+    "mExp": 132,
+    "mGold": 172,
+    "mPrestige": 132,
+    "passLevel": [2, 5, 40]
+  },
+  {
+    "id": 102,
+    "mExp": 132.8,
+    "mGold": 172.8,
+    "mPrestige": 132.8,
+    "passLevel": [2, 6, 5]
+  },
+  {
+    "id": 103,
+    "mExp": 133.6,
+    "mGold": 173.6,
+    "mPrestige": 133.6,
+    "passLevel": [2, 6, 10]
+  },
+  {
+    "id": 104,
+    "mExp": 134.4,
+    "mGold": 174.4,
+    "mPrestige": 134.4,
+    "passLevel": [2, 6, 15]
+  },
+  {
+    "id": 105,
+    "mExp": 135.2,
+    "mGold": 175.2,
+    "mPrestige": 135.2,
+    "passLevel": [2, 6, 20]
+  },
+  {
+    "id": 106,
+    "mExp": 136,
+    "mGold": 176,
+    "mPrestige": 136,
+    "passLevel": [2, 6, 25]
+  },
+  {
+    "id": 107,
+    "mExp": 136.8,
+    "mGold": 176.8,
+    "mPrestige": 136.8,
+    "passLevel": [2, 6, 30]
+  },
+  {
+    "id": 108,
+    "mExp": 137.6,
+    "mGold": 177.6,
+    "mPrestige": 137.6,
+    "passLevel": [2, 6, 35]
+  },
+  {
+    "id": 109,
+    "mExp": 138.4,
+    "mGold": 178.4,
+    "mPrestige": 138.4,
+    "passLevel": [2, 6, 40]
+  },
+  {
+    "id": 110,
+    "mExp": 139.2,
+    "mGold": 179.2,
+    "mPrestige": 139.2,
+    "passLevel": [2, 7, 5]
+  },
+  {
+    "id": 111,
+    "mExp": 140,
+    "mGold": 180,
+    "mPrestige": 140,
+    "passLevel": [2, 7, 10]
+  },
+  {
+    "id": 112,
+    "mExp": 140.8,
+    "mGold": 180.8,
+    "mPrestige": 140.8,
+    "passLevel": [2, 7, 15]
+  },
+  {
+    "id": 113,
+    "mExp": 141.6,
+    "mGold": 181.6,
+    "mPrestige": 141.6,
+    "passLevel": [2, 7, 20]
+  },
+  {
+    "id": 114,
+    "mExp": 142.4,
+    "mGold": 182.4,
+    "mPrestige": 142.4,
+    "passLevel": [2, 7, 25]
+  },
+  {
+    "id": 115,
+    "mExp": 143.2,
+    "mGold": 183.2,
+    "mPrestige": 143.2,
+    "passLevel": [2, 7, 30]
+  },
+  {
+    "id": 116,
+    "mExp": 144,
+    "mGold": 184,
+    "mPrestige": 144,
+    "passLevel": [2, 7, 35]
+  },
+  {
+    "id": 117,
+    "mExp": 144.8,
+    "mGold": 184.8,
+    "mPrestige": 144.8,
+    "passLevel": [2, 7, 40]
+  },
+  {
+    "id": 118,
+    "mExp": 145.6,
+    "mGold": 185.6,
+    "mPrestige": 145.6,
+    "passLevel": [2, 8, 5]
+  },
+  {
+    "id": 119,
+    "mExp": 146.4,
+    "mGold": 186.4,
+    "mPrestige": 146.4,
+    "passLevel": [2, 8, 10]
+  },
+  {
+    "id": 120,
+    "mExp": 147.2,
+    "mGold": 187.2,
+    "mPrestige": 147.2,
+    "passLevel": [2, 8, 15]
+  },
+  {
+    "id": 121,
+    "mExp": 148,
+    "mGold": 188,
+    "mPrestige": 148,
+    "passLevel": [2, 8, 20]
+  },
+  {
+    "id": 122,
+    "mExp": 148.8,
+    "mGold": 188.8,
+    "mPrestige": 148.8,
+    "passLevel": [2, 8, 25]
+  },
+  {
+    "id": 123,
+    "mExp": 149.6,
+    "mGold": 189.6,
+    "mPrestige": 149.6,
+    "passLevel": [2, 8, 30]
+  },
+  {
+    "id": 124,
+    "mExp": 150.4,
+    "mGold": 190.4,
+    "mPrestige": 150.4,
+    "passLevel": [2, 8, 35]
+  },
+  {
+    "id": 125,
+    "mExp": 151.2,
+    "mGold": 191.2,
+    "mPrestige": 151.2,
+    "passLevel": [2, 8, 40]
+  },
+  {
+    "id": 126,
+    "mExp": 152,
+    "mGold": 192,
+    "mPrestige": 152,
+    "passLevel": [2, 9, 5]
+  },
+  {
+    "id": 127,
+    "mExp": 152.8,
+    "mGold": 192.8,
+    "mPrestige": 152.8,
+    "passLevel": [2, 9, 10]
+  },
+  {
+    "id": 128,
+    "mExp": 153.6,
+    "mGold": 193.6,
+    "mPrestige": 153.6,
+    "passLevel": [2, 9, 15]
+  },
+  {
+    "id": 129,
+    "mExp": 154.4,
+    "mGold": 194.4,
+    "mPrestige": 154.4,
+    "passLevel": [2, 9, 20]
+  },
+  {
+    "id": 130,
+    "mExp": 155.2,
+    "mGold": 195.2,
+    "mPrestige": 155.2,
+    "passLevel": [2, 9, 25]
+  },
+  {
+    "id": 131,
+    "mExp": 156,
+    "mGold": 196,
+    "mPrestige": 156,
+    "passLevel": [2, 9, 30]
+  },
+  {
+    "id": 132,
+    "mExp": 156.8,
+    "mGold": 196.8,
+    "mPrestige": 156.8,
+    "passLevel": [2, 9, 35]
+  },
+  {
+    "id": 133,
+    "mExp": 157.6,
+    "mGold": 197.6,
+    "mPrestige": 157.6,
+    "passLevel": [2, 9, 40]
+  },
+  {
+    "id": 134,
+    "mExp": 158.4,
+    "mGold": 198.4,
+    "mPrestige": 158.4,
+    "passLevel": [2, 10, 5]
+  },
+  {
+    "id": 135,
+    "mExp": 159.2,
+    "mGold": 199.2,
+    "mPrestige": 159.2,
+    "passLevel": [2, 10, 10]
+  },
+  {
+    "id": 136,
+    "mExp": 160,
+    "mGold": 200,
+    "mPrestige": 160,
+    "passLevel": [2, 10, 15]
+  },
+  {
+    "id": 137,
+    "mExp": 160.8,
+    "mGold": 200.8,
+    "mPrestige": 160.8,
+    "passLevel": [2, 10, 20]
+  },
+  {
+    "id": 138,
+    "mExp": 161.6,
+    "mGold": 201.6,
+    "mPrestige": 161.6,
+    "passLevel": [2, 10, 25]
+  },
+  {
+    "id": 139,
+    "mExp": 162.4,
+    "mGold": 202.4,
+    "mPrestige": 162.4,
+    "passLevel": [2, 10, 30]
+  },
+  {
+    "id": 140,
+    "mExp": 163.2,
+    "mGold": 203.2,
+    "mPrestige": 163.2,
+    "passLevel": [2, 10, 35]
+  },
+  {
+    "id": 141,
+    "mExp": 164,
+    "mGold": 204,
+    "mPrestige": 164,
+    "passLevel": [2, 10, 40]
+  },
+  {
+    "id": 142,
+    "mExp": 164.6,
+    "mGold": 204.6,
+    "mPrestige": 164.6,
+    "passLevel": [3, 1, 5]
+  },
+  {
+    "id": 143,
+    "mExp": 165.2,
+    "mGold": 205.2,
+    "mPrestige": 165.2,
+    "passLevel": [3, 1, 10]
+  },
+  {
+    "id": 144,
+    "mExp": 165.8,
+    "mGold": 205.8,
+    "mPrestige": 165.8,
+    "passLevel": [3, 1, 15]
+  },
+  {
+    "id": 145,
+    "mExp": 166.4,
+    "mGold": 206.4,
+    "mPrestige": 166.4,
+    "passLevel": [3, 1, 20]
+  },
+  {
+    "id": 146,
+    "mExp": 167,
+    "mGold": 207,
+    "mPrestige": 167,
+    "passLevel": [3, 1, 25]
+  },
+  {
+    "id": 147,
+    "mExp": 167.6,
+    "mGold": 207.6,
+    "mPrestige": 167.6,
+    "passLevel": [3, 1, 30]
+  },
+  {
+    "id": 148,
+    "mExp": 168.2,
+    "mGold": 208.2,
+    "mPrestige": 168.2,
+    "passLevel": [3, 1, 35]
+  },
+  {
+    "id": 149,
+    "mExp": 168.8,
+    "mGold": 208.8,
+    "mPrestige": 168.8,
+    "passLevel": [3, 1, 40]
+  },
+  {
+    "id": 150,
+    "mExp": 169.4,
+    "mGold": 209.4,
+    "mPrestige": 169.4,
+    "passLevel": [3, 2, 5]
+  },
+  {
+    "id": 151,
+    "mExp": 170,
+    "mGold": 210,
+    "mPrestige": 170,
+    "passLevel": [3, 2, 10]
+  },
+  {
+    "id": 152,
+    "mExp": 170.6,
+    "mGold": 210.6,
+    "mPrestige": 170.6,
+    "passLevel": [3, 2, 15]
+  },
+  {
+    "id": 153,
+    "mExp": 171.2,
+    "mGold": 211.2,
+    "mPrestige": 171.2,
+    "passLevel": [3, 2, 20]
+  },
+  {
+    "id": 154,
+    "mExp": 171.8,
+    "mGold": 211.8,
+    "mPrestige": 171.8,
+    "passLevel": [3, 2, 25]
+  },
+  {
+    "id": 155,
+    "mExp": 172.4,
+    "mGold": 212.4,
+    "mPrestige": 172.4,
+    "passLevel": [3, 2, 30]
+  },
+  {
+    "id": 156,
+    "mExp": 173,
+    "mGold": 213,
+    "mPrestige": 173,
+    "passLevel": [3, 2, 35]
+  },
+  {
+    "id": 157,
+    "mExp": 173.6,
+    "mGold": 213.6,
+    "mPrestige": 173.6,
+    "passLevel": [3, 2, 40]
+  },
+  {
+    "id": 158,
+    "mExp": 174.2,
+    "mGold": 214.2,
+    "mPrestige": 174.2,
+    "passLevel": [3, 3, 5]
+  },
+  {
+    "id": 159,
+    "mExp": 174.8,
+    "mGold": 214.8,
+    "mPrestige": 174.8,
+    "passLevel": [3, 3, 10]
+  },
+  {
+    "id": 160,
+    "mExp": 175.4,
+    "mGold": 215.4,
+    "mPrestige": 175.4,
+    "passLevel": [3, 3, 15]
+  },
+  {
+    "id": 161,
+    "mExp": 176,
+    "mGold": 216,
+    "mPrestige": 176,
+    "passLevel": [3, 3, 20]
+  },
+  {
+    "id": 162,
+    "mExp": 176.6,
+    "mGold": 216.6,
+    "mPrestige": 176.6,
+    "passLevel": [3, 3, 25]
+  },
+  {
+    "id": 163,
+    "mExp": 177.2,
+    "mGold": 217.2,
+    "mPrestige": 177.2,
+    "passLevel": [3, 3, 30]
+  },
+  {
+    "id": 164,
+    "mExp": 177.8,
+    "mGold": 217.8,
+    "mPrestige": 177.8,
+    "passLevel": [3, 3, 35]
+  },
+  {
+    "id": 165,
+    "mExp": 178.4,
+    "mGold": 218.4,
+    "mPrestige": 178.4,
+    "passLevel": [3, 3, 40]
+  },
+  {
+    "id": 166,
+    "mExp": 179,
+    "mGold": 219,
+    "mPrestige": 179,
+    "passLevel": [3, 4, 5]
+  },
+  {
+    "id": 167,
+    "mExp": 179.6,
+    "mGold": 219.6,
+    "mPrestige": 179.6,
+    "passLevel": [3, 4, 10]
+  },
+  {
+    "id": 168,
+    "mExp": 180.2,
+    "mGold": 220.2,
+    "mPrestige": 180.2,
+    "passLevel": [3, 4, 15]
+  },
+  {
+    "id": 169,
+    "mExp": 180.8,
+    "mGold": 220.8,
+    "mPrestige": 180.8,
+    "passLevel": [3, 4, 20]
+  },
+  {
+    "id": 170,
+    "mExp": 181.4,
+    "mGold": 221.4,
+    "mPrestige": 181.4,
+    "passLevel": [3, 4, 25]
+  },
+  {
+    "id": 171,
+    "mExp": 182,
+    "mGold": 222,
+    "mPrestige": 182,
+    "passLevel": [3, 4, 30]
+  },
+  {
+    "id": 172,
+    "mExp": 182.6,
+    "mGold": 222.6,
+    "mPrestige": 182.6,
+    "passLevel": [3, 4, 35]
+  },
+  {
+    "id": 173,
+    "mExp": 183.2,
+    "mGold": 223.2,
+    "mPrestige": 183.2,
+    "passLevel": [3, 4, 40]
+  },
+  {
+    "id": 174,
+    "mExp": 183.8,
+    "mGold": 223.8,
+    "mPrestige": 183.8,
+    "passLevel": [3, 5, 5]
+  },
+  {
+    "id": 175,
+    "mExp": 184.4,
+    "mGold": 224.4,
+    "mPrestige": 184.4,
+    "passLevel": [3, 5, 10]
+  },
+  {
+    "id": 176,
+    "mExp": 185,
+    "mGold": 225,
+    "mPrestige": 185,
+    "passLevel": [3, 5, 15]
+  },
+  {
+    "id": 177,
+    "mExp": 185.6,
+    "mGold": 225.6,
+    "mPrestige": 185.6,
+    "passLevel": [3, 5, 20]
+  },
+  {
+    "id": 178,
+    "mExp": 186.2,
+    "mGold": 226.2,
+    "mPrestige": 186.2,
+    "passLevel": [3, 5, 25]
+  },
+  {
+    "id": 179,
+    "mExp": 186.8,
+    "mGold": 226.8,
+    "mPrestige": 186.8,
+    "passLevel": [3, 5, 30]
+  },
+  {
+    "id": 180,
+    "mExp": 187.4,
+    "mGold": 227.4,
+    "mPrestige": 187.4,
+    "passLevel": [3, 5, 35]
+  },
+  {
+    "id": 181,
+    "mExp": 188,
+    "mGold": 228,
+    "mPrestige": 188,
+    "passLevel": [3, 5, 40]
+  },
+  {
+    "id": 182,
+    "mExp": 188.6,
+    "mGold": 228.6,
+    "mPrestige": 188.6,
+    "passLevel": [3, 6, 5]
+  },
+  {
+    "id": 183,
+    "mExp": 189.2,
+    "mGold": 229.2,
+    "mPrestige": 189.2,
+    "passLevel": [3, 6, 10]
+  },
+  {
+    "id": 184,
+    "mExp": 189.8,
+    "mGold": 229.8,
+    "mPrestige": 189.8,
+    "passLevel": [3, 6, 15]
+  },
+  {
+    "id": 185,
+    "mExp": 190.4,
+    "mGold": 230.4,
+    "mPrestige": 190.4,
+    "passLevel": [3, 6, 20]
+  },
+  {
+    "id": 186,
+    "mExp": 191,
+    "mGold": 231,
+    "mPrestige": 191,
+    "passLevel": [3, 6, 25]
+  },
+  {
+    "id": 187,
+    "mExp": 191.6,
+    "mGold": 231.6,
+    "mPrestige": 191.6,
+    "passLevel": [3, 6, 30]
+  },
+  {
+    "id": 188,
+    "mExp": 192.2,
+    "mGold": 232.2,
+    "mPrestige": 192.2,
+    "passLevel": [3, 6, 35]
+  },
+  {
+    "id": 189,
+    "mExp": 192.8,
+    "mGold": 232.8,
+    "mPrestige": 192.8,
+    "passLevel": [3, 6, 40]
+  },
+  {
+    "id": 190,
+    "mExp": 193.4,
+    "mGold": 233.4,
+    "mPrestige": 193.4,
+    "passLevel": [3, 7, 5]
+  },
+  {
+    "id": 191,
+    "mExp": 194,
+    "mGold": 234,
+    "mPrestige": 194,
+    "passLevel": [3, 7, 10]
+  },
+  {
+    "id": 192,
+    "mExp": 194.6,
+    "mGold": 234.6,
+    "mPrestige": 194.6,
+    "passLevel": [3, 7, 15]
+  },
+  {
+    "id": 193,
+    "mExp": 195.2,
+    "mGold": 235.2,
+    "mPrestige": 195.2,
+    "passLevel": [3, 7, 20]
+  },
+  {
+    "id": 194,
+    "mExp": 195.8,
+    "mGold": 235.8,
+    "mPrestige": 195.8,
+    "passLevel": [3, 7, 25]
+  },
+  {
+    "id": 195,
+    "mExp": 196.4,
+    "mGold": 236.4,
+    "mPrestige": 196.4,
+    "passLevel": [3, 7, 30]
+  },
+  {
+    "id": 196,
+    "mExp": 197,
+    "mGold": 237,
+    "mPrestige": 197,
+    "passLevel": [3, 7, 35]
+  },
+  {
+    "id": 197,
+    "mExp": 197.6,
+    "mGold": 237.6,
+    "mPrestige": 197.6,
+    "passLevel": [3, 7, 40]
+  },
+  {
+    "id": 198,
+    "mExp": 198.2,
+    "mGold": 238.2,
+    "mPrestige": 198.2,
+    "passLevel": [3, 8, 5]
+  },
+  {
+    "id": 199,
+    "mExp": 198.8,
+    "mGold": 238.8,
+    "mPrestige": 198.8,
+    "passLevel": [3, 8, 10]
+  },
+  {
+    "id": 200,
+    "mExp": 199.4,
+    "mGold": 239.4,
+    "mPrestige": 199.4,
+    "passLevel": [3, 8, 15]
+  },
+  {
+    "id": 201,
+    "mExp": 200,
+    "mGold": 240,
+    "mPrestige": 200,
+    "passLevel": [3, 8, 20]
+  },
+  {
+    "id": 202,
+    "mExp": 200.6,
+    "mGold": 240.6,
+    "mPrestige": 200.6,
+    "passLevel": [3, 8, 25]
+  },
+  {
+    "id": 203,
+    "mExp": 201.2,
+    "mGold": 241.2,
+    "mPrestige": 201.2,
+    "passLevel": [3, 8, 30]
+  },
+  {
+    "id": 204,
+    "mExp": 201.8,
+    "mGold": 241.8,
+    "mPrestige": 201.8,
+    "passLevel": [3, 8, 35]
+  },
+  {
+    "id": 205,
+    "mExp": 202.4,
+    "mGold": 242.4,
+    "mPrestige": 202.4,
+    "passLevel": [3, 8, 40]
+  },
+  {
+    "id": 206,
+    "mExp": 203,
+    "mGold": 243,
+    "mPrestige": 203,
+    "passLevel": [3, 9, 5]
+  },
+  {
+    "id": 207,
+    "mExp": 203.6,
+    "mGold": 243.6,
+    "mPrestige": 203.6,
+    "passLevel": [3, 9, 10]
+  },
+  {
+    "id": 208,
+    "mExp": 204.2,
+    "mGold": 244.2,
+    "mPrestige": 204.2,
+    "passLevel": [3, 9, 15]
+  },
+  {
+    "id": 209,
+    "mExp": 204.8,
+    "mGold": 244.8,
+    "mPrestige": 204.8,
+    "passLevel": [3, 9, 20]
+  },
+  {
+    "id": 210,
+    "mExp": 205.4,
+    "mGold": 245.4,
+    "mPrestige": 205.4,
+    "passLevel": [3, 9, 25]
+  },
+  {
+    "id": 211,
+    "mExp": 206,
+    "mGold": 246,
+    "mPrestige": 206,
+    "passLevel": [3, 9, 30]
+  },
+  {
+    "id": 212,
+    "mExp": 206.6,
+    "mGold": 246.6,
+    "mPrestige": 206.6,
+    "passLevel": [3, 9, 35]
+  },
+  {
+    "id": 213,
+    "mExp": 207.2,
+    "mGold": 247.2,
+    "mPrestige": 207.2,
+    "passLevel": [3, 9, 40]
+  },
+  {
+    "id": 214,
+    "mExp": 207.8,
+    "mGold": 247.8,
+    "mPrestige": 207.8,
+    "passLevel": [3, 10, 5]
+  },
+  {
+    "id": 215,
+    "mExp": 208.4,
+    "mGold": 248.4,
+    "mPrestige": 208.4,
+    "passLevel": [3, 10, 10]
+  },
+  {
+    "id": 216,
+    "mExp": 209,
+    "mGold": 249,
+    "mPrestige": 209,
+    "passLevel": [3, 10, 15]
+  },
+  {
+    "id": 217,
+    "mExp": 209.6,
+    "mGold": 249.6,
+    "mPrestige": 209.6,
+    "passLevel": [3, 10, 20]
+  },
+  {
+    "id": 218,
+    "mExp": 210.2,
+    "mGold": 250.2,
+    "mPrestige": 210.2,
+    "passLevel": [3, 10, 25]
+  },
+  {
+    "id": 219,
+    "mExp": 210.8,
+    "mGold": 250.8,
+    "mPrestige": 210.8,
+    "passLevel": [3, 10, 30]
+  },
+  {
+    "id": 220,
+    "mExp": 211.4,
+    "mGold": 251.4,
+    "mPrestige": 211.4,
+    "passLevel": [3, 10, 35]
+  },
+  {
+    "id": 221,
+    "mExp": 212,
+    "mGold": 252,
+    "mPrestige": 212,
+    "passLevel": [3, 10, 40]
+  },
+  {
+    "id": 222,
+    "mExp": 212.5,
+    "mGold": 252.5,
+    "mPrestige": 212.5,
+    "passLevel": [4, 1, 5]
+  },
+  {
+    "id": 223,
+    "mExp": 213,
+    "mGold": 253,
+    "mPrestige": 213,
+    "passLevel": [4, 1, 10]
+  },
+  {
+    "id": 224,
+    "mExp": 213.5,
+    "mGold": 253.5,
+    "mPrestige": 213.5,
+    "passLevel": [4, 1, 15]
+  },
+  {
+    "id": 225,
+    "mExp": 214,
+    "mGold": 254,
+    "mPrestige": 214,
+    "passLevel": [4, 1, 20]
+  },
+  {
+    "id": 226,
+    "mExp": 214.5,
+    "mGold": 254.5,
+    "mPrestige": 214.5,
+    "passLevel": [4, 1, 25]
+  },
+  {
+    "id": 227,
+    "mExp": 215,
+    "mGold": 255,
+    "mPrestige": 215,
+    "passLevel": [4, 1, 30]
+  },
+  {
+    "id": 228,
+    "mExp": 215.5,
+    "mGold": 255.5,
+    "mPrestige": 215.5,
+    "passLevel": [4, 1, 35]
+  },
+  {
+    "id": 229,
+    "mExp": 216,
+    "mGold": 256,
+    "mPrestige": 216,
+    "passLevel": [4, 1, 40]
+  },
+  {
+    "id": 230,
+    "mExp": 216.5,
+    "mGold": 256.5,
+    "mPrestige": 216.5,
+    "passLevel": [4, 2, 5]
+  },
+  {
+    "id": 231,
+    "mExp": 217,
+    "mGold": 257,
+    "mPrestige": 217,
+    "passLevel": [4, 2, 10]
+  },
+  {
+    "id": 232,
+    "mExp": 217.5,
+    "mGold": 257.5,
+    "mPrestige": 217.5,
+    "passLevel": [4, 2, 15]
+  },
+  {
+    "id": 233,
+    "mExp": 218,
+    "mGold": 258,
+    "mPrestige": 218,
+    "passLevel": [4, 2, 20]
+  },
+  {
+    "id": 234,
+    "mExp": 218.5,
+    "mGold": 258.5,
+    "mPrestige": 218.5,
+    "passLevel": [4, 2, 25]
+  },
+  {
+    "id": 235,
+    "mExp": 219,
+    "mGold": 259,
+    "mPrestige": 219,
+    "passLevel": [4, 2, 30]
+  },
+  {
+    "id": 236,
+    "mExp": 219.5,
+    "mGold": 259.5,
+    "mPrestige": 219.5,
+    "passLevel": [4, 2, 35]
+  },
+  {
+    "id": 237,
+    "mExp": 220,
+    "mGold": 260,
+    "mPrestige": 220,
+    "passLevel": [4, 2, 40]
+  },
+  {
+    "id": 238,
+    "mExp": 220.5,
+    "mGold": 260.5,
+    "mPrestige": 220.5,
+    "passLevel": [4, 3, 5]
+  },
+  {
+    "id": 239,
+    "mExp": 221,
+    "mGold": 261,
+    "mPrestige": 221,
+    "passLevel": [4, 3, 10]
+  },
+  {
+    "id": 240,
+    "mExp": 221.5,
+    "mGold": 261.5,
+    "mPrestige": 221.5,
+    "passLevel": [4, 3, 15]
+  },
+  {
+    "id": 241,
+    "mExp": 222,
+    "mGold": 262,
+    "mPrestige": 222,
+    "passLevel": [4, 3, 20]
+  },
+  {
+    "id": 242,
+    "mExp": 222.5,
+    "mGold": 262.5,
+    "mPrestige": 222.5,
+    "passLevel": [4, 3, 25]
+  },
+  {
+    "id": 243,
+    "mExp": 223,
+    "mGold": 263,
+    "mPrestige": 223,
+    "passLevel": [4, 3, 30]
+  },
+  {
+    "id": 244,
+    "mExp": 223.5,
+    "mGold": 263.5,
+    "mPrestige": 223.5,
+    "passLevel": [4, 3, 35]
+  },
+  {
+    "id": 245,
+    "mExp": 224,
+    "mGold": 264,
+    "mPrestige": 224,
+    "passLevel": [4, 3, 40]
+  },
+  {
+    "id": 246,
+    "mExp": 224.5,
+    "mGold": 264.5,
+    "mPrestige": 224.5,
+    "passLevel": [4, 4, 5]
+  },
+  {
+    "id": 247,
+    "mExp": 225,
+    "mGold": 265,
+    "mPrestige": 225,
+    "passLevel": [4, 4, 10]
+  },
+  {
+    "id": 248,
+    "mExp": 225.5,
+    "mGold": 265.5,
+    "mPrestige": 225.5,
+    "passLevel": [4, 4, 15]
+  },
+  {
+    "id": 249,
+    "mExp": 226,
+    "mGold": 266,
+    "mPrestige": 226,
+    "passLevel": [4, 4, 20]
+  },
+  {
+    "id": 250,
+    "mExp": 226.5,
+    "mGold": 266.5,
+    "mPrestige": 226.5,
+    "passLevel": [4, 4, 25]
+  },
+  {
+    "id": 251,
+    "mExp": 227,
+    "mGold": 267,
+    "mPrestige": 227,
+    "passLevel": [4, 4, 30]
+  },
+  {
+    "id": 252,
+    "mExp": 227.5,
+    "mGold": 267.5,
+    "mPrestige": 227.5,
+    "passLevel": [4, 4, 35]
+  },
+  {
+    "id": 253,
+    "mExp": 228,
+    "mGold": 268,
+    "mPrestige": 228,
+    "passLevel": [4, 4, 40]
+  },
+  {
+    "id": 254,
+    "mExp": 228.5,
+    "mGold": 268.5,
+    "mPrestige": 228.5,
+    "passLevel": [4, 5, 5]
+  },
+  {
+    "id": 255,
+    "mExp": 229,
+    "mGold": 269,
+    "mPrestige": 229,
+    "passLevel": [4, 5, 10]
+  },
+  {
+    "id": 256,
+    "mExp": 229.5,
+    "mGold": 269.5,
+    "mPrestige": 229.5,
+    "passLevel": [4, 5, 15]
+  },
+  {
+    "id": 257,
+    "mExp": 230,
+    "mGold": 270,
+    "mPrestige": 230,
+    "passLevel": [4, 5, 20]
+  },
+  {
+    "id": 258,
+    "mExp": 230.5,
+    "mGold": 270.5,
+    "mPrestige": 230.5,
+    "passLevel": [4, 5, 25]
+  },
+  {
+    "id": 259,
+    "mExp": 231,
+    "mGold": 271,
+    "mPrestige": 231,
+    "passLevel": [4, 5, 30]
+  },
+  {
+    "id": 260,
+    "mExp": 231.5,
+    "mGold": 271.5,
+    "mPrestige": 231.5,
+    "passLevel": [4, 5, 35]
+  },
+  {
+    "id": 261,
+    "mExp": 232,
+    "mGold": 272,
+    "mPrestige": 232,
+    "passLevel": [4, 5, 40]
+  },
+  {
+    "id": 262,
+    "mExp": 232.5,
+    "mGold": 272.5,
+    "mPrestige": 232.5,
+    "passLevel": [4, 6, 5]
+  },
+  {
+    "id": 263,
+    "mExp": 233,
+    "mGold": 273,
+    "mPrestige": 233,
+    "passLevel": [4, 6, 10]
+  },
+  {
+    "id": 264,
+    "mExp": 233.5,
+    "mGold": 273.5,
+    "mPrestige": 233.5,
+    "passLevel": [4, 6, 15]
+  },
+  {
+    "id": 265,
+    "mExp": 234,
+    "mGold": 274,
+    "mPrestige": 234,
+    "passLevel": [4, 6, 20]
+  },
+  {
+    "id": 266,
+    "mExp": 234.5,
+    "mGold": 274.5,
+    "mPrestige": 234.5,
+    "passLevel": [4, 6, 25]
+  },
+  {
+    "id": 267,
+    "mExp": 235,
+    "mGold": 275,
+    "mPrestige": 235,
+    "passLevel": [4, 6, 30]
+  },
+  {
+    "id": 268,
+    "mExp": 235.5,
+    "mGold": 275.5,
+    "mPrestige": 235.5,
+    "passLevel": [4, 6, 35]
+  },
+  {
+    "id": 269,
+    "mExp": 236,
+    "mGold": 276,
+    "mPrestige": 236,
+    "passLevel": [4, 6, 40]
+  },
+  {
+    "id": 270,
+    "mExp": 236.5,
+    "mGold": 276.5,
+    "mPrestige": 236.5,
+    "passLevel": [4, 7, 5]
+  },
+  {
+    "id": 271,
+    "mExp": 237,
+    "mGold": 277,
+    "mPrestige": 237,
+    "passLevel": [4, 7, 10]
+  },
+  {
+    "id": 272,
+    "mExp": 237.5,
+    "mGold": 277.5,
+    "mPrestige": 237.5,
+    "passLevel": [4, 7, 15]
+  },
+  {
+    "id": 273,
+    "mExp": 238,
+    "mGold": 278,
+    "mPrestige": 238,
+    "passLevel": [4, 7, 20]
+  },
+  {
+    "id": 274,
+    "mExp": 238.5,
+    "mGold": 278.5,
+    "mPrestige": 238.5,
+    "passLevel": [4, 7, 25]
+  },
+  {
+    "id": 275,
+    "mExp": 239,
+    "mGold": 279,
+    "mPrestige": 239,
+    "passLevel": [4, 7, 30]
+  },
+  {
+    "id": 276,
+    "mExp": 239.5,
+    "mGold": 279.5,
+    "mPrestige": 239.5,
+    "passLevel": [4, 7, 35]
+  },
+  {
+    "id": 277,
+    "mExp": 240,
+    "mGold": 280,
+    "mPrestige": 240,
+    "passLevel": [4, 7, 40]
+  },
+  {
+    "id": 278,
+    "mExp": 240.5,
+    "mGold": 280.5,
+    "mPrestige": 240.5,
+    "passLevel": [4, 8, 5]
+  },
+  {
+    "id": 279,
+    "mExp": 241,
+    "mGold": 281,
+    "mPrestige": 241,
+    "passLevel": [4, 8, 10]
+  },
+  {
+    "id": 280,
+    "mExp": 241.5,
+    "mGold": 281.5,
+    "mPrestige": 241.5,
+    "passLevel": [4, 8, 15]
+  },
+  {
+    "id": 281,
+    "mExp": 242,
+    "mGold": 282,
+    "mPrestige": 242,
+    "passLevel": [4, 8, 20]
+  },
+  {
+    "id": 282,
+    "mExp": 242.5,
+    "mGold": 282.5,
+    "mPrestige": 242.5,
+    "passLevel": [4, 8, 25]
+  },
+  {
+    "id": 283,
+    "mExp": 243,
+    "mGold": 283,
+    "mPrestige": 243,
+    "passLevel": [4, 8, 30]
+  },
+  {
+    "id": 284,
+    "mExp": 243.5,
+    "mGold": 283.5,
+    "mPrestige": 243.5,
+    "passLevel": [4, 8, 35]
+  },
+  {
+    "id": 285,
+    "mExp": 244,
+    "mGold": 284,
+    "mPrestige": 244,
+    "passLevel": [4, 8, 40]
+  },
+  {
+    "id": 286,
+    "mExp": 244.5,
+    "mGold": 284.5,
+    "mPrestige": 244.5,
+    "passLevel": [4, 9, 5]
+  },
+  {
+    "id": 287,
+    "mExp": 245,
+    "mGold": 285,
+    "mPrestige": 245,
+    "passLevel": [4, 9, 10]
+  },
+  {
+    "id": 288,
+    "mExp": 245.5,
+    "mGold": 285.5,
+    "mPrestige": 245.5,
+    "passLevel": [4, 9, 15]
+  },
+  {
+    "id": 289,
+    "mExp": 246,
+    "mGold": 286,
+    "mPrestige": 246,
+    "passLevel": [4, 9, 20]
+  },
+  {
+    "id": 290,
+    "mExp": 246.5,
+    "mGold": 286.5,
+    "mPrestige": 246.5,
+    "passLevel": [4, 9, 25]
+  },
+  {
+    "id": 291,
+    "mExp": 247,
+    "mGold": 287,
+    "mPrestige": 247,
+    "passLevel": [4, 9, 30]
+  },
+  {
+    "id": 292,
+    "mExp": 247.5,
+    "mGold": 287.5,
+    "mPrestige": 247.5,
+    "passLevel": [4, 9, 35]
+  },
+  {
+    "id": 293,
+    "mExp": 248,
+    "mGold": 288,
+    "mPrestige": 248,
+    "passLevel": [4, 9, 40]
+  },
+  {
+    "id": 294,
+    "mExp": 248.5,
+    "mGold": 288.5,
+    "mPrestige": 248.5,
+    "passLevel": [4, 10, 5]
+  },
+  {
+    "id": 295,
+    "mExp": 249,
+    "mGold": 289,
+    "mPrestige": 249,
+    "passLevel": [4, 10, 10]
+  },
+  {
+    "id": 296,
+    "mExp": 249.5,
+    "mGold": 289.5,
+    "mPrestige": 249.5,
+    "passLevel": [4, 10, 15]
+  },
+  {
+    "id": 297,
+    "mExp": 250,
+    "mGold": 290,
+    "mPrestige": 250,
+    "passLevel": [4, 10, 20]
+  },
+  {
+    "id": 298,
+    "mExp": 250.5,
+    "mGold": 290.5,
+    "mPrestige": 250.5,
+    "passLevel": [4, 10, 25]
+  },
+  {
+    "id": 299,
+    "mExp": 251,
+    "mGold": 291,
+    "mPrestige": 251,
+    "passLevel": [4, 10, 30]
+  },
+  {
+    "id": 300,
+    "mExp": 251.5,
+    "mGold": 291.5,
+    "mPrestige": 251.5,
+    "passLevel": [4, 10, 35]
+  },
+  {
+    "id": 301,
+    "mExp": 252,
+    "mGold": 292,
+    "mPrestige": 252,
+    "passLevel": [4, 10, 40]
+  },
+  {
+    "id": 302,
+    "mExp": 252.4,
+    "mGold": 292.4,
+    "mPrestige": 252.4,
+    "passLevel": [5, 1, 5]
+  },
+  {
+    "id": 303,
+    "mExp": 252.8,
+    "mGold": 292.8,
+    "mPrestige": 252.8,
+    "passLevel": [5, 1, 10]
+  },
+  {
+    "id": 304,
+    "mExp": 253.2,
+    "mGold": 293.2,
+    "mPrestige": 253.2,
+    "passLevel": [5, 1, 15]
+  },
+  {
+    "id": 305,
+    "mExp": 253.6,
+    "mGold": 293.6,
+    "mPrestige": 253.6,
+    "passLevel": [5, 1, 20]
+  },
+  {
+    "id": 306,
+    "mExp": 254,
+    "mGold": 294,
+    "mPrestige": 254,
+    "passLevel": [5, 1, 25]
+  },
+  {
+    "id": 307,
+    "mExp": 254.4,
+    "mGold": 294.4,
+    "mPrestige": 254.4,
+    "passLevel": [5, 1, 30]
+  },
+  {
+    "id": 308,
+    "mExp": 254.8,
+    "mGold": 294.8,
+    "mPrestige": 254.8,
+    "passLevel": [5, 1, 35]
+  },
+  {
+    "id": 309,
+    "mExp": 255.2,
+    "mGold": 295.2,
+    "mPrestige": 255.2,
+    "passLevel": [5, 1, 40]
+  },
+  {
+    "id": 310,
+    "mExp": 255.6,
+    "mGold": 295.6,
+    "mPrestige": 255.6,
+    "passLevel": [5, 2, 5]
+  },
+  {
+    "id": 311,
+    "mExp": 256,
+    "mGold": 296,
+    "mPrestige": 256,
+    "passLevel": [5, 2, 10]
+  },
+  {
+    "id": 312,
+    "mExp": 256.4,
+    "mGold": 296.4,
+    "mPrestige": 256.4,
+    "passLevel": [5, 2, 15]
+  },
+  {
+    "id": 313,
+    "mExp": 256.8,
+    "mGold": 296.8,
+    "mPrestige": 256.8,
+    "passLevel": [5, 2, 20]
+  },
+  {
+    "id": 314,
+    "mExp": 257.2,
+    "mGold": 297.2,
+    "mPrestige": 257.2,
+    "passLevel": [5, 2, 25]
+  },
+  {
+    "id": 315,
+    "mExp": 257.6,
+    "mGold": 297.6,
+    "mPrestige": 257.6,
+    "passLevel": [5, 2, 30]
+  },
+  {
+    "id": 316,
+    "mExp": 258,
+    "mGold": 298,
+    "mPrestige": 258,
+    "passLevel": [5, 2, 35]
+  },
+  {
+    "id": 317,
+    "mExp": 258.4,
+    "mGold": 298.4,
+    "mPrestige": 258.4,
+    "passLevel": [5, 2, 40]
+  },
+  {
+    "id": 318,
+    "mExp": 258.8,
+    "mGold": 298.8,
+    "mPrestige": 258.8,
+    "passLevel": [5, 3, 5]
+  },
+  {
+    "id": 319,
+    "mExp": 259.2,
+    "mGold": 299.2,
+    "mPrestige": 259.2,
+    "passLevel": [5, 3, 10]
+  },
+  {
+    "id": 320,
+    "mExp": 259.6,
+    "mGold": 299.6,
+    "mPrestige": 259.6,
+    "passLevel": [5, 3, 15]
+  },
+  {
+    "id": 321,
+    "mExp": 260,
+    "mGold": 300,
+    "mPrestige": 260,
+    "passLevel": [5, 3, 20]
+  },
+  {
+    "id": 322,
+    "mExp": 260.4,
+    "mGold": 300.4,
+    "mPrestige": 260.4,
+    "passLevel": [5, 3, 25]
+  },
+  {
+    "id": 323,
+    "mExp": 260.8,
+    "mGold": 300.8,
+    "mPrestige": 260.8,
+    "passLevel": [5, 3, 30]
+  },
+  {
+    "id": 324,
+    "mExp": 261.2,
+    "mGold": 301.2,
+    "mPrestige": 261.2,
+    "passLevel": [5, 3, 35]
+  },
+  {
+    "id": 325,
+    "mExp": 261.6,
+    "mGold": 301.6,
+    "mPrestige": 261.6,
+    "passLevel": [5, 3, 40]
+  },
+  {
+    "id": 326,
+    "mExp": 262,
+    "mGold": 302,
+    "mPrestige": 262,
+    "passLevel": [5, 4, 5]
+  },
+  {
+    "id": 327,
+    "mExp": 262.4,
+    "mGold": 302.4,
+    "mPrestige": 262.4,
+    "passLevel": [5, 4, 10]
+  },
+  {
+    "id": 328,
+    "mExp": 262.8,
+    "mGold": 302.8,
+    "mPrestige": 262.8,
+    "passLevel": [5, 4, 15]
+  },
+  {
+    "id": 329,
+    "mExp": 263.2,
+    "mGold": 303.2,
+    "mPrestige": 263.2,
+    "passLevel": [5, 4, 20]
+  },
+  {
+    "id": 330,
+    "mExp": 263.6,
+    "mGold": 303.6,
+    "mPrestige": 263.6,
+    "passLevel": [5, 4, 25]
+  },
+  {
+    "id": 331,
+    "mExp": 264,
+    "mGold": 304,
+    "mPrestige": 264,
+    "passLevel": [5, 4, 30]
+  },
+  {
+    "id": 332,
+    "mExp": 264.4,
+    "mGold": 304.4,
+    "mPrestige": 264.4,
+    "passLevel": [5, 4, 35]
+  },
+  {
+    "id": 333,
+    "mExp": 264.8,
+    "mGold": 304.8,
+    "mPrestige": 264.8,
+    "passLevel": [5, 4, 40]
+  },
+  {
+    "id": 334,
+    "mExp": 265.2,
+    "mGold": 305.2,
+    "mPrestige": 265.2,
+    "passLevel": [5, 5, 5]
+  },
+  {
+    "id": 335,
+    "mExp": 265.6,
+    "mGold": 305.6,
+    "mPrestige": 265.6,
+    "passLevel": [5, 5, 10]
+  },
+  {
+    "id": 336,
+    "mExp": 266,
+    "mGold": 306,
+    "mPrestige": 266,
+    "passLevel": [5, 5, 15]
+  },
+  {
+    "id": 337,
+    "mExp": 266.4,
+    "mGold": 306.4,
+    "mPrestige": 266.4,
+    "passLevel": [5, 5, 20]
+  },
+  {
+    "id": 338,
+    "mExp": 266.8,
+    "mGold": 306.8,
+    "mPrestige": 266.8,
+    "passLevel": [5, 5, 25]
+  },
+  {
+    "id": 339,
+    "mExp": 267.2,
+    "mGold": 307.2,
+    "mPrestige": 267.2,
+    "passLevel": [5, 5, 30]
+  },
+  {
+    "id": 340,
+    "mExp": 267.6,
+    "mGold": 307.6,
+    "mPrestige": 267.6,
+    "passLevel": [5, 5, 35]
+  },
+  {
+    "id": 341,
+    "mExp": 268,
+    "mGold": 308,
+    "mPrestige": 268,
+    "passLevel": [5, 5, 40]
+  },
+  {
+    "id": 342,
+    "mExp": 268.4,
+    "mGold": 308.4,
+    "mPrestige": 268.4,
+    "passLevel": [5, 6, 5]
+  },
+  {
+    "id": 343,
+    "mExp": 268.8,
+    "mGold": 308.8,
+    "mPrestige": 268.8,
+    "passLevel": [5, 6, 10]
+  },
+  {
+    "id": 344,
+    "mExp": 269.2,
+    "mGold": 309.2,
+    "mPrestige": 269.2,
+    "passLevel": [5, 6, 15]
+  },
+  {
+    "id": 345,
+    "mExp": 269.6,
+    "mGold": 309.6,
+    "mPrestige": 269.6,
+    "passLevel": [5, 6, 20]
+  },
+  {
+    "id": 346,
+    "mExp": 270,
+    "mGold": 310,
+    "mPrestige": 270,
+    "passLevel": [5, 6, 25]
+  },
+  {
+    "id": 347,
+    "mExp": 270.4,
+    "mGold": 310.4,
+    "mPrestige": 270.4,
+    "passLevel": [5, 6, 30]
+  },
+  {
+    "id": 348,
+    "mExp": 270.8,
+    "mGold": 310.8,
+    "mPrestige": 270.8,
+    "passLevel": [5, 6, 35]
+  },
+  {
+    "id": 349,
+    "mExp": 271.2,
+    "mGold": 311.2,
+    "mPrestige": 271.2,
+    "passLevel": [5, 6, 40]
+  },
+  {
+    "id": 350,
+    "mExp": 271.6,
+    "mGold": 311.6,
+    "mPrestige": 271.6,
+    "passLevel": [5, 7, 5]
+  },
+  {
+    "id": 351,
+    "mExp": 272,
+    "mGold": 312,
+    "mPrestige": 272,
+    "passLevel": [5, 7, 10]
+  },
+  {
+    "id": 352,
+    "mExp": 272.4,
+    "mGold": 312.4,
+    "mPrestige": 272.4,
+    "passLevel": [5, 7, 15]
+  },
+  {
+    "id": 353,
+    "mExp": 272.8,
+    "mGold": 312.8,
+    "mPrestige": 272.8,
+    "passLevel": [5, 7, 20]
+  },
+  {
+    "id": 354,
+    "mExp": 273.2,
+    "mGold": 313.2,
+    "mPrestige": 273.2,
+    "passLevel": [5, 7, 25]
+  },
+  {
+    "id": 355,
+    "mExp": 273.6,
+    "mGold": 313.6,
+    "mPrestige": 273.6,
+    "passLevel": [5, 7, 30]
+  },
+  {
+    "id": 356,
+    "mExp": 274,
+    "mGold": 314,
+    "mPrestige": 274,
+    "passLevel": [5, 7, 35]
+  },
+  {
+    "id": 357,
+    "mExp": 274.4,
+    "mGold": 314.4,
+    "mPrestige": 274.4,
+    "passLevel": [5, 7, 40]
+  },
+  {
+    "id": 358,
+    "mExp": 274.8,
+    "mGold": 314.8,
+    "mPrestige": 274.8,
+    "passLevel": [5, 8, 5]
+  },
+  {
+    "id": 359,
+    "mExp": 275.2,
+    "mGold": 315.2,
+    "mPrestige": 275.2,
+    "passLevel": [5, 8, 10]
+  },
+  {
+    "id": 360,
+    "mExp": 275.6,
+    "mGold": 315.6,
+    "mPrestige": 275.6,
+    "passLevel": [5, 8, 15]
+  },
+  {
+    "id": 361,
+    "mExp": 276,
+    "mGold": 316,
+    "mPrestige": 276,
+    "passLevel": [5, 8, 20]
+  },
+  {
+    "id": 362,
+    "mExp": 276.4,
+    "mGold": 316.4,
+    "mPrestige": 276.4,
+    "passLevel": [5, 8, 25]
+  },
+  {
+    "id": 363,
+    "mExp": 276.8,
+    "mGold": 316.8,
+    "mPrestige": 276.8,
+    "passLevel": [5, 8, 30]
+  },
+  {
+    "id": 364,
+    "mExp": 277.2,
+    "mGold": 317.2,
+    "mPrestige": 277.2,
+    "passLevel": [5, 8, 35]
+  },
+  {
+    "id": 365,
+    "mExp": 277.6,
+    "mGold": 317.6,
+    "mPrestige": 277.6,
+    "passLevel": [5, 8, 40]
+  },
+  {
+    "id": 366,
+    "mExp": 278,
+    "mGold": 318,
+    "mPrestige": 278,
+    "passLevel": [5, 9, 5]
+  },
+  {
+    "id": 367,
+    "mExp": 278.4,
+    "mGold": 318.4,
+    "mPrestige": 278.4,
+    "passLevel": [5, 9, 10]
+  },
+  {
+    "id": 368,
+    "mExp": 278.8,
+    "mGold": 318.8,
+    "mPrestige": 278.8,
+    "passLevel": [5, 9, 15]
+  },
+  {
+    "id": 369,
+    "mExp": 279.2,
+    "mGold": 319.2,
+    "mPrestige": 279.2,
+    "passLevel": [5, 9, 20]
+  },
+  {
+    "id": 370,
+    "mExp": 279.6,
+    "mGold": 319.6,
+    "mPrestige": 279.6,
+    "passLevel": [5, 9, 25]
+  },
+  {
+    "id": 371,
+    "mExp": 280,
+    "mGold": 320,
+    "mPrestige": 280,
+    "passLevel": [5, 9, 30]
+  },
+  {
+    "id": 372,
+    "mExp": 280.4,
+    "mGold": 320.4,
+    "mPrestige": 280.4,
+    "passLevel": [5, 9, 35]
+  },
+  {
+    "id": 373,
+    "mExp": 280.8,
+    "mGold": 320.8,
+    "mPrestige": 280.8,
+    "passLevel": [5, 9, 40]
+  },
+  {
+    "id": 374,
+    "mExp": 281.2,
+    "mGold": 321.2,
+    "mPrestige": 281.2,
+    "passLevel": [5, 10, 5]
+  },
+  {
+    "id": 375,
+    "mExp": 281.6,
+    "mGold": 321.6,
+    "mPrestige": 281.6,
+    "passLevel": [5, 10, 10]
+  },
+  {
+    "id": 376,
+    "mExp": 282,
+    "mGold": 322,
+    "mPrestige": 282,
+    "passLevel": [5, 10, 15]
+  },
+  {
+    "id": 377,
+    "mExp": 282.4,
+    "mGold": 322.4,
+    "mPrestige": 282.4,
+    "passLevel": [5, 10, 20]
+  },
+  {
+    "id": 378,
+    "mExp": 282.8,
+    "mGold": 322.8,
+    "mPrestige": 282.8,
+    "passLevel": [5, 10, 25]
+  },
+  {
+    "id": 379,
+    "mExp": 283.2,
+    "mGold": 323.2,
+    "mPrestige": 283.2,
+    "passLevel": [5, 10, 30]
+  },
+  {
+    "id": 380,
+    "mExp": 283.6,
+    "mGold": 323.6,
+    "mPrestige": 283.6,
+    "passLevel": [5, 10, 35]
+  },
+  {
+    "id": 381,
+    "mExp": 284,
+    "mGold": 324,
+    "mPrestige": 284,
+    "passLevel": [5, 10, 40]
+  },
+  {
+    "id": 382,
+    "mExp": 284.3,
+    "mGold": 324.3,
+    "mPrestige": 284.3,
+    "passLevel": [6, 1, 5]
+  },
+  {
+    "id": 383,
+    "mExp": 284.6,
+    "mGold": 324.6,
+    "mPrestige": 284.6,
+    "passLevel": [6, 1, 10]
+  },
+  {
+    "id": 384,
+    "mExp": 284.9,
+    "mGold": 324.9,
+    "mPrestige": 284.9,
+    "passLevel": [6, 1, 15]
+  },
+  {
+    "id": 385,
+    "mExp": 285.2,
+    "mGold": 325.2,
+    "mPrestige": 285.2,
+    "passLevel": [6, 1, 20]
+  },
+  {
+    "id": 386,
+    "mExp": 285.5,
+    "mGold": 325.5,
+    "mPrestige": 285.5,
+    "passLevel": [6, 1, 25]
+  },
+  {
+    "id": 387,
+    "mExp": 285.8,
+    "mGold": 325.8,
+    "mPrestige": 285.8,
+    "passLevel": [6, 1, 30]
+  },
+  {
+    "id": 388,
+    "mExp": 286.1,
+    "mGold": 326.1,
+    "mPrestige": 286.1,
+    "passLevel": [6, 1, 35]
+  },
+  {
+    "id": 389,
+    "mExp": 286.4,
+    "mGold": 326.4,
+    "mPrestige": 286.4,
+    "passLevel": [6, 1, 40]
+  },
+  {
+    "id": 390,
+    "mExp": 286.7,
+    "mGold": 326.7,
+    "mPrestige": 286.7,
+    "passLevel": [6, 2, 5]
+  },
+  {
+    "id": 391,
+    "mExp": 287,
+    "mGold": 327,
+    "mPrestige": 287,
+    "passLevel": [6, 2, 10]
+  },
+  {
+    "id": 392,
+    "mExp": 287.3,
+    "mGold": 327.3,
+    "mPrestige": 287.3,
+    "passLevel": [6, 2, 15]
+  },
+  {
+    "id": 393,
+    "mExp": 287.6,
+    "mGold": 327.6,
+    "mPrestige": 287.6,
+    "passLevel": [6, 2, 20]
+  },
+  {
+    "id": 394,
+    "mExp": 287.9,
+    "mGold": 327.9,
+    "mPrestige": 287.9,
+    "passLevel": [6, 2, 25]
+  },
+  {
+    "id": 395,
+    "mExp": 288.2,
+    "mGold": 328.2,
+    "mPrestige": 288.2,
+    "passLevel": [6, 2, 30]
+  },
+  {
+    "id": 396,
+    "mExp": 288.5,
+    "mGold": 328.5,
+    "mPrestige": 288.5,
+    "passLevel": [6, 2, 35]
+  },
+  {
+    "id": 397,
+    "mExp": 288.8,
+    "mGold": 328.8,
+    "mPrestige": 288.8,
+    "passLevel": [6, 2, 40]
+  },
+  {
+    "id": 398,
+    "mExp": 289.1,
+    "mGold": 329.1,
+    "mPrestige": 289.1,
+    "passLevel": [6, 3, 5]
+  },
+  {
+    "id": 399,
+    "mExp": 289.4,
+    "mGold": 329.4,
+    "mPrestige": 289.4,
+    "passLevel": [6, 3, 10]
+  },
+  {
+    "id": 400,
+    "mExp": 289.7,
+    "mGold": 329.7,
+    "mPrestige": 289.7,
+    "passLevel": [6, 3, 15]
+  },
+  {
+    "id": 401,
+    "mExp": 290,
+    "mGold": 330,
+    "mPrestige": 290,
+    "passLevel": [6, 3, 20]
+  },
+  {
+    "id": 402,
+    "mExp": 290.3,
+    "mGold": 330.3,
+    "mPrestige": 290.3,
+    "passLevel": [6, 3, 25]
+  },
+  {
+    "id": 403,
+    "mExp": 290.6,
+    "mGold": 330.6,
+    "mPrestige": 290.6,
+    "passLevel": [6, 3, 30]
+  },
+  {
+    "id": 404,
+    "mExp": 290.9,
+    "mGold": 330.9,
+    "mPrestige": 290.9,
+    "passLevel": [6, 3, 35]
+  },
+  {
+    "id": 405,
+    "mExp": 291.2,
+    "mGold": 331.2,
+    "mPrestige": 291.2,
+    "passLevel": [6, 3, 40]
+  },
+  {
+    "id": 406,
+    "mExp": 291.5,
+    "mGold": 331.5,
+    "mPrestige": 291.5,
+    "passLevel": [6, 4, 5]
+  },
+  {
+    "id": 407,
+    "mExp": 291.8,
+    "mGold": 331.8,
+    "mPrestige": 291.8,
+    "passLevel": [6, 4, 10]
+  },
+  {
+    "id": 408,
+    "mExp": 292.1,
+    "mGold": 332.1,
+    "mPrestige": 292.1,
+    "passLevel": [6, 4, 15]
+  },
+  {
+    "id": 409,
+    "mExp": 292.4,
+    "mGold": 332.4,
+    "mPrestige": 292.4,
+    "passLevel": [6, 4, 20]
+  },
+  {
+    "id": 410,
+    "mExp": 292.7,
+    "mGold": 332.7,
+    "mPrestige": 292.7,
+    "passLevel": [6, 4, 25]
+  },
+  {
+    "id": 411,
+    "mExp": 293,
+    "mGold": 333,
+    "mPrestige": 293,
+    "passLevel": [6, 4, 30]
+  },
+  {
+    "id": 412,
+    "mExp": 293.3,
+    "mGold": 333.3,
+    "mPrestige": 293.3,
+    "passLevel": [6, 4, 35]
+  },
+  {
+    "id": 413,
+    "mExp": 293.6,
+    "mGold": 333.6,
+    "mPrestige": 293.6,
+    "passLevel": [6, 4, 40]
+  },
+  {
+    "id": 414,
+    "mExp": 293.9,
+    "mGold": 333.9,
+    "mPrestige": 293.9,
+    "passLevel": [6, 5, 5]
+  },
+  {
+    "id": 415,
+    "mExp": 294.2,
+    "mGold": 334.2,
+    "mPrestige": 294.2,
+    "passLevel": [6, 5, 10]
+  },
+  {
+    "id": 416,
+    "mExp": 294.5,
+    "mGold": 334.5,
+    "mPrestige": 294.5,
+    "passLevel": [6, 5, 15]
+  },
+  {
+    "id": 417,
+    "mExp": 294.8,
+    "mGold": 334.8,
+    "mPrestige": 294.8,
+    "passLevel": [6, 5, 20]
+  },
+  {
+    "id": 418,
+    "mExp": 295.1,
+    "mGold": 335.1,
+    "mPrestige": 295.1,
+    "passLevel": [6, 5, 25]
+  },
+  {
+    "id": 419,
+    "mExp": 295.4,
+    "mGold": 335.4,
+    "mPrestige": 295.4,
+    "passLevel": [6, 5, 30]
+  },
+  {
+    "id": 420,
+    "mExp": 295.7,
+    "mGold": 335.7,
+    "mPrestige": 295.7,
+    "passLevel": [6, 5, 35]
+  },
+  {
+    "id": 421,
+    "mExp": 296,
+    "mGold": 336,
+    "mPrestige": 296,
+    "passLevel": [6, 5, 40]
+  },
+  {
+    "id": 422,
+    "mExp": 296.3,
+    "mGold": 336.3,
+    "mPrestige": 296.3,
+    "passLevel": [6, 6, 5]
+  },
+  {
+    "id": 423,
+    "mExp": 296.6,
+    "mGold": 336.6,
+    "mPrestige": 296.6,
+    "passLevel": [6, 6, 10]
+  },
+  {
+    "id": 424,
+    "mExp": 296.9,
+    "mGold": 336.9,
+    "mPrestige": 296.9,
+    "passLevel": [6, 6, 15]
+  },
+  {
+    "id": 425,
+    "mExp": 297.200000000001,
+    "mGold": 337.200000000001,
+    "mPrestige": 297.200000000001,
+    "passLevel": [6, 6, 20]
+  },
+  {
+    "id": 426,
+    "mExp": 297.500000000001,
+    "mGold": 337.500000000001,
+    "mPrestige": 297.500000000001,
+    "passLevel": [6, 6, 25]
+  },
+  {
+    "id": 427,
+    "mExp": 297.800000000001,
+    "mGold": 337.800000000001,
+    "mPrestige": 297.800000000001,
+    "passLevel": [6, 6, 30]
+  },
+  {
+    "id": 428,
+    "mExp": 298.100000000001,
+    "mGold": 338.100000000001,
+    "mPrestige": 298.100000000001,
+    "passLevel": [6, 6, 35]
+  },
+  {
+    "id": 429,
+    "mExp": 298.400000000001,
+    "mGold": 338.400000000001,
+    "mPrestige": 298.400000000001,
+    "passLevel": [6, 6, 40]
+  },
+  {
+    "id": 430,
+    "mExp": 298.700000000001,
+    "mGold": 338.700000000001,
+    "mPrestige": 298.700000000001,
+    "passLevel": [6, 7, 5]
+  },
+  {
+    "id": 431,
+    "mExp": 299.000000000001,
+    "mGold": 339.000000000001,
+    "mPrestige": 299.000000000001,
+    "passLevel": [6, 7, 10]
+  },
+  {
+    "id": 432,
+    "mExp": 299.300000000001,
+    "mGold": 339.300000000001,
+    "mPrestige": 299.300000000001,
+    "passLevel": [6, 7, 15]
+  },
+  {
+    "id": 433,
+    "mExp": 299.600000000001,
+    "mGold": 339.600000000001,
+    "mPrestige": 299.600000000001,
+    "passLevel": [6, 7, 20]
+  },
+  {
+    "id": 434,
+    "mExp": 299.900000000001,
+    "mGold": 339.900000000001,
+    "mPrestige": 299.900000000001,
+    "passLevel": [6, 7, 25]
+  },
+  {
+    "id": 435,
+    "mExp": 300.200000000001,
+    "mGold": 340.200000000001,
+    "mPrestige": 300.200000000001,
+    "passLevel": [6, 7, 30]
+  },
+  {
+    "id": 436,
+    "mExp": 300.500000000001,
+    "mGold": 340.500000000001,
+    "mPrestige": 300.500000000001,
+    "passLevel": [6, 7, 35]
+  },
+  {
+    "id": 437,
+    "mExp": 300.800000000001,
+    "mGold": 340.800000000001,
+    "mPrestige": 300.800000000001,
+    "passLevel": [6, 7, 40]
+  },
+  {
+    "id": 438,
+    "mExp": 301.100000000001,
+    "mGold": 341.100000000001,
+    "mPrestige": 301.100000000001,
+    "passLevel": [6, 8, 5]
+  },
+  {
+    "id": 439,
+    "mExp": 301.400000000001,
+    "mGold": 341.400000000001,
+    "mPrestige": 301.400000000001,
+    "passLevel": [6, 8, 10]
+  },
+  {
+    "id": 440,
+    "mExp": 301.700000000001,
+    "mGold": 341.700000000001,
+    "mPrestige": 301.700000000001,
+    "passLevel": [6, 8, 15]
+  },
+  {
+    "id": 441,
+    "mExp": 302.000000000001,
+    "mGold": 342.000000000001,
+    "mPrestige": 302.000000000001,
+    "passLevel": [6, 8, 20]
+  },
+  {
+    "id": 442,
+    "mExp": 302.300000000001,
+    "mGold": 342.300000000001,
+    "mPrestige": 302.300000000001,
+    "passLevel": [6, 8, 25]
+  },
+  {
+    "id": 443,
+    "mExp": 302.600000000001,
+    "mGold": 342.600000000001,
+    "mPrestige": 302.600000000001,
+    "passLevel": [6, 8, 30]
+  },
+  {
+    "id": 444,
+    "mExp": 302.900000000001,
+    "mGold": 342.900000000001,
+    "mPrestige": 302.900000000001,
+    "passLevel": [6, 8, 35]
+  },
+  {
+    "id": 445,
+    "mExp": 303.200000000001,
+    "mGold": 343.200000000001,
+    "mPrestige": 303.200000000001,
+    "passLevel": [6, 8, 40]
+  },
+  {
+    "id": 446,
+    "mExp": 303.500000000001,
+    "mGold": 343.500000000001,
+    "mPrestige": 303.500000000001,
+    "passLevel": [6, 9, 5]
+  },
+  {
+    "id": 447,
+    "mExp": 303.800000000001,
+    "mGold": 343.800000000001,
+    "mPrestige": 303.800000000001,
+    "passLevel": [6, 9, 10]
+  },
+  {
+    "id": 448,
+    "mExp": 304.100000000001,
+    "mGold": 344.100000000001,
+    "mPrestige": 304.100000000001,
+    "passLevel": [6, 9, 15]
+  },
+  {
+    "id": 449,
+    "mExp": 304.400000000001,
+    "mGold": 344.400000000001,
+    "mPrestige": 304.400000000001,
+    "passLevel": [6, 9, 20]
+  },
+  {
+    "id": 450,
+    "mExp": 304.700000000001,
+    "mGold": 344.700000000001,
+    "mPrestige": 304.700000000001,
+    "passLevel": [6, 9, 25]
+  },
+  {
+    "id": 451,
+    "mExp": 305.000000000001,
+    "mGold": 345.000000000001,
+    "mPrestige": 305.000000000001,
+    "passLevel": [6, 9, 30]
+  },
+  {
+    "id": 452,
+    "mExp": 305.300000000001,
+    "mGold": 345.300000000001,
+    "mPrestige": 305.300000000001,
+    "passLevel": [6, 9, 35]
+  },
+  {
+    "id": 453,
+    "mExp": 305.600000000001,
+    "mGold": 345.600000000001,
+    "mPrestige": 305.600000000001,
+    "passLevel": [6, 9, 40]
+  },
+  {
+    "id": 454,
+    "mExp": 305.900000000001,
+    "mGold": 345.900000000001,
+    "mPrestige": 305.900000000001,
+    "passLevel": [6, 10, 5]
+  },
+  {
+    "id": 455,
+    "mExp": 306.200000000001,
+    "mGold": 346.200000000001,
+    "mPrestige": 306.200000000001,
+    "passLevel": [6, 10, 10]
+  },
+  {
+    "id": 456,
+    "mExp": 306.500000000001,
+    "mGold": 346.500000000001,
+    "mPrestige": 306.500000000001,
+    "passLevel": [6, 10, 15]
+  },
+  {
+    "id": 457,
+    "mExp": 306.800000000001,
+    "mGold": 346.800000000001,
+    "mPrestige": 306.800000000001,
+    "passLevel": [6, 10, 20]
+  },
+  {
+    "id": 458,
+    "mExp": 307.100000000001,
+    "mGold": 347.100000000001,
+    "mPrestige": 307.100000000001,
+    "passLevel": [6, 10, 25]
+  },
+  {
+    "id": 459,
+    "mExp": 307.400000000001,
+    "mGold": 347.400000000001,
+    "mPrestige": 307.400000000001,
+    "passLevel": [6, 10, 30]
+  },
+  {
+    "id": 460,
+    "mExp": 307.700000000001,
+    "mGold": 347.700000000001,
+    "mPrestige": 307.700000000001,
+    "passLevel": [6, 10, 35]
+  },
+  {
+    "id": 461,
+    "mExp": 308.000000000001,
+    "mGold": 348.000000000001,
+    "mPrestige": 308.000000000001,
+    "passLevel": [6, 10, 40]
+  },
+  {
+    "id": 462,
+    "mExp": 308.2,
+    "mGold": 348.2,
+    "mPrestige": 308.2,
+    "passLevel": [7, 1, 5]
+  },
+  {
+    "id": 463,
+    "mExp": 308.4,
+    "mGold": 348.4,
+    "mPrestige": 308.4,
+    "passLevel": [7, 1, 10]
+  },
+  {
+    "id": 464,
+    "mExp": 308.6,
+    "mGold": 348.6,
+    "mPrestige": 308.6,
+    "passLevel": [7, 1, 15]
+  },
+  {
+    "id": 465,
+    "mExp": 308.8,
+    "mGold": 348.8,
+    "mPrestige": 308.8,
+    "passLevel": [7, 1, 20]
+  },
+  {
+    "id": 466,
+    "mExp": 309,
+    "mGold": 349,
+    "mPrestige": 309,
+    "passLevel": [7, 1, 25]
+  },
+  {
+    "id": 467,
+    "mExp": 309.2,
+    "mGold": 349.2,
+    "mPrestige": 309.2,
+    "passLevel": [7, 1, 30]
+  },
+  {
+    "id": 468,
+    "mExp": 309.4,
+    "mGold": 349.4,
+    "mPrestige": 309.4,
+    "passLevel": [7, 1, 35]
+  },
+  {
+    "id": 469,
+    "mExp": 309.6,
+    "mGold": 349.6,
+    "mPrestige": 309.6,
+    "passLevel": [7, 1, 40]
+  },
+  {
+    "id": 470,
+    "mExp": 309.8,
+    "mGold": 349.8,
+    "mPrestige": 309.8,
+    "passLevel": [7, 2, 5]
+  },
+  {
+    "id": 471,
+    "mExp": 310,
+    "mGold": 350,
+    "mPrestige": 310,
+    "passLevel": [7, 2, 10]
+  },
+  {
+    "id": 472,
+    "mExp": 310.2,
+    "mGold": 350.2,
+    "mPrestige": 310.2,
+    "passLevel": [7, 2, 15]
+  },
+  {
+    "id": 473,
+    "mExp": 310.4,
+    "mGold": 350.4,
+    "mPrestige": 310.4,
+    "passLevel": [7, 2, 20]
+  },
+  {
+    "id": 474,
+    "mExp": 310.6,
+    "mGold": 350.6,
+    "mPrestige": 310.6,
+    "passLevel": [7, 2, 25]
+  },
+  {
+    "id": 475,
+    "mExp": 310.8,
+    "mGold": 350.8,
+    "mPrestige": 310.8,
+    "passLevel": [7, 2, 30]
+  },
+  {
+    "id": 476,
+    "mExp": 311,
+    "mGold": 351,
+    "mPrestige": 311,
+    "passLevel": [7, 2, 35]
+  },
+  {
+    "id": 477,
+    "mExp": 311.2,
+    "mGold": 351.2,
+    "mPrestige": 311.2,
+    "passLevel": [7, 2, 40]
+  },
+  {
+    "id": 478,
+    "mExp": 311.4,
+    "mGold": 351.4,
+    "mPrestige": 311.4,
+    "passLevel": [7, 3, 5]
+  },
+  {
+    "id": 479,
+    "mExp": 311.6,
+    "mGold": 351.6,
+    "mPrestige": 311.6,
+    "passLevel": [7, 3, 10]
+  },
+  {
+    "id": 480,
+    "mExp": 311.8,
+    "mGold": 351.8,
+    "mPrestige": 311.8,
+    "passLevel": [7, 3, 15]
+  },
+  {
+    "id": 481,
+    "mExp": 312,
+    "mGold": 352,
+    "mPrestige": 312,
+    "passLevel": [7, 3, 20]
+  },
+  {
+    "id": 482,
+    "mExp": 312.2,
+    "mGold": 352.2,
+    "mPrestige": 312.2,
+    "passLevel": [7, 3, 25]
+  },
+  {
+    "id": 483,
+    "mExp": 312.4,
+    "mGold": 352.4,
+    "mPrestige": 312.4,
+    "passLevel": [7, 3, 30]
+  },
+  {
+    "id": 484,
+    "mExp": 312.6,
+    "mGold": 352.6,
+    "mPrestige": 312.6,
+    "passLevel": [7, 3, 35]
+  },
+  {
+    "id": 485,
+    "mExp": 312.8,
+    "mGold": 352.8,
+    "mPrestige": 312.8,
+    "passLevel": [7, 3, 40]
+  },
+  {
+    "id": 486,
+    "mExp": 313,
+    "mGold": 353,
+    "mPrestige": 313,
+    "passLevel": [7, 4, 5]
+  },
+  {
+    "id": 487,
+    "mExp": 313.2,
+    "mGold": 353.2,
+    "mPrestige": 313.2,
+    "passLevel": [7, 4, 10]
+  },
+  {
+    "id": 488,
+    "mExp": 313.4,
+    "mGold": 353.4,
+    "mPrestige": 313.4,
+    "passLevel": [7, 4, 15]
+  },
+  {
+    "id": 489,
+    "mExp": 313.6,
+    "mGold": 353.6,
+    "mPrestige": 313.6,
+    "passLevel": [7, 4, 20]
+  },
+  {
+    "id": 490,
+    "mExp": 313.8,
+    "mGold": 353.8,
+    "mPrestige": 313.8,
+    "passLevel": [7, 4, 25]
+  },
+  {
+    "id": 491,
+    "mExp": 314,
+    "mGold": 354,
+    "mPrestige": 314,
+    "passLevel": [7, 4, 30]
+  },
+  {
+    "id": 492,
+    "mExp": 314.2,
+    "mGold": 354.2,
+    "mPrestige": 314.2,
+    "passLevel": [7, 4, 35]
+  },
+  {
+    "id": 493,
+    "mExp": 314.4,
+    "mGold": 354.4,
+    "mPrestige": 314.4,
+    "passLevel": [7, 4, 40]
+  },
+  {
+    "id": 494,
+    "mExp": 314.6,
+    "mGold": 354.6,
+    "mPrestige": 314.6,
+    "passLevel": [7, 5, 5]
+  },
+  {
+    "id": 495,
+    "mExp": 314.8,
+    "mGold": 354.8,
+    "mPrestige": 314.8,
+    "passLevel": [7, 5, 10]
+  },
+  {
+    "id": 496,
+    "mExp": 315,
+    "mGold": 355,
+    "mPrestige": 315,
+    "passLevel": [7, 5, 15]
+  },
+  {
+    "id": 497,
+    "mExp": 315.2,
+    "mGold": 355.2,
+    "mPrestige": 315.2,
+    "passLevel": [7, 5, 20]
+  },
+  {
+    "id": 498,
+    "mExp": 315.4,
+    "mGold": 355.4,
+    "mPrestige": 315.4,
+    "passLevel": [7, 5, 25]
+  },
+  {
+    "id": 499,
+    "mExp": 315.6,
+    "mGold": 355.6,
+    "mPrestige": 315.6,
+    "passLevel": [7, 5, 30]
+  },
+  {
+    "id": 500,
+    "mExp": 315.8,
+    "mGold": 355.8,
+    "mPrestige": 315.8,
+    "passLevel": [7, 5, 35]
+  },
+  {
+    "id": 501,
+    "mExp": 316,
+    "mGold": 356,
+    "mPrestige": 316,
+    "passLevel": [7, 5, 40]
+  },
+  {
+    "id": 502,
+    "mExp": 316.2,
+    "mGold": 356.2,
+    "mPrestige": 316.2,
+    "passLevel": [7, 6, 5]
+  },
+  {
+    "id": 503,
+    "mExp": 316.4,
+    "mGold": 356.4,
+    "mPrestige": 316.4,
+    "passLevel": [7, 6, 10]
+  },
+  {
+    "id": 504,
+    "mExp": 316.6,
+    "mGold": 356.6,
+    "mPrestige": 316.6,
+    "passLevel": [7, 6, 15]
+  },
+  {
+    "id": 505,
+    "mExp": 316.8,
+    "mGold": 356.8,
+    "mPrestige": 316.8,
+    "passLevel": [7, 6, 20]
+  },
+  {
+    "id": 506,
+    "mExp": 317,
+    "mGold": 357,
+    "mPrestige": 317,
+    "passLevel": [7, 6, 25]
+  },
+  {
+    "id": 507,
+    "mExp": 317.2,
+    "mGold": 357.2,
+    "mPrestige": 317.2,
+    "passLevel": [7, 6, 30]
+  },
+  {
+    "id": 508,
+    "mExp": 317.4,
+    "mGold": 357.4,
+    "mPrestige": 317.4,
+    "passLevel": [7, 6, 35]
+  },
+  {
+    "id": 509,
+    "mExp": 317.6,
+    "mGold": 357.6,
+    "mPrestige": 317.6,
+    "passLevel": [7, 6, 40]
+  },
+  {
+    "id": 510,
+    "mExp": 317.8,
+    "mGold": 357.8,
+    "mPrestige": 317.8,
+    "passLevel": [7, 7, 5]
+  },
+  {
+    "id": 511,
+    "mExp": 318,
+    "mGold": 358,
+    "mPrestige": 318,
+    "passLevel": [7, 7, 10]
+  },
+  {
+    "id": 512,
+    "mExp": 318.2,
+    "mGold": 358.2,
+    "mPrestige": 318.2,
+    "passLevel": [7, 7, 15]
+  },
+  {
+    "id": 513,
+    "mExp": 318.4,
+    "mGold": 358.4,
+    "mPrestige": 318.4,
+    "passLevel": [7, 7, 20]
+  },
+  {
+    "id": 514,
+    "mExp": 318.6,
+    "mGold": 358.6,
+    "mPrestige": 318.6,
+    "passLevel": [7, 7, 25]
+  },
+  {
+    "id": 515,
+    "mExp": 318.8,
+    "mGold": 358.8,
+    "mPrestige": 318.8,
+    "passLevel": [7, 7, 30]
+  },
+  {
+    "id": 516,
+    "mExp": 319,
+    "mGold": 359,
+    "mPrestige": 319,
+    "passLevel": [7, 7, 35]
+  },
+  {
+    "id": 517,
+    "mExp": 319.2,
+    "mGold": 359.2,
+    "mPrestige": 319.2,
+    "passLevel": [7, 7, 40]
+  },
+  {
+    "id": 518,
+    "mExp": 319.4,
+    "mGold": 359.4,
+    "mPrestige": 319.4,
+    "passLevel": [7, 8, 5]
+  },
+  {
+    "id": 519,
+    "mExp": 319.6,
+    "mGold": 359.6,
+    "mPrestige": 319.6,
+    "passLevel": [7, 8, 10]
+  },
+  {
+    "id": 520,
+    "mExp": 319.8,
+    "mGold": 359.8,
+    "mPrestige": 319.8,
+    "passLevel": [7, 8, 15]
+  },
+  {
+    "id": 521,
+    "mExp": 320,
+    "mGold": 360,
+    "mPrestige": 320,
+    "passLevel": [7, 8, 20]
+  },
+  {
+    "id": 522,
+    "mExp": 320.2,
+    "mGold": 360.2,
+    "mPrestige": 320.2,
+    "passLevel": [7, 8, 25]
+  },
+  {
+    "id": 523,
+    "mExp": 320.4,
+    "mGold": 360.4,
+    "mPrestige": 320.4,
+    "passLevel": [7, 8, 30]
+  },
+  {
+    "id": 524,
+    "mExp": 320.6,
+    "mGold": 360.6,
+    "mPrestige": 320.6,
+    "passLevel": [7, 8, 35]
+  },
+  {
+    "id": 525,
+    "mExp": 320.8,
+    "mGold": 360.8,
+    "mPrestige": 320.8,
+    "passLevel": [7, 8, 40]
+  },
+  {
+    "id": 526,
+    "mExp": 321,
+    "mGold": 361,
+    "mPrestige": 321,
+    "passLevel": [7, 9, 5]
+  },
+  {
+    "id": 527,
+    "mExp": 321.2,
+    "mGold": 361.2,
+    "mPrestige": 321.2,
+    "passLevel": [7, 9, 10]
+  },
+  {
+    "id": 528,
+    "mExp": 321.4,
+    "mGold": 361.4,
+    "mPrestige": 321.4,
+    "passLevel": [7, 9, 15]
+  },
+  {
+    "id": 529,
+    "mExp": 321.6,
+    "mGold": 361.6,
+    "mPrestige": 321.6,
+    "passLevel": [7, 9, 20]
+  },
+  {
+    "id": 530,
+    "mExp": 321.8,
+    "mGold": 361.8,
+    "mPrestige": 321.8,
+    "passLevel": [7, 9, 25]
+  },
+  {
+    "id": 531,
+    "mExp": 322,
+    "mGold": 362,
+    "mPrestige": 322,
+    "passLevel": [7, 9, 30]
+  },
+  {
+    "id": 532,
+    "mExp": 322.2,
+    "mGold": 362.2,
+    "mPrestige": 322.2,
+    "passLevel": [7, 9, 35]
+  },
+  {
+    "id": 533,
+    "mExp": 322.4,
+    "mGold": 362.4,
+    "mPrestige": 322.4,
+    "passLevel": [7, 9, 40]
+  },
+  {
+    "id": 534,
+    "mExp": 322.6,
+    "mGold": 362.6,
+    "mPrestige": 322.6,
+    "passLevel": [7, 10, 5]
+  },
+  {
+    "id": 535,
+    "mExp": 322.8,
+    "mGold": 362.8,
+    "mPrestige": 322.8,
+    "passLevel": [7, 10, 10]
+  },
+  {
+    "id": 536,
+    "mExp": 323,
+    "mGold": 363,
+    "mPrestige": 323,
+    "passLevel": [7, 10, 15]
+  },
+  {
+    "id": 537,
+    "mExp": 323.2,
+    "mGold": 363.2,
+    "mPrestige": 323.2,
+    "passLevel": [7, 10, 20]
+  },
+  {
+    "id": 538,
+    "mExp": 323.4,
+    "mGold": 363.4,
+    "mPrestige": 323.4,
+    "passLevel": [7, 10, 25]
+  },
+  {
+    "id": 539,
+    "mExp": 323.6,
+    "mGold": 363.6,
+    "mPrestige": 323.6,
+    "passLevel": [7, 10, 30]
+  },
+  {
+    "id": 540,
+    "mExp": 323.8,
+    "mGold": 363.8,
+    "mPrestige": 323.8,
+    "passLevel": [7, 10, 35]
+  },
+  {
+    "id": 541,
+    "mExp": 324,
+    "mGold": 364,
+    "mPrestige": 324,
+    "passLevel": [7, 10, 40]
+  }
+]

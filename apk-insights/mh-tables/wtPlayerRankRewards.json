@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "ranking": [1],
+    "rewardNum": [2, 30, 50000, 20000],
+    "rewardType": ["randomHal03", "fourColorStone", "holyLight", "pointGvgCoin"]
+  },
+  {
+    "id": 2,
+    "ranking": [2],
+    "rewardNum": [1, 25, 40000, 16000],
+    "rewardType": ["randomHal03", "fourColorStone", "holyLight", "pointGvgCoin"]
+  },
+  {
+    "id": 3,
+    "ranking": [3],
+    "rewardNum": [1, 20, 30000, 13000],
+    "rewardType": ["randomHal03", "fourColorStone", "holyLight", "pointGvgCoin"]
+  },
+  {
+    "id": 4,
+    "ranking": [4, 5],
+    "rewardNum": [45, 15, 25000, 10000],
+    "rewardType": [
+      "randomHallow03",
+      "fourColorStone",
+      "holyLight",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 5,
+    "ranking": [6, 10],
+    "rewardNum": [35, 12, 20000, 8000],
+    "rewardType": [
+      "randomHallow03",
+      "fourColorStone",
+      "holyLight",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 6,
+    "ranking": [11, 20],
+    "rewardNum": [25, 10, 15000, 6000],
+    "rewardType": [
+      "randomHallow03",
+      "fourColorStone",
+      "holyLight",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 7,
+    "ranking": [21, 50],
+    "rewardNum": [15, 8, 12000, 4000],
+    "rewardType": [
+      "randomHallow03",
+      "fourColorStone",
+      "holyLight",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 8,
+    "ranking": [51, 100],
+    "rewardNum": [5, 5, 10000, 3000],
+    "rewardType": [
+      "randomHallow03",
+      "fourColorStone",
+      "holyLight",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 9,
+    "ranking": [101, 200],
+    "rewardNum": [3, 2, 5000, 2000],
+    "rewardType": [
+      "randomHallow03",
+      "fourColorStone",
+      "holyLight",
+      "pointGvgCoin"
+    ]
+  },
+  {
+    "id": 10,
+    "ranking": [201, 9999],
+    "rewardNum": [1, 3000, 1000],
+    "rewardType": ["fourColorStone", "holyLight", "pointGvgCoin"]
+  }
+]

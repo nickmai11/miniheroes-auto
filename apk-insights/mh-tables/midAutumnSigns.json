@@ -1,0 +1,140 @@
+[
+  {
+    "buyCondition": 2,
+    "day": 1,
+    "id": 1,
+    "limitNum": 1,
+    "productIdentifying": "",
+    "rewardNum": [3],
+    "rewardType": ["festiveLantern"]
+  },
+  {
+    "buyCondition": 2,
+    "day": 2,
+    "id": 2,
+    "limitNum": 1,
+    "productIdentifying": "",
+    "rewardNum": [3],
+    "rewardType": ["rabbit"]
+  },
+  {
+    "buyCondition": 2,
+    "day": 3,
+    "id": 3,
+    "limitNum": 1,
+    "productIdentifying": "",
+    "rewardNum": [3],
+    "rewardType": ["moonCake"]
+  },
+  {
+    "buyCondition": 2,
+    "day": 4,
+    "id": 4,
+    "limitNum": 1,
+    "productIdentifying": "",
+    "rewardNum": [188],
+    "rewardType": ["diamond"]
+  },
+  {
+    "buyCondition": 2,
+    "day": 5,
+    "id": 5,
+    "limitNum": 1,
+    "productIdentifying": "",
+    "rewardNum": [3],
+    "rewardType": ["riceWine"]
+  },
+  {
+    "buyCondition": 2,
+    "day": 6,
+    "id": 6,
+    "limitNum": 1,
+    "productIdentifying": "",
+    "rewardNum": [3],
+    "rewardType": ["fragrans"]
+  },
+  {
+    "buyCondition": 2,
+    "day": 7,
+    "id": 7,
+    "limitNum": 1,
+    "productIdentifying": "",
+    "rewardNum": [1],
+    "rewardType": ["midAutumnOptionalBox"]
+  },
+  {
+    "buyCondition": 1,
+    "day": 1,
+    "id": 8,
+    "limitNum": 1,
+    "productIdentifying": "hwPay22021",
+    "rewardNum": [680, 30, 2000, 8, 680],
+    "rewardType": [
+      "diamond",
+      "shareDebris3",
+      "elfStone",
+      "midAutumnOptionalBox",
+      "noblePoints"
+    ]
+  },
+  {
+    "buyCondition": 1,
+    "day": 2,
+    "id": 9,
+    "limitNum": 1,
+    "productIdentifying": "hwPay22022",
+    "rewardNum": [1280, 15, 30, 16, 1280],
+    "rewardType": [
+      "diamond",
+      "divineStone",
+      "artFragment",
+      "midAutumnOptionalBox",
+      "noblePoints"
+    ]
+  },
+  {
+    "buyCondition": 1,
+    "day": 3,
+    "id": 10,
+    "limitNum": 1,
+    "productIdentifying": "hwPay22023",
+    "rewardNum": [680, 1, 350, 8, 680],
+    "rewardType": [
+      "diamond",
+      "strongPotion",
+      "equipEssenceRandom",
+      "midAutumnOptionalBox",
+      "noblePoints"
+    ]
+  },
+  {
+    "buyCondition": 1,
+    "day": 4,
+    "id": 11,
+    "limitNum": 1,
+    "productIdentifying": "hwPay22024",
+    "rewardNum": [1280, 15, 30, 16, 1280],
+    "rewardType": [
+      "diamond",
+      "soulStone3",
+      "artFragment",
+      "midAutumnOptionalBox",
+      "noblePoints"
+    ]
+  },
+  {
+    "buyCondition": 1,
+    "day": 5,
+    "id": 12,
+    "limitNum": 1,
+    "productIdentifying": "hwPay22025",
+    "rewardNum": [1980, 1, 10, 25, 1980],
+    "rewardType": [
+      "diamond",
+      "gemRandom_06",
+      "medal2",
+      "midAutumnOptionalBox",
+      "noblePoints"
+    ]
+  }
+]

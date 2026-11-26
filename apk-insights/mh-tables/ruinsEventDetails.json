@@ -1,0 +1,527 @@
+[
+  {
+    "eventDes": "",
+    "eventID": 1001,
+    "eventIcon": "",
+    "eventParam1": [],
+    "eventParam2": [],
+    "eventParam3": [],
+    "eventType": 1,
+    "id": 1
+  },
+  {
+    "eventDes": "",
+    "eventID": 2001,
+    "eventIcon": "icon_daoju4",
+    "eventParam1": ["relicCoin"],
+    "eventParam2": [20],
+    "eventParam3": [],
+    "eventType": 2,
+    "id": 2
+  },
+  {
+    "eventDes": "",
+    "eventID": 2002,
+    "eventIcon": "icon_daoju4",
+    "eventParam1": ["relicCoin"],
+    "eventParam2": [30],
+    "eventParam3": [],
+    "eventType": 2,
+    "id": 3
+  },
+  {
+    "eventDes": "",
+    "eventID": 2003,
+    "eventIcon": "icon_daoju4",
+    "eventParam1": ["relicCoin"],
+    "eventParam2": [50],
+    "eventParam3": [],
+    "eventType": 2,
+    "id": 4
+  },
+  {
+    "eventDes": "",
+    "eventID": 2004,
+    "eventIcon": "icon_daoju4",
+    "eventParam1": ["relicCoin"],
+    "eventParam2": [100],
+    "eventParam3": [],
+    "eventType": 2,
+    "id": 5
+  },
+  {
+    "eventDes": "",
+    "eventID": 2005,
+    "eventIcon": "icon_daoju4",
+    "eventParam1": ["relicCoin"],
+    "eventParam2": [150],
+    "eventParam3": [],
+    "eventType": 2,
+    "id": 6
+  },
+  {
+    "eventDes": "",
+    "eventID": 2006,
+    "eventIcon": "icon_daoju2",
+    "eventParam1": ["gold"],
+    "eventParam2": [10000],
+    "eventParam3": [],
+    "eventType": 2,
+    "id": 7
+  },
+  {
+    "eventDes": "",
+    "eventID": 2007,
+    "eventIcon": "icon_daoju14",
+    "eventParam1": ["diamond"],
+    "eventParam2": [20],
+    "eventParam3": [],
+    "eventType": 2,
+    "id": 8
+  },
+  {
+    "eventDes": "",
+    "eventID": 3001,
+    "eventIcon": "skinFettersBox",
+    "eventParam1": ["skinFettersBox"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 3,
+    "id": 9
+  },
+  {
+    "eventDes": "",
+    "eventID": 3002,
+    "eventIcon": "skinBox_10002",
+    "eventParam1": ["skinBox_10002"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 3,
+    "id": 10
+  },
+  {
+    "eventDes": "",
+    "eventID": 3003,
+    "eventIcon": "skinBox_10002",
+    "eventParam1": ["skinBox_10002"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 3,
+    "id": 11
+  },
+  {
+    "eventDes": "",
+    "eventID": 3004,
+    "eventIcon": "skinBox_10003",
+    "eventParam1": ["skinBox_10003"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 3,
+    "id": 12
+  },
+  {
+    "eventDes": "",
+    "eventID": 3005,
+    "eventIcon": "skinBox_10004",
+    "eventParam1": ["skinBox_10004"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 3,
+    "id": 13
+  },
+  {
+    "eventDes": "",
+    "eventID": 3006,
+    "eventIcon": "skinBox_10002",
+    "eventParam1": ["skinBox_10002"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 3,
+    "id": 14
+  },
+  {
+    "eventDes": "",
+    "eventID": 3007,
+    "eventIcon": "skinBox_10003",
+    "eventParam1": ["skinBox_10003"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 3,
+    "id": 15
+  },
+  {
+    "eventDes": "",
+    "eventID": 3008,
+    "eventIcon": "skinBox_10007",
+    "eventParam1": ["skinBox_10007"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 3,
+    "id": 16
+  },
+  {
+    "eventDes": "",
+    "eventID": 3009,
+    "eventIcon": "skinBox_10007",
+    "eventParam1": ["skinBox_10007"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 3,
+    "id": 17
+  },
+  {
+    "eventDes": "",
+    "eventID": 3010,
+    "eventIcon": "skinBox_10004",
+    "eventParam1": ["skinBox_10004"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 3,
+    "id": 18
+  },
+  {
+    "eventDes": "",
+    "eventID": 3011,
+    "eventIcon": "skinBox_10010",
+    "eventParam1": ["skinBox_10010"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 3,
+    "id": 19
+  },
+  {
+    "eventDes": "",
+    "eventID": 3012,
+    "eventIcon": "skinBox_10010",
+    "eventParam1": ["skinBox_10010"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 3,
+    "id": 20
+  },
+  {
+    "eventDes": "",
+    "eventID": 3013,
+    "eventIcon": "skinBox_10010",
+    "eventParam1": ["skinBox_10010"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 3,
+    "id": 21
+  },
+  {
+    "eventDes": "",
+    "eventID": 4001,
+    "eventIcon": "icon_daoju5",
+    "eventParam1": ["relicF_9998"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 4,
+    "id": 22
+  },
+  {
+    "eventDes": "",
+    "eventID": 5000,
+    "eventIcon": "icon_daoju13",
+    "eventParam1": ["relicTaskItem"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 5,
+    "id": 23
+  },
+  {
+    "eventDes": "",
+    "eventID": 5001,
+    "eventIcon": "icon_daoju6",
+    "eventParam1": ["eliminate"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 5,
+    "id": 24
+  },
+  {
+    "eventDes": "",
+    "eventID": 5002,
+    "eventIcon": "icon_daoju7",
+    "eventParam1": ["cleanup"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 5,
+    "id": 25
+  },
+  {
+    "eventDes": "",
+    "eventID": 6000,
+    "eventIcon": "707",
+    "eventParam1": ["99"],
+    "eventParam2": [],
+    "eventParam3": [],
+    "eventType": 6,
+    "id": 26
+  },
+  {
+    "eventDes": "",
+    "eventID": 6001,
+    "eventIcon": "705",
+    "eventParam1": [],
+    "eventParam2": [],
+    "eventParam3": [],
+    "eventType": 6,
+    "id": 27
+  },
+  {
+    "eventDes": "",
+    "eventID": 7001,
+    "eventIcon": "icon_daoju10",
+    "eventParam1": [],
+    "eventParam2": [],
+    "eventParam3": [],
+    "eventType": 7,
+    "id": 28
+  },
+  {
+    "eventDes": "",
+    "eventID": 8001,
+    "eventIcon": "icon_daoju9",
+    "eventParam1": ["relicStep"],
+    "eventParam2": [1],
+    "eventParam3": [],
+    "eventType": 8,
+    "id": 29
+  },
+  {
+    "eventDes": "",
+    "eventID": 8002,
+    "eventIcon": "icon_daoju9",
+    "eventParam1": ["relicStep"],
+    "eventParam2": [2],
+    "eventParam3": [],
+    "eventType": 8,
+    "id": 30
+  },
+  {
+    "eventDes": "",
+    "eventID": 9001,
+    "eventIcon": "icon_daoju8_1",
+    "eventParam1": ["1"],
+    "eventParam2": [101],
+    "eventParam3": [1],
+    "eventType": 9,
+    "id": 31
+  },
+  {
+    "eventDes": "",
+    "eventID": 9002,
+    "eventIcon": "icon_daoju8_1",
+    "eventParam1": ["1"],
+    "eventParam2": [102],
+    "eventParam3": [1],
+    "eventType": 9,
+    "id": 32
+  },
+  {
+    "eventDes": "",
+    "eventID": 9003,
+    "eventIcon": "icon_daoju8_1",
+    "eventParam1": ["1"],
+    "eventParam2": [103],
+    "eventParam3": [1],
+    "eventType": 9,
+    "id": 33
+  },
+  {
+    "eventDes": "SKIN_RELIC_WORDS_025",
+    "eventID": 9004,
+    "eventIcon": "icon_daoju8_1",
+    "eventParam1": ["2"],
+    "eventParam2": [101],
+    "eventParam3": [2],
+    "eventType": 9,
+    "id": 34
+  },
+  {
+    "eventDes": "SKIN_RELIC_WORDS_025",
+    "eventID": 9005,
+    "eventIcon": "icon_daoju8_1",
+    "eventParam1": ["2"],
+    "eventParam2": [102],
+    "eventParam3": [2],
+    "eventType": 9,
+    "id": 35
+  },
+  {
+    "eventDes": "SKIN_RELIC_WORDS_024",
+    "eventID": 10001,
+    "eventIcon": "401",
+    "eventParam1": ["1"],
+    "eventParam2": [5000],
+    "eventParam3": [],
+    "eventType": 10,
+    "id": 36
+  },
+  {
+    "eventDes": "SKIN_RELIC_WORDS_102",
+    "eventID": 10002,
+    "eventIcon": "409",
+    "eventParam1": ["2"],
+    "eventParam2": [6000],
+    "eventParam3": [],
+    "eventType": 10,
+    "id": 37
+  },
+  {
+    "eventDes": "",
+    "eventID": 11001,
+    "eventIcon": "icon_daoju11_0",
+    "eventParam1": [],
+    "eventParam2": [],
+    "eventParam3": [],
+    "eventType": 11,
+    "id": 38
+  },
+  {
+    "eventDes": "",
+    "eventID": 12001,
+    "eventIcon": "icon_daoju1",
+    "eventParam1": ["randomSkinFettersBox", "relicCoin", "gold"],
+    "eventParam2": [1, 300, 30000],
+    "eventParam3": [],
+    "eventType": 12,
+    "id": 39
+  },
+  {
+    "eventDes": "",
+    "eventID": 12002,
+    "eventIcon": "icon_daoju1",
+    "eventParam1": ["randomSkinFettersBox", "relicCoin", "gold"],
+    "eventParam2": [1, 500, 30000],
+    "eventParam3": [],
+    "eventType": 12,
+    "id": 40
+  },
+  {
+    "eventDes": "",
+    "eventID": 12003,
+    "eventIcon": "icon_daoju1",
+    "eventParam1": ["randomSkinFettersBox", "relicCoin", "gold"],
+    "eventParam2": [2, 800, 30000],
+    "eventParam3": [],
+    "eventType": 12,
+    "id": 41
+  },
+  {
+    "eventDes": "",
+    "eventID": 12004,
+    "eventIcon": "icon_daoju1",
+    "eventParam1": ["skinBox_10003", "relicCoin", "gold"],
+    "eventParam2": [1, 800, 30000],
+    "eventParam3": [],
+    "eventType": 12,
+    "id": 42
+  },
+  {
+    "eventDes": "",
+    "eventID": 12005,
+    "eventIcon": "icon_daoju1",
+    "eventParam1": ["skinBox_10007", "relicCoin", "gold"],
+    "eventParam2": [1, 800, 30000],
+    "eventParam3": [],
+    "eventType": 12,
+    "id": 43
+  },
+  {
+    "eventDes": "",
+    "eventID": 12006,
+    "eventIcon": "icon_daoju1",
+    "eventParam1": ["skinBox_10002", "relicCoin", "gold"],
+    "eventParam2": [1, 800, 30000],
+    "eventParam3": [],
+    "eventType": 12,
+    "id": 44
+  },
+  {
+    "eventDes": "",
+    "eventID": 12007,
+    "eventIcon": "icon_daoju1",
+    "eventParam1": ["skinBox_10010", "relicCoin", "gold"],
+    "eventParam2": [1, 800, 30000],
+    "eventParam3": [],
+    "eventType": 12,
+    "id": 45
+  },
+  {
+    "eventDes": "",
+    "eventID": 12008,
+    "eventIcon": "icon_daoju1",
+    "eventParam1": ["skinBox_10010", "relicCoin", "gold"],
+    "eventParam2": [1, 800, 30000],
+    "eventParam3": [],
+    "eventType": 12,
+    "id": 46
+  },
+  {
+    "eventDes": "",
+    "eventID": 12009,
+    "eventIcon": "icon_daoju1",
+    "eventParam1": ["skinBox_10004", "relicCoin", "gold"],
+    "eventParam2": [1, 800, 30000],
+    "eventParam3": [],
+    "eventType": 12,
+    "id": 47
+  },
+  {
+    "eventDes": "",
+    "eventID": 12010,
+    "eventIcon": "icon_daoju1",
+    "eventParam1": ["randomSkinFettersBox", "relicCoin", "gold"],
+    "eventParam2": [1, 1000, 30000],
+    "eventParam3": [],
+    "eventType": 12,
+    "id": 48
+  },
+  {
+    "eventDes": "",
+    "eventID": 12011,
+    "eventIcon": "icon_daoju1",
+    "eventParam1": [
+      "skinFettersBox",
+      "randomSkinFettersBox",
+      "relicCoin",
+      "gold"
+    ],
+    "eventParam2": [2, 2, 600, 30000],
+    "eventParam3": [],
+    "eventType": 12,
+    "id": 49
+  },
+  {
+    "eventDes": "",
+    "eventID": 12012,
+    "eventIcon": "icon_daoju1",
+    "eventParam1": ["randomSkinFettersBox", "relicCoin", "gold"],
+    "eventParam2": [1, 300, 30000],
+    "eventParam3": [],
+    "eventType": 12,
+    "id": 50
+  },
+  {
+    "eventDes": "",
+    "eventID": 13001,
+    "eventIcon": "icon_daoju11_0",
+    "eventParam1": [],
+    "eventParam2": [],
+    "eventParam3": [],
+    "eventType": 13,
+    "id": 51
+  },
+  {
+    "eventDes": "",
+    "eventID": 14001,
+    "eventIcon": "icon_daoju12_0",
+    "eventParam1": [],
+    "eventParam2": [],
+    "eventParam3": [],
+    "eventType": 14,
+    "id": 52
+  }
+]

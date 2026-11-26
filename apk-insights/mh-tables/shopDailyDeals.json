@@ -1,0 +1,167 @@
+[
+  {
+    "buyNum": 1,
+    "canSee": 1,
+    "discount": 0,
+    "giftBagName": "SC_TH_MS_1",
+    "id": 1,
+    "productIdentifying": "pay1001",
+    "rewardNum": [10, 1000],
+    "rewardType": ["diamond", "gold"],
+    "unlockLevel": 1
+  },
+  {
+    "buyNum": 1,
+    "canSee": 1,
+    "discount": 14.5,
+    "giftBagName": "SC_TH_MS_6",
+    "id": 2,
+    "productIdentifying": "pay1006",
+    "rewardNum": [300, 25000, 200000, 300],
+    "rewardType": ["diamond", "holyLight", "gold", "noblePoints"],
+    "unlockLevel": 90
+  },
+  {
+    "buyNum": 1,
+    "canSee": 1,
+    "discount": 12,
+    "giftBagName": "SC_TH_MS_7",
+    "id": 3,
+    "productIdentifying": "pay1007",
+    "rewardNum": [880, 35000, 3, 880],
+    "rewardType": ["diamond", "holyLight", "crystalLight", "noblePoints"],
+    "unlockLevel": 90
+  },
+  {
+    "buyNum": 1,
+    "canSee": 1,
+    "discount": 11,
+    "giftBagName": "SC_TH_MS_5",
+    "id": 4,
+    "productIdentifying": "pay1005",
+    "rewardNum": [120, 60, 5, 120],
+    "rewardType": ["diamond", "bread", "refresh", "noblePoints"],
+    "unlockLevel": 65
+  },
+  {
+    "buyNum": 1,
+    "canSee": 1,
+    "discount": 11,
+    "giftBagName": "SC_TH_MS_13",
+    "id": 5,
+    "productIdentifying": "pay1013",
+    "rewardNum": [880, 10000, 80, 880],
+    "rewardType": ["diamond", "forgeCoin", "energyFuel", "noblePoints"],
+    "unlockLevel": 140
+  },
+  {
+    "buyNum": 1,
+    "canSee": 1,
+    "discount": 11,
+    "giftBagName": "SC_TH_MS_19",
+    "id": 6,
+    "productIdentifying": "pay1017",
+    "rewardNum": [1980, 1, 5, 1980],
+    "rewardType": ["diamond", "randomHal03", "broachNew", "noblePoints"],
+    "unlockLevel": 150
+  },
+  {
+    "buyNum": 1,
+    "canSee": 1,
+    "discount": 11,
+    "giftBagName": "SC_TH_MS_11",
+    "id": 7,
+    "productIdentifying": "pay1011",
+    "rewardNum": [180, 30, 5, 180],
+    "rewardType": ["diamond", "relicStep", "skinFettersBox", "noblePoints"],
+    "unlockLevel": 75
+  },
+  {
+    "buyNum": 1,
+    "canSee": 1,
+    "discount": 11,
+    "giftBagName": "SC_TH_MS_18",
+    "id": 8,
+    "productIdentifying": "pay1016",
+    "rewardNum": [1280, 5, 5, 1280],
+    "rewardType": ["diamond", "gemSpirit", "gemRandom_04", "noblePoints"],
+    "unlockLevel": 130
+  },
+  {
+    "buyNum": 1,
+    "canSee": 1,
+    "discount": 11,
+    "giftBagName": "SC_TH_MS_12",
+    "id": 9,
+    "productIdentifying": "pay1012",
+    "rewardNum": [880, 10000, 5, 880],
+    "rewardType": ["diamond", "elfStone", "elfSkill1", "noblePoints"],
+    "unlockLevel": 100
+  },
+  {
+    "buyNum": 1,
+    "canSee": 1,
+    "discount": 11,
+    "giftBagName": "SC_TH_MS_8",
+    "id": 10,
+    "productIdentifying": "pay1008",
+    "rewardNum": [300, 40000, 25, 300],
+    "rewardType": ["diamond", "blindBoxCoin", "randomMemf3", "noblePoints"],
+    "unlockLevel": 120
+  },
+  {
+    "buyNum": 1,
+    "canSee": 1,
+    "discount": 13,
+    "giftBagName": "SC_TH_MS_10",
+    "id": 11,
+    "productIdentifying": "pay1010",
+    "rewardNum": [300, 40, 1, 300],
+    "rewardType": ["diamond", "medal1", "zb_box2", "noblePoints"],
+    "unlockLevel": 1
+  },
+  {
+    "buyNum": 1,
+    "canSee": 1,
+    "discount": 11,
+    "giftBagName": "SC_TH_MS_9",
+    "id": 12,
+    "productIdentifying": "pay1009",
+    "rewardNum": [1980, 50, 20, 1980],
+    "rewardType": ["diamond", "fourColorStone", "shareDebris3", "noblePoints"],
+    "unlockLevel": 130
+  },
+  {
+    "buyNum": 2,
+    "canSee": 1,
+    "discount": 11,
+    "giftBagName": "SC_TH_MS_14",
+    "id": 13,
+    "productIdentifying": "pay1014",
+    "rewardNum": [180, 50, 3, 180],
+    "rewardType": ["diamond", "pickax", "broach", "noblePoints"],
+    "unlockLevel": 140
+  },
+  {
+    "buyNum": 1,
+    "canSee": 1,
+    "discount": 11,
+    "giftBagName": "SC_TH_MS_15",
+    "id": 14,
+    "productIdentifying": "pay1015",
+    "rewardNum": [300, 50, 1500, 300],
+    "rewardType": ["diamond", "bagExtendTool", "forgeCoin", "noblePoints"],
+    "unlockLevel": 140
+  },
+  {
+    "buyNum": 2,
+    "canSee": 1,
+    "discount": 11,
+    "giftBagName": "SC_TH_MS_20",
+    "id": 15,
+    "productIdentifying": "pay1018",
+    "rewardNum": [180, 50, 3, 180],
+    "rewardType": ["diamond", "shove", "explosiveNew", "noblePoints"],
+    "unlockLevel": 150
+  }
+]

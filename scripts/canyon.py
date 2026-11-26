@@ -64,7 +64,7 @@ def plate(im, cx, cy):
     """Name plate above the CP label centred (cx, cy): 'blue' = tribemate, 'green' = this account, None = neither
     (Kratos map 2026-11-24: blue 58,125,195 - 39,84,132 in the shaded bottom rows - green 0,150,16)."""
     px = [im.getpixel((x, y))[:3] for y in range(cy - 84, cy - 27, 6) for x in range(max(cx - 72, 0), min(cx + 73, im.width), 8)]
-    blue = sum(1 for r, g, b in px if b - r > 50 and b > g)
+    blue = sum(1 for r, g, b in px if b - r > 50 and b > g and g - r > 25)   # g > r: a Sentinel's slate plate (64,64,144) read as blue (Tiger 2026-11-25)
     green = sum(1 for r, g, b in px if g - r > 80 and g - b > 80)
     return 'green' if green * 5 > len(px) else 'blue' if blue * 5 > len(px) else None
 
@@ -72,7 +72,8 @@ def plate(im, cx, cy):
 def foes(im, boxes):
     """(x, y) of the platforms held by neither a tribemate nor this account: a CP label ('2960k') under a plate that is
     not blue / green. y ~ the platform (136 px above its CP label)."""
-    cps = [(x + w // 2, y + h // 2) for x, y, w, h, t in boxes if y > 330 and re.search(r'\d{3,5}k$', t.strip(), re.I)]
+    cps = [(x + w // 2, y + h // 2) for x, y, w, h, t in boxes if y > 330
+           and re.search(r'\d{3,5}k$|^\D{0,2}\d{5,6}$', t.strip(), re.I)]   # players '3180k'; Sentinels '57918' (Tiger 2026-11-25: unseen -> took a Silver under Gold Sentinels)
     return [(cx, cy - 136) for cx, cy in cps if plate(im, cx, cy) is None]
 
 
@@ -113,34 +114,50 @@ def run(account):
     cfg = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'accounts', account + '.yaml')).read()
     wait(r'Attempts', 10)
     highest = bool(re.search(r'canyon_clash:\s*highest\b', cfg))
-    pts, left = read_points(), season_left(datetime.datetime.now().astimezone())
-    enough = not highest and purple_enough(pts, left)   # highest accounts keep the highest rule (Nick 2026-11-25)
-    print(f'points {pts}, {left} min to season end -> {"purple enough" if enough else "highest: purple rule off" if highest else "purple not enough"}'
-          + (f' ({pts + projected(left)} at {PURPLE_RATE}/m, 22 h a day)' if pts is not None else ''), flush=True)
+    left, enough = season_left(datetime.datetime.now().astimezone()), None
+
+    def purple():
+        """Purple enough? Never on a highest account (Nick 2026-11-25). The Rewards panel is opened for it only when the
+        answer is used - Fri-Sun colours, the no-empty-spot message: a weekday Occupy needs no panel visit before
+        daily.py's claim one (Nick 2026-11-26: nothing opened twice for nothing)."""
+        nonlocal enough
+        if enough is None and not highest:
+            pts = read_points(); enough = purple_enough(pts, left)
+            print(f'points {pts}, {left} min to season end -> purple {"" if enough else "not "}enough'
+                  + (f' ({pts + projected(left)} at {PURPLE_RATE}/m, 22 h a day)' if pts is not None else ''), flush=True)
+        return bool(enough)
+
     # highest: the topmost spot that isn't a tribemate's - empty, Sentinel or player (Nick 2026-11-19). The script takes
     # the topmost EMPTY one (Nick 2026-11-24: plates are blue or green, skip them); anything else above it = helper attacks.
     # ponytail: empty Kings / Glory discs aren't detected (colours never seen) - add them to `colours` once one shows.
     weekend = datetime.datetime.now().weekday() >= 4   # Fri-Sun (Nick 2026-11-08: top spot from Friday, not Saturday)
-    for _ in range(6): swipe(540, 600, 540, 1500, 300)                # to the top of the map
-    time.sleep(1)
-    colours = [GOLD, PURPLE] if (weekend and not enough) or highest else [PURPLE]
-    purple_screens = 0
-    for screen in range(12):
-        im = settled(); boxes = ocr(im); im.resize((270, 480)).save(f'canyon{screen}.png')   # per-screen record (2026-10-29)
-        print(f'screen {screen}: purple discs {len(empties(im, [], PURPLE))}, empty {len(empties(im, boxes, PURPLE))}'
-              + ('' if any('Attempts' in b[4] for b in boxes) else ', NOT ON THE MAP'), flush=True)
-        spots = [(x, y, colour) for colour in colours for x, y in empties(im, boxes, colour)]
-        if highest:
-            spots.sort(key=lambda s: s[1])                # top-down; a foe in the first empty one's row doesn't count
-            above = [f for f in foes(im, boxes) if not spots or f[1] < spots[0][1] - 150]
-            if above: print(f'highest: non-tribemate spot at {above[0]} above the first empty one (screen {screen}) -> helper attacks'); return 2
-        for x, y, colour in spots:
-            if try_occupy(x, y):
-                print(f'occupied empty {"purple" if colour == PURPLE else "gold"} platform (screen {screen})'); return 0
-        if empties(im, [], PURPLE) or any('Silver' in b[4] for b in boxes if b[1] > 330): purple_screens += 1  # not the header
-        if purple_screens >= 2: break                 # only the top silver rows (~10 spots)
-        swipe(540, 1500, 540, 700, 600); time.sleep(1.5)
-    print('no empty platform found' + (' (purple enough)' if enough else '')); return 2
+    colours = [GOLD, PURPLE] if highest or (weekend and not purple()) else [PURPLE]
+    for scan in range(2):
+        for _ in range(6): swipe(540, 600, 540, 1500, 300)                # to the top of the map
+        time.sleep(1)
+        purple_screens = seen = 0
+        for screen in range(12):
+            im = settled(); boxes = ocr(im); im.resize((270, 480)).save(f'canyon{screen}.png')   # per-screen record (2026-10-29)
+            print(f'screen {screen}: purple discs {len(empties(im, [], PURPLE))}, empty {len(empties(im, boxes, PURPLE))}'
+                  + ('' if any('Attempts' in b[4] for b in boxes) else ', NOT ON THE MAP'), flush=True)
+            spots = [(x, y, colour) for colour in colours for x, y in empties(im, boxes, colour)]
+            if highest:
+                spots.sort(key=lambda s: s[1])                # top-down; a foe in the first empty one's row doesn't count
+                above = [f for f in foes(im, boxes) if not spots or f[1] < spots[0][1] - 150]
+                if above: print(f'highest: non-tribemate spot at {above[0]} above the first empty one (screen {screen}) -> helper attacks'); return 2
+            for x, y, colour in spots:
+                seen += 1
+                if try_occupy(x, y):
+                    print(f'occupied empty {"purple" if colour == PURPLE else "gold"} platform (screen {screen})'); return 0
+            if empties(im, [], PURPLE) or any('Silver' in b[4] for b in boxes if b[1] > 330): purple_screens += 1  # not the header
+            if purple_screens >= 2: break                 # only the top silver rows (~10 spots)
+            swipe(540, 1500, 540, 700, 600); time.sleep(1.5)
+        # empties seen, none taken: our accounts scan the same map at once and the first ones there take them (Gambler,
+        # Kong, Dminor 2026-11-26: 9 seen, 0 taken; the re-run minutes later took one of the spots the others had left)
+        # -> one more scan in this visit, not MANUAL + a re-run = Canyon closed and reopened (Nick 2026-11-26)
+        if scan or not seen: break
+        print(f'{seen} empty platforms seen, none could be taken (taken first by others) -> scanning once more', flush=True)
+    print('no empty platform found' + (' (purple enough)' if purple() else '')); return 2
 
 
 if __name__ == '__main__':

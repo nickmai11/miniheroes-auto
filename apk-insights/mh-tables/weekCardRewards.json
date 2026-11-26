@@ -1,0 +1,156 @@
+[
+  {
+    "day": 1,
+    "id": 1,
+    "rewardNum": [2],
+    "rewardType": ["randomFragment3"],
+    "type": 1
+  },
+  {
+    "day": 2,
+    "id": 2,
+    "rewardNum": [2],
+    "rewardType": ["randomFragment3"],
+    "type": 1
+  },
+  {
+    "day": 3,
+    "id": 3,
+    "rewardNum": [2],
+    "rewardType": ["shareDebris3"],
+    "type": 1
+  },
+  {
+    "day": 4,
+    "id": 4,
+    "rewardNum": [2],
+    "rewardType": ["randomFragment3"],
+    "type": 1
+  },
+  {
+    "day": 5,
+    "id": 5,
+    "rewardNum": [2],
+    "rewardType": ["randomFragment3"],
+    "type": 1
+  },
+  {
+    "day": 6,
+    "id": 6,
+    "rewardNum": [2],
+    "rewardType": ["randomFragment3"],
+    "type": 1
+  },
+  {
+    "day": 7,
+    "id": 7,
+    "rewardNum": [2],
+    "rewardType": ["shareDebris3"],
+    "type": 1
+  },
+  {
+    "day": 1,
+    "id": 8,
+    "rewardNum": [1],
+    "rewardType": ["glyphs_1002"],
+    "type": 2
+  },
+  {
+    "day": 2,
+    "id": 9,
+    "rewardNum": [1],
+    "rewardType": ["glyphs_2002"],
+    "type": 2
+  },
+  {
+    "day": 3,
+    "id": 10,
+    "rewardNum": [1],
+    "rewardType": ["glyphs_3002"],
+    "type": 2
+  },
+  {
+    "day": 4,
+    "id": 11,
+    "rewardNum": [1],
+    "rewardType": ["glyphs_4002"],
+    "type": 2
+  },
+  {
+    "day": 5,
+    "id": 12,
+    "rewardNum": [1],
+    "rewardType": ["glyphs_1002"],
+    "type": 2
+  },
+  {
+    "day": 6,
+    "id": 13,
+    "rewardNum": [1],
+    "rewardType": ["glyphs_2002"],
+    "type": 2
+  },
+  {
+    "day": 7,
+    "id": 14,
+    "rewardNum": [1],
+    "rewardType": ["glyphs_3002"],
+    "type": 2
+  },
+  { "day": 1, "id": 15, "rewardNum": [20], "rewardType": ["bait3"], "type": 3 },
+  { "day": 2, "id": 16, "rewardNum": [20], "rewardType": ["bait3"], "type": 3 },
+  { "day": 3, "id": 17, "rewardNum": [20], "rewardType": ["bait3"], "type": 3 },
+  { "day": 4, "id": 18, "rewardNum": [20], "rewardType": ["bait3"], "type": 3 },
+  { "day": 5, "id": 19, "rewardNum": [20], "rewardType": ["bait3"], "type": 3 },
+  { "day": 6, "id": 20, "rewardNum": [20], "rewardType": ["bait3"], "type": 3 },
+  { "day": 7, "id": 21, "rewardNum": [20], "rewardType": ["bait3"], "type": 3 },
+  {
+    "day": 1,
+    "id": 22,
+    "rewardNum": [3000],
+    "rewardType": ["blindBoxCoin"],
+    "type": 4
+  },
+  {
+    "day": 2,
+    "id": 23,
+    "rewardNum": [5],
+    "rewardType": ["randomMemf3"],
+    "type": 4
+  },
+  {
+    "day": 3,
+    "id": 24,
+    "rewardNum": [3000],
+    "rewardType": ["blindBoxCoin"],
+    "type": 4
+  },
+  {
+    "day": 4,
+    "id": 25,
+    "rewardNum": [5],
+    "rewardType": ["randomMemf3"],
+    "type": 4
+  },
+  {
+    "day": 5,
+    "id": 26,
+    "rewardNum": [3000],
+    "rewardType": ["blindBoxCoin"],
+    "type": 4
+  },
+  {
+    "day": 6,
+    "id": 27,
+    "rewardNum": [5],
+    "rewardType": ["randomMemf3"],
+    "type": 4
+  },
+  {
+    "day": 7,
+    "id": 28,
+    "rewardNum": [3000],
+    "rewardType": ["blindBoxCoin"],
+    "type": 4
+  }
+]

@@ -1,0 +1,227 @@
+[
+  {
+    "bossID": 704,
+    "describeNum": 0.836,
+    "difficulty": 1,
+    "id": 1,
+    "levelId": 1,
+    "rewardNum": [1, 1, 2000, 8888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 705,
+    "describeNum": 1.348,
+    "difficulty": 1,
+    "id": 2,
+    "levelId": 2,
+    "rewardNum": [1, 1, 2500, 18888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 706,
+    "describeNum": 1.744,
+    "difficulty": 1,
+    "id": 3,
+    "levelId": 3,
+    "rewardNum": [1, 1, 3000, 28888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 707,
+    "describeNum": 1.942,
+    "difficulty": 1,
+    "id": 4,
+    "levelId": 4,
+    "rewardNum": [1, 1, 3500, 38888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 708,
+    "describeNum": 2.178,
+    "difficulty": 1,
+    "id": 5,
+    "levelId": 5,
+    "rewardNum": [1, 1, 4000, 48888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 704,
+    "describeNum": 0.418,
+    "difficulty": 2,
+    "id": 6,
+    "levelId": 1,
+    "rewardNum": [1, 1, 2000, 8888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 705,
+    "describeNum": 0.55,
+    "difficulty": 2,
+    "id": 7,
+    "levelId": 2,
+    "rewardNum": [1, 1, 2500, 18888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 706,
+    "describeNum": 0.699,
+    "difficulty": 2,
+    "id": 8,
+    "levelId": 3,
+    "rewardNum": [1, 1, 3000, 28888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 707,
+    "describeNum": 0.886,
+    "difficulty": 2,
+    "id": 9,
+    "levelId": 4,
+    "rewardNum": [1, 1, 3500, 38888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 708,
+    "describeNum": 1.144,
+    "difficulty": 2,
+    "id": 10,
+    "levelId": 5,
+    "rewardNum": [1, 1, 4000, 48888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 704,
+    "describeNum": 0.627,
+    "difficulty": 3,
+    "id": 11,
+    "levelId": 1,
+    "rewardNum": [1, 1, 2000, 8888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 705,
+    "describeNum": 0.699,
+    "difficulty": 3,
+    "id": 12,
+    "levelId": 2,
+    "rewardNum": [1, 1, 2500, 18888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 706,
+    "describeNum": 0.776,
+    "difficulty": 3,
+    "id": 13,
+    "levelId": 3,
+    "rewardNum": [1, 1, 3000, 28888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 707,
+    "describeNum": 0.847,
+    "difficulty": 3,
+    "id": 14,
+    "levelId": 4,
+    "rewardNum": [1, 1, 3500, 38888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 708,
+    "describeNum": 0.919,
+    "difficulty": 3,
+    "id": 15,
+    "levelId": 5,
+    "rewardNum": [1, 1, 4000, 48888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 704,
+    "describeNum": 0.638,
+    "difficulty": 4,
+    "id": 16,
+    "levelId": 1,
+    "rewardNum": [1, 1, 2000, 8888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 705,
+    "describeNum": 0.71,
+    "difficulty": 4,
+    "id": 17,
+    "levelId": 2,
+    "rewardNum": [1, 1, 2500, 18888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 706,
+    "describeNum": 0.787,
+    "difficulty": 4,
+    "id": 18,
+    "levelId": 3,
+    "rewardNum": [1, 1, 3000, 28888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 707,
+    "describeNum": 0.858,
+    "difficulty": 4,
+    "id": 19,
+    "levelId": 4,
+    "rewardNum": [1, 1, 3500, 38888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 708,
+    "describeNum": 0.93,
+    "difficulty": 4,
+    "id": 20,
+    "levelId": 5,
+    "rewardNum": [1, 1, 4000, 48888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 704,
+    "describeNum": 0.649,
+    "difficulty": 5,
+    "id": 21,
+    "levelId": 1,
+    "rewardNum": [1, 1, 2000, 8888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 705,
+    "describeNum": 0.721,
+    "difficulty": 5,
+    "id": 22,
+    "levelId": 2,
+    "rewardNum": [1, 1, 2500, 18888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 706,
+    "describeNum": 0.792,
+    "difficulty": 5,
+    "id": 23,
+    "levelId": 3,
+    "rewardNum": [1, 1, 3000, 28888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 707,
+    "describeNum": 0.869,
+    "difficulty": 5,
+    "id": 24,
+    "levelId": 4,
+    "rewardNum": [1, 1, 3500, 38888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  },
+  {
+    "bossID": 708,
+    "describeNum": 0.941,
+    "difficulty": 5,
+    "id": 25,
+    "levelId": 5,
+    "rewardNum": [1, 1, 4000, 48888],
+    "rewardType": ["runeStone", "exchangeCoin", "holyLight", "gold"]
+  }
+]

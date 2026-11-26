@@ -1,11 +1,11 @@
 # Window layout for scripts/layout.js (Nick, 2026-10-27): layout 1 (default, Nick 2026-11-13) = top/bottom rows + right, all right-aligned; layout 2 (LAYOUT=2) = `row` below. MuMu instance names left where they are.
 exclude: []
 # Rows, left to right. Layout 1 = fixed slots: each name here and in `right` keeps its place, running or not (Nick, 2026-11-19); unlisted running instances go left of the shorter row.
-top: [Pawn II, Bino, Dino, Dminor, Chloe]
+top: [Pawn II, Bino, Dino, Dminor, Gambler]
 bottom: [Tiger, Boudior, Kratos, Pawn I]
 # Full screen height, one column each, left to right, flush against the screen's right edge (Nick, 2026-10-31; edge 2026-11-12).
 right: [Kong, Cmajor]   # Kong added (Nick, 2026-11-12)
 # Layout 2: one row, left to right (Nick, 2026-11-06). Width = screen / number of names here, running or not (Nick, 2026-11-07); unlisted running instances get extra slots after it, by MuMu index.
-row: [Kratos, Boudior, Tiger, Pawn I, Pawn II, Bino, Dino, Dminor, Chloe, Kong, Cmajor]
-ct: [pawn1, cris, pupu, pawn2, chloe, kong, cmajor]
-mumu: [Cmajor, Kong, Seabze, Wyck, Chloe, Aminor, Dminor, Bino, Dino, Pawn II, Pawn I, Tiger, Kratos, Boudior, Cris, PuPu, Cino, GG, Swayze, Freak]
+row: [Kratos, Boudior, Tiger, Pawn I, Pawn II, Bino, Dino, Dminor, Gambler, Kong, Cmajor]
+ct: [pawn1, cris, pupu, pawn2, gambler, kong, cmajor]
+mumu: [Cmajor, Kong, Seabze, Wyck, Gambler, Aminor, Dminor, Bino, Dino, Pawn II, Pawn I, Tiger, Kratos, Boudior, Cris, PuPu, Cino, GG, Swayze, Freak]

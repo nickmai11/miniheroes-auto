@@ -1,0 +1,602 @@
+[
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["gold_1"],
+    "id": 1,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["coinMinting2", "soulStone2"],
+    "periods": 1,
+    "points": 100,
+    "rewardIdentify": 1
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["medal1"],
+    "id": 2,
+    "payRewardNum": [5, 3],
+    "payRewardType": ["recruitRoll", "exp_1"],
+    "periods": 1,
+    "points": 200,
+    "rewardIdentify": 2
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["glyphs_1001"],
+    "id": 3,
+    "payRewardNum": [1, 5],
+    "payRewardType": ["starMark4", "medal1"],
+    "periods": 1,
+    "points": 300,
+    "rewardIdentify": 3
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["exp_1"],
+    "id": 4,
+    "payRewardNum": [1, 3],
+    "payRewardType": ["glyphs_4003", "gold_1"],
+    "periods": 1,
+    "points": 400,
+    "rewardIdentify": 4
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 5,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["medal1", "glyphs_1002"],
+    "periods": 1,
+    "points": 600,
+    "rewardIdentify": 5
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["gold_1"],
+    "id": 6,
+    "payRewardNum": [1, 1],
+    "payRewardType": ["medal2", "soulStone2"],
+    "periods": 1,
+    "points": 800,
+    "rewardIdentify": 6
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["medal1"],
+    "id": 7,
+    "payRewardNum": [1, 3],
+    "payRewardType": ["soulStone3", "exp_1"],
+    "periods": 1,
+    "points": 1000,
+    "rewardIdentify": 7
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["glyphs_1001"],
+    "id": 8,
+    "payRewardNum": [5, 5],
+    "payRewardType": ["recruitRoll", "medal1"],
+    "periods": 1,
+    "points": 1200,
+    "rewardIdentify": 8
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["exp_1"],
+    "id": 9,
+    "payRewardNum": [20, 3],
+    "payRewardType": ["bait3", "gold_1"],
+    "periods": 1,
+    "points": 1400,
+    "rewardIdentify": 9
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["randomFragment3"],
+    "id": 10,
+    "payRewardNum": [5, 1],
+    "payRewardType": ["randomFragment3", "glyphs_1002"],
+    "periods": 1,
+    "points": 1600,
+    "rewardIdentify": 10
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["gold_1"],
+    "id": 11,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["coinMinting2", "soulStone2"],
+    "periods": 1,
+    "points": 1800,
+    "rewardIdentify": 11
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["medal1"],
+    "id": 12,
+    "payRewardNum": [5, 3],
+    "payRewardType": ["recruitRoll", "exp_1"],
+    "periods": 1,
+    "points": 2000,
+    "rewardIdentify": 12
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["glyphs_1001"],
+    "id": 13,
+    "payRewardNum": [1, 5],
+    "payRewardType": ["starMark4", "medal1"],
+    "periods": 1,
+    "points": 2200,
+    "rewardIdentify": 13
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["exp_1"],
+    "id": 14,
+    "payRewardNum": [1, 3],
+    "payRewardType": ["glyphs_4003", "gold_1"],
+    "periods": 1,
+    "points": 2400,
+    "rewardIdentify": 14
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 15,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["medal1", "glyphs_1002"],
+    "periods": 1,
+    "points": 2600,
+    "rewardIdentify": 15
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["gold_1"],
+    "id": 16,
+    "payRewardNum": [1, 1],
+    "payRewardType": ["medal2", "soulStone2"],
+    "periods": 1,
+    "points": 2800,
+    "rewardIdentify": 16
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["medal1"],
+    "id": 17,
+    "payRewardNum": [1, 3],
+    "payRewardType": ["soulStone3", "exp_1"],
+    "periods": 1,
+    "points": 3000,
+    "rewardIdentify": 17
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["glyphs_1001"],
+    "id": 18,
+    "payRewardNum": [5, 5],
+    "payRewardType": ["recruitRoll", "medal1"],
+    "periods": 1,
+    "points": 3200,
+    "rewardIdentify": 18
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["exp_1"],
+    "id": 19,
+    "payRewardNum": [20, 3],
+    "payRewardType": ["bait3", "gold_1"],
+    "periods": 1,
+    "points": 3400,
+    "rewardIdentify": 19
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["randomFragment3"],
+    "id": 20,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["randomFragment3", "glyphs_1002"],
+    "periods": 1,
+    "points": 3600,
+    "rewardIdentify": 20
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["gold_1"],
+    "id": 21,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["coinMinting2", "soulStone2"],
+    "periods": 2,
+    "points": 100,
+    "rewardIdentify": 1
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["medal1"],
+    "id": 22,
+    "payRewardNum": [5, 2000],
+    "payRewardType": ["recruitRoll", "holyLight"],
+    "periods": 2,
+    "points": 200,
+    "rewardIdentify": 2
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["glyphs_1001"],
+    "id": 23,
+    "payRewardNum": [1, 5],
+    "payRewardType": ["crystalLight", "medal1"],
+    "periods": 2,
+    "points": 300,
+    "rewardIdentify": 3
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["exp_1"],
+    "id": 24,
+    "payRewardNum": [1, 3],
+    "payRewardType": ["glyphs_4003", "gold_1"],
+    "periods": 2,
+    "points": 400,
+    "rewardIdentify": 4
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 25,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["medal1", "glyphs_1002"],
+    "periods": 2,
+    "points": 600,
+    "rewardIdentify": 5
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["gold_1"],
+    "id": 26,
+    "payRewardNum": [1, 1],
+    "payRewardType": ["medal2", "soulStone2"],
+    "periods": 2,
+    "points": 800,
+    "rewardIdentify": 6
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["medal1"],
+    "id": 27,
+    "payRewardNum": [1, 2000],
+    "payRewardType": ["soulStone3", "holyLight"],
+    "periods": 2,
+    "points": 1000,
+    "rewardIdentify": 7
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["glyphs_1001"],
+    "id": 28,
+    "payRewardNum": [5, 5],
+    "payRewardType": ["recruitRoll", "medal1"],
+    "periods": 2,
+    "points": 1200,
+    "rewardIdentify": 8
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["exp_1"],
+    "id": 29,
+    "payRewardNum": [20, 3],
+    "payRewardType": ["bait3", "gold_1"],
+    "periods": 2,
+    "points": 1400,
+    "rewardIdentify": 9
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["randomFragment3"],
+    "id": 30,
+    "payRewardNum": [5, 1],
+    "payRewardType": ["randomFragment3", "glyphs_1002"],
+    "periods": 2,
+    "points": 1600,
+    "rewardIdentify": 10
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["gold_1"],
+    "id": 31,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["coinMinting2", "soulStone2"],
+    "periods": 2,
+    "points": 1800,
+    "rewardIdentify": 11
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["medal1"],
+    "id": 32,
+    "payRewardNum": [5, 2000],
+    "payRewardType": ["recruitRoll", "holyLight"],
+    "periods": 2,
+    "points": 2000,
+    "rewardIdentify": 12
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["glyphs_1001"],
+    "id": 33,
+    "payRewardNum": [1, 5],
+    "payRewardType": ["crystalLight", "medal1"],
+    "periods": 2,
+    "points": 2200,
+    "rewardIdentify": 13
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["exp_1"],
+    "id": 34,
+    "payRewardNum": [1, 3],
+    "payRewardType": ["glyphs_4003", "gold_1"],
+    "periods": 2,
+    "points": 2400,
+    "rewardIdentify": 14
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 35,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["medal1", "glyphs_1002"],
+    "periods": 2,
+    "points": 2600,
+    "rewardIdentify": 15
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["gold_1"],
+    "id": 36,
+    "payRewardNum": [1, 1],
+    "payRewardType": ["medal2", "soulStone2"],
+    "periods": 2,
+    "points": 2800,
+    "rewardIdentify": 16
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["medal1"],
+    "id": 37,
+    "payRewardNum": [1, 2000],
+    "payRewardType": ["soulStone3", "holyLight"],
+    "periods": 2,
+    "points": 3000,
+    "rewardIdentify": 17
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["glyphs_1001"],
+    "id": 38,
+    "payRewardNum": [5, 5],
+    "payRewardType": ["recruitRoll", "medal1"],
+    "periods": 2,
+    "points": 3200,
+    "rewardIdentify": 18
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["exp_1"],
+    "id": 39,
+    "payRewardNum": [20, 3],
+    "payRewardType": ["bait3", "gold_1"],
+    "periods": 2,
+    "points": 3400,
+    "rewardIdentify": 19
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["randomFragment3"],
+    "id": 40,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["randomFragment3", "glyphs_1002"],
+    "periods": 2,
+    "points": 3600,
+    "rewardIdentify": 20
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["gold_1"],
+    "id": 41,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["coinMinting2", "soulStone2"],
+    "periods": 3,
+    "points": 100,
+    "rewardIdentify": 1
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["medal1"],
+    "id": 42,
+    "payRewardNum": [5, 2000],
+    "payRewardType": ["recruitRoll", "holyLight"],
+    "periods": 3,
+    "points": 200,
+    "rewardIdentify": 2
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["glyphs_1001"],
+    "id": 43,
+    "payRewardNum": [10, 5],
+    "payRewardType": ["fourColorStone", "medal1"],
+    "periods": 3,
+    "points": 300,
+    "rewardIdentify": 3
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["exp_1"],
+    "id": 44,
+    "payRewardNum": [1, 3],
+    "payRewardType": ["glyphs_4003", "gold_1"],
+    "periods": 3,
+    "points": 400,
+    "rewardIdentify": 4
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 45,
+    "payRewardNum": [10, 2000],
+    "payRewardType": ["medal1", "blindBoxCoin"],
+    "periods": 3,
+    "points": 600,
+    "rewardIdentify": 5
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["gold_1"],
+    "id": 46,
+    "payRewardNum": [1, 1],
+    "payRewardType": ["medal2", "soulStone2"],
+    "periods": 3,
+    "points": 800,
+    "rewardIdentify": 6
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["medal1"],
+    "id": 47,
+    "payRewardNum": [1, 2000],
+    "payRewardType": ["soulStone3", "holyLight"],
+    "periods": 3,
+    "points": 1000,
+    "rewardIdentify": 7
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["glyphs_1001"],
+    "id": 48,
+    "payRewardNum": [5, 5],
+    "payRewardType": ["recruitRoll", "medal1"],
+    "periods": 3,
+    "points": 1200,
+    "rewardIdentify": 8
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["exp_1"],
+    "id": 49,
+    "payRewardNum": [20, 3],
+    "payRewardType": ["bait3", "gold_1"],
+    "periods": 3,
+    "points": 1400,
+    "rewardIdentify": 9
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["randomFragment3"],
+    "id": 50,
+    "payRewardNum": [5, 2000],
+    "payRewardType": ["randomFragment3", "blindBoxCoin"],
+    "periods": 3,
+    "points": 1600,
+    "rewardIdentify": 10
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["gold_1"],
+    "id": 51,
+    "payRewardNum": [10, 1],
+    "payRewardType": ["coinMinting2", "soulStone2"],
+    "periods": 3,
+    "points": 1800,
+    "rewardIdentify": 11
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["medal1"],
+    "id": 52,
+    "payRewardNum": [5, 2000],
+    "payRewardType": ["recruitRoll", "holyLight"],
+    "periods": 3,
+    "points": 2000,
+    "rewardIdentify": 12
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["glyphs_1001"],
+    "id": 53,
+    "payRewardNum": [10, 5],
+    "payRewardType": ["fourColorStone", "medal1"],
+    "periods": 3,
+    "points": 2200,
+    "rewardIdentify": 13
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["exp_1"],
+    "id": 54,
+    "payRewardNum": [1, 3],
+    "payRewardType": ["glyphs_4003", "gold_1"],
+    "periods": 3,
+    "points": 2400,
+    "rewardIdentify": 14
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 55,
+    "payRewardNum": [10, 2000],
+    "payRewardType": ["medal1", "blindBoxCoin"],
+    "periods": 3,
+    "points": 2600,
+    "rewardIdentify": 15
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["gold_1"],
+    "id": 56,
+    "payRewardNum": [1, 1],
+    "payRewardType": ["medal2", "soulStone2"],
+    "periods": 3,
+    "points": 2800,
+    "rewardIdentify": 16
+  },
+  {
+    "freeRewardNum": [2],
+    "freeRewardType": ["medal1"],
+    "id": 57,
+    "payRewardNum": [1, 2000],
+    "payRewardType": ["soulStone3", "holyLight"],
+    "periods": 3,
+    "points": 3000,
+    "rewardIdentify": 17
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["glyphs_1001"],
+    "id": 58,
+    "payRewardNum": [5, 5],
+    "payRewardType": ["recruitRoll", "medal1"],
+    "periods": 3,
+    "points": 3200,
+    "rewardIdentify": 18
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["exp_1"],
+    "id": 59,
+    "payRewardNum": [20, 3],
+    "payRewardType": ["bait3", "gold_1"],
+    "periods": 3,
+    "points": 3400,
+    "rewardIdentify": 19
+  },
+  {
+    "freeRewardNum": [3],
+    "freeRewardType": ["randomFragment3"],
+    "id": 60,
+    "payRewardNum": [10, 2000],
+    "payRewardType": ["randomFragment3", "blindBoxCoin"],
+    "periods": 3,
+    "points": 3600,
+    "rewardIdentify": 20
+  }
+]

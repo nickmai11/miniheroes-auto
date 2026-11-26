@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "ranking": [1],
+    "rewardNum": [10, 2000, 20000, 20000, 1, 1, 1],
+    "rewardType": [
+      "templeDust",
+      "diamond",
+      "blindBoxCoin",
+      "pointGvgCoin",
+      "headFrame_15",
+      "title_6",
+      "headMark3"
+    ]
+  },
+  {
+    "id": 2,
+    "ranking": [2],
+    "rewardNum": [8, 1500, 15000, 16000, 1],
+    "rewardType": [
+      "templeDust",
+      "diamond",
+      "blindBoxCoin",
+      "pointGvgCoin",
+      "headFrame_16"
+    ]
+  },
+  {
+    "id": 3,
+    "ranking": [3],
+    "rewardNum": [6, 1200, 12000, 13000, 1],
+    "rewardType": [
+      "templeDust",
+      "diamond",
+      "blindBoxCoin",
+      "pointGvgCoin",
+      "headFrame_16"
+    ]
+  },
+  {
+    "id": 4,
+    "ranking": [4, 5],
+    "rewardNum": [5, 1000, 10000, 10000],
+    "rewardType": ["templeDust", "diamond", "blindBoxCoin", "pointGvgCoin"]
+  },
+  {
+    "id": 5,
+    "ranking": [6, 10],
+    "rewardNum": [4, 800, 8000, 7000],
+    "rewardType": ["templeDust", "diamond", "blindBoxCoin", "pointGvgCoin"]
+  },
+  {
+    "id": 6,
+    "ranking": [11, 20],
+    "rewardNum": [2, 600, 5000, 4000],
+    "rewardType": ["templeDust", "diamond", "blindBoxCoin", "pointGvgCoin"]
+  },
+  {
+    "id": 7,
+    "ranking": [21, 999],
+    "rewardNum": [1, 300, 2000, 3000],
+    "rewardType": ["templeDust", "diamond", "blindBoxCoin", "pointGvgCoin"]
+  }
+]

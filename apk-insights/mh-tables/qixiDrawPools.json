@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "rewardIdentifying": 1,
+    "rewardNum": 6,
+    "rewardQuality": 3,
+    "rewardType": "heroShard"
+  },
+  {
+    "id": 2,
+    "rewardIdentifying": 2,
+    "rewardNum": 3,
+    "rewardQuality": 2,
+    "rewardType": "medal1"
+  },
+  {
+    "id": 3,
+    "rewardIdentifying": 3,
+    "rewardNum": 1,
+    "rewardQuality": 2,
+    "rewardType": "shenhuaRandomRewards"
+  },
+  {
+    "id": 4,
+    "rewardIdentifying": 4,
+    "rewardNum": 5,
+    "rewardQuality": 2,
+    "rewardType": "coinMinting2"
+  },
+  {
+    "id": 5,
+    "rewardIdentifying": 5,
+    "rewardNum": 150,
+    "rewardQuality": 2,
+    "rewardType": "spiritStone_3"
+  },
+  {
+    "id": 6,
+    "rewardIdentifying": 6,
+    "rewardNum": 2,
+    "rewardQuality": 3,
+    "rewardType": "heroShard"
+  },
+  {
+    "id": 7,
+    "rewardIdentifying": 7,
+    "rewardNum": 1,
+    "rewardQuality": 2,
+    "rewardType": "gold_2"
+  },
+  {
+    "id": 8,
+    "rewardIdentifying": 8,
+    "rewardNum": 1,
+    "rewardQuality": 2,
+    "rewardType": "qxDisplaceStone"
+  },
+  {
+    "id": 9,
+    "rewardIdentifying": 9,
+    "rewardNum": 1000,
+    "rewardQuality": 2,
+    "rewardType": "holyLight"
+  },
+  {
+    "id": 10,
+    "rewardIdentifying": 10,
+    "rewardNum": 300,
+    "rewardQuality": 2,
+    "rewardType": "succinctStone"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "animation1": "1001",
+    "damageParam": 0.05,
+    "energyHero": 0,
+    "heroAttack": 999,
+    "id": 1,
+    "life": 30000,
+    "lifeMultiple": 1,
+    "name": "TBHHERO_NAME1001",
+    "speed": 600,
+    "uuid": 1001
+  },
+  {
+    "animation1": "1002",
+    "damageParam": 0.05,
+    "energyHero": 1000,
+    "heroAttack": 1299,
+    "id": 2,
+    "life": 300000,
+    "lifeMultiple": 99,
+    "name": "TBHHERO_NAME1002",
+    "speed": 600,
+    "uuid": 1002
+  }
+]

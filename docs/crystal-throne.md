@@ -22,7 +22,8 @@ rules popup scrolls ~300 px per page inside y 600–1420). Not automated: nothin
 ## Gameplay
 
 - 8 tribes per match, each placed somewhere on the map.
-- Structures: Main Base (durability 120, 10 pts), Watchtower (35, 30), Stronghold (50, 60), Fortress (70, 150).
+- Structures: Main Base (durability 120, 10 pts), Watchtower (35, 30), Stronghold (50, 60), Fortress (70, 150). The
+  APK table `castleAttrs` (2026-11-25) agrees except Main Base **150** — read it off the next map.
 - Each attack takes 1 durability; several tribes can hit one structure; the final blow captures it and earns the points.
 - Main base protected 15 min after start; stronghold 20 min. Main base captured = whole tribe eliminated, points reset
   to 0. If the tribe holds other main bases it relocates and everyone gets **Displaced** (march time doubled until the
@@ -84,15 +85,41 @@ Nick commands, Claude executes on all accounts in parallel — never picks targe
 Screenshot `docs/crystal-throne-map.png` (819×835; the coloured lines and digits on it are someone's annotations, not
 game content — ignore them). Old A1–E3 / compass labels (2026-11-05): `docs/crystal-throne-names.png`, reference only.
 
-- **Nodes are called by their initials** (Nick 2026-11-22): `gh` = Grizzly Hills, `db` = Dragonblight — the table is
-  `docs/ct-nodes.txt` (`ct_siege.py` reads it; a known name is matched on each word's first 3 letters, OCR garbles the
-  ends). A full name or any unique part of it (`grizzly`) also works. Seen 11-08, not in the table yet: Lava Strong… (cut
-  off in the OCR).
-- **Next match, setup window: learn all initials** (Nick 2026-11-22) — read every node name on the map, add the missing
-  ones to `docs/ct-nodes.txt`, and tell Nick at once about any two names with the same initials (he picks).
+- **Nodes are called by the start of their name, word by word** (Nick 2026-11-25; replaces the initials of 11-22):
+  `grizzly` = Grizzly Hills, `under` = Undercity, `des` = Desolace, `zan` = Zangarmarsh, `blaze` = Blaze Peak, and
+  `storm s` = Storm Stronghold / `storm p` = Storm Peaks. The names are in `docs/ct-nodes.txt` (`ct_siege.py` reads
+  it; a known name is matched on screen by each word's first 3 letters, OCR garbles the ends). A start that fits two
+  nodes (`storm`) is refused: `NO ambiguous`. Check: `scripts/ct_siege.py --check`. The list holds every node of the
+  game's own node table (`apk-insights/mh-tables/castleMaps.json`) since 2026-11-25.
+- **Next match, setup window: check the names against the map** — a name on the map that isn't in
+  `docs/ct-nodes.txt` → add it, and tell Nick at once about any two names that start with the same word (he picks).
+  Blaze Peak isn't in the game's table: see which node carries that name on the map.
 - **Main bases are called by the server number shown on the map** ("Зона 201 Peakaboo" → `201`), never by tribe name
   or compass. `H` = our own base, whichever number it is that week (201 on 11-05).
 - Node types (in-game): Watchtower 30 pts, Stronghold 60 pts, centre Fortress 150 pts.
+- **Which node touches which** (game table `castleMaps`, 2026-11-25 — from the APK, not yet checked on a live map; a
+  "Non-adjacent" popup = the target touches nothing we hold). `x,y` = the table's grid, x to the right, y **up**; it
+  fits the base positions of the 11-05 map below.
+  - Main Bases 1–8 run clockwise from the top-left, each touching one Watchtower only: Base 1 (6,23) → Undercity ·
+    Base 2 (13,23) → Lava Stronghold · Base 3 (21,22) → Twilight Fortress · Base 4 (23,12) → Storm Stronghold ·
+    Base 5 (20,5) → Elwynn Forest · Base 6 (13,4) → Zangarmarsh · Base 7 (6,5) → Desolace · Base 8 (3,15) → Storm Peaks
+  - Watchtowers (10):
+    - Lava Stronghold (14,20): Base 2, Grizzly Hills, Twilight Fortress, Undercity
+    - Twilight Fortress (20,20): Base 3, Howling Fjord, Lava Stronghold, Storm Stronghold
+    - Undercity (7,19): Base 1, Grizzly Hills, Lava Stronghold, Storm Peaks
+    - Borean Tundra (14,17): Crystal Throne, Grizzly Hills, Howling Fjord
+    - Storm Peaks (8,14): Base 8, Desolace, Dragonblight, Undercity
+    - Storm Stronghold (20,14): Base 4, Elwynn Forest, Howling Fjord, Twilight Fortress
+    - Icecrown Glacier (14,11): Crystal Throne, Dragonblight, Sholazar Basin
+    - Desolace (8,8): Base 7, Dragonblight, Storm Peaks, Zangarmarsh
+    - Zangarmarsh (14,8): Base 6, Desolace, Elwynn Forest, Sholazar Basin
+    - Elwynn Forest (21,8): Base 5, Sholazar Basin, Storm Stronghold, Zangarmarsh
+  - Strongholds (4):
+    - Grizzly Hills (10,17): Borean Tundra, Dragonblight, Howling Fjord, Lava Stronghold, Undercity
+    - Howling Fjord (18,17): Borean Tundra, Grizzly Hills, Sholazar Basin, Storm Stronghold, Twilight Fortress
+    - Dragonblight (10,11): Desolace, Grizzly Hills, Icecrown Glacier, Sholazar Basin, Storm Peaks
+    - Sholazar Basin (18,11): Dragonblight, Elwynn Forest, Howling Fjord, Icecrown Glacier, Zangarmarsh
+  - Fortress: Crystal Throne (14,14): Borean Tundra, Icecrown Glacier — the only two ways in.
 
 Main bases on the 11-05 map (image x,y): top-left 180,120 · top 415,105 · top-right 690,130 · left 80,375 ·
 right 755,480 · bottom-left 180,745 · bottom 415,760 · bottom-right 655,745 (Peakaboo, 201). Pixel positions are for
@@ -100,8 +127,9 @@ calibrating the device tap table at the first battlefield (Sun 2026-11-08 02:00 
 
 **Order grammar:** `<who> <action> <target>` — who = `all`, a group (`g1`…) or account names; action = the in-game
 button: `siege`, `attack`, `march`, `station`, or `revive` (scroll revive; free revives are automatic); target = a node
-name or a base **server number** or `H`. Examples: `g1 siege gh`, `all march db`, `kong tiger station H`,
-`all revive`. Run: `CT_TOOL=ct_siege.py scripts/ct_do.sh <who> <node> <Siege|Attack|March|Station>`.
+name or a base **server number** or `H`. Examples: `g1 siege grizzly`, `all march storm s`, `kong tiger station H`,
+`all revive`. Run: `CT_TOOL=ct_siege.py scripts/ct_do.sh <who> <node> <Siege|Attack|March|Station>` (a two-word node quoted:
+`"storm s"`).
 
 **Base numbers → positions (Nick, 2026-11-05):** at the start of each match Nick feeds the map; Claude must then resolve
 every base number to its map position itself, before the first order — one OCR pass over the device map (the "Зона NNN"

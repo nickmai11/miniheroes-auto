@@ -238,7 +238,7 @@ def plan(g, blocked=()):
 
 
 def tour(g, blocked=()):
-    """Top rows as one group before a scroll (Nick 2026-11-11, Chloe: 3 shards + a gold chest for 6 net digs, each shard
+    """Top rows as one group before a scroll (Nick 2026-11-11, Gambler: 3 shards + a gold chest for 6 net digs, each shard
     alone 3-4 digs, so target() let them go one by one). Collect items of rows 1-3 one leg at a time (each leg the
     cheapest route from what's dug so far; the bottom row stays shut, it would scroll), every order; the best value/cost
     over the dug cells, among those that reach a row-1 item, wins if >= RATIO -> (r, c, why) of its first dig, or None."""

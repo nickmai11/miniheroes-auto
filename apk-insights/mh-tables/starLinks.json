@@ -1,0 +1,194 @@
+[
+  {
+    "id": 1,
+    "starSignQuality": 0,
+    "starSignType": 1,
+    "suitNum": 0,
+    "suitStarSign": 20,
+    "suitType": ""
+  },
+  {
+    "id": 2,
+    "starSignQuality": 1,
+    "starSignType": 1,
+    "suitNum": 0.02,
+    "suitStarSign": 40,
+    "suitType": "criticalResist"
+  },
+  {
+    "id": 3,
+    "starSignQuality": 2,
+    "starSignType": 1,
+    "suitNum": 0.02,
+    "suitStarSign": 70,
+    "suitType": "reduceControlTime"
+  },
+  {
+    "id": 4,
+    "starSignQuality": 3,
+    "starSignType": 1,
+    "suitNum": 0.02,
+    "suitStarSign": 100,
+    "suitType": "remoteReduce"
+  },
+  {
+    "id": 5,
+    "starSignQuality": 4,
+    "starSignType": 1,
+    "suitNum": 0.02,
+    "suitStarSign": 130,
+    "suitType": "nearReduce"
+  },
+  {
+    "id": 6,
+    "starSignQuality": 5,
+    "starSignType": 1,
+    "suitNum": 0.02,
+    "suitStarSign": 250,
+    "suitType": "reduceHurt"
+  },
+  {
+    "id": 7,
+    "starSignQuality": 0,
+    "starSignType": 2,
+    "suitNum": 0,
+    "suitStarSign": 20,
+    "suitType": ""
+  },
+  {
+    "id": 8,
+    "starSignQuality": 1,
+    "starSignType": 2,
+    "suitNum": 0.02,
+    "suitStarSign": 40,
+    "suitType": "physicsResist"
+  },
+  {
+    "id": 9,
+    "starSignQuality": 2,
+    "starSignType": 2,
+    "suitNum": 0.02,
+    "suitStarSign": 70,
+    "suitType": "criticalResist"
+  },
+  {
+    "id": 10,
+    "starSignQuality": 3,
+    "starSignType": 2,
+    "suitNum": 0.02,
+    "suitStarSign": 100,
+    "suitType": "reduceControlTime"
+  },
+  {
+    "id": 11,
+    "starSignQuality": 4,
+    "starSignType": 2,
+    "suitNum": 0.02,
+    "suitStarSign": 130,
+    "suitType": "remoteReduce"
+  },
+  {
+    "id": 12,
+    "starSignQuality": 5,
+    "starSignType": 2,
+    "suitNum": 0.02,
+    "suitStarSign": 250,
+    "suitType": "nearReduce"
+  },
+  {
+    "id": 13,
+    "starSignQuality": 0,
+    "starSignType": 3,
+    "suitNum": 0,
+    "suitStarSign": 20,
+    "suitType": ""
+  },
+  {
+    "id": 14,
+    "starSignQuality": 1,
+    "starSignType": 3,
+    "suitNum": 0.02,
+    "suitStarSign": 40,
+    "suitType": "reduceHurt"
+  },
+  {
+    "id": 15,
+    "starSignQuality": 2,
+    "starSignType": 3,
+    "suitNum": 0.02,
+    "suitStarSign": 70,
+    "suitType": "magicResist"
+  },
+  {
+    "id": 16,
+    "starSignQuality": 3,
+    "starSignType": 3,
+    "suitNum": 0.02,
+    "suitStarSign": 100,
+    "suitType": "criticalResist"
+  },
+  {
+    "id": 17,
+    "starSignQuality": 4,
+    "starSignType": 3,
+    "suitNum": 0.02,
+    "suitStarSign": 130,
+    "suitType": "reduceControlTime"
+  },
+  {
+    "id": 18,
+    "starSignQuality": 5,
+    "starSignType": 3,
+    "suitNum": 0.02,
+    "suitStarSign": 250,
+    "suitType": "remoteReduce"
+  },
+  {
+    "id": 19,
+    "starSignQuality": 0,
+    "starSignType": 4,
+    "suitNum": 0,
+    "suitStarSign": 20,
+    "suitType": ""
+  },
+  {
+    "id": 20,
+    "starSignQuality": 1,
+    "starSignType": 4,
+    "suitNum": 0.02,
+    "suitStarSign": 40,
+    "suitType": "magicResist"
+  },
+  {
+    "id": 21,
+    "starSignQuality": 2,
+    "starSignType": 4,
+    "suitNum": 0.02,
+    "suitStarSign": 70,
+    "suitType": "nearReduce"
+  },
+  {
+    "id": 22,
+    "starSignQuality": 3,
+    "starSignType": 4,
+    "suitNum": 0.02,
+    "suitStarSign": 100,
+    "suitType": "physicsResist"
+  },
+  {
+    "id": 23,
+    "starSignQuality": 4,
+    "starSignType": 4,
+    "suitNum": 0.02,
+    "suitStarSign": 130,
+    "suitType": "criticalResist"
+  },
+  {
+    "id": 24,
+    "starSignQuality": 5,
+    "starSignType": 4,
+    "suitNum": 0.02,
+    "suitStarSign": 250,
+    "suitType": "reduceControlTime"
+  }
+]

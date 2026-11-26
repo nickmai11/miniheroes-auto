@@ -1,0 +1,13 @@
+[
+  {
+    "benefitFishingSpeed": 0.5,
+    "benefitToolAddition": 0.12,
+    "dayRewardNum": [60, 20, 5],
+    "dayRewardType": ["bread", "baitBox", "refresh"],
+    "discount": 35,
+    "productIdentifying": "pay9000",
+    "rewardNum": [600, 600],
+    "rewardType": ["diamond", "noblePoints"],
+    "silverCoinBonus": 1
+  }
+]

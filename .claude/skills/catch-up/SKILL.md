@@ -25,6 +25,8 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: `scripts/a
    **Canyon MANUAL → re-run `daily.py <acct> --catch-up canyon` once first** (2026-10-29: canyon.py found nothing on 7
    accounts, minutes later 7 helpers each found an empty spot — ~40 tool calls apiece for a free Occupy). Helper only
    if the re-run still says MANUAL; check its `canyon<N>.png` per-screen shots in the run dir to see why.
+   Since 2026-11-26 `canyon.py` scans a second time by itself when it saw empty spots but took none (our accounts race
+   for them), so a MANUAL already includes one rescan.
    Steps (the spec the runner follows; see `docs/ui-routine.md`). **Order = `CATCHUP` in `scripts/daily.py`** — the list
    below is in that order, each with its runner step name; change the order there, then here.
    **Red dots only (Nick, 2026-10-27):** for claims (events, Tribe Clash Pack, Daily Mission, rewards icons) open/tap
@@ -47,31 +49,35 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: `scripts/a
    6. `arena2` — Arena again: Claim All often gives Arena tickets → spend them (same as step 2)
    7. `tribe_chat` — Tribe chat Request + Assist, every run incl. mornings (Nick, 2026-11-08: on cooldown the tap does
       nothing) (Tribe section, step 4 only; `tribe.py --chat-only`)
-   8. `common_recruit` — Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available (no Play
-      Pass: each one is a video ad, `recruit()` watches it — Nick 2026-11-08); if it's on cooldown or out of chances,
-      skip — don't wait, never pay
-   9. `canyon` — Canyon Clash (skip if its season is closed — times: ui-routine Canyon): **take a new spot even if one is
+   8. `canyon` — Canyon Clash, straight from the Tribe chat (its Lobby button, no trip to main — Nick 2026-11-26) (skip if
+      its season is closed — times: ui-routine Canyon): **take a new spot even if one is
       already held** (`scripts/canyon.py`: empty spots only, popup text checked; no empty one → helper); Points Rewards
       claimed **after** the spot (occupying earns the points — Nick 2026-11-04), same visit
-   10. `events` — event banners with a red dot (ui-routine Events): claim only free Claim/Free rewards; never a $ or gem
+   9. `common_recruit` — Common Recruitment (Recruit section, step 2 only): draw every **Free** chance available (no Play
+      Pass: each one is a video ad, `recruit()` watches it — Nick 2026-11-08); if it's on cooldown or out of chances,
+      skip — don't wait, never pay
+   10. `ruins` — Ancient Ruins (`scripts/ruins.py`, ui-routine "Ancient Ruins"; Nick 2026-11-26): spend the stamina regrown
+       since the last run on the ruin's floors; diamonds only for a Search, at most 50
+   11. `events` — event banners with a red dot (ui-routine Events): claim only free Claim/Free rewards; never a $ or gem
        price. **Collect only** (Nick, 2026-10-28): never Open All / draw / spin / use any event token, ticket or coin,
        even free ones (7777 Draws: daily Claim only, no Open All). Never Tribe Clash's Treasures or "Enter" (Nick,
        2026-10-27); its free Pack claim is fine
-   11. `fishing_rewards` — Fishing orders again: claim any order reward that completed during the run (Auto fishing keeps
+   12. `fishing_rewards` — Fishing orders again: claim any order reward that completed during the run (Auto fishing keeps
        filling them) — claim only, no refresh, don't touch Auto (Nick, 2026-10-27)
-   12. `daily_mission` — Daily Mission (missions always last, Nick 2026-10-29), only if its menu icon has a red dot: on the
+   13. `daily_mission` — Daily Mission (missions always last, Nick 2026-10-29), only if its menu icon has a red dot: on the
        **Daily and Weekly** tabs (each with a red dot) tap ONE yellow **Claim** row (claims all rows) and ONE reachable
        chest (claims all reachable chests) — never scroll, top row not claimable = done (Nick, 2026-10-27/28); report
        chests still locked + activity points
-   13. `play_pass2` — Play Pass again (after the missions — Nick, 2026-11-03): claim any Play Pass red dot the run's
+   14. `play_pass2` — Play Pass again (after the missions — Nick, 2026-11-03): claim any Play Pass red dot the run's
        activity unlocked; never a $ button.
-   14. `pet_check` — Pet Arena check (Mon–Wed): Achievement cumulative deployments +40 since yesterday = all 40 free
-       attempts used; short → Auto Deploy restarted, reported.
+   15. `pet_check` — Pet Arena check (Mon–Wed): Achievement cumulative deployments +40 since yesterday = all 40 free
+       attempts used; short → Auto Deploy restarted, reported (read, Auto Deploy and manual deploy in one Pet Arena
+       visit — Nick 2026-11-26).
        **As soon as an account's helper finishes** (that account alone, not after all helpers), one more runner pass on **only the accounts that had a helper** (orders keep completing
        during the helpers; Nick, 2026-10-28): `daily.py <acct> --catch-up common_recruit fishing_rewards` — drop
        `fishing_rewards` if that account's earlier line said `AUTO STOPPED, bread N` (no bread = no new orders; Nick
        2026-10-29: the order claim ran 3-4x per account). Never re-run a step just to read something off the screen.
-   15. `relic` — Relics, the runner's last step, on every catch-up account incl. Kong II (Nick 2026-11-10 / 2026-11-16:
+   16. `relic` — Relics, the runner's last step, on every catch-up account incl. Kong II (Nick 2026-11-10 / 2026-11-16:
        "relic is part of catchup"; never filter by the relic list; a runner step since 2026-11-20, was `relic_all.sh`
        after the run): `relic.py <account>`. **No auto-retry:** its FAIL = relic.py stopped mid-board → handle per the
        miniheroes-relic skill step 2 (never re-run it blindly); its `done:` line (digs, items, shovels left) goes in the report.
@@ -92,7 +98,8 @@ whole docs/ui-routine.md) and accounts/<file>.yaml. Don't edit the repo.
 Game is at the main screen; close popups with X / Cancel (never GO); tick "Do not remind me today" first if the popup has it. Today: <weekday date time> (<Storm/Canyon open?>).
 Tools: D=<serial> python3 scripts/tap.py [x,y…] -w 270 -o <dir>/sN.png [--until x,y,r,g,b | --until-text REGEX] [--timeout s]
 (every navigation tap waits on the next screen: doc "Speed" table; --until-text prints the screen text); -w 270 for
-navigation (×4 = device coords), -w 540 only for small text (×2). Storm: scripts/storm.py (handles lineup). Veins: scripts/veins.py. Arena: scripts/arena.py <account>.
+navigation (×4 = device coords), -w 540 only for small text (×2). Tap and swipe ONLY through tap.py (swipe / held drag = `x0,y0,x1,y1[,ms]`): never a raw
+`adb shell input …` or `screencap` — the instances run 900×1600 and tap.py scales to the docs' 1080×1920 coords (Nick 2026-11-25). Storm: scripts/storm.py (handles lineup). Veins: scripts/veins.py. Arena: scripts/arena.py <account>.
 Rules: look only at decision points — chain a step's fixed taps in one tap.py call with --until on the next
 screen's pixel; read a screenshot before prices, target picks, counters, a step's first tap, and after a failed check; no gems/money beyond the config; poll waits inside the command (1–2 s), never
 background timers or "pausing"; game crash / Android home → `scripts/boot.sh <index>` (CLAUDE.md);

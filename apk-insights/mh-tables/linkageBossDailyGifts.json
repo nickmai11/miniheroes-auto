@@ -1,0 +1,68 @@
+[
+  {
+    "discount": 30,
+    "giftBagName": "SNK_BOSS_GIFT_NAME",
+    "id": 1,
+    "limitNum": 3,
+    "limitType": 1,
+    "productIdentifying": "pay47001",
+    "rewardNum": [120, 1, 1000, 120],
+    "rewardType": ["diamond", "lootCard_tbh", "tbhCoin", "noblePoints"],
+    "timeNum": 1
+  },
+  {
+    "discount": 30,
+    "giftBagName": "SNK_BOSS_GIFT_NAME",
+    "id": 2,
+    "limitNum": 3,
+    "limitType": 1,
+    "productIdentifying": "pay47001",
+    "rewardNum": [120, 1, 1000, 120],
+    "rewardType": ["diamond", "lootCard_tbh", "tbhCoin", "noblePoints"],
+    "timeNum": 2
+  },
+  {
+    "discount": 30,
+    "giftBagName": "SNK_BOSS_GIFT_NAME",
+    "id": 3,
+    "limitNum": 3,
+    "limitType": 1,
+    "productIdentifying": "pay47001",
+    "rewardNum": [120, 1, 1000, 120],
+    "rewardType": ["diamond", "lootCard_tbh", "tbhCoin", "noblePoints"],
+    "timeNum": 3
+  },
+  {
+    "discount": 30,
+    "giftBagName": "SNK_BOSS_GIFT_NAME",
+    "id": 4,
+    "limitNum": 3,
+    "limitType": 1,
+    "productIdentifying": "pay47001",
+    "rewardNum": [120, 1, 1000, 120],
+    "rewardType": ["diamond", "lootCard_tbh", "tbhCoin", "noblePoints"],
+    "timeNum": 4
+  },
+  {
+    "discount": 30,
+    "giftBagName": "SNK_BOSS_GIFT_NAME",
+    "id": 5,
+    "limitNum": 3,
+    "limitType": 1,
+    "productIdentifying": "pay47001",
+    "rewardNum": [120, 1, 1000, 120],
+    "rewardType": ["diamond", "lootCard_tbh", "tbhCoin", "noblePoints"],
+    "timeNum": 5
+  },
+  {
+    "discount": 30,
+    "giftBagName": "SNK_BOSS_GIFT_NAME",
+    "id": 6,
+    "limitNum": 3,
+    "limitType": 1,
+    "productIdentifying": "pay47001",
+    "rewardNum": [120, 1, 1000, 120],
+    "rewardType": ["diamond", "lootCard_tbh", "tbhCoin", "noblePoints"],
+    "timeNum": 6
+  }
+]

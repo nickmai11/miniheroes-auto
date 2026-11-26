@@ -1,0 +1,230 @@
+[
+  {
+    "id": 1,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1"],
+    "showNum": [300, 2]
+  },
+  {
+    "id": 2,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1"],
+    "showNum": [305, 2]
+  },
+  {
+    "id": 3,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2"],
+    "showNum": [310, 1, 1]
+  },
+  {
+    "id": 4,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2"],
+    "showNum": [315, 1, 1]
+  },
+  {
+    "id": 5,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2"],
+    "showNum": [320, 1, 1]
+  },
+  {
+    "id": 6,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2"],
+    "showNum": [325, 2, 1]
+  },
+  {
+    "id": 7,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2"],
+    "showNum": [330, 2, 1]
+  },
+  {
+    "id": 8,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2"],
+    "showNum": [335, 2, 1]
+  },
+  {
+    "id": 9,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2"],
+    "showNum": [340, 1, 2]
+  },
+  {
+    "id": 10,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2"],
+    "showNum": [345, 1, 2]
+  },
+  {
+    "id": 11,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2"],
+    "showNum": [350, 1, 2]
+  },
+  {
+    "id": 12,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [355, 1, 1, 1]
+  },
+  {
+    "id": 13,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [360, 1, 1, 1]
+  },
+  {
+    "id": 14,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [365, 1, 1, 1]
+  },
+  {
+    "id": 15,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [370, 2, 1, 1]
+  },
+  {
+    "id": 16,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [375, 2, 1, 1]
+  },
+  {
+    "id": 17,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [380, 2, 1, 1]
+  },
+  {
+    "id": 18,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [385, 1, 2, 1]
+  },
+  {
+    "id": 19,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [390, 1, 2, 1]
+  },
+  {
+    "id": 20,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [395, 1, 2, 1]
+  },
+  {
+    "id": 21,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [400, 2, 2, 1]
+  },
+  {
+    "id": 22,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [405, 2, 2, 1]
+  },
+  {
+    "id": 23,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [410, 2, 2, 1]
+  },
+  {
+    "id": 24,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [415, 2, 1, 2]
+  },
+  {
+    "id": 25,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [420, 2, 1, 2]
+  },
+  {
+    "id": 26,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [425, 2, 1, 2]
+  },
+  {
+    "id": 27,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [430, 1, 2, 2]
+  },
+  {
+    "id": 28,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [435, 1, 2, 2]
+  },
+  {
+    "id": 29,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [440, 1, 2, 2]
+  },
+  {
+    "id": 30,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [445, 1, 1, 3]
+  },
+  {
+    "id": 31,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [450, 1, 1, 3]
+  },
+  {
+    "id": 32,
+    "mapName": "5",
+    "show": ["elfStone", "elfRandomP1", "elfRandomP2", "elfRandomP3"],
+    "showNum": [455, 1, 1, 3]
+  },
+  {
+    "id": 33,
+    "mapName": "5",
+    "show": [
+      "elfStone",
+      "elfRandomP1",
+      "elfRandomP2",
+      "elfRandomP3",
+      "elfRandomP4"
+    ],
+    "showNum": [460, 1, 1, 2, 1]
+  },
+  {
+    "id": 34,
+    "mapName": "5",
+    "show": [
+      "elfStone",
+      "elfRandomP1",
+      "elfRandomP2",
+      "elfRandomP3",
+      "elfRandomP4"
+    ],
+    "showNum": [465, 1, 1, 2, 1]
+  },
+  {
+    "id": 35,
+    "mapName": "5",
+    "show": [
+      "elfStone",
+      "elfRandomP1",
+      "elfRandomP2",
+      "elfRandomP3",
+      "elfRandomP4"
+    ],
+    "showNum": [470, 1, 1, 2, 1]
+  }
+]

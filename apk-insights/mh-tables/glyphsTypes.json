@@ -1,0 +1,238 @@
+[
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_1001",
+    "glyphsQuality": 1,
+    "glyphsType": 1,
+    "id": 1,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_1002",
+    "glyphsQuality": 2,
+    "glyphsType": 1,
+    "id": 2,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_1003",
+    "glyphsQuality": 3,
+    "glyphsType": 1,
+    "id": 3,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_1004",
+    "glyphsQuality": 4,
+    "glyphsType": 1,
+    "id": 4,
+    "strongPotion": 1
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_1005",
+    "glyphsQuality": 5,
+    "glyphsType": 1,
+    "id": 5,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_2001",
+    "glyphsQuality": 1,
+    "glyphsType": 2,
+    "id": 6,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_2002",
+    "glyphsQuality": 2,
+    "glyphsType": 2,
+    "id": 7,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_2003",
+    "glyphsQuality": 3,
+    "glyphsType": 2,
+    "id": 8,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_2004",
+    "glyphsQuality": 4,
+    "glyphsType": 2,
+    "id": 9,
+    "strongPotion": 1
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_2005",
+    "glyphsQuality": 5,
+    "glyphsType": 2,
+    "id": 10,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_3001",
+    "glyphsQuality": 1,
+    "glyphsType": 3,
+    "id": 11,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_3002",
+    "glyphsQuality": 2,
+    "glyphsType": 3,
+    "id": 12,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_3003",
+    "glyphsQuality": 3,
+    "glyphsType": 3,
+    "id": 13,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_3004",
+    "glyphsQuality": 4,
+    "glyphsType": 3,
+    "id": 14,
+    "strongPotion": 1
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_3005",
+    "glyphsQuality": 5,
+    "glyphsType": 3,
+    "id": 15,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_4001",
+    "glyphsQuality": 1,
+    "glyphsType": 4,
+    "id": 16,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_4002",
+    "glyphsQuality": 2,
+    "glyphsType": 4,
+    "id": 17,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_4003",
+    "glyphsQuality": 3,
+    "glyphsType": 4,
+    "id": 18,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_4004",
+    "glyphsQuality": 4,
+    "glyphsType": 4,
+    "id": 19,
+    "strongPotion": 1
+  },
+  {
+    "glyphsComposeNum": 4,
+    "glyphsComposeSpecial": [],
+    "glyphsId": "glyphs_4005",
+    "glyphsQuality": 5,
+    "glyphsType": 4,
+    "id": 20,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 0,
+    "glyphsComposeSpecial": [
+      "glyphs_1005",
+      "glyphs_2005",
+      "glyphs_2005",
+      "glyphs_3005"
+    ],
+    "glyphsId": "glyphs_1006",
+    "glyphsQuality": 6,
+    "glyphsType": 11,
+    "id": 21,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 0,
+    "glyphsComposeSpecial": [
+      "glyphs_2005",
+      "glyphs_3005",
+      "glyphs_3005",
+      "glyphs_4005"
+    ],
+    "glyphsId": "glyphs_2006",
+    "glyphsQuality": 6,
+    "glyphsType": 12,
+    "id": 22,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 0,
+    "glyphsComposeSpecial": [
+      "glyphs_1005",
+      "glyphs_2005",
+      "glyphs_3005",
+      "glyphs_3005"
+    ],
+    "glyphsId": "glyphs_3006",
+    "glyphsQuality": 6,
+    "glyphsType": 13,
+    "id": 23,
+    "strongPotion": 0
+  },
+  {
+    "glyphsComposeNum": 0,
+    "glyphsComposeSpecial": [
+      "glyphs_2005",
+      "glyphs_3005",
+      "glyphs_3005",
+      "glyphs_4005"
+    ],
+    "glyphsId": "glyphs_4006",
+    "glyphsQuality": 6,
+    "glyphsType": 14,
+    "id": 24,
+    "strongPotion": 0
+  }
+]

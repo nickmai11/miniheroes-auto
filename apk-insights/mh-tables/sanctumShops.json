@@ -1,0 +1,170 @@
+[
+  {
+    "exchangeNumber": 3000,
+    "id": 1,
+    "itmeID": "fragment_206",
+    "number": 5,
+    "positionId": 1
+  },
+  {
+    "exchangeNumber": 1500,
+    "id": 2,
+    "itmeID": "fragment_103",
+    "number": 5,
+    "positionId": 2
+  },
+  {
+    "exchangeNumber": 1500,
+    "id": 3,
+    "itmeID": "fragment_201",
+    "number": 5,
+    "positionId": 3
+  },
+  {
+    "exchangeNumber": 1500,
+    "id": 4,
+    "itmeID": "fragment_307",
+    "number": 5,
+    "positionId": 4
+  },
+  {
+    "exchangeNumber": 1500,
+    "id": 5,
+    "itmeID": "fragment_404",
+    "number": 5,
+    "positionId": 5
+  },
+  {
+    "exchangeNumber": 750,
+    "id": 6,
+    "itmeID": "fragment_104",
+    "number": 5,
+    "positionId": 6
+  },
+  {
+    "exchangeNumber": 750,
+    "id": 7,
+    "itmeID": "fragment_303",
+    "number": 5,
+    "positionId": 7
+  },
+  {
+    "exchangeNumber": 750,
+    "id": 8,
+    "itmeID": "fragment_403",
+    "number": 5,
+    "positionId": 8
+  },
+  {
+    "exchangeNumber": 750,
+    "id": 9,
+    "itmeID": "fragment_202",
+    "number": 5,
+    "positionId": 9
+  },
+  {
+    "exchangeNumber": 750,
+    "id": 10,
+    "itmeID": "coinMinting1",
+    "number": 5,
+    "positionId": 10
+  },
+  {
+    "exchangeNumber": 2500,
+    "id": 11,
+    "itmeID": "coinMinting2",
+    "number": 5,
+    "positionId": 11
+  },
+  {
+    "exchangeNumber": 8000,
+    "id": 12,
+    "itmeID": "coinMinting3",
+    "number": 5,
+    "positionId": 12
+  },
+  {
+    "exchangeNumber": 3000,
+    "id": 13,
+    "itmeID": "fragment_206",
+    "number": 5,
+    "positionId": 1
+  },
+  {
+    "exchangeNumber": 1500,
+    "id": 14,
+    "itmeID": "fragment_103",
+    "number": 5,
+    "positionId": 2
+  },
+  {
+    "exchangeNumber": 1500,
+    "id": 15,
+    "itmeID": "fragment_201",
+    "number": 5,
+    "positionId": 3
+  },
+  {
+    "exchangeNumber": 1500,
+    "id": 16,
+    "itmeID": "fragment_307",
+    "number": 5,
+    "positionId": 4
+  },
+  {
+    "exchangeNumber": 1500,
+    "id": 17,
+    "itmeID": "fragment_404",
+    "number": 5,
+    "positionId": 5
+  },
+  {
+    "exchangeNumber": 750,
+    "id": 18,
+    "itmeID": "fragment_104",
+    "number": 5,
+    "positionId": 6
+  },
+  {
+    "exchangeNumber": 750,
+    "id": 19,
+    "itmeID": "fragment_303",
+    "number": 5,
+    "positionId": 7
+  },
+  {
+    "exchangeNumber": 750,
+    "id": 20,
+    "itmeID": "fragment_403",
+    "number": 5,
+    "positionId": 8
+  },
+  {
+    "exchangeNumber": 750,
+    "id": 21,
+    "itmeID": "coinMinting1",
+    "number": 5,
+    "positionId": 9
+  },
+  {
+    "exchangeNumber": 2500,
+    "id": 22,
+    "itmeID": "coinMinting2",
+    "number": 5,
+    "positionId": 10
+  },
+  {
+    "exchangeNumber": 8000,
+    "id": 23,
+    "itmeID": "coinMinting3",
+    "number": 5,
+    "positionId": 11
+  },
+  {
+    "exchangeNumber": 10000,
+    "id": 24,
+    "itmeID": "fourColorStone",
+    "number": 5,
+    "positionId": 12
+  }
+]

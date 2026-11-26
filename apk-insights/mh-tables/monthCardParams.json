@@ -1,0 +1,26 @@
+[
+  {
+    "buyRewardNum": [300, 10, 200000, 300],
+    "buyRewardType": ["diamond", "recruitRoll", "gold", "noblePoints"],
+    "discountDisplay": 35,
+    "id": 1,
+    "periods": 1,
+    "productIdentifying": "pay3006"
+  },
+  {
+    "buyRewardNum": [300, 10, 10000, 300],
+    "buyRewardType": ["diamond", "recruitRoll", "holyLight", "noblePoints"],
+    "discountDisplay": 35,
+    "id": 2,
+    "periods": 2,
+    "productIdentifying": "pay3006"
+  },
+  {
+    "buyRewardNum": [300, 10, 20000, 300],
+    "buyRewardType": ["diamond", "recruitRoll", "blindBoxCoin", "noblePoints"],
+    "discountDisplay": 35,
+    "id": 3,
+    "periods": 3,
+    "productIdentifying": "pay3006"
+  }
+]

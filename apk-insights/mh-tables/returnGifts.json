@@ -1,0 +1,128 @@
+[
+  {
+    "cost": 0,
+    "describe": "RETURN_GIFT_INFO1",
+    "id": 1,
+    "limitNum": 1,
+    "limitType": 1,
+    "openLv": 1,
+    "productIdentifying": "pay45001",
+    "rewardNum": [20],
+    "rewardType": ["diamond"],
+    "type": 1
+  },
+  {
+    "cost": 120,
+    "describe": "RETURN_GIFT_INFO2",
+    "id": 2,
+    "limitNum": 1,
+    "limitType": 1,
+    "openLv": 1,
+    "productIdentifying": "pay45002",
+    "rewardNum": [5, 1],
+    "rewardType": ["randomFragment3", "exp_2"],
+    "type": 2
+  },
+  {
+    "cost": 480,
+    "describe": "RETURN_GIFT_INFO3",
+    "id": 3,
+    "limitNum": 1,
+    "limitType": 1,
+    "openLv": 1,
+    "productIdentifying": "pay45003",
+    "rewardNum": [5, 1],
+    "rewardType": ["shareDebris3", "exp_3"],
+    "type": 2
+  },
+  {
+    "cost": 0,
+    "describe": "RETURN_GIFT_INFO4",
+    "id": 4,
+    "limitNum": 3,
+    "limitType": 2,
+    "openLv": 1,
+    "productIdentifying": "pay45004",
+    "rewardNum": [300, 1, 5, 1, 300],
+    "rewardType": [
+      "diamond",
+      "shenhuabox",
+      "recruitRoll",
+      "exp_4",
+      "noblePoints"
+    ],
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "RETURN_GIFT_INFO5",
+    "id": 5,
+    "limitNum": 3,
+    "limitType": 2,
+    "openLv": 1,
+    "productIdentifying": "pay45005",
+    "rewardNum": [680, 1, 20, 5000, 680],
+    "rewardType": [
+      "diamond",
+      "strongPotion",
+      "tieStone",
+      "succinctStone",
+      "noblePoints"
+    ],
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "RETURN_GIFT_INFO6",
+    "id": 6,
+    "limitNum": 3,
+    "limitType": 2,
+    "openLv": 30,
+    "productIdentifying": "pay45006",
+    "rewardNum": [1280, 2, 25000, 25000, 1280],
+    "rewardType": [
+      "diamond",
+      "randomMem4",
+      "blindBoxCoin",
+      "blindBoxCoin",
+      "noblePoints"
+    ],
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "RETURN_GIFT_INFO7",
+    "id": 7,
+    "limitNum": 3,
+    "limitType": 2,
+    "openLv": 60,
+    "productIdentifying": "pay45007",
+    "rewardNum": [3280, 2, 15, 200, 3280],
+    "rewardType": [
+      "diamond",
+      "gemRandom_06",
+      "gemSpirit",
+      "equipEssenceRandom",
+      "noblePoints"
+    ],
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "RETURN_GIFT_INFO8",
+    "id": 8,
+    "limitNum": 3,
+    "limitType": 2,
+    "openLv": 90,
+    "productIdentifying": "pay45008",
+    "rewardNum": [6480, 30, 2, 30, 6480],
+    "rewardType": [
+      "diamond",
+      "sacrificeStoneFrag",
+      "randomHal03",
+      "broachNew",
+      "noblePoints"
+    ],
+    "type": 1
+  }
+]

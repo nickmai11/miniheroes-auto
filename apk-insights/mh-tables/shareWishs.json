@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "itemNum": 1,
+    "itemType": "zb_box2",
+    "openTime": 0,
+    "rewardNum": 20,
+    "rewardType": "assembleStone"
+  },
+  {
+    "id": 2,
+    "itemNum": 2,
+    "itemType": "medal2",
+    "openTime": 0,
+    "rewardNum": 20,
+    "rewardType": "assembleStone"
+  },
+  {
+    "id": 3,
+    "itemNum": 1,
+    "itemType": "shenhuasuijibox",
+    "openTime": 0,
+    "rewardNum": 25,
+    "rewardType": "assembleStone"
+  },
+  {
+    "id": 4,
+    "itemNum": 1,
+    "itemType": "danRandomDwBox",
+    "openTime": 1,
+    "rewardNum": 30,
+    "rewardType": "assembleStone"
+  },
+  {
+    "id": 5,
+    "itemNum": 10,
+    "itemType": "soulStone2",
+    "openTime": 1,
+    "rewardNum": 40,
+    "rewardType": "assembleStone"
+  },
+  {
+    "id": 6,
+    "itemNum": 1,
+    "itemType": "starMark5",
+    "openTime": 2,
+    "rewardNum": 50,
+    "rewardType": "assembleStone"
+  },
+  {
+    "id": 7,
+    "itemNum": 10,
+    "itemType": "soulStone3",
+    "openTime": 2,
+    "rewardNum": 60,
+    "rewardType": "assembleStone"
+  },
+  {
+    "id": 8,
+    "itemNum": 1,
+    "itemType": "randomMem4",
+    "openTime": 3,
+    "rewardNum": 75,
+    "rewardType": "assembleStone"
+  },
+  {
+    "id": 9,
+    "itemNum": 1,
+    "itemType": "gemPick_06",
+    "openTime": 3,
+    "rewardNum": 90,
+    "rewardType": "assembleStone"
+  },
+  {
+    "id": 10,
+    "itemNum": 50,
+    "itemType": "templeDust",
+    "openTime": 4,
+    "rewardNum": 110,
+    "rewardType": "assembleStone"
+  }
+]

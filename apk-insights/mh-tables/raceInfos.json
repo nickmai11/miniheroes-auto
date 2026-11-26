@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "recurType": 1,
+    "name": "RECUR_ACTIVITIES_NAME_1",
+    "nameCalendar": "RECUR_ACTIVITIES_NAME_1_2",
+    "des": "RECUR_ACTIVITIES_HELP_1",
+    "jump": 2
+  },
+  {
+    "id": 2,
+    "recurType": 2,
+    "name": "RECUR_ACTIVITIES_NAME_2",
+    "nameCalendar": "RECUR_ACTIVITIES_NAME_2_2",
+    "des": "RECUR_ACTIVITIES_HELP_2",
+    "jump": 12
+  },
+  {
+    "id": 3,
+    "recurType": 101,
+    "name": "RECUR_ACTIVITIES_NAME_101",
+    "nameCalendar": "RECUR_ACTIVITIES_NAME_101_2",
+    "des": "RECUR_ACTIVITIES_HELP_101",
+    "jump": 7
+  },
+  {
+    "id": 4,
+    "recurType": 102,
+    "name": "RECUR_ACTIVITIES_NAME_102",
+    "nameCalendar": "RECUR_ACTIVITIES_NAME_102_2",
+    "des": "RECUR_ACTIVITIES_HELP_102",
+    "jump": 22
+  },
+  {
+    "id": 5,
+    "recurType": 103,
+    "name": "RECUR_ACTIVITIES_NAME_103",
+    "nameCalendar": "RECUR_ACTIVITIES_NAME_103_2",
+    "des": "RECUR_ACTIVITIES_HELP_103",
+    "jump": 24
+  },
+  {
+    "id": 6,
+    "recurType": 104,
+    "name": "RECUR_ACTIVITIES_NAME_104",
+    "nameCalendar": "RECUR_ACTIVITIES_NAME_104_2",
+    "des": "RECUR_ACTIVITIES_HELP_104",
+    "jump": 11
+  },
+  {
+    "id": 7,
+    "recurType": 105,
+    "name": "RECUR_ACTIVITIES_NAME_105",
+    "nameCalendar": "RECUR_ACTIVITIES_NAME_105_2",
+    "des": "RECUR_ACTIVITIES_HELP_105",
+    "jump": 21
+  },
+  {
+    "id": 8,
+    "recurType": 106,
+    "name": "RECUR_ACTIVITIES_NAME_106",
+    "nameCalendar": "RECUR_ACTIVITIES_NAME_106_2",
+    "des": "RECUR_ACTIVITIES_HELP_106",
+    "jump": 30
+  }
+]

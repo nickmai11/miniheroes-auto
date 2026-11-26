@@ -1,0 +1,50 @@
+[
+  {
+    "guildRanking": [1],
+    "guildRewardNum": [1000, 6000, 1000000],
+    "guildRewardType": ["diamond", "spiritStone_3", "gold"],
+    "id": 1
+  },
+  {
+    "guildRanking": [2],
+    "guildRewardNum": [800, 5500, 700000],
+    "guildRewardType": ["diamond", "spiritStone_3", "gold"],
+    "id": 2
+  },
+  {
+    "guildRanking": [3],
+    "guildRewardNum": [700, 5000, 500000],
+    "guildRewardType": ["diamond", "spiritStone_3", "gold"],
+    "id": 3
+  },
+  {
+    "guildRanking": [4, 5],
+    "guildRewardNum": [500, 4000, 400000],
+    "guildRewardType": ["diamond", "spiritStone_3", "gold"],
+    "id": 4
+  },
+  {
+    "guildRanking": [6, 10],
+    "guildRewardNum": [400, 3000, 300000],
+    "guildRewardType": ["diamond", "spiritStone_3", "gold"],
+    "id": 5
+  },
+  {
+    "guildRanking": [11, 20],
+    "guildRewardNum": [300, 2000, 200000],
+    "guildRewardType": ["diamond", "spiritStone_3", "gold"],
+    "id": 6
+  },
+  {
+    "guildRanking": [21, 50],
+    "guildRewardNum": [200, 1000, 100000],
+    "guildRewardType": ["diamond", "spiritStone_3", "gold"],
+    "id": 7
+  },
+  {
+    "guildRanking": [51, 9999],
+    "guildRewardNum": [100, 500, 50000],
+    "guildRewardType": ["diamond", "spiritStone_3", "gold"],
+    "id": 8
+  }
+]

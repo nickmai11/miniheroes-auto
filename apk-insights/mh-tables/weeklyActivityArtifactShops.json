@@ -1,0 +1,92 @@
+[
+  {
+    "buyCondition": 2,
+    "discount": 0,
+    "id": 1,
+    "limitNum": 1,
+    "name": "SC_TH_MS_1",
+    "productIdentifying": "pay12000",
+    "rewardNum": [1000],
+    "rewardType": ["holyLight"]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0.2,
+    "id": 2,
+    "limitNum": 1,
+    "name": "XSHD_38",
+    "productIdentifying": "pay12001",
+    "rewardNum": [300, 10000, 1, 1, 300],
+    "rewardType": [
+      "diamond",
+      "holyLight",
+      "crystalLight",
+      "templeCube",
+      "noblePoints"
+    ]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0,
+    "id": 3,
+    "limitNum": 3,
+    "name": "XSHD_39",
+    "productIdentifying": "pay12002",
+    "rewardNum": [680, 12000, 2, 2, 680],
+    "rewardType": [
+      "diamond",
+      "holyLight",
+      "crystalLight",
+      "templeCube",
+      "noblePoints"
+    ]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0,
+    "id": 4,
+    "limitNum": 3,
+    "name": "XSHD_40",
+    "productIdentifying": "pay12003",
+    "rewardNum": [1980, 30000, 6, 3, 1980],
+    "rewardType": [
+      "diamond",
+      "holyLight",
+      "crystalLight",
+      "templeCube",
+      "noblePoints"
+    ]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0,
+    "id": 5,
+    "limitNum": 3,
+    "name": "XSHD_41",
+    "productIdentifying": "pay12004",
+    "rewardNum": [3280, 50000, 9, 3, 3280],
+    "rewardType": [
+      "diamond",
+      "holyLight",
+      "crystalLight",
+      "divineStone",
+      "noblePoints"
+    ]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0,
+    "id": 6,
+    "limitNum": 5,
+    "name": "XSHD_42",
+    "productIdentifying": "pay12005",
+    "rewardNum": [6480, 100000, 18, 5, 6480],
+    "rewardType": [
+      "diamond",
+      "holyLight",
+      "crystalLight",
+      "divineStone",
+      "noblePoints"
+    ]
+  }
+]

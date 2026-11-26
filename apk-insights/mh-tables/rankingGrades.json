@@ -1,0 +1,149 @@
+[
+  {
+    "grade": 1,
+    "id": 1,
+    "name": "rankBronze5",
+    "promotionNeedStar": 4,
+    "stage": 5
+  },
+  {
+    "grade": 1,
+    "id": 2,
+    "name": "rankBronze4",
+    "promotionNeedStar": 4,
+    "stage": 4
+  },
+  {
+    "grade": 1,
+    "id": 3,
+    "name": "rankBronze3",
+    "promotionNeedStar": 4,
+    "stage": 3
+  },
+  {
+    "grade": 1,
+    "id": 4,
+    "name": "rankBronze2",
+    "promotionNeedStar": 4,
+    "stage": 2
+  },
+  {
+    "grade": 1,
+    "id": 5,
+    "name": "rankBronze1",
+    "promotionNeedStar": 4,
+    "stage": 1
+  },
+  {
+    "grade": 2,
+    "id": 6,
+    "name": "rankSilver5",
+    "promotionNeedStar": 4,
+    "stage": 5
+  },
+  {
+    "grade": 2,
+    "id": 7,
+    "name": "rankSilver4",
+    "promotionNeedStar": 4,
+    "stage": 4
+  },
+  {
+    "grade": 2,
+    "id": 8,
+    "name": "rankSilver3",
+    "promotionNeedStar": 4,
+    "stage": 3
+  },
+  {
+    "grade": 2,
+    "id": 9,
+    "name": "rankSilver2",
+    "promotionNeedStar": 4,
+    "stage": 2
+  },
+  {
+    "grade": 2,
+    "id": 10,
+    "name": "rankSilver1",
+    "promotionNeedStar": 4,
+    "stage": 1
+  },
+  {
+    "grade": 3,
+    "id": 11,
+    "name": "rankGold5",
+    "promotionNeedStar": 4,
+    "stage": 5
+  },
+  {
+    "grade": 3,
+    "id": 12,
+    "name": "rankGold4",
+    "promotionNeedStar": 4,
+    "stage": 4
+  },
+  {
+    "grade": 3,
+    "id": 13,
+    "name": "rankGold3",
+    "promotionNeedStar": 4,
+    "stage": 3
+  },
+  {
+    "grade": 3,
+    "id": 14,
+    "name": "rankGold2",
+    "promotionNeedStar": 4,
+    "stage": 2
+  },
+  {
+    "grade": 3,
+    "id": 15,
+    "name": "rankGold1",
+    "promotionNeedStar": 4,
+    "stage": 1
+  },
+  {
+    "grade": 4,
+    "id": 16,
+    "name": "rankStar5",
+    "promotionNeedStar": 4,
+    "stage": 5
+  },
+  {
+    "grade": 4,
+    "id": 17,
+    "name": "rankStar4",
+    "promotionNeedStar": 4,
+    "stage": 4
+  },
+  {
+    "grade": 4,
+    "id": 18,
+    "name": "rankStar3",
+    "promotionNeedStar": 4,
+    "stage": 3
+  },
+  {
+    "grade": 4,
+    "id": 19,
+    "name": "rankStar2",
+    "promotionNeedStar": 4,
+    "stage": 2
+  },
+  {
+    "grade": 4,
+    "id": 20,
+    "name": "rankStar1",
+    "promotionNeedStar": 4,
+    "stage": 1
+  },
+  {
+    "grade": 5,
+    "id": 21,
+    "name": "rankRoyal1",
+    "promotionNeedStar": 4,
+    "stage": 0
+  }
+]

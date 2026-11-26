@@ -1,0 +1,17 @@
+[
+  {
+    "buyType": ["blindBoxCoin"],
+    "display": 1,
+    "floorCard": [29, 30, 31, 34, 35, 36, 37, 32],
+    "floorInit": [9, 25, 48, 62, 85, 103, 142, 175],
+    "floorNumber": 10,
+    "floorPool": 38,
+    "id": 1,
+    "integralReward": 150,
+    "price": [2000],
+    "price10": [18800],
+    "replace": 10,
+    "rewardNum": 1,
+    "rewardType": 28
+  }
+]

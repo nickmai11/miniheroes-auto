@@ -59,7 +59,7 @@ run() {   # <scenario> <expected line regex> <expected relaunches> <expected ins
 }
 run cold     '^Test 127.0.0.1:26999 ready \(stable'  0 0     # f475aaa: a clean cold boot must be ready, not boot-timeout
 run slow     '^Test 127.0.0.1:26999 ready \(stable'  0 0 3   # Android up after 3 s
-run drop     '^Test 127.0.0.1:26999 ready \(stable'  0 0     # link lost at each force-stop -> reconnect (Chloe 11-22)
+run drop     '^Test 127.0.0.1:26999 ready \(stable'  0 0     # link lost at each force-stop -> reconnect (Gambler 11-22)
 run dropstart '^Test 127.0.0.1:26999 ready \(stable'  0 0     # link lost on the Start tap -> reconnect, no relaunch (live 11-22)
 run logout   '^Test 127.0.0.1:26999 logged-out'      0 0     # login screen -> skip at once, no relaunch (Kong 11-22)
 run nolaunch '^Test 127.0.0.1:26999 start-timeout'   10 5    # game never starts -> 10 relaunches, instance restart every 2nd

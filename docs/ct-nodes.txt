@@ -1,9 +1,21 @@
-# Crystal Throne node initials -> in-game name (Nick 2026-11-22). One home: ct_siege.py reads this, the doc points here.
-# Two-word names = first letters; one-word names as Nick sets them. Incomplete: learn the rest at the next match.
-db Dragonblight
-gh Grizzly Hills
-sb Sholazar Basin
-hf Howling Fjord
-bp Blaze Peak
-sp Storm Peak
-bt Borean Tundra
+# Crystal Throne node names, one per line. One home: ct_siege.py reads this, the doc points here.
+# A node is called by the start of its name, word by word (Nick 2026-11-25, no initials): `grizzly`, `under`, `des`,
+# `zan`, `blaze`, and `storm s` / `storm p` for the two Storm nodes (`storm` alone is refused as ambiguous).
+# Names = the game's own node table (apk-insights/mh-tables/castleMaps.json) + Nick's Blaze Peak, which isn't in it:
+# check them against the map at the next match.
+Dragonblight
+Grizzly Hills
+Sholazar Basin
+Howling Fjord
+Blaze Peak
+Storm Peaks
+Storm Stronghold
+Borean Tundra
+Crystal Throne
+Icecrown Glacier
+Lava Stronghold
+Twilight Fortress
+Elwynn Forest
+Undercity
+Desolace
+Zangarmarsh

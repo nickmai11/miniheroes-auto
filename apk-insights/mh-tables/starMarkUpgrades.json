@@ -1,0 +1,17 @@
+[
+  { "attributeAdd": 0.2, "id": 1, "starSignLevel": "1", "strongPotion": 1 },
+  { "attributeAdd": 0.4, "id": 2, "starSignLevel": "2", "strongPotion": 1 },
+  { "attributeAdd": 0.6, "id": 3, "starSignLevel": "3", "strongPotion": 1 },
+  { "attributeAdd": 0.8, "id": 4, "starSignLevel": "4", "strongPotion": 2 },
+  { "attributeAdd": 1, "id": 5, "starSignLevel": "5", "strongPotion": 2 },
+  { "attributeAdd": 1.2, "id": 6, "starSignLevel": "6", "strongPotion": 2 },
+  { "attributeAdd": 1.4, "id": 7, "starSignLevel": "7", "strongPotion": 3 },
+  { "attributeAdd": 1.6, "id": 8, "starSignLevel": "8", "strongPotion": 3 },
+  { "attributeAdd": 1.8, "id": 9, "starSignLevel": "9", "strongPotion": 3 },
+  { "attributeAdd": 2, "id": 10, "starSignLevel": "10", "strongPotion": 5 },
+  { "attributeAdd": 2.2, "id": 11, "starSignLevel": "11", "strongPotion": 5 },
+  { "attributeAdd": 2.4, "id": 12, "starSignLevel": "12", "strongPotion": 5 },
+  { "attributeAdd": 2.5, "id": 13, "starSignLevel": "13", "strongPotion": 7 },
+  { "attributeAdd": 2.6, "id": 14, "starSignLevel": "14", "strongPotion": 7 },
+  { "attributeAdd": 2.7, "id": 15, "starSignLevel": "15", "strongPotion": 7 }
+]

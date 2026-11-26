@@ -1,0 +1,44 @@
+[
+  {
+    "icon": "icon_jineng4",
+    "id": 1,
+    "releaseSkillEnergy": 120,
+    "skillId": 104,
+    "skillUnlock": 0
+  },
+  {
+    "icon": "icon_jineng6",
+    "id": 2,
+    "releaseSkillEnergy": 100,
+    "skillId": 106,
+    "skillUnlock": 0
+  },
+  {
+    "icon": "icon_jineng2",
+    "id": 3,
+    "releaseSkillEnergy": 70,
+    "skillId": 102,
+    "skillUnlock": 1000
+  },
+  {
+    "icon": "icon_jineng3",
+    "id": 4,
+    "releaseSkillEnergy": 120,
+    "skillId": 103,
+    "skillUnlock": 2000
+  },
+  {
+    "icon": "icon_jineng1",
+    "id": 5,
+    "releaseSkillEnergy": 140,
+    "skillId": 101,
+    "skillUnlock": 5000
+  },
+  {
+    "icon": "icon_jineng5",
+    "id": 6,
+    "releaseSkillEnergy": 140,
+    "skillId": 105,
+    "skillUnlock": 10000
+  }
+]

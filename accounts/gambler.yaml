@@ -1,6 +1,6 @@
 account:
-  name: Chloe
-  mumu_instance: Chloe
+  name: Gambler
+  mumu_instance: Gambler
   game_id: null # copied from Aminor 2026-11-06: fill in
   server: null # Settings > Server, "Current" row: fill in
   enabled: true

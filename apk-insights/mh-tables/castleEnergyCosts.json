@@ -1,0 +1,9 @@
+[
+  { "id": 1, "rangeMax": 0, "rangeMin": 0, "type": 1, "useEnergy": 0 },
+  { "id": 2, "rangeMax": 99999, "rangeMin": 9000, "type": 2, "useEnergy": 8 },
+  { "id": 3, "rangeMax": 9000, "rangeMin": 7500, "type": 2, "useEnergy": 7 },
+  { "id": 4, "rangeMax": 7500, "rangeMin": 6000, "type": 2, "useEnergy": 6 },
+  { "id": 5, "rangeMax": 6000, "rangeMin": 5000, "type": 2, "useEnergy": 5 },
+  { "id": 6, "rangeMax": 5000, "rangeMin": 4000, "type": 2, "useEnergy": 4 },
+  { "id": 7, "rangeMax": 4000, "rangeMin": 0, "type": 2, "useEnergy": 3 }
+]

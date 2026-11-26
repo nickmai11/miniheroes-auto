@@ -1,0 +1,352 @@
+[
+  {
+    "Rank": [1, 1],
+    "id": 1,
+    "recurType": 1,
+    "rewardNum": [1, 1],
+    "rewardType": ["glyphs_4004", "gold_4"]
+  },
+  {
+    "Rank": [2, 2],
+    "id": 2,
+    "recurType": 1,
+    "rewardNum": [2, 1],
+    "rewardType": ["glyphs_4003", "gold_3"]
+  },
+  {
+    "Rank": [3, 3],
+    "id": 3,
+    "recurType": 1,
+    "rewardNum": [2, 1],
+    "rewardType": ["glyphs_4003", "gold_2"]
+  },
+  {
+    "Rank": [4, 10],
+    "id": 4,
+    "recurType": 1,
+    "rewardNum": [1, 1],
+    "rewardType": ["glyphs_4003", "gold_2"]
+  },
+  {
+    "Rank": [11, 20],
+    "id": 5,
+    "recurType": 1,
+    "rewardNum": [3, 2],
+    "rewardType": ["glyphs_4002", "gold_1"]
+  },
+  {
+    "Rank": [21, 50],
+    "id": 6,
+    "recurType": 1,
+    "rewardNum": [2, 1],
+    "rewardType": ["glyphs_4002", "gold_1"]
+  },
+  {
+    "Rank": [51, 100],
+    "id": 7,
+    "recurType": 1,
+    "rewardNum": [1, 1],
+    "rewardType": ["glyphs_4002", "gold_1"]
+  },
+  {
+    "Rank": [1, 1],
+    "id": 8,
+    "recurType": 2,
+    "rewardNum": [20, 1],
+    "rewardType": ["randomFragment3", "gold_4"]
+  },
+  {
+    "Rank": [2, 2],
+    "id": 9,
+    "recurType": 2,
+    "rewardNum": [17, 1],
+    "rewardType": ["randomFragment3", "gold_3"]
+  },
+  {
+    "Rank": [3, 3],
+    "id": 10,
+    "recurType": 2,
+    "rewardNum": [14, 1],
+    "rewardType": ["randomFragment3", "gold_2"]
+  },
+  {
+    "Rank": [4, 10],
+    "id": 11,
+    "recurType": 2,
+    "rewardNum": [10, 1],
+    "rewardType": ["randomFragment3", "gold_2"]
+  },
+  {
+    "Rank": [11, 20],
+    "id": 12,
+    "recurType": 2,
+    "rewardNum": [8, 2],
+    "rewardType": ["randomFragment3", "gold_1"]
+  },
+  {
+    "Rank": [21, 50],
+    "id": 13,
+    "recurType": 2,
+    "rewardNum": [6, 1],
+    "rewardType": ["randomFragment3", "gold_1"]
+  },
+  {
+    "Rank": [51, 100],
+    "id": 14,
+    "recurType": 2,
+    "rewardNum": [5, 1],
+    "rewardType": ["randomFragment3", "gold_1"]
+  },
+  {
+    "Rank": [1, 1],
+    "id": 15,
+    "recurType": 101,
+    "rewardNum": [500, 1],
+    "rewardType": ["diamond", "gold_3"]
+  },
+  {
+    "Rank": [2, 2],
+    "id": 16,
+    "recurType": 101,
+    "rewardNum": [400, 1],
+    "rewardType": ["diamond", "gold_2"]
+  },
+  {
+    "Rank": [3, 3],
+    "id": 17,
+    "recurType": 101,
+    "rewardNum": [350, 1],
+    "rewardType": ["diamond", "gold_2"]
+  },
+  {
+    "Rank": [4, 10],
+    "id": 18,
+    "recurType": 101,
+    "rewardNum": [300, 2],
+    "rewardType": ["diamond", "gold_1"]
+  },
+  {
+    "Rank": [11, 20],
+    "id": 19,
+    "recurType": 101,
+    "rewardNum": [200, 1],
+    "rewardType": ["diamond", "gold_1"]
+  },
+  {
+    "Rank": [21, 30],
+    "id": 20,
+    "recurType": 101,
+    "rewardNum": [100, 1],
+    "rewardType": ["diamond", "gold_1"]
+  },
+  {
+    "Rank": [1, 1],
+    "id": 21,
+    "recurType": 102,
+    "rewardNum": [1, 1],
+    "rewardType": ["zb_box2", "gold_3"]
+  },
+  {
+    "Rank": [2, 2],
+    "id": 22,
+    "recurType": 102,
+    "rewardNum": [1, 1],
+    "rewardType": ["zb_box1", "gold_2"]
+  },
+  {
+    "Rank": [3, 3],
+    "id": 23,
+    "recurType": 102,
+    "rewardNum": [15, 1],
+    "rewardType": ["coinMinting2", "gold_2"]
+  },
+  {
+    "Rank": [4, 10],
+    "id": 24,
+    "recurType": 102,
+    "rewardNum": [10, 2],
+    "rewardType": ["coinMinting2", "gold_1"]
+  },
+  {
+    "Rank": [11, 20],
+    "id": 25,
+    "recurType": 102,
+    "rewardNum": [8, 1],
+    "rewardType": ["coinMinting2", "gold_1"]
+  },
+  {
+    "Rank": [21, 50],
+    "id": 26,
+    "recurType": 102,
+    "rewardNum": [5, 1],
+    "rewardType": ["coinMinting2", "gold_1"]
+  },
+  {
+    "Rank": [1, 1],
+    "id": 27,
+    "recurType": 103,
+    "rewardNum": [10, 1],
+    "rewardType": ["recruitRoll", "gold_3"]
+  },
+  {
+    "Rank": [2, 2],
+    "id": 28,
+    "recurType": 103,
+    "rewardNum": [8, 1],
+    "rewardType": ["recruitRoll", "gold_2"]
+  },
+  {
+    "Rank": [3, 3],
+    "id": 29,
+    "recurType": 103,
+    "rewardNum": [6, 1],
+    "rewardType": ["recruitRoll", "gold_2"]
+  },
+  {
+    "Rank": [4, 10],
+    "id": 30,
+    "recurType": 103,
+    "rewardNum": [4, 2],
+    "rewardType": ["recruitRoll", "gold_1"]
+  },
+  {
+    "Rank": [11, 20],
+    "id": 31,
+    "recurType": 103,
+    "rewardNum": [3, 1],
+    "rewardType": ["recruitRoll", "gold_1"]
+  },
+  {
+    "Rank": [21, 50],
+    "id": 32,
+    "recurType": 103,
+    "rewardNum": [2, 1],
+    "rewardType": ["recruitRoll", "gold_1"]
+  },
+  {
+    "Rank": [1, 1],
+    "id": 33,
+    "recurType": 104,
+    "rewardNum": [10, 1],
+    "rewardType": ["randomFragment3", "gold_3"]
+  },
+  {
+    "Rank": [2, 2],
+    "id": 34,
+    "recurType": 104,
+    "rewardNum": [8, 1],
+    "rewardType": ["randomFragment3", "gold_2"]
+  },
+  {
+    "Rank": [3, 3],
+    "id": 35,
+    "recurType": 104,
+    "rewardNum": [6, 1],
+    "rewardType": ["randomFragment3", "gold_2"]
+  },
+  {
+    "Rank": [4, 10],
+    "id": 36,
+    "recurType": 104,
+    "rewardNum": [4, 2],
+    "rewardType": ["randomFragment3", "gold_1"]
+  },
+  {
+    "Rank": [11, 20],
+    "id": 37,
+    "recurType": 104,
+    "rewardNum": [3, 1],
+    "rewardType": ["randomFragment3", "gold_1"]
+  },
+  {
+    "Rank": [21, 50],
+    "id": 38,
+    "recurType": 104,
+    "rewardNum": [2, 1],
+    "rewardType": ["randomFragment3", "gold_1"]
+  },
+  {
+    "Rank": [1, 1],
+    "id": 39,
+    "recurType": 105,
+    "rewardNum": [50, 1],
+    "rewardType": ["bait3", "gold_3"]
+  },
+  {
+    "Rank": [2, 2],
+    "id": 40,
+    "recurType": 105,
+    "rewardNum": [40, 1],
+    "rewardType": ["bait3", "gold_2"]
+  },
+  {
+    "Rank": [3, 3],
+    "id": 41,
+    "recurType": 105,
+    "rewardNum": [35, 1],
+    "rewardType": ["bait3", "gold_2"]
+  },
+  {
+    "Rank": [4, 10],
+    "id": 42,
+    "recurType": 105,
+    "rewardNum": [30, 2],
+    "rewardType": ["bait3", "gold_1"]
+  },
+  {
+    "Rank": [11, 20],
+    "id": 43,
+    "recurType": 105,
+    "rewardNum": [20, 1],
+    "rewardType": ["bait3", "gold_1"]
+  },
+  {
+    "Rank": [21, 50],
+    "id": 44,
+    "recurType": 105,
+    "rewardNum": [10, 1],
+    "rewardType": ["bait3", "gold_1"]
+  },
+  {
+    "Rank": [1, 1],
+    "id": 45,
+    "recurType": 106,
+    "rewardNum": [4, 1],
+    "rewardType": ["templeCube", "gold_3"]
+  },
+  {
+    "Rank": [2, 2],
+    "id": 46,
+    "recurType": 106,
+    "rewardNum": [3, 1],
+    "rewardType": ["templeCube", "gold_2"]
+  },
+  {
+    "Rank": [3, 3],
+    "id": 47,
+    "recurType": 106,
+    "rewardNum": [2, 1],
+    "rewardType": ["templeCube", "gold_2"]
+  },
+  {
+    "Rank": [4, 10],
+    "id": 48,
+    "recurType": 106,
+    "rewardNum": [2, 2],
+    "rewardType": ["templeCube", "gold_1"]
+  },
+  {
+    "Rank": [11, 20],
+    "id": 49,
+    "recurType": 106,
+    "rewardNum": [1, 2],
+    "rewardType": ["templeCube", "gold_1"]
+  },
+  {
+    "Rank": [21, 50],
+    "id": 50,
+    "recurType": 106,
+    "rewardNum": [1, 1],
+    "rewardType": ["templeCube", "gold_1"]
+  }
+]

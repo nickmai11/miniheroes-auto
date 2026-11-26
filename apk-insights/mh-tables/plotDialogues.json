@@ -1,0 +1,16 @@
+[
+  { "dialogueId": 40100, "dialogueText": "JQYD_1", "id": 1, "image": 0 },
+  { "dialogueId": 10100, "dialogueText": "JQYD_2", "id": 2, "image": 1 },
+  { "dialogueId": 10100, "dialogueText": "JQYD_3", "id": 3, "image": 0 },
+  { "dialogueId": 10800, "dialogueText": "JQYD_4", "id": 4, "image": 0 },
+  { "dialogueId": 30500, "dialogueText": "JQYD_5", "id": 5, "image": 0 },
+  { "dialogueId": 20700, "dialogueText": "JQYD_6", "id": 6, "image": 0 },
+  { "dialogueId": 40100, "dialogueText": "JQYD_7", "id": 7, "image": 0 },
+  { "dialogueId": 11100, "dialogueText": "JQYD_8", "id": 8, "image": 1 },
+  { "dialogueId": 10100, "dialogueText": "JQYD_9", "id": 9, "image": 0 },
+  { "dialogueId": 11200, "dialogueText": "JQYD_10", "id": 10, "image": 1 },
+  { "dialogueId": 40700, "dialogueText": "JQYD_11", "id": 11, "image": 1 },
+  { "dialogueId": 10100, "dialogueText": "JQYD_12", "id": 12, "image": 0 },
+  { "dialogueId": 40100, "dialogueText": "JQYD_13", "id": 13, "image": 0 },
+  { "dialogueId": 10100, "dialogueText": "JQYD_14", "id": 14, "image": 0 }
+]

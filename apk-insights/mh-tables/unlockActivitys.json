@@ -1,0 +1,68 @@
+[
+  {
+    "animation": 1,
+    "displayReward": ["exp", "coinMinting3", "recruitRoll"],
+    "id": 1,
+    "key": 201,
+    "name": "UI_FUNCTION_1",
+    "sort": 2,
+    "unlockingCondition": 1,
+    "unlockingNum": 25,
+    "unlockingNum1": [25]
+  },
+  {
+    "animation": 1,
+    "displayReward": ["exp", "coinMinting3", "glyphs_2003"],
+    "id": 2,
+    "key": 202,
+    "name": "UI_FUNCTION_12",
+    "sort": 1,
+    "unlockingCondition": 1,
+    "unlockingNum": 14,
+    "unlockingNum1": [14]
+  },
+  {
+    "animation": 1,
+    "displayReward": ["gold", "sanctuaryCoin", "randomFragment4"],
+    "id": 3,
+    "key": 203,
+    "name": "MMSS_INFO_1",
+    "sort": 3,
+    "unlockingCondition": 1,
+    "unlockingNum": 40,
+    "unlockingNum1": [40]
+  },
+  {
+    "animation": 1,
+    "displayReward": ["gold", "starCrystal", "starMark4"],
+    "id": 4,
+    "key": 204,
+    "name": "UI_FUNCTION_29",
+    "sort": 4,
+    "unlockingCondition": 1,
+    "unlockingNum": 70,
+    "unlockingNum1": [70]
+  },
+  {
+    "animation": 1,
+    "displayReward": ["gold", "beastCoin", "recruitRoll"],
+    "id": 5,
+    "key": 205,
+    "name": "WORLD_BOSS_TXT_1",
+    "sort": 6,
+    "unlockingCondition": 1,
+    "unlockingNum": 85,
+    "unlockingNum1": [85]
+  },
+  {
+    "animation": 1,
+    "displayReward": ["gold", "relicCoin", "randomSkinFettersBox"],
+    "id": 6,
+    "key": 206,
+    "name": "SKIN_RELIC_WORDS_007",
+    "sort": 5,
+    "unlockingCondition": 1,
+    "unlockingNum": 75,
+    "unlockingNum1": [75]
+  }
+]

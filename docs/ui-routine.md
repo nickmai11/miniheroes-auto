@@ -22,12 +22,15 @@ its runner step; change the order there, then here and in `docs/dod.md` (its Don
 - `storm` — **Storm Battlefield** (see "Storm Battlefield", incl. its closed hours), then its rank rewards.
 - `shop` — Shop freebies.
 - `play_pass` — Play Pass claims.
-- `trials` → `tower` → `sanctuary` → `gate` → `beast` — **Adventure**, top to bottom: Land of Trials → Tower of the Throne →
-  Secret Sanctuary → Gate of Darkness → Beast Realm. Ancient Ruins is not part of the dailies (Nick).
+- `trials` → `tower` → `sanctuary` → `gate` → `ruins` → `beast` — **Adventure**, top to bottom: Land of Trials → Tower of the
+  Throne → Secret Sanctuary → Gate of Darkness → Ancient Ruins (`scripts/ruins.py`, in the dailies and the catch-up since
+  2026-11-26, Nick) → Beast Realm. The Adventure panel is opened once per mode: every mode's back arrow lands on the
+  main screen, never on the panel (checked on Cmajor 2026-11-26: Tower, Trials, Gate, Beast, Ruins).
 - `arena3` — Arena again, then the weekly win chests.
 - `recruit` — free summons.
 - `hero` — Hero upgrade (after the potion-giving steps above).
-- `tribe` — sign-in, Trial, chat Request + Assist, then **Canyon Clash** (empty spot + Points Reward; closed hours: see
+- `tribe` — sign-in, Trial, chat Request + Assist, then **Canyon Clash** straight from the chat (its **Lobby** button →
+  Tribe screen → Canyon card, no trip to main — Nick 2026-11-26) (empty spot + Points Reward; closed hours: see
   "Canyon Clash"). Poseidon's Ruins has its own skill; Crystal Throne: rules in `docs/crystal-throne.md`, matches not automated.
 - `divine` — Divine Weapon: Excelsior Veins, Forge, then Benefit (its milestones count the forging just done — Nick, 2026-11-04).
 - `stage` — Stage run ×3 (skull bubble).
@@ -36,6 +39,8 @@ its runner step; change the order there, then here and in `docs/dod.md` (its Don
 - `grocery` — free chests, then the account's `grocery_buy` tiles (if any), in one visit: straight to the shop tabs, no close + reopen (Nick, 2026-11-12).
 - `events` — see "Events (red dots)".
 - `treasury` — **King's Treasury** (`scripts/treasury.py`): spend the Treasury Keys the events step just claimed (Nick, 2026-11-10).
+  In a run that has both steps, `events` flips them in its own hub visit and `treasury` only reports the result (no
+  hub close + reopen; no Golden Woods tab = `SKIP` without opening the hub — Nick 2026-11-26).
 - `tribe_clash_packs` — Tribe Clash free **Value Pack** (banner → Pack `(980,1610)` → yellow Claim, 20 gems, Limited 1 → Sold Out;
   never the $ packs; Nick, 2026-11-07).
 - `floating_realm_packs` — the account's `floating_realm_packs` (CLAUDE.md "Hard rules").
@@ -68,7 +73,7 @@ updates the docs. Set each instance to 1080×1920 first (see "Starting the game"
 
 **Whole run: `D=<serial> scripts/daily.py <account> [step ...]`** — runs the Daily run order end to end from the
 main screen, one OK/SKIP/FAIL/MANUAL line per step, ending with `LEFT FOR HELPER: …` (see the dailies skill).
-Steps: pet_arena (Mon–Wed) fishing arena patrol arena2 storm shop play_pass trials tower sanctuary gate beast arena3 recruit hero tribe divine
+Steps: pet_arena (Mon–Wed) fishing arena patrol arena2 storm shop play_pass trials tower sanctuary gate ruins beast arena3 recruit hero tribe divine
 stage patrol_claim rune grocery events treasury tribe_clash_packs fishing_rewards daily_mission play_pass2 pet_count (Mon–Wed) (`pet_check` = catch-up only).
 **Run overview: `scripts/summary.sh <run dir>`** — per account OK/SKIP counts, FAIL/MANUAL/paid lines, LEFT FOR HELPER (one call instead of grepping logs).
 
@@ -115,7 +120,12 @@ and saves a screenshot `-w` px wide (default 540: coords ×2 for device; 270: ×
 ## ADB alternative (no computer use)
 
 Works without computer-use tools. Device frame is **1080×1920**; the rest of this doc uses
-window coords (704×1289) only for Land of Trials — with ADB use the device coords below (verified 2026-10-26). Get the instance's current ADB port from
+window coords (704×1289) only for Land of Trials — with ADB use the device coords below (verified 2026-10-26).
+**Every coord in the docs and scripts is 1080×1920, whatever the instance's display** (Nick, 2026-11-25: instances run the
+lowest Phone setting, 900×1600 / 300 DPI): `tap.py` upscales each screenshot to 1080×1920 and scales taps and swipes down
+(`grab()` / `dev()`, the only two places that know). So tap and swipe **only through `tap.py`** (`x,y` = tap,
+`x0,y0,x1,y1[,ms]` = swipe / held drag) or `flow.tap` / `flow.swipe` — a raw `adb shell input …` or `screencap` is in the
+instance's own pixels and misses on a 900×1600 one. Get the instance's current ADB port from
 `"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" info all` (ports change).
 
 ```
@@ -159,7 +169,7 @@ Forest `(870,1310)`, Temple `(870,1696)`.
   only as a last resort (a video's body opens the store). ~60–80 s per ad; the game's reward popup proves the claim.
   Scripted: Storm (`storm.py`), Common Recruitment and Grocery chests (2026-11-08); Wish Festival Gift Free Pack still
   unmapped on a no-pass account → skip and report.
-- Unmapped, leave alone: Adventure → Ancient Ruins (red dot), main-screen "Mars's Gift".
+- Unmapped, leave alone: main-screen "Mars's Gift". (Ancient Ruins: own section, runner step `ruins`.)
 - A `swipe` once failed with `INJECT_EVENTS permission` and the game was back on the main screen — screenshot and re-navigate.
 
 ## Starting the game
@@ -216,7 +226,8 @@ The card shows `Attempts: N` (free left) or `Remaining purchases: N` (free exhau
   and one of:
   - **"Challenge Attempts: N"** + plain yellow **Sweep** button → free sweep.
   - **"Remaining Purchase Attempts: N"** + **Sweep** button with a gem icon and price
-    → **paid** sweep. Price escalates per dungeon per day: 80, 160, 240, … (one purchase each).
+    → **paid** sweep. Price escalates per dungeon per day: 80, 160, 240, 320, 400 (one purchase each, 5 at most,
+    the same in all 5 dungeons — APK table `famUnlocks`, 2026-11-25; 80–240 seen live).
   - Tapping a paid **Sweep** opens a _Tip_ popup "Spend N diamonds to purchase 1 challenge
     attempt?" → **Confirm** (window coords unverified, ≈ `(352, 790)`; device `(540,1162)`)
     only _buys_ the attempt; the dialog then shows "Challenge Attempts: 1" and you tap
@@ -605,6 +616,8 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). All free.
    - **Assist** `(740,1660)`: helps every listed request at once; list empties.
    - Close ✕ `(968,228)`.
      Back from Chat usually goes straight to the main screen — but can land on Recruit; screenshot and back again.
+     **Lobby** `(980,1810)` (bottom right, next to Chat) → the Tribe screen with its cards: the runner opens Canyon
+     that way after the chat (`open_canyon()`, Cmajor 2026-11-26).
      Aminor (2026-10-27): helper found only the compose-bar Request and per-line "A" (translate) icons, no Assist
      — re-check Aminor's chat layout.
 5. Never type or send chat messages.
@@ -612,6 +625,10 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). All free.
 ## Fishing (orders, benefit, auto fish)
 
 Mapped 2026-10-26 on Cmajor via ADB (device coords). Done = auto fishing started; leave it running.
+
+**Shrimp Bait in use → skip Fishing** (Nick, 2026-11-25): every fishing step reads the bait in use first (**Bait**
+`(986,1459)` → the "In use" tile's title, close ✕ `(968,240)`). Shrimp Bait = `SKIP Shrimp Bait in use`: no orders, no
+Benefit, no Auto, no order rewards, and never a bait swap (Sunday's Lucky Star included). Runner: `set_bait()`.
 
 1. Main screen → **Fishing** `(624,1780)`.
 2. **Order Info** `(190,786)` → _Daily Order_ dialog: 3 orders, refresh-ticket count top-left.
@@ -771,7 +788,10 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
    - Chests 2–4 (Hero, Resource, Growth): **3 claims each**, ~5–8 s cooldown between claims.
 3. **Run `D=<serial> scripts/grocery.py`** (colour-based; the popup's Free button moves per item —
    chest 1 `(540,1204)`, chests 2–4 `(540,1344)` — so it scans for the green button). It sometimes stops early
-   (chests still green Free) or its last dismiss closes Grocery: reopen Grocery and re-run until all 4 show **Sold Out**.
+   (chests still green Free): re-run until all 4 show **Sold Out**. A tap on a chest that just sold out opens no
+   popup, only the toast "Insufficient remaining count" — nothing to dismiss then: a tap at `(540,1850)` with no popup
+   up is outside the Grocery dialog and closes it (the script's "grocery closed; reopening", 5 accounts on 2026-11-26;
+   since then it checks the dialog's ✕ `(940,200)`: bright = no popup, dark = a popup is up).
    Manual: tap a chest showing **Free** → popup must say Free (never a gem price) → claim → wait ~4.5 s → dismiss
    `(540,1850)` (`(540,120)` can close Grocery). Popup Free pixel `(480,1344)`: green (123,206,49) = claimable,
    grey (173,178,189) = cooldown. Growth Chest gives +80 gems per claim; Resource Chest can roll +50.
@@ -855,7 +875,7 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   Cmajor 2026-11-20; runner `six_floor()`, tab OCR reads Joyful/Jovful/Jöyful → `^J\w{2,3}ful`). A list of 5 cards, opened
   by their title (+60 px): Wish Summon, Ruin Challenge, Holiday Exchange, then Sign In | Gift Box side by side. Each
   card's red dot sits on its top-right corner, ~62 px above the title. Every popup closes with ✕ `(978,192)`.
-  - **Sign In** → "Sign-in Reward": 7+ day rows (Wish tokens, Paper Planes, 100 gems) → today's yellow **Claim**;
+  - **Sign In** → "Sign-in Reward": 7+ day rows (Wish tokens, Paper Planes, 100 gems) → today's yellow **Claim** (from Day 6 its row is below the 5 visible ones: slow drag `540,1400 → 540,1000`, 1.6 s, first — Kong 2026-11-25);
     **Holiday Gift** chest top-left (dot ≈ `(370,330)`) → tap `(280,400)` → one-time **Free** pack (1000 gems, 8888
     ore, 10 Paper Planes, 1 potion), then the chest shows "Claimed".
   - **Gift Box** → "Holiday Pack": **Free Benefit Gift Box** yellow Claim (Limited 1, daily reset) → Sold Out. Never
@@ -932,11 +952,13 @@ them yourself. **`D=<serial> scripts/realm_guess.py <1st> <2nd> <3rd>`** per acc
 
 ## Tribe Clash Treasure (Chieftain's Treasure) — mapped on Kong 2026-11-11
 
-**Script: `D=<serial> scripts/clash_treasure.py`** (main or Tribe Clash screen) — also the last step of `tc.py` (Nick 2026-11-11).
+**Script: `D=<serial> scripts/clash_treasure.py`** (main or Tribe Clash screen) — also the last step of `tc.py` (Nick 2026-11-11),
+which backs out of the battle map only as far as the Tribe Clash screen for it (Enter + Guess on screen), not to main
+and the banner again (Nick 2026-11-26).
 Tribe Clash screen (main banner) → **Treasure** `(980,1300)` (red dot = keys to spend). Keys only, no gems.
 
-- 9 chests per floor (3×3: x 230/540/850, y 830/1140/1450); counter at the bottom `keys/cost` (Floor 1 = 1 key per chest,
-  Floor 2 = 2; floor header "Floor N" at y≈525). One chest holds the **Grand Prize** ("Congratulations … grand prize",
+- 9 chests per floor (3×3: x 230/540/850, y 830/1140/1450); counter at the bottom `keys/cost` (Floor N = N keys per chest,
+  1 … 9 — APK table `siegeBoxCosts`; Floors 1–2 seen live; floor header "Floor N" at y≈525). One chest holds the **Grand Prize** ("Congratulations … grand prize",
   tap the top edge `(540,60)` to close); its slot then turns into a **portal**.
 - **Take the portal as soon as it shows** (Nick 2026-11-11: "when found next floor, go to next floor"), leaving the
   floor's unopened chests — its Tip says they're lost (Confirm `(540,1160)`, tick "Do not remind me today" `(320,1340)`
@@ -964,7 +986,8 @@ Free, no gems. Only open while "Remaining guessing time" runs (on Battle days).
   to remove it (tapping the slot does nothing). The script does this.
 - **No unguessing:** clearing all 3 slots + Save does not stick — reopen shows the old picks (Kong 2026-10-29).
 - **Scrolling list** (Nick 2026-11-05, shared with the Floating Realm Guess): a tribe not on screen → the script scrolls
-  to the top, then one page = 2 rows per slow swipe (row pitch ≈375 px) until it shows. Not yet seen on a Tribe Clash list.
+  to the top, then one page = 2 rows per held 2 s drag (row pitch ≈375 px) until it shows. Tribe Clash 2026-11-26: 16 tribes,
+  Mystic on page 2; a drag must **start inside the list** (y 850–1450) — from y 700 or 1550 the list doesn't move.
   Picks can only be replaced with 3 new ones.
 
 ## Daily Mission (claim all + activity chests) — Nick, 2026-10-27/28
@@ -1027,7 +1050,7 @@ scaled up; the four rows nothing else produces:
 
 **Sunday catch-up: `weekly_review` runs FIRST** (Nick, 2026-11-08: "review the weekly missions first"; Sunday = the **game day**, which runs until 12:00 local Monday — `daily.py` checks `GAME_DAY.weekday()`, not the clock, since the 06:30 Monday catch-up of 2026-11-09): reads the Weekly tab and decides whether the Lucky Star row is needed — Nick 2026-11-16: read only **missions still needed** (`(180 − points) / 10`) and **which rows are still doable** → stars only when the doable rows fall short by exactly the Lucky Star row (doable < needed ≤ doable + 1). Stars that can't reach 180 are a waste: 160/170 open no chest (45/90/135/180) — Kratos/pawn1 150 on 11-15. **Once the dailies' `weekly` step ran that game day, its leftover rows don't count** (no catch-up step does them; Nick 2026-11-16) → stars whenever the row is open and points < 180. The evening catch-up is where the stars plan pays: the dailies' swap comes after their fishing used the bread and Auto stops at 0 bread, so the catch-up's `fishing_auto` restart is the first that casts with it (2026-11-15: this check said `not needed` on 170 + Statue, swapped back to Basic, Boudior/Dino/pawn2 ended the week at 170, Lucky Stars 0/50). The decision is the day's plan (`/tmp/miniheroes-state/<acct>-<game day>.weekly_plan`: `stars` / `nostars`). **Every fishing start (`ensure_bait()`) sets the bait:** Lucky Star when the plan says `stars`, otherwise the account's default bait (`fishing.bait` in the account yaml, default **Basic Bait** — the first run used Shrimp Bait on 5 accounts, Nick 2026-11-08: "should use default bait instead") — so a Lucky Star left in use is swapped back on the next run, and stars are used only when we really have to. The evening `weekly` step only swaps to stars if the account is still under 180 after its other actions and claims.
 
-**Runner step `weekly`** (Sundays only, after `daily_mission`; alone: `daily.py <acct> weekly`): reads the Weekly tab (points + every row), then walks `accounts/weekly.yaml` top-down while under 180: **Draw x10** (Lucky Coins on screen ≥ price), **Honor Upgrade** ×need (gold + medal on screen ≥ cost), **Artifact Wishes** (Free + star Wishes, never the 280-gem button — the row has no daily cap, Nick 2026-11-08), **Lucky Star bait** swap; then the Daily Mission claims; still under 180 → **Statue Level Up** (last resort) and claim again. Rows the daily steps produce (Sanctuary, Canyon, Gate, …) are daily-capped → listed as `short`. The **Bait grid reorders itself — the bait in use jumps to tile 1** (Kong 2026-11-08: Lucky Star 1st, Shrimp 3rd), so tiles are found by the description title, never by position; the previous bait's name goes to `/tmp/miniheroes-state/<acct>.lucky_bait` and the next weekday `fishing` step swaps it back (stars only on Sunday). The Lucky Star row then needs 50 casts of Auto fishing (bread-limited) — the pass only sets it up. First live run 2026-11-08: Kong 170 → 180 (Treasure x10, Honor ×2), Cmajor 170 (only Lucky Stars 0/50 left).
+**Runner step `weekly`** (Sundays only, after `daily_mission`, in the Mission popup that step leaves open — one visit for read, claims and the points re-read, closed only to go and do a row, Nick 2026-11-26; alone: `daily.py <acct> weekly`): reads the Weekly tab (points + every row), then walks `accounts/weekly.yaml` top-down while under 180: **Draw x10** (Lucky Coins on screen ≥ price), **Honor Upgrade** ×need (gold + medal on screen ≥ cost), **Artifact Wishes** (Free + star Wishes, never the 280-gem button — the row has no daily cap, Nick 2026-11-08), **Lucky Star bait** swap; then the Daily Mission claims; still under 180 → **Statue Level Up** (last resort) and claim again. Rows the daily steps produce (Sanctuary, Canyon, Gate, …) are daily-capped → listed as `short`. The **Bait grid reorders itself — the bait in use jumps to tile 1** (Kong 2026-11-08: Lucky Star 1st, Shrimp 3rd), so tiles are found by the description title, never by position; the previous bait's name goes to `/tmp/miniheroes-state/<acct>.lucky_bait` and the next weekday `fishing` step swaps it back (stars only on Sunday). The Lucky Star row then needs 50 casts of Auto fishing (bread-limited) — the pass only sets it up. First live run 2026-11-08: Kong 170 → 180 (Treasure x10, Honor ×2), Cmajor 170 (only Lucky Stars 0/50 left).
 
 Skipped by Nick (`do: false`): Advanced Recruitment ×30, Purchase with Diamonds in Grocery ×5, Statue Blessings, Ascend ×5.
 
@@ -1096,7 +1119,7 @@ Map, top → bottom: player-held spots (green dome = shield), then **Gold Sentin
 ~41–44K CP NPCs). Glory spots are presumably above/among the top ones. Truly **empty** platforms (no occupant at
 all) also appear — just below the Gold rows, in the Silver Sentinel rows, next to your own spot — prefer those
 first; otherwise a Sentinel-held spot (no player) counts as free — beat it to take it. Occupant names: **blue**
-name background = tribe member, **purple** = not in our tribe; your own spot shows a **green** name.
+name background = tribe member, **purple** = not in our tribe; your own spot shows a **green** name. A Sentinel's plate is slate `(64,64,144)` and its CP has no `k` (`57918`) — not a tribemate (Tiger 2026-11-25).
 
 **Empty or non-tribe, both fine** (Nick, 2026-11-23 — replaces 2026-11-16's "empty first, attack only when nothing is empty"): take the
 first spot by the day's rule that is empty (occupy) or held by a Sentinel / non-tribe player (attack) — no hunt for an empty one.
@@ -1132,7 +1155,9 @@ done. Pick by the rules below; done once the header shows the newly taken spot. 
 - **Purple enough → purple only** (Nick, 2026-11-21 — every day; **not on a `highest` account**, Nick 2026-11-25: those keep the
   highest rule below whatever their points; matters most Fri–Sun): if **points + 9 × minutes left to the season end (Sunday 23:00 UTC = Monday 06:00 local) × 22/24 ≥ 80,000** (a spot is held ~22 h a day: 8 h occupations, runs in between — Nick 2026-11-21), take a
   **purple (9/m)** spot, never Gold/Glory — empty first, else a Silver Sentinel, else a non-tribe player on a purple spot.
-  Already at 80k counts too. Points = the Rewards panel number; `canyon.py` reads it before choosing and logs
+  Already at 80k counts too. Points = the Rewards panel number; `canyon.py` reads it only when the answer is used —
+  Fri–Sun before choosing, Mon–Thu only when no empty spot was taken (for the MANUAL line) — so a weekday Occupy opens
+  the Rewards panel once, for the claim (Nick 2026-11-26) — and logs
   `points N, M min to season end -> purple enough|purple not enough`. Not enough (or unreadable) → the rules above/below.
 - Never spend gems.
 - **`canyon_clash: highest`** in the account file (Tiger, Kratos, Boudior, Kong II — Nick 2026-11-19, was `highest_free`)
@@ -1151,7 +1176,10 @@ Swipe slowly (`540 700 → 540 1500`, 1500 ms) to come back up; fast swipes flin
 (`540 1500 → 540 700`, 1500 ms). Leave the map with the back arrow `(92,1810)` only: taps a little higher hit the
 left icon column (**Lineup** opens the Defense Lineup — Dminor, nothing saved). Empty purple spots can appear minutes
 after `canyon.py` found none (7 accounts, 2026-10-29: the helpers all found empty Silver spots right below the
-tribemate rows) — the helper re-checks for empty ones before beating a Sentinel.
+tribemate rows) — the helper re-checks for empty ones before beating a Sentinel. Cause (2026-11-26, Gambler / Kong /
+Dminor: 9 empty discs seen, none taken): our accounts scan the same map at the same moment, the first ones there take
+the empties, and the spots they leave only show on a later scan → `canyon.py` scans once more in the same visit when
+it saw empties but took none (`N empty platforms seen, none could be taken … scanning once more`).
 
 **Points Reward** (runner: end of step `canyon`, same visit): left-side **Rewards** `(88,745)` — always open it, no red-dot gate
 (2026-11-05: the run saw no dot at 13:27, four accounts had a claimable tier by 17:00 — points accrue with occupation time) →
@@ -1163,6 +1191,68 @@ people not 80k yet." — the first half is the "Purple enough" rule above (Nick 
 
 - **Points Rewards** `(88,745)` (left HUD with Records / Rank / Lineup — fixed while the map scrolls) → **Claim Reward**,
   repeat while its button is yellow → ✕ `(972,240)`. Do it **after** occupying: the new spot earns the points (Nick, 2026-11-04).
+
+## Ancient Ruins (Adventure)
+
+Runner step `ruins` in the dailies (after `gate`) and the catch-up (after `canyon`) — Nick, 2026-11-26. Goal: **finish the
+floors as fast as possible**. **`D=<serial> scripts/ruins.py [account]`** from the main screen; last line
+`ruins done: N finished, <why it stopped>`; exit 1 → `v_ruins.png`, finish by hand. Learned on Cmajor, Tiger, Pawn II,
+Bino, Dino 2026-11-26.
+
+- **Diamonds (Nick, 2026-11-26): only for Search, at most 50 per search.** Never the stamina offer ("Stamina depleted" on
+  a floor / "Tip" on a monster's lineup: "Spend 200 diamonds to purchase 5 stamina points?" → ✕ `(938,636)`, never Confirm).
+- Entry: main → Adventure `(100,1460)` → Ancient Ruins **GO**. A ruin in progress opens its floor directly; else the hub:
+  stamina top left (max 30, +1 per 30 min), a bar `n/50`, the found ruin in the crystal ball, **Explore** `(944,1810)`,
+  **Search** `(540,1810)` (only tapped with an empty ball, "Go search a ruin"): the first each day is free (plain
+  button), then the button shows `<diamonds>/<price>` (`15108/50` = 50 diamonds; reset 05:00). The priced Search hasn't
+  been walked by hand yet → `PAID_WALKED = False` in the script: it reports `search costs 50 diamonds …` and stops.
+- 3 sizes — Small, Medium, Large (Nick: the same, just bigger) — and a theme per ruin (Clearwater Spring green, Frozen
+  Cliff blue, Dragonbone Desert, Mystic Beach …). Every one seen sits on the same hex grid: 11 rows ≈126.6 px apart (row 0 =
+  the start's row, y 1600), tiles 170 px apart (x 210…890 on even rows, 130…980 on odd ones); small ruins leave the top
+  rows empty. Start = bottom centre `(548,1600)`. The script reads tiles by brightness, not by theme colour.
+- A ruin = 3 floors. The floor's **door** (floors 1–2) or **Ultimate Chest** (floor 3) shows as a faint icon from the start
+  → shortest tile path to it. Tap a bright tile (next to an explored one) = explore, **1 stamina**. It can hold:
+  - nothing, or a reward — tap it once more to collect, free (Amethyst, Fane Map Shard, art box, Gold, Diamond x20, roast
+    chicken = Stamina +1); its "Congratulations" toast covers a row of tiles for ~2 s;
+  - a **roadblock** (wooden spikes): the stamina is spent, the tile can't be walked → go round (its neighbours do explore;
+    a tap on it does nothing);
+  - a **monster**: the bright tiles around it carry a red ✕ and can't be explored. Tap it → lineup screen → **Battle**
+    (2 stamina, the lineup as it stands) → Victory → tap to close → the monster and its ✕ are gone. The script fights one
+    when it stands on the tile just explored or when there's no path without it; a lost fight = exit 1;
+  - a task NPC — not met by the script yet (one character stood by a floor 3 chest on Cmajor, untouched).
+- **Cards** (bottom row; Nick 2026-11-26: use them). **Fireball** `(540,1780)`: "Instantly removes the selected
+  roadblock, usable only in this exploration"; **Lightning** `(706,1780)`: "Instantly eliminates the selected monster, …".
+  Tap the card → the screen dims and the card opens enlarged with its name over the bottom centre (x 380–712, y 1440+: a
+  tile under it can't be tapped) → tap the roadblock / monster → gone, no stamina, the count at the card's bottom right
+  drops by 1 (Fireball: Dminor; Lightning: Kratos, both by a helper 2026-11-26). Counts differ per account (Kong II held
+  Fireball 3, Dminor Lightning 2); a card at **0 keeps its colour** — only the digit tells, and a card at 0 was never
+  tapped (unknown: a purchase offer?) → the script reads the digit (4× crop) and never taps a card without a count ≥ 1
+  read. A card can also lie on a tile as a pickup; a third slot (left) holds quest items (a wizard hat), not used.
+  **`ruins.py` rule:** Fireball on the roadblock whose removal shortens the way to the door / chest (or is the only way
+  through); Lightning on the monster in the way; a ruin's last card of a kind waits for a saving of ≥ 2 tiles until
+  floor 3 (it may be the only way through a wall). No Lightning → the monster is fought only when the detour costs more
+  than the fight's 2 stamina, or there's no other way. Monsters not in the way are left alone.
+- Tile colours differ per theme, unexplored / explorable: Clearwater `(41,69,41)` / `(107,169,99)`, Frozen Cliff
+  `(25,49,74)` / `(66,116,178)`, Amethyst Cavern `(16,24,41)` / `(49,61,99)`, Divine Battleground `(33,32,41)` /
+  `(90,77,107)`; explored ground `(41,45,41)` everywhere. The first version's fixed thresholds read the last two themes
+  as nothing → `no door / chest icon found` / `no path` on Kong, Kong II, Tiger, Kratos, Dminor in the 11-26 dailies
+  (fixed the same day: two brightness regimes; a roadblock = ≥ 36 of 81 wood-coloured dots on its tile).
+- A floor already explored by hand: the **lit door** (dark gate, yellow arrow up — the way in, at the start, has a blue
+  arrow down) is found by its arrow and tapped. A floor 3 whose chests are already lit (red beams also mark plain reward
+  chests) → the script can't tell the Ultimate Chest → exit 1, by hand.
+- **Mysterious Cave** (a purple portal on a tile leads into it; a goblin stands there): "Click Portal to return to the
+  previous spot" → portal `(540,1168)`; the script goes straight back. **Special Event** popup (an NPC's request, e.g.
+  Wizard's Request: find its hat on a floor → reward; tabs Wizard's Request / Goblin Merchant): ✕ `(988,240)`; the
+  script closes it and goes on (both from Dminor's helper screenshots, 2026-11-26 — not yet met by the new script).
+- A new floor shows its name banner ("<Ruin> / Floor N") across rows 4–6 for ~2 s: nothing is read under it.
+- Door: its tile costs 1 stamina to light up, a 2nd tap enters the next floor (no dialog). Floor 3: the lit Ultimate
+  Chest → "End this exploration?" **Exit** | Continue → Exit → Rewards Overview → tap the bottom `(540,1880)` → hub. Then
+  the script searches the next ruin and goes on until the stamina is out; the ruin keeps its state for the next run.
+- Back arrow `(92,1810)`: lineup → floor → **main** screen (the hub's goes to main too, not the Adventure panel). The
+  bottom-right **Exploration Assistant** `(944,1810)` on a floor opens a menu (Benefit / Special Event / Ruins Shop).
+- Stamina seen: Small ruin ≈ 27 (Cmajor, by hand, 5 roadblocks); Tiger's Frozen Cliff 13 for floor 2 alone.
+- Not known yet: what a tap on a card at 0 does, which lit chest is the Ultimate Chest, the goblin in the Mysterious Cave, NPC quest rewards, a Medium ruin, the Search price after 50, the Ruins Shop, the hub's Benefit, what the `n/50`
+  bar gives, whether rewards left on a floor are lost at Exit.
 
 ## Poseidon's Ruins (Tribe, 3 attacks)
 
@@ -1287,11 +1377,14 @@ stamina left over before a reset is lost.
    - **Taps ignored but the screen looks normal** (timers tick, stamina doesn't drop) = the game lost its
      connection to the account (Kong 2026-11-03, after a Lair) → stop and report, don't keep tapping.
 3. Floors: F1 Nagrand Island → F2 Land of Blaze → F3 Floating Castle (players from other tribes; losing to one
-   sends you back a floor). Map: **Next Area** `(924,320)` → tap the floor's Go → entry dialog:
+   sends you back a floor). Points per event (APK tables `wtEvents` / `wtMonsterDetails`, 2026-11-25; the F1 values
+   match the ones seen above): F1 1,000–1,500 for 1 stamina, F2 2,200–3,300 for 2, F3 4,100–6,000 for 3 — F3 pays
+   about a third more per stamina than F1. Gate monsters: F1 Cloud Bandit (3★), F2 Veteran Pilot (4★).
+   Map: **Next Area** `(924,320)` → tap the floor's Go → entry dialog:
    **kill 2 Cloud Bandits** _or_ **use a Floating Realm Treasure Map** (green Go `(844,1034)`). A "conditions
    met, proceed?" tip pops up as soon as you hold a map.
    Counts are read off the screen at each decision (map's top-left scroll counter = maps held, the dialog's
-   "Kill X (k/2)"); nothing has to be remembered across a stop. The dialog's "(m/n)" shows all maps held (Dino: 3), not capped, and n = maps the pass takes (1; Cmajor's Thu F3 dialog read "(5/2)" 2026-11-19 — realm.py uses a map only with ≥ n held). The floor card label
+   "Kill X (k/2)"); nothing has to be remembered across a stop. The dialog's "(m/n)" shows all maps held (Dino: 3), not capped, and n = maps the pass takes (1 into F2, 2 into F3 on any day — APK table `wtMaps`; Cmajor's Thu F3 dialog read "(5/2)" 2026-11-19 — realm.py uses a map only with ≥ n held). The floor card label
    (top right) updates a beat after the explore screen shows: wait for it, don't read it once.
    **Map strategy (Nick, 2026-11-03), any day.** One map item works on every floor:
    - **F1→F2:** 0/2 Cloud Bandits → use a map. 1/2 → hunt the 2nd bandit. Every round (day) restarts on F1, and

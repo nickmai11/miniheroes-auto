@@ -1,0 +1,456 @@
+[
+  {
+    "id": 1,
+    "rankPic": 1,
+    "showDrop": "hal_2001",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_2001"],
+    "synthesisId": 201,
+    "synthesisRequireNum": [4, 2],
+    "synthesisRequireType": ["hal_1001", "hal_1002"]
+  },
+  {
+    "id": 2,
+    "rankPic": 2,
+    "showDrop": "hal_2002",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_2002"],
+    "synthesisId": 202,
+    "synthesisRequireNum": [4, 2],
+    "synthesisRequireType": ["hal_1002", "hal_1003"]
+  },
+  {
+    "id": 3,
+    "rankPic": 3,
+    "showDrop": "hal_2003",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_2003"],
+    "synthesisId": 203,
+    "synthesisRequireNum": [2, 4],
+    "synthesisRequireType": ["hal_1001", "hal_1003"]
+  },
+  {
+    "id": 4,
+    "rankPic": 4,
+    "showDrop": "randomHal00_2",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_2001", "hal_2002", "hal_2003"],
+    "synthesisId": 299,
+    "synthesisRequireNum": [2, 2, 2],
+    "synthesisRequireType": ["hal_1001", "hal_1002", "hal_1003"]
+  },
+  {
+    "id": 5,
+    "rankPic": 5,
+    "showDrop": "hal_3001",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_3001"],
+    "synthesisId": 301,
+    "synthesisRequireNum": [2, 1],
+    "synthesisRequireType": ["hal_2001", "hal_2002"]
+  },
+  {
+    "id": 6,
+    "rankPic": 6,
+    "showDrop": "hal_3002",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_3002"],
+    "synthesisId": 302,
+    "synthesisRequireNum": [1, 2],
+    "synthesisRequireType": ["hal_2001", "hal_2002"]
+  },
+  {
+    "id": 7,
+    "rankPic": 7,
+    "showDrop": "hal_3003",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_3003"],
+    "synthesisId": 303,
+    "synthesisRequireNum": [2, 1],
+    "synthesisRequireType": ["hal_2002", "hal_2003"]
+  },
+  {
+    "id": 8,
+    "rankPic": 8,
+    "showDrop": "hal_3004",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_3004"],
+    "synthesisId": 304,
+    "synthesisRequireNum": [1, 2],
+    "synthesisRequireType": ["hal_2002", "hal_2003"]
+  },
+  {
+    "id": 9,
+    "rankPic": 9,
+    "showDrop": "hal_3005",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_3005"],
+    "synthesisId": 305,
+    "synthesisRequireNum": [2, 1],
+    "synthesisRequireType": ["hal_2001", "hal_2003"]
+  },
+  {
+    "id": 10,
+    "rankPic": 10,
+    "showDrop": "hal_3006",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_3006"],
+    "synthesisId": 306,
+    "synthesisRequireNum": [1, 2],
+    "synthesisRequireType": ["hal_2001", "hal_2003"]
+  },
+  {
+    "id": 11,
+    "rankPic": 11,
+    "showDrop": "randomHal01",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": [
+      "hal_3001",
+      "hal_3002",
+      "hal_3003",
+      "hal_3004",
+      "hal_3005",
+      "hal_3006"
+    ],
+    "synthesisId": 399,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_2001", "hal_2002", "hal_2003"]
+  },
+  {
+    "id": 12,
+    "rankPic": 12,
+    "showDrop": "hal_4001",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_4001"],
+    "synthesisId": 401,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_3001", "hal_3002", "hal_3004"]
+  },
+  {
+    "id": 13,
+    "rankPic": 13,
+    "showDrop": "hal_4002",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_4002"],
+    "synthesisId": 402,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_3001", "hal_3003", "hal_3006"]
+  },
+  {
+    "id": 14,
+    "rankPic": 14,
+    "showDrop": "hal_4003",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_4003"],
+    "synthesisId": 403,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_3001", "hal_3004", "hal_3006"]
+  },
+  {
+    "id": 15,
+    "rankPic": 15,
+    "showDrop": "hal_4004",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_4004"],
+    "synthesisId": 404,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_3002", "hal_3003", "hal_3004"]
+  },
+  {
+    "id": 16,
+    "rankPic": 16,
+    "showDrop": "hal_4005",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_4005"],
+    "synthesisId": 405,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_3002", "hal_3005", "hal_3006"]
+  },
+  {
+    "id": 17,
+    "rankPic": 17,
+    "showDrop": "hal_4006",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_4006"],
+    "synthesisId": 406,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_3003", "hal_3004", "hal_3005"]
+  },
+  {
+    "id": 18,
+    "rankPic": 18,
+    "showDrop": "hal_4007",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_4007"],
+    "synthesisId": 407,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_3003", "hal_3005", "hal_3006"]
+  },
+  {
+    "id": 19,
+    "rankPic": 19,
+    "showDrop": "hal_4008",
+    "showInPic": 1,
+    "showPer": 0,
+    "synthesisDropId": ["hal_4008"],
+    "synthesisId": 408,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_3001", "hal_3002", "hal_3005"]
+  },
+  {
+    "id": 20,
+    "rankPic": 21,
+    "showDrop": "randomHal02_1",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_4001", "hal_4002", "hal_4003", "hal_4004"],
+    "synthesisId": 498,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_3001", "hal_3002", "hal_3003"]
+  },
+  {
+    "id": 21,
+    "rankPic": 20,
+    "showDrop": "randomHal02_2",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_4005", "hal_4006", "hal_4007", "hal_4008"],
+    "synthesisId": 499,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_3004", "hal_3005", "hal_3006"]
+  },
+  {
+    "id": 22,
+    "rankPic": 26,
+    "showDrop": "randomHal03_1",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_5001", "hal_5002", "hal_5003", "hal_5004"],
+    "synthesisId": 501,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_4001", "hal_4002", "hal_4003"]
+  },
+  {
+    "id": 23,
+    "rankPic": 27,
+    "showDrop": "randomHal03_1",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_5001", "hal_5002", "hal_5003", "hal_5004"],
+    "synthesisId": 502,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_4001", "hal_4002", "hal_4004"]
+  },
+  {
+    "id": 24,
+    "rankPic": 28,
+    "showDrop": "randomHal03_1",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_5001", "hal_5002", "hal_5003", "hal_5004"],
+    "synthesisId": 503,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_4002", "hal_4003", "hal_4004"]
+  },
+  {
+    "id": 25,
+    "rankPic": 29,
+    "showDrop": "randomHal03_1",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_5001", "hal_5002", "hal_5003", "hal_5004"],
+    "synthesisId": 504,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_4001", "hal_4003", "hal_4004"]
+  },
+  {
+    "id": 26,
+    "rankPic": 22,
+    "showDrop": "randomHal03_2",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_5005", "hal_5006", "hal_5007", "hal_5008"],
+    "synthesisId": 505,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_4005", "hal_4006", "hal_4007"]
+  },
+  {
+    "id": 27,
+    "rankPic": 23,
+    "showDrop": "randomHal03_2",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_5005", "hal_5006", "hal_5007", "hal_5008"],
+    "synthesisId": 506,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_4005", "hal_4006", "hal_4008"]
+  },
+  {
+    "id": 28,
+    "rankPic": 24,
+    "showDrop": "randomHal03_2",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_5005", "hal_5006", "hal_5007", "hal_5008"],
+    "synthesisId": 507,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_4006", "hal_4007", "hal_4008"]
+  },
+  {
+    "id": 29,
+    "rankPic": 25,
+    "showDrop": "randomHal03_2",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_5005", "hal_5006", "hal_5007", "hal_5008"],
+    "synthesisId": 508,
+    "synthesisRequireNum": [1, 1, 1],
+    "synthesisRequireType": ["hal_4005", "hal_4007", "hal_4008"]
+  },
+  {
+    "id": 30,
+    "rankPic": 34,
+    "showDrop": "randomHal04_1",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_6001", "hal_6002", "hal_6003", "hal_6004"],
+    "synthesisId": 601,
+    "synthesisRequireNum": [1, 1, 1, 1],
+    "synthesisRequireType": [
+      "hal_5001",
+      "hal_5002",
+      "hal_5003",
+      "sacrificeStone"
+    ]
+  },
+  {
+    "id": 31,
+    "rankPic": 35,
+    "showDrop": "randomHal04_1",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_6001", "hal_6002", "hal_6003", "hal_6004"],
+    "synthesisId": 602,
+    "synthesisRequireNum": [1, 1, 1, 1],
+    "synthesisRequireType": [
+      "hal_5001",
+      "hal_5002",
+      "hal_5004",
+      "sacrificeStone"
+    ]
+  },
+  {
+    "id": 32,
+    "rankPic": 36,
+    "showDrop": "randomHal04_1",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_6001", "hal_6002", "hal_6003", "hal_6004"],
+    "synthesisId": 603,
+    "synthesisRequireNum": [1, 1, 1, 1],
+    "synthesisRequireType": [
+      "hal_5002",
+      "hal_5003",
+      "hal_5004",
+      "sacrificeStone"
+    ]
+  },
+  {
+    "id": 33,
+    "rankPic": 37,
+    "showDrop": "randomHal04_1",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_6001", "hal_6002", "hal_6003", "hal_6004"],
+    "synthesisId": 604,
+    "synthesisRequireNum": [1, 1, 1, 1],
+    "synthesisRequireType": [
+      "hal_5001",
+      "hal_5003",
+      "hal_5004",
+      "sacrificeStone"
+    ]
+  },
+  {
+    "id": 34,
+    "rankPic": 30,
+    "showDrop": "randomHal04_2",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_6005", "hal_6006", "hal_6007", "hal_6008"],
+    "synthesisId": 605,
+    "synthesisRequireNum": [1, 1, 1, 1],
+    "synthesisRequireType": [
+      "hal_5005",
+      "hal_5006",
+      "hal_5007",
+      "sacrificeStone"
+    ]
+  },
+  {
+    "id": 35,
+    "rankPic": 31,
+    "showDrop": "randomHal04_2",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_6005", "hal_6006", "hal_6007", "hal_6008"],
+    "synthesisId": 606,
+    "synthesisRequireNum": [1, 1, 1, 1],
+    "synthesisRequireType": [
+      "hal_5005",
+      "hal_5006",
+      "hal_5008",
+      "sacrificeStone"
+    ]
+  },
+  {
+    "id": 36,
+    "rankPic": 32,
+    "showDrop": "randomHal04_2",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_6005", "hal_6006", "hal_6007", "hal_6008"],
+    "synthesisId": 607,
+    "synthesisRequireNum": [1, 1, 1, 1],
+    "synthesisRequireType": [
+      "hal_5006",
+      "hal_5007",
+      "hal_5008",
+      "sacrificeStone"
+    ]
+  },
+  {
+    "id": 37,
+    "rankPic": 33,
+    "showDrop": "randomHal04_2",
+    "showInPic": 1,
+    "showPer": 1,
+    "synthesisDropId": ["hal_6005", "hal_6006", "hal_6007", "hal_6008"],
+    "synthesisId": 608,
+    "synthesisRequireNum": [1, 1, 1, 1],
+    "synthesisRequireType": [
+      "hal_5005",
+      "hal_5007",
+      "hal_5008",
+      "sacrificeStone"
+    ]
+  }
+]

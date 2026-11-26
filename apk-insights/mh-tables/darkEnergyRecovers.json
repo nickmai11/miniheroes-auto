@@ -1,0 +1,12 @@
+[
+  { "energyReplyCondition": 1, "energyReplyNum": 0, "id": 1 },
+  { "energyReplyCondition": 2, "energyReplyNum": 0, "id": 2 },
+  { "energyReplyCondition": 3, "energyReplyNum": 0, "id": 3 },
+  { "energyReplyCondition": 4, "energyReplyNum": 0, "id": 4 },
+  { "energyReplyCondition": 5, "energyReplyNum": 0, "id": 5 },
+  { "energyReplyCondition": 6, "energyReplyNum": 0, "id": 6 },
+  { "energyReplyCondition": 7, "energyReplyNum": 0, "id": 7 },
+  { "energyReplyCondition": 8, "energyReplyNum": 0, "id": 8 },
+  { "energyReplyCondition": 9, "energyReplyNum": 0, "id": 9 },
+  { "energyReplyCondition": 10, "energyReplyNum": 3, "id": 10 }
+]

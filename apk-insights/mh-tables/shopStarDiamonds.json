@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "productIdentifying": "usStarDiamond1",
+    "rewardNum1": [60, 600],
+    "rewardNum2": [600],
+    "rewardType1": ["diamond", "starDiamond"],
+    "rewardType2": ["starDiamond"]
+  },
+  {
+    "id": 2,
+    "productIdentifying": "usStarDiamond2",
+    "rewardNum1": [120, 1200],
+    "rewardNum2": [1200],
+    "rewardType1": ["diamond", "starDiamond"],
+    "rewardType2": ["starDiamond"]
+  },
+  {
+    "id": 3,
+    "productIdentifying": "usStarDiamond3",
+    "rewardNum1": [180, 1800],
+    "rewardNum2": [1800],
+    "rewardType1": ["diamond", "starDiamond"],
+    "rewardType2": ["starDiamond"]
+  },
+  {
+    "id": 4,
+    "productIdentifying": "usStarDiamond4",
+    "rewardNum1": [300, 3000],
+    "rewardNum2": [3000],
+    "rewardType1": ["diamond", "starDiamond"],
+    "rewardType2": ["starDiamond"]
+  },
+  {
+    "id": 5,
+    "productIdentifying": "usStarDiamond5",
+    "rewardNum1": [600, 6000],
+    "rewardNum2": [6000],
+    "rewardType1": ["diamond", "starDiamond"],
+    "rewardType2": ["starDiamond"]
+  },
+  {
+    "id": 6,
+    "productIdentifying": "usStarDiamond6",
+    "rewardNum1": [1800, 18000],
+    "rewardNum2": [18000],
+    "rewardType1": ["diamond", "starDiamond"],
+    "rewardType2": ["starDiamond"]
+  }
+]

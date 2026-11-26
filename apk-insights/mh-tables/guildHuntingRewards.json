@@ -1,0 +1,212 @@
+[
+  {
+    "boxlevel": 1,
+    "damageValue": 20000,
+    "id": 1,
+    "rewardNum": [80, 5000],
+    "rewardType": ["tribeCoin", "gold"]
+  },
+  {
+    "boxlevel": 2,
+    "damageValue": 50000,
+    "id": 2,
+    "rewardNum": [80, 3000],
+    "rewardType": ["tribeCoin", "exp"]
+  },
+  {
+    "boxlevel": 3,
+    "damageValue": 80000,
+    "id": 3,
+    "rewardNum": [80, 2],
+    "rewardType": ["tribeCoin", "coinMinting1"]
+  },
+  {
+    "boxlevel": 4,
+    "damageValue": 120000,
+    "id": 4,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "soulStone1"]
+  },
+  {
+    "boxlevel": 5,
+    "damageValue": 160000,
+    "id": 5,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "randomFragment4"]
+  },
+  {
+    "boxlevel": 6,
+    "damageValue": 200000,
+    "id": 6,
+    "rewardNum": [80, 5000],
+    "rewardType": ["tribeCoin", "gold"]
+  },
+  {
+    "boxlevel": 7,
+    "damageValue": 250000,
+    "id": 7,
+    "rewardNum": [80, 3000],
+    "rewardType": ["tribeCoin", "exp"]
+  },
+  {
+    "boxlevel": 8,
+    "damageValue": 300000,
+    "id": 8,
+    "rewardNum": [80, 2],
+    "rewardType": ["tribeCoin", "coinMinting1"]
+  },
+  {
+    "boxlevel": 9,
+    "damageValue": 400000,
+    "id": 9,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "soulStone1"]
+  },
+  {
+    "boxlevel": 10,
+    "damageValue": 500000,
+    "id": 10,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "randomFragment4"]
+  },
+  {
+    "boxlevel": 11,
+    "damageValue": 600000,
+    "id": 11,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "gold_1"]
+  },
+  {
+    "boxlevel": 12,
+    "damageValue": 800000,
+    "id": 12,
+    "rewardNum": [80, 2],
+    "rewardType": ["tribeCoin", "coinMinting1"]
+  },
+  {
+    "boxlevel": 13,
+    "damageValue": 1000000,
+    "id": 13,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "exp_1"]
+  },
+  {
+    "boxlevel": 14,
+    "damageValue": 1300000,
+    "id": 14,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "coinMinting2"]
+  },
+  {
+    "boxlevel": 15,
+    "damageValue": 1600000,
+    "id": 15,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "soulStone2"]
+  },
+  {
+    "boxlevel": 16,
+    "damageValue": 2000000,
+    "id": 16,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "gold_1"]
+  },
+  {
+    "boxlevel": 17,
+    "damageValue": 2500000,
+    "id": 17,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "randomFragment4"]
+  },
+  {
+    "boxlevel": 18,
+    "damageValue": 3000000,
+    "id": 18,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "exp_1"]
+  },
+  {
+    "boxlevel": 19,
+    "damageValue": 3500000,
+    "id": 19,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "soulStone1"]
+  },
+  {
+    "boxlevel": 20,
+    "damageValue": 4000000,
+    "id": 20,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "gold_1"]
+  },
+  {
+    "boxlevel": 21,
+    "damageValue": 5000000,
+    "id": 21,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "exp_1"]
+  },
+  {
+    "boxlevel": 22,
+    "damageValue": 6200000,
+    "id": 22,
+    "rewardNum": [80, 2],
+    "rewardType": ["tribeCoin", "coinMinting1"]
+  },
+  {
+    "boxlevel": 23,
+    "damageValue": 7400000,
+    "id": 23,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "gold_1"]
+  },
+  {
+    "boxlevel": 24,
+    "damageValue": 9800000,
+    "id": 24,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "randomFragment4"]
+  },
+  {
+    "boxlevel": 25,
+    "damageValue": 13000000,
+    "id": 25,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "exp_1"]
+  },
+  {
+    "boxlevel": 26,
+    "damageValue": 16000000,
+    "id": 26,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "gold_2"]
+  },
+  {
+    "boxlevel": 27,
+    "damageValue": 20000000,
+    "id": 27,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "coinMinting2"]
+  },
+  {
+    "boxlevel": 28,
+    "damageValue": 25000000,
+    "id": 28,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "exp_2"]
+  },
+  {
+    "boxlevel": 29,
+    "damageValue": 30000000,
+    "id": 29,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "soulStone2"]
+  },
+  {
+    "boxlevel": 30,
+    "damageValue": 40000000,
+    "id": 30,
+    "rewardNum": [80, 1],
+    "rewardType": ["tribeCoin", "randomFragment4"]
+  }
+]

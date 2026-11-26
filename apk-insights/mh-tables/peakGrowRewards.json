@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "need": [1, 20],
+    "rewardNum": [40, 5, 200000],
+    "rewardType": ["randomMemf3", "recruitRoll", "gold"],
+    "sort": 1
+  },
+  {
+    "id": 2,
+    "need": [21, 50],
+    "rewardNum": [40, 4, 120000],
+    "rewardType": ["randomMemf2", "recruitRoll", "gold"],
+    "sort": 2
+  },
+  {
+    "id": 3,
+    "need": [51, 100],
+    "rewardNum": [40, 3, 100000],
+    "rewardType": ["randomMemf1", "recruitRoll", "gold"],
+    "sort": 3
+  },
+  {
+    "id": 4,
+    "need": [101, 200],
+    "rewardNum": [40, 2, 80000],
+    "rewardType": ["randomMemf0", "recruitRoll", "gold"],
+    "sort": 4
+  },
+  {
+    "id": 5,
+    "need": [201, 500],
+    "rewardNum": [3000, 1, 50000],
+    "rewardType": ["blindBoxCoin", "recruitRoll", "gold"],
+    "sort": 5
+  }
+]

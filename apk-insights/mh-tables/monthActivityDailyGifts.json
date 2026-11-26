@@ -1,0 +1,65 @@
+[
+  {
+    "buyLimit": 1,
+    "dayRequire": 1,
+    "id": 1,
+    "lotteryGive": 1,
+    "productIdentifying": "hwPay31001",
+    "reward": ["diamond", "gemPick_05", "flipCard", "noblePoints"],
+    "rewardNum": [680, 1, 20, 680]
+  },
+  {
+    "buyLimit": 1,
+    "dayRequire": 2,
+    "id": 2,
+    "lotteryGive": 1,
+    "productIdentifying": "hwPay31002",
+    "reward": ["diamond", "divineStone", "flipCard", "noblePoints"],
+    "rewardNum": [1280, 10, 40, 1280]
+  },
+  {
+    "buyLimit": 1,
+    "dayRequire": 3,
+    "id": 3,
+    "lotteryGive": 1,
+    "productIdentifying": "hwPay31003",
+    "reward": ["diamond", "memf_64004", "flipCard", "noblePoints"],
+    "rewardNum": [680, 30, 20, 680]
+  },
+  {
+    "buyLimit": 1,
+    "dayRequire": 4,
+    "id": 4,
+    "lotteryGive": 1,
+    "productIdentifying": "hwPay31004",
+    "reward": ["diamond", "strongPotion", "flipCard", "noblePoints"],
+    "rewardNum": [1980, 1, 60, 1980]
+  },
+  {
+    "buyLimit": 1,
+    "dayRequire": 5,
+    "id": 5,
+    "lotteryGive": 1,
+    "productIdentifying": "hwPay31005",
+    "reward": ["diamond", "divineStone", "flipCard", "noblePoints"],
+    "rewardNum": [1280, 10, 40, 1280]
+  },
+  {
+    "buyLimit": 1,
+    "dayRequire": 6,
+    "id": 6,
+    "lotteryGive": 1,
+    "productIdentifying": "hwPay31006",
+    "reward": ["diamond", "gemPick_05", "flipCard", "noblePoints"],
+    "rewardNum": [680, 1, 20, 680]
+  },
+  {
+    "buyLimit": 1,
+    "dayRequire": 7,
+    "id": 7,
+    "lotteryGive": 1,
+    "productIdentifying": "hwPay31007",
+    "reward": ["diamond", "fourColorStone", "flipCard", "noblePoints"],
+    "rewardNum": [3280, 60, 80, 3280]
+  }
+]

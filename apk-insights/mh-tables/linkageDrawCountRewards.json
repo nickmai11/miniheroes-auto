@@ -1,0 +1,170 @@
+[
+  {
+    "display": 1,
+    "id": 1,
+    "reward": "allBag_tbh",
+    "rewardNum": 1,
+    "rounds": 1,
+    "timesRequire": 50
+  },
+  {
+    "display": 1,
+    "id": 2,
+    "reward": "copper_tbh",
+    "rewardNum": 20,
+    "rounds": 1,
+    "timesRequire": 100
+  },
+  {
+    "display": 1,
+    "id": 3,
+    "reward": "hero_128",
+    "rewardNum": 1,
+    "rounds": 1,
+    "timesRequire": 200
+  },
+  {
+    "display": 1,
+    "id": 4,
+    "reward": "soulStone3",
+    "rewardNum": 10,
+    "rounds": 1,
+    "timesRequire": 350
+  },
+  {
+    "display": 1,
+    "id": 5,
+    "reward": "tbhCoin",
+    "rewardNum": 4000,
+    "rounds": 1,
+    "timesRequire": 500
+  },
+  {
+    "display": 1,
+    "id": 6,
+    "reward": "divineStone",
+    "rewardNum": 10,
+    "rounds": 1,
+    "timesRequire": 700
+  },
+  {
+    "display": 1,
+    "id": 7,
+    "reward": "eternalDwBox",
+    "rewardNum": 1,
+    "rounds": 1,
+    "timesRequire": 1000
+  },
+  {
+    "display": 2,
+    "id": 8,
+    "reward": "allBag_tbh",
+    "rewardNum": 1,
+    "rounds": 1,
+    "timesRequire": 50
+  },
+  {
+    "display": 2,
+    "id": 9,
+    "reward": "copper_tbh",
+    "rewardNum": 20,
+    "rounds": 1,
+    "timesRequire": 100
+  },
+  {
+    "display": 2,
+    "id": 10,
+    "reward": "hero_318",
+    "rewardNum": 1,
+    "rounds": 1,
+    "timesRequire": 200
+  },
+  {
+    "display": 2,
+    "id": 11,
+    "reward": "soulStone3",
+    "rewardNum": 10,
+    "rounds": 1,
+    "timesRequire": 350
+  },
+  {
+    "display": 2,
+    "id": 12,
+    "reward": "tbhCoin",
+    "rewardNum": 4000,
+    "rounds": 1,
+    "timesRequire": 500
+  },
+  {
+    "display": 2,
+    "id": 13,
+    "reward": "divineStone",
+    "rewardNum": 10,
+    "rounds": 1,
+    "timesRequire": 700
+  },
+  {
+    "display": 2,
+    "id": 14,
+    "reward": "eternalDwBox",
+    "rewardNum": 1,
+    "rounds": 1,
+    "timesRequire": 1000
+  },
+  {
+    "display": 3,
+    "id": 15,
+    "reward": "allBag_tbh",
+    "rewardNum": 1,
+    "rounds": 1,
+    "timesRequire": 50
+  },
+  {
+    "display": 3,
+    "id": 16,
+    "reward": "copper_tbh",
+    "rewardNum": 20,
+    "rounds": 1,
+    "timesRequire": 100
+  },
+  {
+    "display": 3,
+    "id": 17,
+    "reward": "hero_420",
+    "rewardNum": 1,
+    "rounds": 1,
+    "timesRequire": 200
+  },
+  {
+    "display": 3,
+    "id": 18,
+    "reward": "soulStone3",
+    "rewardNum": 10,
+    "rounds": 1,
+    "timesRequire": 350
+  },
+  {
+    "display": 3,
+    "id": 19,
+    "reward": "tbhCoin",
+    "rewardNum": 4000,
+    "rounds": 1,
+    "timesRequire": 500
+  },
+  {
+    "display": 3,
+    "id": 20,
+    "reward": "divineStone",
+    "rewardNum": 10,
+    "rounds": 1,
+    "timesRequire": 700
+  },
+  {
+    "display": 3,
+    "id": 21,
+    "reward": "eternalDwBox",
+    "rewardNum": 1,
+    "rounds": 1,
+    "timesRequire": 1000
+  }
+]

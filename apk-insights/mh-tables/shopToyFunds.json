@@ -1,0 +1,162 @@
+[
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 1,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 10
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 2,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 30
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 3,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 60
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 4,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 100
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 5,
+    "payRewardNum": [1],
+    "payRewardType": ["randomMem3"],
+    "prizeDrawFrequency": 150
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 6,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 200
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 7,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 300
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 8,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 400
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 9,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 500
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 10,
+    "payRewardNum": [1],
+    "payRewardType": ["randomMem3"],
+    "prizeDrawFrequency": 600
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 11,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 700
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 12,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 800
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 13,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 900
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 14,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 1000
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 15,
+    "payRewardNum": [1],
+    "payRewardType": ["randomMem3"],
+    "prizeDrawFrequency": 1150
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 16,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 1300
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 17,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 1450
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 18,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 1600
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 19,
+    "payRewardNum": [25000],
+    "payRewardType": ["blindBoxCoin"],
+    "prizeDrawFrequency": 1800
+  },
+  {
+    "freeRewardNum": [2500],
+    "freeRewardType": ["blindBoxCoin"],
+    "id": 20,
+    "payRewardNum": [1],
+    "payRewardType": ["randomMem4"],
+    "prizeDrawFrequency": 2000
+  }
+]

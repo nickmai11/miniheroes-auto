@@ -1,0 +1,7 @@
+[
+  { "costNum": 2000, "costType": "gold", "id": 1, "refreshTimes": 1 },
+  { "costNum": 2000, "costType": "gold", "id": 2, "refreshTimes": 2 },
+  { "costNum": 2000, "costType": "gold", "id": 3, "refreshTimes": 3 },
+  { "costNum": 2000, "costType": "gold", "id": 4, "refreshTimes": 4 },
+  { "costNum": 2000, "costType": "gold", "id": 5, "refreshTimes": 5 }
+]

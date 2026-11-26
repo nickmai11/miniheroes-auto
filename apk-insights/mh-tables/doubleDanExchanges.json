@@ -1,0 +1,164 @@
+[
+  {
+    "group": 1,
+    "groupType": 1,
+    "id": 1,
+    "limit": 1,
+    "price": 5,
+    "rewardNum": 2500,
+    "rewardType": "spiritStone_2"
+  },
+  {
+    "group": 1,
+    "groupType": 1,
+    "id": 2,
+    "limit": 1,
+    "price": 5,
+    "rewardNum": 3000,
+    "rewardType": "holyLight"
+  },
+  {
+    "group": 1,
+    "groupType": 1,
+    "id": 3,
+    "limit": 1,
+    "price": 5,
+    "rewardNum": 250000,
+    "rewardType": "gold"
+  },
+  {
+    "group": 2,
+    "groupType": 1,
+    "id": 4,
+    "limit": 1,
+    "price": 15,
+    "rewardNum": 10,
+    "rewardType": "recruitRoll"
+  },
+  {
+    "group": 2,
+    "groupType": 1,
+    "id": 5,
+    "limit": 1,
+    "price": 12,
+    "rewardNum": 3000,
+    "rewardType": "spiritStone_3"
+  },
+  {
+    "group": 2,
+    "groupType": 1,
+    "id": 6,
+    "limit": 1,
+    "price": 15,
+    "rewardNum": 3000,
+    "rewardType": "succinctStone"
+  },
+  {
+    "group": 3,
+    "groupType": 1,
+    "id": 7,
+    "limit": 1,
+    "price": 28,
+    "rewardNum": 5,
+    "rewardType": "medal2"
+  },
+  {
+    "group": 3,
+    "groupType": 1,
+    "id": 8,
+    "limit": 1,
+    "price": 30,
+    "rewardNum": 2,
+    "rewardType": "shenhuasuijibox"
+  },
+  {
+    "group": 3,
+    "groupType": 1,
+    "id": 9,
+    "limit": 1,
+    "price": 25,
+    "rewardNum": 3,
+    "rewardType": "zb_box1"
+  },
+  {
+    "group": 4,
+    "groupType": 1,
+    "id": 10,
+    "limit": 1,
+    "price": 60,
+    "rewardNum": 2,
+    "rewardType": "danDwBox"
+  },
+  {
+    "group": 4,
+    "groupType": 1,
+    "id": 11,
+    "limit": 1,
+    "price": 60,
+    "rewardNum": 20,
+    "rewardType": "soulStone2"
+  },
+  {
+    "group": 4,
+    "groupType": 1,
+    "id": 12,
+    "limit": 1,
+    "price": 60,
+    "rewardNum": 3,
+    "rewardType": "zb_box2"
+  },
+  {
+    "group": 5,
+    "groupType": 1,
+    "id": 13,
+    "limit": 1,
+    "price": 70,
+    "rewardNum": 1,
+    "rewardType": "strongPotion"
+  },
+  {
+    "group": 5,
+    "groupType": 1,
+    "id": 14,
+    "limit": 1,
+    "price": 80,
+    "rewardNum": 5,
+    "rewardType": "crystalLight"
+  },
+  {
+    "group": 5,
+    "groupType": 1,
+    "id": 15,
+    "limit": 1,
+    "price": 75,
+    "rewardNum": 40,
+    "rewardType": "shareDebris3"
+  },
+  {
+    "group": 6,
+    "groupType": 2,
+    "id": 16,
+    "limit": 1,
+    "price": 500,
+    "rewardNum": 1,
+    "rewardType": "danArtBox"
+  },
+  {
+    "group": 6,
+    "groupType": 2,
+    "id": 17,
+    "limit": 1,
+    "price": 120,
+    "rewardNum": 25,
+    "rewardType": "soulStone3"
+  },
+  {
+    "group": 6,
+    "groupType": 2,
+    "id": 18,
+    "limit": 1,
+    "price": 200,
+    "rewardNum": 60,
+    "rewardType": "fourColorStone"
+  }
+]

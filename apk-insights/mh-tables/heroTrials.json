@@ -1,0 +1,17 @@
+[
+  {
+    "activityHeroId": 421,
+    "addAttributeNum": [0.08, 0.05],
+    "addAttributeType": ["repelResist", "repelEffectPre"],
+    "artifactQuality": [4, 4, 4, 4, 4],
+    "heroBodyRatio": [1, 1, 1, 1, 1.2],
+    "heroDamage": [1240, 1240, 2120, 2400, 2800],
+    "heroDefense": [720, 720, 705, 680, 660],
+    "heroId": [124, 218, 314, 208, 421],
+    "heroLevel": [150, 150, 150, 150, 150],
+    "heroLife": [1000000000, 1000000000, 1000000000, 1000000000, 1000000000],
+    "heroQuality": [3, 3, 3, 3, 3],
+    "heroStar": [20, 20, 20, 20, 20],
+    "id": 1
+  }
+]

@@ -1,0 +1,2778 @@
+[
+  { "group": 1, "id": 1, "item": "elf_101", "num": 1, "showWeight": "2.67%" },
+  { "group": 1, "id": 2, "item": "elf_102", "num": 1, "showWeight": "2.67%" },
+  { "group": 1, "id": 3, "item": "elf_103", "num": 1, "showWeight": "2.66%" },
+  { "group": 1, "id": 4, "item": "elfP_101", "num": 3, "showWeight": "26.5%" },
+  { "group": 1, "id": 5, "item": "elfP_102", "num": 3, "showWeight": "26.5%" },
+  { "group": 1, "id": 6, "item": "elfP_103", "num": 3, "showWeight": "26.5%" },
+  {
+    "group": 1,
+    "id": 7,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "6.5%"
+  },
+  { "group": 1, "id": 8, "item": "elfSkill1", "num": 1, "showWeight": "6%" },
+  { "group": 2, "id": 9, "item": "elf_101", "num": 1, "showWeight": "2%" },
+  { "group": 2, "id": 10, "item": "elf_102", "num": 1, "showWeight": "2%" },
+  { "group": 2, "id": 11, "item": "elf_103", "num": 1, "showWeight": "2%" },
+  { "group": 2, "id": 12, "item": "elf_104", "num": 1, "showWeight": "0.6%" },
+  { "group": 2, "id": 13, "item": "elf_105", "num": 1, "showWeight": "0.6%" },
+  { "group": 2, "id": 14, "item": "elf_106", "num": 1, "showWeight": "0.6%" },
+  { "group": 2, "id": 15, "item": "elf_107", "num": 1, "showWeight": "0.6%" },
+  {
+    "group": 2,
+    "id": 16,
+    "item": "elfP_101",
+    "num": 3,
+    "showWeight": "17.17%"
+  },
+  {
+    "group": 2,
+    "id": 17,
+    "item": "elfP_102",
+    "num": 3,
+    "showWeight": "17.17%"
+  },
+  {
+    "group": 2,
+    "id": 18,
+    "item": "elfP_103",
+    "num": 3,
+    "showWeight": "17.17%"
+  },
+  { "group": 2, "id": 19, "item": "elfP_104", "num": 3, "showWeight": "6.88%" },
+  { "group": 2, "id": 20, "item": "elfP_105", "num": 3, "showWeight": "6.87%" },
+  { "group": 2, "id": 21, "item": "elfP_106", "num": 3, "showWeight": "6.87%" },
+  { "group": 2, "id": 22, "item": "elfP_107", "num": 3, "showWeight": "6.87%" },
+  {
+    "group": 2,
+    "id": 23,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "5.8%"
+  },
+  {
+    "group": 2,
+    "id": 24,
+    "item": "breakStone2",
+    "num": 1,
+    "showWeight": "0.5%"
+  },
+  {
+    "group": 2,
+    "id": 25,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "0.2%"
+  },
+  { "group": 2, "id": 26, "item": "elfSkill1", "num": 1, "showWeight": "6.1%" },
+  { "group": 3, "id": 27, "item": "elf_101", "num": 1, "showWeight": "1.8%" },
+  { "group": 3, "id": 28, "item": "elf_102", "num": 1, "showWeight": "1.8%" },
+  { "group": 3, "id": 29, "item": "elf_103", "num": 1, "showWeight": "1.8%" },
+  { "group": 3, "id": 30, "item": "elf_104", "num": 1, "showWeight": "1%" },
+  { "group": 3, "id": 31, "item": "elf_105", "num": 1, "showWeight": "1%" },
+  { "group": 3, "id": 32, "item": "elf_106", "num": 1, "showWeight": "1%" },
+  { "group": 3, "id": 33, "item": "elf_107", "num": 1, "showWeight": "1%" },
+  {
+    "group": 3,
+    "id": 34,
+    "item": "elfP_101",
+    "num": 3,
+    "showWeight": "16.33%"
+  },
+  {
+    "group": 3,
+    "id": 35,
+    "item": "elfP_102",
+    "num": 3,
+    "showWeight": "16.33%"
+  },
+  {
+    "group": 3,
+    "id": 36,
+    "item": "elfP_103",
+    "num": 3,
+    "showWeight": "16.33%"
+  },
+  { "group": 3, "id": 37, "item": "elfP_104", "num": 3, "showWeight": "6.73%" },
+  { "group": 3, "id": 38, "item": "elfP_105", "num": 3, "showWeight": "6.73%" },
+  { "group": 3, "id": 39, "item": "elfP_106", "num": 3, "showWeight": "6.73%" },
+  { "group": 3, "id": 40, "item": "elfP_107", "num": 3, "showWeight": "6.73%" },
+  { "group": 3, "id": 41, "item": "elfP_108", "num": 3, "showWeight": "0.29%" },
+  { "group": 3, "id": 42, "item": "elfP_109", "num": 3, "showWeight": "0.29%" },
+  { "group": 3, "id": 43, "item": "elfP_110", "num": 3, "showWeight": "0.29%" },
+  { "group": 3, "id": 44, "item": "elfP_111", "num": 3, "showWeight": "0.28%" },
+  { "group": 3, "id": 45, "item": "elfP_112", "num": 3, "showWeight": "0.28%" },
+  { "group": 3, "id": 46, "item": "elfP_113", "num": 3, "showWeight": "0.28%" },
+  { "group": 3, "id": 47, "item": "elfP_114", "num": 3, "showWeight": "0.28%" },
+  { "group": 3, "id": 48, "item": "breakStone1", "num": 1, "showWeight": "5%" },
+  { "group": 3, "id": 49, "item": "breakStone2", "num": 1, "showWeight": "1%" },
+  {
+    "group": 3,
+    "id": 50,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "0.4%"
+  },
+  {
+    "group": 3,
+    "id": 51,
+    "item": "breakStone4",
+    "num": 1,
+    "showWeight": "0.1%"
+  },
+  { "group": 3, "id": 52, "item": "elfSkill1", "num": 1, "showWeight": "6.2%" },
+  { "group": 4, "id": 53, "item": "elf_101", "num": 1, "showWeight": "1.83%" },
+  { "group": 4, "id": 54, "item": "elf_102", "num": 1, "showWeight": "1.83%" },
+  { "group": 4, "id": 55, "item": "elf_103", "num": 1, "showWeight": "1.83%" },
+  { "group": 4, "id": 56, "item": "elf_104", "num": 1, "showWeight": "1%" },
+  { "group": 4, "id": 57, "item": "elf_105", "num": 1, "showWeight": "1%" },
+  { "group": 4, "id": 58, "item": "elf_106", "num": 1, "showWeight": "1%" },
+  { "group": 4, "id": 59, "item": "elf_107", "num": 1, "showWeight": "1%" },
+  { "group": 4, "id": 60, "item": "elf_108", "num": 1, "showWeight": "0.07%" },
+  { "group": 4, "id": 61, "item": "elf_109", "num": 1, "showWeight": "0.07%" },
+  { "group": 4, "id": 62, "item": "elf_110", "num": 1, "showWeight": "0.07%" },
+  { "group": 4, "id": 63, "item": "elf_111", "num": 1, "showWeight": "0.07%" },
+  { "group": 4, "id": 64, "item": "elf_112", "num": 1, "showWeight": "0.07%" },
+  { "group": 4, "id": 65, "item": "elf_113", "num": 1, "showWeight": "0.07%" },
+  { "group": 4, "id": 66, "item": "elf_114", "num": 1, "showWeight": "0.07%" },
+  {
+    "group": 4,
+    "id": 67,
+    "item": "elfP_101",
+    "num": 3,
+    "showWeight": "15.67%"
+  },
+  {
+    "group": 4,
+    "id": 68,
+    "item": "elfP_102",
+    "num": 3,
+    "showWeight": "15.67%"
+  },
+  {
+    "group": 4,
+    "id": 69,
+    "item": "elfP_103",
+    "num": 3,
+    "showWeight": "15.67%"
+  },
+  { "group": 4, "id": 70, "item": "elfP_104", "num": 3, "showWeight": "6.55%" },
+  { "group": 4, "id": 71, "item": "elfP_105", "num": 3, "showWeight": "6.55%" },
+  { "group": 4, "id": 72, "item": "elfP_106", "num": 3, "showWeight": "6.55%" },
+  { "group": 4, "id": 73, "item": "elfP_107", "num": 3, "showWeight": "6.55%" },
+  { "group": 4, "id": 74, "item": "elfP_108", "num": 3, "showWeight": "0.58%" },
+  { "group": 4, "id": 75, "item": "elfP_109", "num": 3, "showWeight": "0.58%" },
+  { "group": 4, "id": 76, "item": "elfP_110", "num": 3, "showWeight": "0.57%" },
+  { "group": 4, "id": 77, "item": "elfP_111", "num": 3, "showWeight": "0.57%" },
+  { "group": 4, "id": 78, "item": "elfP_112", "num": 3, "showWeight": "0.57%" },
+  { "group": 4, "id": 79, "item": "elfP_113", "num": 3, "showWeight": "0.57%" },
+  { "group": 4, "id": 80, "item": "elfP_114", "num": 3, "showWeight": "0.57%" },
+  {
+    "group": 4,
+    "id": 81,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "4.5%"
+  },
+  {
+    "group": 4,
+    "id": 82,
+    "item": "breakStone2",
+    "num": 1,
+    "showWeight": "1.2%"
+  },
+  {
+    "group": 4,
+    "id": 83,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "0.6%"
+  },
+  {
+    "group": 4,
+    "id": 84,
+    "item": "breakStone4",
+    "num": 1,
+    "showWeight": "0.2%"
+  },
+  { "group": 4, "id": 85, "item": "elfSkill1", "num": 1, "showWeight": "6.3%" },
+  { "group": 5, "id": 86, "item": "elf_101", "num": 1, "showWeight": "1.67%" },
+  { "group": 5, "id": 87, "item": "elf_102", "num": 1, "showWeight": "1.67%" },
+  { "group": 5, "id": 88, "item": "elf_103", "num": 1, "showWeight": "1.67%" },
+  { "group": 5, "id": 89, "item": "elf_104", "num": 1, "showWeight": "0.98%" },
+  { "group": 5, "id": 90, "item": "elf_105", "num": 1, "showWeight": "0.98%" },
+  { "group": 5, "id": 91, "item": "elf_106", "num": 1, "showWeight": "0.98%" },
+  { "group": 5, "id": 92, "item": "elf_107", "num": 1, "showWeight": "0.98%" },
+  { "group": 5, "id": 93, "item": "elf_108", "num": 1, "showWeight": "0.14%" },
+  { "group": 5, "id": 94, "item": "elf_109", "num": 1, "showWeight": "0.14%" },
+  { "group": 5, "id": 95, "item": "elf_110", "num": 1, "showWeight": "0.14%" },
+  { "group": 5, "id": 96, "item": "elf_111", "num": 1, "showWeight": "0.14%" },
+  { "group": 5, "id": 97, "item": "elf_112", "num": 1, "showWeight": "0.14%" },
+  { "group": 5, "id": 98, "item": "elf_113", "num": 1, "showWeight": "0.14%" },
+  { "group": 5, "id": 99, "item": "elf_114", "num": 1, "showWeight": "0.14%" },
+  { "group": 5, "id": 100, "item": "elf_115", "num": 1, "showWeight": "0.02%" },
+  { "group": 5, "id": 101, "item": "elf_116", "num": 1, "showWeight": "0.02%" },
+  { "group": 5, "id": 102, "item": "elf_117", "num": 1, "showWeight": "0.02%" },
+  { "group": 5, "id": 103, "item": "elf_118", "num": 1, "showWeight": "0.02%" },
+  { "group": 5, "id": 104, "item": "elf_119", "num": 1, "showWeight": "0.02%" },
+  { "group": 5, "id": 105, "item": "elf_120", "num": 1, "showWeight": "0.02%" },
+  {
+    "group": 5,
+    "id": 106,
+    "item": "elfP_101",
+    "num": 3,
+    "showWeight": "14.5%"
+  },
+  {
+    "group": 5,
+    "id": 107,
+    "item": "elfP_102",
+    "num": 3,
+    "showWeight": "14.5%"
+  },
+  {
+    "group": 5,
+    "id": 108,
+    "item": "elfP_103",
+    "num": 3,
+    "showWeight": "14.5%"
+  },
+  { "group": 5, "id": 109, "item": "elfP_104", "num": 3, "showWeight": "6.4%" },
+  { "group": 5, "id": 110, "item": "elfP_105", "num": 3, "showWeight": "6.4%" },
+  { "group": 5, "id": 111, "item": "elfP_106", "num": 3, "showWeight": "6.4%" },
+  { "group": 5, "id": 112, "item": "elfP_107", "num": 3, "showWeight": "6.4%" },
+  {
+    "group": 5,
+    "id": 113,
+    "item": "elfP_108",
+    "num": 3,
+    "showWeight": "0.86%"
+  },
+  {
+    "group": 5,
+    "id": 114,
+    "item": "elfP_109",
+    "num": 3,
+    "showWeight": "0.86%"
+  },
+  {
+    "group": 5,
+    "id": 115,
+    "item": "elfP_110",
+    "num": 3,
+    "showWeight": "0.86%"
+  },
+  {
+    "group": 5,
+    "id": 116,
+    "item": "elfP_111",
+    "num": 3,
+    "showWeight": "0.86%"
+  },
+  {
+    "group": 5,
+    "id": 117,
+    "item": "elfP_112",
+    "num": 3,
+    "showWeight": "0.85%"
+  },
+  {
+    "group": 5,
+    "id": 118,
+    "item": "elfP_113",
+    "num": 3,
+    "showWeight": "0.85%"
+  },
+  {
+    "group": 5,
+    "id": 119,
+    "item": "elfP_114",
+    "num": 3,
+    "showWeight": "0.85%"
+  },
+  {
+    "group": 5,
+    "id": 120,
+    "item": "elfP_115",
+    "num": 3,
+    "showWeight": "0.33%"
+  },
+  {
+    "group": 5,
+    "id": 121,
+    "item": "elfP_116",
+    "num": 3,
+    "showWeight": "0.33%"
+  },
+  {
+    "group": 5,
+    "id": 122,
+    "item": "elfP_117",
+    "num": 3,
+    "showWeight": "0.33%"
+  },
+  {
+    "group": 5,
+    "id": 123,
+    "item": "elfP_118",
+    "num": 3,
+    "showWeight": "0.33%"
+  },
+  {
+    "group": 5,
+    "id": 124,
+    "item": "elfP_119",
+    "num": 3,
+    "showWeight": "0.33%"
+  },
+  {
+    "group": 5,
+    "id": 125,
+    "item": "elfP_120",
+    "num": 3,
+    "showWeight": "0.33%"
+  },
+  {
+    "group": 5,
+    "id": 126,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "4%"
+  },
+  {
+    "group": 5,
+    "id": 127,
+    "item": "breakStone2",
+    "num": 1,
+    "showWeight": "1.4%"
+  },
+  {
+    "group": 5,
+    "id": 128,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "0.8%"
+  },
+  {
+    "group": 5,
+    "id": 129,
+    "item": "breakStone4",
+    "num": 1,
+    "showWeight": "0.3%"
+  },
+  {
+    "group": 5,
+    "id": 130,
+    "item": "elfSkill1",
+    "num": 1,
+    "showWeight": "6.4%"
+  },
+  { "group": 6, "id": 131, "item": "elf_101", "num": 1, "showWeight": "1.6%" },
+  { "group": 6, "id": 132, "item": "elf_102", "num": 1, "showWeight": "1.6%" },
+  { "group": 6, "id": 133, "item": "elf_103", "num": 1, "showWeight": "1.6%" },
+  { "group": 6, "id": 134, "item": "elf_104", "num": 1, "showWeight": "0.95%" },
+  { "group": 6, "id": 135, "item": "elf_105", "num": 1, "showWeight": "0.95%" },
+  { "group": 6, "id": 136, "item": "elf_106", "num": 1, "showWeight": "0.95%" },
+  { "group": 6, "id": 137, "item": "elf_107", "num": 1, "showWeight": "0.95%" },
+  { "group": 6, "id": 138, "item": "elf_108", "num": 1, "showWeight": "0.17%" },
+  { "group": 6, "id": 139, "item": "elf_109", "num": 1, "showWeight": "0.17%" },
+  { "group": 6, "id": 140, "item": "elf_110", "num": 1, "showWeight": "0.17%" },
+  { "group": 6, "id": 141, "item": "elf_111", "num": 1, "showWeight": "0.17%" },
+  { "group": 6, "id": 142, "item": "elf_112", "num": 1, "showWeight": "0.17%" },
+  { "group": 6, "id": 143, "item": "elf_113", "num": 1, "showWeight": "0.17%" },
+  { "group": 6, "id": 144, "item": "elf_114", "num": 1, "showWeight": "0.17%" },
+  { "group": 6, "id": 145, "item": "elf_115", "num": 1, "showWeight": "0.03%" },
+  { "group": 6, "id": 146, "item": "elf_116", "num": 1, "showWeight": "0.03%" },
+  { "group": 6, "id": 147, "item": "elf_117", "num": 1, "showWeight": "0.03%" },
+  { "group": 6, "id": 148, "item": "elf_118", "num": 1, "showWeight": "0.03%" },
+  { "group": 6, "id": 149, "item": "elf_119", "num": 1, "showWeight": "0.03%" },
+  { "group": 6, "id": 150, "item": "elf_120", "num": 1, "showWeight": "0.03%" },
+  {
+    "group": 6,
+    "id": 151,
+    "item": "elfP_101",
+    "num": 3,
+    "showWeight": "13.33%"
+  },
+  {
+    "group": 6,
+    "id": 152,
+    "item": "elfP_102",
+    "num": 3,
+    "showWeight": "13.33%"
+  },
+  {
+    "group": 6,
+    "id": 153,
+    "item": "elfP_103",
+    "num": 3,
+    "showWeight": "13.33%"
+  },
+  {
+    "group": 6,
+    "id": 154,
+    "item": "elfP_104",
+    "num": 3,
+    "showWeight": "6.26%"
+  },
+  {
+    "group": 6,
+    "id": 155,
+    "item": "elfP_105",
+    "num": 3,
+    "showWeight": "6.26%"
+  },
+  {
+    "group": 6,
+    "id": 156,
+    "item": "elfP_106",
+    "num": 3,
+    "showWeight": "6.26%"
+  },
+  {
+    "group": 6,
+    "id": 157,
+    "item": "elfP_107",
+    "num": 3,
+    "showWeight": "6.26%"
+  },
+  {
+    "group": 6,
+    "id": 158,
+    "item": "elfP_108",
+    "num": 3,
+    "showWeight": "1.14%"
+  },
+  {
+    "group": 6,
+    "id": 159,
+    "item": "elfP_109",
+    "num": 3,
+    "showWeight": "1.14%"
+  },
+  {
+    "group": 6,
+    "id": 160,
+    "item": "elfP_110",
+    "num": 3,
+    "showWeight": "1.14%"
+  },
+  {
+    "group": 6,
+    "id": 161,
+    "item": "elfP_111",
+    "num": 3,
+    "showWeight": "1.14%"
+  },
+  {
+    "group": 6,
+    "id": 162,
+    "item": "elfP_112",
+    "num": 3,
+    "showWeight": "1.14%"
+  },
+  {
+    "group": 6,
+    "id": 163,
+    "item": "elfP_113",
+    "num": 3,
+    "showWeight": "1.14%"
+  },
+  {
+    "group": 6,
+    "id": 164,
+    "item": "elfP_114",
+    "num": 3,
+    "showWeight": "1.14%"
+  },
+  {
+    "group": 6,
+    "id": 165,
+    "item": "elfP_115",
+    "num": 3,
+    "showWeight": "0.67%"
+  },
+  {
+    "group": 6,
+    "id": 166,
+    "item": "elfP_116",
+    "num": 3,
+    "showWeight": "0.67%"
+  },
+  {
+    "group": 6,
+    "id": 167,
+    "item": "elfP_117",
+    "num": 3,
+    "showWeight": "0.67%"
+  },
+  {
+    "group": 6,
+    "id": 168,
+    "item": "elfP_118",
+    "num": 3,
+    "showWeight": "0.67%"
+  },
+  {
+    "group": 6,
+    "id": 169,
+    "item": "elfP_119",
+    "num": 3,
+    "showWeight": "0.67%"
+  },
+  {
+    "group": 6,
+    "id": 170,
+    "item": "elfP_120",
+    "num": 3,
+    "showWeight": "0.67%"
+  },
+  {
+    "group": 6,
+    "id": 171,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "3.7%"
+  },
+  {
+    "group": 6,
+    "id": 172,
+    "item": "breakStone2",
+    "num": 1,
+    "showWeight": "1.5%"
+  },
+  {
+    "group": 6,
+    "id": 173,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "0.9%"
+  },
+  {
+    "group": 6,
+    "id": 174,
+    "item": "breakStone4",
+    "num": 1,
+    "showWeight": "0.4%"
+  },
+  {
+    "group": 6,
+    "id": 175,
+    "item": "elfSkill1",
+    "num": 1,
+    "showWeight": "6.5%"
+  },
+  { "group": 7, "id": 176, "item": "elf_101", "num": 1, "showWeight": "1.53%" },
+  { "group": 7, "id": 177, "item": "elf_102", "num": 1, "showWeight": "1.53%" },
+  { "group": 7, "id": 178, "item": "elf_103", "num": 1, "showWeight": "1.53%" },
+  { "group": 7, "id": 179, "item": "elf_104", "num": 1, "showWeight": "0.93%" },
+  { "group": 7, "id": 180, "item": "elf_105", "num": 1, "showWeight": "0.93%" },
+  { "group": 7, "id": 181, "item": "elf_106", "num": 1, "showWeight": "0.93%" },
+  { "group": 7, "id": 182, "item": "elf_107", "num": 1, "showWeight": "0.93%" },
+  { "group": 7, "id": 183, "item": "elf_108", "num": 1, "showWeight": "0.2%" },
+  { "group": 7, "id": 184, "item": "elf_109", "num": 1, "showWeight": "0.2%" },
+  { "group": 7, "id": 185, "item": "elf_110", "num": 1, "showWeight": "0.2%" },
+  { "group": 7, "id": 186, "item": "elf_111", "num": 1, "showWeight": "0.2%" },
+  { "group": 7, "id": 187, "item": "elf_112", "num": 1, "showWeight": "0.2%" },
+  { "group": 7, "id": 188, "item": "elf_113", "num": 1, "showWeight": "0.2%" },
+  { "group": 7, "id": 189, "item": "elf_114", "num": 1, "showWeight": "0.2%" },
+  { "group": 7, "id": 190, "item": "elf_115", "num": 1, "showWeight": "0.05%" },
+  { "group": 7, "id": 191, "item": "elf_116", "num": 1, "showWeight": "0.05%" },
+  { "group": 7, "id": 192, "item": "elf_117", "num": 1, "showWeight": "0.05%" },
+  { "group": 7, "id": 193, "item": "elf_118", "num": 1, "showWeight": "0.05%" },
+  { "group": 7, "id": 194, "item": "elf_119", "num": 1, "showWeight": "0.05%" },
+  { "group": 7, "id": 195, "item": "elf_120", "num": 1, "showWeight": "0.05%" },
+  {
+    "group": 7,
+    "id": 196,
+    "item": "elfP_101",
+    "num": 3,
+    "showWeight": "12.66%"
+  },
+  {
+    "group": 7,
+    "id": 197,
+    "item": "elfP_102",
+    "num": 3,
+    "showWeight": "12.66%"
+  },
+  {
+    "group": 7,
+    "id": 198,
+    "item": "elfP_103",
+    "num": 3,
+    "showWeight": "12.66%"
+  },
+  {
+    "group": 7,
+    "id": 199,
+    "item": "elfP_104",
+    "num": 3,
+    "showWeight": "5.98%"
+  },
+  {
+    "group": 7,
+    "id": 200,
+    "item": "elfP_105",
+    "num": 3,
+    "showWeight": "5.98%"
+  },
+  {
+    "group": 7,
+    "id": 201,
+    "item": "elfP_106",
+    "num": 3,
+    "showWeight": "5.98%"
+  },
+  {
+    "group": 7,
+    "id": 202,
+    "item": "elfP_107",
+    "num": 3,
+    "showWeight": "5.98%"
+  },
+  {
+    "group": 7,
+    "id": 203,
+    "item": "elfP_108",
+    "num": 3,
+    "showWeight": "1.43%"
+  },
+  {
+    "group": 7,
+    "id": 204,
+    "item": "elfP_109",
+    "num": 3,
+    "showWeight": "1.43%"
+  },
+  {
+    "group": 7,
+    "id": 205,
+    "item": "elfP_110",
+    "num": 3,
+    "showWeight": "1.43%"
+  },
+  {
+    "group": 7,
+    "id": 206,
+    "item": "elfP_111",
+    "num": 3,
+    "showWeight": "1.43%"
+  },
+  {
+    "group": 7,
+    "id": 207,
+    "item": "elfP_112",
+    "num": 3,
+    "showWeight": "1.43%"
+  },
+  {
+    "group": 7,
+    "id": 208,
+    "item": "elfP_113",
+    "num": 3,
+    "showWeight": "1.43%"
+  },
+  {
+    "group": 7,
+    "id": 209,
+    "item": "elfP_114",
+    "num": 3,
+    "showWeight": "1.43%"
+  },
+  {
+    "group": 7,
+    "id": 210,
+    "item": "elfP_115",
+    "num": 3,
+    "showWeight": "0.83%"
+  },
+  {
+    "group": 7,
+    "id": 211,
+    "item": "elfP_116",
+    "num": 3,
+    "showWeight": "0.83%"
+  },
+  {
+    "group": 7,
+    "id": 212,
+    "item": "elfP_117",
+    "num": 3,
+    "showWeight": "0.83%"
+  },
+  {
+    "group": 7,
+    "id": 213,
+    "item": "elfP_118",
+    "num": 3,
+    "showWeight": "0.83%"
+  },
+  {
+    "group": 7,
+    "id": 214,
+    "item": "elfP_119",
+    "num": 3,
+    "showWeight": "0.83%"
+  },
+  {
+    "group": 7,
+    "id": 215,
+    "item": "elfP_120",
+    "num": 3,
+    "showWeight": "0.83%"
+  },
+  {
+    "group": 7,
+    "id": 216,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "3.4%"
+  },
+  {
+    "group": 7,
+    "id": 217,
+    "item": "breakStone2",
+    "num": 1,
+    "showWeight": "1.6%"
+  },
+  {
+    "group": 7,
+    "id": 218,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "1%"
+  },
+  {
+    "group": 7,
+    "id": 219,
+    "item": "breakStone4",
+    "num": 1,
+    "showWeight": "0.5%"
+  },
+  {
+    "group": 7,
+    "id": 220,
+    "item": "elfSkill1",
+    "num": 1,
+    "showWeight": "6.6%"
+  },
+  { "group": 8, "id": 221, "item": "elf_101", "num": 1, "showWeight": "1.46%" },
+  { "group": 8, "id": 222, "item": "elf_102", "num": 1, "showWeight": "1.46%" },
+  { "group": 8, "id": 223, "item": "elf_103", "num": 1, "showWeight": "1.46%" },
+  { "group": 8, "id": 224, "item": "elf_104", "num": 1, "showWeight": "0.9%" },
+  { "group": 8, "id": 225, "item": "elf_105", "num": 1, "showWeight": "0.9%" },
+  { "group": 8, "id": 226, "item": "elf_106", "num": 1, "showWeight": "0.9%" },
+  { "group": 8, "id": 227, "item": "elf_107", "num": 1, "showWeight": "0.9%" },
+  { "group": 8, "id": 228, "item": "elf_108", "num": 1, "showWeight": "0.23%" },
+  { "group": 8, "id": 229, "item": "elf_109", "num": 1, "showWeight": "0.23%" },
+  { "group": 8, "id": 230, "item": "elf_110", "num": 1, "showWeight": "0.23%" },
+  { "group": 8, "id": 231, "item": "elf_111", "num": 1, "showWeight": "0.23%" },
+  { "group": 8, "id": 232, "item": "elf_112", "num": 1, "showWeight": "0.23%" },
+  { "group": 8, "id": 233, "item": "elf_113", "num": 1, "showWeight": "0.23%" },
+  { "group": 8, "id": 234, "item": "elf_114", "num": 1, "showWeight": "0.23%" },
+  { "group": 8, "id": 235, "item": "elf_115", "num": 1, "showWeight": "0.07%" },
+  { "group": 8, "id": 236, "item": "elf_116", "num": 1, "showWeight": "0.07%" },
+  { "group": 8, "id": 237, "item": "elf_117", "num": 1, "showWeight": "0.07%" },
+  { "group": 8, "id": 238, "item": "elf_118", "num": 1, "showWeight": "0.07%" },
+  { "group": 8, "id": 239, "item": "elf_119", "num": 1, "showWeight": "0.07%" },
+  { "group": 8, "id": 240, "item": "elf_120", "num": 1, "showWeight": "0.07%" },
+  { "group": 8, "id": 241, "item": "elfP_101", "num": 3, "showWeight": "12%" },
+  { "group": 8, "id": 242, "item": "elfP_102", "num": 3, "showWeight": "12%" },
+  { "group": 8, "id": 243, "item": "elfP_103", "num": 3, "showWeight": "12%" },
+  {
+    "group": 8,
+    "id": 244,
+    "item": "elfP_104",
+    "num": 3,
+    "showWeight": "5.95%"
+  },
+  {
+    "group": 8,
+    "id": 245,
+    "item": "elfP_105",
+    "num": 3,
+    "showWeight": "5.95%"
+  },
+  {
+    "group": 8,
+    "id": 246,
+    "item": "elfP_106",
+    "num": 3,
+    "showWeight": "5.95%"
+  },
+  {
+    "group": 8,
+    "id": 247,
+    "item": "elfP_107",
+    "num": 3,
+    "showWeight": "5.95%"
+  },
+  {
+    "group": 8,
+    "id": 248,
+    "item": "elfP_108",
+    "num": 3,
+    "showWeight": "1.57%"
+  },
+  {
+    "group": 8,
+    "id": 249,
+    "item": "elfP_109",
+    "num": 3,
+    "showWeight": "1.57%"
+  },
+  {
+    "group": 8,
+    "id": 250,
+    "item": "elfP_110",
+    "num": 3,
+    "showWeight": "1.57%"
+  },
+  {
+    "group": 8,
+    "id": 251,
+    "item": "elfP_111",
+    "num": 3,
+    "showWeight": "1.57%"
+  },
+  {
+    "group": 8,
+    "id": 252,
+    "item": "elfP_112",
+    "num": 3,
+    "showWeight": "1.57%"
+  },
+  {
+    "group": 8,
+    "id": 253,
+    "item": "elfP_113",
+    "num": 3,
+    "showWeight": "1.57%"
+  },
+  {
+    "group": 8,
+    "id": 254,
+    "item": "elfP_114",
+    "num": 3,
+    "showWeight": "1.57%"
+  },
+  { "group": 8, "id": 255, "item": "elfP_115", "num": 3, "showWeight": "1%" },
+  { "group": 8, "id": 256, "item": "elfP_116", "num": 3, "showWeight": "1%" },
+  { "group": 8, "id": 257, "item": "elfP_117", "num": 3, "showWeight": "1%" },
+  { "group": 8, "id": 258, "item": "elfP_118", "num": 3, "showWeight": "1%" },
+  { "group": 8, "id": 259, "item": "elfP_119", "num": 3, "showWeight": "1%" },
+  { "group": 8, "id": 260, "item": "elfP_120", "num": 3, "showWeight": "1%" },
+  {
+    "group": 8,
+    "id": 261,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "3.1%"
+  },
+  {
+    "group": 8,
+    "id": 262,
+    "item": "breakStone2",
+    "num": 1,
+    "showWeight": "1.7%"
+  },
+  {
+    "group": 8,
+    "id": 263,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "1.1%"
+  },
+  {
+    "group": 8,
+    "id": 264,
+    "item": "breakStone4",
+    "num": 1,
+    "showWeight": "0.6%"
+  },
+  {
+    "group": 8,
+    "id": 265,
+    "item": "elfSkill1",
+    "num": 1,
+    "showWeight": "6.7%"
+  },
+  { "group": 9, "id": 266, "item": "elf_101", "num": 1, "showWeight": "1.4%" },
+  { "group": 9, "id": 267, "item": "elf_102", "num": 1, "showWeight": "1.4%" },
+  { "group": 9, "id": 268, "item": "elf_103", "num": 1, "showWeight": "1.4%" },
+  { "group": 9, "id": 269, "item": "elf_104", "num": 1, "showWeight": "0.88%" },
+  { "group": 9, "id": 270, "item": "elf_105", "num": 1, "showWeight": "0.88%" },
+  { "group": 9, "id": 271, "item": "elf_106", "num": 1, "showWeight": "0.88%" },
+  { "group": 9, "id": 272, "item": "elf_107", "num": 1, "showWeight": "0.88%" },
+  { "group": 9, "id": 273, "item": "elf_108", "num": 1, "showWeight": "0.26%" },
+  { "group": 9, "id": 274, "item": "elf_109", "num": 1, "showWeight": "0.26%" },
+  { "group": 9, "id": 275, "item": "elf_110", "num": 1, "showWeight": "0.26%" },
+  { "group": 9, "id": 276, "item": "elf_111", "num": 1, "showWeight": "0.26%" },
+  { "group": 9, "id": 277, "item": "elf_112", "num": 1, "showWeight": "0.26%" },
+  { "group": 9, "id": 278, "item": "elf_113", "num": 1, "showWeight": "0.26%" },
+  { "group": 9, "id": 279, "item": "elf_114", "num": 1, "showWeight": "0.26%" },
+  { "group": 9, "id": 280, "item": "elf_115", "num": 1, "showWeight": "0.08%" },
+  { "group": 9, "id": 281, "item": "elf_116", "num": 1, "showWeight": "0.08%" },
+  { "group": 9, "id": 282, "item": "elf_117", "num": 1, "showWeight": "0.08%" },
+  { "group": 9, "id": 283, "item": "elf_118", "num": 1, "showWeight": "0.08%" },
+  { "group": 9, "id": 284, "item": "elf_119", "num": 1, "showWeight": "0.08%" },
+  { "group": 9, "id": 285, "item": "elf_120", "num": 1, "showWeight": "0.08%" },
+  {
+    "group": 9,
+    "id": 286,
+    "item": "elfP_101",
+    "num": 3,
+    "showWeight": "11.33%"
+  },
+  {
+    "group": 9,
+    "id": 287,
+    "item": "elfP_102",
+    "num": 3,
+    "showWeight": "11.33%"
+  },
+  {
+    "group": 9,
+    "id": 288,
+    "item": "elfP_103",
+    "num": 3,
+    "showWeight": "11.33%"
+  },
+  {
+    "group": 9,
+    "id": 289,
+    "item": "elfP_104",
+    "num": 3,
+    "showWeight": "5.92%"
+  },
+  {
+    "group": 9,
+    "id": 290,
+    "item": "elfP_105",
+    "num": 3,
+    "showWeight": "5.92%"
+  },
+  {
+    "group": 9,
+    "id": 291,
+    "item": "elfP_106",
+    "num": 3,
+    "showWeight": "5.92%"
+  },
+  {
+    "group": 9,
+    "id": 292,
+    "item": "elfP_107",
+    "num": 3,
+    "showWeight": "5.92%"
+  },
+  {
+    "group": 9,
+    "id": 293,
+    "item": "elfP_108",
+    "num": 3,
+    "showWeight": "1.72%"
+  },
+  {
+    "group": 9,
+    "id": 294,
+    "item": "elfP_109",
+    "num": 3,
+    "showWeight": "1.72%"
+  },
+  {
+    "group": 9,
+    "id": 295,
+    "item": "elfP_110",
+    "num": 3,
+    "showWeight": "1.71%"
+  },
+  {
+    "group": 9,
+    "id": 296,
+    "item": "elfP_111",
+    "num": 3,
+    "showWeight": "1.71%"
+  },
+  {
+    "group": 9,
+    "id": 297,
+    "item": "elfP_112",
+    "num": 3,
+    "showWeight": "1.71%"
+  },
+  {
+    "group": 9,
+    "id": 298,
+    "item": "elfP_113",
+    "num": 3,
+    "showWeight": "1.71%"
+  },
+  {
+    "group": 9,
+    "id": 299,
+    "item": "elfP_114",
+    "num": 3,
+    "showWeight": "1.71%"
+  },
+  {
+    "group": 9,
+    "id": 300,
+    "item": "elfP_115",
+    "num": 3,
+    "showWeight": "1.17%"
+  },
+  {
+    "group": 9,
+    "id": 301,
+    "item": "elfP_116",
+    "num": 3,
+    "showWeight": "1.17%"
+  },
+  {
+    "group": 9,
+    "id": 302,
+    "item": "elfP_117",
+    "num": 3,
+    "showWeight": "1.17%"
+  },
+  {
+    "group": 9,
+    "id": 303,
+    "item": "elfP_118",
+    "num": 3,
+    "showWeight": "1.17%"
+  },
+  {
+    "group": 9,
+    "id": 304,
+    "item": "elfP_119",
+    "num": 3,
+    "showWeight": "1.17%"
+  },
+  {
+    "group": 9,
+    "id": 305,
+    "item": "elfP_120",
+    "num": 3,
+    "showWeight": "1.17%"
+  },
+  {
+    "group": 9,
+    "id": 306,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "2.9%"
+  },
+  {
+    "group": 9,
+    "id": 307,
+    "item": "breakStone2",
+    "num": 1,
+    "showWeight": "1.7%"
+  },
+  {
+    "group": 9,
+    "id": 308,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "1.2%"
+  },
+  {
+    "group": 9,
+    "id": 309,
+    "item": "breakStone4",
+    "num": 1,
+    "showWeight": "0.7%"
+  },
+  {
+    "group": 9,
+    "id": 310,
+    "item": "elfSkill1",
+    "num": 1,
+    "showWeight": "6.8%"
+  },
+  {
+    "group": 10,
+    "id": 311,
+    "item": "elf_101",
+    "num": 1,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 10,
+    "id": 312,
+    "item": "elf_102",
+    "num": 1,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 10,
+    "id": 313,
+    "item": "elf_103",
+    "num": 1,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 10,
+    "id": 314,
+    "item": "elf_104",
+    "num": 1,
+    "showWeight": "0.85%"
+  },
+  {
+    "group": 10,
+    "id": 315,
+    "item": "elf_105",
+    "num": 1,
+    "showWeight": "0.85%"
+  },
+  {
+    "group": 10,
+    "id": 316,
+    "item": "elf_106",
+    "num": 1,
+    "showWeight": "0.85%"
+  },
+  {
+    "group": 10,
+    "id": 317,
+    "item": "elf_107",
+    "num": 1,
+    "showWeight": "0.85%"
+  },
+  {
+    "group": 10,
+    "id": 318,
+    "item": "elf_108",
+    "num": 1,
+    "showWeight": "0.29%"
+  },
+  {
+    "group": 10,
+    "id": 319,
+    "item": "elf_109",
+    "num": 1,
+    "showWeight": "0.29%"
+  },
+  {
+    "group": 10,
+    "id": 320,
+    "item": "elf_110",
+    "num": 1,
+    "showWeight": "0.29%"
+  },
+  {
+    "group": 10,
+    "id": 321,
+    "item": "elf_111",
+    "num": 1,
+    "showWeight": "0.29%"
+  },
+  {
+    "group": 10,
+    "id": 322,
+    "item": "elf_112",
+    "num": 1,
+    "showWeight": "0.29%"
+  },
+  {
+    "group": 10,
+    "id": 323,
+    "item": "elf_113",
+    "num": 1,
+    "showWeight": "0.29%"
+  },
+  {
+    "group": 10,
+    "id": 324,
+    "item": "elf_114",
+    "num": 1,
+    "showWeight": "0.29%"
+  },
+  { "group": 10, "id": 325, "item": "elf_115", "num": 1, "showWeight": "0.1%" },
+  { "group": 10, "id": 326, "item": "elf_116", "num": 1, "showWeight": "0.1%" },
+  { "group": 10, "id": 327, "item": "elf_117", "num": 1, "showWeight": "0.1%" },
+  { "group": 10, "id": 328, "item": "elf_118", "num": 1, "showWeight": "0.1%" },
+  { "group": 10, "id": 329, "item": "elf_119", "num": 1, "showWeight": "0.1%" },
+  { "group": 10, "id": 330, "item": "elf_120", "num": 1, "showWeight": "0.1%" },
+  {
+    "group": 10,
+    "id": 331,
+    "item": "elfP_101",
+    "num": 3,
+    "showWeight": "10.66%"
+  },
+  {
+    "group": 10,
+    "id": 332,
+    "item": "elfP_102",
+    "num": 3,
+    "showWeight": "10.66%"
+  },
+  {
+    "group": 10,
+    "id": 333,
+    "item": "elfP_103",
+    "num": 3,
+    "showWeight": "10.66%"
+  },
+  {
+    "group": 10,
+    "id": 334,
+    "item": "elfP_104",
+    "num": 3,
+    "showWeight": "5.9%"
+  },
+  {
+    "group": 10,
+    "id": 335,
+    "item": "elfP_105",
+    "num": 3,
+    "showWeight": "5.9%"
+  },
+  {
+    "group": 10,
+    "id": 336,
+    "item": "elfP_106",
+    "num": 3,
+    "showWeight": "5.9%"
+  },
+  {
+    "group": 10,
+    "id": 337,
+    "item": "elfP_107",
+    "num": 3,
+    "showWeight": "5.9%"
+  },
+  {
+    "group": 10,
+    "id": 338,
+    "item": "elfP_108",
+    "num": 3,
+    "showWeight": "1.86%"
+  },
+  {
+    "group": 10,
+    "id": 339,
+    "item": "elfP_109",
+    "num": 3,
+    "showWeight": "1.86%"
+  },
+  {
+    "group": 10,
+    "id": 340,
+    "item": "elfP_110",
+    "num": 3,
+    "showWeight": "1.86%"
+  },
+  {
+    "group": 10,
+    "id": 341,
+    "item": "elfP_111",
+    "num": 3,
+    "showWeight": "1.86%"
+  },
+  {
+    "group": 10,
+    "id": 342,
+    "item": "elfP_112",
+    "num": 3,
+    "showWeight": "1.86%"
+  },
+  {
+    "group": 10,
+    "id": 343,
+    "item": "elfP_113",
+    "num": 3,
+    "showWeight": "1.86%"
+  },
+  {
+    "group": 10,
+    "id": 344,
+    "item": "elfP_114",
+    "num": 3,
+    "showWeight": "1.86%"
+  },
+  {
+    "group": 10,
+    "id": 345,
+    "item": "elfP_115",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 10,
+    "id": 346,
+    "item": "elfP_116",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 10,
+    "id": 347,
+    "item": "elfP_117",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 10,
+    "id": 348,
+    "item": "elfP_118",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 10,
+    "id": 349,
+    "item": "elfP_119",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 10,
+    "id": 350,
+    "item": "elfP_120",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 10,
+    "id": 351,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "2.7%"
+  },
+  {
+    "group": 10,
+    "id": 352,
+    "item": "breakStone2",
+    "num": 1,
+    "showWeight": "1.8%"
+  },
+  {
+    "group": 10,
+    "id": 353,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "1.2%"
+  },
+  {
+    "group": 10,
+    "id": 354,
+    "item": "breakStone4",
+    "num": 1,
+    "showWeight": "0.8%"
+  },
+  {
+    "group": 10,
+    "id": 355,
+    "item": "elfSkill1",
+    "num": 1,
+    "showWeight": "6.9%"
+  },
+  {
+    "group": 11,
+    "id": 356,
+    "item": "elf_101",
+    "num": 1,
+    "showWeight": "1.27%"
+  },
+  {
+    "group": 11,
+    "id": 357,
+    "item": "elf_102",
+    "num": 1,
+    "showWeight": "1.27%"
+  },
+  {
+    "group": 11,
+    "id": 358,
+    "item": "elf_103",
+    "num": 1,
+    "showWeight": "1.27%"
+  },
+  {
+    "group": 11,
+    "id": 359,
+    "item": "elf_104",
+    "num": 1,
+    "showWeight": "0.83%"
+  },
+  {
+    "group": 11,
+    "id": 360,
+    "item": "elf_105",
+    "num": 1,
+    "showWeight": "0.83%"
+  },
+  {
+    "group": 11,
+    "id": 361,
+    "item": "elf_106",
+    "num": 1,
+    "showWeight": "0.83%"
+  },
+  {
+    "group": 11,
+    "id": 362,
+    "item": "elf_107",
+    "num": 1,
+    "showWeight": "0.83%"
+  },
+  {
+    "group": 11,
+    "id": 363,
+    "item": "elf_108",
+    "num": 1,
+    "showWeight": "0.32%"
+  },
+  {
+    "group": 11,
+    "id": 364,
+    "item": "elf_109",
+    "num": 1,
+    "showWeight": "0.32%"
+  },
+  {
+    "group": 11,
+    "id": 365,
+    "item": "elf_110",
+    "num": 1,
+    "showWeight": "0.31%"
+  },
+  {
+    "group": 11,
+    "id": 366,
+    "item": "elf_111",
+    "num": 1,
+    "showWeight": "0.31%"
+  },
+  {
+    "group": 11,
+    "id": 367,
+    "item": "elf_112",
+    "num": 1,
+    "showWeight": "0.31%"
+  },
+  {
+    "group": 11,
+    "id": 368,
+    "item": "elf_113",
+    "num": 1,
+    "showWeight": "0.31%"
+  },
+  {
+    "group": 11,
+    "id": 369,
+    "item": "elf_114",
+    "num": 1,
+    "showWeight": "0.31%"
+  },
+  {
+    "group": 11,
+    "id": 370,
+    "item": "elf_115",
+    "num": 1,
+    "showWeight": "0.12%"
+  },
+  {
+    "group": 11,
+    "id": 371,
+    "item": "elf_116",
+    "num": 1,
+    "showWeight": "0.12%"
+  },
+  {
+    "group": 11,
+    "id": 372,
+    "item": "elf_117",
+    "num": 1,
+    "showWeight": "0.12%"
+  },
+  {
+    "group": 11,
+    "id": 373,
+    "item": "elf_118",
+    "num": 1,
+    "showWeight": "0.12%"
+  },
+  {
+    "group": 11,
+    "id": 374,
+    "item": "elf_119",
+    "num": 1,
+    "showWeight": "0.12%"
+  },
+  {
+    "group": 11,
+    "id": 375,
+    "item": "elf_120",
+    "num": 1,
+    "showWeight": "0.12%"
+  },
+  { "group": 11, "id": 376, "item": "elfP_101", "num": 3, "showWeight": "10%" },
+  { "group": 11, "id": 377, "item": "elfP_102", "num": 3, "showWeight": "10%" },
+  { "group": 11, "id": 378, "item": "elfP_103", "num": 3, "showWeight": "10%" },
+  {
+    "group": 11,
+    "id": 379,
+    "item": "elfP_104",
+    "num": 3,
+    "showWeight": "6.12%"
+  },
+  {
+    "group": 11,
+    "id": 380,
+    "item": "elfP_105",
+    "num": 3,
+    "showWeight": "6.12%"
+  },
+  {
+    "group": 11,
+    "id": 381,
+    "item": "elfP_106",
+    "num": 3,
+    "showWeight": "6.12%"
+  },
+  {
+    "group": 11,
+    "id": 382,
+    "item": "elfP_107",
+    "num": 3,
+    "showWeight": "6.12%"
+  },
+  { "group": 11, "id": 383, "item": "elfP_108", "num": 3, "showWeight": "2%" },
+  { "group": 11, "id": 384, "item": "elfP_109", "num": 3, "showWeight": "2%" },
+  { "group": 11, "id": 385, "item": "elfP_110", "num": 3, "showWeight": "2%" },
+  { "group": 11, "id": 386, "item": "elfP_111", "num": 3, "showWeight": "2%" },
+  { "group": 11, "id": 387, "item": "elfP_112", "num": 3, "showWeight": "2%" },
+  { "group": 11, "id": 388, "item": "elfP_113", "num": 3, "showWeight": "2%" },
+  { "group": 11, "id": 389, "item": "elfP_114", "num": 3, "showWeight": "2%" },
+  {
+    "group": 11,
+    "id": 390,
+    "item": "elfP_115",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 11,
+    "id": 391,
+    "item": "elfP_116",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 11,
+    "id": 392,
+    "item": "elfP_117",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 11,
+    "id": 393,
+    "item": "elfP_118",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 11,
+    "id": 394,
+    "item": "elfP_119",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 11,
+    "id": 395,
+    "item": "elfP_120",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 11,
+    "id": 396,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "2.6%"
+  },
+  {
+    "group": 11,
+    "id": 397,
+    "item": "breakStone2",
+    "num": 1,
+    "showWeight": "1.8%"
+  },
+  {
+    "group": 11,
+    "id": 398,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "1.3%"
+  },
+  {
+    "group": 11,
+    "id": 399,
+    "item": "breakStone4",
+    "num": 1,
+    "showWeight": "0.8%"
+  },
+  { "group": 11, "id": 400, "item": "elfSkill1", "num": 1, "showWeight": "7%" },
+  { "group": 12, "id": 401, "item": "elf_101", "num": 1, "showWeight": "1.2%" },
+  { "group": 12, "id": 402, "item": "elf_102", "num": 1, "showWeight": "1.2%" },
+  { "group": 12, "id": 403, "item": "elf_103", "num": 1, "showWeight": "1.2%" },
+  { "group": 12, "id": 404, "item": "elf_104", "num": 1, "showWeight": "0.8%" },
+  { "group": 12, "id": 405, "item": "elf_105", "num": 1, "showWeight": "0.8%" },
+  { "group": 12, "id": 406, "item": "elf_106", "num": 1, "showWeight": "0.8%" },
+  { "group": 12, "id": 407, "item": "elf_107", "num": 1, "showWeight": "0.8%" },
+  {
+    "group": 12,
+    "id": 408,
+    "item": "elf_108",
+    "num": 1,
+    "showWeight": "0.34%"
+  },
+  {
+    "group": 12,
+    "id": 409,
+    "item": "elf_109",
+    "num": 1,
+    "showWeight": "0.34%"
+  },
+  {
+    "group": 12,
+    "id": 410,
+    "item": "elf_110",
+    "num": 1,
+    "showWeight": "0.34%"
+  },
+  {
+    "group": 12,
+    "id": 411,
+    "item": "elf_111",
+    "num": 1,
+    "showWeight": "0.34%"
+  },
+  {
+    "group": 12,
+    "id": 412,
+    "item": "elf_112",
+    "num": 1,
+    "showWeight": "0.34%"
+  },
+  {
+    "group": 12,
+    "id": 413,
+    "item": "elf_113",
+    "num": 1,
+    "showWeight": "0.34%"
+  },
+  {
+    "group": 12,
+    "id": 414,
+    "item": "elf_114",
+    "num": 1,
+    "showWeight": "0.34%"
+  },
+  {
+    "group": 12,
+    "id": 415,
+    "item": "elf_115",
+    "num": 1,
+    "showWeight": "0.14%"
+  },
+  {
+    "group": 12,
+    "id": 416,
+    "item": "elf_116",
+    "num": 1,
+    "showWeight": "0.14%"
+  },
+  {
+    "group": 12,
+    "id": 417,
+    "item": "elf_117",
+    "num": 1,
+    "showWeight": "0.14%"
+  },
+  {
+    "group": 12,
+    "id": 418,
+    "item": "elf_118",
+    "num": 1,
+    "showWeight": "0.14%"
+  },
+  {
+    "group": 12,
+    "id": 419,
+    "item": "elf_119",
+    "num": 1,
+    "showWeight": "0.14%"
+  },
+  {
+    "group": 12,
+    "id": 420,
+    "item": "elf_120",
+    "num": 1,
+    "showWeight": "0.14%"
+  },
+  {
+    "group": 12,
+    "id": 421,
+    "item": "elfP_101",
+    "num": 3,
+    "showWeight": "9.34%"
+  },
+  {
+    "group": 12,
+    "id": 422,
+    "item": "elfP_102",
+    "num": 3,
+    "showWeight": "9.34%"
+  },
+  {
+    "group": 12,
+    "id": 423,
+    "item": "elfP_103",
+    "num": 3,
+    "showWeight": "9.34%"
+  },
+  {
+    "group": 12,
+    "id": 424,
+    "item": "elfP_104",
+    "num": 3,
+    "showWeight": "6.35%"
+  },
+  {
+    "group": 12,
+    "id": 425,
+    "item": "elfP_105",
+    "num": 3,
+    "showWeight": "6.35%"
+  },
+  {
+    "group": 12,
+    "id": 426,
+    "item": "elfP_106",
+    "num": 3,
+    "showWeight": "6.35%"
+  },
+  {
+    "group": 12,
+    "id": 427,
+    "item": "elfP_107",
+    "num": 3,
+    "showWeight": "6.35%"
+  },
+  {
+    "group": 12,
+    "id": 428,
+    "item": "elfP_108",
+    "num": 3,
+    "showWeight": "2.14%"
+  },
+  {
+    "group": 12,
+    "id": 429,
+    "item": "elfP_109",
+    "num": 3,
+    "showWeight": "2.14%"
+  },
+  {
+    "group": 12,
+    "id": 430,
+    "item": "elfP_110",
+    "num": 3,
+    "showWeight": "2.14%"
+  },
+  {
+    "group": 12,
+    "id": 431,
+    "item": "elfP_111",
+    "num": 3,
+    "showWeight": "2.14%"
+  },
+  {
+    "group": 12,
+    "id": 432,
+    "item": "elfP_112",
+    "num": 3,
+    "showWeight": "2.14%"
+  },
+  {
+    "group": 12,
+    "id": 433,
+    "item": "elfP_113",
+    "num": 3,
+    "showWeight": "2.14%"
+  },
+  {
+    "group": 12,
+    "id": 434,
+    "item": "elfP_114",
+    "num": 3,
+    "showWeight": "2.14%"
+  },
+  {
+    "group": 12,
+    "id": 435,
+    "item": "elfP_115",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 12,
+    "id": 436,
+    "item": "elfP_116",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 12,
+    "id": 437,
+    "item": "elfP_117",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 12,
+    "id": 438,
+    "item": "elfP_118",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 12,
+    "id": 439,
+    "item": "elfP_119",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 12,
+    "id": 440,
+    "item": "elfP_120",
+    "num": 3,
+    "showWeight": "1.33%"
+  },
+  {
+    "group": 12,
+    "id": 441,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "2.4%"
+  },
+  {
+    "group": 12,
+    "id": 442,
+    "item": "breakStone2",
+    "num": 1,
+    "showWeight": "1.9%"
+  },
+  {
+    "group": 12,
+    "id": 443,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "1.3%"
+  },
+  {
+    "group": 12,
+    "id": 444,
+    "item": "breakStone4",
+    "num": 1,
+    "showWeight": "0.9%"
+  },
+  {
+    "group": 12,
+    "id": 445,
+    "item": "elfSkill1",
+    "num": 1,
+    "showWeight": "7.1%"
+  },
+  {
+    "group": 13,
+    "id": 446,
+    "item": "elf_101",
+    "num": 1,
+    "showWeight": "1.13%"
+  },
+  {
+    "group": 13,
+    "id": 447,
+    "item": "elf_102",
+    "num": 1,
+    "showWeight": "1.13%"
+  },
+  {
+    "group": 13,
+    "id": 448,
+    "item": "elf_103",
+    "num": 1,
+    "showWeight": "1.13%"
+  },
+  {
+    "group": 13,
+    "id": 449,
+    "item": "elf_104",
+    "num": 1,
+    "showWeight": "0.78%"
+  },
+  {
+    "group": 13,
+    "id": 450,
+    "item": "elf_105",
+    "num": 1,
+    "showWeight": "0.78%"
+  },
+  {
+    "group": 13,
+    "id": 451,
+    "item": "elf_106",
+    "num": 1,
+    "showWeight": "0.78%"
+  },
+  {
+    "group": 13,
+    "id": 452,
+    "item": "elf_107",
+    "num": 1,
+    "showWeight": "0.78%"
+  },
+  {
+    "group": 13,
+    "id": 453,
+    "item": "elf_108",
+    "num": 1,
+    "showWeight": "0.37%"
+  },
+  {
+    "group": 13,
+    "id": 454,
+    "item": "elf_109",
+    "num": 1,
+    "showWeight": "0.37%"
+  },
+  {
+    "group": 13,
+    "id": 455,
+    "item": "elf_110",
+    "num": 1,
+    "showWeight": "0.37%"
+  },
+  {
+    "group": 13,
+    "id": 456,
+    "item": "elf_111",
+    "num": 1,
+    "showWeight": "0.37%"
+  },
+  {
+    "group": 13,
+    "id": 457,
+    "item": "elf_112",
+    "num": 1,
+    "showWeight": "0.37%"
+  },
+  {
+    "group": 13,
+    "id": 458,
+    "item": "elf_113",
+    "num": 1,
+    "showWeight": "0.37%"
+  },
+  {
+    "group": 13,
+    "id": 459,
+    "item": "elf_114",
+    "num": 1,
+    "showWeight": "0.37%"
+  },
+  {
+    "group": 13,
+    "id": 460,
+    "item": "elf_115",
+    "num": 1,
+    "showWeight": "0.15%"
+  },
+  {
+    "group": 13,
+    "id": 461,
+    "item": "elf_116",
+    "num": 1,
+    "showWeight": "0.15%"
+  },
+  {
+    "group": 13,
+    "id": 462,
+    "item": "elf_117",
+    "num": 1,
+    "showWeight": "0.15%"
+  },
+  {
+    "group": 13,
+    "id": 463,
+    "item": "elf_118",
+    "num": 1,
+    "showWeight": "0.15%"
+  },
+  {
+    "group": 13,
+    "id": 464,
+    "item": "elf_119",
+    "num": 1,
+    "showWeight": "0.15%"
+  },
+  {
+    "group": 13,
+    "id": 465,
+    "item": "elf_120",
+    "num": 1,
+    "showWeight": "0.15%"
+  },
+  { "group": 13, "id": 466, "item": "elfP_101", "num": 3, "showWeight": "9%" },
+  { "group": 13, "id": 467, "item": "elfP_102", "num": 3, "showWeight": "9%" },
+  { "group": 13, "id": 468, "item": "elfP_103", "num": 3, "showWeight": "9%" },
+  {
+    "group": 13,
+    "id": 469,
+    "item": "elfP_104",
+    "num": 3,
+    "showWeight": "6.08%"
+  },
+  {
+    "group": 13,
+    "id": 470,
+    "item": "elfP_105",
+    "num": 3,
+    "showWeight": "6.08%"
+  },
+  {
+    "group": 13,
+    "id": 471,
+    "item": "elfP_106",
+    "num": 3,
+    "showWeight": "6.08%"
+  },
+  {
+    "group": 13,
+    "id": 472,
+    "item": "elfP_107",
+    "num": 3,
+    "showWeight": "6.08%"
+  },
+  {
+    "group": 13,
+    "id": 473,
+    "item": "elfP_108",
+    "num": 3,
+    "showWeight": "2.28%"
+  },
+  {
+    "group": 13,
+    "id": 474,
+    "item": "elfP_109",
+    "num": 3,
+    "showWeight": "2.28%"
+  },
+  {
+    "group": 13,
+    "id": 475,
+    "item": "elfP_110",
+    "num": 3,
+    "showWeight": "2.28%"
+  },
+  {
+    "group": 13,
+    "id": 476,
+    "item": "elfP_111",
+    "num": 3,
+    "showWeight": "2.28%"
+  },
+  {
+    "group": 13,
+    "id": 477,
+    "item": "elfP_112",
+    "num": 3,
+    "showWeight": "2.28%"
+  },
+  {
+    "group": 13,
+    "id": 478,
+    "item": "elfP_113",
+    "num": 3,
+    "showWeight": "2.29%"
+  },
+  {
+    "group": 13,
+    "id": 479,
+    "item": "elfP_114",
+    "num": 3,
+    "showWeight": "2.29%"
+  },
+  {
+    "group": 13,
+    "id": 480,
+    "item": "elfP_115",
+    "num": 3,
+    "showWeight": "1.5%"
+  },
+  {
+    "group": 13,
+    "id": 481,
+    "item": "elfP_116",
+    "num": 3,
+    "showWeight": "1.5%"
+  },
+  {
+    "group": 13,
+    "id": 482,
+    "item": "elfP_117",
+    "num": 3,
+    "showWeight": "1.5%"
+  },
+  {
+    "group": 13,
+    "id": 483,
+    "item": "elfP_118",
+    "num": 3,
+    "showWeight": "1.5%"
+  },
+  {
+    "group": 13,
+    "id": 484,
+    "item": "elfP_119",
+    "num": 3,
+    "showWeight": "1.5%"
+  },
+  {
+    "group": 13,
+    "id": 485,
+    "item": "elfP_120",
+    "num": 3,
+    "showWeight": "1.5%"
+  },
+  {
+    "group": 13,
+    "id": 486,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "2.3%"
+  },
+  {
+    "group": 13,
+    "id": 487,
+    "item": "breakStone2",
+    "num": 1,
+    "showWeight": "1.9%"
+  },
+  {
+    "group": 13,
+    "id": 488,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "1.4%"
+  },
+  {
+    "group": 13,
+    "id": 489,
+    "item": "breakStone4",
+    "num": 1,
+    "showWeight": "0.9%"
+  },
+  {
+    "group": 13,
+    "id": 490,
+    "item": "elfSkill1",
+    "num": 1,
+    "showWeight": "7.2%"
+  },
+  {
+    "group": 14,
+    "id": 491,
+    "item": "elf_101",
+    "num": 1,
+    "showWeight": "1.07%"
+  },
+  {
+    "group": 14,
+    "id": 492,
+    "item": "elf_102",
+    "num": 1,
+    "showWeight": "1.07%"
+  },
+  {
+    "group": 14,
+    "id": 493,
+    "item": "elf_103",
+    "num": 1,
+    "showWeight": "1.07%"
+  },
+  {
+    "group": 14,
+    "id": 494,
+    "item": "elf_104",
+    "num": 1,
+    "showWeight": "0.75%"
+  },
+  {
+    "group": 14,
+    "id": 495,
+    "item": "elf_105",
+    "num": 1,
+    "showWeight": "0.75%"
+  },
+  {
+    "group": 14,
+    "id": 496,
+    "item": "elf_106",
+    "num": 1,
+    "showWeight": "0.75%"
+  },
+  {
+    "group": 14,
+    "id": 497,
+    "item": "elf_107",
+    "num": 1,
+    "showWeight": "0.75%"
+  },
+  { "group": 14, "id": 498, "item": "elf_108", "num": 1, "showWeight": "0.4%" },
+  { "group": 14, "id": 499, "item": "elf_109", "num": 1, "showWeight": "0.4%" },
+  { "group": 14, "id": 500, "item": "elf_110", "num": 1, "showWeight": "0.4%" },
+  { "group": 14, "id": 501, "item": "elf_111", "num": 1, "showWeight": "0.4%" },
+  { "group": 14, "id": 502, "item": "elf_112", "num": 1, "showWeight": "0.4%" },
+  { "group": 14, "id": 503, "item": "elf_113", "num": 1, "showWeight": "0.4%" },
+  { "group": 14, "id": 504, "item": "elf_114", "num": 1, "showWeight": "0.4%" },
+  {
+    "group": 14,
+    "id": 505,
+    "item": "elf_115",
+    "num": 1,
+    "showWeight": "0.17%"
+  },
+  {
+    "group": 14,
+    "id": 506,
+    "item": "elf_116",
+    "num": 1,
+    "showWeight": "0.17%"
+  },
+  {
+    "group": 14,
+    "id": 507,
+    "item": "elf_117",
+    "num": 1,
+    "showWeight": "0.17%"
+  },
+  {
+    "group": 14,
+    "id": 508,
+    "item": "elf_118",
+    "num": 1,
+    "showWeight": "0.17%"
+  },
+  {
+    "group": 14,
+    "id": 509,
+    "item": "elf_119",
+    "num": 1,
+    "showWeight": "0.17%"
+  },
+  {
+    "group": 14,
+    "id": 510,
+    "item": "elf_120",
+    "num": 1,
+    "showWeight": "0.17%"
+  },
+  {
+    "group": 14,
+    "id": 511,
+    "item": "elfP_101",
+    "num": 3,
+    "showWeight": "8.67%"
+  },
+  {
+    "group": 14,
+    "id": 512,
+    "item": "elfP_102",
+    "num": 3,
+    "showWeight": "8.67%"
+  },
+  {
+    "group": 14,
+    "id": 513,
+    "item": "elfP_103",
+    "num": 3,
+    "showWeight": "8.67%"
+  },
+  {
+    "group": 14,
+    "id": 514,
+    "item": "elfP_104",
+    "num": 3,
+    "showWeight": "5.8%"
+  },
+  {
+    "group": 14,
+    "id": 515,
+    "item": "elfP_105",
+    "num": 3,
+    "showWeight": "5.8%"
+  },
+  {
+    "group": 14,
+    "id": 516,
+    "item": "elfP_106",
+    "num": 3,
+    "showWeight": "5.8%"
+  },
+  {
+    "group": 14,
+    "id": 517,
+    "item": "elfP_107",
+    "num": 3,
+    "showWeight": "5.8%"
+  },
+  {
+    "group": 14,
+    "id": 518,
+    "item": "elfP_108",
+    "num": 3,
+    "showWeight": "2.42%"
+  },
+  {
+    "group": 14,
+    "id": 519,
+    "item": "elfP_109",
+    "num": 3,
+    "showWeight": "2.42%"
+  },
+  {
+    "group": 14,
+    "id": 520,
+    "item": "elfP_110",
+    "num": 3,
+    "showWeight": "2.42%"
+  },
+  {
+    "group": 14,
+    "id": 521,
+    "item": "elfP_111",
+    "num": 3,
+    "showWeight": "2.42%"
+  },
+  {
+    "group": 14,
+    "id": 522,
+    "item": "elfP_112",
+    "num": 3,
+    "showWeight": "2.42%"
+  },
+  {
+    "group": 14,
+    "id": 523,
+    "item": "elfP_113",
+    "num": 3,
+    "showWeight": "2.42%"
+  },
+  {
+    "group": 14,
+    "id": 524,
+    "item": "elfP_114",
+    "num": 3,
+    "showWeight": "2.42%"
+  },
+  {
+    "group": 14,
+    "id": 525,
+    "item": "elfP_115",
+    "num": 3,
+    "showWeight": "1.67%"
+  },
+  {
+    "group": 14,
+    "id": 526,
+    "item": "elfP_116",
+    "num": 3,
+    "showWeight": "1.67%"
+  },
+  {
+    "group": 14,
+    "id": 527,
+    "item": "elfP_117",
+    "num": 3,
+    "showWeight": "1.67%"
+  },
+  {
+    "group": 14,
+    "id": 528,
+    "item": "elfP_118",
+    "num": 3,
+    "showWeight": "1.67%"
+  },
+  {
+    "group": 14,
+    "id": 529,
+    "item": "elfP_119",
+    "num": 3,
+    "showWeight": "1.67%"
+  },
+  {
+    "group": 14,
+    "id": 530,
+    "item": "elfP_120",
+    "num": 3,
+    "showWeight": "1.67%"
+  },
+  {
+    "group": 14,
+    "id": 531,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "2.1%"
+  },
+  {
+    "group": 14,
+    "id": 532,
+    "item": "breakStone2",
+    "num": 1,
+    "showWeight": "2%"
+  },
+  {
+    "group": 14,
+    "id": 533,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "1.4%"
+  },
+  {
+    "group": 14,
+    "id": 534,
+    "item": "breakStone4",
+    "num": 1,
+    "showWeight": "1%"
+  },
+  {
+    "group": 14,
+    "id": 535,
+    "item": "elfSkill1",
+    "num": 1,
+    "showWeight": "7.3%"
+  },
+  { "group": 15, "id": 536, "item": "elf_101", "num": 1, "showWeight": "1%" },
+  { "group": 15, "id": 537, "item": "elf_102", "num": 1, "showWeight": "1%" },
+  { "group": 15, "id": 538, "item": "elf_103", "num": 1, "showWeight": "1%" },
+  {
+    "group": 15,
+    "id": 539,
+    "item": "elf_104",
+    "num": 1,
+    "showWeight": "0.75%"
+  },
+  {
+    "group": 15,
+    "id": 540,
+    "item": "elf_105",
+    "num": 1,
+    "showWeight": "0.75%"
+  },
+  {
+    "group": 15,
+    "id": 541,
+    "item": "elf_106",
+    "num": 1,
+    "showWeight": "0.75%"
+  },
+  {
+    "group": 15,
+    "id": 542,
+    "item": "elf_107",
+    "num": 1,
+    "showWeight": "0.75%"
+  },
+  {
+    "group": 15,
+    "id": 543,
+    "item": "elf_108",
+    "num": 1,
+    "showWeight": "0.43%"
+  },
+  {
+    "group": 15,
+    "id": 544,
+    "item": "elf_109",
+    "num": 1,
+    "showWeight": "0.43%"
+  },
+  {
+    "group": 15,
+    "id": 545,
+    "item": "elf_110",
+    "num": 1,
+    "showWeight": "0.43%"
+  },
+  {
+    "group": 15,
+    "id": 546,
+    "item": "elf_111",
+    "num": 1,
+    "showWeight": "0.43%"
+  },
+  {
+    "group": 15,
+    "id": 547,
+    "item": "elf_112",
+    "num": 1,
+    "showWeight": "0.43%"
+  },
+  {
+    "group": 15,
+    "id": 548,
+    "item": "elf_113",
+    "num": 1,
+    "showWeight": "0.43%"
+  },
+  {
+    "group": 15,
+    "id": 549,
+    "item": "elf_114",
+    "num": 1,
+    "showWeight": "0.43%"
+  },
+  {
+    "group": 15,
+    "id": 550,
+    "item": "elf_115",
+    "num": 1,
+    "showWeight": "0.17%"
+  },
+  {
+    "group": 15,
+    "id": 551,
+    "item": "elf_116",
+    "num": 1,
+    "showWeight": "0.17%"
+  },
+  {
+    "group": 15,
+    "id": 552,
+    "item": "elf_117",
+    "num": 1,
+    "showWeight": "0.17%"
+  },
+  {
+    "group": 15,
+    "id": 553,
+    "item": "elf_118",
+    "num": 1,
+    "showWeight": "0.17%"
+  },
+  {
+    "group": 15,
+    "id": 554,
+    "item": "elf_119",
+    "num": 1,
+    "showWeight": "0.17%"
+  },
+  {
+    "group": 15,
+    "id": 555,
+    "item": "elf_120",
+    "num": 1,
+    "showWeight": "0.17%"
+  },
+  {
+    "group": 15,
+    "id": 556,
+    "item": "elfP_101",
+    "num": 3,
+    "showWeight": "8.33%"
+  },
+  {
+    "group": 15,
+    "id": 557,
+    "item": "elfP_102",
+    "num": 3,
+    "showWeight": "8.33%"
+  },
+  {
+    "group": 15,
+    "id": 558,
+    "item": "elfP_103",
+    "num": 3,
+    "showWeight": "8.33%"
+  },
+  {
+    "group": 15,
+    "id": 559,
+    "item": "elfP_104",
+    "num": 3,
+    "showWeight": "5.78%"
+  },
+  {
+    "group": 15,
+    "id": 560,
+    "item": "elfP_105",
+    "num": 3,
+    "showWeight": "5.78%"
+  },
+  {
+    "group": 15,
+    "id": 561,
+    "item": "elfP_106",
+    "num": 3,
+    "showWeight": "5.78%"
+  },
+  {
+    "group": 15,
+    "id": 562,
+    "item": "elfP_107",
+    "num": 3,
+    "showWeight": "5.78%"
+  },
+  {
+    "group": 15,
+    "id": 563,
+    "item": "elfP_108",
+    "num": 3,
+    "showWeight": "2.56%"
+  },
+  {
+    "group": 15,
+    "id": 564,
+    "item": "elfP_109",
+    "num": 3,
+    "showWeight": "2.56%"
+  },
+  {
+    "group": 15,
+    "id": 565,
+    "item": "elfP_110",
+    "num": 3,
+    "showWeight": "2.56%"
+  },
+  {
+    "group": 15,
+    "id": 566,
+    "item": "elfP_111",
+    "num": 3,
+    "showWeight": "2.56%"
+  },
+  {
+    "group": 15,
+    "id": 567,
+    "item": "elfP_112",
+    "num": 3,
+    "showWeight": "2.56%"
+  },
+  {
+    "group": 15,
+    "id": 568,
+    "item": "elfP_113",
+    "num": 3,
+    "showWeight": "2.57%"
+  },
+  {
+    "group": 15,
+    "id": 569,
+    "item": "elfP_114",
+    "num": 3,
+    "showWeight": "2.57%"
+  },
+  {
+    "group": 15,
+    "id": 570,
+    "item": "elfP_115",
+    "num": 3,
+    "showWeight": "1.67%"
+  },
+  {
+    "group": 15,
+    "id": 571,
+    "item": "elfP_116",
+    "num": 3,
+    "showWeight": "1.67%"
+  },
+  {
+    "group": 15,
+    "id": 572,
+    "item": "elfP_117",
+    "num": 3,
+    "showWeight": "1.67%"
+  },
+  {
+    "group": 15,
+    "id": 573,
+    "item": "elfP_118",
+    "num": 3,
+    "showWeight": "1.67%"
+  },
+  {
+    "group": 15,
+    "id": 574,
+    "item": "elfP_119",
+    "num": 3,
+    "showWeight": "1.67%"
+  },
+  {
+    "group": 15,
+    "id": 575,
+    "item": "elfP_120",
+    "num": 3,
+    "showWeight": "1.67%"
+  },
+  {
+    "group": 15,
+    "id": 576,
+    "item": "breakStone1",
+    "num": 1,
+    "showWeight": "2%"
+  },
+  {
+    "group": 15,
+    "id": 577,
+    "item": "breakStone2",
+    "num": 1,
+    "showWeight": "2%"
+  },
+  {
+    "group": 15,
+    "id": 578,
+    "item": "breakStone3",
+    "num": 1,
+    "showWeight": "1.5%"
+  },
+  {
+    "group": 15,
+    "id": 579,
+    "item": "breakStone4",
+    "num": 1,
+    "showWeight": "1%"
+  },
+  {
+    "group": 15,
+    "id": 580,
+    "item": "elfSkill1",
+    "num": 1,
+    "showWeight": "7.4%"
+  },
+  { "group": 16, "id": 581, "item": "elf_101", "num": 1, "showWeight": "" },
+  { "group": 16, "id": 582, "item": "elf_102", "num": 1, "showWeight": "" },
+  { "group": 16, "id": 583, "item": "elf_103", "num": 1, "showWeight": "" },
+  { "group": 17, "id": 584, "item": "elfSkill1", "num": 1, "showWeight": "" },
+  { "group": 18, "id": 585, "item": "elf_104", "num": 1, "showWeight": "" },
+  { "group": 18, "id": 586, "item": "elf_105", "num": 1, "showWeight": "" },
+  { "group": 18, "id": 587, "item": "elf_106", "num": 1, "showWeight": "" },
+  { "group": 18, "id": 588, "item": "elf_107", "num": 1, "showWeight": "" },
+  { "group": 19, "id": 589, "item": "breakStone1", "num": 1, "showWeight": "" },
+  { "group": 19, "id": 590, "item": "breakStone2", "num": 1, "showWeight": "" },
+  { "group": 19, "id": 591, "item": "breakStone3", "num": 1, "showWeight": "" },
+  { "group": 19, "id": 592, "item": "elfSkill1", "num": 1, "showWeight": "" }
+]

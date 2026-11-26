@@ -1,0 +1,1412 @@
+[
+  {
+    "des": "MT_TXTASK_INFO_1",
+    "id": 1,
+    "jump": 49,
+    "rewardScore": 20,
+    "taskId": 11001,
+    "taskType": 1,
+    "taskValue": 1,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_2",
+    "id": 2,
+    "jump": 50,
+    "rewardScore": 20,
+    "taskId": 11002,
+    "taskType": 2,
+    "taskValue": 1,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_3",
+    "id": 3,
+    "jump": 50,
+    "rewardScore": 30,
+    "taskId": 11003,
+    "taskType": 3,
+    "taskValue": 1,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_4",
+    "id": 4,
+    "jump": 11,
+    "rewardScore": 30,
+    "taskId": 11004,
+    "taskType": 4,
+    "taskValue": 3,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_5",
+    "id": 5,
+    "jump": 3,
+    "rewardScore": 30,
+    "taskId": 11005,
+    "taskType": 5,
+    "taskValue": 3,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_6",
+    "id": 6,
+    "jump": 7,
+    "rewardScore": 40,
+    "taskId": 11006,
+    "taskType": 6,
+    "taskValue": 5,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_7",
+    "id": 7,
+    "jump": 4,
+    "rewardScore": 40,
+    "taskId": 11007,
+    "taskType": 7,
+    "taskValue": 2,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 8,
+    "jump": 8,
+    "rewardScore": 20,
+    "taskId": 21001,
+    "taskType": 8,
+    "taskValue": 100,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 9,
+    "jump": 8,
+    "rewardScore": 30,
+    "taskId": 21002,
+    "taskType": 8,
+    "taskValue": 300,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 10,
+    "jump": 8,
+    "rewardScore": 40,
+    "taskId": 21003,
+    "taskType": 8,
+    "taskValue": 500,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 11,
+    "jump": 8,
+    "rewardScore": 50,
+    "taskId": 21004,
+    "taskType": 8,
+    "taskValue": 800,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 12,
+    "jump": 8,
+    "rewardScore": 60,
+    "taskId": 21005,
+    "taskType": 8,
+    "taskValue": 1200,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 13,
+    "jump": 11,
+    "rewardScore": 20,
+    "taskId": 22001,
+    "taskType": 9,
+    "taskValue": 20,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 14,
+    "jump": 11,
+    "rewardScore": 30,
+    "taskId": 22002,
+    "taskType": 9,
+    "taskValue": 40,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 15,
+    "jump": 11,
+    "rewardScore": 40,
+    "taskId": 22003,
+    "taskType": 9,
+    "taskValue": 60,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 16,
+    "jump": 11,
+    "rewardScore": 50,
+    "taskId": 22004,
+    "taskType": 9,
+    "taskValue": 90,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 17,
+    "jump": 11,
+    "rewardScore": 60,
+    "taskId": 22005,
+    "taskType": 9,
+    "taskValue": 120,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 18,
+    "jump": 15,
+    "rewardScore": 20,
+    "taskId": 23001,
+    "taskType": 10,
+    "taskValue": 600,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 19,
+    "jump": 15,
+    "rewardScore": 30,
+    "taskId": 23002,
+    "taskType": 10,
+    "taskValue": 1200,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 20,
+    "jump": 15,
+    "rewardScore": 40,
+    "taskId": 23003,
+    "taskType": 10,
+    "taskValue": 1800,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 21,
+    "jump": 15,
+    "rewardScore": 50,
+    "taskId": 23004,
+    "taskType": 10,
+    "taskValue": 2400,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 22,
+    "jump": 15,
+    "rewardScore": 60,
+    "taskId": 23005,
+    "taskType": 10,
+    "taskValue": 3000,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 23,
+    "jump": 3,
+    "rewardScore": 20,
+    "taskId": 24001,
+    "taskType": 11,
+    "taskValue": 10,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 24,
+    "jump": 3,
+    "rewardScore": 30,
+    "taskId": 24002,
+    "taskType": 11,
+    "taskValue": 20,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 25,
+    "jump": 3,
+    "rewardScore": 40,
+    "taskId": 24003,
+    "taskType": 11,
+    "taskValue": 30,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 26,
+    "jump": 3,
+    "rewardScore": 50,
+    "taskId": 24004,
+    "taskType": 11,
+    "taskValue": 40,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 27,
+    "jump": 3,
+    "rewardScore": 60,
+    "taskId": 24005,
+    "taskType": 11,
+    "taskValue": 50,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 28,
+    "jump": 15,
+    "rewardScore": 20,
+    "taskId": 25001,
+    "taskType": 12,
+    "taskValue": 3,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 29,
+    "jump": 15,
+    "rewardScore": 30,
+    "taskId": 25002,
+    "taskType": 12,
+    "taskValue": 5,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 30,
+    "jump": 15,
+    "rewardScore": 40,
+    "taskId": 25003,
+    "taskType": 12,
+    "taskValue": 10,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 31,
+    "jump": 15,
+    "rewardScore": 50,
+    "taskId": 25004,
+    "taskType": 12,
+    "taskValue": 15,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 32,
+    "jump": 15,
+    "rewardScore": 60,
+    "taskId": 25005,
+    "taskType": 12,
+    "taskValue": 20,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 33,
+    "jump": 22,
+    "rewardScore": 20,
+    "taskId": 26001,
+    "taskType": 13,
+    "taskValue": 1,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 34,
+    "jump": 22,
+    "rewardScore": 30,
+    "taskId": 26002,
+    "taskType": 13,
+    "taskValue": 3,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 35,
+    "jump": 22,
+    "rewardScore": 40,
+    "taskId": 26003,
+    "taskType": 13,
+    "taskValue": 5,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 36,
+    "jump": 22,
+    "rewardScore": 50,
+    "taskId": 26004,
+    "taskType": 13,
+    "taskValue": 7,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 37,
+    "jump": 22,
+    "rewardScore": 60,
+    "taskId": 26005,
+    "taskType": 13,
+    "taskValue": 10,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 38,
+    "jump": 24,
+    "rewardScore": 20,
+    "taskId": 27001,
+    "taskType": 14,
+    "taskValue": 10000,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 39,
+    "jump": 24,
+    "rewardScore": 30,
+    "taskId": 27002,
+    "taskType": 14,
+    "taskValue": 25000,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 40,
+    "jump": 24,
+    "rewardScore": 40,
+    "taskId": 27003,
+    "taskType": 14,
+    "taskValue": 40000,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 41,
+    "jump": 24,
+    "rewardScore": 50,
+    "taskId": 27004,
+    "taskType": 14,
+    "taskValue": 60000,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 42,
+    "jump": 24,
+    "rewardScore": 60,
+    "taskId": 27005,
+    "taskType": 14,
+    "taskValue": 80000,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 43,
+    "jump": 17,
+    "rewardScore": 20,
+    "taskId": 28001,
+    "taskType": 15,
+    "taskValue": 5,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 44,
+    "jump": 17,
+    "rewardScore": 30,
+    "taskId": 28002,
+    "taskType": 15,
+    "taskValue": 10,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 45,
+    "jump": 17,
+    "rewardScore": 40,
+    "taskId": 28003,
+    "taskType": 15,
+    "taskValue": 20,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 46,
+    "jump": 17,
+    "rewardScore": 50,
+    "taskId": 28004,
+    "taskType": 15,
+    "taskValue": 30,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 47,
+    "jump": 17,
+    "rewardScore": 60,
+    "taskId": 28005,
+    "taskType": 15,
+    "taskValue": 40,
+    "timeNum": 1
+  },
+  {
+    "des": "MT_TXTASK_INFO_1",
+    "id": 48,
+    "jump": 49,
+    "rewardScore": 20,
+    "taskId": 11001,
+    "taskType": 1,
+    "taskValue": 1,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_2",
+    "id": 49,
+    "jump": 50,
+    "rewardScore": 20,
+    "taskId": 11002,
+    "taskType": 2,
+    "taskValue": 1,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_3",
+    "id": 50,
+    "jump": 50,
+    "rewardScore": 30,
+    "taskId": 11003,
+    "taskType": 3,
+    "taskValue": 1,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_4",
+    "id": 51,
+    "jump": 11,
+    "rewardScore": 30,
+    "taskId": 11004,
+    "taskType": 4,
+    "taskValue": 3,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_5",
+    "id": 52,
+    "jump": 3,
+    "rewardScore": 30,
+    "taskId": 11005,
+    "taskType": 5,
+    "taskValue": 3,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_6",
+    "id": 53,
+    "jump": 7,
+    "rewardScore": 40,
+    "taskId": 11006,
+    "taskType": 6,
+    "taskValue": 5,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_7",
+    "id": 54,
+    "jump": 4,
+    "rewardScore": 40,
+    "taskId": 11007,
+    "taskType": 7,
+    "taskValue": 2,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 55,
+    "jump": 8,
+    "rewardScore": 20,
+    "taskId": 21001,
+    "taskType": 8,
+    "taskValue": 100,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 56,
+    "jump": 8,
+    "rewardScore": 30,
+    "taskId": 21002,
+    "taskType": 8,
+    "taskValue": 300,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 57,
+    "jump": 8,
+    "rewardScore": 40,
+    "taskId": 21003,
+    "taskType": 8,
+    "taskValue": 500,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 58,
+    "jump": 8,
+    "rewardScore": 50,
+    "taskId": 21004,
+    "taskType": 8,
+    "taskValue": 800,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 59,
+    "jump": 8,
+    "rewardScore": 60,
+    "taskId": 21005,
+    "taskType": 8,
+    "taskValue": 1200,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 60,
+    "jump": 11,
+    "rewardScore": 20,
+    "taskId": 22001,
+    "taskType": 9,
+    "taskValue": 20,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 61,
+    "jump": 11,
+    "rewardScore": 30,
+    "taskId": 22002,
+    "taskType": 9,
+    "taskValue": 40,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 62,
+    "jump": 11,
+    "rewardScore": 40,
+    "taskId": 22003,
+    "taskType": 9,
+    "taskValue": 60,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 63,
+    "jump": 11,
+    "rewardScore": 50,
+    "taskId": 22004,
+    "taskType": 9,
+    "taskValue": 90,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 64,
+    "jump": 11,
+    "rewardScore": 60,
+    "taskId": 22005,
+    "taskType": 9,
+    "taskValue": 120,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 65,
+    "jump": 15,
+    "rewardScore": 20,
+    "taskId": 23001,
+    "taskType": 10,
+    "taskValue": 600,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 66,
+    "jump": 15,
+    "rewardScore": 30,
+    "taskId": 23002,
+    "taskType": 10,
+    "taskValue": 1200,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 67,
+    "jump": 15,
+    "rewardScore": 40,
+    "taskId": 23003,
+    "taskType": 10,
+    "taskValue": 1800,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 68,
+    "jump": 15,
+    "rewardScore": 50,
+    "taskId": 23004,
+    "taskType": 10,
+    "taskValue": 2400,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 69,
+    "jump": 15,
+    "rewardScore": 60,
+    "taskId": 23005,
+    "taskType": 10,
+    "taskValue": 3000,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 70,
+    "jump": 3,
+    "rewardScore": 20,
+    "taskId": 24001,
+    "taskType": 11,
+    "taskValue": 10,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 71,
+    "jump": 3,
+    "rewardScore": 30,
+    "taskId": 24002,
+    "taskType": 11,
+    "taskValue": 20,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 72,
+    "jump": 3,
+    "rewardScore": 40,
+    "taskId": 24003,
+    "taskType": 11,
+    "taskValue": 30,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 73,
+    "jump": 3,
+    "rewardScore": 50,
+    "taskId": 24004,
+    "taskType": 11,
+    "taskValue": 40,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 74,
+    "jump": 3,
+    "rewardScore": 60,
+    "taskId": 24005,
+    "taskType": 11,
+    "taskValue": 50,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 75,
+    "jump": 15,
+    "rewardScore": 20,
+    "taskId": 25001,
+    "taskType": 12,
+    "taskValue": 3,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 76,
+    "jump": 15,
+    "rewardScore": 30,
+    "taskId": 25002,
+    "taskType": 12,
+    "taskValue": 5,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 77,
+    "jump": 15,
+    "rewardScore": 40,
+    "taskId": 25003,
+    "taskType": 12,
+    "taskValue": 10,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 78,
+    "jump": 15,
+    "rewardScore": 50,
+    "taskId": 25004,
+    "taskType": 12,
+    "taskValue": 15,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 79,
+    "jump": 15,
+    "rewardScore": 60,
+    "taskId": 25005,
+    "taskType": 12,
+    "taskValue": 20,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 80,
+    "jump": 22,
+    "rewardScore": 20,
+    "taskId": 26001,
+    "taskType": 13,
+    "taskValue": 1,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 81,
+    "jump": 22,
+    "rewardScore": 30,
+    "taskId": 26002,
+    "taskType": 13,
+    "taskValue": 3,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 82,
+    "jump": 22,
+    "rewardScore": 40,
+    "taskId": 26003,
+    "taskType": 13,
+    "taskValue": 5,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 83,
+    "jump": 22,
+    "rewardScore": 50,
+    "taskId": 26004,
+    "taskType": 13,
+    "taskValue": 7,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 84,
+    "jump": 22,
+    "rewardScore": 60,
+    "taskId": 26005,
+    "taskType": 13,
+    "taskValue": 10,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 85,
+    "jump": 24,
+    "rewardScore": 20,
+    "taskId": 27001,
+    "taskType": 14,
+    "taskValue": 10000,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 86,
+    "jump": 24,
+    "rewardScore": 30,
+    "taskId": 27002,
+    "taskType": 14,
+    "taskValue": 25000,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 87,
+    "jump": 24,
+    "rewardScore": 40,
+    "taskId": 27003,
+    "taskType": 14,
+    "taskValue": 40000,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 88,
+    "jump": 24,
+    "rewardScore": 50,
+    "taskId": 27004,
+    "taskType": 14,
+    "taskValue": 60000,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 89,
+    "jump": 24,
+    "rewardScore": 60,
+    "taskId": 27005,
+    "taskType": 14,
+    "taskValue": 80000,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 90,
+    "jump": 17,
+    "rewardScore": 20,
+    "taskId": 28001,
+    "taskType": 15,
+    "taskValue": 5,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 91,
+    "jump": 17,
+    "rewardScore": 30,
+    "taskId": 28002,
+    "taskType": 15,
+    "taskValue": 10,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 92,
+    "jump": 17,
+    "rewardScore": 40,
+    "taskId": 28003,
+    "taskType": 15,
+    "taskValue": 20,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 93,
+    "jump": 17,
+    "rewardScore": 50,
+    "taskId": 28004,
+    "taskType": 15,
+    "taskValue": 30,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 94,
+    "jump": 17,
+    "rewardScore": 60,
+    "taskId": 28005,
+    "taskType": 15,
+    "taskValue": 40,
+    "timeNum": 2
+  },
+  {
+    "des": "MT_TXTASK_INFO_1",
+    "id": 95,
+    "jump": 49,
+    "rewardScore": 20,
+    "taskId": 11001,
+    "taskType": 1,
+    "taskValue": 1,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_2",
+    "id": 96,
+    "jump": 50,
+    "rewardScore": 20,
+    "taskId": 11002,
+    "taskType": 2,
+    "taskValue": 1,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_3",
+    "id": 97,
+    "jump": 50,
+    "rewardScore": 30,
+    "taskId": 11003,
+    "taskType": 3,
+    "taskValue": 1,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_4",
+    "id": 98,
+    "jump": 11,
+    "rewardScore": 30,
+    "taskId": 11004,
+    "taskType": 4,
+    "taskValue": 3,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_5",
+    "id": 99,
+    "jump": 3,
+    "rewardScore": 30,
+    "taskId": 11005,
+    "taskType": 5,
+    "taskValue": 3,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_6",
+    "id": 100,
+    "jump": 7,
+    "rewardScore": 40,
+    "taskId": 11006,
+    "taskType": 6,
+    "taskValue": 5,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_7",
+    "id": 101,
+    "jump": 4,
+    "rewardScore": 40,
+    "taskId": 11007,
+    "taskType": 7,
+    "taskValue": 2,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 102,
+    "jump": 8,
+    "rewardScore": 20,
+    "taskId": 21001,
+    "taskType": 8,
+    "taskValue": 100,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 103,
+    "jump": 8,
+    "rewardScore": 30,
+    "taskId": 21002,
+    "taskType": 8,
+    "taskValue": 300,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 104,
+    "jump": 8,
+    "rewardScore": 40,
+    "taskId": 21003,
+    "taskType": 8,
+    "taskValue": 500,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 105,
+    "jump": 8,
+    "rewardScore": 50,
+    "taskId": 21004,
+    "taskType": 8,
+    "taskValue": 800,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_8",
+    "id": 106,
+    "jump": 8,
+    "rewardScore": 60,
+    "taskId": 21005,
+    "taskType": 8,
+    "taskValue": 1200,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 107,
+    "jump": 11,
+    "rewardScore": 20,
+    "taskId": 22001,
+    "taskType": 9,
+    "taskValue": 20,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 108,
+    "jump": 11,
+    "rewardScore": 30,
+    "taskId": 22002,
+    "taskType": 9,
+    "taskValue": 40,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 109,
+    "jump": 11,
+    "rewardScore": 40,
+    "taskId": 22003,
+    "taskType": 9,
+    "taskValue": 60,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 110,
+    "jump": 11,
+    "rewardScore": 50,
+    "taskId": 22004,
+    "taskType": 9,
+    "taskValue": 90,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_9",
+    "id": 111,
+    "jump": 11,
+    "rewardScore": 60,
+    "taskId": 22005,
+    "taskType": 9,
+    "taskValue": 120,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 112,
+    "jump": 15,
+    "rewardScore": 20,
+    "taskId": 23001,
+    "taskType": 10,
+    "taskValue": 600,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 113,
+    "jump": 15,
+    "rewardScore": 30,
+    "taskId": 23002,
+    "taskType": 10,
+    "taskValue": 1200,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 114,
+    "jump": 15,
+    "rewardScore": 40,
+    "taskId": 23003,
+    "taskType": 10,
+    "taskValue": 1800,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 115,
+    "jump": 15,
+    "rewardScore": 50,
+    "taskId": 23004,
+    "taskType": 10,
+    "taskValue": 2400,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_10",
+    "id": 116,
+    "jump": 15,
+    "rewardScore": 60,
+    "taskId": 23005,
+    "taskType": 10,
+    "taskValue": 3000,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 117,
+    "jump": 3,
+    "rewardScore": 20,
+    "taskId": 24001,
+    "taskType": 11,
+    "taskValue": 10,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 118,
+    "jump": 3,
+    "rewardScore": 30,
+    "taskId": 24002,
+    "taskType": 11,
+    "taskValue": 20,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 119,
+    "jump": 3,
+    "rewardScore": 40,
+    "taskId": 24003,
+    "taskType": 11,
+    "taskValue": 30,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 120,
+    "jump": 3,
+    "rewardScore": 50,
+    "taskId": 24004,
+    "taskType": 11,
+    "taskValue": 40,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_11",
+    "id": 121,
+    "jump": 3,
+    "rewardScore": 60,
+    "taskId": 24005,
+    "taskType": 11,
+    "taskValue": 50,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 122,
+    "jump": 15,
+    "rewardScore": 20,
+    "taskId": 25001,
+    "taskType": 12,
+    "taskValue": 3,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 123,
+    "jump": 15,
+    "rewardScore": 30,
+    "taskId": 25002,
+    "taskType": 12,
+    "taskValue": 5,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 124,
+    "jump": 15,
+    "rewardScore": 40,
+    "taskId": 25003,
+    "taskType": 12,
+    "taskValue": 10,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 125,
+    "jump": 15,
+    "rewardScore": 50,
+    "taskId": 25004,
+    "taskType": 12,
+    "taskValue": 15,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_12",
+    "id": 126,
+    "jump": 15,
+    "rewardScore": 60,
+    "taskId": 25005,
+    "taskType": 12,
+    "taskValue": 20,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 127,
+    "jump": 22,
+    "rewardScore": 20,
+    "taskId": 26001,
+    "taskType": 13,
+    "taskValue": 1,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 128,
+    "jump": 22,
+    "rewardScore": 30,
+    "taskId": 26002,
+    "taskType": 13,
+    "taskValue": 3,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 129,
+    "jump": 22,
+    "rewardScore": 40,
+    "taskId": 26003,
+    "taskType": 13,
+    "taskValue": 5,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 130,
+    "jump": 22,
+    "rewardScore": 50,
+    "taskId": 26004,
+    "taskType": 13,
+    "taskValue": 7,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_13",
+    "id": 131,
+    "jump": 22,
+    "rewardScore": 60,
+    "taskId": 26005,
+    "taskType": 13,
+    "taskValue": 10,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 132,
+    "jump": 24,
+    "rewardScore": 20,
+    "taskId": 27001,
+    "taskType": 14,
+    "taskValue": 10000,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 133,
+    "jump": 24,
+    "rewardScore": 30,
+    "taskId": 27002,
+    "taskType": 14,
+    "taskValue": 25000,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 134,
+    "jump": 24,
+    "rewardScore": 40,
+    "taskId": 27003,
+    "taskType": 14,
+    "taskValue": 40000,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 135,
+    "jump": 24,
+    "rewardScore": 50,
+    "taskId": 27004,
+    "taskType": 14,
+    "taskValue": 60000,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_14",
+    "id": 136,
+    "jump": 24,
+    "rewardScore": 60,
+    "taskId": 27005,
+    "taskType": 14,
+    "taskValue": 80000,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 137,
+    "jump": 17,
+    "rewardScore": 20,
+    "taskId": 28001,
+    "taskType": 15,
+    "taskValue": 5,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 138,
+    "jump": 17,
+    "rewardScore": 30,
+    "taskId": 28002,
+    "taskType": 15,
+    "taskValue": 10,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 139,
+    "jump": 17,
+    "rewardScore": 40,
+    "taskId": 28003,
+    "taskType": 15,
+    "taskValue": 20,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 140,
+    "jump": 17,
+    "rewardScore": 50,
+    "taskId": 28004,
+    "taskType": 15,
+    "taskValue": 30,
+    "timeNum": 3
+  },
+  {
+    "des": "MT_TXTASK_INFO_15",
+    "id": 141,
+    "jump": 17,
+    "rewardScore": 60,
+    "taskId": 28005,
+    "taskType": 15,
+    "taskValue": 40,
+    "timeNum": 3
+  }
+]

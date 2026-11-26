@@ -1,0 +1,246 @@
+[
+  {
+    "id": 1,
+    "ranking": [1],
+    "rewardNum": [8, 5000, 30000, 1, 1, 1],
+    "rewardNumRecruit": [],
+    "rewardType": [
+      "crystalLight",
+      "diamond",
+      "pointGvgCoin",
+      "headFrame_9",
+      "title_3",
+      "headMark1"
+    ],
+    "rewardTypeRecruit": [],
+    "type": 1
+  },
+  {
+    "id": 2,
+    "ranking": [2],
+    "rewardNum": [7, 4000, 28000, 1, 1],
+    "rewardNumRecruit": [],
+    "rewardType": [
+      "crystalLight",
+      "diamond",
+      "pointGvgCoin",
+      "headFrame_10",
+      "title_4"
+    ],
+    "rewardTypeRecruit": [],
+    "type": 1
+  },
+  {
+    "id": 3,
+    "ranking": [3],
+    "rewardNum": [7, 3500, 25000, 1, 1],
+    "rewardNumRecruit": [],
+    "rewardType": [
+      "crystalLight",
+      "diamond",
+      "pointGvgCoin",
+      "headFrame_10",
+      "title_4"
+    ],
+    "rewardTypeRecruit": [],
+    "type": 1
+  },
+  {
+    "id": 4,
+    "ranking": [4, 5],
+    "rewardNum": [6, 3000, 22000],
+    "rewardNumRecruit": [],
+    "rewardType": ["crystalLight", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": [],
+    "type": 1
+  },
+  {
+    "id": 5,
+    "ranking": [6, 8],
+    "rewardNum": [5, 2600, 20000],
+    "rewardNumRecruit": [],
+    "rewardType": ["crystalLight", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": [],
+    "type": 1
+  },
+  {
+    "id": 6,
+    "ranking": [1],
+    "rewardNum": [5, 2600, 20000],
+    "rewardNumRecruit": [3, 2000, 15000],
+    "rewardType": ["crystalLight", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": ["crystalLight", "diamond", "pointGvgCoin"],
+    "type": 2
+  },
+  {
+    "id": 7,
+    "ranking": [2],
+    "rewardNum": [4, 2400, 18000],
+    "rewardNumRecruit": [2, 1800, 13000],
+    "rewardType": ["crystalLight", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": ["crystalLight", "diamond", "pointGvgCoin"],
+    "type": 2
+  },
+  {
+    "id": 8,
+    "ranking": [3],
+    "rewardNum": [4, 2000, 16000],
+    "rewardNumRecruit": [2, 1500, 12000],
+    "rewardType": ["crystalLight", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": ["crystalLight", "diamond", "pointGvgCoin"],
+    "type": 2
+  },
+  {
+    "id": 9,
+    "ranking": [4, 5],
+    "rewardNum": [3, 1800, 14000],
+    "rewardNumRecruit": [1, 1200, 11000],
+    "rewardType": ["crystalLight", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": ["crystalLight", "diamond", "pointGvgCoin"],
+    "type": 2
+  },
+  {
+    "id": 10,
+    "ranking": [6, 8],
+    "rewardNum": [3, 1600, 12000],
+    "rewardNumRecruit": [1, 1000, 10000],
+    "rewardType": ["crystalLight", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": ["crystalLight", "diamond", "pointGvgCoin"],
+    "type": 2
+  },
+  {
+    "id": 11,
+    "ranking": [1],
+    "rewardNum": [3, 1600, 12000],
+    "rewardNumRecruit": [1, 1000, 10000],
+    "rewardType": ["crystalLight", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": ["crystalLight", "diamond", "pointGvgCoin"],
+    "type": 3
+  },
+  {
+    "id": 12,
+    "ranking": [2],
+    "rewardNum": [2, 1400, 11000],
+    "rewardNumRecruit": [1, 800, 8000],
+    "rewardType": ["crystalLight", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": ["crystalLight", "diamond", "pointGvgCoin"],
+    "type": 3
+  },
+  {
+    "id": 13,
+    "ranking": [3],
+    "rewardNum": [2, 1200, 10000],
+    "rewardNumRecruit": [1, 650, 6500],
+    "rewardType": ["crystalLight", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": ["crystalLight", "diamond", "pointGvgCoin"],
+    "type": 3
+  },
+  {
+    "id": 14,
+    "ranking": [4, 5],
+    "rewardNum": [1, 1000, 9000],
+    "rewardNumRecruit": [1, 500, 5000],
+    "rewardType": ["crystalLight", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": ["crystalLight", "diamond", "pointGvgCoin"],
+    "type": 3
+  },
+  {
+    "id": 15,
+    "ranking": [6, 8],
+    "rewardNum": [1, 800, 8000],
+    "rewardNumRecruit": [1, 400, 4000],
+    "rewardType": ["crystalLight", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": ["crystalLight", "diamond", "pointGvgCoin"],
+    "type": 3
+  },
+  {
+    "id": 16,
+    "ranking": [1],
+    "rewardNum": [30000, 800, 10000, 1],
+    "rewardNumRecruit": [],
+    "rewardType": ["blindBoxCoin", "diamond", "pointGvgCoin", "headFrame_8"],
+    "rewardTypeRecruit": [],
+    "type": 4
+  },
+  {
+    "id": 17,
+    "ranking": [2],
+    "rewardNum": [25000, 700, 8000],
+    "rewardNumRecruit": [],
+    "rewardType": ["blindBoxCoin", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": [],
+    "type": 4
+  },
+  {
+    "id": 18,
+    "ranking": [3],
+    "rewardNum": [20000, 600, 7000],
+    "rewardNumRecruit": [],
+    "rewardType": ["blindBoxCoin", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": [],
+    "type": 4
+  },
+  {
+    "id": 19,
+    "ranking": [4, 5],
+    "rewardNum": [18000, 500, 6000],
+    "rewardNumRecruit": [],
+    "rewardType": ["blindBoxCoin", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": [],
+    "type": 4
+  },
+  {
+    "id": 20,
+    "ranking": [6, 8],
+    "rewardNum": [15000, 450, 5000],
+    "rewardNumRecruit": [],
+    "rewardType": ["blindBoxCoin", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": [],
+    "type": 4
+  },
+  {
+    "id": 21,
+    "ranking": [1],
+    "rewardNum": [15000, 450, 5000],
+    "rewardNumRecruit": [],
+    "rewardType": ["blindBoxCoin", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": [],
+    "type": 5
+  },
+  {
+    "id": 22,
+    "ranking": [2],
+    "rewardNum": [10000, 400, 4000],
+    "rewardNumRecruit": [],
+    "rewardType": ["blindBoxCoin", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": [],
+    "type": 5
+  },
+  {
+    "id": 23,
+    "ranking": [3],
+    "rewardNum": [8000, 350, 3500],
+    "rewardNumRecruit": [],
+    "rewardType": ["blindBoxCoin", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": [],
+    "type": 5
+  },
+  {
+    "id": 24,
+    "ranking": [4, 5],
+    "rewardNum": [5000, 300, 2500],
+    "rewardNumRecruit": [],
+    "rewardType": ["blindBoxCoin", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": [],
+    "type": 5
+  },
+  {
+    "id": 25,
+    "ranking": [6, 8],
+    "rewardNum": [2000, 200, 1500],
+    "rewardNumRecruit": [],
+    "rewardType": ["blindBoxCoin", "diamond", "pointGvgCoin"],
+    "rewardTypeRecruit": [],
+    "type": 5
+  }
+]

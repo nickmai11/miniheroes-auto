@@ -1,0 +1,184 @@
+[
+  {
+    "artifactAddition": 0,
+    "artifactStar": 0,
+    "id": 1,
+    "latticeAddition": 0,
+    "materialNum": 0
+  },
+  {
+    "artifactAddition": 0.05,
+    "artifactStar": 1,
+    "id": 2,
+    "latticeAddition": 0.05,
+    "materialNum": 10
+  },
+  {
+    "artifactAddition": 0.1,
+    "artifactStar": 2,
+    "id": 3,
+    "latticeAddition": 0.1,
+    "materialNum": 15
+  },
+  {
+    "artifactAddition": 0.15,
+    "artifactStar": 3,
+    "id": 4,
+    "latticeAddition": 0.15,
+    "materialNum": 20
+  },
+  {
+    "artifactAddition": 0.2,
+    "artifactStar": 4,
+    "id": 5,
+    "latticeAddition": 0.2,
+    "materialNum": 25
+  },
+  {
+    "artifactAddition": 0.25,
+    "artifactStar": 5,
+    "id": 6,
+    "latticeAddition": 0.25,
+    "materialNum": 30
+  },
+  {
+    "artifactAddition": 0.3,
+    "artifactStar": 6,
+    "id": 7,
+    "latticeAddition": 0.3,
+    "materialNum": 40
+  },
+  {
+    "artifactAddition": 0.35,
+    "artifactStar": 7,
+    "id": 8,
+    "latticeAddition": 0.35,
+    "materialNum": 50
+  },
+  {
+    "artifactAddition": 0.4,
+    "artifactStar": 8,
+    "id": 9,
+    "latticeAddition": 0.4,
+    "materialNum": 60
+  },
+  {
+    "artifactAddition": 0.45,
+    "artifactStar": 9,
+    "id": 10,
+    "latticeAddition": 0.45,
+    "materialNum": 80
+  },
+  {
+    "artifactAddition": 0.5,
+    "artifactStar": 10,
+    "id": 11,
+    "latticeAddition": 0.5,
+    "materialNum": 100
+  },
+  {
+    "artifactAddition": 0.55,
+    "artifactStar": 11,
+    "id": 12,
+    "latticeAddition": 0.55,
+    "materialNum": 120
+  },
+  {
+    "artifactAddition": 0.6,
+    "artifactStar": 12,
+    "id": 13,
+    "latticeAddition": 0.6,
+    "materialNum": 150
+  },
+  {
+    "artifactAddition": 0.65,
+    "artifactStar": 13,
+    "id": 14,
+    "latticeAddition": 0.65,
+    "materialNum": 180
+  },
+  {
+    "artifactAddition": 0.7,
+    "artifactStar": 14,
+    "id": 15,
+    "latticeAddition": 0.7,
+    "materialNum": 210
+  },
+  {
+    "artifactAddition": 0.75,
+    "artifactStar": 15,
+    "id": 16,
+    "latticeAddition": 0.75,
+    "materialNum": 250
+  },
+  {
+    "artifactAddition": 0.8,
+    "artifactStar": 16,
+    "id": 17,
+    "latticeAddition": 0.8,
+    "materialNum": 300
+  },
+  {
+    "artifactAddition": 0.85,
+    "artifactStar": 17,
+    "id": 18,
+    "latticeAddition": 0.85,
+    "materialNum": 350
+  },
+  {
+    "artifactAddition": 0.9,
+    "artifactStar": 18,
+    "id": 19,
+    "latticeAddition": 0.9,
+    "materialNum": 400
+  },
+  {
+    "artifactAddition": 0.95,
+    "artifactStar": 19,
+    "id": 20,
+    "latticeAddition": 0.95,
+    "materialNum": 470
+  },
+  {
+    "artifactAddition": 1,
+    "artifactStar": 20,
+    "id": 21,
+    "latticeAddition": 1,
+    "materialNum": 550
+  },
+  {
+    "artifactAddition": 1.05,
+    "artifactStar": 21,
+    "id": 22,
+    "latticeAddition": 1.05,
+    "materialNum": 650
+  },
+  {
+    "artifactAddition": 1.1,
+    "artifactStar": 22,
+    "id": 23,
+    "latticeAddition": 1.1,
+    "materialNum": 800
+  },
+  {
+    "artifactAddition": 1.15,
+    "artifactStar": 23,
+    "id": 24,
+    "latticeAddition": 1.15,
+    "materialNum": 1000
+  },
+  {
+    "artifactAddition": 1.2,
+    "artifactStar": 24,
+    "id": 25,
+    "latticeAddition": 1.2,
+    "materialNum": 1300
+  },
+  {
+    "artifactAddition": 1.25,
+    "artifactStar": 25,
+    "id": 26,
+    "latticeAddition": 1.25,
+    "materialNum": 1700
+  }
+]

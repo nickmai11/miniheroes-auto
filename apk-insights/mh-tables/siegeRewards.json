@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "rewardNum": [1000, 1],
+    "rewardType": ["pointGvgCoin", "gold_2"],
+    "show": [],
+    "showNum": [],
+    "type": 1
+  },
+  {
+    "id": 2,
+    "rewardNum": [2, 400],
+    "rewardType": ["shareDebris3", "succinctStone"],
+    "show": [],
+    "showNum": [],
+    "type": 2
+  },
+  {
+    "id": 3,
+    "rewardNum": [6, 5, 5],
+    "rewardType": ["memf_64007", "fourColorStone", "gemSpirit"],
+    "show": [],
+    "showNum": [],
+    "type": 3
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "buyReward": ["diamond", "flipCard", "noblePoints"],
+    "buyRewardNum": [680, 15, 680],
+    "discountDisplay": 45,
+    "id": 1,
+    "productIdentifying": "pay30001"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "battleId": [1, 2, 3],
+    "energyCost": 1,
+    "id": 1,
+    "kill": 3,
+    "killName": "WILD_ENEMY_NAME_3",
+    "killNum": 2,
+    "mapType": 1,
+    "name": "WILD_MAP_NAME1",
+    "needItem": "wildMap",
+    "needItemNum": 1
+  },
+  {
+    "battleId": [4, 5, 6],
+    "energyCost": 2,
+    "id": 2,
+    "kill": 6,
+    "killName": "WILD_ENEMY_NAME_6",
+    "killNum": 2,
+    "mapType": 2,
+    "name": "WILD_MAP_NAME2",
+    "needItem": "wildMap",
+    "needItemNum": 2
+  },
+  {
+    "battleId": [7, 8, 9],
+    "energyCost": 3,
+    "id": 3,
+    "kill": 0,
+    "killName": "",
+    "killNum": 0,
+    "mapType": 3,
+    "name": "WILD_MAP_NAME3",
+    "needItem": "",
+    "needItemNum": 0
+  }
+]

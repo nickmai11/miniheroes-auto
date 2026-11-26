@@ -1,0 +1,222 @@
+[
+  {
+    "enableNum": 20,
+    "id": 1,
+    "name": "ELF_NAME101",
+    "piece": "elfP_101",
+    "quality": 1,
+    "res": "elf_101",
+    "skillIcon": ["101_1", "101_2"],
+    "skillName": ["ELF_SKILL101_3", "ELF_SKILL101_4"],
+    "uid": 101
+  },
+  {
+    "enableNum": 20,
+    "id": 2,
+    "name": "ELF_NAME102",
+    "piece": "elfP_102",
+    "quality": 1,
+    "res": "elf_102",
+    "skillIcon": ["102_1", "102_2"],
+    "skillName": ["ELF_SKILL102_3", "ELF_SKILL102_4"],
+    "uid": 102
+  },
+  {
+    "enableNum": 20,
+    "id": 3,
+    "name": "ELF_NAME103",
+    "piece": "elfP_103",
+    "quality": 1,
+    "res": "elf_103",
+    "skillIcon": ["103_1", "103_2"],
+    "skillName": ["ELF_SKILL103_3", "ELF_SKILL103_4"],
+    "uid": 103
+  },
+  {
+    "enableNum": 20,
+    "id": 4,
+    "name": "ELF_NAME104",
+    "piece": "elfP_104",
+    "quality": 2,
+    "res": "elf_104",
+    "skillIcon": ["104_1", "104_2"],
+    "skillName": ["ELF_SKILL104_3", "ELF_SKILL104_4"],
+    "uid": 104
+  },
+  {
+    "enableNum": 20,
+    "id": 5,
+    "name": "ELF_NAME105",
+    "piece": "elfP_105",
+    "quality": 2,
+    "res": "elf_105",
+    "skillIcon": ["105_1", "105_2"],
+    "skillName": ["ELF_SKILL105_3", "ELF_SKILL105_4"],
+    "uid": 105
+  },
+  {
+    "enableNum": 20,
+    "id": 6,
+    "name": "ELF_NAME106",
+    "piece": "elfP_106",
+    "quality": 2,
+    "res": "elf_106",
+    "skillIcon": ["106_1", "106_2"],
+    "skillName": ["ELF_SKILL106_3", "ELF_SKILL106_4"],
+    "uid": 106
+  },
+  {
+    "enableNum": 20,
+    "id": 7,
+    "name": "ELF_NAME107",
+    "piece": "elfP_107",
+    "quality": 2,
+    "res": "elf_107",
+    "skillIcon": ["107_1", "107_2"],
+    "skillName": ["ELF_SKILL107_3", "ELF_SKILL107_4"],
+    "uid": 107
+  },
+  {
+    "enableNum": 20,
+    "id": 8,
+    "name": "ELF_NAME108",
+    "piece": "elfP_108",
+    "quality": 3,
+    "res": "elf_108",
+    "skillIcon": ["108_1", "108_2"],
+    "skillName": ["ELF_SKILL108_3", "ELF_SKILL108_4"],
+    "uid": 108
+  },
+  {
+    "enableNum": 20,
+    "id": 9,
+    "name": "ELF_NAME109",
+    "piece": "elfP_109",
+    "quality": 3,
+    "res": "elf_109",
+    "skillIcon": ["109_1", "109_2"],
+    "skillName": ["ELF_SKILL109_3", "ELF_SKILL109_4"],
+    "uid": 109
+  },
+  {
+    "enableNum": 20,
+    "id": 10,
+    "name": "ELF_NAME110",
+    "piece": "elfP_110",
+    "quality": 3,
+    "res": "elf_110",
+    "skillIcon": ["110_1", "110_2"],
+    "skillName": ["ELF_SKILL110_3", "ELF_SKILL110_4"],
+    "uid": 110
+  },
+  {
+    "enableNum": 20,
+    "id": 11,
+    "name": "ELF_NAME111",
+    "piece": "elfP_111",
+    "quality": 3,
+    "res": "elf_111",
+    "skillIcon": ["111_1", "111_2"],
+    "skillName": ["ELF_SKILL111_3", "ELF_SKILL111_4"],
+    "uid": 111
+  },
+  {
+    "enableNum": 20,
+    "id": 12,
+    "name": "ELF_NAME112",
+    "piece": "elfP_112",
+    "quality": 3,
+    "res": "elf_112",
+    "skillIcon": ["112_1", "112_2"],
+    "skillName": ["ELF_SKILL112_3", "ELF_SKILL112_4"],
+    "uid": 112
+  },
+  {
+    "enableNum": 20,
+    "id": 13,
+    "name": "ELF_NAME113",
+    "piece": "elfP_113",
+    "quality": 3,
+    "res": "elf_113",
+    "skillIcon": ["113_1", "113_2"],
+    "skillName": ["ELF_SKILL113_3", "ELF_SKILL113_4"],
+    "uid": 113
+  },
+  {
+    "enableNum": 20,
+    "id": 14,
+    "name": "ELF_NAME114",
+    "piece": "elfP_114",
+    "quality": 3,
+    "res": "elf_114",
+    "skillIcon": ["114_1", "114_2"],
+    "skillName": ["ELF_SKILL114_3", "ELF_SKILL114_4"],
+    "uid": 114
+  },
+  {
+    "enableNum": 20,
+    "id": 15,
+    "name": "ELF_NAME115",
+    "piece": "elfP_115",
+    "quality": 4,
+    "res": "elf_115",
+    "skillIcon": ["115_1", "115_2"],
+    "skillName": ["ELF_SKILL115_3", "ELF_SKILL115_4"],
+    "uid": 115
+  },
+  {
+    "enableNum": 20,
+    "id": 16,
+    "name": "ELF_NAME116",
+    "piece": "elfP_116",
+    "quality": 4,
+    "res": "elf_116",
+    "skillIcon": ["116_1", "116_2"],
+    "skillName": ["ELF_SKILL116_3", "ELF_SKILL116_4"],
+    "uid": 116
+  },
+  {
+    "enableNum": 20,
+    "id": 17,
+    "name": "ELF_NAME117",
+    "piece": "elfP_117",
+    "quality": 4,
+    "res": "elf_117",
+    "skillIcon": ["117_1", "117_2"],
+    "skillName": ["ELF_SKILL117_3", "ELF_SKILL117_4"],
+    "uid": 117
+  },
+  {
+    "enableNum": 20,
+    "id": 18,
+    "name": "ELF_NAME118",
+    "piece": "elfP_118",
+    "quality": 4,
+    "res": "elf_118",
+    "skillIcon": ["118_1", "118_2"],
+    "skillName": ["ELF_SKILL118_3", "ELF_SKILL118_4"],
+    "uid": 118
+  },
+  {
+    "enableNum": 20,
+    "id": 19,
+    "name": "ELF_NAME119",
+    "piece": "elfP_119",
+    "quality": 4,
+    "res": "elf_119",
+    "skillIcon": ["119_1", "119_2"],
+    "skillName": ["ELF_SKILL119_3", "ELF_SKILL119_4"],
+    "uid": 119
+  },
+  {
+    "enableNum": 20,
+    "id": 20,
+    "name": "ELF_NAME120",
+    "piece": "elfP_120",
+    "quality": 4,
+    "res": "elf_120",
+    "skillIcon": ["120_1", "120_2"],
+    "skillName": ["ELF_SKILL120_3", "ELF_SKILL120_4"],
+    "uid": 120
+  }
+]

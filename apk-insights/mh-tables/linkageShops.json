@@ -1,0 +1,452 @@
+[
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 800,
+    "exchangeTime": 1,
+    "id": 1,
+    "itmeID": "art_1283",
+    "number": 1,
+    "positionId": 1,
+    "timeNum": 1
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 60,
+    "exchangeTime": 3,
+    "id": 2,
+    "itmeID": "fragment_128",
+    "number": 20,
+    "positionId": 2,
+    "timeNum": 1
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 150,
+    "exchangeTime": 2,
+    "id": 3,
+    "itmeID": "strongPotion",
+    "number": 1,
+    "positionId": 3,
+    "timeNum": 1
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 100,
+    "exchangeTime": 5,
+    "id": 4,
+    "itmeID": "fourColorStone",
+    "number": 10,
+    "positionId": 4,
+    "timeNum": 1
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 75,
+    "exchangeTime": 5,
+    "id": 5,
+    "itmeID": "sacrificeStoneFrag",
+    "number": 5,
+    "positionId": 5,
+    "timeNum": 1
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 75,
+    "exchangeTime": 5,
+    "id": 6,
+    "itmeID": "crystalLight",
+    "number": 2,
+    "positionId": 6,
+    "timeNum": 1
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 35,
+    "exchangeTime": 5,
+    "id": 7,
+    "itmeID": "tieStone",
+    "number": 5,
+    "positionId": 7,
+    "timeNum": 1
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 20,
+    "exchangeTime": 30,
+    "id": 8,
+    "itmeID": "holyLight",
+    "number": 5000,
+    "positionId": 8,
+    "timeNum": 1
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 6,
+    "exchangeTime": 30,
+    "id": 9,
+    "itmeID": "succinctStone",
+    "number": 500,
+    "positionId": 9,
+    "timeNum": 1
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 8,
+    "exchangeTime": 30,
+    "id": 10,
+    "itmeID": "orangeBag_tbh",
+    "number": 1,
+    "positionId": 10,
+    "timeNum": 1
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 8,
+    "exchangeTime": 30,
+    "id": 11,
+    "itmeID": "purpleBag_tbh",
+    "number": 1,
+    "positionId": 11,
+    "timeNum": 1
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 8,
+    "exchangeTime": 30,
+    "id": 12,
+    "itmeID": "blueBag_tbh",
+    "number": 1,
+    "positionId": 12,
+    "timeNum": 1
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 4,
+    "exchangeTime": 30,
+    "id": 13,
+    "itmeID": "gold_2",
+    "number": 1,
+    "positionId": 13,
+    "timeNum": 1
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 800,
+    "exchangeTime": 1,
+    "id": 14,
+    "itmeID": "art_1283",
+    "number": 1,
+    "positionId": 1,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 800,
+    "exchangeTime": 1,
+    "id": 15,
+    "itmeID": "art_3183",
+    "number": 1,
+    "positionId": 2,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 60,
+    "exchangeTime": 3,
+    "id": 16,
+    "itmeID": "fragment_128",
+    "number": 20,
+    "positionId": 3,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 60,
+    "exchangeTime": 3,
+    "id": 17,
+    "itmeID": "fragment_318",
+    "number": 20,
+    "positionId": 4,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 150,
+    "exchangeTime": 2,
+    "id": 18,
+    "itmeID": "strongPotion",
+    "number": 1,
+    "positionId": 5,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 100,
+    "exchangeTime": 5,
+    "id": 19,
+    "itmeID": "fourColorStone",
+    "number": 10,
+    "positionId": 6,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 75,
+    "exchangeTime": 5,
+    "id": 20,
+    "itmeID": "sacrificeStoneFrag",
+    "number": 5,
+    "positionId": 7,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 75,
+    "exchangeTime": 5,
+    "id": 21,
+    "itmeID": "crystalLight",
+    "number": 2,
+    "positionId": 8,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 35,
+    "exchangeTime": 5,
+    "id": 22,
+    "itmeID": "tieStone",
+    "number": 5,
+    "positionId": 9,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 20,
+    "exchangeTime": 30,
+    "id": 23,
+    "itmeID": "holyLight",
+    "number": 5000,
+    "positionId": 10,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 6,
+    "exchangeTime": 30,
+    "id": 24,
+    "itmeID": "succinctStone",
+    "number": 500,
+    "positionId": 11,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 8,
+    "exchangeTime": 30,
+    "id": 25,
+    "itmeID": "orangeBag_tbh",
+    "number": 1,
+    "positionId": 12,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 8,
+    "exchangeTime": 30,
+    "id": 26,
+    "itmeID": "purpleBag_tbh",
+    "number": 1,
+    "positionId": 13,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 8,
+    "exchangeTime": 30,
+    "id": 27,
+    "itmeID": "blueBag_tbh",
+    "number": 1,
+    "positionId": 14,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 4,
+    "exchangeTime": 30,
+    "id": 28,
+    "itmeID": "gold_2",
+    "number": 1,
+    "positionId": 15,
+    "timeNum": 2
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 800,
+    "exchangeTime": 1,
+    "id": 29,
+    "itmeID": "art_1283",
+    "number": 1,
+    "positionId": 1,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 800,
+    "exchangeTime": 1,
+    "id": 30,
+    "itmeID": "art_3183",
+    "number": 1,
+    "positionId": 2,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 800,
+    "exchangeTime": 1,
+    "id": 31,
+    "itmeID": "art_4203",
+    "number": 1,
+    "positionId": 3,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 60,
+    "exchangeTime": 3,
+    "id": 32,
+    "itmeID": "fragment_128",
+    "number": 20,
+    "positionId": 4,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 60,
+    "exchangeTime": 3,
+    "id": 33,
+    "itmeID": "fragment_318",
+    "number": 20,
+    "positionId": 5,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 60,
+    "exchangeTime": 3,
+    "id": 34,
+    "itmeID": "fragment_420",
+    "number": 20,
+    "positionId": 6,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 150,
+    "exchangeTime": 2,
+    "id": 35,
+    "itmeID": "strongPotion",
+    "number": 1,
+    "positionId": 7,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 100,
+    "exchangeTime": 5,
+    "id": 36,
+    "itmeID": "fourColorStone",
+    "number": 10,
+    "positionId": 8,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 75,
+    "exchangeTime": 5,
+    "id": 37,
+    "itmeID": "sacrificeStoneFrag",
+    "number": 5,
+    "positionId": 9,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 75,
+    "exchangeTime": 5,
+    "id": 38,
+    "itmeID": "crystalLight",
+    "number": 2,
+    "positionId": 10,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 35,
+    "exchangeTime": 5,
+    "id": 39,
+    "itmeID": "tieStone",
+    "number": 5,
+    "positionId": 11,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 20,
+    "exchangeTime": 30,
+    "id": 40,
+    "itmeID": "holyLight",
+    "number": 5000,
+    "positionId": 12,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 6,
+    "exchangeTime": 30,
+    "id": 41,
+    "itmeID": "succinctStone",
+    "number": 500,
+    "positionId": 13,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 8,
+    "exchangeTime": 30,
+    "id": 42,
+    "itmeID": "orangeBag_tbh",
+    "number": 1,
+    "positionId": 14,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 8,
+    "exchangeTime": 30,
+    "id": 43,
+    "itmeID": "purpleBag_tbh",
+    "number": 1,
+    "positionId": 15,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 8,
+    "exchangeTime": 30,
+    "id": 44,
+    "itmeID": "blueBag_tbh",
+    "number": 1,
+    "positionId": 16,
+    "timeNum": 3
+  },
+  {
+    "exchangeItem": "copper_tbh",
+    "exchangeNumber": 4,
+    "exchangeTime": 30,
+    "id": 45,
+    "itmeID": "gold_2",
+    "number": 1,
+    "positionId": 17,
+    "timeNum": 3
+  }
+]

@@ -183,7 +183,7 @@ r d d D . .
 . . . . . .
 . . P . . .""")
 assert plan(g)[:2] == (6, 2) and 'letting shard r1c1 (cost 4) go' in plan(g)[2], plan(g)
-# Chloe 2026-11-11 (Nick: "would you go for the upper cluster?"): 3 shards + a gold chest share one tunnel from lit dirt
+# Gambler 2026-11-11 (Nick: "would you go for the upper cluster?"): 3 shards + a gold chest share one tunnel from lit dirt
 # r3c4 (6 digs, 0.16/shovel) while each shard alone is 3-4 digs -> before the scroll, the top rows go as one group
 g = relic.light(grid("""
 . S g d r d

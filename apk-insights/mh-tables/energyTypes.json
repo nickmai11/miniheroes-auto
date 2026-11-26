@@ -1,0 +1,18 @@
+[
+  { "affixName": "energy1", "convert": 1, "id": 1, "order": 42, "type": 1 },
+  { "affixName": "energy2", "convert": 2, "id": 2, "order": 100, "type": 1 },
+  { "affixName": "energy3", "convert": 3, "id": 3, "order": 101, "type": 1 },
+  { "affixName": "energy4", "convert": 4, "id": 4, "order": 102, "type": 1 },
+  { "affixName": "energy5", "convert": 5, "id": 5, "order": 47, "type": 1 },
+  { "affixName": "energy6", "convert": 6, "id": 6, "order": 103, "type": 1 },
+  { "affixName": "energy7", "convert": 7, "id": 7, "order": 104, "type": 1 },
+  { "affixName": "energy8", "convert": 8, "id": 8, "order": 41, "type": 1 },
+  { "affixName": "energy9", "convert": 9, "id": 9, "order": 43, "type": 1 },
+  { "affixName": "energy10", "convert": 10, "id": 10, "order": 44, "type": 1 },
+  { "affixName": "energy11", "convert": 11, "id": 11, "order": 45, "type": 1 },
+  { "affixName": "energy12", "convert": 12, "id": 12, "order": 46, "type": 1 },
+  { "affixName": "energy13", "convert": 13, "id": 13, "order": 48, "type": 1 },
+  { "affixName": "energy14", "convert": 14, "id": 14, "order": 200, "type": 1 },
+  { "affixName": "energy15", "convert": 15, "id": 15, "order": 201, "type": 1 },
+  { "affixName": "energy16", "convert": 16, "id": 16, "order": 202, "type": 1 }
+]

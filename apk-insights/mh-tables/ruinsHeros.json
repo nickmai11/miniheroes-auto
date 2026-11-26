@@ -1,0 +1,218 @@
+[
+  {
+    "cost": "pay29001",
+    "id": 1,
+    "itemId": ["hero_108", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 20,
+    "shopId": 101
+  },
+  {
+    "cost": "pay29001",
+    "id": 2,
+    "itemId": ["hero_112", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 10,
+    "shopId": 101
+  },
+  {
+    "cost": "pay29001",
+    "id": 3,
+    "itemId": ["hero_113", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 30,
+    "shopId": 101
+  },
+  {
+    "cost": "pay29001",
+    "id": 4,
+    "itemId": ["hero_114", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 30,
+    "shopId": 101
+  },
+  {
+    "cost": "pay29001",
+    "id": 5,
+    "itemId": ["hero_116", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 30,
+    "shopId": 101
+  },
+  {
+    "cost": "pay29001",
+    "id": 6,
+    "itemId": ["hero_117", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 10,
+    "shopId": 101
+  },
+  {
+    "cost": "pay29001",
+    "id": 7,
+    "itemId": ["hero_118", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 20,
+    "shopId": 101
+  },
+  {
+    "cost": "pay29001",
+    "id": 8,
+    "itemId": ["hero_119", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 20,
+    "shopId": 101
+  },
+  {
+    "cost": "pay29001",
+    "id": 9,
+    "itemId": ["hero_120", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 20,
+    "shopId": 101
+  },
+  {
+    "cost": "pay29001",
+    "id": 10,
+    "itemId": ["hero_206", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 10,
+    "shopId": 102
+  },
+  {
+    "cost": "pay29001",
+    "id": 11,
+    "itemId": ["hero_207", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 10,
+    "shopId": 102
+  },
+  {
+    "cost": "pay29001",
+    "id": 12,
+    "itemId": ["hero_208", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 30,
+    "shopId": 102
+  },
+  {
+    "cost": "pay29001",
+    "id": 13,
+    "itemId": ["hero_212", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 20,
+    "shopId": 102
+  },
+  {
+    "cost": "pay29001",
+    "id": 14,
+    "itemId": ["hero_213", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 10,
+    "shopId": 102
+  },
+  {
+    "cost": "pay29001",
+    "id": 15,
+    "itemId": ["hero_214", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 20,
+    "shopId": 102
+  },
+  {
+    "cost": "pay29001",
+    "id": 16,
+    "itemId": ["hero_301", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 20,
+    "shopId": 103
+  },
+  {
+    "cost": "pay29001",
+    "id": 17,
+    "itemId": ["hero_305", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 10,
+    "shopId": 103
+  },
+  {
+    "cost": "pay29001",
+    "id": 18,
+    "itemId": ["hero_309", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 20,
+    "shopId": 103
+  },
+  {
+    "cost": "pay29001",
+    "id": 19,
+    "itemId": ["hero_311", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 10,
+    "shopId": 103
+  },
+  {
+    "cost": "pay29001",
+    "id": 20,
+    "itemId": ["hero_312", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 30,
+    "shopId": 103
+  },
+  {
+    "cost": "pay29001",
+    "id": 21,
+    "itemId": ["hero_406", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 10,
+    "shopId": 104
+  },
+  {
+    "cost": "pay29001",
+    "id": 22,
+    "itemId": ["hero_407", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 10,
+    "shopId": 104
+  },
+  {
+    "cost": "pay29001",
+    "id": 23,
+    "itemId": ["hero_408", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 30,
+    "shopId": 104
+  },
+  {
+    "cost": "pay29001",
+    "id": 24,
+    "itemId": ["hero_409", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 20,
+    "shopId": 104
+  },
+  {
+    "cost": "pay29001",
+    "id": 25,
+    "itemId": ["hero_411", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 20,
+    "shopId": 104
+  },
+  {
+    "cost": "pay29001",
+    "id": 26,
+    "itemId": ["hero_412", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 20,
+    "shopId": 104
+  },
+  {
+    "cost": "pay29001",
+    "id": 27,
+    "itemId": ["hero_414", "diamond", "noblePoints"],
+    "itemNum": [1, 180, 180],
+    "randomPer": 30,
+    "shopId": 104
+  }
+]

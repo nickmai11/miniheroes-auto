@@ -1,0 +1,6 @@
+[
+  { "equipType": 1, "equipUnlockCondition": 10, "id": 1 },
+  { "equipType": 2, "equipUnlockCondition": 20, "id": 2 },
+  { "equipType": 3, "equipUnlockCondition": 40, "id": 3 },
+  { "equipType": 4, "equipUnlockCondition": 60, "id": 4 }
+]

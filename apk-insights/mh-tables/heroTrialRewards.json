@@ -1,0 +1,37 @@
+[
+  {
+    "damageValue": 100000,
+    "id": 1,
+    "rewardLevel": 1,
+    "rewardNum": [1, 200, 10000],
+    "rewardType": ["exp_2", "starCrystal", "gold"]
+  },
+  {
+    "damageValue": 200000,
+    "id": 2,
+    "rewardLevel": 2,
+    "rewardNum": [800, 15, 15000],
+    "rewardType": ["holyLight", "coinMinting1", "gold"]
+  },
+  {
+    "damageValue": 400000,
+    "id": 3,
+    "rewardLevel": 3,
+    "rewardNum": [1, 300, 20000],
+    "rewardType": ["glyphs_1002", "starCrystal", "gold"]
+  },
+  {
+    "damageValue": 600000,
+    "id": 4,
+    "rewardLevel": 4,
+    "rewardNum": [1, 5, 25000],
+    "rewardType": ["starMark3", "coinMinting2", "gold"]
+  },
+  {
+    "damageValue": 800000,
+    "id": 5,
+    "rewardLevel": 5,
+    "rewardNum": [1, 500, 30000],
+    "rewardType": ["limitRoll", "starCrystal", "gold"]
+  }
+]

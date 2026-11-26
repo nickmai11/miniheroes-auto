@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "rankId": 1,
+    "timesRequire": 500,
+    "timesRewardNum": 2,
+    "timesRewardType": "explosiveNew"
+  },
+  {
+    "id": 2,
+    "rankId": 2,
+    "timesRequire": 500,
+    "timesRewardNum": 5,
+    "timesRewardType": "randomHallow01"
+  },
+  {
+    "id": 3,
+    "rankId": 3,
+    "timesRequire": 500,
+    "timesRewardNum": 20,
+    "timesRewardType": "shove"
+  },
+  {
+    "id": 4,
+    "rankId": 4,
+    "timesRequire": 500,
+    "timesRewardNum": 2,
+    "timesRewardType": "broachNew"
+  },
+  {
+    "id": 5,
+    "rankId": 5,
+    "timesRequire": 500,
+    "timesRewardNum": 3,
+    "timesRewardType": "sacrificeStoneFrag"
+  },
+  {
+    "id": 6,
+    "rankId": 6,
+    "timesRequire": 500,
+    "timesRewardNum": 2,
+    "timesRewardType": "explosiveNew"
+  },
+  {
+    "id": 7,
+    "rankId": 7,
+    "timesRequire": 500,
+    "timesRewardNum": 5,
+    "timesRewardType": "randomHallow01"
+  },
+  {
+    "id": 8,
+    "rankId": 8,
+    "timesRequire": 500,
+    "timesRewardNum": 20,
+    "timesRewardType": "shove"
+  },
+  {
+    "id": 9,
+    "rankId": 9,
+    "timesRequire": 500,
+    "timesRewardNum": 2,
+    "timesRewardType": "broachNew"
+  },
+  {
+    "id": 10,
+    "rankId": 10,
+    "timesRequire": 500,
+    "timesRewardNum": 3,
+    "timesRewardType": "randomHallow03"
+  }
+]

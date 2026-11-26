@@ -1,0 +1,282 @@
+[
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 200,
+    "id": 1,
+    "rewardNum": [10, 10],
+    "rewardType": ["medal1", "coinMinting1"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 400,
+    "id": 2,
+    "rewardNum": [10, 20, 10],
+    "rewardType": ["medal1", "coinMinting1", "coinMinting2"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 700,
+    "id": 3,
+    "rewardNum": [15, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1000,
+    "id": 4,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1300,
+    "id": 5,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1700,
+    "id": 6,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting3", "zb_box1"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 2000,
+    "id": 7,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting3", "zb_box2"],
+    "round": 1
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 200,
+    "id": 8,
+    "rewardNum": [10, 10],
+    "rewardType": ["medal1", "coinMinting1"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 400,
+    "id": 9,
+    "rewardNum": [10, 20, 10],
+    "rewardType": ["medal1", "coinMinting1", "coinMinting2"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 700,
+    "id": 10,
+    "rewardNum": [15, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1000,
+    "id": 11,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1300,
+    "id": 12,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1700,
+    "id": 13,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting3", "zb_box1"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 2000,
+    "id": 14,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting3", "zb_box2"],
+    "round": 2
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 200,
+    "id": 15,
+    "rewardNum": [10, 10],
+    "rewardType": ["medal1", "coinMinting1"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 400,
+    "id": 16,
+    "rewardNum": [10, 20, 10],
+    "rewardType": ["medal1", "coinMinting1", "coinMinting2"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 700,
+    "id": 17,
+    "rewardNum": [15, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1000,
+    "id": 18,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1300,
+    "id": 19,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1700,
+    "id": 20,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting3", "zb_box1"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 2000,
+    "id": 21,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting3", "zb_box2"],
+    "round": 3
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 200,
+    "id": 22,
+    "rewardNum": [10, 10],
+    "rewardType": ["medal1", "coinMinting1"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 400,
+    "id": 23,
+    "rewardNum": [10, 20, 10],
+    "rewardType": ["medal1", "coinMinting1", "coinMinting2"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 700,
+    "id": 24,
+    "rewardNum": [15, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1000,
+    "id": 25,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1300,
+    "id": 26,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1700,
+    "id": 27,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting3", "zb_box1"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 2000,
+    "id": 28,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting3", "zb_box2"],
+    "round": 4
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 200,
+    "id": 29,
+    "rewardNum": [10, 10],
+    "rewardType": ["medal1", "coinMinting1"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 400,
+    "id": 30,
+    "rewardNum": [10, 20, 10],
+    "rewardType": ["medal1", "coinMinting1", "coinMinting2"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 700,
+    "id": 31,
+    "rewardNum": [15, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1000,
+    "id": 32,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1300,
+    "id": 33,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting2", "zb_box1"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 1700,
+    "id": 34,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting3", "zb_box1"],
+    "round": 5
+  },
+  {
+    "des": "XSHD_15",
+    "heroIntegral": 2000,
+    "id": 35,
+    "rewardNum": [20, 20, 1],
+    "rewardType": ["medal1", "coinMinting3", "zb_box2"],
+    "round": 5
+  }
+]

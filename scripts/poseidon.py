@@ -79,7 +79,7 @@ def run():
                 for *_, t in cb:
                     m = re.search(r'Attempts\W*([0-9O]+)\s*$', t)
                     if m: return int(m.group(1).replace('O', '0'))
-                lone = [t.strip() for *_, t in cb if re.fullmatch(r'[0-9O]', t.strip())]   # '0' as its own box (Chloe 2026-11-10)
+                lone = [t.strip() for *_, t in cb if re.fullmatch(r'[0-9O]', t.strip())]   # '0' as its own box (Gambler 2026-11-10)
                 if len(lone) == 1 and find(cb, r'Attack Attempts'): return int(lone[0].replace('O', '0'))
             im = None; time.sleep(0.7)
         raise Stop('Attack Attempts counter unreadable')

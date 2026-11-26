@@ -1,0 +1,30 @@
+[
+  {
+    "drawNum": 1,
+    "drawType": 1,
+    "id": 1,
+    "materialNum": 200,
+    "materialType": "diamond"
+  },
+  {
+    "drawNum": 10,
+    "drawType": 2,
+    "id": 2,
+    "materialNum": 1900,
+    "materialType": "diamond"
+  },
+  {
+    "drawNum": 1,
+    "drawType": 3,
+    "id": 3,
+    "materialNum": 1,
+    "materialType": "moonCoin"
+  },
+  {
+    "drawNum": 10,
+    "drawType": 4,
+    "id": 4,
+    "materialNum": 10,
+    "materialType": "moonCoin"
+  }
+]

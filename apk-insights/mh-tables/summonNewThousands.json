@@ -1,0 +1,12 @@
+[
+  {
+    "freeNum": 1000,
+    "id": 1,
+    "limitNum": 1,
+    "productIdentifying": "pay39001",
+    "resetRewardNum": [120, 120],
+    "resetRewardType": ["diamond", "noblePoints"],
+    "rewardNum": [1, 9],
+    "rewardType": [40, 41]
+  }
+]

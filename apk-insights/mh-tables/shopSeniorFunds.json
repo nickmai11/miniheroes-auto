@@ -1,0 +1,130 @@
+[
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 1,
+    "payRewardNum": [10],
+    "payRewardType": ["recruitRoll"],
+    "recruitmentFrequency": 20
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 2,
+    "payRewardNum": [10],
+    "payRewardType": ["recruitRoll"],
+    "recruitmentFrequency": 50
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 3,
+    "payRewardNum": [10],
+    "payRewardType": ["recruitRoll"],
+    "recruitmentFrequency": 100
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 4,
+    "payRewardNum": [1],
+    "payRewardType": ["shenhuasuijibox"],
+    "recruitmentFrequency": 150
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 5,
+    "payRewardNum": [10],
+    "payRewardType": ["recruitRoll"],
+    "recruitmentFrequency": 200
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 6,
+    "payRewardNum": [10],
+    "payRewardType": ["recruitRoll"],
+    "recruitmentFrequency": 300
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 7,
+    "payRewardNum": [10],
+    "payRewardType": ["recruitRoll"],
+    "recruitmentFrequency": 400
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 8,
+    "payRewardNum": [1],
+    "payRewardType": ["shenhuabox"],
+    "recruitmentFrequency": 500
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 9,
+    "payRewardNum": [10],
+    "payRewardType": ["recruitRoll"],
+    "recruitmentFrequency": 600
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 10,
+    "payRewardNum": [10],
+    "payRewardType": ["recruitRoll"],
+    "recruitmentFrequency": 700
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 11,
+    "payRewardNum": [10],
+    "payRewardType": ["recruitRoll"],
+    "recruitmentFrequency": 800
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 12,
+    "payRewardNum": [1],
+    "payRewardType": ["shenhuasuijibox"],
+    "recruitmentFrequency": 900
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 13,
+    "payRewardNum": [10],
+    "payRewardType": ["recruitRoll"],
+    "recruitmentFrequency": 1000
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 14,
+    "payRewardNum": [10],
+    "payRewardType": ["recruitRoll"],
+    "recruitmentFrequency": 1200
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 15,
+    "payRewardNum": [10],
+    "payRewardType": ["recruitRoll"],
+    "recruitmentFrequency": 1400
+  },
+  {
+    "freeRewardNum": [1],
+    "freeRewardType": ["recruitRoll"],
+    "id": 16,
+    "payRewardNum": [1],
+    "payRewardType": ["shenhuabox"],
+    "recruitmentFrequency": 1600
+  }
+]

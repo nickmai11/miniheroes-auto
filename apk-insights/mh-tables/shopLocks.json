@@ -1,0 +1,14 @@
+[
+  { "id": 1, "shopType": 1, "unlockCondition": 1, "unlockNum": 7 },
+  { "id": 2, "shopType": 2, "unlockCondition": 1, "unlockNum": 10 },
+  { "id": 3, "shopType": 3, "unlockCondition": 1, "unlockNum": 7 },
+  { "id": 4, "shopType": 4, "unlockCondition": 1, "unlockNum": 7 },
+  { "id": 5, "shopType": 5, "unlockCondition": 1, "unlockNum": 7 },
+  { "id": 6, "shopType": 6, "unlockCondition": 1, "unlockNum": 7 },
+  { "id": 7, "shopType": 7, "unlockCondition": 1, "unlockNum": 999 },
+  { "id": 8, "shopType": 8, "unlockCondition": 1, "unlockNum": 65 },
+  { "id": 9, "shopType": 9, "unlockCondition": 1, "unlockNum": 120 },
+  { "id": 10, "shopType": 10, "unlockCondition": 1, "unlockNum": 7 },
+  { "id": 11, "shopType": 11, "unlockCondition": 1, "unlockNum": 5 },
+  { "id": 12, "shopType": 12, "unlockCondition": 1, "unlockNum": 70 }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "rewardNum": [2, 5],
+    "rewardType": ["crystalLight", "randomFragment3"],
+    "score": 50
+  },
+  {
+    "id": 2,
+    "rewardNum": [2, 5],
+    "rewardType": ["medal2", "randomFragment3"],
+    "score": 100
+  },
+  {
+    "id": 3,
+    "rewardNum": [2, 5],
+    "rewardType": ["elfStoneBox2", "randomFragment3"],
+    "score": 150
+  },
+  {
+    "id": 4,
+    "rewardNum": [1, 10],
+    "rewardType": ["randomMem3", "randomFragment3"],
+    "score": 200
+  },
+  {
+    "id": 5,
+    "rewardNum": [1, 10],
+    "rewardType": ["starMark5", "randomFragment3"],
+    "score": 300
+  },
+  {
+    "id": 6,
+    "rewardNum": [1, 5],
+    "rewardType": ["shenhuabox", "fourColorStone"],
+    "score": 400
+  }
+]

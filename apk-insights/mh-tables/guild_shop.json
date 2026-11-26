@@ -1,0 +1,110 @@
+[
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 3000,
+    "exchangeTime": 1,
+    "id": 1,
+    "itmeID": "fragment_407",
+    "number": 5,
+    "positionId": 1
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 1500,
+    "exchangeTime": 1,
+    "id": 2,
+    "itmeID": "fragment_107",
+    "number": 5,
+    "positionId": 2
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 1500,
+    "exchangeTime": 1,
+    "id": 3,
+    "itmeID": "fragment_302",
+    "number": 5,
+    "positionId": 3
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 1500,
+    "exchangeTime": 1,
+    "id": 4,
+    "itmeID": "fragment_405",
+    "number": 5,
+    "positionId": 4
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 1500,
+    "exchangeTime": 1,
+    "id": 5,
+    "itmeID": "fragment_203",
+    "number": 5,
+    "positionId": 5
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 750,
+    "exchangeTime": 1,
+    "id": 6,
+    "itmeID": "fragment_102",
+    "number": 5,
+    "positionId": 6
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 750,
+    "exchangeTime": 1,
+    "id": 7,
+    "itmeID": "fragment_306",
+    "number": 5,
+    "positionId": 7
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 750,
+    "exchangeTime": 1,
+    "id": 8,
+    "itmeID": "fragment_402",
+    "number": 5,
+    "positionId": 8
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 750,
+    "exchangeTime": 1,
+    "id": 9,
+    "itmeID": "fragment_205",
+    "number": 5,
+    "positionId": 9
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 1500,
+    "exchangeTime": 1,
+    "id": 10,
+    "itmeID": "soulStone1",
+    "number": 3,
+    "positionId": 10
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 4500,
+    "exchangeTime": 1,
+    "id": 11,
+    "itmeID": "soulStone2",
+    "number": 3,
+    "positionId": 11
+  },
+  {
+    "exchangeItem": "tribeCoin",
+    "exchangeNumber": 6000,
+    "exchangeTime": 1,
+    "id": 12,
+    "itmeID": "medal2",
+    "number": 1,
+    "positionId": 12
+  }
+]

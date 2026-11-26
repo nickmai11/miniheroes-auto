@@ -1,0 +1,1226 @@
+[
+  {
+    "id": 1,
+    "potId": 101,
+    "randomPer": 3000,
+    "reward": "gold_1",
+    "rewardNum": 1,
+    "showPercent": "4.44"
+  },
+  {
+    "id": 2,
+    "potId": 101,
+    "randomPer": 2000,
+    "reward": "gold_2",
+    "rewardNum": 1,
+    "showPercent": "2.96"
+  },
+  {
+    "id": 3,
+    "potId": 101,
+    "randomPer": 3000,
+    "reward": "exp_1",
+    "rewardNum": 1,
+    "showPercent": "4.44"
+  },
+  {
+    "id": 4,
+    "potId": 101,
+    "randomPer": 2000,
+    "reward": "exp_2",
+    "rewardNum": 1,
+    "showPercent": "2.96"
+  },
+  {
+    "id": 5,
+    "potId": 102,
+    "randomPer": 3000,
+    "reward": "gold_1",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 6,
+    "potId": 102,
+    "randomPer": 2000,
+    "reward": "gold_2",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 7,
+    "potId": 102,
+    "randomPer": 3000,
+    "reward": "exp_1",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 8,
+    "potId": 102,
+    "randomPer": 2000,
+    "reward": "exp_2",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 9,
+    "potId": 103,
+    "randomPer": 2500,
+    "reward": "glyphs_2002",
+    "rewardNum": 1,
+    "showPercent": "1.8"
+  },
+  {
+    "id": 10,
+    "potId": 103,
+    "randomPer": 2500,
+    "reward": "glyphs_3002",
+    "rewardNum": 1,
+    "showPercent": "1.8"
+  },
+  {
+    "id": 11,
+    "potId": 103,
+    "randomPer": 2500,
+    "reward": "glyphs_4002",
+    "rewardNum": 1,
+    "showPercent": "1.8"
+  },
+  {
+    "id": 12,
+    "potId": 103,
+    "randomPer": 2500,
+    "reward": "glyphs_1002",
+    "rewardNum": 1,
+    "showPercent": "1.8"
+  },
+  {
+    "id": 13,
+    "potId": 104,
+    "randomPer": 2000,
+    "reward": "spiritStone_1",
+    "rewardNum": 600,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 14,
+    "potId": 104,
+    "randomPer": 3000,
+    "reward": "spiritStone_2",
+    "rewardNum": 600,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 15,
+    "potId": 104,
+    "randomPer": 5000,
+    "reward": "spiritStone_3",
+    "rewardNum": 600,
+    "showPercent": "3.7"
+  },
+  {
+    "id": 16,
+    "potId": 105,
+    "randomPer": 3000,
+    "reward": "randomMemf0",
+    "rewardNum": 10,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 17,
+    "potId": 105,
+    "randomPer": 3000,
+    "reward": "randomMemf1",
+    "rewardNum": 10,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 18,
+    "potId": 105,
+    "randomPer": 2000,
+    "reward": "randomMemf2",
+    "rewardNum": 5,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 19,
+    "potId": 105,
+    "randomPer": 2000,
+    "reward": "randomMemf3",
+    "rewardNum": 5,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 20,
+    "potId": 106,
+    "randomPer": 4500,
+    "reward": "elfRandomP1",
+    "rewardNum": 2,
+    "showPercent": "3.33"
+  },
+  {
+    "id": 21,
+    "potId": 106,
+    "randomPer": 2500,
+    "reward": "elfRandomP2",
+    "rewardNum": 2,
+    "showPercent": "1.85"
+  },
+  {
+    "id": 22,
+    "potId": 106,
+    "randomPer": 2500,
+    "reward": "elfRandomP3",
+    "rewardNum": 2,
+    "showPercent": "1.85"
+  },
+  {
+    "id": 23,
+    "potId": 106,
+    "randomPer": 500,
+    "reward": "elfRandomP4",
+    "rewardNum": 2,
+    "showPercent": "0.37"
+  },
+  {
+    "id": 24,
+    "potId": 107,
+    "randomPer": 4500,
+    "reward": "blueBag_tbh",
+    "rewardNum": 1,
+    "showPercent": "6.66"
+  },
+  {
+    "id": 25,
+    "potId": 107,
+    "randomPer": 2500,
+    "reward": "purpleBag_tbh",
+    "rewardNum": 1,
+    "showPercent": "3.7"
+  },
+  {
+    "id": 26,
+    "potId": 107,
+    "randomPer": 2500,
+    "reward": "orangeBag_tbh",
+    "rewardNum": 1,
+    "showPercent": "3.7"
+  },
+  {
+    "id": 27,
+    "potId": 107,
+    "randomPer": 500,
+    "reward": "allBag_tbh",
+    "rewardNum": 1,
+    "showPercent": "0.74"
+  },
+  {
+    "id": 28,
+    "potId": 108,
+    "randomPer": 4500,
+    "reward": "blueBag_tbh",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 29,
+    "potId": 108,
+    "randomPer": 2500,
+    "reward": "purpleBag_tbh",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 30,
+    "potId": 108,
+    "randomPer": 2500,
+    "reward": "orangeBag_tbh",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 31,
+    "potId": 108,
+    "randomPer": 500,
+    "reward": "allBag_tbh",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 32,
+    "potId": 109,
+    "randomPer": 10000,
+    "reward": "fragment_128",
+    "rewardNum": 1,
+    "showPercent": "14.82"
+  },
+  {
+    "id": 33,
+    "potId": 110,
+    "randomPer": 8000,
+    "reward": "fragment_128",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 34,
+    "potId": 110,
+    "randomPer": 2000,
+    "reward": "fragment_128",
+    "rewardNum": 2,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 35,
+    "potId": 111,
+    "randomPer": 3000,
+    "reward": "copper_tbh",
+    "rewardNum": 1,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 36,
+    "potId": 111,
+    "randomPer": 3000,
+    "reward": "copper_tbh",
+    "rewardNum": 2,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 37,
+    "potId": 111,
+    "randomPer": 2000,
+    "reward": "copper_tbh",
+    "rewardNum": 3,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 38,
+    "potId": 111,
+    "randomPer": 2000,
+    "reward": "copper_tbh",
+    "rewardNum": 4,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 39,
+    "potId": 112,
+    "randomPer": 4000,
+    "reward": "holyLight",
+    "rewardNum": 500,
+    "showPercent": "2.96"
+  },
+  {
+    "id": 40,
+    "potId": 112,
+    "randomPer": 3000,
+    "reward": "crystalLight",
+    "rewardNum": 1,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 41,
+    "potId": 112,
+    "randomPer": 2000,
+    "reward": "tieStone",
+    "rewardNum": 1,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 42,
+    "potId": 112,
+    "randomPer": 1000,
+    "reward": "tieStone",
+    "rewardNum": 2,
+    "showPercent": "0.74"
+  },
+  {
+    "id": 43,
+    "potId": 113,
+    "randomPer": 5500,
+    "reward": "tbhCoin",
+    "rewardNum": 100,
+    "showPercent": "4.07"
+  },
+  {
+    "id": 44,
+    "potId": 113,
+    "randomPer": 3000,
+    "reward": "tbhCoin",
+    "rewardNum": 200,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 45,
+    "potId": 113,
+    "randomPer": 1500,
+    "reward": "tbhCoin",
+    "rewardNum": 800,
+    "showPercent": "1.11"
+  },
+  {
+    "id": 46,
+    "potId": 114,
+    "randomPer": 1700,
+    "reward": "linktbhStone",
+    "rewardNum": 6,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 47,
+    "potId": 114,
+    "randomPer": 1700,
+    "reward": "fragment_128",
+    "rewardNum": 5,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 48,
+    "potId": 114,
+    "randomPer": 1700,
+    "reward": "memf_64001",
+    "rewardNum": 8,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 49,
+    "potId": 114,
+    "randomPer": 1700,
+    "reward": "artFragment",
+    "rewardNum": 5,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 50,
+    "potId": 114,
+    "randomPer": 1600,
+    "reward": "gemRandom_03",
+    "rewardNum": 2,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 51,
+    "potId": 114,
+    "randomPer": 1600,
+    "reward": "randomHallow03",
+    "rewardNum": 3,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 52,
+    "potId": 201,
+    "randomPer": 3000,
+    "reward": "gold_1",
+    "rewardNum": 1,
+    "showPercent": "4.44"
+  },
+  {
+    "id": 53,
+    "potId": 201,
+    "randomPer": 2000,
+    "reward": "gold_2",
+    "rewardNum": 1,
+    "showPercent": "2.96"
+  },
+  {
+    "id": 54,
+    "potId": 201,
+    "randomPer": 3000,
+    "reward": "exp_1",
+    "rewardNum": 1,
+    "showPercent": "4.44"
+  },
+  {
+    "id": 55,
+    "potId": 201,
+    "randomPer": 2000,
+    "reward": "exp_2",
+    "rewardNum": 1,
+    "showPercent": "2.96"
+  },
+  {
+    "id": 56,
+    "potId": 202,
+    "randomPer": 3000,
+    "reward": "gold_1",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 57,
+    "potId": 202,
+    "randomPer": 2000,
+    "reward": "gold_2",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 58,
+    "potId": 202,
+    "randomPer": 3000,
+    "reward": "exp_1",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 59,
+    "potId": 202,
+    "randomPer": 2000,
+    "reward": "exp_2",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 60,
+    "potId": 203,
+    "randomPer": 2500,
+    "reward": "glyphs_2002",
+    "rewardNum": 1,
+    "showPercent": "1.8"
+  },
+  {
+    "id": 61,
+    "potId": 203,
+    "randomPer": 2500,
+    "reward": "glyphs_3002",
+    "rewardNum": 1,
+    "showPercent": "1.8"
+  },
+  {
+    "id": 62,
+    "potId": 203,
+    "randomPer": 2500,
+    "reward": "glyphs_4002",
+    "rewardNum": 1,
+    "showPercent": "1.8"
+  },
+  {
+    "id": 63,
+    "potId": 203,
+    "randomPer": 2500,
+    "reward": "glyphs_1002",
+    "rewardNum": 1,
+    "showPercent": "1.8"
+  },
+  {
+    "id": 64,
+    "potId": 204,
+    "randomPer": 2000,
+    "reward": "spiritStone_1",
+    "rewardNum": 600,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 65,
+    "potId": 204,
+    "randomPer": 3000,
+    "reward": "spiritStone_2",
+    "rewardNum": 600,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 66,
+    "potId": 204,
+    "randomPer": 5000,
+    "reward": "spiritStone_3",
+    "rewardNum": 600,
+    "showPercent": "3.7"
+  },
+  {
+    "id": 67,
+    "potId": 205,
+    "randomPer": 3000,
+    "reward": "randomMemf0",
+    "rewardNum": 10,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 68,
+    "potId": 205,
+    "randomPer": 3000,
+    "reward": "randomMemf1",
+    "rewardNum": 10,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 69,
+    "potId": 205,
+    "randomPer": 2000,
+    "reward": "randomMemf2",
+    "rewardNum": 5,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 70,
+    "potId": 205,
+    "randomPer": 2000,
+    "reward": "randomMemf3",
+    "rewardNum": 5,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 71,
+    "potId": 206,
+    "randomPer": 4500,
+    "reward": "elfRandomP1",
+    "rewardNum": 2,
+    "showPercent": "3.33"
+  },
+  {
+    "id": 72,
+    "potId": 206,
+    "randomPer": 2500,
+    "reward": "elfRandomP2",
+    "rewardNum": 2,
+    "showPercent": "1.85"
+  },
+  {
+    "id": 73,
+    "potId": 206,
+    "randomPer": 2500,
+    "reward": "elfRandomP3",
+    "rewardNum": 2,
+    "showPercent": "1.85"
+  },
+  {
+    "id": 74,
+    "potId": 206,
+    "randomPer": 500,
+    "reward": "elfRandomP4",
+    "rewardNum": 2,
+    "showPercent": "0.37"
+  },
+  {
+    "id": 75,
+    "potId": 207,
+    "randomPer": 4500,
+    "reward": "blueBag_tbh",
+    "rewardNum": 1,
+    "showPercent": "6.66"
+  },
+  {
+    "id": 76,
+    "potId": 207,
+    "randomPer": 2500,
+    "reward": "purpleBag_tbh",
+    "rewardNum": 1,
+    "showPercent": "3.7"
+  },
+  {
+    "id": 77,
+    "potId": 207,
+    "randomPer": 2500,
+    "reward": "orangeBag_tbh",
+    "rewardNum": 1,
+    "showPercent": "3.7"
+  },
+  {
+    "id": 78,
+    "potId": 207,
+    "randomPer": 500,
+    "reward": "allBag_tbh",
+    "rewardNum": 1,
+    "showPercent": "0.74"
+  },
+  {
+    "id": 79,
+    "potId": 208,
+    "randomPer": 4500,
+    "reward": "blueBag_tbh",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 80,
+    "potId": 208,
+    "randomPer": 2500,
+    "reward": "purpleBag_tbh",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 81,
+    "potId": 208,
+    "randomPer": 2500,
+    "reward": "orangeBag_tbh",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 82,
+    "potId": 208,
+    "randomPer": 500,
+    "reward": "allBag_tbh",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 83,
+    "potId": 209,
+    "randomPer": 10000,
+    "reward": "fragment_318",
+    "rewardNum": 1,
+    "showPercent": "14.82"
+  },
+  {
+    "id": 84,
+    "potId": 210,
+    "randomPer": 8000,
+    "reward": "fragment_318",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 85,
+    "potId": 210,
+    "randomPer": 2000,
+    "reward": "fragment_318",
+    "rewardNum": 2,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 86,
+    "potId": 211,
+    "randomPer": 3000,
+    "reward": "copper_tbh",
+    "rewardNum": 1,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 87,
+    "potId": 211,
+    "randomPer": 3000,
+    "reward": "copper_tbh",
+    "rewardNum": 2,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 88,
+    "potId": 211,
+    "randomPer": 2000,
+    "reward": "copper_tbh",
+    "rewardNum": 3,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 89,
+    "potId": 211,
+    "randomPer": 2000,
+    "reward": "copper_tbh",
+    "rewardNum": 4,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 90,
+    "potId": 212,
+    "randomPer": 4000,
+    "reward": "holyLight",
+    "rewardNum": 500,
+    "showPercent": "2.96"
+  },
+  {
+    "id": 91,
+    "potId": 212,
+    "randomPer": 3000,
+    "reward": "crystalLight",
+    "rewardNum": 1,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 92,
+    "potId": 212,
+    "randomPer": 2000,
+    "reward": "tieStone",
+    "rewardNum": 1,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 93,
+    "potId": 212,
+    "randomPer": 1000,
+    "reward": "tieStone",
+    "rewardNum": 2,
+    "showPercent": "0.74"
+  },
+  {
+    "id": 94,
+    "potId": 213,
+    "randomPer": 5500,
+    "reward": "tbhCoin",
+    "rewardNum": 100,
+    "showPercent": "4.07"
+  },
+  {
+    "id": 95,
+    "potId": 213,
+    "randomPer": 3000,
+    "reward": "tbhCoin",
+    "rewardNum": 200,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 96,
+    "potId": 213,
+    "randomPer": 1500,
+    "reward": "tbhCoin",
+    "rewardNum": 800,
+    "showPercent": "1.11"
+  },
+  {
+    "id": 97,
+    "potId": 214,
+    "randomPer": 1700,
+    "reward": "linktbhStone",
+    "rewardNum": 6,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 98,
+    "potId": 214,
+    "randomPer": 1700,
+    "reward": "fragment_318",
+    "rewardNum": 5,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 99,
+    "potId": 214,
+    "randomPer": 1700,
+    "reward": "memf_64001",
+    "rewardNum": 8,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 100,
+    "potId": 214,
+    "randomPer": 1700,
+    "reward": "artFragment",
+    "rewardNum": 5,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 101,
+    "potId": 214,
+    "randomPer": 1600,
+    "reward": "gemRandom_03",
+    "rewardNum": 2,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 102,
+    "potId": 214,
+    "randomPer": 1600,
+    "reward": "randomHallow03",
+    "rewardNum": 3,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 103,
+    "potId": 301,
+    "randomPer": 3000,
+    "reward": "gold_1",
+    "rewardNum": 1,
+    "showPercent": "4.44"
+  },
+  {
+    "id": 104,
+    "potId": 301,
+    "randomPer": 2000,
+    "reward": "gold_2",
+    "rewardNum": 1,
+    "showPercent": "2.96"
+  },
+  {
+    "id": 105,
+    "potId": 301,
+    "randomPer": 3000,
+    "reward": "exp_1",
+    "rewardNum": 1,
+    "showPercent": "4.44"
+  },
+  {
+    "id": 106,
+    "potId": 301,
+    "randomPer": 2000,
+    "reward": "exp_2",
+    "rewardNum": 1,
+    "showPercent": "2.96"
+  },
+  {
+    "id": 107,
+    "potId": 302,
+    "randomPer": 3000,
+    "reward": "gold_1",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 108,
+    "potId": 302,
+    "randomPer": 2000,
+    "reward": "gold_2",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 109,
+    "potId": 302,
+    "randomPer": 3000,
+    "reward": "exp_1",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 110,
+    "potId": 302,
+    "randomPer": 2000,
+    "reward": "exp_2",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 111,
+    "potId": 303,
+    "randomPer": 2500,
+    "reward": "glyphs_2002",
+    "rewardNum": 1,
+    "showPercent": "1.8"
+  },
+  {
+    "id": 112,
+    "potId": 303,
+    "randomPer": 2500,
+    "reward": "glyphs_3002",
+    "rewardNum": 1,
+    "showPercent": "1.8"
+  },
+  {
+    "id": 113,
+    "potId": 303,
+    "randomPer": 2500,
+    "reward": "glyphs_4002",
+    "rewardNum": 1,
+    "showPercent": "1.8"
+  },
+  {
+    "id": 114,
+    "potId": 303,
+    "randomPer": 2500,
+    "reward": "glyphs_1002",
+    "rewardNum": 1,
+    "showPercent": "1.8"
+  },
+  {
+    "id": 115,
+    "potId": 304,
+    "randomPer": 2000,
+    "reward": "spiritStone_1",
+    "rewardNum": 600,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 116,
+    "potId": 304,
+    "randomPer": 3000,
+    "reward": "spiritStone_2",
+    "rewardNum": 600,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 117,
+    "potId": 304,
+    "randomPer": 5000,
+    "reward": "spiritStone_3",
+    "rewardNum": 600,
+    "showPercent": "3.7"
+  },
+  {
+    "id": 118,
+    "potId": 305,
+    "randomPer": 3000,
+    "reward": "randomMemf0",
+    "rewardNum": 10,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 119,
+    "potId": 305,
+    "randomPer": 3000,
+    "reward": "randomMemf1",
+    "rewardNum": 10,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 120,
+    "potId": 305,
+    "randomPer": 2000,
+    "reward": "randomMemf2",
+    "rewardNum": 5,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 121,
+    "potId": 305,
+    "randomPer": 2000,
+    "reward": "randomMemf3",
+    "rewardNum": 5,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 122,
+    "potId": 306,
+    "randomPer": 4500,
+    "reward": "elfRandomP1",
+    "rewardNum": 2,
+    "showPercent": "3.33"
+  },
+  {
+    "id": 123,
+    "potId": 306,
+    "randomPer": 2500,
+    "reward": "elfRandomP2",
+    "rewardNum": 2,
+    "showPercent": "1.85"
+  },
+  {
+    "id": 124,
+    "potId": 306,
+    "randomPer": 2500,
+    "reward": "elfRandomP3",
+    "rewardNum": 2,
+    "showPercent": "1.85"
+  },
+  {
+    "id": 125,
+    "potId": 306,
+    "randomPer": 500,
+    "reward": "elfRandomP4",
+    "rewardNum": 2,
+    "showPercent": "0.37"
+  },
+  {
+    "id": 126,
+    "potId": 307,
+    "randomPer": 4500,
+    "reward": "blueBag_tbh",
+    "rewardNum": 1,
+    "showPercent": "6.66"
+  },
+  {
+    "id": 127,
+    "potId": 307,
+    "randomPer": 2500,
+    "reward": "purpleBag_tbh",
+    "rewardNum": 1,
+    "showPercent": "3.7"
+  },
+  {
+    "id": 128,
+    "potId": 307,
+    "randomPer": 2500,
+    "reward": "orangeBag_tbh",
+    "rewardNum": 1,
+    "showPercent": "3.7"
+  },
+  {
+    "id": 129,
+    "potId": 307,
+    "randomPer": 500,
+    "reward": "allBag_tbh",
+    "rewardNum": 1,
+    "showPercent": "0.74"
+  },
+  {
+    "id": 130,
+    "potId": 308,
+    "randomPer": 4500,
+    "reward": "blueBag_tbh",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 131,
+    "potId": 308,
+    "randomPer": 2500,
+    "reward": "purpleBag_tbh",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 132,
+    "potId": 308,
+    "randomPer": 2500,
+    "reward": "orangeBag_tbh",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 133,
+    "potId": 308,
+    "randomPer": 500,
+    "reward": "allBag_tbh",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 134,
+    "potId": 309,
+    "randomPer": 10000,
+    "reward": "fragment_420",
+    "rewardNum": 1,
+    "showPercent": "14.82"
+  },
+  {
+    "id": 135,
+    "potId": 310,
+    "randomPer": 8000,
+    "reward": "fragment_420",
+    "rewardNum": 1,
+    "showPercent": ""
+  },
+  {
+    "id": 136,
+    "potId": 310,
+    "randomPer": 2000,
+    "reward": "fragment_420",
+    "rewardNum": 2,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 137,
+    "potId": 311,
+    "randomPer": 3000,
+    "reward": "copper_tbh",
+    "rewardNum": 1,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 138,
+    "potId": 311,
+    "randomPer": 3000,
+    "reward": "copper_tbh",
+    "rewardNum": 2,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 139,
+    "potId": 311,
+    "randomPer": 2000,
+    "reward": "copper_tbh",
+    "rewardNum": 3,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 140,
+    "potId": 311,
+    "randomPer": 2000,
+    "reward": "copper_tbh",
+    "rewardNum": 4,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 141,
+    "potId": 312,
+    "randomPer": 4000,
+    "reward": "holyLight",
+    "rewardNum": 500,
+    "showPercent": "2.96"
+  },
+  {
+    "id": 142,
+    "potId": 312,
+    "randomPer": 3000,
+    "reward": "crystalLight",
+    "rewardNum": 1,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 143,
+    "potId": 312,
+    "randomPer": 2000,
+    "reward": "tieStone",
+    "rewardNum": 1,
+    "showPercent": "1.48"
+  },
+  {
+    "id": 144,
+    "potId": 312,
+    "randomPer": 1000,
+    "reward": "tieStone",
+    "rewardNum": 2,
+    "showPercent": "0.74"
+  },
+  {
+    "id": 145,
+    "potId": 313,
+    "randomPer": 5500,
+    "reward": "tbhCoin",
+    "rewardNum": 100,
+    "showPercent": "4.07"
+  },
+  {
+    "id": 146,
+    "potId": 313,
+    "randomPer": 3000,
+    "reward": "tbhCoin",
+    "rewardNum": 200,
+    "showPercent": "2.22"
+  },
+  {
+    "id": 147,
+    "potId": 313,
+    "randomPer": 1500,
+    "reward": "tbhCoin",
+    "rewardNum": 800,
+    "showPercent": "1.11"
+  },
+  {
+    "id": 148,
+    "potId": 314,
+    "randomPer": 1700,
+    "reward": "linktbhStone",
+    "rewardNum": 6,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 149,
+    "potId": 314,
+    "randomPer": 1700,
+    "reward": "fragment_420",
+    "rewardNum": 5,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 150,
+    "potId": 314,
+    "randomPer": 1700,
+    "reward": "memf_64001",
+    "rewardNum": 8,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 151,
+    "potId": 314,
+    "randomPer": 1700,
+    "reward": "artFragment",
+    "rewardNum": 5,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 152,
+    "potId": 314,
+    "randomPer": 1600,
+    "reward": "gemRandom_03",
+    "rewardNum": 2,
+    "showPercent": "2.5"
+  },
+  {
+    "id": 153,
+    "potId": 314,
+    "randomPer": 1600,
+    "reward": "randomHallow03",
+    "rewardNum": 3,
+    "showPercent": "2.5"
+  }
+]

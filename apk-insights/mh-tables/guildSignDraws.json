@@ -1,0 +1,7 @@
+[
+  { "latticeType": "gold_2", "num": 1, "weight": 300 },
+  { "latticeType": "zb_box1", "num": 1, "weight": 50 },
+  { "latticeType": "diamond", "num": 188, "weight": 200 },
+  { "latticeType": "randomFragment4", "num": 5, "weight": 150 },
+  { "latticeType": "exp_2", "num": 1, "weight": 300 }
+]

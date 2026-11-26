@@ -1,0 +1,227 @@
+[
+  {
+    "describe": "DIAOYU_27",
+    "display": 1,
+    "forgingAttribute": "master",
+    "id": 1,
+    "name": "DIAOYU_12",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10001
+  },
+  {
+    "describe": "DIAOYU_28",
+    "display": 1,
+    "forgingAttribute": "businessman",
+    "id": 2,
+    "name": "DIAOYU_13",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10002
+  },
+  {
+    "describe": "DIAOYU_29",
+    "display": 2,
+    "forgingAttribute": "craftsman",
+    "id": 3,
+    "name": "DIAOYU_14",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10003
+  },
+  {
+    "describe": "DIAOYU_30",
+    "display": 1,
+    "forgingAttribute": "efficient",
+    "id": 4,
+    "name": "DIAOYU_15",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10004
+  },
+  {
+    "describe": "DIAOYU_31",
+    "display": 1,
+    "forgingAttribute": "skilled",
+    "id": 5,
+    "name": "DIAOYU_16",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10005
+  },
+  {
+    "describe": "DIAOYU_32",
+    "display": 1,
+    "forgingAttribute": "exquisite",
+    "id": 6,
+    "name": "DIAOYU_17",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10006
+  },
+  {
+    "describe": "DIAOYU_33",
+    "display": 1,
+    "forgingAttribute": "scavenge",
+    "id": 7,
+    "name": "DIAOYU_18",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10007
+  },
+  {
+    "describe": "DIAOYU_34",
+    "display": 1,
+    "forgingAttribute": "ringMaster",
+    "id": 8,
+    "name": "DIAOYU_19",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10009
+  },
+  {
+    "describe": "DIAOYU_35",
+    "display": 1,
+    "forgingAttribute": "armorMaster",
+    "id": 9,
+    "name": "DIAOYU_20",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10010
+  },
+  {
+    "describe": "DIAOYU_36",
+    "display": 1,
+    "forgingAttribute": "armsMaster",
+    "id": 10,
+    "name": "DIAOYU_21",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10011
+  },
+  {
+    "describe": "DIAOYU_37",
+    "display": 1,
+    "forgingAttribute": "necklaceMaster",
+    "id": 11,
+    "name": "DIAOYU_22",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10012
+  },
+  {
+    "describe": "DIAOYU_38",
+    "display": 1,
+    "forgingAttribute": "ringRestraint",
+    "id": 12,
+    "name": "DIAOYU_23",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10013
+  },
+  {
+    "describe": "DIAOYU_39",
+    "display": 1,
+    "forgingAttribute": "armorRestraint",
+    "id": 13,
+    "name": "DIAOYU_24",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10014
+  },
+  {
+    "describe": "DIAOYU_40",
+    "display": 1,
+    "forgingAttribute": "armsRestraint",
+    "id": 14,
+    "name": "DIAOYU_25",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10015
+  },
+  {
+    "describe": "DIAOYU_41",
+    "display": 1,
+    "forgingAttribute": "necklaceRestraint",
+    "id": 15,
+    "name": "DIAOYU_26",
+    "recoinAttribute": [
+      "0.03:0.05",
+      "0.051:0.07",
+      "0.071:0.09",
+      "0.091:0.11",
+      "0.111:0.13"
+    ],
+    "uuid": 10016
+  }
+]

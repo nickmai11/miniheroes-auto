@@ -1,0 +1,48 @@
+[
+  {
+    "giftBuyTimes": 1,
+    "giftContinueTime": 0,
+    "giftSyn": "0",
+    "giftSynItem": ["gold", "gold_1"],
+    "giftSynNum": [10000, 10],
+    "herosFragSynNum": [1, 1, 1, 1, 1],
+    "herosFragSynType": [
+      "fragment_409",
+      "fragment_111",
+      "fragment_114",
+      "fragment_113",
+      "fragment_206"
+    ],
+    "herosSyn": [409, 111, 114, 113, 206],
+    "herosSynGetNum": 1,
+    "herosSynGetType": "fragment_130",
+    "herosSynStars": 50,
+    "id": 1,
+    "initStar": 0,
+    "synLimitNum": 5,
+    "uuid": 130
+  },
+  {
+    "giftBuyTimes": 1,
+    "giftContinueTime": 0,
+    "giftSyn": "0",
+    "giftSynItem": ["gold", "gold_2"],
+    "giftSynNum": [10000, 11],
+    "herosFragSynNum": [1, 1, 1, 1, 1],
+    "herosFragSynType": [
+      "fragment_301",
+      "fragment_314",
+      "fragment_311",
+      "fragment_406",
+      "fragment_208"
+    ],
+    "herosSyn": [301, 314, 311, 406, 208],
+    "herosSynGetNum": 1,
+    "herosSynGetType": "fragment_319",
+    "herosSynStars": 50,
+    "id": 2,
+    "initStar": 0,
+    "synLimitNum": 5,
+    "uuid": 319
+  }
+]

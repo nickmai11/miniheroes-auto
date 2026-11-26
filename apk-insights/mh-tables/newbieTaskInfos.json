@@ -1,0 +1,11 @@
+[
+  { "des": "XSHD_TASK_MS_1", "id": 1, "jump": 5, "taskCond": 1 },
+  { "des": "XSHD_TASK_MS_2", "id": 2, "jump": 9, "taskCond": 2 },
+  { "des": "XSHD_TASK_MS_3", "id": 3, "jump": 17, "taskCond": 3 },
+  { "des": "XSHD_TASK_MS_4", "id": 4, "jump": 14, "taskCond": 4 },
+  { "des": "XSHD_TASK_MS_5", "id": 5, "jump": 3, "taskCond": 5 },
+  { "des": "XSHD_TASK_MS_6", "id": 6, "jump": 12, "taskCond": 6 },
+  { "des": "XSHD_TASK_MS_7", "id": 7, "jump": 21, "taskCond": 7 },
+  { "des": "XSHD_TASK_MS_8", "id": 8, "jump": 13, "taskCond": 8 },
+  { "des": "XSHD_TASK_MS_9", "id": 9, "jump": 22, "taskCond": 9 }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "buyCondition": 2,
+    "discount": 0,
+    "id": 1,
+    "limitNum": 1,
+    "name": "SC_TH_MS_1",
+    "productIdentifying": "pay8000",
+    "rewardNum": [2],
+    "rewardType": ["arenaTicket"]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0,
+    "id": 2,
+    "limitNum": 10,
+    "name": "XSHD_23",
+    "productIdentifying": "pay8001",
+    "rewardNum": [180, 10, 180],
+    "rewardType": ["diamond", "arenaTicket", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0,
+    "id": 3,
+    "limitNum": 5,
+    "name": "XSHD_24",
+    "productIdentifying": "pay8002",
+    "rewardNum": [300, 5, 1, 300],
+    "rewardType": ["diamond", "medal1", "medal2", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0,
+    "id": 4,
+    "limitNum": 5,
+    "name": "XSHD_25",
+    "productIdentifying": "pay8003",
+    "rewardNum": [1280, 50, 3, 1280],
+    "rewardType": ["diamond", "medal1", "medal2", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0,
+    "id": 5,
+    "limitNum": 5,
+    "name": "XSHD_26",
+    "productIdentifying": "pay8004",
+    "rewardNum": [3280, 100, 10, 3280],
+    "rewardType": ["diamond", "medal1", "medal2", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0,
+    "id": 6,
+    "limitNum": 5,
+    "name": "XSHD_27",
+    "productIdentifying": "pay8005",
+    "rewardNum": [6480, 200, 20, 6480],
+    "rewardType": ["diamond", "medal1", "medal2", "noblePoints"]
+  }
+]

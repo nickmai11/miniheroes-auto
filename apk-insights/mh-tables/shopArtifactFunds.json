@@ -1,0 +1,162 @@
+[
+  {
+    "consumePoints": 50,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 1,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 100,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 2,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 200,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 3,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 400,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 4,
+    "payRewardNum": [10],
+    "payRewardType": ["templeDust"]
+  },
+  {
+    "consumePoints": 800,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 5,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 1200,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 6,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 2000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 7,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 3000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 8,
+    "payRewardNum": [10],
+    "payRewardType": ["templeDust"]
+  },
+  {
+    "consumePoints": 4000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 9,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 5000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 10,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 6000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 11,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 7000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 12,
+    "payRewardNum": [10],
+    "payRewardType": ["templeDust"]
+  },
+  {
+    "consumePoints": 8000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 13,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 10000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 14,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 11000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 15,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 12000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 16,
+    "payRewardNum": [10],
+    "payRewardType": ["templeDust"]
+  },
+  {
+    "consumePoints": 14000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 17,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 16000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 18,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 18000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 19,
+    "payRewardNum": [7500],
+    "payRewardType": ["holyLight"]
+  },
+  {
+    "consumePoints": 20000,
+    "freeRewardNum": [750],
+    "freeRewardType": ["holyLight"],
+    "id": 20,
+    "payRewardNum": [10],
+    "payRewardType": ["templeDust"]
+  }
+]

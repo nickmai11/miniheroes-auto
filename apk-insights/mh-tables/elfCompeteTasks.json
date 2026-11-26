@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "need": 1,
+    "reward": "elfStone",
+    "rewardNum": 200,
+    "sort": 1,
+    "taskCond": 1
+  },
+  {
+    "id": 2,
+    "need": 2,
+    "reward": "elfStone",
+    "rewardNum": 200,
+    "sort": 2,
+    "taskCond": 33
+  },
+  {
+    "id": 3,
+    "need": 2,
+    "reward": "elfStone",
+    "rewardNum": 200,
+    "sort": 3,
+    "taskCond": 35
+  },
+  {
+    "id": 4,
+    "need": 2,
+    "reward": "elfStone",
+    "rewardNum": 200,
+    "sort": 4,
+    "taskCond": 34
+  },
+  {
+    "id": 5,
+    "need": 2,
+    "reward": "elfStone",
+    "rewardNum": 200,
+    "sort": 5,
+    "taskCond": 6
+  }
+]

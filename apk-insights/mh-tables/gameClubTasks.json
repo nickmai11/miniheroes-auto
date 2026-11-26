@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "ifLink": 0,
+    "isDaily": 0,
+    "rewardType": "diamond",
+    "rewardValue": 200,
+    "taskDescribe": "CLUB_TASK_1",
+    "taskScore": 0,
+    "taskType": "clubTask1",
+    "taskValue": 1
+  },
+  {
+    "id": 2,
+    "ifLink": 0,
+    "isDaily": 1,
+    "rewardType": "arenaTicket",
+    "rewardValue": 1,
+    "taskDescribe": "CLUB_TASK_2",
+    "taskScore": 1,
+    "taskType": "clubTask2",
+    "taskValue": 1
+  },
+  {
+    "id": 3,
+    "ifLink": 0,
+    "isDaily": 1,
+    "rewardType": "recruitRoll",
+    "rewardValue": 1,
+    "taskDescribe": "CLUB_TASK_3",
+    "taskScore": 1,
+    "taskType": "clubTask3",
+    "taskValue": 2
+  },
+  {
+    "id": 4,
+    "ifLink": 1,
+    "isDaily": 1,
+    "rewardType": "gold_1",
+    "rewardValue": 2,
+    "taskDescribe": "CLUB_TASK_4",
+    "taskScore": 1,
+    "taskType": "clubTask4",
+    "taskValue": 1
+  }
+]

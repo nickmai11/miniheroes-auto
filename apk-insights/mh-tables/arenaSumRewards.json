@@ -1,0 +1,22 @@
+[
+  {
+    "rewardNum": [2, 1, 1],
+    "rewardType": ["medal1", "gold_1", "exp_1"],
+    "sumVictoryTime": 10
+  },
+  {
+    "rewardNum": [3, 2, 2],
+    "rewardType": ["medal1", "gold_1", "exp_1"],
+    "sumVictoryTime": 20
+  },
+  {
+    "rewardNum": [5, 1, 1],
+    "rewardType": ["medal1", "gold_2", "exp_2"],
+    "sumVictoryTime": 35
+  },
+  {
+    "rewardNum": [7, 2, 2],
+    "rewardType": ["medal1", "gold_2", "exp_2"],
+    "sumVictoryTime": 50
+  }
+]

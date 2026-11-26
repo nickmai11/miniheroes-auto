@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "rewardNum": [20],
+    "rewardType": ["medal1"],
+    "taskCond": 6,
+    "taskNum": [50]
+  },
+  {
+    "id": 2,
+    "rewardNum": [10],
+    "rewardType": ["randomFragment3"],
+    "taskCond": 6,
+    "taskNum": [100]
+  },
+  {
+    "id": 3,
+    "rewardNum": [1],
+    "rewardType": ["zb_box1"],
+    "taskCond": 6,
+    "taskNum": [150]
+  },
+  {
+    "id": 4,
+    "rewardNum": [1],
+    "rewardType": ["glyphs_2003"],
+    "taskCond": 6,
+    "taskNum": [200]
+  },
+  {
+    "id": 5,
+    "rewardNum": [5],
+    "rewardType": ["soulStone2"],
+    "taskCond": 6,
+    "taskNum": [250]
+  },
+  {
+    "id": 6,
+    "rewardNum": [800],
+    "rewardType": ["diamond"],
+    "taskCond": 6,
+    "taskNum": [300]
+  },
+  {
+    "id": 7,
+    "rewardNum": [2],
+    "rewardType": ["soulStone3"],
+    "taskCond": 6,
+    "taskNum": [350]
+  },
+  {
+    "id": 8,
+    "rewardNum": [5000],
+    "rewardType": ["spiritStone_3"],
+    "taskCond": 6,
+    "taskNum": [400]
+  },
+  {
+    "id": 9,
+    "rewardNum": [5],
+    "rewardType": ["templeDust"],
+    "taskCond": 6,
+    "taskNum": [450]
+  },
+  {
+    "id": 10,
+    "rewardNum": [1],
+    "rewardType": ["starMark5"],
+    "taskCond": 6,
+    "taskNum": [500]
+  }
+]

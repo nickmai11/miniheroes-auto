@@ -1,0 +1,266 @@
+[
+  {
+    "id": 1,
+    "itemId": "skinBox_10002",
+    "itemNum": 4,
+    "levelNeed": 75,
+    "position": 1,
+    "randomPer": 100
+  },
+  {
+    "id": 2,
+    "itemId": "skinBox_10003",
+    "itemNum": 4,
+    "levelNeed": 75,
+    "position": 1,
+    "randomPer": 100
+  },
+  {
+    "id": 3,
+    "itemId": "skinBox_10004",
+    "itemNum": 4,
+    "levelNeed": 75,
+    "position": 1,
+    "randomPer": 100
+  },
+  {
+    "id": 4,
+    "itemId": "skinBox_10007",
+    "itemNum": 4,
+    "levelNeed": 75,
+    "position": 1,
+    "randomPer": 100
+  },
+  {
+    "id": 5,
+    "itemId": "skinBox_10010",
+    "itemNum": 4,
+    "levelNeed": 75,
+    "position": 1,
+    "randomPer": 100
+  },
+  {
+    "id": 6,
+    "itemId": "skinBox_10002",
+    "itemNum": 2,
+    "levelNeed": 75,
+    "position": 2,
+    "randomPer": 100
+  },
+  {
+    "id": 7,
+    "itemId": "skinBox_10003",
+    "itemNum": 2,
+    "levelNeed": 75,
+    "position": 2,
+    "randomPer": 100
+  },
+  {
+    "id": 8,
+    "itemId": "skinBox_10004",
+    "itemNum": 2,
+    "levelNeed": 75,
+    "position": 2,
+    "randomPer": 100
+  },
+  {
+    "id": 9,
+    "itemId": "skinBox_10007",
+    "itemNum": 2,
+    "levelNeed": 75,
+    "position": 2,
+    "randomPer": 100
+  },
+  {
+    "id": 10,
+    "itemId": "skinBox_10010",
+    "itemNum": 2,
+    "levelNeed": 75,
+    "position": 2,
+    "randomPer": 100
+  },
+  {
+    "id": 11,
+    "itemId": "diamond",
+    "itemNum": 50,
+    "levelNeed": 75,
+    "position": 2,
+    "randomPer": 100
+  },
+  {
+    "id": 12,
+    "itemId": "diamond",
+    "itemNum": 80,
+    "levelNeed": 75,
+    "position": 2,
+    "randomPer": 100
+  },
+  {
+    "id": 13,
+    "itemId": "gold",
+    "itemNum": 30000,
+    "levelNeed": 75,
+    "position": 2,
+    "randomPer": 100
+  },
+  {
+    "id": 14,
+    "itemId": "gold",
+    "itemNum": 60000,
+    "levelNeed": 75,
+    "position": 2,
+    "randomPer": 100
+  },
+  {
+    "id": 15,
+    "itemId": "exp",
+    "itemNum": 20000,
+    "levelNeed": 75,
+    "position": 2,
+    "randomPer": 100
+  },
+  {
+    "id": 16,
+    "itemId": "exp",
+    "itemNum": 40000,
+    "levelNeed": 75,
+    "position": 2,
+    "randomPer": 100
+  },
+  {
+    "id": 17,
+    "itemId": "relicCoin",
+    "itemNum": 200,
+    "levelNeed": 75,
+    "position": 2,
+    "randomPer": 100
+  },
+  {
+    "id": 18,
+    "itemId": "relicCoin",
+    "itemNum": 400,
+    "levelNeed": 75,
+    "position": 2,
+    "randomPer": 100
+  },
+  {
+    "id": 19,
+    "itemId": "diamond",
+    "itemNum": 50,
+    "levelNeed": 75,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 20,
+    "itemId": "diamond",
+    "itemNum": 80,
+    "levelNeed": 75,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 21,
+    "itemId": "gold",
+    "itemNum": 30000,
+    "levelNeed": 75,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 22,
+    "itemId": "gold",
+    "itemNum": 60000,
+    "levelNeed": 75,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 23,
+    "itemId": "exp",
+    "itemNum": 20000,
+    "levelNeed": 75,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 24,
+    "itemId": "exp",
+    "itemNum": 40000,
+    "levelNeed": 75,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 25,
+    "itemId": "relicCoin",
+    "itemNum": 200,
+    "levelNeed": 75,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 26,
+    "itemId": "relicCoin",
+    "itemNum": 400,
+    "levelNeed": 75,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 27,
+    "itemId": "coinMinting2",
+    "itemNum": 3,
+    "levelNeed": 75,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 28,
+    "itemId": "coinMinting3",
+    "itemNum": 2,
+    "levelNeed": 75,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 29,
+    "itemId": "spiritStone_2",
+    "itemNum": 500,
+    "levelNeed": 90,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 30,
+    "itemId": "spiritStone_3",
+    "itemNum": 500,
+    "levelNeed": 90,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 31,
+    "itemId": "templeCube",
+    "itemNum": 1,
+    "levelNeed": 90,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 32,
+    "itemId": "randomMemf2",
+    "itemNum": 5,
+    "levelNeed": 120,
+    "position": 3,
+    "randomPer": 100
+  },
+  {
+    "id": 33,
+    "itemId": "randomMemf3",
+    "itemNum": 5,
+    "levelNeed": 120,
+    "position": 3,
+    "randomPer": 100
+  }
+]

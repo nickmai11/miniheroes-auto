@@ -1,0 +1,233 @@
+[
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_1",
+    "id": 1,
+    "productIdentifying": "pay46100",
+    "refreshType": 1,
+    "rewardNum": [20],
+    "rewardType": ["diamond"],
+    "timeNum": 1
+  },
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_2",
+    "id": 2,
+    "productIdentifying": "pay46101",
+    "refreshType": 1,
+    "rewardNum": [180, 2, 5, 180],
+    "rewardType": ["diamond", "allBag_tbh", "copper_tbh", "noblePoints"],
+    "timeNum": 1
+  },
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_3",
+    "id": 3,
+    "productIdentifying": "pay46102",
+    "refreshType": 1,
+    "rewardNum": [300, 2500, 10, 300],
+    "rewardType": ["diamond", "tbhCoin", "copper_tbh", "noblePoints"],
+    "timeNum": 1
+  },
+  {
+    "buyNum": 20,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_4",
+    "id": 4,
+    "productIdentifying": "pay46103",
+    "refreshType": 2,
+    "rewardNum": [880, 8000, 20, 880],
+    "rewardType": ["diamond", "tbhCoin", "copper_tbh", "noblePoints"],
+    "timeNum": 1
+  },
+  {
+    "buyNum": 20,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_5",
+    "id": 5,
+    "productIdentifying": "pay46104",
+    "refreshType": 2,
+    "rewardNum": [1280, 20, 80, 1280],
+    "rewardType": ["diamond", "linktbhStone", "copper_tbh", "noblePoints"],
+    "timeNum": 1
+  },
+  {
+    "buyNum": 10,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_6",
+    "id": 6,
+    "productIdentifying": "pay46105",
+    "refreshType": 2,
+    "rewardNum": [1980, 130, 130, 1980],
+    "rewardType": ["diamond", "copper_tbh", "copper_tbh", "noblePoints"],
+    "timeNum": 1
+  },
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_7",
+    "id": 7,
+    "productIdentifying": "pay46106",
+    "refreshType": 2,
+    "rewardNum": [6480, 1, 150, 6480],
+    "rewardType": ["diamond", "art_1283", "copper_tbh", "noblePoints"],
+    "timeNum": 1
+  },
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_1",
+    "id": 8,
+    "productIdentifying": "pay46200",
+    "refreshType": 1,
+    "rewardNum": [20],
+    "rewardType": ["diamond"],
+    "timeNum": 2
+  },
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_2",
+    "id": 9,
+    "productIdentifying": "pay46201",
+    "refreshType": 1,
+    "rewardNum": [180, 2, 5, 180],
+    "rewardType": ["diamond", "allBag_tbh", "copper_tbh", "noblePoints"],
+    "timeNum": 2
+  },
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_3",
+    "id": 10,
+    "productIdentifying": "pay46202",
+    "refreshType": 1,
+    "rewardNum": [300, 2500, 10, 300],
+    "rewardType": ["diamond", "tbhCoin", "copper_tbh", "noblePoints"],
+    "timeNum": 2
+  },
+  {
+    "buyNum": 20,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_4",
+    "id": 11,
+    "productIdentifying": "pay46203",
+    "refreshType": 2,
+    "rewardNum": [880, 8000, 20, 880],
+    "rewardType": ["diamond", "tbhCoin", "copper_tbh", "noblePoints"],
+    "timeNum": 2
+  },
+  {
+    "buyNum": 20,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_5",
+    "id": 12,
+    "productIdentifying": "pay46204",
+    "refreshType": 2,
+    "rewardNum": [1280, 20, 80, 1280],
+    "rewardType": ["diamond", "linktbhStone", "copper_tbh", "noblePoints"],
+    "timeNum": 2
+  },
+  {
+    "buyNum": 10,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_6",
+    "id": 13,
+    "productIdentifying": "pay46205",
+    "refreshType": 2,
+    "rewardNum": [1980, 130, 130, 1980],
+    "rewardType": ["diamond", "copper_tbh", "copper_tbh", "noblePoints"],
+    "timeNum": 2
+  },
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_7",
+    "id": 14,
+    "productIdentifying": "pay46206",
+    "refreshType": 2,
+    "rewardNum": [6480, 1, 150, 6480],
+    "rewardType": ["diamond", "art_3183", "copper_tbh", "noblePoints"],
+    "timeNum": 2
+  },
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_1",
+    "id": 15,
+    "productIdentifying": "pay46300",
+    "refreshType": 1,
+    "rewardNum": [20],
+    "rewardType": ["diamond"],
+    "timeNum": 3
+  },
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_2",
+    "id": 16,
+    "productIdentifying": "pay46301",
+    "refreshType": 1,
+    "rewardNum": [180, 2, 5, 180],
+    "rewardType": ["diamond", "allBag_tbh", "copper_tbh", "noblePoints"],
+    "timeNum": 3
+  },
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_3",
+    "id": 17,
+    "productIdentifying": "pay46302",
+    "refreshType": 1,
+    "rewardNum": [300, 2500, 10, 300],
+    "rewardType": ["diamond", "tbhCoin", "copper_tbh", "noblePoints"],
+    "timeNum": 3
+  },
+  {
+    "buyNum": 20,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_4",
+    "id": 18,
+    "productIdentifying": "pay46303",
+    "refreshType": 2,
+    "rewardNum": [880, 8000, 20, 880],
+    "rewardType": ["diamond", "tbhCoin", "copper_tbh", "noblePoints"],
+    "timeNum": 3
+  },
+  {
+    "buyNum": 20,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_5",
+    "id": 19,
+    "productIdentifying": "pay46304",
+    "refreshType": 2,
+    "rewardNum": [1280, 20, 80, 1280],
+    "rewardType": ["diamond", "linktbhStone", "copper_tbh", "noblePoints"],
+    "timeNum": 3
+  },
+  {
+    "buyNum": 10,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_6",
+    "id": 20,
+    "productIdentifying": "pay46305",
+    "refreshType": 2,
+    "rewardNum": [1980, 130, 130, 1980],
+    "rewardType": ["diamond", "copper_tbh", "copper_tbh", "noblePoints"],
+    "timeNum": 3
+  },
+  {
+    "buyNum": 1,
+    "discount": 0,
+    "giftBagName": "LD_TBH_LB_7",
+    "id": 21,
+    "productIdentifying": "pay46306",
+    "refreshType": 2,
+    "rewardNum": [6480, 1, 150, 6480],
+    "rewardType": ["diamond", "art_4203", "copper_tbh", "noblePoints"],
+    "timeNum": 3
+  }
+]

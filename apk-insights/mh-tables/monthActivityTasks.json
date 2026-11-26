@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "jump": 16,
+    "need": 1,
+    "reward": "flipCard",
+    "rewardNum": 1,
+    "sort": 1,
+    "taskCond": 1,
+    "taskDes": "TASK_DESC_1",
+    "unlockingCondition": 1,
+    "unlockingNum": 10
+  },
+  {
+    "id": 2,
+    "jump": 3,
+    "need": 2,
+    "reward": "flipCard",
+    "rewardNum": 1,
+    "sort": 2,
+    "taskCond": 4,
+    "taskDes": "TASK_DESC_4",
+    "unlockingCondition": 1,
+    "unlockingNum": 10
+  },
+  {
+    "id": 3,
+    "jump": 4,
+    "need": 1,
+    "reward": "flipCard",
+    "rewardNum": 1,
+    "sort": 3,
+    "taskCond": 6,
+    "taskDes": "TASK_DESC_6",
+    "unlockingCondition": 1,
+    "unlockingNum": 10
+  },
+  {
+    "id": 4,
+    "jump": 12,
+    "need": 1,
+    "reward": "flipCard",
+    "rewardNum": 1,
+    "sort": 4,
+    "taskCond": 7,
+    "taskDes": "TASK_DESC_7",
+    "unlockingCondition": 1,
+    "unlockingNum": 25
+  },
+  {
+    "id": 5,
+    "jump": 7,
+    "need": 1,
+    "reward": "flipCard",
+    "rewardNum": 1,
+    "sort": 5,
+    "taskCond": 8,
+    "taskDes": "TASK_DESC_8",
+    "unlockingCondition": 1,
+    "unlockingNum": 30
+  }
+]

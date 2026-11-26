@@ -1,0 +1,8 @@
+[
+  { "id": 1, "region": 1, "serverTimeMax": 30, "serverTimeMin": 14 },
+  { "id": 2, "region": 2, "serverTimeMax": 50, "serverTimeMin": 31 },
+  { "id": 3, "region": 3, "serverTimeMax": 80, "serverTimeMin": 51 },
+  { "id": 4, "region": 4, "serverTimeMax": 120, "serverTimeMin": 81 },
+  { "id": 5, "region": 5, "serverTimeMax": 180, "serverTimeMin": 121 },
+  { "id": 6, "region": 6, "serverTimeMax": 9999, "serverTimeMin": 181 }
+]

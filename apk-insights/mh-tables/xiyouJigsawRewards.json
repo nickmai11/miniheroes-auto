@@ -1,0 +1,74 @@
+[
+  {
+    "cardRequire": 8,
+    "displayId": 1,
+    "id": 1,
+    "rank": 1,
+    "rewardNum": [500],
+    "rewardType": ["tbhCoin"]
+  },
+  {
+    "cardRequire": 16,
+    "displayId": 1,
+    "id": 2,
+    "rank": 2,
+    "rewardNum": [20],
+    "rewardType": ["copper_tbh"]
+  },
+  {
+    "cardRequire": 25,
+    "displayId": 1,
+    "id": 3,
+    "rank": 3,
+    "rewardNum": [10],
+    "rewardType": ["fragment_128"]
+  },
+  {
+    "cardRequire": 8,
+    "displayId": 2,
+    "id": 4,
+    "rank": 1,
+    "rewardNum": [500],
+    "rewardType": ["tbhCoin"]
+  },
+  {
+    "cardRequire": 16,
+    "displayId": 2,
+    "id": 5,
+    "rank": 2,
+    "rewardNum": [20],
+    "rewardType": ["copper_tbh"]
+  },
+  {
+    "cardRequire": 25,
+    "displayId": 2,
+    "id": 6,
+    "rank": 3,
+    "rewardNum": [10],
+    "rewardType": ["fragment_318"]
+  },
+  {
+    "cardRequire": 8,
+    "displayId": 3,
+    "id": 7,
+    "rank": 1,
+    "rewardNum": [500],
+    "rewardType": ["tbhCoin"]
+  },
+  {
+    "cardRequire": 16,
+    "displayId": 3,
+    "id": 8,
+    "rank": 2,
+    "rewardNum": [20],
+    "rewardType": ["copper_tbh"]
+  },
+  {
+    "cardRequire": 25,
+    "displayId": 3,
+    "id": 9,
+    "rank": 3,
+    "rewardNum": [10],
+    "rewardType": ["fragment_420"]
+  }
+]

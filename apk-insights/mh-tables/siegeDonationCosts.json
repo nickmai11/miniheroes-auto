@@ -1,0 +1,7 @@
+[
+  { "id": 1, "needItem": "gold", "needItemNum": 30000, "times": 1 },
+  { "id": 2, "needItem": "gold", "needItemNum": 30000, "times": 2 },
+  { "id": 3, "needItem": "gold", "needItemNum": 30000, "times": 3 },
+  { "id": 4, "needItem": "gold", "needItemNum": 30000, "times": 4 },
+  { "id": 5, "needItem": "gold", "needItemNum": 30000, "times": 5 }
+]

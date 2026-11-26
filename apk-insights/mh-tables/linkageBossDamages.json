@@ -1,0 +1,530 @@
+[
+  { "combatPowerLimit": 2135, "damageValue": 200000, "heroId": 617, "id": 1 },
+  { "combatPowerLimit": 3282, "damageValue": 300000, "heroId": 617, "id": 2 },
+  { "combatPowerLimit": 5493, "damageValue": 500000, "heroId": 617, "id": 3 },
+  { "combatPowerLimit": 10664, "damageValue": 1000000, "heroId": 617, "id": 4 },
+  { "combatPowerLimit": 19780, "damageValue": 2000000, "heroId": 617, "id": 5 },
+  { "combatPowerLimit": 28302, "damageValue": 3000000, "heroId": 617, "id": 6 },
+  { "combatPowerLimit": 40395, "damageValue": 5000000, "heroId": 617, "id": 7 },
+  { "combatPowerLimit": 53710, "damageValue": 7400000, "heroId": 617, "id": 8 },
+  { "combatPowerLimit": 57969, "damageValue": 9800000, "heroId": 617, "id": 9 },
+  {
+    "combatPowerLimit": 65572,
+    "damageValue": 13000000,
+    "heroId": 617,
+    "id": 10
+  },
+  {
+    "combatPowerLimit": 83904,
+    "damageValue": 20000000,
+    "heroId": 617,
+    "id": 11
+  },
+  {
+    "combatPowerLimit": 108687,
+    "damageValue": 30000000,
+    "heroId": 617,
+    "id": 12
+  },
+  {
+    "combatPowerLimit": 130373,
+    "damageValue": 40000000,
+    "heroId": 617,
+    "id": 13
+  },
+  {
+    "combatPowerLimit": 186090,
+    "damageValue": 60000000,
+    "heroId": 617,
+    "id": 14
+  },
+  {
+    "combatPowerLimit": 268510,
+    "damageValue": 100000000,
+    "heroId": 617,
+    "id": 15
+  },
+  {
+    "combatPowerLimit": 740858,
+    "damageValue": 500000000,
+    "heroId": 617,
+    "id": 16
+  },
+  {
+    "combatPowerLimit": 966651,
+    "damageValue": 1000000000,
+    "heroId": 617,
+    "id": 17
+  },
+  {
+    "combatPowerLimit": 1118959,
+    "damageValue": 2500000000,
+    "heroId": 617,
+    "id": 18
+  },
+  { "combatPowerLimit": 2135, "damageValue": 200000, "heroId": 618, "id": 19 },
+  { "combatPowerLimit": 3282, "damageValue": 300000, "heroId": 618, "id": 20 },
+  { "combatPowerLimit": 5493, "damageValue": 500000, "heroId": 618, "id": 21 },
+  {
+    "combatPowerLimit": 10664,
+    "damageValue": 1000000,
+    "heroId": 618,
+    "id": 22
+  },
+  {
+    "combatPowerLimit": 19780,
+    "damageValue": 2000000,
+    "heroId": 618,
+    "id": 23
+  },
+  {
+    "combatPowerLimit": 28302,
+    "damageValue": 3000000,
+    "heroId": 618,
+    "id": 24
+  },
+  {
+    "combatPowerLimit": 40395,
+    "damageValue": 5000000,
+    "heroId": 618,
+    "id": 25
+  },
+  {
+    "combatPowerLimit": 53710,
+    "damageValue": 7400000,
+    "heroId": 618,
+    "id": 26
+  },
+  {
+    "combatPowerLimit": 57969,
+    "damageValue": 9800000,
+    "heroId": 618,
+    "id": 27
+  },
+  {
+    "combatPowerLimit": 65572,
+    "damageValue": 13000000,
+    "heroId": 618,
+    "id": 28
+  },
+  {
+    "combatPowerLimit": 83904,
+    "damageValue": 20000000,
+    "heroId": 618,
+    "id": 29
+  },
+  {
+    "combatPowerLimit": 108687,
+    "damageValue": 30000000,
+    "heroId": 618,
+    "id": 30
+  },
+  {
+    "combatPowerLimit": 130373,
+    "damageValue": 40000000,
+    "heroId": 618,
+    "id": 31
+  },
+  {
+    "combatPowerLimit": 186090,
+    "damageValue": 60000000,
+    "heroId": 618,
+    "id": 32
+  },
+  {
+    "combatPowerLimit": 268510,
+    "damageValue": 100000000,
+    "heroId": 618,
+    "id": 33
+  },
+  {
+    "combatPowerLimit": 740858,
+    "damageValue": 500000000,
+    "heroId": 618,
+    "id": 34
+  },
+  {
+    "combatPowerLimit": 966651,
+    "damageValue": 1000000000,
+    "heroId": 618,
+    "id": 35
+  },
+  {
+    "combatPowerLimit": 1118959,
+    "damageValue": 2500000000,
+    "heroId": 618,
+    "id": 36
+  },
+  { "combatPowerLimit": 2135, "damageValue": 200000, "heroId": 619, "id": 37 },
+  { "combatPowerLimit": 3282, "damageValue": 300000, "heroId": 619, "id": 38 },
+  { "combatPowerLimit": 5493, "damageValue": 500000, "heroId": 619, "id": 39 },
+  {
+    "combatPowerLimit": 10664,
+    "damageValue": 1000000,
+    "heroId": 619,
+    "id": 40
+  },
+  {
+    "combatPowerLimit": 19780,
+    "damageValue": 2000000,
+    "heroId": 619,
+    "id": 41
+  },
+  {
+    "combatPowerLimit": 28302,
+    "damageValue": 3000000,
+    "heroId": 619,
+    "id": 42
+  },
+  {
+    "combatPowerLimit": 40395,
+    "damageValue": 5000000,
+    "heroId": 619,
+    "id": 43
+  },
+  {
+    "combatPowerLimit": 53710,
+    "damageValue": 7400000,
+    "heroId": 619,
+    "id": 44
+  },
+  {
+    "combatPowerLimit": 57969,
+    "damageValue": 9800000,
+    "heroId": 619,
+    "id": 45
+  },
+  {
+    "combatPowerLimit": 65572,
+    "damageValue": 13000000,
+    "heroId": 619,
+    "id": 46
+  },
+  {
+    "combatPowerLimit": 83904,
+    "damageValue": 20000000,
+    "heroId": 619,
+    "id": 47
+  },
+  {
+    "combatPowerLimit": 108687,
+    "damageValue": 30000000,
+    "heroId": 619,
+    "id": 48
+  },
+  {
+    "combatPowerLimit": 130373,
+    "damageValue": 40000000,
+    "heroId": 619,
+    "id": 49
+  },
+  {
+    "combatPowerLimit": 186090,
+    "damageValue": 60000000,
+    "heroId": 619,
+    "id": 50
+  },
+  {
+    "combatPowerLimit": 268510,
+    "damageValue": 100000000,
+    "heroId": 619,
+    "id": 51
+  },
+  {
+    "combatPowerLimit": 740858,
+    "damageValue": 500000000,
+    "heroId": 619,
+    "id": 52
+  },
+  {
+    "combatPowerLimit": 966651,
+    "damageValue": 1000000000,
+    "heroId": 619,
+    "id": 53
+  },
+  {
+    "combatPowerLimit": 1118959,
+    "damageValue": 2500000000,
+    "heroId": 619,
+    "id": 54
+  },
+  { "combatPowerLimit": 2135, "damageValue": 200000, "heroId": 620, "id": 55 },
+  { "combatPowerLimit": 3282, "damageValue": 300000, "heroId": 620, "id": 56 },
+  { "combatPowerLimit": 5493, "damageValue": 500000, "heroId": 620, "id": 57 },
+  {
+    "combatPowerLimit": 10664,
+    "damageValue": 1000000,
+    "heroId": 620,
+    "id": 58
+  },
+  {
+    "combatPowerLimit": 19780,
+    "damageValue": 2000000,
+    "heroId": 620,
+    "id": 59
+  },
+  {
+    "combatPowerLimit": 28302,
+    "damageValue": 3000000,
+    "heroId": 620,
+    "id": 60
+  },
+  {
+    "combatPowerLimit": 40395,
+    "damageValue": 5000000,
+    "heroId": 620,
+    "id": 61
+  },
+  {
+    "combatPowerLimit": 53710,
+    "damageValue": 7400000,
+    "heroId": 620,
+    "id": 62
+  },
+  {
+    "combatPowerLimit": 57969,
+    "damageValue": 9800000,
+    "heroId": 620,
+    "id": 63
+  },
+  {
+    "combatPowerLimit": 65572,
+    "damageValue": 13000000,
+    "heroId": 620,
+    "id": 64
+  },
+  {
+    "combatPowerLimit": 83904,
+    "damageValue": 20000000,
+    "heroId": 620,
+    "id": 65
+  },
+  {
+    "combatPowerLimit": 108687,
+    "damageValue": 30000000,
+    "heroId": 620,
+    "id": 66
+  },
+  {
+    "combatPowerLimit": 130373,
+    "damageValue": 40000000,
+    "heroId": 620,
+    "id": 67
+  },
+  {
+    "combatPowerLimit": 186090,
+    "damageValue": 60000000,
+    "heroId": 620,
+    "id": 68
+  },
+  {
+    "combatPowerLimit": 268510,
+    "damageValue": 100000000,
+    "heroId": 620,
+    "id": 69
+  },
+  {
+    "combatPowerLimit": 740858,
+    "damageValue": 500000000,
+    "heroId": 620,
+    "id": 70
+  },
+  {
+    "combatPowerLimit": 966651,
+    "damageValue": 1000000000,
+    "heroId": 620,
+    "id": 71
+  },
+  {
+    "combatPowerLimit": 1118959,
+    "damageValue": 2500000000,
+    "heroId": 620,
+    "id": 72
+  },
+  { "combatPowerLimit": 2135, "damageValue": 200000, "heroId": 621, "id": 73 },
+  { "combatPowerLimit": 3282, "damageValue": 300000, "heroId": 621, "id": 74 },
+  { "combatPowerLimit": 5493, "damageValue": 500000, "heroId": 621, "id": 75 },
+  {
+    "combatPowerLimit": 10664,
+    "damageValue": 1000000,
+    "heroId": 621,
+    "id": 76
+  },
+  {
+    "combatPowerLimit": 19780,
+    "damageValue": 2000000,
+    "heroId": 621,
+    "id": 77
+  },
+  {
+    "combatPowerLimit": 28302,
+    "damageValue": 3000000,
+    "heroId": 621,
+    "id": 78
+  },
+  {
+    "combatPowerLimit": 40395,
+    "damageValue": 5000000,
+    "heroId": 621,
+    "id": 79
+  },
+  {
+    "combatPowerLimit": 53710,
+    "damageValue": 7400000,
+    "heroId": 621,
+    "id": 80
+  },
+  {
+    "combatPowerLimit": 57969,
+    "damageValue": 9800000,
+    "heroId": 621,
+    "id": 81
+  },
+  {
+    "combatPowerLimit": 65572,
+    "damageValue": 13000000,
+    "heroId": 621,
+    "id": 82
+  },
+  {
+    "combatPowerLimit": 83904,
+    "damageValue": 20000000,
+    "heroId": 621,
+    "id": 83
+  },
+  {
+    "combatPowerLimit": 108687,
+    "damageValue": 30000000,
+    "heroId": 621,
+    "id": 84
+  },
+  {
+    "combatPowerLimit": 130373,
+    "damageValue": 40000000,
+    "heroId": 621,
+    "id": 85
+  },
+  {
+    "combatPowerLimit": 186090,
+    "damageValue": 60000000,
+    "heroId": 621,
+    "id": 86
+  },
+  {
+    "combatPowerLimit": 268510,
+    "damageValue": 100000000,
+    "heroId": 621,
+    "id": 87
+  },
+  {
+    "combatPowerLimit": 740858,
+    "damageValue": 500000000,
+    "heroId": 621,
+    "id": 88
+  },
+  {
+    "combatPowerLimit": 966651,
+    "damageValue": 1000000000,
+    "heroId": 621,
+    "id": 89
+  },
+  {
+    "combatPowerLimit": 1118959,
+    "damageValue": 2500000000,
+    "heroId": 621,
+    "id": 90
+  },
+  { "combatPowerLimit": 2135, "damageValue": 200000, "heroId": 622, "id": 91 },
+  { "combatPowerLimit": 3282, "damageValue": 300000, "heroId": 622, "id": 92 },
+  { "combatPowerLimit": 5493, "damageValue": 500000, "heroId": 622, "id": 93 },
+  {
+    "combatPowerLimit": 10664,
+    "damageValue": 1000000,
+    "heroId": 622,
+    "id": 94
+  },
+  {
+    "combatPowerLimit": 19780,
+    "damageValue": 2000000,
+    "heroId": 622,
+    "id": 95
+  },
+  {
+    "combatPowerLimit": 28302,
+    "damageValue": 3000000,
+    "heroId": 622,
+    "id": 96
+  },
+  {
+    "combatPowerLimit": 40395,
+    "damageValue": 5000000,
+    "heroId": 622,
+    "id": 97
+  },
+  {
+    "combatPowerLimit": 53710,
+    "damageValue": 7400000,
+    "heroId": 622,
+    "id": 98
+  },
+  {
+    "combatPowerLimit": 57969,
+    "damageValue": 9800000,
+    "heroId": 622,
+    "id": 99
+  },
+  {
+    "combatPowerLimit": 65572,
+    "damageValue": 13000000,
+    "heroId": 622,
+    "id": 100
+  },
+  {
+    "combatPowerLimit": 83904,
+    "damageValue": 20000000,
+    "heroId": 622,
+    "id": 101
+  },
+  {
+    "combatPowerLimit": 108687,
+    "damageValue": 30000000,
+    "heroId": 622,
+    "id": 102
+  },
+  {
+    "combatPowerLimit": 130373,
+    "damageValue": 40000000,
+    "heroId": 622,
+    "id": 103
+  },
+  {
+    "combatPowerLimit": 186090,
+    "damageValue": 60000000,
+    "heroId": 622,
+    "id": 104
+  },
+  {
+    "combatPowerLimit": 268510,
+    "damageValue": 100000000,
+    "heroId": 622,
+    "id": 105
+  },
+  {
+    "combatPowerLimit": 740858,
+    "damageValue": 500000000,
+    "heroId": 622,
+    "id": 106
+  },
+  {
+    "combatPowerLimit": 966651,
+    "damageValue": 1000000000,
+    "heroId": 622,
+    "id": 107
+  },
+  {
+    "combatPowerLimit": 1118959,
+    "damageValue": 2500000000,
+    "heroId": 622,
+    "id": 108
+  }
+]

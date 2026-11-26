@@ -1,0 +1,57 @@
+[
+  {
+    "describe": "HERO_SYN_WORD045",
+    "id": 1,
+    "limitNum": 1,
+    "limitType": 1,
+    "payDiamondNum": 2000,
+    "payType": 1,
+    "productIdentifying": "pay51000",
+    "rewardNum": [10],
+    "rewardType": ["ancestorRoll"]
+  },
+  {
+    "describe": "HERO_SYN_WORD046",
+    "id": 2,
+    "limitNum": 1,
+    "limitType": 2,
+    "payDiamondNum": 0,
+    "payType": 2,
+    "productIdentifying": "pay51001",
+    "rewardNum": [680, 20, 680],
+    "rewardType": ["diamond", "ancestorRoll", "noblePoints"]
+  },
+  {
+    "describe": "HERO_SYN_WORD047",
+    "id": 3,
+    "limitNum": 3,
+    "limitType": 2,
+    "payDiamondNum": 0,
+    "payType": 2,
+    "productIdentifying": "pay51002",
+    "rewardNum": [1980, 35, 1980],
+    "rewardType": ["diamond", "ancestorRoll", "noblePoints"]
+  },
+  {
+    "describe": "HERO_SYN_WORD048",
+    "id": 4,
+    "limitNum": 5,
+    "limitType": 2,
+    "payDiamondNum": 0,
+    "payType": 2,
+    "productIdentifying": "pay51003",
+    "rewardNum": [3280, 50, 3280],
+    "rewardType": ["diamond", "ancestorRoll", "noblePoints"]
+  },
+  {
+    "describe": "HERO_SYN_WORD049",
+    "id": 5,
+    "limitNum": 8,
+    "limitType": 2,
+    "payDiamondNum": 0,
+    "payType": 2,
+    "productIdentifying": "pay51004",
+    "rewardNum": [6480, 100, 6480],
+    "rewardType": ["diamond", "ancestorRoll", "noblePoints"]
+  }
+]

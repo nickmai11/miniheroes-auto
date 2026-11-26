@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "rewardType": ["diamond", "exp", "gold"],
+    "rewardValue": [200, 10000, 20000]
+  },
+  {
+    "id": 2,
+    "rewardType": ["recruitRoll", "randomFragment2", "gold_1"],
+    "rewardValue": [1, 3, 1]
+  },
+  {
+    "id": 3,
+    "rewardType": ["gold_1", "randomFragment4"],
+    "rewardValue": [1, 3]
+  },
+  {
+    "id": 4,
+    "rewardType": ["diamond", "exp", "gold"],
+    "rewardValue": [200, 10000, 20000]
+  },
+  {
+    "id": 5,
+    "rewardType": ["recruitRoll", "randomFragment2", "gold_1"],
+    "rewardValue": [1, 3, 1]
+  },
+  { "id": 6, "rewardType": ["diamond"], "rewardValue": [200] },
+  { "id": 7, "rewardType": ["recruitRoll"], "rewardValue": [1] }
+]

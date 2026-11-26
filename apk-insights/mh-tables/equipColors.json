@@ -1,0 +1,7 @@
+[
+  { "equipAffixUnlock": 20, "equipFrame": 2, "id": 1 },
+  { "equipAffixUnlock": 40, "equipFrame": 3, "id": 2 },
+  { "equipAffixUnlock": 70, "equipFrame": 4, "id": 3 },
+  { "equipAffixUnlock": 100, "equipFrame": 5, "id": 4 },
+  { "equipAffixUnlock": 130, "equipFrame": 6, "id": 5 }
+]

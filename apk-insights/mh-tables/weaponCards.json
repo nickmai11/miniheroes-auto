@@ -1,0 +1,15 @@
+[
+  {
+    "continueDays": 30,
+    "dayRewardNum": [1500, 2, 2],
+    "dayRewardType": ["forgeCoin", "energyFuel", "fireCore"],
+    "discount": 50,
+    "extraForgeGiveBonus": 0.2,
+    "extraSmithingTable": 5,
+    "forgeTimeReducePer": 0.2,
+    "id": 1,
+    "productIdentifying": "pay38001",
+    "rewardNum": [600, 600],
+    "rewardType": ["diamond", "noblePoints"]
+  }
+]

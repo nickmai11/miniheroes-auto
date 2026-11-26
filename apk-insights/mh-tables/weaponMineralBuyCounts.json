@@ -1,0 +1,67 @@
+[
+  {
+    "BroachGive": 1,
+    "ExplosiveGive": 1,
+    "PickaxGive": 5,
+    "buyTimes": 1,
+    "costBroachNum": 100,
+    "costBroachType": "diamond",
+    "costExplosiveNum": 100,
+    "costExplosiveType": "diamond",
+    "costPickaxNum": 120,
+    "costPickaxType": "diamond",
+    "id": 1
+  },
+  {
+    "BroachGive": 1,
+    "ExplosiveGive": 1,
+    "PickaxGive": 5,
+    "buyTimes": 2,
+    "costBroachNum": 200,
+    "costBroachType": "diamond",
+    "costExplosiveNum": 200,
+    "costExplosiveType": "diamond",
+    "costPickaxNum": 120,
+    "costPickaxType": "diamond",
+    "id": 2
+  },
+  {
+    "BroachGive": 1,
+    "ExplosiveGive": 1,
+    "PickaxGive": 5,
+    "buyTimes": 3,
+    "costBroachNum": 300,
+    "costBroachType": "diamond",
+    "costExplosiveNum": 300,
+    "costExplosiveType": "diamond",
+    "costPickaxNum": 120,
+    "costPickaxType": "diamond",
+    "id": 3
+  },
+  {
+    "BroachGive": 1,
+    "ExplosiveGive": 1,
+    "PickaxGive": 5,
+    "buyTimes": 4,
+    "costBroachNum": 400,
+    "costBroachType": "diamond",
+    "costExplosiveNum": 400,
+    "costExplosiveType": "diamond",
+    "costPickaxNum": 120,
+    "costPickaxType": "diamond",
+    "id": 4
+  },
+  {
+    "BroachGive": 1,
+    "ExplosiveGive": 1,
+    "PickaxGive": 5,
+    "buyTimes": 5,
+    "costBroachNum": 500,
+    "costBroachType": "diamond",
+    "costExplosiveNum": 500,
+    "costExplosiveType": "diamond",
+    "costPickaxNum": 120,
+    "costPickaxType": "diamond",
+    "id": 5
+  }
+]

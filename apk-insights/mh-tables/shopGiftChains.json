@@ -1,0 +1,138 @@
+[
+  {
+    "giftBagDec": "SC_JLBG_INFO_3",
+    "giftBagName": 1,
+    "id": 1,
+    "productIdentifying": "pay26001",
+    "rewardNum": [100, 50000],
+    "rewardType": ["diamond", "gold"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_3",
+    "giftBagName": 1,
+    "id": 2,
+    "productIdentifying": "pay26002",
+    "rewardNum": [1, 1],
+    "rewardType": ["recruitRoll", "exp_1"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_4",
+    "giftBagName": 2,
+    "id": 3,
+    "productIdentifying": "pay26003",
+    "rewardNum": [60, 5, 1, 60],
+    "rewardType": ["diamond", "recruitRoll", "gold_1", "noblePoints"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_3",
+    "giftBagName": 1,
+    "id": 4,
+    "productIdentifying": "pay26004",
+    "rewardNum": [60, 100000],
+    "rewardType": ["diamond", "gold"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_3",
+    "giftBagName": 1,
+    "id": 5,
+    "productIdentifying": "pay26005",
+    "rewardNum": [3, 2],
+    "rewardType": ["recruitRoll", "exp_1"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_4",
+    "giftBagName": 2,
+    "id": 6,
+    "productIdentifying": "pay26006",
+    "rewardNum": [300, 1, 1, 300],
+    "rewardType": ["diamond", "shenhuasuijibox", "gold_2", "noblePoints"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_3",
+    "giftBagName": 1,
+    "id": 7,
+    "productIdentifying": "pay26007",
+    "rewardNum": [300, 200000],
+    "rewardType": ["diamond", "gold"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_3",
+    "giftBagName": 1,
+    "id": 8,
+    "productIdentifying": "pay26008",
+    "rewardNum": [10, 3],
+    "rewardType": ["recruitRoll", "exp_1"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_4",
+    "giftBagName": 2,
+    "id": 9,
+    "productIdentifying": "pay26009",
+    "rewardNum": [680, 20, 1, 680],
+    "rewardType": ["diamond", "recruitRoll", "gold_3", "noblePoints"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_3",
+    "giftBagName": 1,
+    "id": 10,
+    "productIdentifying": "pay26010",
+    "rewardNum": [680, 300000],
+    "rewardType": ["diamond", "gold"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_3",
+    "giftBagName": 1,
+    "id": 11,
+    "productIdentifying": "pay26011",
+    "rewardNum": [30, 4],
+    "rewardType": ["randomFragment3", "exp_1"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_4",
+    "giftBagName": 2,
+    "id": 12,
+    "productIdentifying": "pay26012",
+    "rewardNum": [300, 10, 1, 300],
+    "rewardType": ["diamond", "recruitRoll", "gold_2", "noblePoints"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_3",
+    "giftBagName": 1,
+    "id": 13,
+    "productIdentifying": "pay26013",
+    "rewardNum": [300, 200000],
+    "rewardType": ["diamond", "gold"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_3",
+    "giftBagName": 1,
+    "id": 14,
+    "productIdentifying": "pay26014",
+    "rewardNum": [5, 1],
+    "rewardType": ["soulStone3", "zb_box1"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_4",
+    "giftBagName": 2,
+    "id": 15,
+    "productIdentifying": "pay26015",
+    "rewardNum": [180, 15, 1, 180],
+    "rewardType": ["diamond", "shareDebris3", "gold_2", "noblePoints"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_3",
+    "giftBagName": 1,
+    "id": 16,
+    "productIdentifying": "pay26016",
+    "rewardNum": [180, 150000],
+    "rewardType": ["diamond", "gold"]
+  },
+  {
+    "giftBagDec": "SC_JLBG_INFO_3",
+    "giftBagName": 1,
+    "id": 17,
+    "productIdentifying": "pay26017",
+    "rewardNum": [1, 1],
+    "rewardType": ["shenhuabox", "medal2"]
+  }
+]

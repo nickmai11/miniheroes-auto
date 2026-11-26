@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "reduceScore": 12000,
+    "rewardNum1": [12000, 15000],
+    "rewardNum2": [500, 5000],
+    "rewardType1": ["wildScore", "gold"],
+    "rewardType2": ["wildScore", "gold"],
+    "type": 1
+  },
+  {
+    "id": 2,
+    "reduceScore": 8000,
+    "rewardNum1": [8000, 10000],
+    "rewardNum2": [500, 5000],
+    "rewardType1": ["wildScore", "gold"],
+    "rewardType2": ["wildScore", "gold"],
+    "type": 2
+  },
+  {
+    "id": 3,
+    "reduceScore": 4000,
+    "rewardNum1": [4000, 5000],
+    "rewardNum2": [500, 5000],
+    "rewardType1": ["wildScore", "gold"],
+    "rewardType2": ["wildScore", "gold"],
+    "type": 3
+  }
+]

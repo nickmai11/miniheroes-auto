@@ -1,0 +1,47 @@
+[
+  {
+    "dayRanking": [1],
+    "rewardNum": [4, 300, 30],
+    "rewardType": ["randomFragment3", "diamond", "medal1"]
+  },
+  {
+    "dayRanking": [2],
+    "rewardNum": [3, 200, 20],
+    "rewardType": ["randomFragment3", "diamond", "medal1"]
+  },
+  {
+    "dayRanking": [3],
+    "rewardNum": [3, 150, 15],
+    "rewardType": ["randomFragment3", "diamond", "medal1"]
+  },
+  {
+    "dayRanking": [4],
+    "rewardNum": [2, 100, 12],
+    "rewardType": ["randomFragment3", "diamond", "medal1"]
+  },
+  {
+    "dayRanking": [5, 10],
+    "rewardNum": [2, 80, 10],
+    "rewardType": ["randomFragment3", "diamond", "medal1"]
+  },
+  {
+    "dayRanking": [11, 20],
+    "rewardNum": [2, 50, 5],
+    "rewardType": ["randomFragment3", "diamond", "medal1"]
+  },
+  {
+    "dayRanking": [21, 50],
+    "rewardNum": [1, 50, 3],
+    "rewardType": ["randomFragment3", "diamond", "medal1"]
+  },
+  {
+    "dayRanking": [51, 100],
+    "rewardNum": [50, 2],
+    "rewardType": ["diamond", "medal1"]
+  },
+  {
+    "dayRanking": [101, 9999],
+    "rewardNum": [20, 1],
+    "rewardType": ["diamond", "medal1"]
+  }
+]

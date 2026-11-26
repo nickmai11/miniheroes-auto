@@ -27,6 +27,8 @@ lines to each game-day log; a Done line here that it doesn't check = a `checklis
 - `tower` — **Tower** — 3 challenges fought; if "Claim Reward" (chest level) shows, it's claimed and the fights go on.
 - `sanctuary` — **Secret Sanctuary** — swept, or **all floors won** (floor 10 won / nothing left to climb; a climb that ends on a lower floor = not done, even with no marker read).
 - `gate` — **Gate of Darkness** — "Chances left today: 0".
+- `ruins` — **Ancient Ruins** — `ruins done: N finished, out of stamina` (stamina 0 on the floor / hub), or it stopped at
+  a Search that costs more than 50 diamonds. Never the stamina purchase.
 - `beast` — **Beast Realm** — Chances dropped by 1.
 - `arena3` — Arena again — same as `arena`.
 - `recruit` — **Recruit** — the free draws in the config are used: Common, Ancestor ("Free after …" shows), Artifact. No Play Pass: the ad draws count (Nick 2026-11-08).

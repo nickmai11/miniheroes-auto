@@ -1,0 +1,107 @@
+[
+  {
+    "boxlevel": 1,
+    "damageValue": 20000,
+    "id": 1,
+    "rewardNum": [1, 50, 10000],
+    "rewardType": ["blueBag_tbh", "tbhCoin", "gold"]
+  },
+  {
+    "boxlevel": 2,
+    "damageValue": 50000,
+    "id": 2,
+    "rewardNum": [2, 50, 10000],
+    "rewardType": ["coinMinting2", "tbhCoin", "gold"]
+  },
+  {
+    "boxlevel": 3,
+    "damageValue": 100000,
+    "id": 3,
+    "rewardNum": [1, 50, 10000],
+    "rewardType": ["purpleBag_tbh", "tbhCoin", "gold"]
+  },
+  {
+    "boxlevel": 4,
+    "damageValue": 150000,
+    "id": 4,
+    "rewardNum": [1, 50, 10000],
+    "rewardType": ["linktbhStone", "tbhCoin", "gold"]
+  },
+  {
+    "boxlevel": 5,
+    "damageValue": 200000,
+    "id": 5,
+    "rewardNum": [1, 50, 10000],
+    "rewardType": ["orangeBag_tbh", "tbhCoin", "gold"]
+  },
+  {
+    "boxlevel": 6,
+    "damageValue": 400000,
+    "id": 6,
+    "rewardNum": [5000],
+    "rewardType": ["gold"]
+  },
+  {
+    "boxlevel": 7,
+    "damageValue": 600000,
+    "id": 7,
+    "rewardNum": [5000],
+    "rewardType": ["gold"]
+  },
+  {
+    "boxlevel": 8,
+    "damageValue": 800000,
+    "id": 8,
+    "rewardNum": [5000],
+    "rewardType": ["gold"]
+  },
+  {
+    "boxlevel": 9,
+    "damageValue": 1000000,
+    "id": 9,
+    "rewardNum": [5000],
+    "rewardType": ["gold"]
+  },
+  {
+    "boxlevel": 10,
+    "damageValue": 2000000,
+    "id": 10,
+    "rewardNum": [5000],
+    "rewardType": ["gold"]
+  },
+  {
+    "boxlevel": 11,
+    "damageValue": 3000000,
+    "id": 11,
+    "rewardNum": [5000],
+    "rewardType": ["gold"]
+  },
+  {
+    "boxlevel": 12,
+    "damageValue": 4000000,
+    "id": 12,
+    "rewardNum": [5000],
+    "rewardType": ["gold"]
+  },
+  {
+    "boxlevel": 13,
+    "damageValue": 6000000,
+    "id": 13,
+    "rewardNum": [5000],
+    "rewardType": ["gold"]
+  },
+  {
+    "boxlevel": 14,
+    "damageValue": 8000000,
+    "id": 14,
+    "rewardNum": [5000],
+    "rewardType": ["gold"]
+  },
+  {
+    "boxlevel": 15,
+    "damageValue": 10000000,
+    "id": 15,
+    "rewardNum": [5000],
+    "rewardType": ["gold"]
+  }
+]

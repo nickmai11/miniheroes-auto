@@ -1,0 +1,9 @@
+[
+  { "id": 1, "rewardNum": 300, "rewardType": "diamond" },
+  { "id": 2, "rewardNum": 10, "rewardType": "recruitRoll" },
+  { "id": 3, "rewardNum": 1, "rewardType": "zb_box1" },
+  { "id": 4, "rewardNum": 2, "rewardType": "medal2" },
+  { "id": 5, "rewardNum": 30, "rewardType": "medal1" },
+  { "id": 6, "rewardNum": 1, "rewardType": "glyphs_1003" },
+  { "id": 7, "rewardNum": 1, "rewardType": "shenhuasuijibox" }
+]

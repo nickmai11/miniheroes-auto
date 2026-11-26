@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "itemNum": [500],
+    "itemType": ["succinctStone"],
+    "succinctType": 0
+  },
+  {
+    "id": 2,
+    "itemNum": [1000, 1],
+    "itemType": ["succinctStone", "tieStone"],
+    "succinctType": 1
+  },
+  {
+    "id": 3,
+    "itemNum": [1500, 7],
+    "itemType": ["succinctStone", "tieStone"],
+    "succinctType": 2
+  }
+]

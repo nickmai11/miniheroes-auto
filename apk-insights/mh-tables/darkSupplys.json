@@ -1,0 +1,101 @@
+[
+  {
+    "abyssCoin": 0,
+    "describe": "UI_FUNCTION_56",
+    "displayNum": [40, 1],
+    "id": 1,
+    "killFalling": 40,
+    "level": 1,
+    "name": "UI_FUNCTION_55"
+  },
+  {
+    "abyssCoin": 50,
+    "describe": "UI_FUNCTION_56",
+    "displayNum": [39, 1],
+    "id": 2,
+    "killFalling": 39,
+    "level": 2,
+    "name": "UI_FUNCTION_55"
+  },
+  {
+    "abyssCoin": 60,
+    "describe": "UI_FUNCTION_56",
+    "displayNum": [38, 1],
+    "id": 3,
+    "killFalling": 38,
+    "level": 3,
+    "name": "UI_FUNCTION_55"
+  },
+  {
+    "abyssCoin": 70,
+    "describe": "UI_FUNCTION_56",
+    "displayNum": [37, 1],
+    "id": 4,
+    "killFalling": 37,
+    "level": 4,
+    "name": "UI_FUNCTION_55"
+  },
+  {
+    "abyssCoin": 80,
+    "describe": "UI_FUNCTION_56",
+    "displayNum": [36, 1],
+    "id": 5,
+    "killFalling": 36,
+    "level": 5,
+    "name": "UI_FUNCTION_55"
+  },
+  {
+    "abyssCoin": 90,
+    "describe": "UI_FUNCTION_56",
+    "displayNum": [35, 1],
+    "id": 6,
+    "killFalling": 35,
+    "level": 6,
+    "name": "UI_FUNCTION_55"
+  },
+  {
+    "abyssCoin": 100,
+    "describe": "UI_FUNCTION_56",
+    "displayNum": [34, 1],
+    "id": 7,
+    "killFalling": 34,
+    "level": 7,
+    "name": "UI_FUNCTION_55"
+  },
+  {
+    "abyssCoin": 120,
+    "describe": "UI_FUNCTION_56",
+    "displayNum": [33, 1],
+    "id": 8,
+    "killFalling": 33,
+    "level": 8,
+    "name": "UI_FUNCTION_55"
+  },
+  {
+    "abyssCoin": 140,
+    "describe": "UI_FUNCTION_56",
+    "displayNum": [32, 1],
+    "id": 9,
+    "killFalling": 32,
+    "level": 9,
+    "name": "UI_FUNCTION_55"
+  },
+  {
+    "abyssCoin": 170,
+    "describe": "UI_FUNCTION_56",
+    "displayNum": [31, 1],
+    "id": 10,
+    "killFalling": 31,
+    "level": 10,
+    "name": "UI_FUNCTION_55"
+  },
+  {
+    "abyssCoin": 200,
+    "describe": "UI_FUNCTION_57",
+    "displayNum": [30],
+    "id": 11,
+    "killFalling": 30,
+    "level": 11,
+    "name": "UI_FUNCTION_55"
+  }
+]

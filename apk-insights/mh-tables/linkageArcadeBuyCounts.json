@@ -1,0 +1,107 @@
+[
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 50,
+    "buyAttackTimes": 1,
+    "buyTimes": 1,
+    "id": 1
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 100,
+    "buyAttackTimes": 1,
+    "buyTimes": 2,
+    "id": 2
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 150,
+    "buyAttackTimes": 1,
+    "buyTimes": 3,
+    "id": 3
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 150,
+    "buyAttackTimes": 1,
+    "buyTimes": 4,
+    "id": 4
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 150,
+    "buyAttackTimes": 1,
+    "buyTimes": 5,
+    "id": 5
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 150,
+    "buyAttackTimes": 1,
+    "buyTimes": 6,
+    "id": 6
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 150,
+    "buyAttackTimes": 1,
+    "buyTimes": 7,
+    "id": 7
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 150,
+    "buyAttackTimes": 1,
+    "buyTimes": 8,
+    "id": 8
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 150,
+    "buyAttackTimes": 1,
+    "buyTimes": 9,
+    "id": 9
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 150,
+    "buyAttackTimes": 1,
+    "buyTimes": 10,
+    "id": 10
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 150,
+    "buyAttackTimes": 1,
+    "buyTimes": 11,
+    "id": 11
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 150,
+    "buyAttackTimes": 1,
+    "buyTimes": 12,
+    "id": 12
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 150,
+    "buyAttackTimes": 1,
+    "buyTimes": 13,
+    "id": 13
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 150,
+    "buyAttackTimes": 1,
+    "buyTimes": 14,
+    "id": 14
+  },
+  {
+    "buyAttackItem": "diamond",
+    "buyAttackItemNum": 150,
+    "buyAttackTimes": 1,
+    "buyTimes": 15,
+    "id": 15
+  }
+]

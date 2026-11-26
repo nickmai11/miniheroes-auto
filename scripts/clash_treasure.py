@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Tribe Clash -> Treasure (Chieftain's Treasure): spend the keys on chests, floor by floor. Keys only, no gems.
 # usage: D=<serial> scripts/clash_treasure.py   (main screen or Tribe Clash screen); also the last step of tc.py.
-# 9 chests per floor, counter "keys/cost" at the bottom (Floor 1 = 1 key, Floor 2 = 2). One chest is the Grand Prize
+# 9 chests per floor, counter "keys/cost" at the bottom (Floor N = N keys, 1..9). One chest is the Grand Prize
 # (Congratulations popup); its slot then becomes a portal to the next floor, taken at once (Nick 2026-11-11: go to the
 # next floor as soon as it's found; the floor's unopened chests are lost). Only closed chests are tapped (pixel check):
 # an opened one shows an item card instead.
@@ -80,7 +80,7 @@ def run():
     b = ocr()
     if not find(b, r'Chieftain'):
         if not find(b, r'^Guess$', (900, 1800, 1080, 1920)):
-            tap_text(r'Tribe Clash', (680, 560, 1080, 680), b)                            # main-screen banner
+            tap_text(r'Tribe Clash', (680, 560, 1080, 680), wait(r'Tribe Clash', 10, (680, 560, 1080, 680)))                            # main-screen banner
             wait(r'^Guess$', 10, (900, 1800, 1080, 1920))
         tap_wait(980, 1300); wait(r'Chieftain', 8)                                         # Treasure
     while floor_pass(): pass

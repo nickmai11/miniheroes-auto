@@ -1,0 +1,50 @@
+[
+  {
+    "buyRewardNum": [680, 500, 680],
+    "buyRewardType": ["diamond", "tbhPassCheckScore", "noblePoints"],
+    "id": 1,
+    "productIdentifying": "pay48001",
+    "timeNum": 1,
+    "type": 1
+  },
+  {
+    "buyRewardNum": [680, 500, 680],
+    "buyRewardType": ["diamond", "tbhPassCheckScore", "noblePoints"],
+    "id": 2,
+    "productIdentifying": "pay48002",
+    "timeNum": 2,
+    "type": 1
+  },
+  {
+    "buyRewardNum": [680, 500, 680],
+    "buyRewardType": ["diamond", "tbhPassCheckScore", "noblePoints"],
+    "id": 3,
+    "productIdentifying": "pay48003",
+    "timeNum": 3,
+    "type": 1
+  },
+  {
+    "buyRewardNum": [1980, 500, 1980],
+    "buyRewardType": ["diamond", "tbhPassCheckScore", "noblePoints"],
+    "id": 4,
+    "productIdentifying": "pay48011",
+    "timeNum": 1,
+    "type": 2
+  },
+  {
+    "buyRewardNum": [1980, 500, 1980],
+    "buyRewardType": ["diamond", "tbhPassCheckScore", "noblePoints"],
+    "id": 5,
+    "productIdentifying": "pay48012",
+    "timeNum": 2,
+    "type": 2
+  },
+  {
+    "buyRewardNum": [1980, 500, 1980],
+    "buyRewardType": ["diamond", "tbhPassCheckScore", "noblePoints"],
+    "id": 6,
+    "productIdentifying": "pay48013",
+    "timeNum": 3,
+    "type": 2
+  }
+]

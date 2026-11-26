@@ -1,0 +1,110 @@
+[
+  {
+    "exchangeItem": "pointGvgCoin",
+    "exchangeNumber": 3000,
+    "exchangeTime": 1,
+    "id": 1,
+    "itmeID": "fragment_108",
+    "number": 5,
+    "positionId": 1
+  },
+  {
+    "exchangeItem": "pointGvgCoin",
+    "exchangeNumber": 3000,
+    "exchangeTime": 1,
+    "id": 2,
+    "itmeID": "reviveItem",
+    "number": 1,
+    "positionId": 2
+  },
+  {
+    "exchangeItem": "pointGvgCoin",
+    "exchangeNumber": 1500,
+    "exchangeTime": 1,
+    "id": 3,
+    "itmeID": "spiritStone_2",
+    "number": 1000,
+    "positionId": 3
+  },
+  {
+    "exchangeItem": "pointGvgCoin",
+    "exchangeNumber": 3000,
+    "exchangeTime": 1,
+    "id": 4,
+    "itmeID": "spiritStone_3",
+    "number": 1000,
+    "positionId": 4
+  },
+  {
+    "exchangeItem": "pointGvgCoin",
+    "exchangeNumber": 350,
+    "exchangeTime": 1,
+    "id": 5,
+    "itmeID": "randomMemf0",
+    "number": 10,
+    "positionId": 5
+  },
+  {
+    "exchangeItem": "pointGvgCoin",
+    "exchangeNumber": 750,
+    "exchangeTime": 1,
+    "id": 6,
+    "itmeID": "randomMemf1",
+    "number": 10,
+    "positionId": 6
+  },
+  {
+    "exchangeItem": "pointGvgCoin",
+    "exchangeNumber": 1500,
+    "exchangeTime": 1,
+    "id": 7,
+    "itmeID": "randomMemf2",
+    "number": 10,
+    "positionId": 7
+  },
+  {
+    "exchangeItem": "pointGvgCoin",
+    "exchangeNumber": 3000,
+    "exchangeTime": 1,
+    "id": 8,
+    "itmeID": "randomMemf3",
+    "number": 10,
+    "positionId": 8
+  },
+  {
+    "exchangeItem": "pointGvgCoin",
+    "exchangeNumber": 12000,
+    "exchangeTime": 1,
+    "id": 9,
+    "itmeID": "powerDiamond",
+    "number": 5,
+    "positionId": 9
+  },
+  {
+    "exchangeItem": "pointGvgCoin",
+    "exchangeNumber": 12000,
+    "exchangeTime": 1,
+    "id": 10,
+    "itmeID": "jungleJade",
+    "number": 5,
+    "positionId": 10
+  },
+  {
+    "exchangeItem": "pointGvgCoin",
+    "exchangeNumber": 12000,
+    "exchangeTime": 1,
+    "id": 11,
+    "itmeID": "energyAmber",
+    "number": 5,
+    "positionId": 11
+  },
+  {
+    "exchangeItem": "pointGvgCoin",
+    "exchangeNumber": 12000,
+    "exchangeTime": 1,
+    "id": 12,
+    "itmeID": "magicAmethyst",
+    "number": 5,
+    "positionId": 12
+  }
+]

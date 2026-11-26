@@ -1,0 +1,164 @@
+[
+  {
+    "cost": 0,
+    "describe": "WILD_GIFT_NAME1",
+    "id": 1,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay44001",
+    "rewardNum": [20],
+    "rewardType": ["diamond"],
+    "showType": 1,
+    "type": 1
+  },
+  {
+    "cost": 80,
+    "describe": "WILD_GIFT_NAME2",
+    "id": 2,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay44002",
+    "rewardNum": [4, 1000],
+    "rewardType": ["wildPower", "gold"],
+    "showType": 1,
+    "type": 2
+  },
+  {
+    "cost": 400,
+    "describe": "WILD_GIFT_NAME3",
+    "id": 3,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay44003",
+    "rewardNum": [1, 2],
+    "rewardType": ["wildPowerMedicine", "gemRandom_01"],
+    "showType": 1,
+    "type": 2
+  },
+  {
+    "cost": 0,
+    "describe": "WILD_GIFT_NAME4",
+    "id": 4,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay44004",
+    "rewardNum": [60, 1, 1, 3, 60],
+    "rewardType": [
+      "diamond",
+      "wildPowerMedicine",
+      "gemRandom_02",
+      "equipEssenceRandom",
+      "noblePoints"
+    ],
+    "showType": 1,
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "WILD_GIFT_NAME5",
+    "id": 5,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay44005",
+    "rewardNum": [300, 4, 1, 5, 300],
+    "rewardType": [
+      "diamond",
+      "wildPowerMedicine",
+      "gemRandom_03",
+      "equipEssenceRandom",
+      "noblePoints"
+    ],
+    "showType": 1,
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "WILD_GIFT_NAME6",
+    "id": 6,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay44006",
+    "rewardNum": [680, 7, 2, 10, 680],
+    "rewardType": [
+      "diamond",
+      "wildPowerMedicine",
+      "gemRandom_03",
+      "equipEssenceRandom",
+      "noblePoints"
+    ],
+    "showType": 1,
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "WILD_GIFT_NAME7",
+    "id": 7,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay44007",
+    "rewardNum": [1280, 12, 3, 20, 1280],
+    "rewardType": [
+      "diamond",
+      "wildPowerMedicine",
+      "gemRandom_03",
+      "equipEssenceRandom",
+      "noblePoints"
+    ],
+    "showType": 1,
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "WILD_GIFT_NAME8",
+    "id": 8,
+    "limitNum": 1,
+    "limitType": 1,
+    "productIdentifying": "pay44008",
+    "rewardNum": [3280, 25, 6, 50, 3280],
+    "rewardType": [
+      "diamond",
+      "wildPowerMedicine",
+      "gemRandom_03",
+      "equipEssenceRandom",
+      "noblePoints"
+    ],
+    "showType": 1,
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "WILD_GIFT_NAME9",
+    "id": 9,
+    "limitNum": 10,
+    "limitType": 2,
+    "productIdentifying": "pay44009",
+    "rewardNum": [6480, 40, 10, 100, 6480],
+    "rewardType": [
+      "diamond",
+      "wildPowerMedicine",
+      "gemRandom_03",
+      "equipEssenceRandom",
+      "noblePoints"
+    ],
+    "showType": 2,
+    "type": 1
+  },
+  {
+    "cost": 0,
+    "describe": "WILD_GIFT_NAME10",
+    "id": 10,
+    "limitNum": 5,
+    "limitType": 2,
+    "productIdentifying": "pay44010",
+    "rewardNum": [300, 1, 2, 5, 300],
+    "rewardType": [
+      "diamond",
+      "wildAttackToken",
+      "wildPowerMedicine",
+      "equipEssenceRandom",
+      "noblePoints"
+    ],
+    "showType": 3,
+    "type": 1
+  }
+]

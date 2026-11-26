@@ -1,0 +1,154 @@
+[
+  {
+    "battleStar": 1,
+    "enemyDesc": "WILD_ENEMY_DESC_1",
+    "enemyName": "WILD_ENEMY_NAME_1",
+    "enemyType": 1,
+    "id": 1,
+    "showProb": [0, 0, 1, 1, 1],
+    "showReward": [
+      "wildScore",
+      "wildBuffQuality1",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3"
+    ],
+    "showRewardNum": [1100, 1, 20, 20, 20]
+  },
+  {
+    "battleStar": 2,
+    "enemyDesc": "WILD_ENEMY_DESC_2",
+    "enemyName": "WILD_ENEMY_NAME_2",
+    "enemyType": 2,
+    "id": 2,
+    "showProb": [0, 1, 1, 1, 1, 1],
+    "showReward": [
+      "wildScore",
+      "wildBuffQuality1",
+      "wildBuffQuality2",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3"
+    ],
+    "showRewardNum": [1200, 1, 1, 20, 20, 20]
+  },
+  {
+    "battleStar": 3,
+    "enemyDesc": "WILD_ENEMY_DESC_3",
+    "enemyName": "WILD_ENEMY_NAME_3",
+    "enemyType": 3,
+    "id": 3,
+    "showProb": [0, 1, 1, 1, 1, 1],
+    "showReward": [
+      "wildScore",
+      "wildBuffQuality1",
+      "wildBuffQuality2",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3"
+    ],
+    "showRewardNum": [1300, 1, 1, 20, 20, 20]
+  },
+  {
+    "battleStar": 2,
+    "enemyDesc": "WILD_ENEMY_DESC_4",
+    "enemyName": "WILD_ENEMY_NAME_4",
+    "enemyType": 4,
+    "id": 4,
+    "showProb": [0, 1, 1, 1, 1, 1],
+    "showReward": [
+      "wildScore",
+      "wildBuffQuality2",
+      "wildBuffQuality3",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3"
+    ],
+    "showRewardNum": [2300, 1, 1, 44, 44, 44]
+  },
+  {
+    "battleStar": 3,
+    "enemyDesc": "WILD_ENEMY_DESC_5",
+    "enemyName": "WILD_ENEMY_NAME_5",
+    "enemyType": 5,
+    "id": 5,
+    "showProb": [0, 1, 1, 1, 1, 1],
+    "showReward": [
+      "wildScore",
+      "wildBuffQuality2",
+      "wildBuffQuality3",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3"
+    ],
+    "showRewardNum": [2520, 1, 1, 44, 44, 44]
+  },
+  {
+    "battleStar": 4,
+    "enemyDesc": "WILD_ENEMY_DESC_6",
+    "enemyName": "WILD_ENEMY_NAME_6",
+    "enemyType": 6,
+    "id": 6,
+    "showProb": [0, 1, 1, 1, 1, 1],
+    "showReward": [
+      "wildScore",
+      "wildBuffQuality2",
+      "wildBuffQuality3",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3"
+    ],
+    "showRewardNum": [2740, 1, 1, 44, 44, 44]
+  },
+  {
+    "battleStar": 3,
+    "enemyDesc": "WILD_ENEMY_DESC_7",
+    "enemyName": "WILD_ENEMY_NAME_7",
+    "enemyType": 7,
+    "id": 7,
+    "showProb": [0, 1, 1, 1, 1, 1],
+    "showReward": [
+      "wildScore",
+      "wildBuffQuality3",
+      "wildBuffQuality4",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3"
+    ],
+    "showRewardNum": [4100, 1, 1, 80, 80, 80]
+  },
+  {
+    "battleStar": 4,
+    "enemyDesc": "WILD_ENEMY_DESC_8",
+    "enemyName": "WILD_ENEMY_NAME_8",
+    "enemyType": 8,
+    "id": 8,
+    "showProb": [0, 1, 1, 1, 1, 1],
+    "showReward": [
+      "wildScore",
+      "wildBuffQuality3",
+      "wildBuffQuality4",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3"
+    ],
+    "showRewardNum": [4500, 1, 1, 80, 80, 80]
+  },
+  {
+    "battleStar": 5,
+    "enemyDesc": "WILD_ENEMY_DESC_9",
+    "enemyName": "WILD_ENEMY_NAME_9",
+    "enemyType": 9,
+    "id": 9,
+    "showProb": [0, 1, 1, 1, 1, 1],
+    "showReward": [
+      "wildScore",
+      "wildBuffQuality3",
+      "wildBuffQuality4",
+      "spiritStone_1",
+      "spiritStone_2",
+      "spiritStone_3"
+    ],
+    "showRewardNum": [4900, 1, 1, 80, 80, 80]
+  }
+]

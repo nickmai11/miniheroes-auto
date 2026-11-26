@@ -6,7 +6,7 @@ prize (Level 10 / 15 ignored): picked on entering Level 3, 5 and 7, kept on the 
 Cards are flipped in random order (Nick 2026-11-09; the game says every card has an equal chance).
 usage: D=<serial> scripts/treasury.py <account> [--max-keys N]   from the main screen (or already on King's Treasury)."""
 import random, re, sys, time
-from flow import Stop, find, grab, joined, main, near, ocr, tap_wait, wait
+from flow import Stop, find, grab, is_main, joined, main, near, ocr, tap_wait, wait
 
 XS, YS = (414, 596, 776, 958), (910, 1092, 1274, 1454)          # card grid centres
 # prize picker: tiles in a fixed order, 4 per row (x below), rows 224 px apart; locked ones carry a "Level N" label
@@ -25,7 +25,8 @@ def open_treasury():
     b = ocr()
     if find(b, r"King.?s Treasury") and find(b, r'^Level \d'): return True
     from daily import hub_tabs
-    tap_wait(896, 340); wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920)); time.sleep(1.2)
+    if is_main(): tap_wait(896, 340)                             # not main = the event hub is open already (daily.py events flips in its own visit, Nick 2026-11-26)
+    wait(r'Match|Weekly', 10, (0, 1760, 1080, 1920)); time.sleep(1.2)
     x = hub_tabs().get('golden_woods')
     if not x: return False
     tap_wait(x, 1840); tap_wait(165, 300); wait(r'^Level \d', 8); return True

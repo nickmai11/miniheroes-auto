@@ -1,0 +1,62 @@
+[
+  {
+    "buyCondition": 2,
+    "discount": 0,
+    "id": 1,
+    "limitNum": 1,
+    "name": "SC_TH_MS_1",
+    "productIdentifying": "pay7000",
+    "rewardNum": [1],
+    "rewardType": ["recruitRoll"]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0.2,
+    "id": 2,
+    "limitNum": 1,
+    "name": "XSHD_18",
+    "productIdentifying": "pay7001",
+    "rewardNum": [300, 1, 10, 300],
+    "rewardType": ["diamond", "shenhuasuijibox", "soulStone1", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0,
+    "id": 3,
+    "limitNum": 3,
+    "name": "XSHD_19",
+    "productIdentifying": "pay7002",
+    "rewardNum": [680, 10, 5, 680],
+    "rewardType": ["diamond", "recruitRoll", "soulStone2", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0,
+    "id": 4,
+    "limitNum": 3,
+    "name": "XSHD_20",
+    "productIdentifying": "pay7003",
+    "rewardNum": [1980, 30, 5, 1980],
+    "rewardType": ["diamond", "recruitRoll", "soulStone2", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0,
+    "id": 5,
+    "limitNum": 3,
+    "name": "XSHD_21",
+    "productIdentifying": "pay7004",
+    "rewardNum": [3280, 50, 5, 3280],
+    "rewardType": ["diamond", "recruitRoll", "soulStone3", "noblePoints"]
+  },
+  {
+    "buyCondition": 1,
+    "discount": 0,
+    "id": 6,
+    "limitNum": 5,
+    "name": "XSHD_22",
+    "productIdentifying": "pay7005",
+    "rewardNum": [6480, 100, 5, 6480],
+    "rewardType": ["diamond", "recruitRoll", "soulStone3", "noblePoints"]
+  }
+]

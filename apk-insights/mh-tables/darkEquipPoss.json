@@ -1,0 +1,29 @@
+[
+  {
+    "abyssCoin": 0,
+    "describe": "UI_FUNCTION_53",
+    "displayNum": [1, 1],
+    "equipNum": 1,
+    "id": 1,
+    "level": 1,
+    "name": "UI_FUNCTION_52"
+  },
+  {
+    "abyssCoin": 300,
+    "describe": "UI_FUNCTION_53",
+    "displayNum": [2, 1],
+    "equipNum": 2,
+    "id": 2,
+    "level": 2,
+    "name": "UI_FUNCTION_52"
+  },
+  {
+    "abyssCoin": 600,
+    "describe": "UI_FUNCTION_54",
+    "displayNum": [3],
+    "equipNum": 3,
+    "id": 3,
+    "level": 3,
+    "name": "UI_FUNCTION_52"
+  }
+]

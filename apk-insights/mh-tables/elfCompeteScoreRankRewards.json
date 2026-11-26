@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "rewardNum": [1, 2, 20, 500000],
+    "rewardType": ["headFrame_12", "elfStoneBox2", "elfSkill1", "gold"],
+    "weekRanking": [1]
+  },
+  {
+    "id": 2,
+    "rewardNum": [1, 2, 18, 400000],
+    "rewardType": ["headFrame_11", "elfStoneBox2", "elfSkill1", "gold"],
+    "weekRanking": [2]
+  },
+  {
+    "id": 3,
+    "rewardNum": [1, 2, 15, 350000],
+    "rewardType": ["headFrame_11", "elfStoneBox2", "elfSkill1", "gold"],
+    "weekRanking": [3]
+  },
+  {
+    "id": 4,
+    "rewardNum": [2, 12, 300000],
+    "rewardType": ["elfStoneBox2", "elfSkill1", "gold"],
+    "weekRanking": [4, 5]
+  },
+  {
+    "id": 5,
+    "rewardNum": [1, 10, 250000],
+    "rewardType": ["elfStoneBox2", "elfSkill1", "gold"],
+    "weekRanking": [6, 10]
+  },
+  {
+    "id": 6,
+    "rewardNum": [1, 8, 200000],
+    "rewardType": ["elfStoneBox1", "elfSkill1", "gold"],
+    "weekRanking": [11, 20]
+  },
+  {
+    "id": 7,
+    "rewardNum": [8, 6, 150000],
+    "rewardType": ["breakStone2", "elfSkill1", "gold"],
+    "weekRanking": [21, 50]
+  },
+  {
+    "id": 8,
+    "rewardNum": [5, 4, 100000],
+    "rewardType": ["breakStone2", "elfSkill1", "gold"],
+    "weekRanking": [51, 100]
+  },
+  {
+    "id": 9,
+    "rewardNum": [2, 2, 50000],
+    "rewardType": ["breakStone2", "elfSkill1", "gold"],
+    "weekRanking": [101, 2000]
+  }
+]

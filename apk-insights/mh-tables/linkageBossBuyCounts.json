@@ -1,0 +1,26 @@
+[
+  {
+    "attackItemCost": 150,
+    "attackItemGive": 1,
+    "buyTimes": 1,
+    "id": 1,
+    "lootItemCost": 200,
+    "lootItemGive": 1
+  },
+  {
+    "attackItemCost": 150,
+    "attackItemGive": 1,
+    "buyTimes": 2,
+    "id": 2,
+    "lootItemCost": 200,
+    "lootItemGive": 1
+  },
+  {
+    "attackItemCost": 150,
+    "attackItemGive": 1,
+    "buyTimes": 3,
+    "id": 3,
+    "lootItemCost": 200,
+    "lootItemGive": 1
+  }
+]

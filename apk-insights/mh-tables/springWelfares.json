@@ -1,0 +1,722 @@
+[
+  {
+    "complianceNum": 500,
+    "id": 1,
+    "rewardNum": [1],
+    "rewardType": ["gold_2"],
+    "welfareDay": 1,
+    "welfareGear": 1,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1000,
+    "id": 2,
+    "rewardNum": [2],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 1,
+    "welfareGear": 2,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1500,
+    "id": 3,
+    "rewardNum": [1],
+    "rewardType": ["gold_3"],
+    "welfareDay": 1,
+    "welfareGear": 3,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 2000,
+    "id": 4,
+    "rewardNum": [3],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 1,
+    "welfareGear": 4,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 500,
+    "id": 5,
+    "rewardNum": [1],
+    "rewardType": ["exp_2"],
+    "welfareDay": 2,
+    "welfareGear": 1,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1000,
+    "id": 6,
+    "rewardNum": [2],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 2,
+    "welfareGear": 2,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1500,
+    "id": 7,
+    "rewardNum": [1],
+    "rewardType": ["exp_3"],
+    "welfareDay": 2,
+    "welfareGear": 3,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 2000,
+    "id": 8,
+    "rewardNum": [3],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 2,
+    "welfareGear": 4,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 500,
+    "id": 9,
+    "rewardNum": [5],
+    "rewardType": ["medal1"],
+    "welfareDay": 3,
+    "welfareGear": 1,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1000,
+    "id": 10,
+    "rewardNum": [2],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 3,
+    "welfareGear": 2,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1500,
+    "id": 11,
+    "rewardNum": [1],
+    "rewardType": ["medal2"],
+    "welfareDay": 3,
+    "welfareGear": 3,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 2000,
+    "id": 12,
+    "rewardNum": [3],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 3,
+    "welfareGear": 4,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 500,
+    "id": 13,
+    "rewardNum": [500],
+    "rewardType": ["starCrystal"],
+    "welfareDay": 4,
+    "welfareGear": 1,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1000,
+    "id": 14,
+    "rewardNum": [2],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 4,
+    "welfareGear": 2,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1500,
+    "id": 15,
+    "rewardNum": [1000],
+    "rewardType": ["starCrystal"],
+    "welfareDay": 4,
+    "welfareGear": 3,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 2000,
+    "id": 16,
+    "rewardNum": [3],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 4,
+    "welfareGear": 4,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 500,
+    "id": 17,
+    "rewardNum": [1],
+    "rewardType": ["luckyCoin"],
+    "welfareDay": 5,
+    "welfareGear": 1,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1000,
+    "id": 18,
+    "rewardNum": [2],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 5,
+    "welfareGear": 2,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1500,
+    "id": 19,
+    "rewardNum": [2],
+    "rewardType": ["luckyCoin"],
+    "welfareDay": 5,
+    "welfareGear": 3,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 2000,
+    "id": 20,
+    "rewardNum": [3],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 5,
+    "welfareGear": 4,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 500,
+    "id": 21,
+    "rewardNum": [1500],
+    "rewardType": ["holyLight"],
+    "welfareDay": 6,
+    "welfareGear": 1,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1000,
+    "id": 22,
+    "rewardNum": [2],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 6,
+    "welfareGear": 2,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1500,
+    "id": 23,
+    "rewardNum": [3000],
+    "rewardType": ["holyLight"],
+    "welfareDay": 6,
+    "welfareGear": 3,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 2000,
+    "id": 24,
+    "rewardNum": [3],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 6,
+    "welfareGear": 4,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 500,
+    "id": 25,
+    "rewardNum": [1000],
+    "rewardType": ["succinctStone"],
+    "welfareDay": 7,
+    "welfareGear": 1,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1000,
+    "id": 26,
+    "rewardNum": [2],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 7,
+    "welfareGear": 2,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1500,
+    "id": 27,
+    "rewardNum": [2],
+    "rewardType": ["tieStone"],
+    "welfareDay": 7,
+    "welfareGear": 3,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 2000,
+    "id": 28,
+    "rewardNum": [3],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 7,
+    "welfareGear": 4,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 500,
+    "id": 29,
+    "rewardNum": [1],
+    "rewardType": ["gold_2"],
+    "welfareDay": 8,
+    "welfareGear": 1,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1000,
+    "id": 30,
+    "rewardNum": [2],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 8,
+    "welfareGear": 2,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1500,
+    "id": 31,
+    "rewardNum": [1],
+    "rewardType": ["gold_3"],
+    "welfareDay": 8,
+    "welfareGear": 3,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 2000,
+    "id": 32,
+    "rewardNum": [3],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 8,
+    "welfareGear": 4,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 500,
+    "id": 33,
+    "rewardNum": [1],
+    "rewardType": ["exp_2"],
+    "welfareDay": 9,
+    "welfareGear": 1,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1000,
+    "id": 34,
+    "rewardNum": [2],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 9,
+    "welfareGear": 2,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1500,
+    "id": 35,
+    "rewardNum": [1],
+    "rewardType": ["exp_3"],
+    "welfareDay": 9,
+    "welfareGear": 3,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 2000,
+    "id": 36,
+    "rewardNum": [3],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 9,
+    "welfareGear": 4,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 500,
+    "id": 37,
+    "rewardNum": [5],
+    "rewardType": ["medal1"],
+    "welfareDay": 10,
+    "welfareGear": 1,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1000,
+    "id": 38,
+    "rewardNum": [2],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 10,
+    "welfareGear": 2,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 1500,
+    "id": 39,
+    "rewardNum": [1],
+    "rewardType": ["medal2"],
+    "welfareDay": 10,
+    "welfareGear": 3,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 2000,
+    "id": 40,
+    "rewardNum": [3],
+    "rewardType": ["greetingCard"],
+    "welfareDay": 10,
+    "welfareGear": 4,
+    "welfareType": 1
+  },
+  {
+    "complianceNum": 120,
+    "id": 41,
+    "rewardNum": [3000, 30, 1],
+    "rewardType": ["holyLight", "coinMinting1", "luckyCoin"],
+    "welfareDay": 1,
+    "welfareGear": 1,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 300,
+    "id": 42,
+    "rewardNum": [1, 3000, 2],
+    "rewardType": ["zb_box1", "spiritStone_2", "luckyCoin"],
+    "welfareDay": 1,
+    "welfareGear": 2,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 880,
+    "id": 43,
+    "rewardNum": [1, 1, 3],
+    "rewardType": ["tieStone", "glyphs_1003", "luckyCoin"],
+    "welfareDay": 1,
+    "welfareGear": 3,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 1680,
+    "id": 44,
+    "rewardNum": [3, 3000, 4],
+    "rewardType": ["sacrificeStoneFrag", "spiritStone_3", "luckyCoin"],
+    "welfareDay": 1,
+    "welfareGear": 4,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 120,
+    "id": 45,
+    "rewardNum": [3000, 30, 1],
+    "rewardType": ["holyLight", "coinMinting1", "luckyCoin"],
+    "welfareDay": 2,
+    "welfareGear": 1,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 300,
+    "id": 46,
+    "rewardNum": [1, 3000, 2],
+    "rewardType": ["zb_box1", "spiritStone_2", "luckyCoin"],
+    "welfareDay": 2,
+    "welfareGear": 2,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 880,
+    "id": 47,
+    "rewardNum": [1, 1, 3],
+    "rewardType": ["tieStone", "glyphs_1003", "luckyCoin"],
+    "welfareDay": 2,
+    "welfareGear": 3,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 1680,
+    "id": 48,
+    "rewardNum": [3, 3000, 4],
+    "rewardType": ["sacrificeStoneFrag", "spiritStone_3", "luckyCoin"],
+    "welfareDay": 2,
+    "welfareGear": 4,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 120,
+    "id": 49,
+    "rewardNum": [3000, 30, 1],
+    "rewardType": ["holyLight", "coinMinting1", "luckyCoin"],
+    "welfareDay": 3,
+    "welfareGear": 1,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 300,
+    "id": 50,
+    "rewardNum": [1, 3000, 2],
+    "rewardType": ["zb_box1", "spiritStone_2", "luckyCoin"],
+    "welfareDay": 3,
+    "welfareGear": 2,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 880,
+    "id": 51,
+    "rewardNum": [1, 1, 3],
+    "rewardType": ["tieStone", "glyphs_1003", "luckyCoin"],
+    "welfareDay": 3,
+    "welfareGear": 3,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 1680,
+    "id": 52,
+    "rewardNum": [3, 3000, 4],
+    "rewardType": ["sacrificeStoneFrag", "spiritStone_3", "luckyCoin"],
+    "welfareDay": 3,
+    "welfareGear": 4,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 120,
+    "id": 53,
+    "rewardNum": [3000, 30, 1],
+    "rewardType": ["holyLight", "coinMinting1", "luckyCoin"],
+    "welfareDay": 4,
+    "welfareGear": 1,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 300,
+    "id": 54,
+    "rewardNum": [1, 3000, 2],
+    "rewardType": ["zb_box1", "spiritStone_2", "luckyCoin"],
+    "welfareDay": 4,
+    "welfareGear": 2,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 880,
+    "id": 55,
+    "rewardNum": [1, 1, 3],
+    "rewardType": ["tieStone", "glyphs_1003", "luckyCoin"],
+    "welfareDay": 4,
+    "welfareGear": 3,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 1680,
+    "id": 56,
+    "rewardNum": [3, 3000, 4],
+    "rewardType": ["sacrificeStoneFrag", "spiritStone_3", "luckyCoin"],
+    "welfareDay": 4,
+    "welfareGear": 4,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 120,
+    "id": 57,
+    "rewardNum": [3000, 30, 1],
+    "rewardType": ["holyLight", "coinMinting1", "luckyCoin"],
+    "welfareDay": 5,
+    "welfareGear": 1,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 300,
+    "id": 58,
+    "rewardNum": [1, 3000, 2],
+    "rewardType": ["zb_box1", "spiritStone_2", "luckyCoin"],
+    "welfareDay": 5,
+    "welfareGear": 2,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 880,
+    "id": 59,
+    "rewardNum": [1, 1, 3],
+    "rewardType": ["tieStone", "glyphs_1003", "luckyCoin"],
+    "welfareDay": 5,
+    "welfareGear": 3,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 1680,
+    "id": 60,
+    "rewardNum": [3, 3000, 4],
+    "rewardType": ["sacrificeStoneFrag", "spiritStone_3", "luckyCoin"],
+    "welfareDay": 5,
+    "welfareGear": 4,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 120,
+    "id": 61,
+    "rewardNum": [3000, 30, 1],
+    "rewardType": ["holyLight", "coinMinting1", "luckyCoin"],
+    "welfareDay": 6,
+    "welfareGear": 1,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 300,
+    "id": 62,
+    "rewardNum": [1, 3000, 2],
+    "rewardType": ["zb_box1", "spiritStone_2", "luckyCoin"],
+    "welfareDay": 6,
+    "welfareGear": 2,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 880,
+    "id": 63,
+    "rewardNum": [1, 1, 3],
+    "rewardType": ["tieStone", "glyphs_1003", "luckyCoin"],
+    "welfareDay": 6,
+    "welfareGear": 3,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 1680,
+    "id": 64,
+    "rewardNum": [3, 3000, 4],
+    "rewardType": ["sacrificeStoneFrag", "spiritStone_3", "luckyCoin"],
+    "welfareDay": 6,
+    "welfareGear": 4,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 120,
+    "id": 65,
+    "rewardNum": [3000, 30, 1],
+    "rewardType": ["holyLight", "coinMinting1", "luckyCoin"],
+    "welfareDay": 7,
+    "welfareGear": 1,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 300,
+    "id": 66,
+    "rewardNum": [1, 3000, 2],
+    "rewardType": ["zb_box1", "spiritStone_2", "luckyCoin"],
+    "welfareDay": 7,
+    "welfareGear": 2,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 880,
+    "id": 67,
+    "rewardNum": [1, 1, 3],
+    "rewardType": ["tieStone", "glyphs_1003", "luckyCoin"],
+    "welfareDay": 7,
+    "welfareGear": 3,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 1680,
+    "id": 68,
+    "rewardNum": [3, 3000, 4],
+    "rewardType": ["sacrificeStoneFrag", "spiritStone_3", "luckyCoin"],
+    "welfareDay": 7,
+    "welfareGear": 4,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 120,
+    "id": 69,
+    "rewardNum": [3000, 30, 1],
+    "rewardType": ["holyLight", "coinMinting1", "luckyCoin"],
+    "welfareDay": 8,
+    "welfareGear": 1,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 300,
+    "id": 70,
+    "rewardNum": [1, 3000, 2],
+    "rewardType": ["zb_box1", "spiritStone_2", "luckyCoin"],
+    "welfareDay": 8,
+    "welfareGear": 2,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 880,
+    "id": 71,
+    "rewardNum": [1, 1, 3],
+    "rewardType": ["tieStone", "glyphs_1003", "luckyCoin"],
+    "welfareDay": 8,
+    "welfareGear": 3,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 1680,
+    "id": 72,
+    "rewardNum": [3, 3000, 4],
+    "rewardType": ["sacrificeStoneFrag", "spiritStone_3", "luckyCoin"],
+    "welfareDay": 8,
+    "welfareGear": 4,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 120,
+    "id": 73,
+    "rewardNum": [3000, 30, 1],
+    "rewardType": ["holyLight", "coinMinting1", "luckyCoin"],
+    "welfareDay": 9,
+    "welfareGear": 1,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 300,
+    "id": 74,
+    "rewardNum": [1, 3000, 2],
+    "rewardType": ["zb_box1", "spiritStone_2", "luckyCoin"],
+    "welfareDay": 9,
+    "welfareGear": 2,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 880,
+    "id": 75,
+    "rewardNum": [1, 1, 3],
+    "rewardType": ["tieStone", "glyphs_1003", "luckyCoin"],
+    "welfareDay": 9,
+    "welfareGear": 3,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 1680,
+    "id": 76,
+    "rewardNum": [3, 3000, 4],
+    "rewardType": ["sacrificeStoneFrag", "spiritStone_3", "luckyCoin"],
+    "welfareDay": 9,
+    "welfareGear": 4,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 120,
+    "id": 77,
+    "rewardNum": [3000, 30, 1],
+    "rewardType": ["holyLight", "coinMinting1", "luckyCoin"],
+    "welfareDay": 10,
+    "welfareGear": 1,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 300,
+    "id": 78,
+    "rewardNum": [1, 3000, 2],
+    "rewardType": ["zb_box1", "spiritStone_2", "luckyCoin"],
+    "welfareDay": 10,
+    "welfareGear": 2,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 880,
+    "id": 79,
+    "rewardNum": [1, 1, 3],
+    "rewardType": ["tieStone", "glyphs_1003", "luckyCoin"],
+    "welfareDay": 10,
+    "welfareGear": 3,
+    "welfareType": 2
+  },
+  {
+    "complianceNum": 1680,
+    "id": 80,
+    "rewardNum": [3, 3000, 4],
+    "rewardType": ["sacrificeStoneFrag", "spiritStone_3", "luckyCoin"],
+    "welfareDay": 10,
+    "welfareGear": 4,
+    "welfareType": 2
+  }
+]

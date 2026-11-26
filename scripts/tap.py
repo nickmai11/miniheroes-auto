@@ -12,6 +12,8 @@ usage: D=127.0.0.1:26625 scripts/tap.py [x,y ...] [-o out.png] [--until x,y,r,g,
     --until on 1 of 493 taps — the doc had almost no pixels).
   - writes the last screenshot to -o (default ./v.png), downscaled to -w px wide (default 540; 270 is ~4x
     cheaper to read — use it for navigation, 540 only to read small text). Tap coords are always device coords.
+  - x0,y0,x1,y1[,ms] instead of x,y = a swipe / held drag (ms default 500), then a screenshot
+  - "device coords" = 1080x1920 on every instance: a smaller Phone display (900x1600) is scaled here, both ways.
 """
 import io, os, subprocess, sys, time
 from PIL import Image, ImageChops, ImageStat
@@ -21,6 +23,9 @@ MAX_WAIT = float(os.environ.get('MAX_WAIT', 4))
 SETTLE_MAX = float(os.environ.get('SETTLE_MAX', 1.2))  # after a change, settle for at most this long
 NO_CHANGE = float(os.environ.get('NO_CHANGE', 1.5))   # nothing changed by then -> tap had no visible effect, stop waiting
 CHANGED, SETTLED = 6.0, 3.0  # mean abs diff on a 54x96 grey thumb; idle animations stay below CHANGED
+# serial -> width of its last 9:16 screenshot. Every script thinks in 1080x1920; a smaller Phone display (900x1600 / 300
+# DPI, Nick 2026-11-25) is upscaled in grab() and coords go back down in dev() - the only two places that know.
+SIZE = {}
 
 
 def grab():
@@ -32,7 +37,21 @@ def grab():
         except subprocess.TimeoutExpired: pass
         if attempt == 2: raise RuntimeError('screencap failed 3x')
         time.sleep(0.5)
-    return Image.frombuffer('RGBA', (w, h), raw[-w * h * 4:], 'raw', 'RGBA', 0, 1).convert('RGB')
+    im = Image.frombuffer('RGBA', (w, h), raw[-w * h * 4:], 'raw', 'RGBA', 0, 1).convert('RGB')
+    if w * 16 == h * 9:   # not the odd frame right after boot (pawn1 600x1080): --until skips that one by its size
+        SIZE[D] = w
+        if w != 1080: im = im.resize((1080, 1920))
+    return im
+
+
+def dev(*v):
+    """1080x1920 script coords -> this device's px, as adb args."""
+    if D not in SIZE: grab()
+    return [str(round(float(n) * SIZE.get(D, 1080) / 1080)) for n in v]
+
+
+def swipe(x0, y0, x1, y1, ms=500):
+    subprocess.run(['adb', '-s', D, 'shell', 'input', 'swipe', *dev(x0, y0, x1, y1), str(int(float(ms)))])
 
 
 def thumb(im):
@@ -45,7 +64,7 @@ def diff(a, b):
 
 def tap(x, y):
     before = thumb(grab())
-    subprocess.run(['adb', '-s', D, 'shell', 'input', 'tap', str(x), str(y)])
+    subprocess.run(['adb', '-s', D, 'shell', 'input', 'tap', *dev(x, y)])
     t0, tc, prev = time.time(), None, before
     while time.time() - t0 < MAX_WAIT:
         im = grab(); cur = thumb(im)
@@ -72,8 +91,9 @@ def main(argv):
     timeout = float(opt(argv, '--timeout', 10 if text else 120))
     im = None
     for t in argv:
-        x, y = t.split(',')[:2]
-        im = tap(int(x), int(y))
+        v = t.split(',')
+        if len(v) in (4, 5): swipe(*v); time.sleep(0.8); im = grab(); continue
+        im = tap(int(v[0]), int(v[1]))
     ok = True
     if until:
         v = [int(n) for n in until.split(',')]; x, y, want, tol = v[0], v[1], v[2:5], (v[5] if len(v) > 5 else 40)
