@@ -1229,9 +1229,12 @@ def banner_dots(secs=8):
     too: its dot = the free Value Pack, claimed by the later tribe_clash_packs step (all 11 accounts 2026-11-14).
     Cards rotate faces (Storm / Dragon Temple, ...) and a dot belongs to one face -> frames for `secs` s, not one
     (Dino 11-14: Dragon Temple's dot in 6 of 10 frames; a 1-frame read said 'no red dot left')."""
-    found, t0 = [], time.time()
+    found, t0, prev = [], time.time(), set()
     while True:
-        im = grab(); hits = [y for y in range(240, 900, 20) if red_dot(1010, y, 1075, y + 24, im)]
+        # 2 frames in a row: a card sliding by drags its art's red through the box for one frame (Bino 2026-11-26:
+        # Dragon Temple's, 1 frame in 45 -> MANUAL 'banner Opens in 23h20m' with no dot on screen)
+        im = grab(); now = {y for y in range(240, 900, 20) if red_dot(1010, y, 1075, y + 24, im)}
+        hits, prev = sorted(now & prev), now
         boxes = [b for b in ocr(im) if b[0] > 600 and 230 < b[1] < 950] if hits else []
         for y in hits:
             b = min(boxes, key=lambda b: abs(b[1] + b[3] // 2 - y), default=None)
@@ -1642,8 +1645,9 @@ def events(cfg):
     if dots and not (capped and all('Storm' in d for d in dots)):   # Storm Battlefield's dot clears on a visit, Weekly Event's lags its hub claim (Dminor/pawn1 2026-11-12) -> re-read
         # any dot, not just one named Storm: the 2nd card rotates Storm / Dragon Temple, so the name is whichever face
         # showed (Tiger 2026-11-14: Storm's dot read as 'banner 1d 15h', the Dragon Temple timer). Dot clears a few s late.
-        try: storm_arena()
-        except Stop: pass
+        # the storm step again, not a bare visit (Nick 2026-11-26: a leftover banner dot is probably Storm's - Bino had 2/5 tickets back)
+        try: out.append(f'storm again: {storm(cfg)}')
+        except Stop as e: out.append(f'storm again: {e}')
         if not home(): raise Stop('lost the main screen after the Storm Battlefield banner')
         time.sleep(4); dots = banner_dots()
     # 7777's banner dot is sticky once its daily Claims are ticked (only "Again" left), and the hub step above always

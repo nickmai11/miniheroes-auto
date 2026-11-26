@@ -839,13 +839,13 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
 - **Main-screen banner dots** (`banner_dots()`, the events step's last check): **Storm Battlefield**'s dot is visit-only —
   nothing to claim (Rewards all ticked, ticket + = used video / 30 gems), it clears after opening the banner screen; the
   **Weekly Event** banner (named by its "4d 0h" timer) can keep a dot a few seconds after its hub claim (Dminor +
-  pawn1 2026-11-12). `events()` visits Storm on **any** banner dot (the 2nd card rotates Storm / **Dragon Temple**, so
+  pawn1 2026-11-12). `events()` runs the **storm step again** (tickets + Rewards — Nick 2026-11-26: a leftover dot is probably Storm's; Bino had 2/5 tickets back and a rank reward; was a bare visit) on **any** banner dot (the 2nd card rotates Storm / **Dragon Temple**, so
   a dot is named by whichever face showed — Tiger 2026-11-14) and re-reads once before calling it MANUAL. **Crystal
   Throne** (same slot as Tribe Clash) is skipped like Tribe Clash: its dot = the free Value Pack, claimed by the later
   `tribe_clash_packs` step. **Dragon Temple** (opens every few days; 2nd tab of the Storm screen) = a PvP ladder: Challenge
   the players ranked just above you, tickets top-left (Dminor 6), "Reward for 100 place". **Unmapped, not in the dailies
   — ask Nick.** Its dot stays while tickets are left (Dminor 2026-11-14 → MANUAL); Dino's cleared on a visit.
-  Each face has its own dot, so `banner_dots()` reads frames for 8 s, not one.
+  Each face has its own dot, so `banner_dots()` reads frames for 8 s, not one; a dot counts only when 2 frames in a row show it (a card sliding by drags its art's red through the box for one frame — Bino 2026-11-26, Dragon Temple → `banner Opens in 23h20m`).
   Step line (Nick 2026-11-14: report only what's wrong): `OK events: no red dot left` / `MANUAL red dots left: [...]`;
   the claims go to an indented `claimed: …` log line.
 - **Unknown hub tab with a red dot** → the runner reports `MANUAL … unmapped tab <label>` (Golden Woods went

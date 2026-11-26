@@ -47,6 +47,8 @@ def parse(lines):
         if re.search(r'(OK|MANUAL) pet_check.*Auto Deploying:', l): p['auto'] = True
         if m := re.search(r'7777: MYTHIC hero \(red, 20 fragments\) x(\d+)', l): p['mythic'] += int(m[1])   # any run; red card only (Nick 2026-11-23: the old '(20 fragments)' lines counted any whole hero)
         if SENT.search(l): p['sent'] = True                # tribe help request sent this game day, by any run
+        # any line, a coordinator / helper one included (Gambler 2026-11-26: 160 chest ticked on screen, claimed outside the step -> stale highlight)
+        if c := re.search(r'daily chests \[([^\]]*)\]', l): p['chests'] |= {int(x) for x in re.findall(r'\d+', c.group(1))}
         if not use: continue
         if m := DUNGEON.match(l): p['dungeons'][m.group(1)] = int(m.group(2)), int(m.group(3))
         m = LINE.match(l)
@@ -54,7 +56,6 @@ def parse(lines):
         tag, name, text = m.groups()
         if tag == 'OK' and NOOP.search(text) and p['res'].get(name, ('',))[0] == 'OK': continue
         p['res'][name] = tag, text
-        if c := re.search(r'daily chests \[([^\]]*)\]', text): p['chests'] |= {int(x) for x in re.findall(r'\d+', c.group(1))}
     return p
 
 
@@ -224,6 +225,7 @@ def test():
         assert f'- [x] {ok}' in bottom, (ok, md)
     assert 'home' not in md and '- [ ] weekly:' not in md, md   # Wed: no weekly row
     assert '- [ ] weekly: not run' in render('kong', '2026-11-15', p)   # Sunday: still listed
+    assert parse(['2026-11-26 15:38:50 [coord] gambler: daily chests [40, 80, 120, 160] ticked on screen'])['chests'] == {40, 80, 120, 160}
     h = highlights('2026-11-11', [('kong', p), ('tiger', parse(log[:1] + ['12:26:00 OK grocery (9s): done, coins: sanctuary 900 / tribe 50000 / realm 50000 / tundra 22830']))])
     assert '- ⛔ **kong**\n  - pet_arena: deployments 116/120 (+36 today)\n' in h, h
     assert p['ended'] is False and parse(log[:2] + ['12:40:01 LEFT FOR HELPER: events'])['ended'] is True
