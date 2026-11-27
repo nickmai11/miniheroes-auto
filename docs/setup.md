@@ -20,6 +20,8 @@
 - CPU: **1 vCPU per instance** (Nick 2026-11-17, `vmCpuCount`, applies at instance start; `boot.sh` sets it). Catch-up
   on 11 at once (2026-11-17): MuMu ~10% less CPU at work (612% → 552%), boot 414% → 279% in the same ~2.4 min, all 11
   booted. Earlier single-instance tries: Dminor 11-12 boot 28 → 53 s, Bino 11-17 19:55 boot-timeout.
+- RAM: **2048 MB per instance** (Nick 2026-11-27, `vmMemoryOfMB`; was 1024 from 11-25 to 11-27):
+  `mumu-cli config all --setting '{"vmMemoryOfMB":2048}'`, applies at instance start, not on a running instance.
 
 - Same config on every instance (Nick, 2026-11-06): root off, system disk read-only, no Wi-Fi proxy.
 

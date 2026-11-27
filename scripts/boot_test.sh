@@ -29,7 +29,7 @@ case "\$*" in
   *getprop*) n=\$(cat slow 2>/dev/null || echo 0); [ "\$n" -gt 0 ] && { echo \$((n-1)) > slow; echo 0; } || echo 1;;
   *force-stop*) echo 0 > launched; [ "\$SCEN" = drop ] && echo 0 > connected;;   # drop = link lost on every force-stop
   *monkey*) [ "\$SCEN" = nolaunch ] || echo 1 > launched;;
-  *dumpsys*) [ "\$(cat launched 2>/dev/null)" = 1 ] && echo "mCurrentFocus=Window{x u0 com.and.brawlen.web/AppActivity}" || echo "mCurrentFocus=Window{x u0 Launcher}";;
+  *dumpsys*) [ "\$(cat launched 2>/dev/null)" = 1 ] && echo "mCurrentFocus=Window{x u0 com.and.brawl.en/AppActivity}" || echo "mCurrentFocus=Window{x u0 Launcher}";;
 esac; exit 0
 S
 cat > "$T/tap.py" <<S

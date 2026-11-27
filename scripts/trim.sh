@@ -9,9 +9,9 @@
 # Game not running on it -> first removes what makes instances differ in size (Nick 2026-11-26): the extra apps in
 # APPS, and junk that comes back by itself - ad video cache, the game's CDN download cache, crash dumps, the copy of
 # the game APK the Android installer kept.
-M="$("$(dirname "$0")/accounts.py" mumu)"; PKG=com.and.brawlen.web
+M="$("$(dirname "$0")/accounts.py" mumu)"; PKGS="com.and.brawlen.web com.and.brawl.en"   # web build (Kong) / store build (clones)
 APPS="com.apkpure.aegon com.bukszacard"
-JUNK="/data/data/$PKG/no_backup/vungle_cache/clever_cache/* /data/data/$PKG/files/gamecaches/* /data/tombstones/* /data/user_de/0/com.android.packageinstaller/no_backup/*.apk"
+JUNK="$(for p in $PKGS; do printf "/data/data/%s/no_backup/vungle_cache/clever_cache/* /data/data/%s/files/gamecaches/* " $p $p; done)/data/tombstones/* /data/user_de/0/com.android.packageinstaller/no_backup/*.apk"
 get() { "$M" info "$1" 2>/dev/null | python3 -c "import json,sys; print(json.load(sys.stdin)['return'].get('$2') or '')" 2>/dev/null; }
 gb() { du -k "$1" | awk '{printf "%.1f", $1/1048576}'; }
 for i in "$@"; do
@@ -24,13 +24,13 @@ for i in "$@"; do
     s=; sleep 2
   done
   [ -n "$s" ] || { echo "$i $name FAIL Android not up (state $(get "$i" state)) - left as is"; continue; }
-  if ! adb -s "$s" shell pidof $PKG 2>/dev/null | grep -q .; then
+  if ! adb -s "$s" shell pidof $PKGS 2>/dev/null | grep -q .; then
     for a in $APPS; do adb -s "$s" shell pm uninstall "$a" >/dev/null 2>&1; done
     "$M" control "$i" --action run_cmd --cmd "rm -rf $JUNK" >/dev/null 2>&1
   fi
   out=$("$M" control "$i" --action run_cmd --cmd "fstrim -v /data" 2>&1 | grep -o '[0-9]* bytes trimmed')
   if [ "$was" = stopped ]; then
-    if adb -s "$s" shell pidof $PKG 2>/dev/null | grep -q .; then note=" (game running - left open)"
+    if adb -s "$s" shell pidof $PKGS 2>/dev/null | grep -q .; then note=" (game running - left open)"
     else "$M" close "$i" >/dev/null 2>&1; until [ "$(get "$i" state)" = stopped ]; do sleep 1; done; note=; fi
   else note=" (running - left open)"; fi
   echo "$i $name $before -> $(gb "$img") GB${out:+, }${out:-, FAIL no trim output}$note"

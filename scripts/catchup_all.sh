@@ -3,16 +3,19 @@
 # each "ready" one in parallel, one result line per account. Leftovers (LEFT FOR HELPER / FAIL) are for Nick or a
 # helper later: scripts/summary.sh /tmp/miniheroes-catchup. Output -> logs/launchd-catchup.log when run by launchd.
 # --close: close every instance it booted at the end, leftovers too (Nick 2026-11-21, scheduled night run; logs keep them).
-HERE="$(cd "$(dirname "$0")" && pwd)"; R="$(dirname "$HERE")"; W=/tmp/miniheroes-catchup
+HERE="$(cd "$(dirname "$0")" && pwd)"; R="$(dirname "$HERE")"
+# --dailies (scripts/dailies_all.sh): the same run for the dailies - tasks.yaml `dailies`, daily.py without --catch-up
+# (Nick 2026-11-27: one fixed command, no approval prompt)
+if [ "$1" = --dailies ]; then shift; T=dailies; F=; W=/tmp/miniheroes-$(date +%F); else T=catchup; F=--catch-up; W=/tmp/miniheroes-catchup; fi
 M=$("$HERE/accounts.py" mumu)   # mumu-cli path: one copy, accounts.py
 echo "=== $(date)"
-pairs=$("$HERE/accounts.py" rows catchup)   # "<index>|<account>|<instance>|<port>"
+pairs=$("$HERE/accounts.py" rows $T)   # "<index>|<account>|<instance>|<port>"
 boot=$("$HERE/boot.sh" $(cut -d'|' -f1 <<<"$pairs"))   # boot.sh does the halves (CPU)
 echo "$boot"
 # Kong II (S288, on Kong's instance) right after Kong, relics included, then back to Kong (Nick 2026-11-17; CLAUDE.md
 # "Kong II"; 2026-11-22: not after every account); stabilize.py exit 0 = that account's ID on screen
 kong_ii() {
-  OUT="$W/kong_ii" python3 "$HERE/daily.py" kong_ii --catch-up > "$W/kong_ii.log" 2>&1
+  OUT="$W/kong_ii" python3 "$HERE/daily.py" kong_ii $F > "$W/kong_ii.log" 2>&1
   echo "kong_ii exit $? ($(grep -m1 'LEFT FOR HELPER' "$W/kong_ii.log" || tail -1 "$W/kong_ii.log"))"
 }
 . "$HERE/kong_ii.sh"
@@ -20,7 +23,7 @@ while IFS='|' read -r i a name _; do
   line=$(grep "^$name 127\.0\.0\.1:" <<<"$boot")
   case $line in *" ready "*) ;; *) echo "$a SKIPPED (${line:-no boot line})"; continue;; esac
   mkdir -p "$W/$a"
-  (export D=$(grep -o '127\.0\.0\.1:[0-9]*' <<<"$line"); OUT="$W/$a" python3 "$HERE/daily.py" "$a" --catch-up > "$W/$a.log" 2>&1
+  (export D=$(grep -o '127\.0\.0\.1:[0-9]*' <<<"$line"); OUT="$W/$a" python3 "$HERE/daily.py" "$a" $F > "$W/$a.log" 2>&1
    e=$?; echo "$a exit $e ($(grep -m1 'LEFT FOR HELPER' "$W/$a.log" || tail -1 "$W/$a.log"))"
    if [ "$a" = kong ]; then   # done indicator: Kong's instance after Kong II, both clean
      # stale kong_ii.log of an earlier run read as "clean" when the switch failed -> done.sh on a skipped Kong II (11-22)

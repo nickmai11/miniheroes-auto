@@ -44,22 +44,21 @@ this skill only adds the dailies-specific ones. Mission details, coords and acco
 **Cost — runner first, helpers only for leftovers (Nick, 2026-10-28 — urgent).** One helper per account for the whole
 run cost ~850 turns × ~140k context (~112M cache-read per account, ~12% weekly for 8 accounts). Now:
 
-1. `scripts/boot.sh <idx>...`, close event popups (one screenshot per account).
-2. Run every account's runner in ONE background Bash command (CLAUDE.md "Fast feedback"):
-   `for a in <acct>:<serial> ...; do (D=${a#*:} OUT=/tmp/miniheroes-$(date +%F)/${a%%:*} scripts/daily.py ${a%%:*} > /tmp/miniheroes-$(date +%F)/${a%%:*}.log 2>&1) & done; wait`
-   Each log has one `OK|SKIP|FAIL|MANUAL <step>` line per step and ends with `LEFT FOR HELPER: …`
-   (MANUAL lines: Sanctuary climb lost a floor,
-   Canyon with no empty spot, event tabs with an unmapped red dot — plus any FAIL, each with `v_<step>.png`).
-   Storm Rewards, Arena chests, Canyon empty spot, Canyon Points Reward and event milestones are runner steps
-   since 2026-10-28. The runner retries each FAIL once right away, in order (2026-11-01) — don't re-run
-   FAILed steps by hand; only what it still lists. Exit 1 = lost the main screen; exit 2 = a runner already holds that account.
-   Watch failures live: Monitor `tail -F <dir>/*.log | grep --line-buffered -E '^(FAIL|Traceback)'`.
-3. Per account with leftovers: ONE `mh-helper` whose prompt lists only those steps + their doc sections
-   (`scripts/doc.sh …`) and the log's FAIL lines. Its final answer ≤15 lines (concerns, done/skipped, paid + price).
-4. Report from `scripts/summary.sh <run dir>` (one call: FAIL/MANUAL/paid lines + LEFT per account — don't grep the logs
-   one by one; cost, Nick 2026-10-29) + helper answers. Script bugs found mid-run: note them, fix after the run. A step's script is the doc's fallback text otherwise — see ui-routine "Speed".
-   Helpers that run a single mission by hand use the scripts too (`arena.py`, `trials.py`, `patrol.py`, `hero.py`,
-   `tribe.py`, `adventure.py`, `storm.py`, `veins.py`, `grocery.py`, `fish_orders.py`) and handle exit 1.
+1–2. **`scripts/dailies_all.sh`** in ONE background Bash command (CLAUDE.md "Fast feedback"), exactly that — never a
+hand-written loop (Nick 2026-11-27: it asked him for approval). It boots every `dailies` account, runs `daily.py` on each
+"ready" one in parallel (logs `/tmp/miniheroes-<date>/<acct>.log`), Kong II after Kong, `done.sh` per clean account, fps 60
+at the end. A single account / re-run: `D=<serial> OUT=/tmp/miniheroes-<date>/<acct> scripts/daily.py <acct>`.
+Each log has one `OK|SKIP|FAIL|MANUAL <step>` line per step and ends with `LEFT FOR HELPER: …`
+(MANUAL lines: Sanctuary climb lost a floor,
+Canyon with no empty spot, event tabs with an unmapped red dot — plus any FAIL, each with `v_<step>.png`).
+Storm Rewards, Arena chests, Canyon empty spot, Canyon Points Reward and event milestones are runner steps
+since 2026-10-28. The runner retries each FAIL once right away, in order (2026-11-01) — don't re-run
+FAILed steps by hand; only what it still lists. Exit 1 = lost the main screen; exit 2 = a runner already holds that account.
+Watch failures live: Monitor `tail -F <dir>/*.log | grep --line-buffered -E '^(FAIL|Traceback)'`. 3. Per account with leftovers: ONE `mh-helper` whose prompt lists only those steps + their doc sections
+(`scripts/doc.sh …`) and the log's FAIL lines. Its final answer ≤15 lines (concerns, done/skipped, paid + price). 4. Report from `scripts/summary.sh <run dir>` (one call: FAIL/MANUAL/paid lines + LEFT per account — don't grep the logs
+one by one; cost, Nick 2026-10-29) + helper answers. Script bugs found mid-run: note them, fix after the run. A step's script is the doc's fallback text otherwise — see ui-routine "Speed".
+Helpers that run a single mission by hand use the scripts too (`arena.py`, `trials.py`, `patrol.py`, `hero.py`,
+`tribe.py`, `adventure.py`, `storm.py`, `veins.py`, `grocery.py`, `fish_orders.py`) and handle exit 1.
 
 Instances must be 1080×1920 (`adb shell wm size 1080x1920 && adb shell wm density 480`, then restart the game) so the
 documented coords apply. Helpers never edit the repo; the coordinator records what it learns (new coords, a popup, a

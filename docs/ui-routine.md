@@ -918,6 +918,8 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   - Personal reward = total damage over 3 rounds (> 0 needed); tribe and personal rewards come by mail 30 min after the end
     (don't leave the tribe). Guess opens before round 3. Packs are sold in Preparation and Battle only.
   - Allies (`accounts/allies.txt`) are never attacked. Map the target choice on the Enter screen before scripting attacks.
+  - **Who is in which group:** Schedule → Group Details; the 64 tribes with their server numbers are in
+    `docs/tc-tribes.md` (read 2026-11-26).
   - **Enter** `(540,1476)` (mapped on Cmajor 2026-11-10) → battle map: the group's castles, each `S<server> <tribe>` + rank
     badge + level + HP %; top left = our castle (HP, rank), "The top 8 tribes will advance this round"; Ranking / Battle
     Report / Guide / Summon Phoenix at the bottom. Tap a castle (≈150 px above its label) → attack screen: our lineup vs
@@ -933,6 +935,9 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
     group, no Olympus), the rest S201. Live 11-12: 9 accounts × 6 on S251 TheOlympus, Tiger + Boudior fell back to S126.
     **Scheduled:** `scripts/fr_all.sh` (launchd Wed/Thu/Fri 04:30 local = Tue/Wed/Thu 21:30 UTC) runs `tc.py` on every
     `tc` account in tc weeks and `realm.py` in fr weeks (alternating weekly, Nick 2026-11-10).
+    **A target for the next scheduled round** (Nick 2026-11-26 "note for next tc schedule: use attacks on rogue"): the
+    tribe name in `accounts/tc_next_target.txt` → that round runs `tc.py <tribe>` on every account, then the file is
+    removed (one round only).
   - Possible daily step, not agreed: Basic Donate (gold).
 
 ## Floating Realm Guess
@@ -1240,10 +1245,14 @@ Bino, Dino 2026-11-26.
 - A floor already explored by hand: the **lit door** (dark gate, yellow arrow up — the way in, at the start, has a blue
   arrow down) is found by its arrow and tapped. A floor 3 whose chests are already lit (red beams also mark plain reward
   chests) → the script can't tell the Ultimate Chest → exit 1, by hand.
-- **Mysterious Cave** (a purple portal on a tile leads into it; a goblin stands there): "Click Portal to return to the
-  previous spot" → portal `(540,1168)`; the script goes straight back. **Special Event** popup (an NPC's request, e.g.
-  Wizard's Request: find its hat on a floor → reward; tabs Wizard's Request / Goblin Merchant): ✕ `(988,240)`; the
-  script closes it and goes on (both from Dminor's helper screenshots, 2026-11-26 — not yet met by the new script).
+- **Mysterious Cave** (a purple portal on a tile leads into it): **collect everything in it, then leave** (Nick,
+  2026-11-27). Its board is 3-4-5-4-3 tiles (170 px apart, rows 127 px apart from y 686); each item (pink crystal =
+  Amethyst) is collected by a tap on its tile, free; the portal back stands on the centre tile `(538,940)` — not
+  `(540,1168)`, the bottom row's middle tile (Kratos 11-27: the script tapped that for 26 min). `collect_cave()` taps the
+  18 tiles left to right, top to bottom, then the portal; the cave stays open from the floor's portal tile (empty after).
+  **Special Event** popup (an NPC's request, e.g. Wizard's Request: find its hat on a floor → reward; tabs Wizard's
+  Request / Goblin Merchant): ✕ `(988,240)`; the script closes it and goes on (from Dminor's helper screenshots,
+  2026-11-26 — not yet met by the new script).
 - A new floor shows its name banner ("<Ruin> / Floor N") across rows 4–6 for ~2 s: nothing is read under it.
 - Door: its tile costs 1 stamina to light up, a 2nd tap enters the next floor (no dialog). Floor 3: the lit Ultimate
   Chest → "End this exploration?" **Exit** | Continue → Exit → Rewards Overview → tap the bottom `(540,1880)` → hub. Then

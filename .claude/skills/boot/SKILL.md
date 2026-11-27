@@ -13,8 +13,8 @@ the file has `server:` it switches via ☰ → Settings → Server → `S<server
 1. Pick MuMu indices: `"/Applications/MuMuPlayer Pro.app/Contents/MacOS/mumu-cli" info all` lists index/name/state.
    "all" = `scripts/accounts.py boot` (`accounts/tasks.yaml`), never every MuMu instance; names → their index;
    drop any "except" names. Skip ones already on a clean main screen, then run `layout.js` once (no ONLY) over all.
-2. In `~/projects/chidojiro/miniheroes-auto`: `scripts/boot.sh <index>...` (timeout ~8 min: at most 4 instances boot at
-   once, CPU calm between batches). It restarts the game, so anything open (fight, menu) is dropped — that's what makes it
+2. In `~/projects/chidojiro/miniheroes-auto`: `scripts/boot.sh <index>...` (timeout ~8 min: all instances boot at once,
+   no batches — Nick 2026-11-27). It restarts the game, so anything open (fight, menu) is dropped — that's what makes it
    reach the main screen.
 3. Per line: `ready (stable …)` = done. `popup-stuck` / `*-timeout` → screenshot that serial
    (`D=<serial> python3 scripts/tap.py -w 270 -o /tmp/st.png`), close the popup by hand (tick "Do not remind me today"

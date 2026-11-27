@@ -21,12 +21,15 @@ ev=$(cd "$HERE" && D= python3 -c 'import datetime, realm; d = (realm.NOW.date() 
 print("realm" if realm.battle_on() else "tc" if 7 <= d < 10 and 10 <= realm.NOW.hour < 22 else "")')
 [ -n "$ev" ] || { echo 'no battle round now'; exit 0; }
 echo "event: $ev"
+# accounts/tc_next_target.txt = Nick's note for the next scheduled tc round: the tribe to attack (`tc.py <tribe>`; not on
+# an account's map -> any castle that is not an ally). One round only: removed once that round has run.
+T="$R/accounts/tc_next_target.txt"; [ "$ev" = tc ] && [ -s "$T" ] && echo "tc target (Nick's note): $(cat "$T")"
 pairs=$("$HERE/accounts.py" rows "$ev")   # "<index>|<account>|<instance>|<port>"
 boot=$("$HERE/boot.sh" $(cut -d'|' -f1 <<<"$pairs"))   # boot.sh does the halves (CPU)
 echo "$boot"
 run() {   # <account>: this round's script on $D, output in $W/<account>, one result line
   local cmd; mkdir -p "$W/$1"
-  if [ "$ev" = realm ]; then cmd=("$HERE/realm.py" "$1"); else cmd=("$HERE/tc.py"); fi
+  if [ "$ev" = realm ]; then cmd=("$HERE/realm.py" "$1"); else cmd=("$HERE/tc.py" $(cat "$T" 2>/dev/null)); fi
   (cd "$W/$1" && python3 "${cmd[@]}" > out.txt 2>&1; echo "$1 exit $? ($(tail -1 out.txt))")
 }
 while IFS='|' read -r i a name _; do
@@ -45,6 +48,7 @@ while IFS='|' read -r i a name _; do
    fi) &
 done <<<"$pairs"
 wait
+[ "$ev" = tc ] && rm -f "$T"
 "$M" close "$(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)" >/dev/null && echo "closed instances $(cut -d'|' -f1 <<<"$pairs" | paste -sd, -)"
 "$M" config all --setting '{"maxFpsLimit":60}' >/dev/null && echo "fps back to 60"   # boot.sh set 30 (Nick 2026-11-13)
 echo "=== done $(date)"

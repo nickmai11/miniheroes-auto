@@ -173,6 +173,40 @@ def stamina(b):
     return int(m[1]) if m else None
 
 
+def cave_pink(c):
+    r, g, b = c[:3]
+    return r > 170 and b > 90 and g < r - 60 and b < r - 10   # a crystal node: magenta; the corner crystals are blue (b >= r)
+
+
+def cave_left(im):
+    """Pink crystal pixels still on the cave board (the 4 corner decorations are blue and off the scan; the portal's
+    base is pink too, so its tile is left out)."""
+    px, py = CAVE_PORTAL
+    return sum(cave_pink(im.getpixel((x, y))) for y in range(460, 1340, 12) for x in range(90, 990, 12)
+               if abs(x - px) > 90 or abs(y - py) > 90)
+
+
+# The cave board: 3-4-5-4-3 tiles, 170 px apart, rows 127 px apart; the portal stands on the centre tile
+# (measured on Kratos 2026-11-27; the old fixed portal (540, 1168) is the bottom row's middle tile -> the cave never
+# closed and Kratos hung 26 min).
+CAVE = [(x0 + 170 * k, 686 + 127 * r) for r, (x0, n) in enumerate([(368, 3), (283, 4), (198, 5), (283, 4), (368, 3)]) for k in range(n)]
+CAVE_PORTAL = CAVE.pop(9)
+
+
+def collect_cave():
+    """Mysterious Cave: every tile's item is collected by a tap (Amethyst, gold, ... - Nick 2026-11-27: collect the cave
+    loot, then leave). Tap all 18 tiles left to right, top to bottom, then the portal back to the floor.
+    ponytail: one cave layout seen (Kratos); the leftover check knows pink crystals only - another item's colour goes
+    into cave_pink once one is on screen."""
+    for sweep in (1, 2):                                            # a 2nd sweep only when a reward toast ate a tap
+        for x, y in CAVE: tap_wait(x, y)
+        time.sleep(1.2); im = grab()
+        if not find(ocr(im), r'Mysterious Cave'): return log('    Mysterious Cave: not in the cave any more, no portal tap')
+        if not cave_left(im): break
+    tap_wait(*CAVE_PORTAL); time.sleep(1.5)
+    log(f'    Mysterious Cave: {len(CAVE)} tiles tapped x{sweep}, {cave_left(im)} pink left, back through the portal')
+
+
 def explore():
     """On a floor: tap towards the target until the ruin is finished ('done') or the stamina is out ('stamina')."""
     floor, target, lit, idle, last = None, None, False, 0, None
@@ -182,8 +216,8 @@ def explore():
             tap_wait(*find(b, r'^Exit$')); wait(r'Rewards Overview', 8); tap_wait(540, 1880)
             wait(r'Ruin List', 10); log(f'  floor {floor}: Ultimate Chest, exploration ended'); return 'done'
         if find(b, BUY): tap_wait(938, 636); return 'stamina'   # the 200-diamond offer: X, never Confirm
-        if find(b, r'Mysterious Cave'):                           # a side room a tile led into (Dminor 2026-11-26): its portal = back to the floor
-            tap_wait(540, 1168); time.sleep(1.5); log('    Mysterious Cave: back through the portal'); continue
+        if find(b, r'Mysterious Cave'):                           # a side room a tile led into: collect its crystal loot, then the portal back (Nick 2026-11-27)
+            collect_cave(); continue
         if find(b, r'Special Event'):                             # an NPC's request popup (Wizard's Request, Dminor 2026-11-26): X - the floors first
             tap_wait(988, 240); time.sleep(1); log('    Special Event popup closed'); continue
         if find(b, r'^Battle$') and find(b, r'Quick Deploy'):     # a monster's lineup screen: fight it (2 stamina)

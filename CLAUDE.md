@@ -76,8 +76,8 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
 
 - **Start-up:** `scripts/boot.sh <mumu index>...` boots the instances, restarts the game, taps Start, waits for the
   main screen and clears the event popups (`scripts/stabilize.py`: tick "Do not remind me today" + X), in parallel
-  (~25 s cold, ~15 s warm); at most 4 instances boot at once, the next 4 once the CPU is calm (Nick, 2026-11-17,
-  every task that boots several accounts — never one `boot.sh` per account in parallel). Prints "<name> <serial> ready (stable …)" or "popup-stuck" (close that one by hand). Always boot first. Use it instead of
+  (~25 s cold, ~15 s warm); all instances boot at once, no batches (Nick, 2026-11-27) — one `boot.sh` with every
+  index, never one `boot.sh` per account in parallel. Prints "<name> <serial> ready (stable …)" or "popup-stuck" (close that one by hand). Always boot first. Use it instead of
   manual start-up steps in any skill; runner and helpers then begin at a clean main screen.
 - **Boot quality (Nick, 2026-11-22):** a change to `boot.sh`, `boot_state.py` or `stabilize.py` → `scripts/boot_test.sh`
   (offline fake emulator, ~10 s; the pre-commit hook runs it — `git config core.hooksPath .githooks` once per clone),
@@ -97,8 +97,7 @@ If computer-use tools aren't available, use ADB instead (Nick approved, 2026-10-
   it's "pausing/waiting" (red flag) or a notification is overdue.
 - **Fast feedback:** long commands (boot, batches) run in the background; read their output after ~30 s and act on a
   straggler instead of waiting for its timeout. **Start no account's task until every account is booted** (the whole
-  `boot.sh` run, all batches, done — Nick, 2026-11-21: runners started on ready accounts kept the CPU busy, so the last
-  boot batch waited its full ~2 min for calm). One Monitor per batch (`daily.py` run dir, `relic_all.sh`, `fr_all.sh`,
+  `boot.sh` run done — Nick, 2026-11-21: runners started on ready accounts kept the CPU busy and slowed the boot). One Monitor per batch (`daily.py` run dir, `relic_all.sh`, `fr_all.sh`,
   `catchup_all.sh`) for `FAIL` / `Traceback` / `exit 1` — act the moment one shows (home + re-run that account).
 - **One visit per section** (Nick, 2026-11-26, every script and step): nothing is closed and reopened for nothing — two
   things on the same screen are done in one visit, and a step that follows another on the same section goes on from

@@ -11,7 +11,7 @@ import clash_treasure, flow
 from flow import Stop, find, grab, joined, main, near, ocr, swipe, tap_text, tap_wait, wait
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ALLIES = {l.strip() for l in open(os.path.join(HERE, '..', 'accounts', 'allies.txt')) if l.strip()[:1].isdigit()}
+ALLIES = {l.split()[0] for l in open(os.path.join(HERE, '..', 'accounts', 'allies.txt')) if l.strip()[:1].isdigit()}   # server, then the tribe name (not read)
 MOVES = [(540, 1400, 540, 500), (540, 500, 540, 1400), (540, 500, 540, 1400), (900, 900, 200, 900), (200, 900, 900, 900),
          (200, 900, 900, 900)]   # map is bigger than the screen: look around until a target shows
 

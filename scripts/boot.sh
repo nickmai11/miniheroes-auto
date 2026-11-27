@@ -1,6 +1,6 @@
 #!/bin/bash
 # Start MuMu instances, (re)launch the game, tap Start, wait for the main screen — all in parallel.
-# usage: [NOLAYOUT=1] scripts/boot.sh <mumu index>...      e.g. scripts/boot.sh 1 2 4  (>4: in batches of 4, see below)
+# usage: [NOLAYOUT=1] scripts/boot.sh <mumu index>...      e.g. scripts/boot.sh 1 2 4
 # prints one line per instance: "<name> 127.0.0.1:<port> ready" (or "... start-timeout (<why>)" / "... main-timeout" /
 # "... logged-out (<screen>)" = login screen, no relaunch, skip the account). Test: scripts/boot_test.sh (pre-commit runs it).
 # Then it runs scripts/layout.js (window tiling, layout 1 - every task, Nick 2026-11-19), unless NOLAYOUT=1 (stage climb only: Nick 2026-11-14).
@@ -10,7 +10,8 @@ HERE="$(cd "$(dirname "$0")" && pwd)"; TAP="$HERE/tap.py"
 M=$("$HERE/accounts.py" mumu)   # mumu-cli path: one copy, accounts.py
 # boot order = the windows right to left, top to bottom (Nick 2026-11-22); lookup failed -> as given
 o=$("$HERE/accounts.py" boot-order "$@" 2>/dev/null) && [ -n "$o" ] && set -- $o
-PKG=com.and.brawlen.web
+# the game: web build on Kong, store build on the instances cloned from "Android Device" (reset 2026-11-27)
+PKGS="com.and.brawlen.web com.and.brawl.en"
 
 # the ONE relaunch limit (Nick 2026-11-20, every task): game dead after a launch -> launch again, up to this many
 # times; flow.relaunch() (mission scripts, runner home()) reads it from here as its per-run cap.
@@ -21,13 +22,13 @@ game() {   # <serial> <instance name> <port>: force-stop, launch, Start, popups 
   local s=$1 name=$2 port=$3 why=
   # the ADB link can drop any time (Gambler, Boudior 2026-11-22: 'device not found' through 10 relaunches, one manual
   # `adb connect` fixed it) -> reconnect before every adb step of a launch, not only in up()
-  adb connect "$s" >/dev/null 2>&1; adb -s "$s" shell am force-stop $PKG
+  adb connect "$s" >/dev/null 2>&1; for p in $PKGS; do adb -s "$s" shell am force-stop $p; done
   # yellow Start button, then the blue Recruit icon of the bottom bar (dimmed while a popup is open -> still ok after timeout)
   # launch can silently not happen (Aminor 2026-11-03 sat on the Android home 90 s) -> relaunch every 30 s, 3 tries
   local ok=
   for try in 1 2 3; do
     adb connect "$s" >/dev/null 2>&1
-    adb -s "$s" shell monkey -p $PKG -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1
+    for p in $PKGS; do adb -s "$s" shell monkey -p $p -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1; done
     D=$s python3 "$TAP" -o "/tmp/boot_$port.png" --until 440,1508,255,182,16 --timeout 30 2>/dev/null && { ok=1; break; }
     # why no Start: adb-lost / not-in-front -> next try reconnects + relaunches; logged-out -> stop now (Nick 2026-11-22:
     # skip that account for the task, never log it in); the screen stays as it is for Nick
@@ -91,13 +92,7 @@ boot() {
   echo "$name $s $st"
 }
 
-idle() { top -l 2 -s 1 | awk '/CPU usage/{v=$7} END{print int(v)}'; }
-# at most 4 boots at once, the next 4 once the CPU has calmed down - 11 boots at once pegged the CPU (Nick 2026-11-17,
-# every task). Calm = idle >= 70%, or back near the idle before the 1st batch when other instances already load it; max ~2 min.
-want=$(idle); want=$(( want - 10 < 70 ? want - 10 : 70 ))
-for ((k=0; k<$#; k+=4)); do
-  [ $k -gt 0 ] && for t in $(seq 60); do [ "$(idle)" -ge "$want" ] && break; done
-  for i in "${@:k+1:4}"; do boot "$i" & done; wait
-done
+# every instance at once, no batches (Nick 2026-11-27: "remove rule to boot batch, just boot all")
+for i in "$@"; do boot "$i" & done; wait
 # tile the windows (Nick 2026-10-27), a single re-boot too: it goes back to its slot (Nick 2026-11-19)
 if [ -z "$NOLAYOUT" ]; then ONLY="$*" osascript -l JavaScript "$(dirname "$0")/layout.js"; fi

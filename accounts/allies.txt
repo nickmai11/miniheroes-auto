@@ -1,11 +1,11 @@
 # Allied tribes by server number (Nick, 2026-11-10). Never attack them in Tribe Clash only
-# (not Crystal Throne / Floating Realm). Our own tribe Peakaboo = 201.
-150
-190
-194
-156
-320
-300
-175
-288
-54
+# (not Crystal Throne / Floating Realm). Our own tribe Peakaboo = 201. Line = server, then the tribe name (names read off the tc map; scripts match the server only).
+150 PurpleGang
+190 SOLAR
+194 Dragon Slayers
+156 Second Phase
+320 Mystic
+300 Dra🐲onball🐉
+175 TOXIC
+288 KINGKONG
+54 Potato

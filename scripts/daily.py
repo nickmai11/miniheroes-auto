@@ -1170,7 +1170,11 @@ def open_canyon():
     else:   # after tribe.py: the Tribe chat - its Lobby button is the Tribe screen, no trip to main (Nick 2026-11-26)
         l = find(ocr(), r'^Lobby$', (880, 1780, 1080, 1920))
         if not l: raise Stop('Canyon: neither the main screen nor the Tribe chat')
-        tap_wait(l[0], l[1] - 40)                        # the icon above its label
+        for _ in range(3):   # the tap can do nothing right after tribe.py (Kong, Boudior, Pawn I 2026-11-27: still on Chat)
+            tap_wait(l[0], l[1] - 40)                    # the icon above its label
+            time.sleep(1)
+            if not find(ocr(), r'^Send$', (760, 1560, 1060, 1720)): break   # the chat's Send button gone = left the chat
+        else: raise Stop('Canyon: Lobby tap left the Tribe chat up 3x')
     time.sleep(1.5); tap_wait(540, 1090); boxes = wait(r'Attempts', 10)
     for _ in range(2):
         if not find(boxes, r'gathering is now completed|^Resource$'): return

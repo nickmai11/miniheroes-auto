@@ -7,6 +7,7 @@ from tap import dev, grab, swipe, tap as tap_wait   # dev/swipe: 1080x1920 coord
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D = os.environ['D']
+PKGS = ('com.and.brawlen.web', 'com.and.brawl.en')   # web build (Kong) / store build (instances cloned 2026-11-27)
 
 class Stop(Exception): pass
 
@@ -132,10 +133,22 @@ def watch_ad(timeout=180, log=print):
     while time.time() - t0 < timeout:
         f = focus()
         if 'AppActivity' in f: log(f'    ad closed after {time.time() - t0:.0f}s ({tries} close taps)'); return True
-        if f and 'com.and.brawlen.web' not in f:   # a close tap opened Play Store / settings / feedback (Gambler 11-18)
-            # back to the game like its icon tap (launcher intent = the running task to the front, no restart; Nick)
-            subprocess.run(['adb', '-s', D, 'shell', 'monkey', '-p', 'com.and.brawlen.web', '-c',
-                            'android.intent.category.LAUNCHER', '1'], capture_output=True)
+        # no window in front = the ad still loading, not another app: pulling the game up then cut the ad at 4-5 s, no
+        # reward (Bino storm 2026-11-27, Boudior/Kratos/Dminor/Kong II earlier)
+        if 'mCurrentFocus=null' in f: time.sleep(1); continue
+        if f and not any(p in f for p in PKGS):   # a close tap opened Play Store / settings / feedback (Gambler 11-18)
+            # Back first (the store page closes, the ad is in front again) - on the store-build clones the launcher intent
+            # alone left Play Store's sign-in page up 6x (Gambler 2026-11-27); then the icon-tap intent (running task to
+            # the front, no restart; Nick)
+            subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4']); time.sleep(1.5)
+            f2 = focus()
+            # still out: force-stop that app (Play Store / browser) -> the ad below is in front again; Back + the launcher
+            # intent kept the browser up 9x (Gambler grocery 2026-11-27)
+            if (m := re.search(r'u0 ([\w.]+)/', f2)) and m[1] not in PKGS:
+                subprocess.run(['adb', '-s', D, 'shell', 'am', 'force-stop', m[1]]); time.sleep(1.5); f2 = focus()
+            if f2 and not any(p in f2 for p in PKGS):
+                for p in PKGS: subprocess.run(['adb', '-s', D, 'shell', 'monkey', '-p', p, '-c',
+                                               'android.intent.category.LAUNCHER', '1'], capture_output=True)
             log(f'    ad opened {f.strip()[-50:]} -> back to the game'); time.sleep(2); continue
         try: boxes = ocr()
         except RuntimeError: boxes = []   # screencap hung 3x under a playable (Gambler/Dminor 2026-11-13): no read, the close taps below still run
