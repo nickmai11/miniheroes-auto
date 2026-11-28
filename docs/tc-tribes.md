@@ -1,6 +1,6 @@
 # Tribe Clash tribes — server number and name
 
-Read on Bino 2026-11-26 (battle day 3, the Advanced round): main-screen **Tribe Clash** banner → **Schedule** `(838,1840)` →
+Read on Knight I 2026-11-26 (battle day 3, the Advanced round): main-screen **Tribe Clash** banner → **Schedule** `(838,1840)` →
 **Group Details** tab `(776,1646)`. Tabs at the bottom of the list: Beginner `(320,1490)` / Intermediate `(540,1490)` /
 Advanced `(760,1490)` Battlefield (Advanced was already selected: its tab not tapped); group dropdown `(540,352)` (options from `(540,410)`, 64 px apart). 16 tribes per
 group, 5 rows on screen: one held 2 s drag `540,1250 → 540,700` moves ~3 rows. Close ✕ `(974,224)`. Free, nothing to claim.

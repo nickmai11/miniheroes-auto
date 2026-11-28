@@ -14,7 +14,7 @@
 # Lost the same stage 3x in a row -> swap the losing wave's team with the next tab (stage_lineups heroes in the account
 # yaml, which is rewritten), max 3 swaps per stage, then exit 2 (look by hand).
 # exit 1 = a step's screen didn't show or a stage didn't change for 4 min (climb_stage_<name>.png in /tmp).
-# Seen 2026-10-31 (Bino/Dino): after a Challenge again the game sometimes goes to the next chapter itself.
+# Seen 2026-10-31 (Knight I/Knight II): after a Challenge again the game sometimes goes to the next chapter itself.
 import json, os, re, subprocess, sys, time
 HERE = os.path.dirname(os.path.abspath(__file__))
 R = os.path.dirname(HERE)
@@ -75,9 +75,9 @@ def to_top(d):
 
 def scroll(d):
     """Slow-drag the grid up ~170-200 px and return how far it really moved. Rows repeat every PITCH, so a shift
-    near/over a row is ambiguous (fixed y and 230-px drags put wrong heroes in, Chien Than/Dino 2026-11-01): the
+    near/over a row is ambiguous (fixed y and 230-px drags put wrong heroes in, Chien Than/Knight II 2026-11-01): the
     short drag keeps the true shift the only match in 20-300; a poor best match raises instead of guessing. Limit 16
-    (was 12; Bino/pawn1 11-14 stopped at 12-13): every card is now checked by its face, so a near-miss can't misplace a hero."""
+    (was 12; Knight I/pawn1 11-14 stopped at 12-13): every card is now checked by its face, so a near-miss can't misplace a hero."""
     b = gray(); adb(d, 'swipe', 540, 1450, 540, 1330, 2000); time.sleep(1.2); a = gray()
     if abs(a[1150:1570] - b[1150:1570]).mean() < 2: return 0   # grid end
     err = {s: abs(a[1150:1230] - b[1150 + s:1230 + s]).mean() for s in range(20, 301, 2)}
@@ -153,7 +153,7 @@ def swap(a, k=1):
     won = lambda t: sum(1 for dx in range(-40, 41, 4) for dy in range(-25, 26, 4)
                         if (lambda p: p[1] > 170 and p[0] < 160 and p[2] < 120)(im.getpixel((TAB[t] + dx, 1088 + dy)))) >= 6
     w = next((t for t in (1, 2, 3) if not won(t)), 3)   # first tab without the green check = the wave we lose
-    o = (w + k - 1) % 3 + 1   # 1st swap on a stage: next tab, 2nd: the other one (Dino flip-flopped 1<->2, 2026-11-01)
+    o = (w + k - 1) % 3 + 1   # 1st swap on a stage: next tab, 2nd: the other one (Knight II flip-flopped 1<->2, 2026-11-01)
     o = o % 3 + 1 if o == w else o
     log(a, f'losing wave {w} (tabs won: {[t for t in (1, 2, 3) if won(t)]}) -> swap with {o}')
     step(a, '80,1810', 'Adventure', 10); time.sleep(1); step(a, '994,964', r'^Start$|\| Start \|')
@@ -246,7 +246,7 @@ def record(a):
 def write_lineups(a, teams):
     path = f'{R}/accounts/{a}.yaml'; y = open(path).read()
     y = re.sub(r'\n  stage_lineups:.*?(?=\n  \S|\Z)', '', y, flags=re.S)
-    y = y.rstrip('\n') + '\n  stage_lineups:   # see bino.yaml; recorded by climb_stage.py --record ' + time.strftime('%F') + '\n' + ''.join(
+    y = y.rstrip('\n') + '\n  stage_lineups:   # see knight1.yaml; recorded by climb_stage.py --record ' + time.strftime('%F') + '\n' + ''.join(
         f'    {t}: {{heroes: [{", ".join(teams[t])}], good_for: ""}}\n' for t in (1, 2, 3))
     open(path, 'w').write(y)
 

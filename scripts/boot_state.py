@@ -7,7 +7,7 @@
 usage: D=<serial> scripts/boot_state.py      scripts/boot_state.py --test (offline check of the screen rule)"""
 import os, re, subprocess, sys
 
-# Start screen (logged in, 11-22 Bino): 'Support | MINI | HEROES | Account | Community | Repair Client | Start' -> 'Account'
+# Start screen (logged in, 11-22 Knight I): 'Support | MINI | HEROES | Account | Community | Repair Client | Start' -> 'Account'
 # is on it, so it can't count. The logged-out screen hasn't been read yet: these are the usual login words (untested.md).
 LOGIN = r'(?i)\b(log ?in|sign ?in|register|forgot|guest|password)\b'
 

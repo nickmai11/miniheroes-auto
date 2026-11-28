@@ -2,14 +2,16 @@
 # Gambler = Gambl3r (was 🔥Zues🔥, Nick 2026-11-15; the account key was chloe until 2026-11-25).
 # xFaktor = pawn 1 (was xFaktor, Nick 2026-11-20).
 # fGotten = pawn 2 (was fGotten, Nick 2026-11-20).
+# knight1 = Knight I (was DINO, Nick 2026-11-27; keys swapped 2026-11-28: the first mapping had them reversed).
+# knight2 = Knight II (was ✨ BINO ✨, Nick 2026-11-27).
 ✨Cmajor✨
 Mr.KonG
 pawn 1
 pawn 2
 ✨Aminor✨
-DINO
+Knight II
 ✨Dminor✨
-✨ BINO ✨
+Knight I
 ★tiger★
 # OCR misreads of ★tiger★ (Kratos Challenged Tiger 40x 11-11..11-20 under these, Nick 2026-11-20):
 Aliger

@@ -218,7 +218,7 @@ r r g s s s""")
 assert 'dig down' in plan(raw)[2], plan(raw)
 g = relic.light(raw)
 assert g[6][2] == ('G', True) and plan(g)[:2] == (6, 2) and 'shard r7c2 +1 beside it' in plan(g)[2], plan(g)
-# Bino 2026-11-03 (Nick): through a gold chest and a pickaxe tile to 2 shards = 4 digs (3 net) for ~0.7 units -> take it
+# Knight I 2026-11-03 (Nick): through a gold chest and a pickaxe tile to 2 shards = 4 digs (3 net) for ~0.7 units -> take it
 g = grid("""
 . . . . . .
 . . . . . .

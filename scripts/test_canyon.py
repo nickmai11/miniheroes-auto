@@ -18,7 +18,7 @@ assert purple_enough(80000, 0)                                           # alrea
 assert not purple_enough(50000, 60)
 assert purple_enough(60000, 41 * 60)                                     # 60000 + 20295 (22 h a day) >= 80k
 assert not purple_enough(61431, 2203)                                    # Gambler 11-21: 81258 at 24 h a day, 79606 at 22
-assert purple_enough(61908, 2210)                                       # Bino 11-21: 80140 at 22 h a day
+assert purple_enough(61908, 2210)                                       # Knight I 11-21: 80140 at 22 h a day
 assert not purple_enough(None, 10000)                                    # points unreadable -> old rules
 # highest (Nick 2026-11-24): blue plate = tribemate, green = own account -> skipped; any other plate = a foe
 im = Image.new('RGB', (1080, 1920), (206, 154, 66))                      # sand

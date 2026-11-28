@@ -37,7 +37,7 @@ game() {   # <serial> <instance name> <port>: force-stop, launch, Start, popups 
   done
   [ -n "$ok" ] || { echo "start-timeout (${why:0:80})"; return; }
   # Start tap is sometimes ignored (pawn1/Cmajor 2026-10-27) -> re-tap up to 3x, but ONLY while the Start
-  # button is still there: a blind re-tap hit an event popup's GO and opened a web page (Bino/Dino 2026-10-27).
+  # button is still there: a blind re-tap hit an event popup's GO and opened a web page (Knight I/Knight II 2026-10-27).
   for try in 1 2 3; do
     adb connect "$s" >/dev/null 2>&1   # link drops after Start too (live test 2026-11-22: cost a whole relaunch)
     D=$s python3 "$TAP" 540,1508 -o "/tmp/boot_$port.png" --until 92,1788,0,158,230 --timeout 20 && break

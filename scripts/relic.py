@@ -334,7 +334,7 @@ def open_board():
         if a: tap_wait(*a); time.sleep(0.5); loading = True; continue
         if find(boxes, r'Tap anywhere|Do not remind'): tap_wait(540, 120); continue
         if find(boxes, r'Shovel\?|Remaining purchases'): tap_wait(938, 636); time.sleep(0.5); continue   # shovel Tip left open
-        # any other screen (Tribe left by catch-up, Dino/Dminor/Bino 2026-11-04): back arrow at once, no waiting
+        # any other screen (Tribe left by catch-up, Knight II/Dminor/Knight I 2026-11-04): back arrow at once, no waiting
         if loading: time.sleep(1); loading = False
         else: tap_wait(80, 1820); time.sleep(0.6)
     raise Stop(f'could not reach the dig board; screen: {joined(ocr())[:160]}')
@@ -395,7 +395,7 @@ def buy_shovels(prices, account):
     boxes = ocr()
     while left:
         n0 = shovels(boxes) or (0, 0)
-        if not tip(boxes):                               # after a Confirm the Tip stays open with the NEXT price (Bino 2026-11-04) -> no + tap then
+        if not tip(boxes):                               # after a Confirm the Tip stays open with the NEXT price (Knight I 2026-11-04) -> no + tap then
             tap_wait(656, 1770); boxes = ocr(); t0 = time.time()
             while not tip(boxes) and time.time() - t0 < 4: time.sleep(0.4); boxes = ocr()
         m = tip(boxes)
@@ -468,7 +468,7 @@ def run(account, dry=False, max_digs=None):
                 if refused >= 3: raise Stop('3 refused digs')
                 g, im = stable_board(); boxes = ocr(im); continue
             g2, im = stable_board()
-            if g2 is None and find(ocr(im), r'fully excavated'):   # last tile of the area: game jumps to Relic Display (Dino 2026-11-08)
+            if g2 is None and find(ocr(im), r'fully excavated'):   # last tile of the area: game jumps to Relic Display (Knight II 2026-11-08)
                 log(f'dig r{r + 1}c{c + 1} {k0[0]} ({why}) -> area fully excavated, re-entering Archaeology (next area)')
                 digs += 1; open_board(); g, im = stable_board(); boxes = ocr(im); n = shovels(boxes) or n
                 if g is None: raise Stop('not on the dig board after the area change')

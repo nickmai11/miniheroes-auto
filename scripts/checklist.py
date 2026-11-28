@@ -25,8 +25,9 @@ SENT = re.compile(r'request:? (sent\b|NOT SENT \(cooldown)|cooldown 0?(5:5\d|6:0
 NOOP = re.compile(r'nothing|\(0 this run\)|after 0 crashes|no red dot|already on')
 
 
-def parse(lines):
-    """-> dict: res {step: (tag, text)}, chests, runs, pet (n, yesterday, +today) or None, dungeons {key: (done, total)}."""
+def parse(lines, catchup=False):
+    """-> dict: res {step: (tag, text)}, chests, runs, pet (n, yesterday, +today) or None, dungeons {key: (done, total)}.
+    catchup: the catch-up runs only (`--catch-up`, full or steps) - its own section in _highlights.md (Nick 2026-11-27)."""
     p = {'res': {}, 'chests': set(), 'runs': [], 'pet': None, 'dungeons': {}, 'sent': False, 'refill': 0, 'auto': False,
          'ended': True, 'mythic': 0}
     use = False
@@ -35,7 +36,7 @@ def parse(lines):
         if h := HEAD.match(l):
             p['ended'] = False
             args = h.group(2).split(); steps = [a for a in args if not a.startswith('--')]
-            use = '--catch-up' not in args or bool(steps)
+            use = '--catch-up' in args if catchup else '--catch-up' not in args or bool(steps)
             if use: p['runs'].append(f'{h.group(1)} {" ".join(steps) or "full"}' + (' (catch-up)' if '--catch-up' in args else ''))
             continue
         # Pet Arena (Nick 2026-11-11): the count rises only when a round ends, so pets deployed after it last changed -
@@ -158,7 +159,25 @@ def status(acct, p):
     return 'running' if running(acct) else 'finished' if p['ended'] else 'cancelled'
 
 
-def highlights(day, accts, state=status):
+def catchup_undone(p):
+    """Catch-up steps whose latest result is FAIL / MANUAL (steps never run aren't listed: each account's list differs)."""
+    return [f'{n}: {tag} ' + re.sub(r' \((screenshot |on Tribe chat;)[^)]*\)', '', re.sub(r'^(MANUAL) ', '', t)).split(';')[0][:160]
+            for n, (tag, t) in p['res'].items() if tag in ('FAIL', 'MANUAL')]
+
+
+def catchup_section(caccts, state=status):
+    """'## Catch-up' block: run status + open steps per account that ran a catch-up this game day."""
+    if not caccts: return []
+    st = {a: state(a, p) for a, p in caccts}
+    undone = sorted([(a, u) for a, p in caccts if (u := catchup_undone(p))], key=lambda x: -len(x[1]))
+    out = ['', f'## Catch-up - undone ({len(undone)} of {len(caccts)} accounts)', '']
+    out += [l for a, u in undone for l in [f'- {EMOJI[st[a]]} **{a}**'] + [f'  - {t}' for t in u]] or ['Nothing undone.']
+    clean = [f'{EMOJI[st[a]]} **{a}**' for a, _ in caccts if a not in dict(undone)]
+    if clean: out += ['', f'Nothing undone: {", ".join(clean)}']
+    return out
+
+
+def highlights(day, accts, state=status, caccts=()):
     """_highlights.md: run status per account (Nick 2026-11-20), each account's open boxes (up to the first ';'), then
     the coins above HIGH. accts = [(acct, p)]."""
     weekday = datetime.date.fromisoformat(day).strftime('%a')
@@ -169,13 +188,16 @@ def highlights(day, accts, state=status):
     shops = [t for t in SHOP_TABS if any(t in o for _, o in rich)]
     st = {a: state(a, p) for a, p in accts}     # emoji beside each name (Nick 2026-11-20)
     who = lambda a: f'{EMOJI[st[a]]} **{a}**'
-    out = [f'# Highlights - dailies {day} ({weekday})', '', ' · '.join(f'{e} {k}' for k, e in EMOJI.items()), '',
-           f'## Undone ({len(undone)} of {len(accts)} accounts)', '']
+    out = [f'# Highlights - {day} ({weekday})', '', ' · '.join(f'{e} {k}' for k, e in EMOJI.items()), '',
+           f'## Dailies - undone ({len(undone)} of {len(accts)} accounts)', '']
     mythic = [f'**{a}** x{p["mythic"]}' for a, p in accts if p['mythic']]   # 7777 daily claim drew a Mythic hero (Nick 2026-11-22)
     if mythic: out[4:4] = ['## 7777 Mythic hero (20 fragments)', '', ', '.join(mythic), '']
-    out += [l for a, ts in undone for l in [f'- {who(a)}'] + [f'  - {t}' for t in ts]] or ['Nothing undone.']
-    clean = [who(a) for a, _ in accts if a not in dict(undone)]
-    if clean: out += ['', f'Nothing undone: {", ".join(clean)}']
+    if accts:
+        out += [l for a, ts in undone for l in [f'- {who(a)}'] + [f'  - {t}' for t in ts]] or ['Nothing undone.']
+        clean = [who(a) for a, _ in accts if a not in dict(undone)]
+        if clean: out += ['', f'Nothing undone: {", ".join(clean)}']
+    else: out += ['No dailies run yet.']
+    out += catchup_section(caccts, state)
     out += ['', '## Outstanding coins', '', 'Above ' + ', '.join(f'{t} {v // 1000}k' for t, v in HIGH.items()) + '.', '']
     out += table(['Account'] + [t.capitalize() for t in shops], [[a] + [f'{o[t]:,}' if t in o else '' for t in shops] for a, o in rich],
                  [False] + [True] * len(shops)) if rich else ['None.']
@@ -239,14 +261,14 @@ def test():
                          '13:54:00     pet: deployed by hand (free attempt) x1, this round 1/4',
                          '13:58:00     pet deployments 118 (yesterday 80, +38 today)',
                          '13:59:00     pet: deployed by hand (free attempt) x1, this round 2/4', '13:59:30 OK pet_arena (9s): Auto Deploying: 1 sprites'])
-    assert '- [x] pet_arena: deployments 118/120 (+38 today, +2 by hand since)' in render('dino', '2026-11-11', q), render('dino', '2026-11-11', q)
+    assert '- [x] pet_arena: deployments 118/120 (+38 today, +2 by hand since)' in render('knight2', '2026-11-11', q), render('knight2', '2026-11-11', q)
     q = parse(log[:1] + ['13:52:00     pet deployments 118 (yesterday 80, +38 today)', '13:54:00     pet: deployed by hand (free attempt) x1, this round 1/4',
                          '20:05:00     pet deployments 119 (yesterday 80, +39 today)', '20:05:30 OK pet_arena (9s): Auto Deploying: 1 sprites'])
-    assert '- [ ] pet_arena: deployments 119/120 (+39 today)' in render('dino', '2026-11-11', q)
+    assert '- [ ] pet_arena: deployments 119/120 (+39 today)' in render('knight2', '2026-11-11', q)
     # dailies pet_count (Nick 2026-11-18): progress shown in the pet_arena row, no row of its own
     q = parse(log[:1] + ['12:00:30 OK pet_arena (9s): Auto Deploying: 4 sprites', '12:45:00     pet deployments 97 (yesterday 80, +17 today)',
                          '12:45:05 OK pet_count (15s): pet deployments 97/120 (+17 today, Auto Deploy running)'])
-    r = render('dino', '2026-11-11', q)
+    r = render('knight2', '2026-11-11', q)
     assert '- [ ] pet_arena: deployments 97/120 (+17 today)' in r and 'pet_count' not in r, r
     q = parse(log[:1] + ['12:30:00 OK tribe (137s): tribe done, request sent (cooldown 05:59:59); keeping the current Glory spot: higher than any empty one (highest_free); rewards: points 37452, claimed x0'])
     assert '  - tribe: canyon NOT done\n' in highlights('2026-11-11', [('kratos', q)]), highlights('2026-11-11', [('kratos', q)])   # Kratos 2026-11-13
@@ -254,6 +276,14 @@ def test():
     assert '  - tribe: request not made\n' in highlights('2026-11-11', [('q', q)]), highlights('2026-11-11', [('q', q)])
     h = highlights('2026-11-11', [('kong', p), ('tiger', parse(log[:1] + ['13:01:00     7777: MYTHIC hero (red, 20 fragments) x1 (7777_result.png)']))])
     assert '## 7777 Mythic hero (20 fragments)\n\n**tiger** x1\n' in h and '7777 Mythic' not in highlights('2026-11-11', [('kong', p)]), h
+    c = parse(log, catchup=True)   # catch-up section (Nick 2026-11-27): only the --catch-up runs, latest result per step
+    assert c['runs'] == ['20:00 full (catch-up)', '20:53 canyon (catch-up)'] and 'shop' not in c['res'], c
+    c2 = parse(log[:13] + ['20:00:00 === 2026-11-11 20:00:00 daily.py kong --catch-up (serial 1)', '20:01:00 FAIL storm (9s): ad did not close',
+                          '20:02:00 MANUAL canyon (5s): MANUAL no empty spot; x', '20:03:00 FAIL arena (5s): x', '20:04:00 OK arena (5s): tickets 0'], catchup=True)
+    h = highlights('2026-11-11', [('kong', p)], caccts=[('kong', c2), ('tiger', c)])
+    assert '## Catch-up - undone (1 of 2 accounts)\n\n- ⛔ **kong**\n  - storm: FAIL ad did not close\n  - canyon: MANUAL no empty spot\n' in h, h
+    assert 'arena: FAIL' not in h.split('## Catch-up')[1] and 'Nothing undone: ⛔ **tiger**' in h, h
+    assert 'No dailies run yet.' in highlights('2026-11-11', [], caccts=[('kong', c2)])
     print('ok')
 
 
@@ -263,6 +293,9 @@ if __name__ == '__main__':
     accts = sys.argv[2:] or sorted(os.listdir(f'{ROOT}/logs'))
     for a in accts:
         if p := write(day, a): print(f'checklist: {os.path.relpath(p, ROOT)}')
-    accts = [(a, p) for a in sorted(os.listdir(f'{ROOT}/logs')) if os.path.exists(log := f'{ROOT}/logs/{a}/{day}.log')
-             and (p := parse(open(log)))['runs']]
-    if accts: open(f'{ROOT}/checklists/{day}/_highlights.md', 'w').write(highlights(day, accts))
+    logs = [(a, f'{ROOT}/logs/{a}/{day}.log') for a in sorted(os.listdir(f'{ROOT}/logs'))]
+    accts = [(a, p) for a, log in logs if os.path.exists(log) and (p := parse(open(log)))['runs']]
+    caccts = [(a, p) for a, log in logs if os.path.exists(log) and (p := parse(open(log), catchup=True))['runs']]
+    if accts or caccts:
+        os.makedirs(f'{ROOT}/checklists/{day}', exist_ok=True)
+        open(f'{ROOT}/checklists/{day}/_highlights.md', 'w').write(highlights(day, accts, caccts=caccts))

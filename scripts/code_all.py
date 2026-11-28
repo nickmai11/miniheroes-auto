@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Gift code on many accounts (skill `code`, Nick 2026-11-13).
-# usage: scripts/code_all.py CODE [acct...]   (no accounts = scripts/accounts.py code)  batches of 6: boot (boot.sh) the stopped ones, redeem on each, close only those it booted.
+# usage: scripts/code_all.py CODE [acct...]   (no accounts = scripts/accounts.py code)  all at once (Nick 2026-11-27): boot (boot.sh) the stopped ones, redeem on each, close only those it booted.
 # Instances already running (Kratos: game's own auto stage) are not rebooted - redeemed as they are.
 import json, re, subprocess, sys, time, os, concurrent.futures as cf
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,7 +32,7 @@ def redeem(a, serial):
         bl = subprocess.run([f'{R}/scripts/boot.sh', str(info()[inst[a]]['index'])], capture_output=True, text=True).stdout
         serial = (re.search(r' (127\.0\.0\.1:\d+) ready', bl) or [None, serial])[1]
     log(a, 'NOT redeemed after 4 tries')
-for k in range(0, len(accts), 6):
+for k in range(0, len(accts), len(accts) or 1):   # one batch: every instance at once (Nick 2026-11-27, was 6)
     batch = accts[k:k + 6]; ready = {}
     boot = [a for a in batch if a not in was_up]
     if boot:
@@ -43,5 +43,5 @@ for k in range(0, len(accts), 6):
             else: log(a, f'NOT RUN, boot: {m[0] if m else "no line"}')
     for a in batch:
         if a in was_up: ready[a] = f'127.0.0.1:{info()[inst[a]]["adb_port"]}'
-    with cf.ThreadPoolExecutor(6) as ex: list(ex.map(lambda a: redeem(a, ready[a]), list(ready)))
+    with cf.ThreadPoolExecutor(len(batch) or 1) as ex: list(ex.map(lambda a: redeem(a, ready[a]), list(ready)))
     for a in boot: subprocess.run([M, 'close', str(info()[inst[a]]['index'])], capture_output=True)

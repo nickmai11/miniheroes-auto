@@ -4,7 +4,7 @@
 # "The order is of high quality" popup = we're refreshing a good order by mistake: Cancel + WARN, stop.
 # Out of scrolls = no Confirm popup after a Refresh tap -> prints NOSCROLL <refreshes done> (the caller buys via '+').
 # Stops on any other unexpected pixel. Run from a scratch dir: writes s.png.
-# usage: D=<serial> fish_orders.py ROW MAXTRIES [MIN=4]  -> refresh order ROW (1-3) until >=MIN diamonds (config min_order_diamonds)
+# usage: D=<serial> fish_orders.py ROW MAXTRIES [MIN=4]  -> refresh order ROW (1-3) until >=MIN diamonds (config min_order_rewards)
 import os, re, subprocess, sys, time
 from PIL import Image
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

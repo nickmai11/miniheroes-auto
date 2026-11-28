@@ -63,7 +63,7 @@ def run():
 
     def attempts(im=None):
         """The pill right of "Attack Attempts" (same row as the "Battling: hh:mm:ss" timer, which a trailing-digits
-        match read as 34/24/4822 when OCR missed the lone "0": Cmajor/Chien Than/Bino 2026-11-04). Pure digits only,
+        match read as 34/24/4822 when OCR missed the lone "0": Cmajor/Chien Than/Knight I 2026-11-04). Pure digits only,
         inside the pill (x 40-220 right of the label centre); a lone digit missed -> label+pill crop enlarged 3x."""
         for _ in range(5):
             im = im or grab(); boxes = ocr(im)

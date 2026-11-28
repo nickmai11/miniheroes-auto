@@ -72,7 +72,7 @@ def storm_arena():
             boxes = ocr()
             if find(boxes, r'Welcome to Storm'): storm_welcome(boxes); boxes = ocr()
             p = grab().getpixel((400, 1580))
-            # yellow Start Match + title: Treasure Vault's yellow Draw buttons passed the pixel alone (Bino 2026-10-29)
+            # yellow Start Match + title: Treasure Vault's yellow Draw buttons passed the pixel alone (Knight I 2026-10-29)
             if p[0] > 200 and p[1] > 150 and p[2] < 80 and find(boxes, r'Start Match'): return
             time.sleep(0.4)
         home()
@@ -165,7 +165,7 @@ def refresh_row(row, mn):
 
 
 def fishing(cfg, orders=True):
-    mn = orders and re.search(r'min_order_diamonds:\s*(\d+)', cfg)
+    mn = orders and re.search(r'min_order_rewards:\s*(\d+)', cfg)
     tap_wait(624, 1780); boxes = wait(r'Order Info', 10)
     time.sleep(0.6); back = ensure_bait(cfg)
     if back == SHRIMP: return back
@@ -221,7 +221,7 @@ def pet_popup(t):
 
 def pet_state():
     """After Join: 'running' (Auto Deploying), 'used' (no free attempts), 'open' (slots left) or 'full' (64/64 or a
-    fight on: only the "N Arena" header reads, Dino 2026-11-03)."""
+    fight on: only the "N Arena" header reads, Knight II 2026-11-03)."""
     t0, fight, t_join = time.time(), 0, time.time()
     while time.time() - t0 < 10:
         boxes = ocr(); t = joined(boxes)
@@ -229,10 +229,10 @@ def pet_state():
         if pet_popup(t): continue
         if find(boxes, r'^Auto Deploying'): return 'running'
         m = re.search(r'Participating Pet\W*(\d+)\s*/\s*64', t)
-        # count alone: the "X has deployed Y" ticker hides the Auto Deploy label in a busy arena (trace, Dino 2026-11-03)
+        # count alone: the "X has deployed Y" ticker hides the Auto Deploy label in a busy arena (trace, Knight II 2026-11-03)
         if m and int(m.group(1)) < 64: return 'open'
         j = find(boxes, r'^Join$', (300, 1400, 780, 1650))
-        # Join tap lost: re-tap only after 2 s - a re-tap during the load lands on the pool's Deploy button (Bino)
+        # Join tap lost: re-tap only after 2 s - a re-tap during the load lands on the pool's Deploy button (Knight I)
         if j and time.time() - t_join > 2: tap(*j); fight, t_join = 0, time.time(); continue
         if j: fight = 0; time.sleep(0.3); continue
         # 64/64, or a fight (only the "N Arena" header reads): 4 reads in a row, not 1 (the arena draws in parts)
@@ -244,7 +244,7 @@ def pet_state():
 
 
 def pet_sprites(im, boxes, want):
-    """Sprites field shows `want`? OCR misses the lone digit on some frames (Dino/Aminor 2026-11-03): try the full
+    """Sprites field shows `want`? OCR misses the lone digit on some frames (Knight II/Aminor 2026-11-03): try the full
     frame, then the field crop enlarged 3x."""
     if find(boxes, rf'^{want}$', (600, 400, 800, 500)): return True
     c = im.crop((580, 410, 820, 500)); return any(t.strip() == want for *_, t in ocr(c.resize((720, 270))))
@@ -267,7 +267,7 @@ def pet_dialog(sprites, order):
 
 def pet_back(to_join=False):
     """Back out of the arena (Auto Deploy keeps running): to the Join screen (`to_join`) or the main screen. Back from
-    the pet pool goes straight to Join; only a fight asks 'Exit this match?' -> Confirm (probe, Dino 2026-11-03).
+    the pet pool goes straight to Join; only a fight asks 'Exit this match?' -> Confirm (probe, Knight II 2026-11-03).
     Round popups reopen on the way (Chien Than) - closed here, plain home() could give up and stop the runner."""
     for _ in range(10):
         if is_main(): return
@@ -344,7 +344,7 @@ def pet_arena(cfg, stay=False):
         if re.search(r'Not enough free|attempts used up', t): tap(938, 282); time.sleep(0.5); pet_back(to_join=stay); return done
         if pet_popup(t): continue
         if time.time() - t0 > 8:
-            # a fight starting right after Start hides the label (Bino/Dino/Kratos/Boudior 11-18: deploying all the same)
+            # a fight starting right after Start hides the label (Knight I/Knight II/Kratos/Boudior 11-18: deploying all the same)
             # -> back to Join and read the state there
             pet_back(to_join=True); tap_text(r'^Join$', (300, 1400, 780, 1650)); st = pet_state()
             if st == 'running': pet_back(); return f'Auto Deploying: {sprites} sprites, {order} (seen after rejoin)'
@@ -389,7 +389,7 @@ def pet_count(cfg):
 
 def pet_check(cfg):
     """LAST dailies step, Mon-Wed (Nick 2026-11-03): all 40 free Pet Arena attempts used today = the Achievement's
-    cumulative deployments grew by 40 since yesterday (Bino / Tiger read 80 on Tue). Yesterday's value comes from its
+    cumulative deployments grew by 40 since yesterday (Knight I / Tiger read 80 on Tue). Yesterday's value comes from its
     log; Monday = 0; no logged value -> 40 per earlier event day. Short -> Auto Deploy (re)started via pet_arena(),
     MANUAL so the catch-up re-checks."""
     if GAME_DAY.weekday() > 2: return 'SKIP closed (Mon-Wed only)'
@@ -406,7 +406,7 @@ def pet_manual(need):
     under it deploys free; the others cost a ticket ("1/0") - never those, never the ticket +. Tap the card (it gets
     the green frame), Deploy, "Available for deployment this round: k/4" must go +1 (not the pool count:
     others deploy too, Chien Than 57 -> 60). Free cards sort first; only the first row's labels read.
-    Mapped on Dino 2026-11-11 (+38 with "no free attempts left": 2 free cards, both deployed)."""
+    Mapped on Knight II 2026-11-11 (+38 with "no free attempts left": 2 free cards, both deployed)."""
     pet_open(); time.sleep(1.5)
     for _ in range(6):
         pet_popup(joined(ocr()))
@@ -524,7 +524,7 @@ def bonus_pick():
     the best offer must beat the worst owned). Rules: docs/ui-routine.md Secret Sanctuary step 4-5."""
     try: boxes = wait(r'Select Bonus Effect|Replace Bonus Effect', 6)
     except Stop: return 'no bonus'
-    for _ in range(4):                                   # the cards slide in: read until every rarity label is in place (Dino/Bino/Dminor 2026-11-08: -1 tiers off a mid-slide frame)
+    for _ in range(4):                                   # the cards slide in: read until every rarity label is in place (Knight II/Knight I/Dminor 2026-11-08: -1 tiers off a mid-slide frame)
         time.sleep(0.8); boxes = ocr()
         cs = cards(boxes, 716, 915, (192, 540, 884)) if find(boxes, r'Select Bonus Effect') else \
              cards(boxes, 429, 620, (192, 540, 884)) + cards(boxes, 1100, 1262, (150, 460, 740, 1000))
@@ -607,7 +607,7 @@ def sanctuary_climb():
     out, potions, healed = [], 0, True                  # healed = next Battle gets the strongest lineup (first one too)
     for _ in range(14):                                 # 10 floors + up to 2 potion retries + pending screens
         # a bonus screen left pending by an earlier run comes back on entry and hides the marker: "all floors won" with a
-        # Replace screen up on Bino/Dminor/Cmajor (2026-11-08) -> resolve it first
+        # Replace screen up on Knight I/Dminor/Cmajor (2026-11-08) -> resolve it first
         boxes = ocr()
         if find(boxes, r'Select Bonus Effect|Replace Bonus Effect'): out.append(f'pending {bonus_pick()}'); continue
         # weekly modifier card (3 rows + Confirm, no choice) covers the map (Kong/Tiger/Chien Than 11-09); titled with the
@@ -641,7 +641,7 @@ def sanctuary_climb():
             tap_text(r'^Start$', (0, 1700, 1080, 1920), boxes)
             r = joined(wait(r'Victory|Defeat', 150))
             if 'Victory' not in r:                       # Defeat screen = "Challenge again" + "Tap anywhere to close", no Confirm
-                for _ in range(3):                       # (Bino/Dminor/Tiger 2026-11-08: Stop -> the runner's retry re-fought); never Challenge again
+                for _ in range(3):                       # (Knight I/Dminor/Tiger 2026-11-08: Stop -> the runner's retry re-fought); never Challenge again
                     tap_wait(540, 120); time.sleep(0.8)
                     if not find(ocr(), r'Tap anywhere to close|Challenge again'): break
                 if potions < 2 and sanctuary_potion():   # Nick 2026-11-08: lost with the 5 main heroes -> potion -> again with the 5
@@ -652,7 +652,7 @@ def sanctuary_climb():
         if fl[1] == '10': break
     else:                                                # DoD = all floors won (Nick 2026-11-03): a marker left = not done
         if floor_marker(grab()): return 'MANUAL climb not finished: ' + ', '.join(out)
-    # Dino / Bino 2026-11-23: no marker read after floor 9 -> "climbed" OK at 9/10 -> swept the next day. Nick 11-24: MANUAL
+    # Knight II / Knight I 2026-11-23: no marker read after floor 9 -> "climbed" OK at 9/10 -> swept the next day. Nick 11-24: MANUAL
     if short_of_10(out):
         grab().resize((540, 960)).save('v_sanctuary.png')    # the map the marker wasn't read on, to tune floor_marker
         return 'MANUAL climb not finished (no marker read, last floor below 10; v_sanctuary.png): ' + ', '.join(out)
@@ -719,7 +719,9 @@ def gate(cfg):
         boxes = wait(r'^Confirm$', 8)   # the Tip text OCRs before its buttons finish animating (Chien Than/Dminor 11-09)
         tap_text(r'^Confirm$', (560, 1080, 960, 1250), boxes)
         t0 = time.time()
-        while time.time() - t0 < 180 and not find(ocr(), r'Victory|Kill Count'): time.sleep(2)
+        # GATE_CAP=<s>: a shorter cap for one run (Nick 2026-11-27: "enter darkness and quit immediately" - the run
+        # dropped with "Network issue" ~30 s in on the reset accounts)
+        while time.time() - t0 < int(os.environ.get('GATE_CAP', 180)) and not find(ocr(), r'Victory|Kill Count'): time.sleep(2)
         if not find(ocr(), r'Victory|Kill Count'):     # still fighting: Pause -> Quit Battle (counts as Victory)
             tap_wait(866, 1227); b = ocr()
             if not find(b, r'Quit Battle|Victory|Kill Count'): tap_wait(866, 1227); b = ocr()
@@ -879,14 +881,14 @@ def divine(cfg):
     if red_dot(110, 140, 200, 220): out.append(vein_tech())   # veins.py exits 0 only at 0 pickaxes
     tap_wait(92, 1810)
     try: wait(r'Arsenal', 8)
-    except Stop:                                            # back tap lost after the 0-pickaxe mining (Kratos/Dino/Tiger 11-19)
+    except Stop:                                            # back tap lost after the 0-pickaxe mining (Kratos/Knight II/Tiger 11-19)
         if not find(ocr(), r'Excelsior Veins'): raise
         tap_wait(92, 1810); wait(r'Arsenal', 8)
     if re.search(r'^\s*divine_forge:\s*false', cfg, re.M): out.append('forge off (config)')
     else:
         last = None
         for _ in range(14):                                 # Forge: one slot per anvil tap; crystals only, never gems
-            for _ in range(4):                              # forge hammer animation hides the counters for a few s (Bino/pawn1)
+            for _ in range(4):                              # forge hammer animation hides the counters for a few s (Knight I/pawn1)
                 boxes = ocr(); t = joined(boxes)
                 fr = [(y, num(m.group(1)), num(m.group(2))) for x, y, w, h, b in boxes
                       for m in [re.fullmatch(r'([\d.]+[kKmM]?)/([\d.]+[kKmM]?)', b.strip())] if m]
@@ -896,7 +898,7 @@ def divine(cfg):
                 if slots and cry: break
                 time.sleep(1.5)
             if not slots or not cry: raise Stop(f'forge counters unreadable: {t[:150]}')
-            if slots[1] >= slots[2] or cry[1] < cry[2]:   # full, or out of crystals (Bino 4/7 on 11-11)
+            if slots[1] >= slots[2] or cry[1] < cry[2]:   # full, or out of crystals (Knight I 4/7 on 11-11)
                 out.append(f'forge {slots[1]}/{slots[2]}' + (f' (crystals {cry[1]}/{cry[2]}: out)' if slots[1] < slots[2] else '')); break
             if slots[1] == last: out.append(f'forge did not respond at {slots[1]}/{slots[2]}'); break
             last = slots[1]; tap_wait(540, 1484); time.sleep(1.5)   # counter animates; re-read at the loop top
@@ -986,7 +988,7 @@ def rune_pick():
         if not free: continue
         t, cx = free[0]
         tap_wait(cx, t + 81)                            # tile centre
-        for _ in range(8):                              # Synthesize sits lower the more stat lines the rune has (Bino)
+        for _ in range(8):                              # Synthesize sits lower the more stat lines the rune has (Knight I)
             boxes = ocr(); s = find(boxes, r'^Synthesize$', (200, 900, 880, 1750))
             if s: return s
             if find(boxes, r'(?i)locked'): raise Stop(f'tapped a locked rune at ({cx},{t + 81}) - lock detector missed it')
@@ -1018,7 +1020,7 @@ SHOP_TABS = {'sanctuary': (452, False), 'tribe': (732, False), 'ruins': (980, Fa
 def coin(im, x0, x1, cy):
     """Mean colour of a coin icon's coloured pixels (left of its number): the paw / edges / background average out.
     A fixed sample point hit the icon edge and skipped Realm tile 4 every day since late Oct (24x); whole icon: all 12
-    Realm tiles within 2-4 of the balance icon (Dino 2026-11-03)."""
+    Realm tiles within 2-4 of the balance icon (Knight II 2026-11-03)."""
     px = [p for p in (im.getpixel((x, y)) for x in range(x0, x1, 2) for y in range(cy - 16, cy + 17, 2)) if max(p) - min(p) > 80]
     return [sum(p[i] for p in px) // len(px) for i in range(3)] if px else [0, 0, 0]
 
@@ -1204,7 +1206,7 @@ def canyon(cfg):
     (Nick 2026-11-04). No empty one -> MANUAL (helper attacks: a Sentinel, else a non-tribe player - Nick 2026-11-16)."""
     if NOW.weekday() == 0 and 6 <= NOW.hour < 17: return 'SKIP closed until Mon 17:00'   # season Mon 10:00 -> Sun 23:00 UTC (in-game rules)
     open_canyon()
-    if canyon.taken: out = 'spot taken earlier this run'  # the runner's retry re-occupied after a rewards FAIL (Dino 11-05)
+    if canyon.taken: out = 'spot taken earlier this run'  # the runner's retry re-occupied after a rewards FAIL (Knight II 11-05)
     else:
         try: out = script('canyon.py', ACCOUNT)
         except Stop as e:
@@ -1232,10 +1234,10 @@ def banner_dots(secs=8):
     label; Tribe Clash left out - its dot never clears (Nick 2026-11-11). Crystal Throne (same banner slot, other weeks)
     too: its dot = the free Value Pack, claimed by the later tribe_clash_packs step (all 11 accounts 2026-11-14).
     Cards rotate faces (Storm / Dragon Temple, ...) and a dot belongs to one face -> frames for `secs` s, not one
-    (Dino 11-14: Dragon Temple's dot in 6 of 10 frames; a 1-frame read said 'no red dot left')."""
+    (Knight II 11-14: Dragon Temple's dot in 6 of 10 frames; a 1-frame read said 'no red dot left')."""
     found, t0, prev = [], time.time(), set()
     while True:
-        # 2 frames in a row: a card sliding by drags its art's red through the box for one frame (Bino 2026-11-26:
+        # 2 frames in a row: a card sliding by drags its art's red through the box for one frame (Knight I 2026-11-26:
         # Dragon Temple's, 1 frame in 45 -> MANUAL 'banner Opens in 23h20m' with no dot on screen)
         im = grab(); now = {y for y in range(240, 900, 20) if red_dot(1010, y, 1075, y + 24, im)}
         hits, prev = sorted(now & prev), now
@@ -1327,7 +1329,7 @@ def six_floor(left):
             if not c: break                              # "Stage Cleared": today's last stage done
             tap_wait(*c); b = wait(r'^Start$', 8)
             tap_wait(986, 1800); time.sleep(1)           # Quick Deploy always: an empty lineup's '0' power isn't OCR'd (all accounts 2026-11-20)
-            for _ in range(2):                           # a Start right after Quick Deploy's animation is ignored (Bino 2026-11-20)
+            for _ in range(2):                           # a Start right after Quick Deploy's animation is ignored (Knight I 2026-11-20)
                 tap_wait(540, 1810); time.sleep(2)
                 if not find(ocr(), r'^Start$', (300, 1700, 780, 1900)): break
             b = wait(r'Victory|Defeat', 180)
@@ -1427,7 +1429,7 @@ def balance(box):
     """A currency counter top left of the Pack popup - gems (60,40,260,100), Stargems (300,40,500,100) - OCR'd alone:
     the whole-screen OCR glued '620' to the title behind it ('6201ng Realm', Aminor 2026-11-03)."""
     c = grab().crop(box); c = c.resize((c.width * 2, c.height * 2))
-    d = [m for *_, t in ocr(c) if (m := re.fullmatch(r'(\d+(?:\.\d+)?)([kKmM]?)', t))]   # '105k' from 100k gems up (Dino, Bino 2026-11-16)
+    d = [m for *_, t in ocr(c) if (m := re.fullmatch(r'(\d+(?:\.\d+)?)([kKmM]?)', t))]   # '105k' from 100k gems up (Knight II, Knight I 2026-11-16)
     if not d: raise Stop(f'balance unreadable at {box}')
     return int(float(d[0][1]) * {'': 1, 'k': 1e3, 'm': 1e6}[d[0][2].lower()])
 
@@ -1560,10 +1562,10 @@ def events(cfg):
     out, left = [], []
     time.sleep(1.5); tabs = hub_tabs()
     # The SELECTED tab hides its own red dot and the hub opens on the last-used tab, so that tab was always skipped
-    # (Dino's Match Event, 2026-11-01). Read with 2 different tabs selected; every tab shows its dot in one of them.
+    # (Knight II's Match Event, 2026-11-01). Read with 2 different tabs selected; every tab shows its dot in one of them.
     read = lambda: {t: red_dot(x + 30, 1720, min(x + 95, 1080), 1795) for t, x in tabs.items()}
     # Always 2 DIFFERENT tabs: picking "tabs without a dot" picked only the hidden (selected) tab itself when every other
-    # tab had a dot -> Weekly Event Free Benefits missed on pawn1 + Bino (2026-11-04).
+    # tab had a dot -> Weekly Event Free Benefits missed on pawn1 + Knight I (2026-11-04).
     dots = read()
     for t in list(tabs)[:2]:
         tap_wait(tabs[t], 1840); time.sleep(1.2)
@@ -1574,7 +1576,7 @@ def events(cfg):
     new_tabs = unmapped_tabs()
     if new_tabs: left += [f'unmapped tab {t}' for t in new_tabs]
     for tab, x in tabs.items():
-        # 7777: always look - its dot read False on Aminor/Bino/Cmajor with the daily Claim still up (Nick 2026-11-02)
+        # 7777: always look - its dot read False on Aminor/Knight I/Cmajor with the daily Claim still up (Nick 2026-11-02)
         # 6-floor: a visit clears its dot with Ruin stages unfought (Pawn II 2026-11-20) -> always look too
         if not dots[tab] and tab not in ('7777', 'six_floor'): continue
         try:
@@ -1586,7 +1588,7 @@ def events(cfg):
                     # poll the milestone list: Fishing Race's loads ~2 s late, a fixed 1 s missed its Claim (Kratos 2026-11-17)
                     try: wait(r'Claim|Finished', 6, (0, 900, 1080, 1760))
                     except Stop: continue                    # empty sub-event (Demon Defense 2026-11-17)
-                    for _ in range(25):                      # top row's Claim rolls to the next milestone; 8 left 2 on Dino (2026-11-01)
+                    for _ in range(25):                      # top row's Claim rolls to the next milestone; 8 left 2 on Knight II (2026-11-01)
                         c = find(ocr(), r'^Claim$', (740, 960, 1060, 1090))
                         if not c: break
                         tap_wait(*c); time.sleep(1.2); tap_wait(300, 200); n += 1
@@ -1649,13 +1651,13 @@ def events(cfg):
     if dots and not (capped and all('Storm' in d for d in dots)):   # Storm Battlefield's dot clears on a visit, Weekly Event's lags its hub claim (Dminor/pawn1 2026-11-12) -> re-read
         # any dot, not just one named Storm: the 2nd card rotates Storm / Dragon Temple, so the name is whichever face
         # showed (Tiger 2026-11-14: Storm's dot read as 'banner 1d 15h', the Dragon Temple timer). Dot clears a few s late.
-        # the storm step again, not a bare visit (Nick 2026-11-26: a leftover banner dot is probably Storm's - Bino had 2/5 tickets back)
+        # the storm step again, not a bare visit (Nick 2026-11-26: a leftover banner dot is probably Storm's - Knight I had 2/5 tickets back)
         try: out.append(f'storm again: {storm(cfg)}')
         except Stop as e: out.append(f'storm again: {e}')
         if not home(): raise Stop('lost the main screen after the Storm Battlefield banner')
         time.sleep(4); dots = banner_dots()
     # 7777's banner dot is sticky once its daily Claims are ticked (only "Again" left), and the hub step above always
-    # looks at 7777 -> not a leftover (Bino 2026-11-17: helper found all 15 days ticked); its nearest label can be the
+    # looks at 7777 -> not a leftover (Knight I 2026-11-17: helper found all 15 days ticked); its nearest label can be the
     # 'Forever' timer (pawn2 2026-11-18)
     # storm_max_rank accounts keep tickets by config -> Storm's dot never clears (pawn1, Dminor 2026-11-21: King +1 reached)
     left += [d for d in dots if not re.search(r'7777|Draws|Forever', d) and not (capped and 'Storm' in d)]

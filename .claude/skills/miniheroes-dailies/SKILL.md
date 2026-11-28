@@ -36,6 +36,11 @@ this skill only adds the dailies-specific ones. Mission details, coords and acco
    Pet Arena = +40 deployments that day (catch-up `pet_check` count), or the missing ones deployed since (by hand / Auto Deploy restart), Sanctuary = floors 10/10, Events = no red dot left
    (Tribe Clash / Crystal Throne excepted), short counts (4/5, forge 4/7) = not done. Read them before reporting;
    a re-run of one step updates its box. Helper-done steps aren't in the log: re-run the step's script or note them.
+   **`done.sh` only once the account's Undone list in `_highlights.md` is empty** (Nick, 2026-11-27): an empty
+   `LEFT FOR HELPER` + the 160 chest isn't enough — clear every undone box first (re-run the step, helper); a box that
+   can't be cleared → the account is NOT done (game stays up), report why. **Promptly:** the moment that account's
+   runner ends, start on its undone boxes — never wait for the other accounts to finish.
+   `dailies_all.sh` runs `done.sh` itself only when the checklist says `Not done (0)`.
    **Report** per account (CLAUDE.md "Reporting"); the runner prints every paid action with its price.
    **Every account must reach the 160 Daily Mission chest** (Nick, 2026-11-03): 16 of the 18 rows are scripted (not
    Upgrade Statue, Purchase with Diamonds). Below 160 → open that account's Daily Mission, match the open rows to

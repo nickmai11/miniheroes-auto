@@ -55,9 +55,9 @@ arrow `(80,1820)`). Screenshot before retrying anything.
   lower third of r6c1).
 - Dark brown = empty (dug). **Lit** tiles (tan dirt, light grey stone, items on a tan hole) touch an empty cell →
   diggable now. **Dark** tiles (dark brown dirt, dark grey stone) aren't reachable yet — dark grey stone is just unlit
-  stone, same 2 hits (Dino 2026-10-31). Only tiles adjacent to empty cells can be dug ("dig up the adjacent plot
+  stone, same 2 hits (Knight II 2026-10-31). Only tiles adjacent to empty cells can be dug ("dig up the adjacent plot
   first" toast, no shovel used).
-- Dirt = 1 hit. Stone = 2 hits (cracked after the 1st; one stayed cracked after 2 — Dino 2026-10-30). Items = 1 hit.
+- Dirt = 1 hit. Stone = 2 hits (cracked after the 1st; one stayed cracked after 2 — Knight II 2026-10-30). Items = 1 hit.
 - Digging a bottom-row tile scrolls the board up one row (new bottom row appears). Each dig = 1 shovel and +1 on
   the "Mine N more times" bar. Shovel cap 150 or 100 per account (the counter shows it); regen past the cap is lost.
 - Pickaxe tile = usually a shovel back (net 0); once Legend Spiritstone ×50 for a real shovel (Dminor 2026-10-31).
@@ -94,7 +94,7 @@ arrow `(80,1820)`). Screenshot before retrying anything.
   again (Nick 2026-11-04: every pass re-opening it looked like extra buy taps). Prices escalate
   80 → 160 → 240 → 320 → 400 within the day (5 buys at most — APK table `hallowBuyCounts`, 2026-11-25; 80–320 seen
   live); each buy is verified by the counter (+10).
-- **Area fully excavated** (Dino 2026-11-08, Blaze Peaks): the dig that finishes an area drops the game onto Relic
+- **Area fully excavated** (Knight II 2026-11-08, Blaze Peaks): the dig that finishes an area drops the game onto Relic
   Display ("Area fully excavated." toast), then a Congratulations popup (area reward: relics) opens over Fragment —
   not a combine. `relic.py` re-enters Archaeology (next area's board, new milestone count) and keeps digging.
 - **Milestone bar** ("Mine N more time(s) to claim your reward", top): at N = 0 tap its reward icon top-right
@@ -148,7 +148,7 @@ shut) and takes the best value/cost that reaches a row-1 item if ≥ r — logge
 top-row item (Nick, 2026-11-04: row 1 is gone for good once it scrolls off).
 
 **Threshold:** take a target if `units / real cost ≥ r` (r = 0.14): a relic chest is worth up to ~11 digs, a lone
-shard 1–2; shards sharing a tunnel split the cost — the script credits every item on or beside a route (Nick 2026-11-03, Bino: a gold chest + a pickaxe tile on the way to 2 shards = 4 digs, worth it).
+shard 1–2; shards sharing a tunnel split the cost — the script credits every item on or beside a route (Nick 2026-11-03, Knight I: a gold chest + a pickaxe tile on the way to 2 shards = 4 digs, worth it).
 
 **Routes collect on the way** (Nick 2026-11-04, Chien Than): of two routes of the same cost, take the one through
 shards/chests — the search treats item tiles as free to pass, so a 5-dig bottom row with 2 shards beats a 5-dig tunnel

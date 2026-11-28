@@ -73,7 +73,7 @@ def relaunch(acct=None):
 
 def after_restart():
     """The game just (re)started - a reload after "Network issue" -> Confirm. A popup can ALWAYS show then (Nick 2026-11-22:
-    Bino waited ~3 min for a main screen hidden by Snow Carnival): wait out the loading, tap Start if the title screen
+    Knight I waited ~3 min for a main screen hidden by Snow Carnival): wait out the loading, tap Start if the title screen
     shows (Chien Than 11-11), and the moment a popup or the main screen is up, clear the popups exactly like boot does -
     stabilize.main(): tick "Do not remind me today", then X (Cancel / "Tap anywhere to close", never GO). True = clean main."""
     from stabilize import close_x, main as clear_popups      # stabilize imports flow
@@ -101,7 +101,7 @@ def home():
         if find(boxes, r'Do not remind me today'):
             tap_text(r'Do not remind me today', boxes=boxes)
             from stabilize import close_x                   # stabilize imports flow
-            x = close_x(grab())                                    # back arrow can't close event popups (Dino 2026-10-28)
+            x = close_x(grab())                                    # back arrow can't close event popups (Knight II 2026-10-28)
             if x: tap_wait(*x); time.sleep(1); continue
         if find(boxes, r'^Exit') and find(boxes, r'^Confirm$'): tap_text(r'^Confirm$', boxes=boxes); continue
         if find(boxes, r'Network issue') and find(boxes, r'^Confirm$'):   # mid-battle (pawn1 gate 2026-11-10): Confirm reloads
@@ -134,7 +134,7 @@ def watch_ad(timeout=180, log=print):
         f = focus()
         if 'AppActivity' in f: log(f'    ad closed after {time.time() - t0:.0f}s ({tries} close taps)'); return True
         # no window in front = the ad still loading, not another app: pulling the game up then cut the ad at 4-5 s, no
-        # reward (Bino storm 2026-11-27, Boudior/Kratos/Dminor/Kong II earlier)
+        # reward (Knight I storm 2026-11-27, Boudior/Kratos/Dminor/Kong II earlier)
         if 'mCurrentFocus=null' in f: time.sleep(1); continue
         if f and not any(p in f for p in PKGS):   # a close tap opened Play Store / settings / feedback (Gambler 11-18)
             # Back first (the store page closes, the ad is in front again) - on the store-build clones the launcher intent
@@ -162,7 +162,10 @@ def watch_ad(timeout=180, log=print):
             if b: tap(*b); log(f'    ad dialog -> {"Close it" if done else "Continue"} ({el:.0f}s)'); time.sleep(2); continue
         if el >= 60 and time.time() - seen >= 6:   # 40 forfeited 2 rewards at 47-48 s (Boudior, Tiger 2026-11-15; paid ones ran 71-78 s)
             tries += 1
-            if tries % 2 == 0: tap(1014, 82)   # playables ignore Back: '>' then the end card's X (pawn1 11-09)
+            if tries % 3 == 2:   # playables ignore Back: '>' then the end card's X (pawn1 11-09)
+                tap(1014, 82); time.sleep(1.5)
+                if not in_game(): tap(1004, 124)   # X sits lower on some (Bitunix, Pawn II 2026-11-28)
+            elif tries % 3 == 0: tap(60, 50)   # end card with only a top-left '▶|' skip (BUTCHERBOX ad, 6 accounts 2026-11-28)
             else: subprocess.run(['adb', '-s', D, 'shell', 'input', 'keyevent', '4'])
             time.sleep(3); continue
         time.sleep(2)
@@ -251,7 +254,7 @@ def battle(start_screen, timeout=180, setup=None):
         if find(boxes, start_screen): return res
         c = find(boxes, r'^Confirm$')
         # Confirm, or 'Tap anywhere' at the TOP: (540,1700) below "Challenge again" started the next Tower floor on a
-        # Victory (Bino/Chien Than/Dino 2026-11-01: a new fight was running when the close loop gave up)
+        # Victory (Knight I/Chien Than/Knight II 2026-11-01: a new fight was running when the close loop gave up)
         tap(*(c or (540, 120))); time.sleep(1.5)
     raise Stop(f'result screen did not close back to {start_screen!r}')
 

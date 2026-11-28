@@ -85,7 +85,7 @@ and saves a screenshot `-w` px wide (default 540: coords ×2 for device; 270: ×
 - Chain known taps of a flow in one call; screenshot-check only at decision points (prices, counters,
   unexpected popups). Always check the current screen before the first tap of a flow.
 - Taps with no visible effect return after ~1.5 s (`NO_CHANGE`), not the full `MAX_WAIT` — but they can still
-  register late (Bino: Level Up tapped twice = +2 levels). Re-screenshot after ~1.5 s before retrying a tap that "did nothing".
+  register late (Knight I: Level Up tapped twice = +2 levels). Re-screenshot after ~1.5 s before retrying a tap that "did nothing".
 - Waiting for something (battle end, button back): `scripts/tap.py [taps] --until x,y,r,g,b[,tol] --timeout s`
   polls every ~0.3 s and returns the moment that device pixel matches — no fixed sleeps, no 10–15 s polls.
 - **Wait on the next screen's text: `--until-text REGEX`** (OCR, default timeout 10 s; 2026-10-29). It prints the
@@ -156,7 +156,7 @@ Forest `(870,1310)`, Temple `(870,1696)`.
 - **Back arrow `(92,1810)` sits on top of the main screen's Recruit button.** A back tap that lands after the
   screen changed opens Recruit — screenshot after every back tap; on Recruit just tap back again (never Recruit 1/10).
 - **On-screen counters are the truth**, not red dots or the plan: Tower / Sanctuary had no red dot but weren't done
-  (Cmajor); some modes were already done earlier that day (Bino). Always open and read the counter.
+  (Cmajor); some modes were already done earlier that day (Knight I). Always open and read the counter.
 - **Accounts without a Play Pass get video ads where others get Free — watch them (Nick, 2026-11-08: "you have to watch
   ads for such accounts"; pawn1's pass ran out 2026-11-08, `play_pass2` logs `monthly card track locked`).** Looks:
   Common Recruitment = "Purchase Play Pass to skip ad >>" + a green **▶ Recruit 1** button (no "Free" text); Grocery
@@ -275,7 +275,7 @@ Mapped 2026-10-26 on Cmajor via ADB. **Device coords (1080×1920)**; window coor
 
 Goal: spend every free ticket attacking the **topmost attackable** opponent — Nick, 2026-10-27; Crash, or Challenge only
 when the opponent's CP is below ours (Nick, 2026-11-04). **Two modes** (`arena.attack`, Nick 2026-11-20):
-`non_tribemate` (default) = skip our tribe; `all` (Dino, Bino, Dminor, every day) = tribemates too. Either way never
+`non_tribemate` (default) = skip our tribe; `all` (Knight II, Knight I, Dminor, every day) = tribemates too. Either way never
 Nick's own accounts (`accounts/own_accounts.txt`) and never an opponent **200+ arena points below ours**.
 
 1. **Tribe roster:** members are fixed (Nick, 2026-10-26). Use the saved list in `accounts/tribe_<name>.txt`;
@@ -294,7 +294,7 @@ Nick's own accounts (`accounts/own_accounts.txt`) and never an opponent **200+ a
    - Blue **Crash** = instant win vs. a weaker opponent (1 ticket).
    - Yellow **Challenge** = real fight vs. a stronger one (1 ticket): lineup **Start** `(540,1808)` → Victory/Defeat →
      dismiss `(540,120)` (never the bottom: "Challenge again"). Taken only when its CP is **below ours** (Nick, 2026-11-04;
-     flow verified on Bino 2026-11-06: Svi 3431k → Victory). Our CP = the fist number of the own row pinned at the bottom of the Arena ranking list, above the
+     flow verified on Knight I 2026-11-06: Svi 3431k → Victory). Our CP = the fist number of the own row pinned at the bottom of the Arena ranking list, above the
      Challenge button (≈ `(614,1414)`; Cmajor 6338k). Row CP in the dialog ≈ `(498, button y)`.
    - **Arena points** = the crown number: row ≈ `(331, button y)`, left of its CP; ours = the crown number of the
      pinned own row ≈ `(440,1414)` (Cmajor 2026-11-20: 2455; rows 2438 … 2077).
@@ -382,7 +382,7 @@ shows a greyed one on a fresh map — it used to log a false "swept"), else clim
 marker (`floor_marker()`: flags have yellow stripes too, told apart by their red ones); a far weaker floor wins on the
 node tap itself (no popup, straight to the bonus screen); bonus/replace picked by the rules below via OCR. A loss → MANUAL.
 Timing (2026-11-08, Lava Cave on all 8): the map keeps panning after a floor and the bonus cards slide in — a frame read mid-move put the marker at (727,458) and every offered card's tier at −1 ("replace screen unreadable") → `stable_marker()` (2 reads 0.5 s apart within 12 px, one re-read before giving up) and `bonus_pick()` re-reads until every rarity label is in place. The marker's yellow must be read with G > 175 and no red-neighbour filter (the lava is red; the flags' darker stripes stay out).
-Also 2026-11-08: a bonus screen left pending (the run died on it) comes back when the map is re-entered and hides the marker → `floor_marker()` saw none and the step logged "all floors won" on Bino/Dminor/Cmajor with floors left; the climb now resolves a pending Select/Replace screen first. With all 10 flags up a flag's gold stripe used to read as the marker (Cmajor) → the marker must be a ≥ 30-sample blob. The **Defeat** screen has no Confirm — "Challenge again" + "Tap anywhere to close" → dismiss `(540,120)`, MANUAL `floor N LOST`, never Challenge again.
+Also 2026-11-08: a bonus screen left pending (the run died on it) comes back when the map is re-entered and hides the marker → `floor_marker()` saw none and the step logged "all floors won" on Knight I/Dminor/Cmajor with floors left; the climb now resolves a pending Select/Replace screen first. With all 10 flags up a flag's gold stripe used to read as the marker (Cmajor) → the marker must be a ≥ 30-sample blob. The **Defeat** screen has no Confirm — "Challenge again" + "Tap anywhere to close" → dismiss `(540,120)`, MANUAL `floor N LOST`, never Challenge again.
 
 Sweep only exists for a while after a full clear (Nick: ~7 days); when the map rotates (2026-10-27:
 Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**. Mapped on Cmajor, ADB device coords.
@@ -392,7 +392,7 @@ Ice Citadel → **Lava Cave**) there's no Sweep and you **attack from floor 1**.
 2. If a plain **Sweep** `(540,1778)` shows: Sweep → _Tip_ **Confirm** `(533,1197)` → dismiss `(540,120)`. Done.
    **Not if yesterday stopped short of 10/10** (Nick, 2026-11-12): the account's last `sanctuary` line in yesterday's
    game-day log is MANUAL / FAIL (a LOST floor, climb not finished) → don't sweep, climb again (`sanctuary_yesterday()`);
-   a climb that ends on a floor below 10 with no marker read is MANUAL too (Dino / Bino 11-23 logged OK at 9/10 and swept 11-24 — Nick 11-24);
+   a climb that ends on a floor below 10 with no marker read is MANUAL too (Knight II / Knight I 11-23 logged OK at 9/10 and swept 11-24 — Nick 11-24);
    a map with no floor left to climb still gets the sweep.
    The weekly map-effects card rolls in first ("Generating Effect…", no Confirm yet) and dims the Sweep under it
    (`(49,36,0)`, not yellow) — wait for its Confirm (it can slide in with neither Confirm nor "Generating" readable yet: Kong 11-18 climbed past a dimmed Sweep), then read Sweep; the map doesn't matter (Nick 11-18); "Remaining Days: N" sits above a live Sweep
@@ -485,7 +485,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Costs potions/gold/stones o
 1. Main screen → **Hero** `(274,1810)`.
 2. **Bone Archer** — find him by his **avatar**, not Lv / stars / position (Nick, 2026-11-03): expand icon above the
    strip `(1008,1400)` → **Marksman** filter (green bow) `(662,1800)` (the game keeps it; a 2nd tap keeps it on) →
-   scroll to the bottom → his face (template `scripts/bone_archer_strip.png`) — usually last, not always (Bino: one
+   scroll to the bottom → his face (template `scripts/bone_archer_strip.png`) — usually last, not always (Knight I: one
    Lv.160 after him) → tap → name top-left = "Bone Archer" → close the list ✕ `(1008,1100)`.
 3. **Level Up** `(540,1178)` **`hero_levels` times (5)**, stop when out of potions → level +1 each (cost ~23000 potions). Its position shifts after
    the first tap ("↑ Lv.90" quick-level button appears above it at `(540,1060)`) — never tap that.
@@ -633,15 +633,15 @@ Benefit, no Auto, no order rewards, and never a bait swap (Sunday's Lucky Star i
 1. Main screen → **Fishing** `(624,1780)`.
 2. **Order Info** `(190,786)` → _Daily Order_ dialog: 3 orders, refresh-ticket count top-left.
    Tier = filled diamonds (5 max): 1 common, 2 rare, 3 legend, 4 mythic, 5 eternal (name turns red at 4+).
-   Target per account: `missions.fishing.min_order_diamonds` (Cmajor: 4 = Mythic+).
+   Target per account: `missions.fishing.min_order_rewards` (Cmajor: 4 = Mythic+).
 3. Refresh buttons x=`849`, y = `704 / 1058 / 1412` (orders 1–3). Costs **1 refresh ticket**. _Order Refresh_
    confirm "Confirm to refresh orders? Cost x1" → **Confirm** `(757,1211)`. Never tick "Do not remind me today" (the CLAUDE.md exception: a cost confirmation).
    "The order is of high quality, continue to refresh?" = something's wrong (we'd refresh a good order) → **Cancel**
    `(320,1212)` and report (Nick, 2026-10-29).
-   Automate with `D=<serial> scripts/fish_orders.py ROW MAX MIN` (MIN = `min_order_diamonds`, default 4; pixel check
+   Automate with `D=<serial> scripts/fish_orders.py ROW MAX MIN` (MIN = `min_order_rewards`, default 4; pixel check
    on the diamonds; row y = 567/921/1275, diamond x = 633/706/778/851/921; filled = R>200, empty = (58,85,115)).
    It handles both popups itself (WARN line on high quality) and returns `None` on any other popup (e.g. out of tickets).
-4. Out of scrolls: buy packs as needed until every order reaches `min_order_diamonds` (Nick, 2026-11-03:
+4. Out of scrolls: buy packs as needed until every order reaches `min_order_rewards` (Nick, 2026-11-03:
    "unlimited, buy as lacking, don't care about price" — always 50 gems), **one pack at a time** (Nick, 2026-11-14).
    Flow, seen on Boudior 2026-11-14:
    - Empty = a Refresh tap shows **no** "Confirm to refresh" popup and nothing else happens (no purchase popup).
@@ -677,7 +677,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
 3. **Excelsior Veins** `(980,1810)` → mining grid. Attempts = pickaxes `N/80` (bottom centre;
    regenerates over time). Keep the "Automatically advance to next floor" tick as-is.
 4. **Run `D=<serial> scripts/veins.py`** on the grid — it does the loop below and stops at the first buy popup
-   (Bino 2026-10-28: a hand-written loop kept tapping 42x past 0 pickaxes, each time opening the 120-diamond buy popup).
+   (Knight I 2026-10-28: a hand-written loop kept tapping 42x past 0 pickaxes, each time opening the 120-diamond buy popup).
    By hand: **One-Click Mining** `(896,1612)` → _Congratulations_ → dismiss `(540,120)`. Repeat until pickaxes = 0
    (pickaxes found in the mine are added back: 1–6 taps). At 0 it opens "120 diamonds for 5 pickaxes" → close ✕ `(938,636)`.
    Don't use the dynamite / drill items or the `+` on the pickaxe (buys more).
@@ -687,11 +687,11 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free.
    2 nodes in the row → max the left first, then the right; 1 node → that one. Tap the node (~60 px above its label) →
    dialog: ore `owned/cost` above **Research** → Research only when owned ≥ cost (ore, not gems; one research at a time,
    hours long). Never **Speedup** (gems) or **Reduce time** (ad). Close: Android Back (dialog) → ✕ `(972,240)`.
-   `daily.py divine` does it (`vein_tech()`). Mapped on Bino: Efficient Supply XI 3/6 → Research, 3549 ore, 4h 23m.
+   `daily.py divine` does it (`vein_tech()`). Mapped on Knight I: Efficient Supply XI 3/6 → Research, 3549 ore, 4h 23m.
 5. **Forge** (Arsenal, anvil "Forge N/M" `(540,1484)`, crystal cost below e.g. `6755/500` = owned/cost):
    N = filled slots, M = slots per account (7, 8, 13…); 0/M = idle. A timer above = a forge running — NOT a reason to skip: keep filling slots while N < M (Tiger 1/7 + timer, Nick 2026-10-28).
    Else each anvil tap fills one slot (500 crystals, ~4 h) — fill every slot, stop when full or crystals < cost.
-   Crystals only, never gems. Queue ≈ `(60,1250)`. Dino's forge stopped responding at 4/8 (cause unknown) — skip after 2 tries.
+   Crystals only, never gems. Queue ≈ `(60,1250)`. Knight II's forge stopped responding at 4/8 (cause unknown) — skip after 2 tries.
 
 ## Stage (3 runs)
 
@@ -718,7 +718,7 @@ shows "Stage Reward" with no "Next Stage (Ns)" countdown) → main screen "Next 
 what each is good for: `stage_lineups` in the account yaml — new account: `scripts/climb_stage.py <account> --record`
 (reads each tab's green deploy checks and names the heroes by face — "Hero faces"; an unknown face → learns the hero list
 once, a new skin, then reads again). `stage_lineups` = hero ids (`sea_captain`, Nick 2026-11-14: faces, not grid
-positions); accounts still on the old `cells:` format (Bino, Dino, pawn2, pawn1, PuPu on 11-14: tab 1 held the
+positions); accounts still on the old `cells:` format (Knight I, Knight II, pawn2, pawn1, PuPu on 11-14: tab 1 held the
 dailies' lone Bone Archer) need a `--record` once their climb lineups are set — `--apply` refuses `cells:`. Manual steps:
 
 1. A setup opened via Challenge again keeps already-won waves locked and **doesn't save edits** — back `(80,1810)` to
@@ -762,7 +762,7 @@ tap the tile's centre. A "Locked" reply means the scan was wrong → stop, never
    lowest tier, e.g. 4 blue → 1 purple; that's fine) → **Synthesize** `(824,1668)` with ×1.
 4. Result → **Confirm** `(540,1190)` → close ✕ `(972,560)` → close Backpack ✕ `(972,238)`.
 
-## Rune Salvage (event hub tab, Select All up to 60) — mapped on pawn1 + Bino 2026-11-20
+## Rune Salvage (event hub tab, Select All up to 60) — mapped on pawn1 + Knight I 2026-11-20
 
 Event: Mythic runes disassembled for Rune Essence (1000 each) + milestone chests, max **60 per event**, no daily
 limit. **Disassemble with Select All** (Nick 2026-11-20) — no picking. Free. Skill `rune-salvage` →
@@ -804,7 +804,7 @@ Mapped 2026-10-26 on Cmajor via ADB (device coords). Free only.
      (e.g. Sanctuary tile 12 = 10000 coins, usually more than a day's balance).
    - The price icon must be that shop's own currency (the one next to the balance) — never gems or $.
      Compare the **whole** coin icon (mean of its coloured pixels, left of the number) with the balance icon — a single
-     sample point hit the icon's edge and skipped Realm tile 4 every day from late Oct to 2026-11-03 (fixed, bought on Dino).
+     sample point hit the icon's edge and skipped Realm tile 4 every day from late Oct to 2026-11-03 (fixed, bought on Knight II).
 5. Close ✕ `(966,222)`.
 
 ## Events (red dots)
@@ -829,7 +829,7 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
   it, y≈190. Collect: **Exploration Quest** (one yellow Claim claims every quest row → Treasury Keys), **Sign-In**
   (today's yellow Claim; "Continue to claim" = $8.99 Deluxe → never; its dot sticks after the free Claim → not a leftover, 2026-11-07), **Expedition gift** (icon top-left `(88,550)`,
   dot ≈ `(134,509)`, 20 gems). Never **King's Treasury** in `events()` (its "select the prize" dot
-  sticks) — keys are spent by the runner step `treasury` right after `events` / the `treasury` skill (`scripts/treasury.py`, Nick 2026-11-09). Mapped on Bino
+  sticks) — keys are spent by the runner step `treasury` right after `events` / the `treasury` skill (`scripts/treasury.py`, Nick 2026-11-09). Mapped on Knight I
   2026-11-09: 4×4 cards, 1 key per flip (Shuffle Cards itself is free); Grand Prize card → "obtained the Level Prize"
   popup → GO `(154,1408)` → Tip "proceed to the next level?" (old level's cards lost). Prize picker = ↻ under Level
   Prize `(154,1320)`: tiles in fixed order (3 starters, Level 3/5/7/10/15/20), locked ones labelled "Level N", label
@@ -839,13 +839,13 @@ token, ticket, draw, coin or key, even free ones — just claim what's given. Ba
 - **Main-screen banner dots** (`banner_dots()`, the events step's last check): **Storm Battlefield**'s dot is visit-only —
   nothing to claim (Rewards all ticked, ticket + = used video / 30 gems), it clears after opening the banner screen; the
   **Weekly Event** banner (named by its "4d 0h" timer) can keep a dot a few seconds after its hub claim (Dminor +
-  pawn1 2026-11-12). `events()` runs the **storm step again** (tickets + Rewards — Nick 2026-11-26: a leftover dot is probably Storm's; Bino had 2/5 tickets back and a rank reward; was a bare visit) on **any** banner dot (the 2nd card rotates Storm / **Dragon Temple**, so
+  pawn1 2026-11-12). `events()` runs the **storm step again** (tickets + Rewards — Nick 2026-11-26: a leftover dot is probably Storm's; Knight I had 2/5 tickets back and a rank reward; was a bare visit) on **any** banner dot (the 2nd card rotates Storm / **Dragon Temple**, so
   a dot is named by whichever face showed — Tiger 2026-11-14) and re-reads once before calling it MANUAL. **Crystal
   Throne** (same slot as Tribe Clash) is skipped like Tribe Clash: its dot = the free Value Pack, claimed by the later
   `tribe_clash_packs` step. **Dragon Temple** (opens every few days; 2nd tab of the Storm screen) = a PvP ladder: Challenge
   the players ranked just above you, tickets top-left (Dminor 6), "Reward for 100 place". **Unmapped, not in the dailies
-  — ask Nick.** Its dot stays while tickets are left (Dminor 2026-11-14 → MANUAL); Dino's cleared on a visit.
-  Each face has its own dot, so `banner_dots()` reads frames for 8 s, not one; a dot counts only when 2 frames in a row show it (a card sliding by drags its art's red through the box for one frame — Bino 2026-11-26, Dragon Temple → `banner Opens in 23h20m`).
+  — ask Nick.** Its dot stays while tickets are left (Dminor 2026-11-14 → MANUAL); Knight II's cleared on a visit.
+  Each face has its own dot, so `banner_dots()` reads frames for 8 s, not one; a dot counts only when 2 frames in a row show it (a card sliding by drags its art's red through the box for one frame — Knight I 2026-11-26, Dragon Temple → `banner Opens in 23h20m`).
   Step line (Nick 2026-11-14: report only what's wrong): `OK events: no red dot left` / `MANUAL red dots left: [...]`;
   the claims go to an indented `claimed: …` log line.
 - **Unknown hub tab with a red dot** → the runner reports `MANUAL … unmapped tab <label>` (Golden Woods went
@@ -1053,7 +1053,7 @@ scaled up; the four rows nothing else produces:
    balance top-left (Kong 93 640), points `130/150` → a random Mythic Treasure. Lucky Coins only (no gems). Open: whether
    Draw x10 counts 10 for the row — check the row before/after on first use; the balance must cover the price on screen.
 
-**Sunday catch-up: `weekly_review` runs FIRST** (Nick, 2026-11-08: "review the weekly missions first"; Sunday = the **game day**, which runs until 12:00 local Monday — `daily.py` checks `GAME_DAY.weekday()`, not the clock, since the 06:30 Monday catch-up of 2026-11-09): reads the Weekly tab and decides whether the Lucky Star row is needed — Nick 2026-11-16: read only **missions still needed** (`(180 − points) / 10`) and **which rows are still doable** → stars only when the doable rows fall short by exactly the Lucky Star row (doable < needed ≤ doable + 1). Stars that can't reach 180 are a waste: 160/170 open no chest (45/90/135/180) — Kratos/pawn1 150 on 11-15. **Once the dailies' `weekly` step ran that game day, its leftover rows don't count** (no catch-up step does them; Nick 2026-11-16) → stars whenever the row is open and points < 180. The evening catch-up is where the stars plan pays: the dailies' swap comes after their fishing used the bread and Auto stops at 0 bread, so the catch-up's `fishing_auto` restart is the first that casts with it (2026-11-15: this check said `not needed` on 170 + Statue, swapped back to Basic, Boudior/Dino/pawn2 ended the week at 170, Lucky Stars 0/50). The decision is the day's plan (`/tmp/miniheroes-state/<acct>-<game day>.weekly_plan`: `stars` / `nostars`). **Every fishing start (`ensure_bait()`) sets the bait:** Lucky Star when the plan says `stars`, otherwise the account's default bait (`fishing.bait` in the account yaml, default **Basic Bait** — the first run used Shrimp Bait on 5 accounts, Nick 2026-11-08: "should use default bait instead") — so a Lucky Star left in use is swapped back on the next run, and stars are used only when we really have to. The evening `weekly` step only swaps to stars if the account is still under 180 after its other actions and claims.
+**Sunday catch-up: `weekly_review` runs FIRST** (Nick, 2026-11-08: "review the weekly missions first"; Sunday = the **game day**, which runs until 12:00 local Monday — `daily.py` checks `GAME_DAY.weekday()`, not the clock, since the 06:30 Monday catch-up of 2026-11-09): reads the Weekly tab and decides whether the Lucky Star row is needed — Nick 2026-11-16: read only **missions still needed** (`(180 − points) / 10`) and **which rows are still doable** → stars only when the doable rows fall short by exactly the Lucky Star row (doable < needed ≤ doable + 1). Stars that can't reach 180 are a waste: 160/170 open no chest (45/90/135/180) — Kratos/pawn1 150 on 11-15. **Once the dailies' `weekly` step ran that game day, its leftover rows don't count** (no catch-up step does them; Nick 2026-11-16) → stars whenever the row is open and points < 180. The evening catch-up is where the stars plan pays: the dailies' swap comes after their fishing used the bread and Auto stops at 0 bread, so the catch-up's `fishing_auto` restart is the first that casts with it (2026-11-15: this check said `not needed` on 170 + Statue, swapped back to Basic, Boudior/Knight II/pawn2 ended the week at 170, Lucky Stars 0/50). The decision is the day's plan (`/tmp/miniheroes-state/<acct>-<game day>.weekly_plan`: `stars` / `nostars`). **Every fishing start (`ensure_bait()`) sets the bait:** Lucky Star when the plan says `stars`, otherwise the account's default bait (`fishing.bait` in the account yaml, default **Basic Bait** — the first run used Shrimp Bait on 5 accounts, Nick 2026-11-08: "should use default bait instead") — so a Lucky Star left in use is swapped back on the next run, and stars are used only when we really have to. The evening `weekly` step only swaps to stars if the account is still under 180 after its other actions and claims.
 
 **Runner step `weekly`** (Sundays only, after `daily_mission`, in the Mission popup that step leaves open — one visit for read, claims and the points re-read, closed only to go and do a row, Nick 2026-11-26; alone: `daily.py <acct> weekly`): reads the Weekly tab (points + every row), then walks `accounts/weekly.yaml` top-down while under 180: **Draw x10** (Lucky Coins on screen ≥ price), **Honor Upgrade** ×need (gold + medal on screen ≥ cost), **Artifact Wishes** (Free + star Wishes, never the 280-gem button — the row has no daily cap, Nick 2026-11-08), **Lucky Star bait** swap; then the Daily Mission claims; still under 180 → **Statue Level Up** (last resort) and claim again. Rows the daily steps produce (Sanctuary, Canyon, Gate, …) are daily-capped → listed as `short`. The **Bait grid reorders itself — the bait in use jumps to tile 1** (Kong 2026-11-08: Lucky Star 1st, Shrimp 3rd), so tiles are found by the description title, never by position; the previous bait's name goes to `/tmp/miniheroes-state/<acct>.lucky_bait` and the next weekday `fishing` step swaps it back (stars only on Sunday). The Lucky Star row then needs 50 casts of Auto fishing (bread-limited) — the pass only sets it up. First live run 2026-11-08: Kong 170 → 180 (Treasure x10, Honor ×2), Cmajor 170 (only Lucky Stars 0/50 left).
 
@@ -1077,8 +1077,8 @@ High to Low / 4 except Cmajor). The game's own default is 4 / High to Low, so ea
   A fight can start between Join and the Auto Deploy tap → the dialog never opens → exit, Join again.
   Don't re-tap Join while the arena loads: the spot lands on the pool's big **Deploy** button (manual deploy panel).
 - The sprites value is a lone digit: OCR misses it on some frames — read the settled dialog, retry on an enlarged crop.
-- **Manual deploy** (Nick, 2026-11-11: Auto Deploy says no free attempts but the day isn't at +40 — Bino/Chien Than/Dminor/pawn1
-  +39, Dino +38): the pool's big **Deploy** `(540,1640)` → panel of own pets. Free attempts are **per pet**: a card with
+- **Manual deploy** (Nick, 2026-11-11: Auto Deploy says no free attempts but the day isn't at +40 — Knight I/Chien Than/Dminor/pawn1
+  +39, Knight II +38): the pool's big **Deploy** `(540,1640)` → panel of own pets. Free attempts are **per pet**: a card with
   **Free Attempts: N** under it deploys free (they sort first); the others show a ticket `1/0` — never those, never the
   ticket **+** (buys). Tap the card (green frame = selected, one at a time) → **Deploy** `(540,1806)` → the card gets a ✓,
   "Available for deployment this round: k/4" (our own pets this round) goes +1 — not the pool count, others deploy too.
@@ -1138,7 +1138,7 @@ Battlefield", gains from it) appears → **Confirm** `(540,1460)`. Moving to an 
 move later — but pick the empty spot first anyway (saves an attempt).
 **Read the popup text before confirming:** "About to challenge <Tribe> <name>'s …" means it isn't empty — if it's
 your own tribe, **Cancel** (Chien Than 2026-10-28: a platform looked empty but was tribemate B.VN.'s). Spots can
-also fill between screenshot and tap (another helper of ours — Dino/Kong raced for one — or an NPC Sentinel).
+also fill between screenshot and tap (another helper of ours — Knight II/Kong raced for one — or an NPC Sentinel).
 The map opens scrolled to your current area.
 
 Taking a spot: tap the spot → popup "<Type> Battlefield", Occ. Gains, "Use 1 challenge attempt" → **Challenge**
@@ -1202,7 +1202,7 @@ people not 80k yet." — the first half is the "Purple enough" rule above (Nick 
 Runner step `ruins` in the dailies (after `gate`) and the catch-up (after `canyon`) — Nick, 2026-11-26. Goal: **finish the
 floors as fast as possible**. **`D=<serial> scripts/ruins.py [account]`** from the main screen; last line
 `ruins done: N finished, <why it stopped>`; exit 1 → `v_ruins.png`, finish by hand. Learned on Cmajor, Tiger, Pawn II,
-Bino, Dino 2026-11-26.
+Knight I, Knight II 2026-11-26.
 
 - **Diamonds (Nick, 2026-11-26): only for Search, at most 50 per search.** Never the stamina offer ("Stamina depleted" on
   a floor / "Tip" on a monster's lineup: "Spend 200 diamonds to purchase 5 stamina points?" → ✕ `(938,636)`, never Confirm).
@@ -1297,7 +1297,7 @@ pick the next ship. Lineup cards can render black for a moment; Start still work
 ## Storm Battlefield (right after Pet Arena)
 
 **One account per server block at a time** (Nick, 2026-11-02): s201–210 (Aminor, Cmajor, pawn1, Dminor) and
-s211–220 (Bino, Dino, Chien Than, Kong) can be matched against each other — never overlap their Storm runs.
+s211–220 (Knight I, Knight II, Chien Than, Kong) can be matched against each other — never overlap their Storm runs.
 `daily.py` step `storm` holds a per-block lock (`storm_block()`, from `server:` in the yaml); a helper running
 `storm.py` by hand must wait until no other account of its block is in Storm.
 
@@ -1393,7 +1393,7 @@ stamina left over before a reset is lost.
    **kill 2 Cloud Bandits** _or_ **use a Floating Realm Treasure Map** (green Go `(844,1034)`). A "conditions
    met, proceed?" tip pops up as soon as you hold a map.
    Counts are read off the screen at each decision (map's top-left scroll counter = maps held, the dialog's
-   "Kill X (k/2)"); nothing has to be remembered across a stop. The dialog's "(m/n)" shows all maps held (Dino: 3), not capped, and n = maps the pass takes (1 into F2, 2 into F3 on any day — APK table `wtMaps`; Cmajor's Thu F3 dialog read "(5/2)" 2026-11-19 — realm.py uses a map only with ≥ n held). The floor card label
+   "Kill X (k/2)"); nothing has to be remembered across a stop. The dialog's "(m/n)" shows all maps held (Knight II: 3), not capped, and n = maps the pass takes (1 into F2, 2 into F3 on any day — APK table `wtMaps`; Cmajor's Thu F3 dialog read "(5/2)" 2026-11-19 — realm.py uses a map only with ≥ n held). The floor card label
    (top right) updates a beat after the explore screen shows: wait for it, don't read it once.
    **Map strategy (Nick, 2026-11-03), any day.** One map item works on every floor:
    - **F1→F2:** 0/2 Cloud Bandits → use a map. 1/2 → hunt the 2nd bandit. Every round (day) restarts on F1, and

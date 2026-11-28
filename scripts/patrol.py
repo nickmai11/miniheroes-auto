@@ -41,7 +41,10 @@ def run(account, claim_only=False):
                 print(f'next Speed Patrol costs {price} gems; not bought'); break
             if n == 0: print('no Speed Patrol chances left'); break
             tap_wait(540, 1164)                           # buy -> Congratulations
-            wait(r'Congratulations|Tap anywhere', 6)
+            try: wait(r'Congratulations|Tap anywhere', 6)
+            except Stop:                                  # buy did nothing: gems below the price (Gambler 25 < 50, 2026-11-28)
+                if n is not None and tip()[0] == n: print(f'Speed Patrol {price} gems: tap changed nothing (gems short?); not bought'); break
+                raise
             for i in range(4):                            # taps during the loot animation are ignored (5 accounts 2026-10-29)
                 tap_wait(*((540, 1700) if i < 2 else (936, 636))); time.sleep(1)   # then its X (7/9 stuck 2026-10-29)
                 if not find(ocr(), r'Congratulations|Tap anywhere'): break

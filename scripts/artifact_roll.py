@@ -50,7 +50,7 @@ def run(max_cycles=1000, max_spend='0'):
     s0 = stars(ocr()) or stars(ocr())
     if cap and s0 is None: raise Stop('star counter unreadable at start')
     boxes = ocr()
-    if find(boxes, r'Auto Wish'):                                  # started mid-auto (Dino/Bino 2026-11-07) -> cancel first
+    if find(boxes, r'Auto Wish'):                                  # started mid-auto (Knight II/Knight I 2026-11-07) -> cancel first
         if mythic(boxes) or find(boxes, r'^Confirm$'): raise Stop('found')
         tap_wait(*OUTSIDE); boxes = wait(r'(?i)tap anywhere to close|mythic|^Wish$', 8)
         if mythic(boxes): raise Stop('found')
@@ -85,9 +85,9 @@ def run(max_cycles=1000, max_spend='0'):
             time.sleep(1.5)
         if cancel: tap_wait(*OUTSIDE)                              # cancel
         try: boxes = wait(r'(?i)tap anywhere to close|mythic|^Wish$', 8)
-        except Stop:                                               # cancel tap ignored (Bino 2026-11-07, twice) -> 1 retry
+        except Stop:                                               # cancel tap ignored (Knight I 2026-11-07, twice) -> 1 retry
             if not cancel: raise
-            if find(ocr(), r'Value Pack'):                         # stars out -> $ offer (Dino/Bino 2026-11-07); tap above it, never the $
+            if find(ocr(), r'Value Pack'):                         # stars out -> $ offer (Knight II/Knight I 2026-11-07); tap above it, never the $
                 tap_wait(*CLOSE); raise Stop('out of stars (Value Pack offer closed, not buying)')
             tap_wait(*OUTSIDE); boxes = wait(r'(?i)tap anywhere to close|mythic|^Wish$', 8)
         if mythic(boxes): raise Stop('found')

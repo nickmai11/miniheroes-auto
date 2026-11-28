@@ -66,7 +66,7 @@ def floor_pass():
         else: raise Stop(f'floor {f} chest {i}: tap did nothing ({joined(b)[:120]})')
         k, f2, b, im = read()
         if f2 != f: raise Stop(f'after chest {i}: floor {f} -> {f2}')
-    for _ in range(2):                                                                     # 2 tries (Dino 11-11: 1st tap hit a popup)
+    for _ in range(2):                                                                     # 2 tries (Knight II 11-11: 1st tap hit a popup)
         tap(*portal); time.sleep(1.5); b = ocr()
         if 'Proceed to Next Floor' in joined(b):
             tap(320, 1340); time.sleep(0.5); tap_wait(540, 1160)                          # tick "Do not remind me today", Confirm

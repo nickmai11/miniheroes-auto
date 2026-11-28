@@ -7,7 +7,7 @@
 # ☰ -> Settings -> Server -> the "S<server>" row -> Confirm (Kong reopened on S288 MRKONG II instead of S220).
 # Each popup: tick "Do not remind me today" if it has one, then tap its X (top-right grey-blue square, white cross).
 # exit 0 = main screen clear, 1 = popup it can't close (screenshot v_stabilize.png) -> close it by hand.
-# Popup open = main screen's blue Recruit icon dimmed (0,158,230 -> ~0,33,50 under Dino's anniversary popup).
+# Popup open = main screen's blue Recruit icon dimmed (0,158,230 -> ~0,33,50 under Knight II's anniversary popup).
 import os, re, time
 from flow import find, grab, is_main, near, ocr, tap_text, wait
 from tap import tap as tap_wait
@@ -16,7 +16,7 @@ from tap import tap as tap_wait
 
 def close_x(im):
     """Centre of the popup's X button: the 64px block (right side, upper half) with the most white cross pixels that also
-    touches the grey-blue frame. Frame-only blocks have <=34/256 white, the X ~80 (Dino anniversary popup, 2026-10-28).
+    touches the grey-blue frame. Frame-only blocks have <=34/256 white, the X ~80 (Knight II anniversary popup, 2026-10-28).
     Topmost candidate row wins: the Snow Carnival art (snow + frame edge, 2026-11-06, 7 accounts popup-stuck) had more
     white than the X; the X is always at the popup's top-right."""
     best, pos, top = 0, None, None
@@ -79,7 +79,7 @@ def main():
         boxes = ocr(im)
         if find(boxes, r'Do not remind me today'): tap_text(r'Do not remind me today', boxes=boxes); time.sleep(0.5)
         x = close_x(grab())
-        # 'Stargems Running Out!' (Cancel / GO, X not detected; Chien Than/Bino/pawn1 2026-10-31..11-01): Cancel, never GO
+        # 'Stargems Running Out!' (Cancel / GO, X not detected; Chien Than/Knight I/pawn1 2026-10-31..11-01): Cancel, never GO
         c = None if x else find(boxes, r'^Cancel$')
         # no-X event splash (Golden Woods 2026-11-05, 5 accounts stuck): tap its own "Tap anywhere to close" line, never GO
         c = c or (None if x else find(boxes, r'Tap anywhere to close'))

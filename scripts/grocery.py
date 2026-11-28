@@ -59,7 +59,7 @@ for rnd in range(3):
             break
         if got: idle=0
         elif find(ocr(im), r'Tap anywhere to close'):   # reward popup that came up after the dismiss tap dims every Free
-            tap(540,1850); time.sleep(1)                 # button -> looked idle, quit with 8 chests left (Dino 2026-11-01)
+            tap(540,1850); time.sleep(1)                 # button -> looked idle, quit with 8 chests left (Knight II 2026-11-01)
         else: idle+=1; time.sleep(1.5)
     ensure(); sold,free=chests()
     if sold==4: break                                 # proof = 4 Sold Out labels, not "no Free seen" (Tiger 11-09 read 0/0)

@@ -17,7 +17,7 @@ assert score((0, 3, 'ATK Drill')) > score((0, 2, 'Iron Shi'))          # Mythic 
 assert not score((0, 2, 'ATK Drill')) > score((0, 2, 'Concentr Fire'))  # same rarity: keep
 assert not score((0, 3, 'Stun Curse')) > score((0, 1, 'ATK DI'))        # non-preferred never over preferred
 assert score((0, 1, 'Mental Fear')) > score((0, 3, 'Judgm Mome'))       # preferred over non-preferred
-# a climb whose last numbered floor is below 10 = not finished (Dino / Bino 2026-11-23: OK at 9/10 -> swept 11-24)
+# a climb whose last numbered floor is below 10 = not finished (Knight II / Knight I 2026-11-23: OK at 9/10 -> swept 11-24)
 assert short_of_10(['floor 8 won skip', 'floor 9 won skip']) and short_of_10(['floor 8 LOST -> potion, again'])
 assert not short_of_10([]) and not short_of_10(['floor 10 won skip']) and not short_of_10(['floor 9 won skip', 'instant win skip'])
 assert not short_of_10(['pending +Judgment Moment (Mythic)'])

@@ -42,8 +42,8 @@ GRID = (0, 1130, 1080, 1720)                                    # expanded hero 
 def select(hero):
     """Expanded hero list (icon above the strip) -> Marksman filter -> bottom -> the hero's card by its avatar
     (Nick 2026-11-03): template `<hero>_strip.png` = face only, between the Lv label and the stars. It isn't always the
-    last card (Bino: one Lv.160 after it) -> search up from the bottom. Name top-left confirms; grid closed with its X.
-    Scores: Bone Archer 9-15, other cards ~50 (8 accounts' strips + Bino's grid)."""
+    last card (Knight I: one Lv.160 after it) -> search up from the bottom. Name top-left confirms; grid closed with its X.
+    Scores: Bone Archer 9-15, other cards ~50 (8 accounts' strips + Knight I's grid)."""
     if hero.lower() in name(ocr()).lower(): return
     tpl = os.path.join(HERE, hero.lower().replace(' ', '_') + '_strip.png')
     if not os.path.exists(tpl): raise Stop(f'no avatar template {os.path.basename(tpl)} for {hero!r}')

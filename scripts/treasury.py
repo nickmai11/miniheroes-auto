@@ -10,7 +10,7 @@ from flow import Stop, find, grab, is_main, joined, main, near, ocr, tap_wait, w
 
 XS, YS = (414, 596, 776, 958), (910, 1092, 1274, 1454)          # card grid centres
 # prize picker: tiles in a fixed order, 4 per row (x below), rows 224 px apart; locked ones carry a "Level N" label
-# ~110 px under the tile, gone once unlocked. The list scrolls (Level 5 entry showed it from row 2, Bino 2026-11-09)
+# ~110 px under the tile, gone once unlocked. The list scrolls (Level 5 entry showed it from row 2, Knight I 2026-11-09)
 # -> place the target relative to any visible label.
 ORDER = {3: 3, 5: 4, 7: 5, 10: 6, 15: 7, 20: 8}               # unlock level -> tile index (0-2: the free starters)
 COLS = (228, 436, 646, 856)
@@ -72,7 +72,7 @@ def run(acct, max_keys=999):
     while True:
         b, lv, keys = state()
         if lv is None: raise Stop(f'level unreadable: {joined(b)[:200]}')
-        # ponytail: keys OCR drops/misreads a single digit (9 -> 6 or nothing, Bino 2026-11-09) -> only "0" stops;
+        # ponytail: keys OCR drops/misreads a single digit (9 -> 6 or nothing, Knight I 2026-11-09) -> only "0" stops;
         # an unreadable count just flips, and the out-of-keys screen after a flip ends the run
         if find(b, r'^Shuffle Cards$'):
             pick_prize(lv); tap_wait(540, 1616); time.sleep(1.5); log(f'level {lv}: shuffled, keys {keys}'); continue

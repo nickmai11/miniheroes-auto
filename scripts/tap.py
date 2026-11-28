@@ -33,7 +33,7 @@ def grab():
         try:
             raw = subprocess.run(['adb', '-s', D, 'exec-out', 'screencap'], capture_output=True, timeout=10).stdout
             w, h = int.from_bytes(raw[0:4], 'little'), int.from_bytes(raw[4:8], 'little')
-            if w and h and len(raw) >= 12 + w * h * 4: break   # short buffer -> retry (Bino climb crash 2026-10-31)
+            if w and h and len(raw) >= 12 + w * h * 4: break   # short buffer -> retry (Knight I climb crash 2026-10-31)
         except subprocess.TimeoutExpired: pass
         if attempt == 2: raise RuntimeError('screencap failed 3x')
         time.sleep(0.5)

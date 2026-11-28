@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Excelsior Veins: One-Click Mining until pickaxes run out. Veins mining grid must be open.
 # usage: D=<serial> scripts/veins.py   — exit 0 = pickaxes 0 (buy popup closed), 1 = unexpected screen.
-# Why a script: Bino's helper (2026-10-28) looped One-Click + dismiss blindly 45x; pickaxes hit 0 at try 3 and
+# Why a script: Knight I's helper (2026-10-28) looped One-Click + dismiss blindly 45x; pickaxes hit 0 at try 3 and
 # every later try opened "Spend 120 diamonds to buy 5 Pickaxe" (one tap from Confirm). Stop at the FIRST popup.
 # Never taps Confirm, the pickaxe "+", dynamite or drill.
 # Also stops on the pickaxe counter "0/M" (bottom centre): accounts with < 120 gems get NO buy popup at 0, the

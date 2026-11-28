@@ -16,7 +16,7 @@ Use when Nick asks for "catch up" / "top-up" on Mini Heroes. Default: `scripts/a
    and FAILs with `v_<step>.png`. Empty list → no helper for that account. Otherwise ONE `mh-helper` per account for
    only those, prompt below trimmed to them — **started the moment that account's `LEFT FOR HELPER:` line shows, never
    after the whole run** (Nick, 2026-11-24: "don't wait, act promptly" — Tiger sat idle with a Canyon leftover while
-   others ran). One Monitor surfaces failures and per-account ends live (Dino 2026-10-28 sat 8 min on a FAIL start
+   others ran). One Monitor surfaces failures and per-account ends live (Knight II 2026-10-28 sat 8 min on a FAIL start
    nobody saw): `tail -F <run dir>/*.log | grep --line-buffered -E '^(FAIL|Traceback|LEFT FOR HELPER)'`.
    `scripts/summary.sh <run dir>` once at the end for the report.
    The runner retries each FAIL once right away (in order, 2026-11-01); re-run by hand only after exit 1 (lost the main screen),

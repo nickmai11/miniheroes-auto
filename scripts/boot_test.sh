@@ -63,7 +63,7 @@ run drop     '^Test 127.0.0.1:26999 ready \(stable'  0 0     # link lost at each
 run dropstart '^Test 127.0.0.1:26999 ready \(stable'  0 0     # link lost on the Start tap -> reconnect, no relaunch (live 11-22)
 run logout   '^Test 127.0.0.1:26999 logged-out'      0 0     # login screen -> skip at once, no relaunch (Kong 11-22)
 run nolaunch '^Test 127.0.0.1:26999 start-timeout'   10 5    # game never starts -> 10 relaunches, instance restart every 2nd
-# reload after "Network issue" (flow.after_restart): popups cleared like boot the moment one shows (Bino 11-22 waited ~3 min)
+# reload after "Network issue" (flow.after_restart): popups cleared like boot the moment one shows (Knight I 11-22 waited ~3 min)
 D=x python3 - "$HERE" <<'PY' || fails=$((fails+1))
 import sys, time; sys.path.insert(0, sys.argv[1]); import flow, stabilize
 def case(name, screens, want_taps, max_polls):

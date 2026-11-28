@@ -27,7 +27,7 @@ stones), never gems.
 
 More than 15 heroes needs a grid scroll — mapped for reset mode only (`--all`); Enhance stays on the first 15.
 
-**Reset mode** ("reset gears of <account> heroes from the Kth" — Dino 2026-11-09, Slanesh 2026-11-16):
+**Reset mode** ("reset gears of <account> heroes from the Kth" — Knight II 2026-11-09, Slanesh 2026-11-16):
 `D=<serial> scripts/gear.py --heroes 15 --from K --reset-below 10000 --all` — every gear above LV.0 of heroes K and up
 → Reset (free, 100% of the materials back) → LV.0 checked; heroes before K are only read (names kept so the scrolled
 pass skips them). `--reset-below L` alone = only gears under LV.L. Re-run = the check (no `reset ->` line).

@@ -1,6 +1,6 @@
 # Account groups (Nick, 2026-10-27). "group 1" / "group 2" in a request means these accounts.
 group1: [aminor, cmajor, pawn2, dminor, kong, pawn1]
-group2: [dino, bino, tiger]
-internal: [aminor, bino, pawn2, cmajor, dino, dminor, kong, tiger, pawn1, gambler, kratos, boudior]   # kratos + boudior added 2026-11-12 (Nick)
+group2: [knight2, knight1, tiger]
+internal: [aminor, knight1, pawn2, cmajor, knight2, dminor, kong, tiger, pawn1, gambler, kratos, boudior]   # kratos + boudior added 2026-11-12 (Nick)
 external: [seabze, cris, wyck, pupu, cino, swayze, freak]
 ct: [cris, pupu, gambler, kong, cmajor]

@@ -15,11 +15,11 @@
   applies on restart). Chien Than, Cris, PuPu and pawn1 were 600×1080 with an `adb shell wm size 1080x1920` override
   (windows ~7 px narrower) until 2026-11-06 (Nick: all instances same config). A restart can move the ADB port by 1
   (26752 → 26753): always read it from `mumu-cli info`.
-- Frame rate: the rule is CLAUDE.md "FPS" (skill `fps` sets it). `maxFpsLimit` applies live; any cap below 30 is ignored (10–25 tried on Bino 2026-11-17, game stays at 30). 30 measured on Dminor:
+- Frame rate: the rule is CLAUDE.md "FPS" (skill `fps` sets it). `maxFpsLimit` applies live; any cap below 30 is ignored (10–25 tried on Knight I 2026-11-17, game stays at 30). 30 measured on Dminor:
   idle CPU 28% → 21%, boot and an Arena step no slower; 11 idle on main: 30 fps ~145% vs 60 fps ~230% total.
 - CPU: **1 vCPU per instance** (Nick 2026-11-17, `vmCpuCount`, applies at instance start; `boot.sh` sets it). Catch-up
   on 11 at once (2026-11-17): MuMu ~10% less CPU at work (612% → 552%), boot 414% → 279% in the same ~2.4 min, all 11
-  booted. Earlier single-instance tries: Dminor 11-12 boot 28 → 53 s, Bino 11-17 19:55 boot-timeout.
+  booted. Earlier single-instance tries: Dminor 11-12 boot 28 → 53 s, Knight I 11-17 19:55 boot-timeout.
 - RAM: **2048 MB per instance** (Nick 2026-11-27, `vmMemoryOfMB`; was 1024 from 11-25 to 11-27):
   `mumu-cli config all --setting '{"vmMemoryOfMB":2048}'`, applies at instance start, not on a running instance.
 

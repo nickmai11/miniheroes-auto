@@ -8,7 +8,7 @@ from flow import Stop, battle, find, grab, main, ocr, tap, tap_text, tap_wait, w
 
 
 def trial_red_dot():
-    im = grab()  # red dot at the Trial card's top-right (bino s191 before / s201 after, 2026-10-28)
+    im = grab()  # red dot at the Trial card's top-right (knight1 s191 before / s201 after, 2026-10-28)
     return sum(1 for y in range(520, 620, 4) for x in range(1000, 1080, 4)
                if (lambda p: p[0] > 210 and p[1] < 70 and p[2] < 70)(im.getpixel((x, y)))) >= 4
 

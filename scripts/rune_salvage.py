@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Event hub -> Rune Salvage (mapped on pawn1 + Bino 2026-11-20): disassemble Mythic runes with Select All (Nick
+"""Event hub -> Rune Salvage (mapped on pawn1 + Knight I 2026-11-20): disassemble Mythic runes with Select All (Nick
 2026-11-20) until the event's 60 cap or no rune left, then claim the milestone chests (10/20/30/45/60, free).
 Select All picks at most 20 per batch ("Selected: 20/20"); "Selected: 0/0" = nothing left to disassemble.
 Each batch: Select All -> the Tip's count must equal the selection -> Confirm -> the Disassembled counter must go up.

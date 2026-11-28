@@ -31,7 +31,7 @@ def run(picks):
 
 
 def open_guess(boxes):
-    """Tap the dice above the Guess label; a 2nd try if ignored (too early after the screen opened: Dino/Dminor/Tiger)."""
+    """Tap the dice above the Guess label; a 2nd try if ignored (too early after the screen opened: Knight II/Dminor/Tiger)."""
     g = find(boxes, r'^Guess$', (900, 1800, 1080, 1920))
     for i in (1, 2):
         tap_wait(g[0], g[1] - 50)

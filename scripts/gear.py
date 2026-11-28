@@ -2,7 +2,7 @@
 # Gear catch-up: Enhance every gear of the first N heroes (expanded hero list order) up to a target level. Gold only, never gems.
 # usage: D=<serial> scripts/gear.py [--heroes 15] [--from 1] [--target 150 | --reset-below 135]     (hero screen must be open; ends on it)
 #        --from K: heroes before the Kth are only read (names kept as done), never touched (Slanesh 2026-11-16: reset from the 10th)
-#        --reset-below L: instead of enhancing, Reset (100% materials back) every gear with 0 < LV < L (Dino 2026-11-09);
+#        --reset-below L: instead of enhancing, Reset (100% materials back) every gear with 0 < LV < L (Knight II 2026-11-09);
 #        --all: then the heroes past the 15th too (hero list kept open and scrolled; reset mode only); --swipe px (240 ~ 1.5 rows)
 # Mapped on PuPu 2026-11-06 (1080x1920): grid 5 x 3 rows visible above the class filter bar, slots at x=120, y=400/550/700/850,
 # popup "LV.N >> N+1" + gold "have/need" + Enhance. Stops (exit 1) on a missing Enhance button (purchase dialog) or have < need.
@@ -22,7 +22,7 @@ def name(boxes): return next((t for x, y, w, h, t in boxes if y < 160 and x < 50
 
 def popup_level(boxes):
     for x, y, w, h, t in boxes:
-        m = re.fullmatch(LV, t.strip().replace('O', '0'))    # "LV.O" = LV.0 after a reset (Dino 2026-11-09)
+        m = re.fullmatch(LV, t.strip().replace('O', '0'))    # "LV.O" = LV.0 after a reset (Knight II 2026-11-09)
         if m and 340 < y < 460: return int(m.group(1))
     return None
 
@@ -71,7 +71,7 @@ def enhance(slot, target):
 
 def reset(slot, below, after=r'^Level Up$'):
     """Gear popup -> Reset (bottom right) -> "Reset and return" preview (100% of the materials back, free) -> Confirm ->
-    Congratulations -> LV.0. Mapped on Dino 2026-11-09 (Nick: reset every gear under LV.135). The popup's LV.N decides,
+    Congratulations -> LV.0. Mapped on Knight II 2026-11-09 (Nick: reset every gear under LV.135). The popup's LV.N decides,
     not the side label (Shadow Fiend's 200 read as 22 there). `after` = what to wait for once the popup is closed
     (None while the hero list is open and covers Level Up)."""
     tap_wait(120, SLOTS[slot])
@@ -98,7 +98,7 @@ def reset(slot, below, after=r'^Level Up$'):
 
 
 def run_scrolled(below, seen, dy=240):
-    """Heroes past the 15th (Dino 2026-11-09): the hero list stays open across card taps and gear popups, so it is expanded
+    """Heroes past the 15th (Knight II 2026-11-09): the hero list stays open across card taps and gear popups, so it is expanded
     once and scrolled with slow swipes (a fast one glides); re-expanding resets it to the top. Every card is tapped at fixed
     points 120 px apart over the visible rows (a card is ~210 px tall, so each one is hit whatever the scroll offset; a gap
     tap keeps the last hero), the name checked against `seen`. Cards found by OCR'd 'Lv.N' labels missed heroes (Slanesh

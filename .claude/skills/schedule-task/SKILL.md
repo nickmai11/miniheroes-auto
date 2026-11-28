@@ -14,12 +14,13 @@ root, output → `logs/launchd-<name>.log`):
 - `scripts/schedule.py list` — every scheduled job (`fr` included), `(NOT LOADED)` = plist there but launchd doesn't run it.
 - `scripts/schedule.py rm <name>`
 
-1. **Command** = a script that boots its own instances and needs no LLM:
-   - catch-up → `scripts/catchup_all.sh` (name `catchup`)
-   - boot → `scripts/boot.sh <indices of scripts/accounts.py boot>` (or the named accounts' indices, boot skill step 1)
-   - fr / tc → `scripts/fr_all.sh` (name `fr`; already scheduled Wed/Thu/Fri 04:30 — exits on its own outside a round)
-   - anything else (dailies, relics alone, poseidon, …) has no self-booting runner: say so in one line and ask Nick
-     whether to write one (copy `catchup_all.sh`'s boot part) — never schedule `claude -p` without his OK (token cost).
+1. **Command** = Claude runs the task (Nick 2026-11-28: every schedule, so a failure gets handled, not just logged):
+   `scripts/claude_job.sh "<the task as Nick typed it, + its options>"` — one-shot headless `claude -p`, exits when
+   done, its report → the job's log. Name the script in the task when there is one, e.g.
+   - catch-up → `"catch-up all: run scripts/catchup_all.sh; handle leftovers"` (name `catchup`)
+   - fr / tc → `"fr all: run scripts/fr_all.sh …"` (name `fr`, Wed/Thu/Fri 04:30)
+   - boot, dailies (`scripts/dailies_all.sh`), anything else → the same form.
+     Not for non-game jobs (`web`).
 2. **Time** is Mac local (UTC+7). Game times are UTC (game day starts 05:00 UTC = 12:00 local) — convert, and say both.
 3. **Sleep:** a Mac asleep at that time runs the job when it next wakes. A real wake needs
    `sudo pmset repeat wakeorpoweron <days> <HH:MM:SS>`, but pmset has ONE repeat slot, used by fr (04:29 Wed/Thu/Fri) —

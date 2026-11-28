@@ -119,7 +119,7 @@ def play(cap=None):
             if r >= cap: print(f'rank {TIERS[r[0]]} +{r[1]} reached max; done (tickets left)', flush=True); return 0
         if free_btn(im) and not arena(im):           # popup open (we opened it or the game did at 0 tickets)
             if claimed and not retried:               # popup back after the ad claims: the ad tickets may be in - close
-                close_popup(); retried = True; continue   # it and Start Match once more (Bino 11-27 stopped with them unplayed)
+                close_popup(); retried = True; continue   # it and Start Match once more (Knight I 11-27 stopped with them unplayed)
             if claimed or free_btn(im) == 'grey':
                 close_popup(); print('out of tickets (free chances checked once); done'); return 0
             claimed = True; print(f'tapped free button {claim_free()}x', flush=True); continue

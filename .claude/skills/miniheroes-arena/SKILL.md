@@ -22,7 +22,7 @@ Also triggered mid-dailies by a "Match attempts full" popup: Confirm, exhaust ti
 
 ## Hard rules
 
-- **Modes** (`arena.attack`, Nick 2026-11-20): `non_tribemate` (default) = never a tribe member (if unsure, tap the avatar and read `Tribe:`); `all` (Dino, Bino, Dminor, every day) = tribemates too.
+- **Modes** (`arena.attack`, Nick 2026-11-20): `non_tribemate` (default) = never a tribe member (if unsure, tap the avatar and read `Tribe:`); `all` (Knight II, Knight I, Dminor, every day) = tribemates too.
   Either way never Nick's own accounts (`accounts/own_accounts.txt`) and never an opponent 200+ arena points below ours. The last-row bot is exempt from both.
 - A yellow **Challenge** only against a lower CP than ours; never a stronger opponent.
 - Only free tickets: never tap `+` (buy tickets) or Refresh. No gems.

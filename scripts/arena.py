@@ -45,7 +45,7 @@ def buttons(im):
 cp_in = lambda boxes, region: [int(m[1]) for x, y, w, h, t in boxes if region[0] <= x <= region[2] and region[1] <= y <= region[3] for m in [re.fullmatch(r'(\d+)k', t.strip())] if m]   # 'NNNNk' fist numbers inside a device-coord region (x, y0, x1, y1) of box top-lefts
 
 
-ZERO = str.maketrans('OoОо', '0000')  # Vision reads the ticket 0 as Latin/Cyrillic O (Bino 0/7, 2026-10-28); the max can read as Z (Aminor 0/7 -> О/Z, 2026-10-29)
+ZERO = str.maketrans('OoОо', '0000')  # Vision reads the ticket 0 as Latin/Cyrillic O (Knight I 0/7, 2026-10-28); the max can read as Z (Aminor 0/7 -> О/Z, 2026-10-29)
 
 
 pts_in = lambda boxes, region: [int(m[1]) for x, y, w, h, t in boxes if region[0] <= x <= region[2] and region[1] <= y <= region[3] for m in [re.fullmatch(r'\D?\s*(\d{3,5})', t.strip())] if m]   # arena points (crown number)
@@ -59,7 +59,7 @@ def read_dialog():
     boxes = ocr(im)
     tix = next((int(m.group(1)) for x, y, w, h, t in boxes if x < 450 and 250 < y < 440
                 for m in [re.search(r'(\d+)\s*\S?\s*/\s*\w', t.translate(ZERO))
-                          or re.fullmatch(r'(\d+?)[01Il|](\d)', t.strip().translate(ZERO))] if m), None)   # 7/7 -> "707" (Bino/Dino 2026-10-29)
+                          or re.fullmatch(r'(\d+?)[01Il|](\d)', t.strip().translate(ZERO))] if m), None)   # 7/7 -> "707" (Knight I/Knight II 2026-10-29)
     if tix is None: return None
     rows = []
     for by, kind in buttons(im):
@@ -67,7 +67,7 @@ def read_dialog():
         cp = cp_in(boxes, (440, by - 50, 640, by + 30))
         pts = pts_in(boxes, (250, by - 50, 430, by + 30))
         rows.append((by, kind, min(names)[1] if names else '', cp[0] if cp else None, pts[0] if pts else None))
-    rows += [(y + h // 2, 'shield', '', None, None) for x, y, w, h, t in boxes if x > 700 and re.fullmatch(r'\d\d:\d\d:\d\d', t.strip())]  # crashed rows keep their place: the bot is the LAST row, not the last button (Bino 2026-11-06)
+    rows += [(y + h // 2, 'shield', '', None, None) for x, y, w, h, t in boxes if x > 700 and re.fullmatch(r'\d\d:\d\d:\d\d', t.strip())]  # crashed rows keep their place: the bot is the LAST row, not the last button (Knight I 2026-11-06)
     return tix, sorted(rows, key=lambda r: r[0])
 
 
@@ -78,7 +78,7 @@ def stop(msg):
 def main(account):
     cfg = open(os.path.join(HERE, '..', 'accounts', account + '.yaml')).read()
     tribe = re.search(r'arena:\s*\n\s+tribe:\s*(.+)', cfg).group(1).strip()
-    # arena.attack: all (Dino, Bino, Dminor) | non_tribemate (default) — Nick 2026-11-20; own accounts never, either way
+    # arena.attack: all (Knight II, Knight I, Dminor) | non_tribemate (default) — Nick 2026-11-20; own accounts never, either way
     mode = (re.search(r'^\s+attack:\s*(\w+)', cfg, re.M) or [None, 'non_tribemate'])[1]
     files = ['own_accounts.txt'] + ([] if mode == 'all' else [f'tribe_{tribe.lower().replace(" ", "_")}.txt'])
     print(f'mode {mode}: no-attack {" + ".join(files)}', flush=True)
@@ -98,7 +98,7 @@ def main(account):
             d = read_dialog()
             if d: break
             # the crashed dialog can linger past the dismiss loop's first read, then the Congratulations popup covers it
-            # (Tiger/Bino catch-up 2026-11-12, 9 instances busy) -> dismiss + reopen here too
+            # (Tiger/Knight I catch-up 2026-11-12, 9 instances busy) -> dismiss + reopen here too
             tap(540, 120); time.sleep(1.2); tap(540, 1594); time.sleep(1.5)
         if not d: return stop('Challenge dialog not open / tickets unreadable')
         tix, rows = d
@@ -107,7 +107,7 @@ def main(account):
             tap_wait(972, 188); print(f'tickets 0 after {n} crashes; dialog closed'); return 0
         # topmost row: Crash, or Challenge below our CP — no Crash preference (Nick, 2026-11-04)
         pick = next(((y, f'{nm} {cp}k {p}pts', k) for y, k, nm, cp, p in rows[:-1] if ok(k, cp) and near_pts(p) and not tribemate(nm, roster)), None)
-        if not pick:  # the last row (bot) can be cut off (Dino: 6 rows; Bino 2026-11-06: 4 shields hid a Crash bot) -> always scroll to the bottom first
+        if not pick:  # the last row (bot) can be cut off (Knight II: 6 rows; Knight I 2026-11-06: 4 shields hid a Crash bot) -> always scroll to the bottom first
             swipe(540, 1500, 540, 900); time.sleep(1)
             d = read_dialog(); rows = d[1] if d else []
             if not rows: return stop('no last row (bot) found')
@@ -119,7 +119,7 @@ def main(account):
         if pick[2] == 'challenge':  # real fight (same screens as flow.battle): lineup Start -> result -> fall through to the dismiss loop
             try:
                 b = wait(r'^Start$', 10); tap_text(r'^Start$', (0, 1650, 1080, 1920), b)
-                for _ in range(2):  # Start tap can be lost (Bino 2026-11-05: lineup still up 180 s later) -> re-tap, at most twice
+                for _ in range(2):  # Start tap can be lost (Knight I 2026-11-05: lineup still up 180 s later) -> re-tap, at most twice
                     time.sleep(3); b = ocr()
                     if not (find(b, r'^Start$') and find(b, r'Quick Deploy')): break
                     print('  Start did not register; tapping again', flush=True); tap_text(r'^Start$', (0, 1650, 1080, 1920), b)
